@@ -688,6 +688,11 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 	VALUES ('SCYTHIA_FAITH_PURCHASE_RCAVALRY_CPLMOD' , 'Tag' , 'CLASS_RANGED_CAVALRY'); 
 
+-- 17/08/2022: fix bug where bonus is not working on gdr
+DELETE FROM TypeTags WHERE Type='ABILITY_TOMYRIS_BONUS_VS_WOUNDED_UNITS';
+
+INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
+	('ABILITY_TOMYRIS_BONUS_VS_WOUNDED_UNITS' ,'CLASS_ALL_COMBAT_UNITS');
 
 --==================
 -- Spain
