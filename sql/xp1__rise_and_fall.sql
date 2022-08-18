@@ -512,6 +512,13 @@ UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_UBSUNUR
 
 
 --==============================================================
+--******			W O N D E R S  (NATURAL)			  ******
+--==============================================================
+-- Statue Liberty from 4 to 3 diplo points
+UPDATE ModifierArguments SET Value='3' WHERE ModifierId='STATUELIBERTY_DIPLOVP' AND Name='Amount';
+
+
+--==============================================================
 --******				    O T H E R					  ******
 --==============================================================
 -- Amani Abuse Fix... can immediately re-declare war when an enemy suzerian removes Amani
