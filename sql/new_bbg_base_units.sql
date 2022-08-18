@@ -32,6 +32,9 @@ UPDATE Units SET BaseMoves=6 WHERE  UnitType='UNIT_DESTROYER';
 -- Base is 3
 UPDATE Units SET BaseMoves=5 WHERE  UnitType='UNIT_AIRCRAFT_CARRIER';
 
+-- Missile Cruiser range from 3 to 4
+UPDATE Units SET Range=4 WHERE UnitType='UNIT_MISSILE_CRUISER';
+
 -- 31/07/2021 Late Game Unit rework
 UPDATE Units SET Combat=80 WHERE UnitType='UNIT_AT_CREW';
 UPDATE Units SET Combat=80, BaseMoves=3 WHERE UnitType='UNIT_INFANTRY';

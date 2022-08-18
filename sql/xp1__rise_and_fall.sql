@@ -512,7 +512,7 @@ UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_UBSUNUR
 
 
 --==============================================================
---******			W O N D E R S  (NATURAL)			  ******
+--******			W O N D E R S  (MAN-MADE)			  ******
 --==============================================================
 -- Statue Liberty from 4 to 3 diplo points
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='STATUELIBERTY_DIPLOVP' AND Name='Amount';
