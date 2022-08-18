@@ -1439,7 +1439,7 @@ INSERT OR IGNORE INTO Feature_AdjacentYields (FeatureType, YieldType, YieldChang
 	VALUES ('FEATURE_GALAPAGOS', 'YIELD_FOOD', 1);
 --Causeway +3 down from +5
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH' AND Name='Amount';
-
+UPDATE Modifiers SET SubjectRequirementSetId='ATTACKING_REQUIREMENT_SET' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH';
 
 
 --==============================================================
