@@ -32,3 +32,106 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
     ('GREAT_PERSON_INDIVIDUAL_DMITRI_MENDELEEV', 'BBG_GREATPERSON_LAB_BOOST', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER');
+
+-- Boudica gives Military Engineer (instead of convert barbarian units)
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL' WHERE ModifierId='GREATPERSON_BOUDICA_ACTIVE';
+UPDATE Modifiers SET SubjectRequirementSetId='PLAYER_HAS_AT_LEAST_ONE_CITY_REQUIREMENTS' WHERE ModifierId='GREATPERSON_BOUDICA_ACTIVE';
+DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_BOUDICA_ACTIVE';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_BOUDICA_ACTIVE', 'UnitType', 'UNIT_MILITARY_ENGINEER'),
+    ('GREATPERSON_BOUDICA_ACTIVE', 'Amount', '1');
+UPDATE GreatPersonIndividuals SET ActionRequiresAdjacentBarbarianUnit=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_BOUDICA';
+UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_BOUDICA';
+UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_BOUDICA';
+
+-- Aethelflaed gives trebuchet with experience (instead of +2 loyalty)
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_GRANT_UNIT_WITH_EXPERIENCE' WHERE ModifierId='GREATPERSON_AETHELFLAED_ACTIVE';
+DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_AETHELFLAED_ACTIVE';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_AETHELFLAED_ACTIVE', 'UnitType', 'UNIT_TREBUCHET'),
+    ('GREATPERSON_AETHELFLAED_ACTIVE', 'Experience', '-1'),
+    ('GREATPERSON_AETHELFLAED_ACTIVE', 'UniqueOverride', '1');
+UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
+UPDATE GreatPersonIndividuals SET ActionRequiresCompletedDistrictType=NULL WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
+UPDATE GreatPersonIndividuals SET ActionRequiresOwnedTile=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
+UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
+UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
+
+-- Nzinga gives 2 free envoys (instead of 1)
+UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREATPERSON_ANA_NZINGA_ACTIVE' AND Name='Amount';
+
+-- Joan d'arc gives 2 relics (instead of 1)
+UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREATPERSON_JOAN_OF_ARC_ACTIVE' AND Name='Amount';
+
+-- Lakshmibai gives an helicopter with experience (instead of a cavalry)
+UPDATE ModifierArguments SET Value='UNIT_HELICOPTER' WHERE ModifierId='GREATPERSON_RANI_LAKSHMIBAI_ACTIVE' AND Name='UnitType';
+
+-- Tupac Amaru gives an infantry in each city (instead of a musket)
+UPDATE ModifierArguments SET Value='UNIT_INFANTRY' WHERE ModifierId='GREAT_PERSON_INDIVIDUAL_TUPAC_AMARU_ACTIVE' AND Name='UnitType';
+
+-- Eisenhower gives 15% production toward military units (instead of 5%)
+UPDATE ModifierArguments SET Value='15' WHERE ModifierId='GREATPERSON_DWIGHT_EISENHOWER_ACTIVE' AND Name='Amount';
+
+-- Jose de Sucre (aka Simon Bolivar) gives 2 oils per turn
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
+    ('GREATPERSON_GRANT_2_OIL_PER_TURN', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION', 1, 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_GRANT_2_OIL_PER_TURN', 'ResourceType', 'RESOURCE_OIL');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_GRANT_2_OIL_PER_TURN', 'Amount', '2');
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR', 'GREATPERSON_GRANT_2_OIL_PER_TURN', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON');
+
+-- Jose de Sucre (aka Simon Bolivar) gives tank with experience (instead of +4 loyalty)
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_GRANT_UNIT_WITH_EXPERIENCE' WHERE ModifierId='GREATPERSON_SIMON_BOLIVAR_ACTIVE';
+DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_SIMON_BOLIVAR_ACTIVE';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_SIMON_BOLIVAR_ACTIVE', 'UnitType', 'UNIT_TANK'),
+    ('GREATPERSON_SIMON_BOLIVAR_ACTIVE', 'Experience', '-1'),
+    ('GREATPERSON_SIMON_BOLIVAR_ACTIVE', 'UniqueOverride', '1');
+UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
+UPDATE GreatPersonIndividuals SET ActionRequiresCompletedDistrictType=NULL WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
+UPDATE GreatPersonIndividuals SET ActionRequiresOwnedTile=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
+UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
+UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
+
+-- Douglas MacArthur gives 2 Uranium per turn (and keep the free promoted tank)
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
+    ('GREATPERSON_GRANT_2_URANIUM_PER_TURN', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION', 1, 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_GRANT_2_URANIUM_PER_TURN', 'ResourceType', 'RESOURCE_URANIUM');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_GRANT_2_URANIUM_PER_TURN', 'Amount', '2');
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_DOUGLAS_MACARTHUR', 'GREATPERSON_GRANT_2_URANIUM_PER_TURN', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON');
+
+-- Sudirman gives 2 Aluminium per turn
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
+    ('GREATPERSON_GRANT_2_ALUMINUM_PER_TURN', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION', 1, 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_GRANT_2_ALUMINUM_PER_TURN', 'ResourceType', 'RESOURCE_ALUMINUM');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_GRANT_2_ALUMINUM_PER_TURN', 'Amount', '2');
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_SUDIRMAN', 'GREATPERSON_GRANT_2_ALUMINUM_PER_TURN', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON');
+
+-- Sudirman gives fighter with experience (instead of +6 loyalty)
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_GRANT_UNIT_WITH_EXPERIENCE' WHERE ModifierId='GREATPERSON_SUDIRMAN_ACTIVE';
+DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_SUDIRMAN_ACTIVE';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_SUDIRMAN_ACTIVE', 'UnitType', 'UNIT_FIGHTER'),
+    ('GREATPERSON_SUDIRMAN_ACTIVE', 'Experience', '-1'),
+    ('GREATPERSON_SUDIRMAN_ACTIVE', 'UniqueOverride', '1');
+UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
+UPDATE GreatPersonIndividuals SET ActionRequiresCompletedDistrictType=NULL WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
+UPDATE GreatPersonIndividuals SET ActionRequiresOwnedTile=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
+UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
+UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
+
+-- Dandara gives the most advanced support unit (instead of a warrior monk with experience)
+UPDATE Modifiers SET ModifierType='MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_NEAREST_CITY' WHERE ModifierId='GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE';
+DELETE FROM ModifierArguments WHERE ModifierId='GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE', 'UnitPromotionClassType', 'PROMOTION_CLASS_SUPPORT');
+UPDATE GreatPersonIndividuals SET ActionCharges=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_DANDARA_';
+
