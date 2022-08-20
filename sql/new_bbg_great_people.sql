@@ -16,3 +16,26 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_GREATPERSON_1DIPLOPOINT', 'Amount', '1');
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
     ('GREAT_PERSON_INDIVIDUAL_ALFRED_NOBEL', 'BBG_GREATPERSON_1DIPLOPOINT', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER');
+
+
+---- GREAT MERCHANTS
+-- John Spilsbury
+UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREATPERSON_GRANT_TOYS' AND Name='Amount';
+
+-- Jamsetji Tata
+UPDATE ModifierArguments SET Value='50' WHERE ModifierId='GREATPERSON_CAMPUS_TOURISM' AND Name='Amount';
+
+-- Masary Ibuka
+UPDATE ModifierArguments SET Value='50' WHERE ModifierId='GREATPERSON_INDUSTRIAL_ZONE_TOURISM' AND Name='Amount';
+
+-- Raja Toda Mal
+UPDATE ModifierArguments SET Value='1.0' WHERE ModifierId='GREATPERSON_DOMESTIC_ROUTE_GOLD_PER_SPECIALTY_DISTRICT' AND Name='Amount';
+
+-- Stamford Raffles
+UPDATE GreatPersonIndividuals SET ActionRequiresCityStateTerritory=1, ActionRequiresSuzerainTerritory=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_STAMFORD_RAFFLES';
+
+-- Sarah Breedlove
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_SARAH_BREEDLOVE', 'GREATPERSON_EXTRA_TRADE_ROUTE_CAPACITY', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
+
+    
