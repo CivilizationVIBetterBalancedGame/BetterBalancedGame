@@ -65,6 +65,8 @@ UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREATPERSON_JOAN_OF_ARC
 
 -- Lakshmibai gives an helicopter with experience (instead of a cavalry)
 UPDATE ModifierArguments SET Value='UNIT_HELICOPTER' WHERE ModifierId='GREATPERSON_RANI_LAKSHMIBAI_ACTIVE' AND Name='UnitType';
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_RANI_LAKSHMIBAI', 'GREATPERSON_GRANT_1_OIL_PER_TURN', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON');
 
 -- Tupac Amaru gives an infantry in each city (instead of a musket)
 UPDATE ModifierArguments SET Value='UNIT_INFANTRY' WHERE ModifierId='GREAT_PERSON_INDIVIDUAL_TUPAC_AMARU_ACTIVE' AND Name='UnitType';
@@ -95,7 +97,7 @@ UPDATE GreatPersonIndividuals SET ActionRequiresOwnedTile=0 WHERE GreatPersonInd
 UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
 UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
 
--- Douglas MacArthur gives 2 Uranium per turn (and keep the free promoted tank)
+-- Douglas MacArthur gives 2 Uranium per turn (and keep the free promoted tank) (and remove 1 oil per turn)
 INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
     ('GREATPERSON_GRANT_2_URANIUM_PER_TURN', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION', 1, 1);
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
@@ -104,6 +106,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('GREATPERSON_GRANT_2_URANIUM_PER_TURN', 'Amount', '2');
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
     ('GREAT_PERSON_INDIVIDUAL_DOUGLAS_MACARTHUR', 'GREATPERSON_GRANT_2_URANIUM_PER_TURN', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON');
+DELETE FROM GreatPersonIndividualActionModifiers WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_DOUGLAS_MACARTHUR' AND ModifierId='GREATPERSON_GRANT_1_OIL_PER_TURN'; 
 
 -- Sudirman gives 2 Aluminium per turn
 INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
