@@ -16,3 +16,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_GREATPERSON_1DIPLOPOINT', 'Amount', '1');
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
     ('GREAT_PERSON_INDIVIDUAL_ALFRED_NOBEL', 'BBG_GREATPERSON_1DIPLOPOINT', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER');
+
+-- 21/08/22 Margaret Mead buff (2000 culture/science)
+UPDATE ModifierArguments SET Value='2000' WHERE ModifierId='GREAT_PERSON_GRANT_LOTSO_SCIENCE' AND Name='Amount';
+UPDATE ModifierArguments SET Value='2000' WHERE ModifierId='GREAT_PERSON_GRANT_LOTSO_CULTURE' AND Name='Amount';
