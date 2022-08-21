@@ -20,3 +20,15 @@ INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, Mod
 -- 21/08/22 Margaret Mead buff (2000 culture/science)
 UPDATE ModifierArguments SET Value='2000' WHERE ModifierId='GREAT_PERSON_GRANT_LOTSO_SCIENCE' AND Name='Amount';
 UPDATE ModifierArguments SET Value='2000' WHERE ModifierId='GREAT_PERSON_GRANT_LOTSO_CULTURE' AND Name='Amount';
+
+-- 21/08/22 Robert Goddard also gives 50% bonus prod towards labs
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_GREATPERSON_LAB_BOOST', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+	('BBG_GREATPERSON_LAB_BOOST', 'BuildingType', 'BUILDING_RESEARCH_LAB'),
+	('BBG_GREATPERSON_LAB_BOOST', 'Amount', '50');
+
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_DMITRI_MENDELEEV', 'BBG_GREATPERSON_LAB_BOOST', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER');
