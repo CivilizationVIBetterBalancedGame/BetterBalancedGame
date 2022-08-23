@@ -152,3 +152,12 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE', 'UnitPromotionClassType', 'PROMOTION_CLASS_SUPPORT');
 UPDATE GreatPersonIndividuals SET ActionCharges=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_DANDARA_';
 
+--Alvaro Aalto add +2 gold per breathtaking tile in the city
+INSERT INTO Modifiers (ModifierId, ModifierType, Permanent, SubjectRequirementSetId) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 1, 'PLOT_BREATHTAKING_APPEAL');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'YieldType', 'YIELD_GOLD');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'Amount', '2');
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_ALVAR_AALTO', 'GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
