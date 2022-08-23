@@ -61,7 +61,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO ImprovementModifiers (ImprovementType, ModifierId) VALUES
     ('IMPROVEMENT_MISSION', 'BBG_MISSION_DISTANCE_PRODUCTION'),
     ('IMPROVEMENT_MISSION', 'BBG_MISSION_DISTANCE_FAITH');
---23/08/22 Districts prod now boosted if 10+ tiles from capital
+--23/08/22 Districts prod now boosted if 10+ tiles from capital instead of continent split
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_TREASURE_FLEET' AND ModifierId='TRAIT_INTERCONTINENTAL_DISTRICT_PRODUCTION';
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_TRAIT_DISTANCE_DISTRICT_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_ALL_DISTRICTS_PRODUCTION','BBG_IS_PLOT_10_TILES_OR_MORE_FROM_CAPITAL_REQUIREMENTS');
