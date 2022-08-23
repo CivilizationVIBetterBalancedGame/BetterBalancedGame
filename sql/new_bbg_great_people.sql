@@ -21,7 +21,7 @@ INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, Mod
 UPDATE ModifierArguments SET Value='2000' WHERE ModifierId='GREAT_PERSON_GRANT_LOTSO_SCIENCE' AND Name='Amount';
 UPDATE ModifierArguments SET Value='2000' WHERE ModifierId='GREAT_PERSON_GRANT_LOTSO_CULTURE' AND Name='Amount';
 
--- 21/08/22 Robert Goddard also gives 50% bonus prod towards labs
+-- 21/08/22 Mendeleev also gives 50% bonus prod towards labs
 
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
 	('BBG_GREATPERSON_LAB_BOOST', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
@@ -32,3 +32,23 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
     ('GREAT_PERSON_INDIVIDUAL_DMITRI_MENDELEEV', 'BBG_GREATPERSON_LAB_BOOST', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER');
+
+--23/08/22 GREAT_PERSON_INDIVIDUAL_MARY_LEAKEY
+
+-- DELETE FROM GreatPersonIndividualActionModifiers WHERE ModifierId='';
+
+-- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+-- 	('BBG_GREATPERSON_')
+
+--23/08/22 Turing also gives the tech if you already have eureka
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_GREAT_PERSON_INDIVIDUAL_BOOST_OR_GRANT_COMPUTERS', 'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST');
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_GREAT_PERSON_INDIVIDUAL_BOOST_OR_GRANT_COMPUTERS', 'TechType', 'TECH_COMPUTERS'),
+	('BBG_GREAT_PERSON_INDIVIDUAL_BOOST_OR_GRANT_COMPUTERS', 'GrantTechIfBoosted', '1');
+
+DELETE FROM GreatPersonIndividualActionModifiers WHERE ModifierId='GREATPERSON_COMPUTERSTECHBOOST' AND GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_ALAN_TURING';
+
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+	('GREAT_PERSON_INDIVIDUAL_ALAN_TURING', 'BBG_GREAT_PERSON_INDIVIDUAL_BOOST_OR_GRANT_COMPUTERS', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
