@@ -6,5 +6,6 @@ UPDATE ModifierArguments SET Value='0' WHERE ModifierId='COTHON_HEALFRIENDLY' AN
 -- Delete trade route for gov plaza district.
 DELETE FROM TraitModifiers WHERE ModifierId='TRADE_ROUTE_GOVERNMENT_DISTRICT' AND TraitType='TRAIT_LEADER_FOUNDER_CARTHAGE';
 
+-- 21/08/22 reverted
 -- nerf settler PM to +1
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='MEDITERRANEAN_COLONIES_EXTRA_MOVEMENT';
+-- UPDATE ModifierArguments SET Value='1' WHERE ModifierId='MEDITERRANEAN_COLONIES_EXTRA_MOVEMENT';
