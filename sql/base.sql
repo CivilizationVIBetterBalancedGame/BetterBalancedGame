@@ -280,8 +280,7 @@ INSERT OR IGNORE INTO Improvement_Adjacencies (ImprovementType , YieldChangeId) 
 INSERT OR IGNORE INTO Adjacency_YieldChanges (ID , Description , YieldType , YieldChange , TilesRequired , AdjacentResourceClass) VALUES
 	('BBG_Chateau_Luxury_Gold' , 'Placeholder' , 'YIELD_GOLD' , '1' , '1' , 'RESOURCECLASS_LUXURY'),
 	('BBG_Chateau_Luxury_Culture' , 'Placeholder' , 'YIELD_CULTURE' , '1' , '1' , 'RESOURCECLASS_LUXURY');
-UPDATE Improvements SET Housing='1', PreReqCivic='CIVIC_FEUDALISM', RequiresAdjacentBonusOrLuxury = 0, RequiresRiver = 0, SameAdjacentValid = 0 WHERE ImprovementType='IMPROVEMENT_CHATEAU';
--- Garde imperial to +5 on continent (from +10)
+UPDATE Improvements SET Housing=2, TilesRequired=2, PreReqCivic='CIVIC_FEUDALISM', RequiresAdjacentBonusOrLuxury=0, RequiresRiver=0, SameAdjacentValid=0 WHERE ImprovementType='IMPROVEMENT_CHATEAU';-- Garde imperial to +5 on continent (from +10)
 UPDATE ModifierArguments SET Value='5' WHERE ModifierId='GARDE_CONTINENT_COMBAT' AND Name='Amount';
 
 --==================
@@ -688,6 +687,11 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 	VALUES ('SCYTHIA_FAITH_PURCHASE_RCAVALRY_CPLMOD' , 'Tag' , 'CLASS_RANGED_CAVALRY'); 
 
+-- 17/08/2022: fix bug where bonus is not working on gdr
+DELETE FROM TypeTags WHERE Type='ABILITY_TOMYRIS_BONUS_VS_WOUNDED_UNITS';
+
+INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
+	('ABILITY_TOMYRIS_BONUS_VS_WOUNDED_UNITS' ,'CLASS_ALL_COMBAT_UNITS');
 
 --==================
 -- Spain
@@ -1435,7 +1439,7 @@ INSERT OR IGNORE INTO Feature_AdjacentYields (FeatureType, YieldType, YieldChang
 	VALUES ('FEATURE_GALAPAGOS', 'YIELD_FOOD', 1);
 --Causeway +3 down from +5
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH' AND Name='Amount';
-
+UPDATE Modifiers SET SubjectRequirementSetId='ATTACKING_REQUIREMENT_SET' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH';
 
 
 --==============================================================

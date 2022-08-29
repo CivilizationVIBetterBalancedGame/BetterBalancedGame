@@ -487,7 +487,10 @@ UPDATE RequirementArguments SET Value='TERRAIN_TUNDRA' WHERE RequirementId='REQU
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_ST_BASILS_CATHEDRAL', 'WONDER_GRANT_RELIC_BBG');
 --Matterhorn +2 down from +3
-UPDATE ModifierArguments SET Value='2' WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS' AND Name='Amount';
+-- UPDATE ModifierArguments SET Value='0' WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS' AND Name='Amount';
+--23/08/22 no more combat bonus
+DELETE FROM UnitAbilityModifiers WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS';
+DELETE FROM Modifiers WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS';
 
 
 
@@ -509,6 +512,13 @@ INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
 
 UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_UBSUNUR_HOLLOW' AND YieldType='YIELD_PRODUCTION';
 UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_UBSUNUR_HOLLOW' AND YieldType='YIELD_FOOD';
+
+
+--==============================================================
+--******			W O N D E R S  (MAN-MADE)			  ******
+--==============================================================
+-- Statue Liberty from 4 to 3 diplo points
+UPDATE ModifierArguments SET Value='3' WHERE ModifierId='STATUELIBERTY_DIPLOVP' AND Name='Amount';
 
 
 --==============================================================
