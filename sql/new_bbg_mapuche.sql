@@ -95,5 +95,11 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 	('BBG_MALON_RAIDER_FREE_PROMOTION', 'Amount', -1);
 
 UPDATE UnitAbilityModifiers SET ModifierId = 'BBG_MALON_RAIDER_FREE_PROMOTION' WHERE UnitAbilityType = 'ABILITY_MAPUCHE_MALON_RAIDER';
-	
-	
+		
+--==============================================================
+--******                RELIGION                          ******
+--==============================================================
+
+-- Monk: Mapu CS
+INSERT INTO TypeTags(Type, Tag) VALUES
+	('ABILITY_TRAIT_MAPUCHE', 'CLASS_WARRIOR_MONK');

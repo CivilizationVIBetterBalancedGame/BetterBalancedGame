@@ -88,3 +88,16 @@ INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_NO_SUPPORT_BONUS_MODIFIER', 'MODIFIER_PLAYER_UNIT_ADJUST_SUPPORT_BONUS_MODIFIER');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_NO_SUPPORT_BONUS_MODIFIER', 'Percent', '-100');
+
+-- Battlecry description is Missleading, in base it works on mele/anticav and ranged.
+-- BBG5.0 Changes it to work on Monks as well, here I also let the promo work on recon.
+-- So than it works on all land non-cavalary units
+-- Monks: Affected by Battlecry
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+    ('BBG_OPPONENT_IS_RECON','REQUIREMENT_OPPONENT_UNIT_PROMOTION_CLASS_MATCHES');
+
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('BBG_OPPONENT_IS_RECON','UnitPromotionClass','PROMOTION_CLASS_RECON');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES 
+    ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_RECON');
