@@ -533,6 +533,11 @@ UPDATE RequirementSets SET RequirementSetType='REQUIREMENTSET_TEST_ANY' WHERE Re
 -- Updated this value to match the description text
 UPDATE ModifierArguments SET Value='20' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER' AND Name='Amount';
 
+-- Monks: Cards/Governments
+INSERT INTO TypeTags(Type, Tag) VALUES
+    ('ABILITY_GLOBAL_COALITION_FRIENDLY_TERRITORY', 'CLASS_WARRIOR_MONK'),
+    ('ABILITY_DIGITAL_DEMOCRACY_DEBUFF', 'CLASS_WARRIOR_MONK'),
+    ('ABILITY_FINEST_HOUR_FRIENDLY_TERRITORY', 'CLASS_WARRIOR_MONK');
 --==============================================================
 --******				START BIASES					  ******
 --==============================================================

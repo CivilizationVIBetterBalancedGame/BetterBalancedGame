@@ -445,8 +445,18 @@ INSERT OR IGNORE INTO RequirementArguments
     VALUES 
     ('REQUIRES_PLOT_HAS_UBSUNUR_HOLLOW'     , 'FeatureType' , 'FEATURE_UBSUNUR_HOLLOW'       );
 
+--==============================================================
+--******                RELIGION                          ******
+--==============================================================
+-- Monks: Cards
+INSERT INTO TypeTags(Type, Tag) VALUES
+	('ABILITY_FASCISM_ATTACK_BUFF', 'CLASS_WARRIOR_MONK'),
+	('ABILITY_FASCISM_LEGACY_ATTACK_BUFF', 'CLASS_WARRIOR_MONK'),
+	('ABILITY_TWILIGHT_VALOR_ATTACK_BONUS', 'CLASS_WARRIOR_MONK');
 
-
+-- Monks: Matternhorn
+INSERT INTO TypeTags(Type, Tag) VALUES
+	('ABILITY_ALPINE_TRAINING', 'CLASS_WARRIOR_MONK');
 
 	--==============================================================
 --******				S  C  O  R  E				  	  ******
