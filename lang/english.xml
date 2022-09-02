@@ -19,7 +19,7 @@
 		</Replace>
 		<!-- = leader ability (Rough Rider)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_ROOSEVELT_COROLLARY_ROUGH_RIDER_DESCRIPTION" Language="en_US">
-			<Text>Units receive +1 [ICON_Strength] Combat Strength for each reached individual era by technologies or civics (include Ancient Era and up to Industrial Era, capped to +5). Envoys sent to City-states you have a [ICON_TradeRoute] Trade Route to count as two [ICON_Envoy] Envoys. Gain the Rough Rider unique unit with Rifling.</Text>
+			<Text>Units receive +1 [ICON_Strength] Combat Strength for each reached individual era by technologies or civics (includes Ancient Era and up to Industrial Era, capped to +5). Envoys sent to City-states you have a [ICON_TradeRoute] Trade Route to count as two [ICON_Envoy] Envoys. Gain the Rough Rider unique unit with Rifling.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_ANCIENT" Language="en_US">
 			<Text>+1 [ICON_Strength] Combat Strength for reached Ancient Era (Roosevelt Corollary).</Text>
@@ -861,8 +861,21 @@
 		
 
 		<!-- === UNITS === -->
+		<!-- No nuclear defense -->
 		<Replace Tag="LOC_UNIT_ANTIAIR_GUN_DESCRIPTION" Language="en_US">
 			<Text>Modern era anti-air support unit. Provides cover from air attacks up to 1 hex away from the weapon.</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_WARRIOR_MONK_DESCRIPTION" Language="en_US">
+			<Text>Fast-moving land combat unit with a unique promotion tree.[NEWLINE][NEWLINE]Receives all combat bonuses of melee units except bonus vs. anti-cavalry. Receives bonuses from [ICON_GREATGENERAL] Great General from any era. Has scaling cost that depends on advancement through Tech and Civics tree.[NEWLINE][NEWLINE]Has unique ability Battle Meditation: +1 [ICON_Strength] Combat Strength for every researched civic (up to and including Industrial Era).</Text>
+		</Replace>
+		<Row Tag="LOC_BBG_ABILITY_MONK_SCALING_NAME" Language="en_US">
+			<Text>Battle Meditation</Text>
+		</Row>
+		<Row Tag="LOC_BBG_ABILITY_MONK_SCALING_DESCRIPTION" Language="en_US">
+			<Text>Battle Meditation: +1 [ICON_Strength] Combat Strength for every researched civic (up to and including Industrial Era).</Text>
+		</Row>
+		<Replace Tag="LOC_UNIT_LAHORE_NIHANG_DESCRIPTION" Language="en_US">
+			<Text>Lahore City-State unique unit with a unique Promotion tree. Purchasable with [ICON_Faith] Faith. +15 [ICON_Strength] Combat Strength when Barracks, Armory, and Military Academy buildings are first constructed. Receives bonuses from [ICON_GREATGENERAL] Great General from any era.</Text>
 		</Replace>
 
 
@@ -899,7 +912,13 @@
 			<Text>+10 [ICON_Bombard] Bombard Strength when attacking naval units.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_BATTLECRY_DESCRIPTION" Language="en_US">
-			<Text>+7 [ICON_Strength] Combat Strength when attacking melee and ranged units.</Text>
+			<Text>+7 [ICON_Strength] Combat Strength when attacking units except Cavalry and Siege units.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_MONK_EXPLODING_PALMS_DESCRIPTION" Language="en_US">
+			<Text>+5 [ICON_Strength] Combat Strength in all situations.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_MONK_COBRA_STRIKE_DESCRIPTION" Language="en_US">
+			<Text>+7 [ICON_Strength] Combat Strength in all situations.</Text>
 		</Replace>
 
 
@@ -1159,6 +1178,12 @@
 		</Replace>
 		<Replace Tag="LOC_BELIEF_JESUIT_EDUCATION_DESCRIPTION" Language="en_US">
 			<Text>May purchase Campus and Theater Square district buildings with [ICON_Faith] Faith. Reduce purchase cost for Campus and Theater Square buildings by 15%.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_WARRIOR_MONKS_DESCRIPTION" Language="en_US">
+			<Text>Allows spending [ICON_Faith] Faith to train Warrior Monks, land combat units with a unique promotion tree. May be purchased in a city with a Shrine in its Holy Site.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_WARRIOR_MONKS_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>Allows spending [ICON_Faith] Faith to train Warrior Monks, land combat units with a unique promotion tree. May be purchased in a city with a Shrine in its Holy Site. Culture Bomb adjacent tiles when completing a Holy Site.</Text>
 		</Replace>
 
 
