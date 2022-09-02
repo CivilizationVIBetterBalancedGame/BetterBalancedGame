@@ -284,6 +284,51 @@ function OnPillage(iUnitPlayerID :number, iUnitID :number, eImprovement :number,
 	end		
 end
 
+--exp bug fix for upgradable units that start with 1 free promotion (Nau Janissary Malon, in general MODIFIER_PLAYER_UNIT_ADJUST_GRANT_EXPERIENCE applied to units)
+--Author: FlashyFeeds
+
+function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
+	print("OnPromoitionFixExp",iUnitPlayerID, iUnitID);
+
+	local pUnitPlayer :object = Players[iUnitPlayerID];
+	if(pUnitPlayer == nil) then
+		return;
+	end
+
+	local pUnit :object = UnitManager.GetUnit(iUnitPlayerID, iUnitID);
+	if (pUnit == nil) then
+		return;
+	end
+
+	if GameInfo.Units[pUnit:GetType()].FormationClass == "FORMATION_CLASS_CIVILIAN" then
+		return;
+	end
+	
+	local expTable = {0, 15, 45, 90, 150, 225, 315, 420, 540};
+
+	
+	local pUnitExp = pUnit:GetExperience();
+	print("Plus");
+	local pUnitExpPts = pUnitExp:GetExperiencePoints();
+	print("Exp", pUnitExpPts);
+	local neededExp = pUnitExp:GetExperienceForNextLevel();
+	print("MissingExp", neededExp);
+	local pUnitLevel=1;
+	for i, expCutoff in ipairs(expTable) do
+		if neededExp==expCutoff then
+			pUnitLevel=i-1;
+			print("Level", pUnitLevel);
+		end
+	end
+
+	local thisLevelExp=expTable[pUnitLevel];
+	print("thisLevelExp",thisLevelExp);
+	local expVal = thisLevelExp-pUnitExpPts;
+	print("expVal", expVal);
+	if expVal>0 then
+		pUnitExp:ChangeExperience(expVal);
+	end
+end
 -- function OnTechBoost(playerID, iTechBoosted)
 --	print("OnTechBoost",playerID, iTechBoosted)
 --	local pPlayer = Players[playerID]
@@ -2234,6 +2279,8 @@ function Initialize()
 	-- pillage effect:
 	GameEvents.OnPillage.Add(OnPillage)
 	
+	-- upgradable uu exp bug fix
+	Events.UnitPromoted.Add(OnPromotionFixExp);
 	-- tech boost effect:
 	-- Events.TechBoostTriggered.Add(OnTechBoost);
 end
