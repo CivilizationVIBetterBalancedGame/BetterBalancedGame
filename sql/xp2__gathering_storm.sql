@@ -373,8 +373,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('NOBEL_PRIZE_FACTORY_BOOST', 'Amount', '50');
 
 -- Queens Bibliotheque can be build with other t2 gouv
-DELETE FROM MutuallyExclusive
-WHERE Building='BUILDING_QUEENS_BIBLIOTHEQUE' OR MutuallyExclusiveBuilding='BUILDING_QUEENS_BIBLIOTHEQUE';
+DELETE FROM MutuallyExclusiveBuildings WHERE Building='BUILDING_QUEENS_BIBLIOTHEQUE' OR MutuallyExclusiveBuilding='BUILDING_QUEENS_BIBLIOTHEQUE';
 
 -- 29/08/2021: +50% Production toward Gov plaza buildings
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
