@@ -373,7 +373,8 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('NOBEL_PRIZE_FACTORY_BOOST', 'Amount', '50');
 
 -- Queens Bibliotheque can be build with other t2 gouv
-DELETE FROM MutuallyExclusiveBuildings WHERE Building='BUILDING_QUEENS_BIBLIOTHEQUE' OR MutuallyExclusiveBuilding='BUILDING_QUEENS_BIBLIOTHEQUE';
+DELETE FROM MutuallyExclusive
+WHERE Building='BUILDING_QUEENS_BIBLIOTHEQUE' OR MutuallyExclusiveBuilding='BUILDING_QUEENS_BIBLIOTHEQUE';
 
 -- 29/08/2021: +50% Production toward Gov plaza buildings
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
@@ -425,7 +426,32 @@ UPDATE Building_YieldChanges SET YieldChange=6 WHERE BuildingType='BUILDING_FOSS
 UPDATE Building_YieldChanges SET YieldChange=8 WHERE BuildingType='BUILDING_POWER_PLANT' AND YieldType='YIELD_PRODUCTION';
 UPDATE Building_YieldChanges SET YieldChange=6 WHERE BuildingType='BUILDING_POWER_PLANT' AND YieldType='YIELD_SCIENCE';
 
+--==============================================================
+--*****                  WONDERS(Built)	                  ******
+--==============================================================
+-- Golden Gate Bridge: Fixed Bug, where one side of the Bridge is impassible
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+	('BBG_REQUIRES_PLOT_IS_ADJACENT_TO_GOLDENGATE', 'REQUIREMENT_PLOT_ADJACENT_BUILDING_TYPE_MATCHES');
 
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+	('BBG_REQUIRES_PLOT_IS_ADJACENT_TO_GOLDENGATE', 'BuildingType', 'BUILDING_GOLDEN_GATE_BRIDGE'),
+	('BBG_REQUIRES_PLOT_IS_ADJACENT_TO_GOLDENGATE', 'MinRange', '0'),
+	('BBG_REQUIRES_PLOT_IS_ADJACENT_TO_GOLDENGATE', 'MaxRange', '1');
+
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+	('BBG_GOLDENGATE_REQSET', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+	('BBG_GOLDENGATE_REQSET', 'BBG_REQUIRES_PLOT_IS_ADJACENT_TO_GOLDENGATE'),
+	('BBG_GOLDENGATE_REQSET', 'AOE_REQUIRES_LAND_DOMAIN');
+
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+	('BBG_GOLDENGATE_IGNORE_CLIFF', 'MODIFIER_ALL_UNITS_ATTACH_MODIFIER', 'BBG_GOLDENGATE_REQSET');
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+	('BBG_GOLDENGATE_IGNORE_CLIFF', 'ModifierId', 'COMMANDO_BONUS_IGNORE_CLIFF_WALLS');
+
+INSERT INTO GameModifiers(ModifierId) VALUES ('BBG_GOLDENGATE_IGNORE_CLIFF');
 
 --==============================================================
 --******				 CITY_STATES					  ******
