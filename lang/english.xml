@@ -19,7 +19,7 @@
 		</Replace>
 		<!-- = leader ability (Rough Rider)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_ROOSEVELT_COROLLARY_ROUGH_RIDER_DESCRIPTION" Language="en_US">
-			<Text>Units receive +1 [ICON_Strength] Combat Strength for each reached individual era by technologies or civics (includes Ancient Era and up to Industrial Era, capped to +5). Envoys sent to City-states you have a [ICON_TradeRoute] Trade Route to count as two [ICON_Envoy] Envoys. Gain the Rough Rider unique unit with Rifling.</Text>
+			<Text>Units receive +1 [ICON_Strength] Combat Strength for each reached individual era by technologies or civics (includes Ancient Era and up to Industrial Era, capped to +5). Envoys sent to City-states you have a [ICON_TradeRoute] Trade Route to count as two [ICON_Envoy] Envoys. Gain the Rough Rider unique unit with Ballistics technology.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_ANCIENT" Language="en_US">
 			<Text>+1 [ICON_Strength] Combat Strength for reached Ancient Era (Roosevelt Corollary).</Text>
@@ -38,10 +38,10 @@
 		</Row>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_AMERICAN_ROUGH_RIDER_DESCRIPTION" Language="en_US">
-			<Text>American unique Industrial era unit when Teddy Roosevelt is their leader. [ICON_Culture] Culture is earned from kills on their [ICON_Capital] Capital's continent. +5 [ICON_Strength] Combat Strength when fighting on Hills. Lower maintenance cost.</Text>
+			<Text>American unique Industrial era unit that replaces Cuirassier when Teddy Roosevelt is their leader. Combat victories on their [ICON_Capital] Capital's continent provide [ICON_Culture] Culture equal to 25% of the [ICON_Strength] Combat Strength of the defeated unit (on Online speed). +5 [ICON_Strength] Combat Strength when fighting on Hills. Lower maintenance cost.</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_AMERICAN_ROUGH_RIDER_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>American unique Industrial era unit when Teddy Roosevelt is their leader. Combat victories on their [ICON_Capital] Capital's continent provide [ICON_Culture] Culture equal to 25% of the [ICON_Strength] Combat Strength of the defeated unit (on Online speed). +5 [ICON_Strength] Combat Strength when fighting on Hills. Lower maintenance cost.</Text>
+			<Text>American unique Industrial era unit that replaces Cuirassier when Teddy Roosevelt is their leader. Combat victories on their [ICON_Capital] Capital's continent provide [ICON_Culture] Culture equal to 25% of the [ICON_Strength] Combat Strength of the defeated unit (on Online speed). +5 [ICON_Strength] Combat Strength when fighting on Hills. Lower maintenance cost.</Text>
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_FILM_STUDIO_DESCRIPTION" Language="en_US">
@@ -979,6 +979,9 @@
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT_DESCRIPTION" Language="en_US">
 			<Text>Allows city to purchase districts with [ICON_FAITH] Faith.</Text>
 		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT_DESCRIPTION" Language="en_US">
+			<Text>Apostles and Warrior Monks trained in this city receive second free promotion immediately after earning their first promotion through normal means.</Text>
+		</Replace>
 		<Replace Tag="LOC_GOVERNOR_THE_CARDINAL_DESCRIPTION" Language="en_US">
 			<Text>{LOC_GOVERNOR_THE_CARDINAL_NAME} is a Spiritual and Religious leader that can increase the [ICON_CULTURE] Cultural Significance and [ICON_Religion] Religious Fortitude of a city.</Text>
 		</Replace>
@@ -1361,32 +1364,60 @@
 
 
 		<!-- === CITY-STATES === -->
+		<!-- BONUS tag for City-States picker, DESCRIPTION tag for gameplay description -->
+		<Replace Tag="LOC_CIVILIZATION_FEZ_BONUS" Language="en_US">
+			<Text>When you use a religious unit to convert a city for the first time earn 10 [ICON_SCIENCE] Science per [ICON_Citizen] Population of that city.</Text>
+		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_FEZ_DESCRIPTION" Language="en_US">
 			<Text>When you use a religious unit to convert a city for the first time earn 10 [ICON_SCIENCE] Science per [ICON_Citizen] Population of that city.</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_NGAZARGAMU_BONUS" Language="en_US">
+			<Text>Land combat or Support units are 10% cheaper to purchase with [ICON_GOLD] Gold or [ICON_FAITH] Faith for each Encampment district building in that city.</Text>
 		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_NGAZARGAMU_DESCRIPTION" Language="en_US">
 			<Text>Land combat or Support units are 10% cheaper to purchase with [ICON_GOLD] Gold or [ICON_FAITH] Faith for each Encampment district building in that city.</Text>
 		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_VATICAN_CITY_BONUS" Language="en_US">
+			<Text>When you activate a [ICON_GreatPerson] Great Person they spread 400 Religious pressure of your founded (or majority) religion to cities within 6 tiles.</Text>
+		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_VATICAN_CITY_DESCRIPTION" Language="en_US">
 			<Text>When you activate a [ICON_GreatPerson] Great Person they spread 400 Religious pressure of your founded (or majority) religion to cities within 6 tiles.</Text>
 		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_AYUTTHAYA_BONUS" Language="en_US">
+			<Text>Gain [ICON_CULTURE] Culture equal to 20% of the [ICON_Production] Production cost when finishing buildings.</Text>
+		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_AYUTTHAYA_DESCRIPTION" Language="en_US">
-			<Text>Gain [ICON_CULTURE] Culture equal to 20% of the construction cost when finishing buildings.</Text>
+			<Text>Gain [ICON_CULTURE] Culture equal to 20% of the [ICON_Production] Production cost when finishing buildings.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVILIZATION_NAN_MADOL_BONUS" Language="en_US">
-			<Text>Your districts on or next to Coast or Lake tiles provide +1 [ICON_Culture] Culture. +1 [ICON_Culture] Culture once Exploration reached.</Text>
+			<Text>Your districts on or next to Coast or Lake tiles provide +1 [ICON_Culture] Culture. Additional +1 [ICON_Culture] Culture once Exploration reached.</Text>
+		</Replace>
+		<Replace Tag="LOC_LEADER_TRAIT_NAN_MADOL_DESCRIPTION" Language="en_US">
+			<Text>Your districts on or next to Coast or Lake tiles provide +1 [ICON_Culture] Culture. Additional +1 [ICON_Culture] Culture once Exploration reached.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVILIZATION_LISBON_BONUS" Language="en_US">
 			<Text>Your Trader units are immune to being plundered.</Text>
 		</Replace>
-		<Replace Tag="LOC_LEADER_TRAIT_NAN_MADOL_DESCRIPTION" Language="en_US">
-			<Text>Your districts on or next to Coast or Lake tiles provide +1 [ICON_Culture] Culture. +1 [ICON_Culture] Culture once Exploration reached.</Text>
-		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_LISBON_DESCRIPTION" Language="en_US">
 			<Text>Your Trader units are immune to being plundered.</Text>
 		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_PRESLAV_BONUS_XP1" Language="en_US">
+			<Text>You receive +40 Loyalty per turn in all cities.</Text>
+		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_PRESLAV_DESCRIPTION" Language="en_US">
 			<Text>You receive +40 Loyalty per turn in all cities.</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_VILNIUS_BONUS_XP1" Language="en_US">
+			<Text>All your Theater Square districts receive +50%/+100%/+150% adjacency bonus if you have at least one active Alliance of Level 1/2/3.</Text>
+		</Replace>
+		<Replace Tag="LOC_LEADER_TRAIT_VILNIUS_DESCRIPTION" Language="en_US">
+			<Text>All your Theater Square districts receive +50%/+100%/+150% adjacency bonus if you have at least one active Alliance of Level 1/2/3.</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_LAHORE_BONUS" Language="en_US">
+			<Text>Your cities can now train Nihang units.[NEWLINE][NEWLINE]A unit with a unique Promotion tree. Purchasable with [ICON_Faith] Faith. +15 [ICON_Strength] Combat Strength when Barracks, Armory, and Military Academy buildings are first constructed. Receives bonuses from [ICON_GREATGENERAL] Great General from any era.</Text>
+		</Replace>
+		<Replace Tag="LOC_LEADER_TRAIT_LAHORE_DESCRIPTION" Language="en_US">
+			<Text>Your cities can now train Nihang units.[NEWLINE][NEWLINE]A unit with a unique Promotion tree. Purchasable with [ICON_Faith] Faith. +15 [ICON_Strength] Combat Strength when Barracks, Armory, and Military Academy buildings are first constructed. Receives bonuses from [ICON_GREATGENERAL] Great General from any era.</Text>
 		</Replace>
 
 
