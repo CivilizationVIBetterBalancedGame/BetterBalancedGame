@@ -40,7 +40,7 @@ INSERT INTO Requirements (RequirementId, RequirementType) VALUES
     ('BBG_REQUIRES_OBJECT_WITHIN_8_TILES_FROM_CAPITAL', 'REQUIREMENT_PLOT_NEAR_CAPITAL');
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
     ('BBG_REQUIRES_OBJECT_WITHIN_8_TILES_FROM_CAPITAL', 'MinDistance', '1'),
-    ('BBG_REQUIRES_OBJECT_WITHIN_8_TILES_FROM_CAPITAL', 'MaxDistance', '8');
+    ('BBG_REQUIRES_OBJECT_WITHIN_8_TILES_FROM_CAPITAL', 'MaxDistance', '7');
 INSERT INTO ImprovementModifiers (ImprovementType, ModifierID) VALUES
     ('IMPROVEMENT_MISSION', 'BBG_MISSION_DISTANCE_HOUSING');
 -- Missions cannot be placed next to each other
