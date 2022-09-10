@@ -167,7 +167,7 @@ UPDATE Modifiers SET ModifierType='MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_N
 DELETE FROM ModifierArguments WHERE ModifierId='GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE';
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE', 'UnitPromotionClassType', 'PROMOTION_CLASS_SUPPORT');
-UPDATE GreatPersonIndividuals SET ActionCharges=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_DANDARA_';
+UPDATE GreatPersonIndividuals SET ActionCharges=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_DANDARA';
 
 --Alvaro Aalto add +2 gold per breathtaking tile in the city
 INSERT INTO Modifiers (ModifierId, ModifierType, Permanent, SubjectRequirementSetId) VALUES
