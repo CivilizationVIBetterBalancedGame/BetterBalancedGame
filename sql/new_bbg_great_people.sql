@@ -96,7 +96,7 @@ UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPers
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREATPERSON_ANA_NZINGA_ACTIVE' AND Name='Amount';
 
 -- Joan d'arc gives 2 relics (instead of 1)
-UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREATPERSON_JOAN_OF_ARC_ACTIVE' AND Name='Amount';
+UPDATE GreatPersonIndividuals SET ActionCharges=2 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_JOAN_OF_ARC';
 
 -- Lakshmibai gives an helicopter with experience (instead of a cavalry)
 UPDATE ModifierArguments SET Value='UNIT_HELICOPTER' WHERE ModifierId='GREATPERSON_RANI_LAKSHMIBAI_ACTIVE' AND Name='UnitType';
@@ -161,17 +161,13 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('GREATPERSON_SUDIRMAN_ACTIVE', 'Experience', '-1'),
     ('GREATPERSON_SUDIRMAN_ACTIVE', 'UniqueOverride', '1');
 UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
-UPDATE GreatPersonIndividuals SET ActionRequiresCompletedDistrictType=NULL WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
-UPDATE GreatPersonIndividuals SET ActionRequiresOwnedTile=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
-UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
-UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
 
 -- Dandara gives the most advanced support unit (instead of a warrior monk with experience)
 UPDATE Modifiers SET ModifierType='MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_NEAREST_CITY' WHERE ModifierId='GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE';
 DELETE FROM ModifierArguments WHERE ModifierId='GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE';
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE', 'UnitPromotionClassType', 'PROMOTION_CLASS_SUPPORT');
-UPDATE GreatPersonIndividuals SET ActionCharges=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_DANDARA_';
+UPDATE GreatPersonIndividuals SET ActionCharges=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_DANDARA';
 
 --Alvaro Aalto add +2 gold per breathtaking tile in the city
 INSERT INTO Modifiers (ModifierId, ModifierType, Permanent, SubjectRequirementSetId) VALUES

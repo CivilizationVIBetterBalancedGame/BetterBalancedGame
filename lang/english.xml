@@ -43,8 +43,14 @@
 		<Replace Tag="LOC_UNIT_AMERICAN_ROUGH_RIDER_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>American unique Industrial era unit that replaces Cuirassier when Teddy Roosevelt is their leader. Combat victories on their [ICON_Capital] Capital's continent provide [ICON_Culture] Culture equal to 25% of the [ICON_Strength] Combat Strength of the defeated unit (on Online speed). +5 [ICON_Strength] Combat Strength when fighting on Hills. Lower maintenance cost.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_ROUGH_RIDER_DESCRIPTION" Language="en_US">
+			<Text>When defeating an enemy unit on your [ICON_Capital] Capital's continent, gain [ICON_Culture] Culture equal to 25% that unit's base [ICON_Strength] Combat Strength (on Online Speed).[NEWLINE][ICON_Bullet] +5 [ICON_Strength] Combat Strength when fighting on Hills.</Text>
+		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_FILM_STUDIO_DESCRIPTION" Language="en_US">
+			<Text>A building unique to America. +50% [ICON_Tourism] Tourism pressure from this city towards other civilizations who reached the Modern era.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_FILM_STUDIO_EXPANSION1_DESCRIPTION" Language="en_US">
 			<Text>A building unique to America. +50% [ICON_Tourism] Tourism pressure from this city towards other civilizations who reached the Modern era.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_FILM_STUDIO_EXPANSION2_DESCRIPTION" Language="en_US">
@@ -72,7 +78,7 @@
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_OUTBACK_STATION_DESCRIPTION" Language="en_US">
-			<Text>Unlocks the Builder ability to construct an Outback Station, unique to Australia.[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production. +1 [ICON_Food] Food for each adjacent Pasture. Additional [ICON_FOOD] Food and [ICON_PRODUCTION] Production as you advance through the Technology and Civic Tree for adjacent Outback Stations and Pastures. Can only be built in Desert, Grassland and Plains tiles.</Text>
+			<Text>Unlocks the Builder ability to construct an Outback Station, unique to Australia.[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production. +1 Appeal to adjacent tiles. +1 [ICON_Food] Food for each adjacent Pasture. Additional [ICON_FOOD] Food and [ICON_PRODUCTION] Production as you advance through the Technology and Civic Tree for adjacent Outback Stations and Pastures. Can only be built in Desert, Grassland and Plains tiles.</Text>
 		</Replace>
 
 		<!-- == AZTECS == -->
@@ -81,6 +87,9 @@
 			<Text>Spend Builder charges to complete 30% of the original district cost. +50% [ICON_PRODUCTION] Production towards land melee units.</Text>
 		</Replace>
 		<!-- = unique building = -->
+		<Replace Tag="LOC_BUILDING_TLACHTLI_DESCRIPTION" Language="en_US">
+			<Text>A building unique to the Aztecs. Provides +1 [ICON_Amenities] Amenity and +1 [ICON_CULTURE] Culture to each City Center within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a City Center do not provide additional bonuses.[NEWLINE]+1 [ICON_GreatGeneral] Great General Point per turn.</Text>
+		</Replace>
 		<Replace Tag="LOC_BUILDING_TLACHTLI_XP1_DESCRIPTION" Language="en_US">
 			<Text>A building unique to the Aztecs. Provides +1 [ICON_Amenities] Amenity and +1 [ICON_CULTURE] Culture to each City Center within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a City Center do not provide additional bonuses.[NEWLINE]+1 [ICON_GreatGeneral] Great General Point per turn.</Text>
 		</Replace>
@@ -88,7 +97,14 @@
 		<!-- == BABYLON == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_BABYLON_DESCRIPTION" Language="en_US">
-			<Text>[ICON_TechBoosted] Eurekas provide 65% of the [ICON_SCIENCE] Science for technologies. Start the game with -50% [ICON_SCIENCE] Science per turn, but each tech completed will grant +1% extra science.[NEWLINE]Can't receive Eureka boosts from Free Inquiry dedication.</Text>
+			<Text>[ICON_TechBoosted] Eurekas provide 65% of the [ICON_SCIENCE] Science for technologies. Start the game with -50% [ICON_SCIENCE] Science per turn, but each researched technology grants +1% extra [ICON_SCIENCE] Science. Cannot receive additional Eureka bonus from Free Inquiry Golden Age dedication.</Text>
+		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_HAMMURABI_DESCRIPTION" Language="en_US">
+			<Text>When each specialty district is constructed for the first time receive the lowest [ICON_PRODUCTION] Production cost building that can currently be constructed in that district.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_HAMMURABI_XP1_DESCRIPTION" Language="en_US">
+			<Text>When each specialty district type except the Government Plaza is constructed for the first time receive the lowest [ICON_PRODUCTION] Production cost building that can currently be constructed in that district.</Text>
 		</Replace>
 
 		<!-- == BRAZIL == -->
@@ -116,6 +132,15 @@
 		<Replace Tag="LOC_UNIT_BYZANTINE_TAGMA_DESCRIPTION" Language="en_US">
 			<Text>Basil II's unique Medieval era unit that replaces the Knight. Land units within 1 tile of the Tagma receive +2 [ICON_Strength] Combat Strength or [ICON_RELIGION] Religious Strength.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_TAGMA_DESCRIPTION" Language="en_US">
+			<Text>Land units within 1 tile of the Tagma receive +2 [ICON_Strength] Combat Strength or [ICON_RELIGION] Religious Strength.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_TAGMA_NONRELIGIOUS_COMBAT_DESCRIPTION" Language="en_US">
+			<Text>+2 [ICON_Strength] Combat Strength when within 1 tile of the Tagma.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_TAGMA_RELIGIOUS_COMBAT_DESCRIPTION" Language="en_US">
+			<Text>+2 [ICON_RELIGION] Religious Strength when within 1 tile of the Tagma.</Text>
+		</Replace>
 
 		<!-- == CANADA == -->
 		<!-- = leader ability = -->
@@ -136,15 +161,18 @@
 		<!-- == CHINA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_DYNASTIC_CYCLE_DESCRIPTION" Language="en_US">
-			<Text>[ICON_TechBoosted] Eurekas and [ICON_CivicBoosted] Inspirations provide 60% of civics and technologies instead of 50%. When completing a wonder receive a random [ICON_TechBoosted] Eureka and [ICON_CivicBoosted] Inspiration from the era of the wonder if available.</Text>
+			<Text>[ICON_TechBoosted] Eurekas and [ICON_CivicBoosted] Inspirations provide 60% of civics and technologies instead of 50%. When completing a wonder receive a random [ICON_TechBoosted] Eureka and [ICON_CivicBoosted] Inspiration from the era of the wonder if available.[NEWLINE]Builder receive an additional charge.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_DYNASTIC_CYCLE_EXPANSION1_DESCRIPTION" Language="en_US">
-			<Text>[ICON_TechBoosted] Eurekas and [ICON_CivicBoosted] Inspirations provide 50% of civics and technologies instead of 40%. When completing a wonder receive a random [ICON_TechBoosted] Eureka and [ICON_CivicBoosted] Inspiration from the era of the wonder if available.</Text>
+			<Text>[ICON_TechBoosted] Eurekas and [ICON_CivicBoosted] Inspirations provide 50% of technologies and civics instead of 40%. When completing a wonder receive a random [ICON_TechBoosted] Eureka and [ICON_CivicBoosted] Inspiration from the era of the wonder if available.[NEWLINE]Builder receive an additional charge.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_DYNASTIC_CYCLE_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>[ICON_TechBoosted] Eurekas and [ICON_CivicBoosted] Inspirations provide 50% of civics and technologies instead of 40%. When completing a wonder receive a random [ICON_TechBoosted] Eureka and [ICON_CivicBoosted] Inspiration from the era of the wonder if available.[NEWLINE]Builder receive an additional charge.</Text>
 		</Replace>
 		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_FIRST_EMPEROR_DESCRIPTION" Language="en_US">
+			<Text>When building Ancient and Classical wonders you may spend Builder charges to complete 15% of the original wonder cost.</Text>
+		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_FIRST_EMPEROR_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>When building Ancient and Classical wonders you may spend Builder charges to complete 15% of the original wonder cost.[NEWLINE]Canals are unlocked with the Masonry technology.</Text>
 		</Replace>
@@ -188,6 +216,10 @@
 		<Replace Tag="LOC_ABILITY_LLANERO_ADJACENCY_STRENGTH_DESCRIPTION" Language="en_US">
 			<Text>+2 [ICON_Strength] Combat Strength from each adjacent Llanero unit.</Text>
 		</Replace>
+		<!-- = unique unit (Great Person - Comandante) = -->
+		<Replace Tag="LOC_GREATPERSON_COMANDANTE_STRENGTH_AOE_LAND" Language="en_US">
+			<Text>+5 [ICON_Strength] Combat Strength and +1 [ICON_Movement] Movement to all land military units within 2 tiles.</Text>
+		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_HACIENDA_DESCRIPTION" Language="en_US">
 			<Text>Unlocks the Builder ability to construct a Hacienda, unique to Gran Colombia.[NEWLINE][NEWLINE]+2 [ICON_GOLD] Gold, +1 [ICON_PRODUCTION] Production, and +0.5 [Icon_Housing] Housing. +1 [ICON_Food] Food for every two adjacent Plantations (increased to every Plantation with Replaceable Parts). Plantations and Haciendas receive +1 [ICON_Production] Production for every two adjacent Haciendas (increased to every Hacienda with Rapid Deployment). Can only be built on Plains and Grassland.</Text>
@@ -227,7 +259,13 @@
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="en_US">
-			<Text>Egyptian unique Ancient era ranged unit. 4 [ICON_Movement] Movement when starting in open terrain.</Text>
+			<Text>Egyptian unique Ancient era ranged cavalry unit. 4 [ICON_Movement] Movement when starting in open terrain.</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>Egyptian unique Ancient era ranged cavalry unit. 4 [ICON_Movement] Movement when starting in open terrain.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_LIGHT_CHARIOT_DESCRIPTION" Language="en_US">
+			<Text>+2 [ICON_Movement] Movement if starting in open terrain.</Text>
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_SPHINX_DESCRIPTION" Language="en_US">
@@ -283,7 +321,7 @@
 			<Text>Ethiopian unique Medieval era light cavalry unit. Stronger and greater sight than the Courser that it replaces. Receives no [ICON_Movement] Movement penalty from movement in Hills and gains +4 [ICON_STRENGTH] Combat Strength when fighting in Hills.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_ETHIOPIAN_OROMO_CAVALRY_DESCRIPTION" Language="en_US">
-			<Text>Receives no movement penalty from movement in Hills and gains +4 [ICON_STRENGTH] Combat Strength when fighting in Hills.</Text>
+			<Text>Receives no movement penalty from movement in Hills.[NEWLINE][ICON_Bullet] +4 [ICON_STRENGTH] Combat Strength when fighting in Hills.</Text>
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_ROCK_HEWN_CHURCH_EXPANSION2_DESCRIPTION" Language="en_US">
@@ -310,6 +348,9 @@
 		<Replace Tag="LOC_UNIT_FRENCH_GARDE_IMPERIALE_DESCRIPTION" Language="en_US">
 			<Text>French unique Industrial era melee unit that replaces the Line Infantry. +5 [ICON_Strength] Combat Strength when fighting on your capital's continent. +10 [ICON_GREATGENERAL] Great General points when killing an enemy unit.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_GARDE_DESCRIPTION" Language="en_US">
+			<Text>+5 [ICON_Strength] Combat Strength when on the same continent as the [ICON_Capital] Capital.[NEWLINE][ICON_Bullet] +10 [ICON_GreatGeneral] Great General points for kills.</Text>
+		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_CHATEAU_DESCRIPTION" Language="en_US">
 			<Text>Unlocks the Builder ability to construct a Chateau, unique to France.[NEWLINE][NEWLINE]+2 [ICON_Culture] Culture, +1 [ICON_Gold] Gold, +1 [ICON_Food], +1 [ICON_HOUSING] Housing and +1 Appeal. +1 [ICON_Culture] Culture for each adjacent wonder, up to +2 [ICON_Culture] after researching Flight. +2 [ICON_Gold] Gold if built next to River. +1 [ICON_Culture] Culture and +1 [ICON_Gold] Gold for each adjacent Luxury resource. Provides [ICON_TOURISM] Tourism after researching Flight. Can't be built adjacent to another Chateau.</Text>
@@ -334,12 +375,23 @@
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="en_US">
 			<Text>Receive +1 [ICON_Strength] Combat Strength for each adjacent unit (King of the Eburones)</Text>
 		</Replace>
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_ABILITY_GAESATAE_DESCRIPTION" Language="en_US">
+			<Text>+10 [ICON_Strength] Combat Strength against units with a higher base Combat Strength.[NEWLINE][ICON_Bullet] +5 [ICON_Strength] Combat Strength vs. district defenses.</Text>
+		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="en_US">
 			<Text>A district unique to Gaul that is cheaper and available earlier than the district it replaces, the Industrial Zone. The Oppidum district is defensible with a ranged attack.[NEWLINE][NEWLINE]+2 [ICON_Production] Production adjacency bonus from Quarries and strategic resources.</Text>
 		</Replace>
 
 		<!-- == GEORGIA == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_GOLDEN_AGE_QUESTS_DESCRIPTION" Language="en_US">
+			<Text>When making Dedications at the beginning of a Golden Age or Heroic Age, receive the Normal Age bonus towards improving Era Score in addition to the other bonus. +50% [ICON_Production] Production towards walls.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_GOLDEN_AGE_QUESTS_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>When making Dedications at the beginning of a Golden Age or Heroic Age, receive the Normal Age bonus towards improving Era Score in addition to the other bonus. +50% [ICON_Production] Production towards walls.</Text>
+		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RELIGION_CITY_STATES_DESCRIPTION" Language="en_US">
 			<Text>Killing a unit provides [ICON_FAITH] Faith equal to 50% of the defeated unit's base [ICON_STRENGTH] Combat Strength (on Online speed). Each [ICON_ENVOY] Envoy you send to a City-state of your majority Religion counts as two [ICON_ENVOY] Envoys (must have a majority Religion). Give +1 [ICON_FAITH] per Envoy in a City-state.</Text>
@@ -384,6 +436,9 @@
 		<Replace Tag="LOC_UNIT_GREEK_HOPLITE_DESCRIPTION" Language="en_US">
 			<Text>Greek unique Ancient era anti-cavalry unit that replaces the Spearman. +7 [ICON_Strength] Combat Strength if there is at least one adjacent Hoplite unit.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_HOPLITE_DESCRIPTION" Language="en_US">
+			<Text>+7 [ICON_Strength] Combat Strength if there is at least one Hoplite adjacent.</Text>
+		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_ACROPOLIS_DESCRIPTION" Language="en_US">
 			<Text>A district unique to Greece for cultural sites. Replaces the Theater Square district and cheaper to build.[NEWLINE][NEWLINE]+1 [ICON_Culture] Culture bonus for each adjacent district. Additional +1 [ICON_Culture] Culture bonus for adjacent City Center, +2 [ICON_Culture] Culture bonus for each adjacent wonder. Can only be built on Hills.</Text>
@@ -405,11 +460,17 @@
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_HUNGARY_BLACK_ARMY_DESCRIPTION" Language="en_US">
-			<Text>Hungarian unique Medieval Era unit that replaces the Courser. +2 [ICON_Strength] Combat Strength for each adjacent Levied unit.</Text>
+			<Text>Hungarian unique Medieval Era unit that replaces the Courser. +2 [ICON_Strength] Combat Strength from each adjacent Levied unit.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_BLACK_ARMY_DESCRIPTION" Language="en_US">
+			<Text>+2 [ICON_Strength] Combat Strength from each adjacent Levied unit.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_HUNGARY_HUSZAR_DESCRIPTION" Language="en_US">
-			<Text>Hungarian unique Industrial era unit that replaces Cavalry. +2 [ICON_Strength] Combat Strength for every City-state of which you are suzerain.</Text>
+			<Text>Hungarian unique Industrial era unit that replaces Cavalry. +2 [ICON_Strength] Combat Strength from every City-state of which you are suzerain.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_HUSZAR_DESCRIPTION" Language="en_US">
+			<Text>+2 [ICON_Strength] Combat Strength from every City-state of which you are suzerain.</Text>
 		</Replace>
 		
 		<!-- == INCA == -->
@@ -469,10 +530,6 @@
 		<Row Tag="LOC_BBG_HOLY_SITE_RIVER_FOOD_ADJACENCY" Language="en_US">
 			<Text>+2 [ICON_FOOD] Food from the adjacent River.</Text>
 		</Row>
-		<!-- = unique unit = -->
-		<Replace Tag="LOC_UNIT_KHMER_DOMREY_DESCRIPTION" Language="en_US">
-			<Text>Khmer unique Classical Era Siege unit that replaces the Catapult and is stronger than the Catapult, both offensively and defensively. Domreys can shoot in the same turn that they move and also exert zone of control.</Text>
-		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_PRASAT_DESCRIPTION" Language="en_US">
 			<Text>A building unique to Khmer that replace the Temple. Grants a free Missionary when built (if a Religion has been founded). Required to purchase Apostles and Inquisitors with [ICON_Faith] Faith.</Text>
@@ -492,6 +549,9 @@
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_KONGO_SHIELD_BEARER_DESCRIPTION" Language="en_US">
 			<Text>Kongo unique Classical era unit that replaces the Swordsman. +1 [ICON_Movement] Movement, +10 [ICON_Strength] Combat Strength when defending against ranged attacks. Can see through Woods and Rainforests.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_NAGAO_DESCRIPTION" Language="en_US">
+			<Text>+10 [ICON_Strength] Combat Strength when defending against ranged units.[NEWLINE][ICON_Bullet] Can see through Woods and Rainforests.</Text>
 		</Replace>
 
 		<!-- == KOREA == -->
@@ -536,7 +596,7 @@
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="en_US">
-			<Text>Macedonian unique melee unit that replaces the Swordsman. +10 [ICON_Strength] Combat Strength when besieging districts. 50% Additional Support Bonus.</Text>
+			<Text>Macedonian unique melee unit that replaces the Swordsman. +10 [ICON_Strength] Combat Strength when besieging districts. Receives +50% Additional Support Bonus.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_HYPASPIST_DESCRIPTION" Language="en_US">
 			<Text>+10 [ICON_Strength] Combat Strength when besieging districts.[NEWLINE][ICON_Bullet] +50% Support Bonus.</Text>
@@ -548,6 +608,13 @@
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="en_US">
 			<Text>Macedonian unique heavy cavalry unit. Additional +5 [ICON_Strength] Combat Strength when adjacent to a [ICON_GREATGENERAL] Great General from any era. +5 [ICON_GREATGENERAL] Great General points when killing an enemy unit. Starts with 1 free Promotion.</Text>
 		</Replace>
+		<!-- = unique building = -->
+		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_DESCRIPTION" Language="en_US">
+			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 25% of the unit's cost when a non-civilian unit is created in this city.[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 25% of the unit's cost when a non-civilian unit is created in this city.[NEWLINE][NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard Speed).[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.</Text>
+		</Replace>
 
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
@@ -557,6 +624,12 @@
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="en_US">
 			<Text>Mali unique Medieval Era unit that replaces the Knight. Trader units are immune to being plundered if they are within 4 tiles of a Mandekalu Cavalry and on a land tile. Combat victories provide [ICON_GOLD] Gold equal to 50% of that unit's base [ICON_Strength] Combat Strength (on Online speed).</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_MANDEKALU_DESCRIPTION" Language="en_US">
+			<Text>Protects nearby land Trade units from Plunder.[NEWLINE][ICON_Bullet] Gain [ICON_GOLD] Gold equal to 50% that unit's base [ICON_Strength] Combat Strength (on Online speed).</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_MANDEKALU_PROTECT_TRADER_DESCRIPTION" Language="en_US">
+			<Text>This Mandekalu Cavalry protects nearby Trade units from being plundered on land tiles.[NEWLINE][ICON_Bullet] Gain [ICON_GOLD] Gold equal to 50% that unit's base [ICON_Strength] Combat Strength (on Online speed).</Text>
 		</Replace>
 
 		<!-- == MAORI == -->
@@ -585,11 +658,14 @@
 		<Replace Tag="LOC_UNIT_MAPUCHE_MALON_RAIDER_DESCRIPTION" Language="en_US">
 			<Text>Mapuche unique Medieval Era unit that replaces the Courser. +1 [ICON_Movement] Movement. Starts with 1 free Promotion.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_MAPUCHE_MALON_RAIDER_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_Movement] Movement.</Text>
+		</Replace>
 
 		<!-- == MAYA == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="en_US">
-			<Text>Non capital cities within 6 tiles of the [ICON_Capital] Capital gain +10% to all yields. Other non-capital cities receive -15% to all yields. +3 [ICON_Strength] Combat Strength to units within 6 tiles of the [ICON_Capital] Capital.</Text>
+			<Text>Non-capital cities within 6 tiles of the [ICON_Capital] Capital gain +10% to all yields. Other non-capital cities receive -15% to all yields. +3 [ICON_Strength] Combat Strength to units within 6 tiles of the [ICON_Capital] Capital.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL_DESCRIPTION" Language="en_US">
 			<Text>+3 [ICON_Strength] Combat Strength to units within 6 tiles of the [ICON_Capital] Capital</Text>
@@ -624,7 +700,7 @@
 			<Text>Norwegian unique Medieval era unit. +2 [ICON_Movement] Movement if this unit starts in enemy territory or is embarked. +10 [ICON_Strength] Combat Strength when attacking. Can be purchased with [ICON_FAITH] Faith.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_BERSERKER_RAGE_DESCRIPTION" Language="en_US">
-			<Text>+15 [ICON_Strength] Combat Strength when attacking.</Text>
+			<Text>+10 [ICON_Strength] Combat Strength when attacking.</Text>
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_STAVE_CHURCH_DESCRIPTION" Language="en_US">
@@ -693,7 +769,7 @@
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_PORTUGUESE_NAU_DESCRIPTION" Language="en_US">
-			<Text>Portuguese unique naval melee unit that replaces the Caravel. Starts with 1 free Promotion and is less maintenance. Has one charge to build a Feitoria.</Text>
+			<Text>Portuguese unique naval melee unit that replaces the Caravel. Starts with 1 free Promotion and is less maintenance. Has 1 charge to build a Feitoria.</Text>
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_FEITORIA_DESCRIPTION" Language="en_US">
@@ -759,21 +835,24 @@
 		<!-- == SPAIN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_DESCRIPTION" Language="en_US">
-			<Text>May form Fleets and Armadas earlier than usual (Mercenaries and Mercantilism). Can create fleet and armada faster in cities with a shipyard.[NEWLINE][NEWLINE][ICON_TradeRoute] Trade Routes receive +3 [ICON_Gold] Gold, +2 [ICON_Faith] Faith, and +1 [ICON_Production] Production. [ICON_TradeRoute] Trade Routes between multiple continents receive double these numbers. Cities at least 10 tiles away from [ICON_CAPITAL] Capital receive +25% [ICON_Production] Production towards districts.</Text>
+			<Text>May form Fleets and Armadas earlier than usual (Mercenaries and Mercantilism). Can create fleet and armada faster in cities with a shipyard.[NEWLINE][NEWLINE][ICON_TradeRoute] Trade Routes receive +3 [ICON_Gold] Gold, +2 [ICON_Faith] Faith, and +1 [ICON_Production] Production. [ICON_TradeRoute] Trade Routes between multiple continents receive double these numbers. Cities at least 8 tiles away from [ICON_CAPITAL] Capital receive +25% [ICON_Production] Production towards districts.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>May form Fleets and Armadas earlier than usual (Mercenaries and Mercantilism). Can create fleet and armada faster in cities with a shipyard.[NEWLINE][NEWLINE][ICON_TradeRoute] Trade Routes receive +3 [ICON_Gold] Gold, +2 [ICON_Faith] Faith, and +1 [ICON_Production] Production. [ICON_TradeRoute] Trade Routes between multiple continents receive double these numbers. Cities at least 10 tiles away from [ICON_CAPITAL] Capital receive +25% [ICON_Production] Production towards districts.</Text>
+			<Text>May form Fleets and Armadas earlier than usual (Mercenaries and Mercantilism). Can create fleet and armada faster in cities with a shipyard.[NEWLINE][NEWLINE][ICON_TradeRoute] Trade Routes receive +3 [ICON_Gold] Gold, +2 [ICON_Faith] Faith, and +1 [ICON_Production] Production. [ICON_TradeRoute] Trade Routes between multiple continents receive double these numbers. Cities at least 8 tiles away from [ICON_CAPITAL] Capital receive +25% [ICON_Production] Production towards districts.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SPANISH_CONQUISTADOR_DESCRIPTION" Language="en_US">
 			<Text>Spanish unique Renaissance era unit that replaces the Musketman. +5 [ICON_Strength] Combat Strength when there is a religious unit in the same hex. If this unit captures a city or is adjacent to a city when it is captured, the city will automatically adopt the Conquistador player's majority religion.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_CONQUISTADOR_DESCRIPTION" Language="en_US">
+			<Text>+5 [ICON_Strength] Combat Strength when there is a religious unit within one hex.[NEWLINE][ICON_Bullet] If this unit captures a city or is adjacent to a city when it's captured, the city will automatically convert to the Conquistador player's majority Religion.</Text>
+		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_MISSION_DESCRIPTION" Language="en_US">
-			<Text>Unlocks the Builder ability to construct a Mission, unique to Spain.[NEWLINE][NEWLINE]+2 [ICON_Faith] Faith. +1 [ICON_Faith] Faith if built at least 10 tiles away from [ICON_CAPITAL] Capital, otherwise +1 [ICON_HOUSING] Housing.[NEWLINE][NEWLINE]+2 [ICON_Science] Science if built next to a Campus district. +2 Science at The Enlightenment. Cannot be built next to another Mission.</Text>
+			<Text>Unlocks the Builder ability to construct a Mission, unique to Spain.[NEWLINE][NEWLINE]+2 [ICON_Faith] Faith. +1 [ICON_Faith] Faith if built at least 8 tiles away from [ICON_CAPITAL] Capital, otherwise +1 [ICON_HOUSING] Housing.[NEWLINE][NEWLINE]+2 [ICON_Science] Science if built next to a Campus district. +2 Science at The Enlightenment. Cannot be built next to another Mission.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_MISSION_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Unlocks the Builder ability to construct a Mission, unique to Spain.[NEWLINE][NEWLINE]+2 [ICON_Faith] Faith. +1 [ICON_Faith] Faith and +1 [ICON_PRODUCTION] Production if built at least 10 tiles away from [ICON_CAPITAL] Capital, otherwise +1 [ICON_HOUSING] Housing.[NEWLINE][NEWLINE]+1 [ICON_Science] Science for every adjacent Campus and Holy Site district. +2 Science at The Enlightenment. Cannot be built next to another Mission.</Text>
+			<Text>Unlocks the Builder ability to construct a Mission, unique to Spain.[NEWLINE][NEWLINE]+2 [ICON_Faith] Faith. +1 [ICON_Faith] Faith and +1 [ICON_PRODUCTION] Production if built at least 8 tiles away from [ICON_CAPITAL] Capital, otherwise +1 [ICON_HOUSING] Housing.[NEWLINE][NEWLINE]+1 [ICON_Science] Science for every adjacent Campus and Holy Site district. +2 Science at The Enlightenment. Cannot be built next to another Mission.</Text>
 		</Replace>
 
 		<!-- == SUMERIA == -->
@@ -813,8 +892,11 @@
 			<Text>As the first civilization in recorded history, Sumeria shines right out of the gate. Their War Carts and Ziggurats are buildable from the very first turn, and growth should be strong with The Cradle of Civilization ability. Gilgamesh will build War Carts and get out hunting Barbarian Camps early, so he can take advantage of his Shūtur eli sharrī ability ("Surpassing All Kings"). He will also scatter the edges of nearby Rivers with Ziggurats to push forward early in [ICON_Science] Science, [ICON_Culture] Culture and even [ICON_Faith] Faith with a good city planning.</Text>
 		</Replace>
 		<!-- = unique unit = -->
+		<Replace Tag="LOC_UNIT_SUMERIAN_WAR_CART_DESCRIPTION" Language="en_US">
+			<Text>Sumerian unique Ancient era unit. No penalties against anti-cavalry units. 4 [ICON_Movement] Movement if this unit starts in open terrain. +4 [ICON_Strength] Unit Combat Strength when fighting Barbarians.</Text>
+		</Replace>
 		<Replace Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_DESCRIPTION_BBG" Language="en_US">
-			<Text>+4 [ICON_Strength] Unit Combat Strength when fighting Barbarians.</Text>
+			<Text>+4 [ICON_Strength] Unit Combat Strength when fighting Barbarians.[NEWLINE][ICON_Bullet] No penalties against anti-cavalry units.</Text>
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_ZIGGURAT_DESCRIPTION" Language="en_US">
@@ -1077,10 +1159,10 @@
 			<Text>+3 [ICON_FAITH] Faith from Geothermal Fissures and Volcanic Soil.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_INITIATION_RITES_DESCRIPTION" Language="en_US">
-			<Text>Receive 35% of a military land unit's production value in [ICON_FAITH] Faith when produced.[NEWLINE]Your capital receive 1 warrior.</Text>
+			<Text>When chosen receive a Warrior in your [ICON_Capital] Capital. Receive 35% of a non-military land unit's production value in [ICON_FAITH] Faith when produced.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_INITIATION_RITES_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Receive 35% of a military land unit's production value in [ICON_FAITH] Faith when produced.[NEWLINE]Your capital receive 1 warrior.</Text>
+			<Text>When chosen receive a Warrior in your [ICON_Capital] Capital. Receive 35% of a non-military land unit's production value in [ICON_FAITH] Faith when produced.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_LADY_OF_THE_REEDS_AND_MARSHES_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_Production] Production from Marsh, Oasis, and Floodplains.</Text>
@@ -1424,13 +1506,16 @@
 
 		<!-- === AGES === -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_MILITARY_BONUS_GOLDEN_AGE" Language="en_US">
-			<Text>To Arms! Golden Age:[NEWLINE]Unlock a special Casus Belli which gives 75% less warmonger penalties than Formal War and can be used immediately after Denouncing the target. +15% [ICON_Production] Production towards military units and military units gain +10 [ICON_Strength] against cities.</Text>
+			<Text>To Arms! Golden Age:[NEWLINE]Unlock a special Casus Belli which gives 75% less warmonger penalties than Formal War and can be used immediately after Denouncing the target. +15% [ICON_Production] Production towards military units. All military units gain +10 [ICON_Strength] against cities.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_9" Language="en_US">
-			<Text>To Arms!: Gain +1 Era Score each time you kill a non-Barbarian Corps in combat and +2 Era Score each time you kill a non-Barbarian Army in combat. If chosen at the start of a Golden Age, unlocks a special Casus Belli which gives 75% less warmonger penalties than formal war and can be used immediately after Denouncing the target. +15% [ICON_Production] Production towards military units and military units gain +10 [ICON_Strength] against cities. Industrial through Atomic Era.</Text>
+			<Text>To Arms!: Gain +1 Era Score each time you kill a non-barbarian Corps in combat and +2 Era Score each time you kill a non-barbarian Army in combat. If chosen at the start of a Golden Age, unlocks a special Casus Belli which gives 75% less warmonger penalties than formal war and can be used immediately after Denouncing the target. +15% [ICON_Production] Production towards military units and military units gain +10 [ICON_Strength] against cities. Industrial through Atomic Era.</Text>
 		</Replace>
 		<Row Tag="LOC_MILITARY_GA_BUFF_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_STRENGTH] against defensible districts.</Text>
+			<Text>+10 [ICON_STRENGTH] against defensible districts (To Arms! Golden Age dedication).</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_MILITARY_GA_BUFF_DESCRIPTION" Language="en_US">
+			<Text>+10 [ICON_STRENGTH] against defensible districts (To Arms! Golden Age dedication).</Text>
 		</Row>
 		<Replace Tag="LOC_MOMENT_CATEGORY_INFRASTRUCTURE_BONUS_GOLDEN_AGE" Language="en_US">
 			<Text>Monumentality Golden Age:[NEWLINE]+2 [ICON_Movement] Movement for all Builders. May purchase civilian units with [ICON_Faith] Faith. Builders and Settlers are 10% cheaper to purchase with [ICON_FAITH] Faith and [ICON_GOLD] Gold.</Text>
@@ -1442,7 +1527,7 @@
 			<Text>Hic Sunt Dracones Golden Age:[NEWLINE]+3 starting [ICON_Citizen] Population for newly settled cities. +2 [ICON_Movement] Movement for naval and embarked units. +2 Loyalty per turn for cities not on your original [ICON_Capital] Capital's continent.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_6" Language="en_US">
-			<Text>Hic Sunt Dracones: Gain +3 Era Score each time you discover a new Continent or natural wonder. Gain +1 Era Score each time you kill a non-Barbarian naval unit in combat. If chosen at the start of a Golden Age, +3 starting [ICON_Citizen] Population for newly settled cities. +2 [ICON_Movement] Movement for naval and embarked units. +2 Loyalty per turn for cities not on your original [ICON_Capital] Capital's continent. Renaissance through Modern Era.</Text>
+			<Text>Hic Sunt Dracones: Gain +3 Era Score each time you discover a new Continent or natural wonder. Gain +1 Era Score each time you kill a non-barbarian naval unit in combat. If chosen at the start of a Golden Age, +3 starting [ICON_Citizen] Population for newly settled cities. +2 [ICON_Movement] Movement for naval and embarked units. +2 Loyalty per turn for cities not on your original [ICON_Capital] Capital's continent. Renaissance through Modern Era.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_CULTURAL_BONUS_GOLDEN_AGE" Language="en_US">
 			<Text>Pen, Brush, and Voice Golden Age:[NEWLINE][ICON_CivicBoosted] Inspirations provide an additional 10% of civic costs. Each city receives +2 [ICON_Culture] Culture and +1 [ICON_Gold] Gold for each specialty district.</Text>
@@ -1576,7 +1661,7 @@
 		</Replace>
 		<!-- Ana Nzinga - no text fixes -->
 		<Replace Tag="LOC_GREATPERSON_JOAN_OF_ARC_ACTIVE" Language="en_US">
-			<Text>Creates 2 [ICON_GreatWork_Relic] Relics. If you have no slot for second Relic, it will be lost.</Text>
+			<Text>Creates 1 [ICON_GreatWork_Relic] Relic. Has 2 charges.</Text>
 		</Replace>
 		<Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE" Language="en_US">
 			<Text>Creates the most advanced Support unit you can build in your nearest city.</Text>
@@ -1658,6 +1743,16 @@
 		<Replace Tag="LOC_ABILITY_FASCISM_ATTACK_BUFF_DESCRIPTION" Language="en_US">
 			<Text>+5 [ICON_Strength] Combat Strength from the Fascism government.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_HEAVY_CHARIOT_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_Movement] Movement if starting in open terrain.</Text>
+		</Replace>
+
+
+
+		<!-- === SPLASH TEXT === -->
+		<Row Tag="LOC_BBG_METOR_GOODIES_FREE_TECH_DESC" Language="en_US">
+			<Text>[COLOR_FLOAT_SCIENCE]2 Technology boosts from Meteor Site![ENDCOLOR]</Text>
+		</Row>
 
 		
 		

@@ -84,6 +84,7 @@ UPDATE ModifierArguments SET Value='50' WHERE ModifierId='FILMSTUDIO_ENHANCEDLAT
 
 -- Rough Rider ability to +5 (from +10)
 UPDATE ModifierArguments SET Value='5' WHERE ModifierId='ROUGH_RIDER_BONUS_ON_HILLS' AND Name='Amount';
+UPDATE Units SET Combat=64 WHERE UnitType='UNIT_AMERICAN_ROUGH_RIDER';
 
 --==================
 -- Arabia
