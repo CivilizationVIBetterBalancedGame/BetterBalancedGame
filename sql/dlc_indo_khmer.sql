@@ -43,3 +43,10 @@ INSERT INTO Improvement_Adjacencies(ImprovementType, YieldChangeId) VALUES
 --==============================================================
 UPDATE StartBiasTerrains SET Tier=1 WHERE CivilizationType='CIVILIZATION_INDONESIA' AND TerrainType='TERRAIN_COAST';
 UPDATE StartBiasRivers SET Tier=3 WHERE CivilizationType='CIVILIZATION_KHMER';
+
+--==============================================================
+--******                RELIGION                          ******
+--==============================================================
+-- Monks: Relax Requirement to Shrine
+DELETE FROM Unit_BuildingPrereqs
+    WHERE Unit = 'UNIT_WARRIOR_MONK' AND PrereqBuilding = 'BUILDING_PRASAT';

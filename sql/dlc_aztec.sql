@@ -35,3 +35,16 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
 	('HUEY_LAKE_CULTURE', 'ModifierId', 'HUEY_LAKE_CULTURE_MODIFIER'),
 	('HUEY_LAKE_CULTURE_MODIFIER', 'Amount', '2'),
 	('HUEY_LAKE_CULTURE_MODIFIER', 'YieldType', 'YIELD_CULTURE');
+
+-- 17/08/2022: fix bug where bonus is not working on gdr
+DELETE FROM TypeTags WHERE Type='ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY';
+
+INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
+	('ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY' ,'CLASS_ALL_COMBAT_UNITS');
+
+--==============================================================
+--******                RELIGION                          ******
+--==============================================================
+-- Monks: Aztek CS
+INSERT INTO TypeTags(Type, Tag) VALUES
+	('ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY', 'CLASS_WARRIOR_MONK');

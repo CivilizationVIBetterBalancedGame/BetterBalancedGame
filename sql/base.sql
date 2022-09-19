@@ -84,6 +84,7 @@ UPDATE ModifierArguments SET Value='50' WHERE ModifierId='FILMSTUDIO_ENHANCEDLAT
 
 -- Rough Rider ability to +5 (from +10)
 UPDATE ModifierArguments SET Value='5' WHERE ModifierId='ROUGH_RIDER_BONUS_ON_HILLS' AND Name='Amount';
+UPDATE Units SET Combat=64 WHERE UnitType='UNIT_AMERICAN_ROUGH_RIDER';
 
 --==================
 -- Arabia
@@ -280,8 +281,7 @@ INSERT OR IGNORE INTO Improvement_Adjacencies (ImprovementType , YieldChangeId) 
 INSERT OR IGNORE INTO Adjacency_YieldChanges (ID , Description , YieldType , YieldChange , TilesRequired , AdjacentResourceClass) VALUES
 	('BBG_Chateau_Luxury_Gold' , 'Placeholder' , 'YIELD_GOLD' , '1' , '1' , 'RESOURCECLASS_LUXURY'),
 	('BBG_Chateau_Luxury_Culture' , 'Placeholder' , 'YIELD_CULTURE' , '1' , '1' , 'RESOURCECLASS_LUXURY');
-UPDATE Improvements SET Housing='1', PreReqCivic='CIVIC_FEUDALISM', RequiresAdjacentBonusOrLuxury = 0, RequiresRiver = 0, SameAdjacentValid = 0 WHERE ImprovementType='IMPROVEMENT_CHATEAU';
--- Garde imperial to +5 on continent (from +10)
+UPDATE Improvements SET Housing=2, TilesRequired=2, PreReqCivic='CIVIC_FEUDALISM', RequiresAdjacentBonusOrLuxury=0, RequiresRiver=0, SameAdjacentValid=0 WHERE ImprovementType='IMPROVEMENT_CHATEAU';-- Garde imperial to +5 on continent (from +10)
 UPDATE ModifierArguments SET Value='5' WHERE ModifierId='GARDE_CONTINENT_COMBAT' AND Name='Amount';
 
 --==================
@@ -688,6 +688,11 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 	VALUES ('SCYTHIA_FAITH_PURCHASE_RCAVALRY_CPLMOD' , 'Tag' , 'CLASS_RANGED_CAVALRY'); 
 
+-- 17/08/2022: fix bug where bonus is not working on gdr
+DELETE FROM TypeTags WHERE Type='ABILITY_TOMYRIS_BONUS_VS_WOUNDED_UNITS';
+
+INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
+	('ABILITY_TOMYRIS_BONUS_VS_WOUNDED_UNITS' ,'CLASS_ALL_COMBAT_UNITS');
 
 --==================
 -- Spain
@@ -884,20 +889,128 @@ INSERT OR IGNORE INTO RequirementArguments
 --==============================================================================================
 --******				R E L I G I O N					  ******
 --==============================================================================================
+-- Monks: Base Game BugFixes
+-- Monks: Added: Work with Rams/SeigeTowers, Removed: Wall Breaker 
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+	('BBG_ENABLE_WALL_ATTACK_MONK', 'MODIFIER_PLAYER_UNIT_ADJUST_ENABLE_WALL_ATTACK_PROMOTION_CLASS'),
+	('BBG_BYPASS_WALLS_MONK','MODIFIER_PLAYER_UNIT_ADJUST_BYPASS_WALLS_PROMOTION_CLASS');
 
--- give monks wall breaker ability
-INSERT OR IGNORE INTO Types (Type, Kind) VALUES
-	('WARRIOR_MONK_WALL_BREAKER_BBG', 'KIND_MODIFIER');
-INSERT OR IGNORE INTO TypeTags (Type, Tag) VALUES
-	('WARRIOR_MONK_WALL_BREAKER_BBG', 'CLASS_WARRIOR_MONK');
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType) VALUES
-	('ENABLE_WALL_ATTACK_WHOLE_GAME_MONK_BBG', 'MODIFIER_PLAYER_UNITS_ADJUST_ENABLE_WALL_ATTACK_WHOLE_GAME_PROMOTION_CLASS');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
-	('ENABLE_WALL_ATTACK_WHOLE_GAME_MONK_BBG', 'PromotionClass', 'PROMOTION_CLASS_MONK');
-INSERT OR IGNORE INTO UnitAbilities (UnitAbilityType) VALUES
-	('WARRIOR_MONK_WALL_BREAKER_BBG');
-INSERT OR IGNORE INTO UnitAbilityModifiers (UnitAbilityType, ModifierId) VALUES
-	('WARRIOR_MONK_WALL_BREAKER_BBG', 'ENABLE_WALL_ATTACK_WHOLE_GAME_MONK_BBG');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+	('BBG_ENABLE_WALL_ATTACK_MONK', 'PromotionClass', 'PROMOTION_CLASS_MONK'),
+	('BBG_BYPASS_WALLS_MONK', 'PromotionClass', 'PROMOTION_CLASS_MONK');
+
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+	('ABILITY_ENABLE_WALL_ATTACK_PROMOTION_CLASS','BBG_ENABLE_WALL_ATTACK_MONK'),
+	('ABILITY_BYPASS_WALLS_PROMOTION_CLASS','BBG_BYPASS_WALLS_MONK');
+-- Monks: Added Great General +5 CS/ +1 MS
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+	('BBG_REQUIRES_MONK', 'REQUIREMENT_UNIT_TAG_MATCHES');
+
+INSERT INTO RequirementArguments(RequirementId, Name , Value) VALUES
+	('BBG_REQUIRES_MONK', 'Tag', 'CLASS_WARRIOR_MONK');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+	('AOE_CLASSICAL_REQUIREMENTS', 'BBG_REQUIRES_MONK'),
+	('AOE_MEDIEVAL_REQUIREMENTS', 'BBG_REQUIRES_MONK'),
+	('AOE_RENAISSANCE_REQUIREMENTS', 'BBG_REQUIRES_MONK'),
+	('AOE_INDUSTRIAL_REQUIREMENTS', 'BBG_REQUIRES_MONK'),
+	('AOE_MODERN_REQUIREMENTS', 'BBG_REQUIRES_MONK'),
+	('AOE_ATOMIC_REQUIREMENTS', 'BBG_REQUIRES_MONK'),
+	('AOE_INFORMATION_REQUIREMENTS', 'BBG_REQUIRES_MONK');
+
+-- Monks: Added Abilities from General Retire
+INSERT INTO TypeTags(Type, Tag) VALUES
+	('ABILITY_GEORGY_ZHUKOV_FLANKING_BONUS', 'CLASS_WARRIOR_MONK'),
+	('ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE', 'CLASS_WARRIOR_MONK'),
+	('ABILITY_JOHN_MONASH_BONUS_EXPERIENCE','CLASS_WARRIOR_MONK'),
+	('ABILITY_TIMUR_BONUS_EXPERIENCE', 'CLASS_WARRIOR_MONK');
+
+--Monks: All civs CS/MS interractions:
+INSERT INTO TypeTags(Type, Tag) VALUES
+	('ABILITY_BARRACKS_TRAINED_UNIT_XP','CLASS_WARRIOR_MONK'),
+	('ABILITY_ARMORY_TRAINED_UNIT_XP', 'CLASS_WARRIOR_MONK'),
+	('ABILITY_MILITARY_ACADEMY_TRAINED_UNIT_XP','CLASS_WARRIOR_MONK'),
+	('ABILITY_GREAT_LIGHTHOUSE_EMBARKED_MOVEMENT', 'CLASS_WARRIOR_MONK'),
+	('ABILITY_COMMUNISM_DEFENSE_BUFF', 'CLASS_WARRIOR_MONK');
+
+-- Monks: Affected by Battlecry
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+	('BBG_OPPONENT_IS_MONK','REQUIREMENT_OPPONENT_UNIT_PROMOTION_CLASS_MATCHES');
+
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+	('BBG_OPPONENT_IS_MONK','UnitPromotionClass','PROMOTION_CLASS_MONK');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES 
+	('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_MONK');
+
+-- Monks: Civ Combat Bonus Interractions
+INSERT INTO TypeTags(Type, Tag) VALUES
+	('ABILITY_TOMYRIS_HEAL_AFTER_DEFEATING_UNIT', 'CLASS_WARRIOR_MONK'),
+	('ABILITY_TOMYRIS_BONUS_VS_WOUNDED_UNITS', 'CLASS_WARRIOR_MONK'),
+	('ABILITY_HOJO_TOKIMUNE_COASTAL_COMBAT_BONUS', 'CLASS_WARRIOR_MONK'),
+	('BBG_IGNORE_WOODS_ABILITY', 'CLASS_WARRIOR_MONK'),
+	('ABILITY_PHILIP_II_COMBAT_BONUS_OTHER_RELIGION', 'CLASS_WARRIOR_MONK');
+
+-- Monks: Rework
+-- Monks: Defines Scaling Combat Strength with Civics, Capped at the End of Industrial Civis
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+	('BBG_UNIT_IS_MONK_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+	('BBG_UNIT_IS_MONK_REQUIREMENTS', 'BBG_REQUIRES_MONK');
+
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) 
+	SELECT 'BBG_ABILITY_MODIFIER_MONKS_' || Civics.CivicType  , 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER', 'BBG_UNIT_IS_MONK_REQUIREMENTS'
+	FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
+
+INSERT INTO Modifiers(ModifierId, ModifierType)
+	SELECT 'BBG_MODIFIER_MONKS_CS_' || Civics.CivicType , 'MODIFIER_UNIT_ADJUST_BASE_COMBAT_STRENGTH'
+	FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+	SELECT 'BBG_MODIFIER_MONKS_CS_'|| Civics.CivicType , 'Amount', '1'
+	FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+	SELECT 'BBG_ABILITY_MODIFIER_MONKS_' || Civics.CivicType , 'ModifierId', 'BBG_MODIFIER_MONKS_CS_' || Civics.CivicType 
+	FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
+
+INSERT INTO CivicModifiers(CivicType, ModifierId)
+	SELECT Civics.CivicType, 'BBG_ABILITY_MODIFIER_MONKS_' || Civics.CivicType
+	FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
+
+--DELETE UNIQUE TEMPLES requirements
+DELETE FROM Unit_BuildingPrereqs
+	WHERE Unit = 'UNIT_WARRIOR_MONK' AND PrereqBuilding = 'BUILDING_STAVE_CHURCH';
+
+--Relax Requirement to SHRINE
+UPDATE Unit_BuildingPrereqs SET PrereqBuilding = 'BUILDING_SHRINE' WHERE Unit = 'UNIT_WARRIOR_MONK' AND PrereqBuilding = 'BUILDING_TEMPLE';
+
+--Reduce Base Cost and Strength, SET Scaling Cost to match closely non-unique units
+--with the same CS across eras up to Industrial, Monk then stops scaling and Cost doesn't justify the str.
+--Becomes Obsolete in Modern due to str/price. Still should kick ass in Industrial esp with tier II promo.
+--Around Shrines Religion Timing should be around sword in strength
+UPDATE Units SET Combat = '31' WHERE UnitType = 'UNIT_WARRIOR_MONK';
+UPDATE Units SET Cost = '60' WHERE UnitType = 'UNIT_WARRIOR_MONK';
+UPDATE Units SET CostProgressionModel = 'COST_PROGRESSION_GAME_PROGRESS' WHERE UnitType = 'UNIT_WARRIOR_MONK';
+UPDATE Units SET CostProgressionParam1 = '1000' WHERE UnitType = 'UNIT_WARRIOR_MONK';
+
+--Nerf Tier 2 promo Exploding Palms from +10 down to +5 to stay more in line with mele units
+UPDATE ModifierArguments SET Value = '5' WHERE ModifierId = 'EXPLODING_PALMS_INCREASED_COMBAT_STRENGTH';
+--Nerf Tier 4 promo Cobra Strike +15 down to +7 to be more in line with other promos
+UPDATE ModifierArguments SET Value = '7' WHERE ModifierId = 'COBRA_STRIKE_INCREASED_COMBAT_STRENGTH';
+
+--Add Unique Ability Icon and description to Monk's Scaling Ability in Unit Preview
+--Modifiers Themself are added through civic tree as monk is not unique to a given player.
+INSERT INTO Types(Type, Kind) VALUES
+	('BBG_ABILITY_MONK_SCALING', 'KIND_ABILITY');
+	
+INSERT INTO TypeTags(Type, Tag) VALUES
+	('BBG_ABILITY_MONK_SCALING', 'CLASS_WARRIOR_MONK');
+
+INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
+	('BBG_ABILITY_MONK_SCALING', 'LOC_BBG_ABILITY_MONK_SCALING_NAME', 'LOC_BBG_ABILITY_MONK_SCALING_DESCRIPTION');
+
 -- Nerf Inquisitors
 -- UPDATE Units SET ReligionEvictPercent=50, SpreadCharges=2 WHERE UnitType='UNIT_INQUISITOR';
 -- Religious spread from trade routes increased
@@ -1435,7 +1548,7 @@ INSERT OR IGNORE INTO Feature_AdjacentYields (FeatureType, YieldType, YieldChang
 	VALUES ('FEATURE_GALAPAGOS', 'YIELD_FOOD', 1);
 --Causeway +3 down from +5
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH' AND Name='Amount';
-
+UPDATE Modifiers SET SubjectRequirementSetId='ATTACKING_REQUIREMENT_SET' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH';
 
 
 --==============================================================

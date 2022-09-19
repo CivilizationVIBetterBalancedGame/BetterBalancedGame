@@ -32,6 +32,9 @@ UPDATE Units SET BaseMoves=6 WHERE  UnitType='UNIT_DESTROYER';
 -- Base is 3
 UPDATE Units SET BaseMoves=5 WHERE  UnitType='UNIT_AIRCRAFT_CARRIER';
 
+-- Missile Cruiser range from 3 to 4
+UPDATE Units SET Range=4 WHERE UnitType='UNIT_MISSILE_CRUISER';
+
 -- 31/07/2021 Late Game Unit rework
 UPDATE Units SET Combat=80 WHERE UnitType='UNIT_AT_CREW';
 UPDATE Units SET Combat=80, BaseMoves=3 WHERE UnitType='UNIT_INFANTRY';
@@ -85,3 +88,19 @@ INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_NO_SUPPORT_BONUS_MODIFIER', 'MODIFIER_PLAYER_UNIT_ADJUST_SUPPORT_BONUS_MODIFIER');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_NO_SUPPORT_BONUS_MODIFIER', 'Percent', '-100');
+
+-- Battlecry description is Missleading, in base it works on mele/anticav and ranged.
+-- BBG5.0 Changes it to work on Monks as well, here I also let the promo work on recon.
+-- So than it works on all land non-cavalary units
+-- Monks: Affected by Battlecry
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+    ('BBG_OPPONENT_IS_RECON','REQUIREMENT_OPPONENT_UNIT_PROMOTION_CLASS_MATCHES'),
+    ('BBG_OPPONENT_IS_NIHANG', 'REQUIREMENT_OPPONENT_UNIT_PROMOTION_CLASS_MATCHES');
+
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('BBG_OPPONENT_IS_RECON','UnitPromotionClass','PROMOTION_CLASS_RECON'),
+    ('BBG_OPPONENT_IS_NIHANG','UnitPromotionClass','PROMOTION_CLASS_NIHANG');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES 
+    ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_RECON'),
+    ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_NIHANG');

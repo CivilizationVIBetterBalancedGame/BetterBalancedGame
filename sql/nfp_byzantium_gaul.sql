@@ -13,6 +13,11 @@ DELETE FROM Modifiers WHERE ModifierId='BYZANTIUM_PRESSURE_KILLS';
 UPDATE ModifierArguments SET Value=2 WHERE ModifierId='TAGMA_COMBAT_STRENGTH' AND Name='Amount';
 UPDATE ModifierArguments SET Value=2 WHERE ModifierId='TAGMA_RELIGIOUS_COMBAT' AND Name='Amount';
 
+-- 17/08/2022: fix bug where bonus is not working on gdr
+DELETE FROM TypeTags WHERE Type='ABILITY_BYZANTIUM_COMBAT_UNITSABILITY_BYZANTIUM_COMBAT_UNITS';
+
+INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
+	('ABILITY_BYZANTIUM_COMBAT_UNITS' ,'CLASS_ALL_COMBAT_UNITS');
 
 --==================
 -- Gaul
@@ -50,3 +55,11 @@ INSERT OR IGNORE INTO Requirements(RequirementId , RequirementType) VALUES
 
 INSERT OR IGNORE INTO RequirementArguments(RequirementId , Name, Value) VALUES
 	('BBG_PLAYER_HAS_BRONZE_WORKING_REQUIREMENT' , 'TechnologyType', 'TECH_BRONZE_WORKING');
+
+--==============================================================
+--******                RELIGION                          ******
+--==============================================================
+--Monks: Gaul CS
+
+INSERT INTO TypeTags(Type, Tag) VALUES
+	('ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS', 'CLASS_WARRIOR_MONK');
