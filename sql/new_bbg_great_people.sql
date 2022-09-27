@@ -32,6 +32,8 @@ UPDATE ModifierArguments SET Value='1.0' WHERE ModifierId='GREATPERSON_DOMESTIC_
 
 -- Stamford Raffles
 UPDATE GreatPersonIndividuals SET ActionRequiresCityStateTerritory=1, ActionRequiresSuzerainTerritory=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_STAMFORD_RAFFLES';
+INSERT INTO GreatPersonIndividualBirthModifiers (GreatPersonIndividualType, ModifierId) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_STAMFORD_RAFFLES', 'GREAT_PERSON_ENTER_FOREIGN_LANDS');
 
 -- Sarah Breedlove
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
