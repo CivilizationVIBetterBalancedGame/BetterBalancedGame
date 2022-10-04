@@ -877,6 +877,23 @@ INSERT OR IGNORE INTO RequirementArguments
     VALUES 
     ('REQUIRES_PLOT_HAS_PANTANAL'           , 'FeatureType' , 'FEATURE_PANTANAL'             );
 
+--04/10/22 goddess of the hunt nerf from 1p/1f to 1p/2g
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
+    ('BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD_MODIFIER', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'PLOT_HAS_CAMP_REQUIREMENTS');
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD_MODIFIER', 'YieldType', 'YIELD_GOLD'),
+	('BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD_MODIFIER', 'Amount', '2'),
+	('BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD', 'ModifierId', 'BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD_MODIFIER');
+
+INSERT INTO BeliefModifiers (BeliefType, ModifierId) VALUES
+	('BELIEF_GODDESS_OF_THE_HUNT', 'BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD');
+
+DELETE FROM BeliefModifiers WHERE ModifierId='GODDESS_OF_THE_HUNT_CAMP_FOOD';
+
+
+
 
 
 --==============================================================
