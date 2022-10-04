@@ -173,7 +173,6 @@ INSERT OR IGNORE INTO Improvement_BonusYieldChanges (Id , ImprovementType , Yiel
 INSERT OR IGNORE INTO Improvement_BonusYieldChanges (Id , ImprovementType , YieldType , BonusYieldChange , PrereqCivic)
 	VALUES ('205' , 'IMPROVEMENT_GOLF_COURSE' , 'YIELD_CULTURE' , '1' , 'CIVIC_THE_ENLIGHTENMENT');
 
-
 --==================
 -- Sumeria
 --==================

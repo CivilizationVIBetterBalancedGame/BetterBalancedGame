@@ -321,6 +321,14 @@ UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_HAS_JUNGLE_EARLY_EMPIRE' 
 -- Ottoman
 --==================
 
+--04/10/22 barbary corsaire can go in ocean tiles without cartography
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_BARBARY_CORSAIR_OCEAN_NAVIGATION', 'MODIFIER_PLAYER_UNIT_ADJUST_VALID_TERRAIN');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_BARBARY_CORSAIR_OCEAN_NAVIGATION', 'TerrainType', 'TERRAIN_OCEAN'),
+    ('BBG_BARBARY_CORSAIR_OCEAN_NAVIGATION', 'Valid', 1);
+INSERT OR IGNORE INTO UnitAbilityModifiers VALUES
+    ('ABILITY_CORSAIR', 'BBG_BARBARY_CORSAIR_OCEAN_NAVIGATION');
 
 
 --==================
