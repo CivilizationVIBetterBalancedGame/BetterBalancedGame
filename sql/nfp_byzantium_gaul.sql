@@ -25,10 +25,11 @@ INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
 -- Start Bias
 UPDATE StartBiasResources SET Tier=5 WHERE CivilizationType='CIVILIZATION_GAUL' AND ResourceType IN ('RESOURCE_COPPER', 'RESOURCE_DIAMONDS', 'RESOURCE_JADE', 'RESOURCE_MERCURY', 'RESOURCE_SALT', 'RESOURCE_SILVER');
 UPDATE StartBiasResources SET Tier=3 WHERE CivilizationType='CIVILIZATION_GAUL' AND ResourceType='RESOURCE_IRON';
+-- 04/10/22 carrier bias to T5
 INSERT INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
-    ('CIVILIZATION_GAUL', 'RESOURCE_STONE', '3'),
-    ('CIVILIZATION_GAUL', 'RESOURCE_MARBLE', '3'),
-    ('CIVILIZATION_GAUL', 'RESOURCE_GYPSUM', '3');
+    ('CIVILIZATION_GAUL', 'RESOURCE_STONE', '5'),
+    ('CIVILIZATION_GAUL', 'RESOURCE_MARBLE', '5'),
+    ('CIVILIZATION_GAUL', 'RESOURCE_GYPSUM', '5');
 -- set citizen yields to same as other IZ
 UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' AND DistrictType='DISTRICT_OPPIDUM';
 -- remove culture from unit production
