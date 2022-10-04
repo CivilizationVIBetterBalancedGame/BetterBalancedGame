@@ -64,3 +64,10 @@ INSERT OR IGNORE INTO RequirementArguments(RequirementId , Name, Value) VALUES
 
 INSERT INTO TypeTags(Type, Tag) VALUES
 	('ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS', 'CLASS_WARRIOR_MONK');
+
+--==============================================================
+--******                  WONDER                          ******
+--==============================================================
+
+--reduce statue of zeus from 50 to 35
+UPDATE ModifierArguments SET Value=35 WHERE ModifierId='STAUEZEUS_ANTI_CAVALRY_PRODUCTION' AND Name='Amount';
