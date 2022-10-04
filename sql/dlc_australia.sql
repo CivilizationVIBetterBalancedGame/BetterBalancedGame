@@ -20,6 +20,10 @@ INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType) VALUES
 -- 07/06/2021: UI now give appeal
 UPDATE Improvements SET Appeal=1 WHERE ImprovementType='IMPROVEMENT_OUTBACK_STATION';
 
+-- 04/10/22 improves at Indus instead of steam power
+UPDATE Adjacency_YieldChanges SET PrereqTech='TECH_INDUSTRIALIZATION' WHERE ID='Pasture_Outback_Production';
+UPDATE Adjacency_YieldChanges SET PrereqTech='TECH_INDUSTRIALIZATION' WHERE ID='Outback_Outback_Production';
+
 -- 18/05/2021: More production for pasture at Guild.
 -- /!\ PLAYER_HAS_GUILDS_REQUIREMENTS is define is base.sql for Germany /!\
 INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) VALUES
