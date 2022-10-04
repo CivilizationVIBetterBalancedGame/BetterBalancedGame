@@ -153,8 +153,9 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
     SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'YieldType', YieldType
     FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
+--4/10/22 Eleanor bonus reduced to 1
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'YieldChange', '2'
+    SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'YieldChange', '1'
     FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
 
 -- Fix Anshan bug with Eleanor
