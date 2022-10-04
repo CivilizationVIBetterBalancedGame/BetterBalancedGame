@@ -21,11 +21,11 @@ UPDATE Improvement_Adjacencies SET YieldChangeId='Mountain_Faith14' WHERE Improv
 UPDATE Improvement_Adjacencies SET YieldChangeId='Mountain_Faith15' WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith5';
 */
 UPDATE Improvement_YieldChanges SET YieldChange=0 WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldType='YIELD_FAITH';
-DELETE FROM Improvement_Adjacencies WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith1';
-DELETE FROM Improvement_Adjacencies WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith2';
-DELETE FROM Improvement_Adjacencies WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith3';
-DELETE FROM Improvement_Adjacencies WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith4';
-DELETE FROM Improvement_Adjacencies WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith5';
+-- DELETE FROM Improvement_Adjacencies WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith1';
+-- DELETE FROM Improvement_Adjacencies WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith2';
+-- DELETE FROM Improvement_Adjacencies WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith3';
+-- DELETE FROM Improvement_Adjacencies WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith4';
+-- DELETE FROM Improvement_Adjacencies WHERE ImprovementType='IMPROVEMENT_ROCK_HEWN_CHURCH' AND YieldChangeId='Mountain_Faith5';
 -- fix resources faith
 /*
 UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_ADJUST_PLOT_YIELD', SubjectRequirementSetId='STAVE_CHURCH_RESOURCE_REQUIREMENTS' WHERE ModifierId='TRAIT_FAITH_RESOURCES';
