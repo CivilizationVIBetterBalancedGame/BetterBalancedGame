@@ -33,3 +33,22 @@ INSERT INTO RequirementArguments(RequirementId , Name, Value) VALUES
 
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_BUILDING_GRAND_BAZAAR', 'BBG_GRAND_BAZAAR_GOV_POINT');
+
+
+--04/10/22 barbary corsaire can go in ocean tiles without cartography
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_BARBARY_CORSAIR_OCEAN_NAVIGATION', 'MODIFIER_PLAYER_UNIT_ADJUST_VALID_TERRAIN');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_BARBARY_CORSAIR_OCEAN_NAVIGATION', 'TerrainType', 'TERRAIN_OCEAN'),
+    ('BBG_BARBARY_CORSAIR_OCEAN_NAVIGATION', 'Valid', 1);
+INSERT OR IGNORE INTO UnitAbilityModifiers VALUES
+    ('ABILITY_CORSAIR', 'BBG_BARBARY_CORSAIR_OCEAN_NAVIGATION');
+
+--04/10/22 ibrahim second right 
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_IBRAHIM_2R_ADJUST_MOVEMENT_POINTS', 'MODIFIER_PLAYER_UNITS_ADJUST_MOVEMENT', 'PLOT_10_TILES_AWAY_MAX_REQUIREMENTS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_IBRAHIM_2R_ADJUST_MOVEMENT_POINTS', 'Amount', 1);
+DELETE FROM GovernorPromotionModifiers WHERE ModifierId='CAPOU_AGHA_ADJUST_GRIEVANCES';
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_CAPOU_AGHA', 'BBG_IBRAHIM_2R_ADJUST_MOVEMENT_POINTS');
