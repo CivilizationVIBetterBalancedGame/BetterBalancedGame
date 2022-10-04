@@ -259,6 +259,15 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , Requirement
 UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_ORDU';
 UPDATE ModifierArguments SET Value='6' WHERE ModifierId='SHOPPING_MALL_TOURISM';
 
+-- 04/10/22: intel agency buff
+UPDATE ModifierArguments SET Value=2 WHERE ModifierId='GOV_GRANT_SPY' AND Name='Amount';
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_INTEL_AGENCY_SPY_PROD_BONUS', 'MODIFIER_PLAYER_UNITS_ADJUST_UNIT_PRODUCTION');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_INTEL_AGENCY_SPY_PROD_BONUS', 'UnitType', 'UNIT_SPY'),
+	('BBG_INTEL_AGENCY_SPY_PROD_BONUS', 'Amount', '50');
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+	('BUILDING_GOV_SPIES', 'BBG_INTEL_AGENCY_SPY_PROD_BONUS');
 
 
 --==============================================================
