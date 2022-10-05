@@ -77,11 +77,13 @@ INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, Til
 
 -- Sumerian War Carts are nerfed to 26 (BASE = 30)
 -- 20-12-07 Hotfix: Nerf from 28->26-->27 (Devries)
-UPDATE Units SET Combat=27 WHERE UnitType='UNIT_SUMERIAN_WAR_CART';
+-- 05/10/22 reduce cs to 20
+UPDATE Units SET Combat=20 WHERE UnitType='UNIT_SUMERIAN_WAR_CART';
 -- Sumerian War Carts are cost is dimished to 45 (BASE = 55)
 -- 20-12-07 Hotfix: Revert to 55 cost
 -- Beta Buff: Revert to 45 cost
-UPDATE Units SET Cost=45 WHERE UnitType='UNIT_SUMERIAN_WAR_CART';
+-- 05/10/22 reduce cost to 40
+UPDATE Units SET Cost=40 WHERE UnitType='UNIT_SUMERIAN_WAR_CART';
 
 -- 20-12-07 Hotfix: Increase war-cart strength vs. barbs
 INSERT OR IGNORE INTO Types (Type, Kind) VALUES
