@@ -52,3 +52,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 DELETE FROM GovernorPromotionModifiers WHERE ModifierId='CAPOU_AGHA_ADJUST_GRIEVANCES';
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
     ('GOVERNOR_PROMOTION_CAPOU_AGHA', 'BBG_IBRAHIM_2R_ADJUST_MOVEMENT_POINTS');
+
+--05/10/22 river bias
+INSERT INTO StartBiasRivers (CivilizationType, Tier) VALUES
+    ('CIVILIZATION_OTTOMAN', 3);
