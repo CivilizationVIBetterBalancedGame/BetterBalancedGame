@@ -152,14 +152,12 @@
 			<Text>Les [ICON_TechBoosted] Eurêka ! fournissent 65% de la [ICON_SCIENCE] science requise pour les technologies.[NEWLINE]Malus de [ICON_SCIENCE] Science par tour de 50 %. Ce malus est réduit de 1% pour chaque technologie recherchée. Au delà de 50 technologies recherchées, le malus se transforme en bonus. [NEWLINE]Ne peut pas bénificier des Eurêkas! améliorés de l'engagement "Libre pensée".</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_HAMMURABI_XP1_DESCRIPTION" Language="fr_FR">
-      		<Text>Lorsque un quartier spécialisé, à l'exception de la place du gouvernement, est terminé pour la première fois, le bâtiment au coût de [ICON_PRODUCTION] production le plus bas pouvant être y être construit est construit gratuitement.</Text>
+      		<Text>Lorsque un quartier spécialisé, à l'exception de la Place de la Gouvernance, est terminé pour la première fois, le bâtiment au coût de [ICON_PRODUCTION] Production le plus bas pouvant être y être construit est construit gratuitement.</Text>
     	</Replace>
 		<!-- ========== BRÉSIL ========== -->
-		<!-- Correction de la traduction officielle : ne gagne pas que +1 point de personnage illustre -->
 		<Replace Tag="LOC_PROJECT_CARNIVAL_DESCRIPTION" Language="fr_FR">
-			<Text>Projet exclusif aux Brésiliens. [ICON_Amenities] Activités +1 pendant la durée du Carnaval, et points de [ICON_GreatMerchant] marchands, [ICON_GreatEngineer] ingénieurs, [ICON_GreatWriter] écrivains, [ICON_GreatArtist] artistes et [ICON_GreatMusician] musiciens illustres une fois terminé.</Text>
+			<Text>Projet exclusif aux Brési. [ICON_Amenities] Activités +1 pendant la durée du Carnaval, et points de [ICON_GreatMerchant] marchands, [ICON_GreatEngineer] ingénieurs, [ICON_GreatWriter] écrivains, [ICON_GreatArtist] artistes et [ICON_GreatMusician] musiciens illustres une fois terminé.</Text>
 		</Replace>
-		<!-- Texte sur les attraits précisé -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_AMAZON_DESCRIPTION" Language="fr_FR">
 			<Text>Bonus de proximité +1 pour les campus, plateformes commerciales, lieux saints et places du théâtre adjacents à une forêt tropicale. [NEWLINE] Les cases de forêt tropicale dans votre territoire appliquent un attrait de +1 sur les cases adjacentes, au lieu de l'habituel -1. </Text>
 		</Replace>
@@ -579,8 +577,11 @@
 		</Replace>
 		<!-- ========== PHENICIE ========= -->
 		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="fr_FR">
-			<Text>Quartier exclusif à la Phénicie remplaçant le port à moindres coûts, destiné à accueillir les activités navales de votre ville. Doit être construit sur une case de côte ou de lac adjacente à une case terrestre. [NEWLINE][NEWLINE][ICON_Production] Production +25 % pour chaque unité navale et colon dans cette ville.</Text>
+			<Text>Quartier exclusif à la Phénicie remplaçant le port à moindres coûts, destiné à accueillir les activités navales de votre ville. Doit être construit sur une case de côte ou de lac adjacente à une case terrestre. [NEWLINE][NEWLINE][ICON_Production] Production +25 % pour les unités navales et les colons dans la ville.</Text>
 		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="fr_FR">
+      		<Text>Capacité des [ICON_TradeRoute] routes commerciales +1 pour chacun des bâtiments de la place de la gouvernance. [ICON_Production] Production +50% pour les quartiers de la ville disposant de la place de la gouvernance. [NEWLINE]Peut déplacer sa [ICON_Capital] Capitale d'origine vers une ville fondée par ses soins et disposant d'un cothon en menant à terme un projet exclusif dans cette ville.</Text>
+    	</Replace>
 		<!-- ========== POLOGNE ========== -->
 		<Replace Tag="LOC_TRAIT_LEADER_LITHUANIAN_UNION_DESCRIPTION" Language="fr_FR">
 			<Text>La religion fondée par la Pologne devient majoritaire dans une ville adjacente qui perd une case suite à la bombe culturelle polonaise. Les lieux saints reçoivent un bonus de foi standard pour les quartiers adjacents. Toutes les reliques offrent des bonus : [ICON_Faith] foi +2, [ICON_Culture] culture +2 et [ICON_Gold] or +4. Reçoit une Relique à la création et à la complétion d'une Religion.</Text>
@@ -818,6 +819,9 @@
 		<Replace Tag="LOC_BELIEF_DAR_E_MEHR_DESCRIPTION" Language="fr_FR">
 			<Text>Permet la construction du Dar-e Mehr ([ICON_Faith] Foi +3 et [ICON_CULTURE] Culture +2).</Text>
 		</Replace>
+		<Replace Tag="LOC_BELIEF_SYNAGOGUE_DESCRIPTION" Language="fr_FR">
+      		<Text>Permet la construction de synagogues ([ICON_Faith] foi +7).</Text>
+    	</Replace>
 		<Replace Tag="LOC_BELIEF_DIVINE_INSPIRATION_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_Faith] Foi +6 pour toutes les merveilles mondiales.</Text>
 		</Replace>
@@ -851,7 +855,16 @@
 		<Replace Tag="LOC_BELIEF_WARRIOR_MONKS_EXPANSION2_DESCRIPTION" Language="fr_FR">
       		<Text>Permet de dépenser de la [ICON_Faith] foi pour former des moines-guerriers, des unités de combat terrestres à l'arbre de promotions spécifique. La ville d'achat doit posséder un lieu saint doté d'un autel. [NEWLINE]La construction d'un lieu saint déclenche une bombe culturelle qui capture les cases adjacentes.</Text>
     	</Replace>
-		
+		<Replace Tag="LOC_BELIEF_STEWARDSHIP_DESCRIPTION" Language="fr_FR">
+      		<Text>Chaque campus ou plateforme commerciale d'une ville convertie à cette religion fournit respectivement [ICON_Science] science +2 ou [ICON_Gold] or +2.</Text>
+	    </Replace>
+		<Replace Tag="LOC_BELIEF_STEWARDSHIP_EXPANSION2_DESCRIPTION" Language="fr_FR">
+			<Text>Chaque campus ou plateforme commerciale d'une ville convertie à cette religion fournit respectivement [ICON_Science] science +2 ou [ICON_Gold] or +2.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_JESUIT_EDUCATION_DESCRIPTION" Language="fr_FR">
+     		 <Text>Permet d'acheter des bâtiments pour le campus et la place du théâtre avec de la [ICON_Faith] foi. Réduit le coût d'achat des bâtiments du campus et de la place de théatre de 15%.</Text>
+  		</Replace>
+
 		<!-- =============== M E R V E I L L E S === N A T U R E L L E S =============== -->
 		
 		<Replace Tag="LOC_FEATURE_LAKE_RETBA_DESCRIPTION" Language="fr_FR">
@@ -1213,7 +1226,7 @@
 		<!-- =============== P E R S O N N A G E S === I L L U S T R E S =============== -->
 
 		<Replace Tag="LOC_GREATPERSON_JOAN_OF_ARC_ACTIVE" Language="fr_FR">
-			<Text>Permet de créer une [ICON_GreatWork_Relic] relique. Possède deux charges.</Text>
+			<Text>Crée une [ICON_GreatWork_Relic] relique. Possède deux charges.</Text>
 		</Replace>
 				<Replace Tag="LOC_ABILITY_MEDIC_HEAL_DESCRIPTION" Language="fr_FR">
 			<Text>Guérison en retranchement augmentée de 20 PV pour les unités du joueur dans un rayon d'une case.</Text>
@@ -1225,34 +1238,34 @@
       		<Text>[ICON_Science] Science et [ICON_Culture] culture +1000 (en vitesse en ligne). Ne peut s'activer que dans un campus d'une autre civilisation ou cité-état.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREATPERSON_BOUDICA_ACTIVE" Language="fr_FR">
-      		<Text>Créer un Ingénieur Militaire dans votre [ICON_Capital] Capitale.</Text>
+      		<Text>Crée un Ingénieur Militaire dans votre [ICON_Capital] Capitale.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREATPERSON_AETHELFLAED_ACTIVE" Language="fr_FR">
-      		<Text>Créer un Trébucheh avec une promotion gratuite.</Text>
+      		<Text>Crée un Trébucheh avec une promotion gratuite.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE" Language="fr_FR">
-      		<Text>Créer dans la ville la plus proche un exemplaire de l'unité de Soutien la plus avancée que vous pouvez former.</Text>
+      		<Text>Crée dans la ville la plus proche un exemplaire de l'unité de Soutien la plus avancée que vous pouvez former.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREATPERSON_SIMON_BOLIVAR_ACTIVE" Language="fr_FR">
-      		<Text>Créer un Blindé avec une promotion gratuite. [ICON_RESOURCE_OIL] Pétrole +2 par tour.</Text>
+      		<Text>Crée un Blindé avec une promotion gratuite. [ICON_RESOURCE_OIL] Pétrole +2 par tour.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREATPERSON_RANI_LAKSHMIBAI_ACTIVE" Language="fr_FR">
-      		<Text>Créer un Supercopter avec une promotion gratuite.</Text>
+      		<Text>Crée un Supercopter avec une promotion gratuite.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_TUPAC_AMARU_ACTIVE" Language="fr_FR">
-      		<Text>Créer une Infanterie dans chaque quartier non défendable et non défendu de la ville cible.</Text>
+      		<Text>Crée une Infanterie dans chaque quartier non défendable et non défendu de la ville cible.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREATPERSON_DOUGLAS_MACARTHUR_ACTIVE" Language="fr_FR">
-      		<Text>Créer un Blindé avec un niveau de promotion. [ICON_RESOURCE_URANIUM] Uranium +2 par tour.</Text>
+      		<Text>Crée un Blindé avec un niveau de promotion. [ICON_RESOURCE_URANIUM] Uranium +2 par tour.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREATPERSON_DOUGLAS_MACARTHUR_EXPANSION2_ACTIVE" Language="fr_FR">
-      		<Text>Créer un Blindé avec un niveau de promotion. [ICON_RESOURCE_URANIUM] Uranium +2 par tour.</Text>
+      		<Text>Crée un Blindé avec un niveau de promotion. [ICON_RESOURCE_URANIUM] Uranium +2 par tour.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREATPERSON_DWIGHT_EISENHOWER_ACTIVE" Language="fr_FR">
       		<Text>[ICON_Production] Production +15 % pour la formation d'unités militaires.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREATPERSON_SUDIRMAN_ACTIVE" Language="fr_FR">
-      		<Text>Créer un Chasseur avec une promotion gratuite. [ICON_RESOURCE_ALUMINUM] Aluminium +2 par tour.</Text>
+      		<Text>Crée un Chasseur avec une promotion gratuite. [ICON_RESOURCE_ALUMINUM] Aluminium +2 par tour.</Text>
     	</Replace>
 		<Replace Tag="LOC_GREATPERSON_CULTURE_BOMB_TRIGGER_INDUSTRIAL_ZONE" Language="fr_FR">
       		<Text> [ICON_HOUSING] Habitations et [ICON_AMENITIES] Activités +1 dans la ville cible.</Text>
@@ -1263,9 +1276,10 @@
 		<Replace Tag="LOC_GREATPERSON_CITY_STATE_ABSORB_EXPANSIONS" Language="fr_FR">
       		<Text>Absorbe n'importe quelle cité-état dans votre empire. Loyauté +10 par tour dans la ville.</Text>
     	</Replace>
+		<!--
 		<Replace Tag="LOC_GREATPERSON_TRADE_ROUTE_TOURISM_MODIFIER" Language="fr_FR">
       		<Text>Capacité de [ICON_TradeRoute] Routes commerciales +1. Production de [ICON_Tourism] tourisme +{Amount} % envers les civilisations avec lesquelles vous partagez une [ICON_TradeRoute] route commerciale.</Text>
-    	</Replace>
+    	</Replace>-->
 		<Replace Tag="LOC_GREATPERSON_DMITRI_MENDELEEV_ACTIVE" Language="fr_FR">
       		<Text>Déclenche un [ICON_TechBoosted] Eurêka ! pour la chimie et une technologie aléatoire de l'ère industrielle. [ICON_Production] Production +50% pour les Laboratoires de Chimie.</Text>
     	</Replace>
@@ -1471,7 +1485,7 @@
 			<Text>Débloque la compétence de bâtisseur permettant de construire des plantations. [NEWLINE][NEWLINE][ICON_Gold] Or +2. [NEWLINE][ICON_Production] Production +1 si construite sur une case plate.[NEWLINE]Ne peut être construite que sur une ressource valide. [NEWLINE][NEWLINE]Construite sur une ressource de luxe, permet à la ville d'exploiter cette ressource.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_GEOTHERMAL_PLANT_DESCRIPTION" Language="fr_FR">
-			<Text>Débloque la compétence de bâtisseur permettant de construire une centrale géothermique. [NEWLINE][NEWLINE][ICON_Science] Science +1. [ICON_Production] Production +2. [ICON_Power] Électricité +3 par tour.[NEWLINE][ICON_Science] Science +1 et [ICON_Power] Électricité +3 par tour une fois les Matériaux Synthétiques découverts.[NEWLINE]Doit être construit sur une fissure géothermique.</Text>
+			<Text>Débloque la compétence de bâtisseur permettant de construire une centrale géothermique. [NEWLINE][NEWLINE][ICON_Science] Science +1 et [ICON_Production] Production +2. [ICON_Power] Électricité +3 par tour.[NEWLINE][ICON_Science] Science +1, [ICON_Production] Production +1 et [ICON_Power] Électricité +3 par tour une fois les Matériaux Synthétiques découverts.[NEWLINE]Doit être construit sur une fissure géothermique.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_FISHERY_DESCRIPTION" Language="fr_FR">
 			<Text>Débloque la compétence de bâtisseur permettant de construire des Aquacultures. [ICON_Food] Nourriture +1 et [ICON_Food] Nourriture bonus +1 par ressource maritime adjacente. Doit être construite sur la côte.</Text>
@@ -1780,23 +1794,6 @@
 		<Replace Tag="LOC_VICTORY_TRADITIONAL_DOMINATION_TEXT" Language="fr_FR">
 			<Text>The world recognizes your absolute domination, for you built an empire on which the sun never sets.</Text>
 		</Replace>
-		<!-- Je met tout le bordel ici, faudra le ranger du coup -->
-		<Replace Tag="LOC_BELIEF_SYNAGOGUE_DESCRIPTION" Language="fr_FR">
-      		<Text>Permet la construction de synagogues ([ICON_Faith] foi +7).</Text>
-    	</Replace>
-    	<Replace Tag="LOC_BELIEF_STEWARDSHIP_DESCRIPTION" Language="fr_FR">
-      		<Text>Chaque campus ou plateforme commerciale d'une ville convertie à cette religion fournit respectivement [ICON_Science] science +2 ou [ICON_Gold] or +2.</Text>
-	    </Replace>
-		<Replace Tag="LOC_BELIEF_STEWARDSHIP_EXPANSION2_DESCRIPTION" Language="fr_FR">
-			<Text>Chaque campus ou plateforme commerciale d'une ville convertie à cette religion fournit respectivement [ICON_Science] science +2 ou [ICON_Gold] or +2.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_JESUIT_EDUCATION_DESCRIPTION" Language="fr_FR">
-     		 <Text>Permet d'acheter des bâtiments pour le campus et la place du théâtre avec de la [ICON_Faith] foi. Réduit le coût d'achat des bâtiments du campus et de la place de théatre de 15%.</Text>
-  		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="fr_FR">
-      		<Text>Peut déplacer sa [ICON_Capital] capitale d'origine vers une ville fondée par ses soins et disposant d'un cothon en menant à terme un projet exclusif dans cette ville. Capacité des [ICON_TradeRoute] routes commerciales +1 pour chacun des bâtiments de la place de la gouvernance. [ICON_Production] Production +50% pour les quartiers de la ville disposant de la place de la gouvernance.</Text>
-    	</Replace>
-
 		<!-- Beta -->
 		<Replace Tag="LOC_BBG_FRONT_BETA_BAN_TRADE_TREATY_NAME" Language="fr_FR">
             <Text>[COLOR_GREEN]Ban Trade Treaty[ENDCOLOR]</Text>
