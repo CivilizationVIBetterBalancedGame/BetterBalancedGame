@@ -41,10 +41,3 @@ DELETE FROM TypeTags WHERE Type='ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY';
 
 INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
 	('ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY' ,'CLASS_ALL_COMBAT_UNITS');
-
---==============================================================
---******                RELIGION                          ******
---==============================================================
--- Monks: Aztek CS
-INSERT INTO TypeTags(Type, Tag) VALUES
-	('ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY', 'CLASS_WARRIOR_MONK');
