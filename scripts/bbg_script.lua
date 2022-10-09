@@ -439,6 +439,38 @@ end
 -- ===========================================================================
 --	Sumer
 -- ===========================================================================
+function ApplyGilgameshTrait()
+	local iStartEra = GameInfo.Eras[ GameConfiguration.GetStartEra() ];
+	local iStartIndex = 0
+	if iStartEra ~= nil then
+		iStartIndex = iStartEra.ChronologyIndex;
+		else
+		return
+	end
+	if iStartIndex ~= 1 then
+		return
+	end
+
+	for _, iPlayerID in ipairs(PlayerManager.GetAliveMajorIDs()) do
+		local pPlayer = Players[iPlayerID]
+		if pPlayer ~= nil then
+			if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_GILGAMESH" then
+				local playerUnits;
+				playerUnits = Players[iPlayerID]:GetUnits();
+				for k, unit in playerUnits:Members() do
+					local unitTypeName = UnitManager.GetTypeName(unit)
+					if "LOC_UNIT_WARRIOR_NAME" == unitTypeName then
+						local unitX = unit:GetX()
+						local unitY = unit:GetY()
+						playerUnits:Destroy(unit)
+						local iWarCart = GameInfo.Units["UNIT_SUMERIAN_WAR_CART"].Index
+						playerUnits:Create(iWarCart, unitX, unitY)
+					end
+				end
+			end
+		end
+	end	
+end
 
 function ApplyGilgameshTrait_Pillage(iPlayer,refunit,pPlot,eImprovement,eBuilding,eDistrict)
 	local pillageAwards;
@@ -2270,6 +2302,10 @@ function Initialize()
 	local currentTurn = Game.GetCurrentGameTurn()
 	local startTurn = GameConfiguration.GetStartTurn()
 	
+	if currentTurn == startTurn then
+		ApplyGilgameshTrait()
+		--InitBarbData()
+	end
 	-- turn checked effects:
 	GameEvents.OnGameTurnStarted.Add(OnGameTurnStarted);
 
