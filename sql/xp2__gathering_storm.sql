@@ -561,6 +561,21 @@ UPDATE RequirementSets SET RequirementSetType='REQUIREMENTSET_TEST_ANY' WHERE Re
 -- Updated this value to match the description text
 UPDATE ModifierArguments SET Value='20' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER' AND Name='Amount';
 
+--5.1 Changed holly waters inconsistency so it follows the same logic as Defender/Crusade 
+UPDATE Modifiers Set ModifierType = 'MODIFIER_ALL_UNITS_ATTACH_MODIFIER' WHERE ModifierId = 'HOLY_WATERS_HEALING';
+UPDATE Modifiers Set SubjectRequirementSetId = 'BBG_REQSET_FOUNDER_OR_MVEMBA' WHERE ModifierId = 'HOLY_WATERS_HEALING';
+UPDATE Modifiers Set ModifierType = 'MODIFIER_PLAYER_UNIT_ADJUST_HEAL_PER_TURN' WHERE ModifierId = 'HOLY_WATERS_HEALING_MODIFIER';
+UPDATE Modifiers Set SubjectRequirementSetId = NULL WHERE ModifierId = 'HOLY_WATERS_HEALING_MODIFIER';
+
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+    ('REQUIRES_CITY_SAME_RELIGION_PFBF', 'REQUIREMENT_REQUIREMENTSET_IS_MET');
+
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('REQUIRES_CITY_SAME_RELIGION_PFBF', 'RequirementSetId', 'HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('HOLY_WATERS_HEALING_REQUIREMENTS', 'REQUIRES_CITY_SAME_RELIGION_PFBF');
+
 -- Monks: Cards/Governments
 INSERT INTO TypeTags(Type, Tag) VALUES
     ('ABILITY_GLOBAL_COALITION_FRIENDLY_TERRITORY', 'CLASS_WARRIOR_MONK'),

@@ -244,7 +244,7 @@
 		</UpdateText>
 		<UpdateDatabase id="bbg_frontend_custom_victory">
 			<Properties>
-				<LoadOrder>19999</LoadOrder>
+				<LoadOrder>19998</LoadOrder>
 			</Properties>
 			<File>config/config.xml</File>
 			<File>config/config.sql</File>
@@ -276,9 +276,18 @@
 		
 		<ReplaceUIScript id="bbg_worldranking">
 			<Properties>
-			<LoadOrder>19999</LoadOrder>
+			<LoadOrder>19998</LoadOrder>
 			<LuaContext>WorldRankings</LuaContext>
 			<LuaReplace>ui/replacements/worldrankings_bbg.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+
+		<ReplaceUIScript id="productionpanel_bbg">
+			<Criteria>BBGTS_ProductionPanel_BBG_Expansion2</Criteria>
+			<Properties>
+				<LoadOrder>19999</LoadOrder>
+				<LuaContext>ProductionPanel</LuaContext>
+				<LuaReplace>ui/replacements/ProductionPanel_BBG.lua</LuaReplace>
 			</Properties>
 		</ReplaceUIScript>
 
@@ -720,6 +729,7 @@
 		<File>ui/replacements/worldrankings_bbg.lua</File>
 		<File>ui/replacements/endgamemenu_bbg.lua</File>
 		<File>ui/replacements/endgamemenu.xml</File>
+		<File>ui/replacements/ProductionPanel_BBG.lua</File>
 		
 		<File>data/new_bbg_icons.xml</File>
 		<File>config/config.xml</File>

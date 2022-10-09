@@ -13,6 +13,8 @@ UPDATE Building_GreatPersonPoints SET PointsPerTurn=2 WHERE BuildingType='BUILDI
 UPDATE Building_GreatPersonPoints SET PointsPerTurn=2 WHERE BuildingType='BUILDING_MILITARY_ACADEMY';
 UPDATE Building_GreatPersonPoints SET PointsPerTurn=3 WHERE BuildingType='BUILDING_SEAPORT';
 
+--Watermil available with aqueduct, bath, dam
+--UPDATE Buildings SET RequiresAdjacentRiver = '0' WHERE BuildingType ='BUILDING_WATER_MILL';
 
 
 --==============================================================
@@ -409,6 +411,24 @@ INSERT OR IGNORE INTO ExcludedAdjacencies (TraitType , YieldChangeId)
 --==================
 -- Kongo
 --==================
+--5.1 Founder Belief Bug Fix
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+	('BBG_REQUIRES_PLAYER_IS_RELIGIOUS_CONVERT', 'REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES'),
+	('BBG_REQUIRES_PLAYER_FOUNDED_RELIGION_OR_MVEMBA', 'REQUIREMENT_REQUIREMENTSET_IS_MET');
+
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+	('BBG_REQSET_FOUNDER_OR_MVEMBA', 'REQUIREMENTSET_TEST_ANY');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+	('BBG_REQSET_FOUNDER_OR_MVEMBA', 'REQUIRES_PLAYER_FOUNDED_RELIGION'),
+	('BBG_REQSET_FOUNDER_OR_MVEMBA', 'BBG_REQUIRES_PLAYER_IS_RELIGIOUS_CONVERT');
+
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+	('BBG_REQUIRES_PLAYER_IS_RELIGIOUS_CONVERT', 'LeaderType', 'LEADER_MVEMBA'),
+	('BBG_REQUIRES_PLAYER_FOUNDED_RELIGION_OR_MVEMBA', 'RequirementSetId', 'BBG_REQSET_FOUNDER_OR_MVEMBA');
+
+UPDATE RequirementSetRequirements SET RequirementId = 'BBG_REQUIRES_PLAYER_FOUNDED_RELIGION_OR_MVEMBA' WHERE RequirementId = 'REQUIRES_PLAYER_FOUNDED_RELIGION' AND RequirementSetId <> 'BBG_REQSET_FOUNDER_OR_MVEMBA';
+
 -- +100% prod towards archealogists
 INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_CIVILIZATION_NKISI', 'TRAIT_ARCHAEOLOGIST_PROD_BBG');
@@ -969,6 +989,19 @@ INSERT INTO TypeTags(Type, Tag) VALUES
 	('ABILITY_PHILIP_II_COMBAT_BONUS_OTHER_RELIGION', 'CLASS_WARRIOR_MONK');
 
 -- Monks: Rework
+--Changes the way monk binds. This way it is the same mechanism as other follower beliefs and not a one time exception by Firaxis
+--Necessary for Kotoku
+UPDATE Modifiers SET ModifierType = 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER' WHERE ModifierId = 'ALLOW_WARRIOR_MONKS';
+
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+	('BBG_PLAYER_ALLOW_MONKS_IN_CITY', 'MODIFIER_PLAYER_CITIES_ENABLE_UNIT_FAITH_PURCHASE' ,'CITY_FOLLOWS_RELIGION_REQUIREMENTS');
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+	('BBG_PLAYER_ALLOW_MONKS_IN_CITY', 'Tag', 'CLASS_WARRIOR_MONK');
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+	('ALLOW_WARRIOR_MONKS', 'ModifierId', 'BBG_PLAYER_ALLOW_MONKS_IN_CITY');
+
 -- Monks: Defines Scaling Combat Strength with Civics, Capped at the End of Industrial Civis
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
 	('BBG_UNIT_IS_MONK_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
@@ -1007,10 +1040,13 @@ UPDATE Unit_BuildingPrereqs SET PrereqBuilding = 'BUILDING_SHRINE' WHERE Unit = 
 --with the same CS across eras up to Industrial, Monk then stops scaling and Cost doesn't justify the str.
 --Becomes Obsolete in Modern due to str/price. Still should kick ass in Industrial esp with tier II promo.
 --Around Shrines Religion Timing should be around sword in strength
-UPDATE Units SET Combat = '31' WHERE UnitType = 'UNIT_WARRIOR_MONK';
+UPDATE Units SET Combat = '28' WHERE UnitType = 'UNIT_WARRIOR_MONK';
 UPDATE Units SET Cost = '60' WHERE UnitType = 'UNIT_WARRIOR_MONK';
 UPDATE Units SET CostProgressionModel = 'COST_PROGRESSION_GAME_PROGRESS' WHERE UnitType = 'UNIT_WARRIOR_MONK';
 UPDATE Units SET CostProgressionParam1 = '1000' WHERE UnitType = 'UNIT_WARRIOR_MONK';
+
+--Next line makes monk purchase with kotoku possible to be unlocked if kotoku has a correct modifier
+UPDATE Units SET PurchaseYield = NULL, MustPurchase = '0', EnabledByReligion ='0' WHERE UnitType = 'UNIT_WARRIOR_MONK';
 
 --Nerf Tier 2 promo Exploding Palms from +10 down to +5 to stay more in line with mele units
 UPDATE ModifierArguments SET Value = '5' WHERE ModifierId = 'EXPLODING_PALMS_INCREASED_COMBAT_STRENGTH';
