@@ -439,7 +439,7 @@ end
 -- ===========================================================================
 --	Sumer
 -- ===========================================================================
-function ApplyGilgameshTrait()
+function ApplySumeriaTrait()
 	local iStartEra = GameInfo.Eras[ GameConfiguration.GetStartEra() ];
 	local iStartIndex = 0
 	if iStartEra ~= nil then
@@ -454,7 +454,7 @@ function ApplyGilgameshTrait()
 	for _, iPlayerID in ipairs(PlayerManager.GetAliveMajorIDs()) do
 		local pPlayer = Players[iPlayerID]
 		if pPlayer ~= nil then
-			if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_GILGAMESH" then
+			if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_SUMERIA" then
 				local playerUnits;
 				playerUnits = Players[iPlayerID]:GetUnits();
 				for k, unit in playerUnits:Members() do
@@ -2303,7 +2303,7 @@ function Initialize()
 	local startTurn = GameConfiguration.GetStartTurn()
 	
 	if currentTurn == startTurn then
-		ApplyGilgameshTrait()
+		ApplySumeriaTrait()
 		--InitBarbData()
 	end
 	-- turn checked effects:
