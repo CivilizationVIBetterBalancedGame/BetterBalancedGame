@@ -268,6 +268,31 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_GOV_SPIES', 'BBG_INTEL_AGENCY_SPY_PROD_BONUS');
 
+INSERT INTO Unit_BuildingPrereqs(Unit, PrereqBuilding, NumSupported) VALUES
+	('UNIT_WARRIOR_MONK', 'BUILDING_KOTOKU_IN', '-1');
+
+--5.1 Kotoku Allows Monk Buy SQL
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+	('BBG_REQUIRES_CITY_HAS_KOTOKU', 'REQUIREMENT_CITY_HAS_BUILDING');
+
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+	('BBG_REQUIRES_CITY_HAS_KOTOKU', 'BuildingType','BUILDING_KOTOKU_IN');
+
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+	('BBG_CITY_HAS_KOTOKU_REQSET', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+	('BBG_CITY_HAS_KOTOKU_REQSET', 'BBG_REQUIRES_CITY_HAS_KOTOKU');
+
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+	('BBG_KOTOKU_ALLOW_MONK_BUY', 'MODIFIER_PLAYER_CITIES_ENABLE_UNIT_FAITH_PURCHASE', 'BBG_CITY_HAS_KOTOKU_REQSET');
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+	('BBG_KOTOKU_ALLOW_MONK_BUY', 'Tag', 'CLASS_WARRIOR_MONK');
+
+INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
+	('BUILDING_KOTOKU_IN', 'BBG_KOTOKU_ALLOW_MONK_BUY');
+
 
 --==============================================================
 --******			 	  CITY-STATES		 		  	  ******
