@@ -1048,6 +1048,8 @@ UPDATE Units SET CostProgressionParam1 = '1000' WHERE UnitType = 'UNIT_WARRIOR_M
 --Next line makes monk purchase with kotoku possible to be unlocked if kotoku has a correct modifier
 UPDATE Units SET PurchaseYield = NULL, MustPurchase = '0', EnabledByReligion ='0' WHERE UnitType = 'UNIT_WARRIOR_MONK';
 
+--Disables Monk +10 congress interraction. Allows Kotoku city to receive 4 monks and recruit monks, even if city doesn't have a religion
+UPDATE Units SET TrackReligion = '0' WHERE UnitType = 'UNIT_WARRIOR_MONK';
 --Nerf Tier 2 promo Exploding Palms from +10 down to +5 to stay more in line with mele units
 UPDATE ModifierArguments SET Value = '5' WHERE ModifierId = 'EXPLODING_PALMS_INCREASED_COMBAT_STRENGTH';
 --Nerf Tier 4 promo Cobra Strike +15 down to +7 to be more in line with other promos
