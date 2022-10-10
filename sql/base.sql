@@ -910,7 +910,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO BeliefModifiers (BeliefType, ModifierId) VALUES
 	('BELIEF_GODDESS_OF_THE_HUNT', 'BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD');
 
-DELETE FROM BeliefModifiers WHERE ModifierId='GODDESS_OF_THE_HUNT_CAMP_FOOD';
+DELETE FROM BeliefModifiers WHERE ModifierId='GODDESS_OF_THE_HUNT_CAMP_PRODUCTION';
 
 
 
