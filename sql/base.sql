@@ -991,10 +991,10 @@ INSERT INTO TypeTags(Type, Tag) VALUES
 -- Monks: Rework
 --Changes the way monk binds. This way it is the same mechanism as other follower beliefs and not a one time exception by Firaxis
 --Necessary for Kotoku
-UPDATE Modifiers SET ModifierType = 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER' WHERE ModifierId = 'ALLOW_WARRIOR_MONKS';
+UPDATE Modifiers SET ModifierType = 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', SubjectRequirementSetId = 'CITY_FOLLOWS_RELIGION_REQUIREMENTS' WHERE ModifierId = 'ALLOW_WARRIOR_MONKS';
 
-INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-	('BBG_PLAYER_ALLOW_MONKS_IN_CITY', 'MODIFIER_PLAYER_CITIES_ENABLE_UNIT_FAITH_PURCHASE' ,'CITY_FOLLOWS_RELIGION_REQUIREMENTS');
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+	('BBG_PLAYER_ALLOW_MONKS_IN_CITY', 'MODIFIER_CITY_ENABLE_UNIT_FAITH_PURCHASE');
 
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 	('BBG_PLAYER_ALLOW_MONKS_IN_CITY', 'Tag', 'CLASS_WARRIOR_MONK');
@@ -1046,7 +1046,7 @@ UPDATE Units SET CostProgressionModel = 'COST_PROGRESSION_GAME_PROGRESS' WHERE U
 UPDATE Units SET CostProgressionParam1 = '1000' WHERE UnitType = 'UNIT_WARRIOR_MONK';
 
 --Next line makes monk purchase with kotoku possible to be unlocked if kotoku has a correct modifier
-UPDATE Units SET PurchaseYield = NULL, MustPurchase = '0', EnabledByReligion ='0' WHERE UnitType = 'UNIT_WARRIOR_MONK';
+UPDATE Units SET PurchaseYield = NULL, MustPurchase = '1', EnabledByReligion ='0' WHERE UnitType = 'UNIT_WARRIOR_MONK';
 
 --Disables Monk +10 congress interraction. Allows Kotoku city to receive 4 monks and recruit monks, even if city doesn't have a religion
 UPDATE Units SET TrackReligion = '0' WHERE UnitType = 'UNIT_WARRIOR_MONK';
@@ -1054,6 +1054,8 @@ UPDATE Units SET TrackReligion = '0' WHERE UnitType = 'UNIT_WARRIOR_MONK';
 UPDATE ModifierArguments SET Value = '5' WHERE ModifierId = 'EXPLODING_PALMS_INCREASED_COMBAT_STRENGTH';
 --Nerf Tier 4 promo Cobra Strike +15 down to +7 to be more in line with other promos
 UPDATE ModifierArguments SET Value = '7' WHERE ModifierId = 'COBRA_STRIKE_INCREASED_COMBAT_STRENGTH';
+--Deleting Monk Spread from sql (doesn't work since disabling TrackReligion), adding Basil-like spread in Lua
+DELETE FROM UnitPromotionModifiers WHERE UnitPromotionType = 'PROMOTION_MONK_DISCIPLES';
 
 --Add Unique Ability Icon and description to Monk's Scaling Ability in Unit Preview
 --Modifiers Themself are added through civic tree as monk is not unique to a given player.

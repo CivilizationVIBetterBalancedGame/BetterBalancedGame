@@ -7,7 +7,7 @@ include("ProductionPanel")
 --The OverrideResults function will be replacing my current two functions
 --boolean check if monk and check for dynamic district prereq for aqueduct/damm/river watermil
 
-local bMonkKotoku = true --Lua side, needed for enabling monk kotoku. 
+local bMonkKotoku = false --Lua side, needed for enabling monk kotoku. 
 --Sql side is split between base.sql change to monk as a unit and monks as religion, to allow for a different binding mechanism
 --Same mechanism as any other faith purchase units and any other follower religious belief
 --Sql side 2: change to kotoku itself. Located in xp1__rise_and_fall.sql
