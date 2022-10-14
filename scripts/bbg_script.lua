@@ -72,6 +72,7 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 	end
 
 	local pAttackerPlayer = Players[attackerPlayerID];
+	print("AttackerID",attackerPlayerID);
 	local pAttackerReligion = pAttackerPlayer:GetReligion()
 	local pAttackerLeader = PlayerConfigurations[attackerPlayerID]:GetLeaderTypeName()
 	local pDefenderPlayer = Players[defenderPlayerID];
@@ -82,13 +83,36 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 	
 	-- Attacker died to defender.
 	if(pAttackingUnit ~= nil and pDefendingUnit ~= nil and (pDefendingUnit:IsDead() or pDefendingUnit:IsDelayedDeath())) then
+		local religionType = pAttackerReligion:GetReligionTypeCreated()
+		print("Religion",religionType)
+		if religionType==nil or religionType==-1 then
+			religionType = pAttackerReligion:GetReligionInMajorityOfCities()
+		end
+		print("Religion",religionType)
 		if pAttackerLeader == "LEADER_BASIL" then
 			local x = pAttackingUnit:GetX()
 			local y = pAttackingUnit:GetY()
 			local power = pDefendingUnit:GetCombat()
-			local religionType = pAttackerReligion:GetReligionTypeCreated()
 			if x ~= nil and y ~= nil and power ~= nil and religionType ~= nil and religionType ~= -1 then
 				ApplyByzantiumTrait(x,y,power,religionType,attackerPlayerID)
+				print('Basil Spread Applied')
+			end
+		--Applying same kind of modifier as Basil to monk disciples
+		elseif GameInfo.Units[pAttackingUnit:GetType()].UnitType == 'UNIT_WARRIOR_MONK' and pAttackerLeader ~= "LEADER_BASIL" then
+			print('Monk Detected')
+			local unitExperience = pAttackingUnit:GetExperience();
+			print(unitExperience)
+			if unitExperience~=nil then
+				print('Pass1', unitExperience)
+				local bHasDisciples = unitExperience:HasPromotion(103);
+				print('Pass2', bHasDisciples)
+				local x = pAttackingUnit:GetX()
+				local y = pAttackingUnit:GetY()
+				local power = pDefendingUnit:GetCombat()
+				if bHasDisciples == true and x ~= nil and y ~= nil and religionType ~= nil and religionType ~= -1 then 
+					ApplyByzantiumTrait(x,y,power,religionType,attackerPlayerID)
+					print('Monk Spread Applied')
+				end
 			end
 		end
 	end
@@ -407,15 +431,17 @@ end
 -- ===========================================================================
 function ApplyByzantiumTrait(x,y,power,religionType,playerID)
 	if x == nil or y == nil or power == nil or religionType == nil then
+		print(x,y,power,religionType, playerID)
 		return
 	end
 	local religionInfo = GameInfo.Religions[religionType]
-
+	print("Religion Spread Satred with",x,y,power,religionType,playerID)
 	local pPlot = Map.GetPlot(x, y)
-	for i = 1, iReligion_ByzantiumRange do
+	for i = 0, iReligion_ByzantiumRange do
 		local plotScanned = GetAdjacentTiles(pPlot, i)
 		if plotScanned ~= nil then
 			if plotScanned:IsCity() then
+				print("city Detected")
 				local pCity = Cities.GetCityInPlot(plotScanned)
 				local pCityReligion = pCity:GetReligion()
 				local impact = power * iReligion_ByzantiumMultiplier
