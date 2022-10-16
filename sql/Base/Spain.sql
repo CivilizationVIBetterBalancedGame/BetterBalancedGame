@@ -1,6 +1,16 @@
 -- Author: iElden
 -- Making this is like spain but s is silent
 
+-- Early Fleets moved to Mercenaries
+UPDATE ModifierArguments SET Value='CIVIC_MERCENARIES' WHERE Name='CivicType' AND ModifierId='TRAIT_NAVAL_CORPS_EARLY';
+-- 30% discount on missionaries
+INSERT OR IGNORE INTO TraitModifiers ( TraitType , ModifierId )
+    VALUES ('TRAIT_LEADER_EL_ESCORIAL' , 'HOLY_ORDER_MISSIONARY_DISCOUNT_MODIFIER');
+-- 15/05/2021: Delete free builder on foreign continent
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_TREASURE_FLEET' AND ModifierId='TRAIT_INTERCONTINENTAL_BUILDER';
+-- 15/05/2021: Conquistador to +5 (from +10)
+UPDATE ModifierArguments SET Value='5' WHERE ModifierId='CONQUISTADOR_SPECIFIC_UNIT_COMBAT' AND Name='Amount';
+
 -- Spain got coastal bias again
 INSERT INTO StartBiasTerrains(CivilizationType, TerrainType, Tier) VALUES
     ('CIVILIZATION_SPAIN', 'TERRAIN_COAST', 1);

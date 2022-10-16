@@ -1,11 +1,12 @@
-------------------------------------------------------------------------------
---	FILE:	 new_bbg_england.sql
---	AUTHOR:  iElden, D. / Jack The Narrator
---	PURPOSE: Database Civilization related modifications by new BBG
-------------------------------------------------------------------------------
 --==============================================================================================
 --******				ENGLAND						   ******
 --==============================================================================================
+
+-- Sea Dog available at Exploration now
+UPDATE Units SET PrereqCivic='CIVIC_EXPLORATION' WHERE UnitType='UNIT_ENGLISH_SEADOG';
+
+-- 15/05/2021: redcoast ability to +5 (from +10)
+UPDATE ModifierArguments SET Value='5' WHERE ModifierId='REDCOAT_FOREIGN_COMBAT' AND Name='Amount';
 
 UPDATE District_GreatPersonPoints SET PointsPerTurn=1 WHERE DistrictType='DISTRICT_ROYAL_NAVY_DOCKYARD' AND GreatPersonClassType='GREAT_PERSON_CLASS_ADMIRAL';
 

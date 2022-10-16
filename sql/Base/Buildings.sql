@@ -1,26 +1,24 @@
 -- ==============
--- == DISTRICT ==
--- ==============
-
--- Create new district traderoute yield
-INSERT INTO District_TradeRouteYields(DistrictType, YieldType, YieldChangeAsOrigin, YieldChangeAsDomesticDestination, YieldChangeAsInternationalDestination) VALUES
-    ('DISTRICT_AERODROME', 'YIELD_PRODUCTION', 0.0, 1.0, 1.0);
-
--- Green District cost same as other district (from 81)
-UPDATE Districts SET Cost=54 WHERE DistrictType IN ('DISTRICT_CANAL', 'DISTRICT_DAM');
-
--- Preserve give ability to plant wood.
--- INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
---    ('BBG_PRESERVE_PLANT_WOOD', 'MODIFIER_PLAYER_ADJUST_FEATURE_UNLOCK');
--- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
---    ('BBG_PRESERVE_PLANT_WOOD', 'FeatureType', 'FEATURE_FOREST'),
---    ('BBG_PRESERVE_PLANT_WOOD', 'CivicType', 'CIVIC_CODE_OF_LAWS');
--- INSERT INTO DistrictModifiers(DistrictType, ModifierId) VALUES
---    ('DISTRICT_PRESERVE', 'BBG_PRESERVE_PLANT_WOOD');
-
--- ==============
 -- == BUILDING ==
 -- ==============
+
+UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_BARRACKS';
+UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_STABLE';
+UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_BASILIKOI_PAIDES';
+UPDATE Building_GreatPersonPoints SET PointsPerTurn=2 WHERE BuildingType='BUILDING_ARMORY';
+UPDATE Building_GreatPersonPoints SET PointsPerTurn=2 WHERE BuildingType='BUILDING_MILITARY_ACADEMY';
+UPDATE Building_GreatPersonPoints SET PointsPerTurn=3 WHERE BuildingType='BUILDING_SEAPORT';
+
+--Watermil available with aqueduct, bath, dam
+--UPDATE Buildings SET RequiresAdjacentRiver = '0' WHERE BuildingType ='BUILDING_WATER_MILL';
+
+UPDATE Buildings SET OuterDefenseHitPoints=75, Cost=100 WHERE BuildingType='BUILDING_WALLS';
+UPDATE Buildings SET OuterDefenseHitPoints=75, Cost=200 WHERE BuildingType='BUILDING_CASTLE';
+UPDATE Buildings SET OuterDefenseHitPoints=75 WHERE BuildingType='BUILDING_STAR_FORT';
+UPDATE ModifierArguments SET Value='300' WHERE ModifierId='STEEL_UNLOCK_URBAN_DEFENSES';
+
+-- chancery science from captured spies increased
+UPDATE ModifierArguments SET Value='200' WHERE ModifierId='CHANCERY_COUNTERYSPY_SCIENCE' AND Name='Amount';
 
 -- Give sewers +1 amenity
 UPDATE Buildings SET Entertainment=1 WHERE BuildingType='BUILDING_SEWER';
@@ -63,54 +61,6 @@ UPDATE Buildings SET Cost=290 WHERE BuildingType IN ('BUILDING_FACTORY', 'BUILDI
 
 -- Coal Powerplant
 UPDATE Buildings SET Cost=330 WHERE BuildingType='BUILDING_COAL_POWER_PLANT';
-
---=============
---== WONDERS ==
---=============
-
--- Colosseum - reduce culture to 1 (from 2)
-UPDATE Building_YieldChanges SET YieldChange=1 WHERE BuildingType='BUILDING_COLOSSEUM' AND YieldType='YIELD_CULTURE';
-
--- Jabel Barkal - Increase strategics ressource storage by 20 (online speed).
-
-
--- Chichen Itza - Culture +1 for all jungle in the empire.
-
-
--- Hagia Sophia - Religious pressure +200% for this city.
-
-
--- Kotoku-in - Increase strength of player warrior Monk.
-
-
--- Meenakshi Temple - Religious pressure +50% in Empire? (TODO: Check if Guru can heal Warrior Monk => Should)
-
-
--- Mont St. Michel - Awards a relic.
-
-
--- University of Sankore - Increase trade route yield given by wonder.
-
-
--- Great Zimbabwe
-
-
--- Orszaghaz
-
-
--- Taj Mahal
-
-
--- Torre de Belem - Remove free building to avoid conflict with dummy.
-
-
--- Amundsen-Scott Research Station - +1 Science per snow tile in the city. Citizen can work snow tile for 3 science.
-
-
--- Golden Gate Bridge
-
-
--- BioSphere - Drastically reduce polution (making player generating more diplomatic favour by pollution modifier).
 
 
 

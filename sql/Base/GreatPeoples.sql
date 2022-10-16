@@ -1,14 +1,3 @@
--- Reduce Imhotep to 1 charge
-UPDATE GreatPersonIndividuals SET ActionCharges=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_IMHOTEP';
-
--- Fix Ibn Khaldun Bug
-UPDATE ModifierArguments SET Value=4 WHERE Name='Amount' AND ModifierId IN
-    ('GREAT_PERSON_INDIVIDUAL_IBN_KHALDUN_EMPIRE_HAPPY_SCIENCE', 'GREAT_PERSON_INDIVIDUAL_IBN_KHALDUN_EMPIRE_HAPPY_CULTURE', 'GREAT_PERSON_INDIVIDUAL_IBN_KHALDUN_EMPIRE_HAPPY_PRODUCTION',
-    'GREAT_PERSON_INDIVIDUAL_IBN_KHALDUN_EMPIRE_HAPPY_GOLD', 'GREAT_PERSON_INDIVIDUAL_IBN_KHALDUN_EMPIRE_HAPPY_FAITH');
-UPDATE ModifierArguments SET Value=8 WHERE Name='Amount' AND ModifierId IN
-    ('GREAT_PERSON_INDIVIDUAL_IBN_KHALDUN_EMPIRE_ECSTATIC_SCIENCE', 'GREAT_PERSON_INDIVIDUAL_IBN_KHALDUN_EMPIRE_ECSTATIC_CULTURE', 'GREAT_PERSON_INDIVIDUAL_IBN_KHALDUN_EMPIRE_ECSTATIC_PRODUCTION',
-    'GREAT_PERSON_INDIVIDUAL_IBN_KHALDUN_EMPIRE_ECSTATIC_GOLD', 'GREAT_PERSON_INDIVIDUAL_IBN_KHALDUN_EMPIRE_ECSTATIC_FAITH');
-
 -- Alfred Nobel grants one diplo point
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_GREATPERSON_1DIPLOPOINT', 'MODIFIER_PLAYER_ADJUST_DIPLOMATIC_VICTORY_POINTS');
@@ -30,20 +19,10 @@ UPDATE ModifierArguments SET Value='50' WHERE ModifierId='GREATPERSON_INDUSTRIAL
 -- Raja Toda Mal
 UPDATE ModifierArguments SET Value='1.0' WHERE ModifierId='GREATPERSON_DOMESTIC_ROUTE_GOLD_PER_SPECIALTY_DISTRICT' AND Name='Amount';
 
--- Stamford Raffles
-UPDATE GreatPersonIndividuals SET ActionRequiresCityStateTerritory=1, ActionRequiresSuzerainTerritory=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_STAMFORD_RAFFLES';
-INSERT INTO GreatPersonIndividualBirthModifiers (GreatPersonIndividualType, ModifierId) VALUES
-    ('GREAT_PERSON_INDIVIDUAL_STAMFORD_RAFFLES', 'GREAT_PERSON_ENTER_FOREIGN_LANDS');
-
 -- Sarah Breedlove
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
     ('GREAT_PERSON_INDIVIDUAL_SARAH_BREEDLOVE', 'GREATPERSON_EXTRA_TRADE_ROUTE_CAPACITY', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
-
     
--- 21/08/22 Margaret Mead buff (2000 culture/science)
-UPDATE ModifierArguments SET Value='2000' WHERE ModifierId='GREAT_PERSON_GRANT_LOTSO_SCIENCE' AND Name='Amount';
-UPDATE ModifierArguments SET Value='2000' WHERE ModifierId='GREAT_PERSON_GRANT_LOTSO_CULTURE' AND Name='Amount';
-
 -- 21/08/22 Mendeleev also gives 50% bonus prod towards labs
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
 	('BBG_GREATPERSON_LAB_BOOST', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
@@ -163,13 +142,6 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('GREATPERSON_SUDIRMAN_ACTIVE', 'Experience', '-1'),
     ('GREATPERSON_SUDIRMAN_ACTIVE', 'UniqueOverride', '1');
 UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
-
--- Dandara gives the most advanced support unit (instead of a warrior monk with experience)
-UPDATE Modifiers SET ModifierType='MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_NEAREST_CITY' WHERE ModifierId='GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE';
-DELETE FROM ModifierArguments WHERE ModifierId='GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE';
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('GREAT_PERSON_INDIVIDUAL_DANDARA_ACTIVE', 'UnitPromotionClassType', 'PROMOTION_CLASS_SUPPORT');
-UPDATE GreatPersonIndividuals SET ActionCharges=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_DANDARA';
 
 --Alvaro Aalto add +2 gold per breathtaking tile in the city
 INSERT INTO Modifiers (ModifierId, ModifierType, Permanent, SubjectRequirementSetId) VALUES
