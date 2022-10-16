@@ -130,7 +130,7 @@
 			<Text>플레이어 종교로 개종한 각 성도마다 [ICON_RELIGION] 신앙력 +2를 제공합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_BYZANTIUM_DESCRIPTION" Language="ko_KR">
-			<Text>유닛이 비잔티움 종교로 개종한 성도(비잔티움 성도 포함)마다 [ICON_Strength] 전투력 또는 [ICON_Religion] 신앙력 +2를 얻습니다. 적 문명 또는 도시 국가 유닛을 처치하면 처치한 유닛의 전투력에 비례해 비잔티움 종교가 5타일 범위 내 도시로 전파됩니다. 성지 특수지구가 있는 도시에서 [ICON_GreatProphet] 위대한 선지자 점수 +1을 얻습니다.</Text>
+			<Text>유닛이 비잔티움 종교로 개종한 성도(비잔티움 성도 포함)마다 [ICON_Strength] 전투력 또는 [ICON_Religion] 신앙력 +2를 얻습니다. 적 문명 또는 도시 국가 유닛을 처치하면 처치한 유닛의 [ICON_Strength] 근접 전투력에 비례해 비잔티움 종교가 5타일 범위 내 도시로 전파됩니다. 성지 특수지구가 있는 도시에서 [ICON_GreatProphet] 위대한 선지자 점수 +1을 얻습니다.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_BYZANTINE_TAGMA_DESCRIPTION" Language="ko_KR">
@@ -234,6 +234,10 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_CREE_TRADE_GAIN_TILES_DESCRIPTION" Language="ko_KR">
 			<Text>도예 기술을 연구하면 [ICON_TradeRoute] 교역로 최대치 +1을 제공합니다. 크리 도시에서 3타일 이내의 주인 없는 타일로 상인이 처음 이동하면 해당 타일은 크리 소유가 됩니다.</Text>
 		</Replace>
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_UNIT_CREE_OKIHTCITAW_DESCRIPTION" Language="ko_KR">
+			<Text>크리 특유의 고대 시대 유닛으로 정찰병을 대체합니다. 강력한 정찰 유닛이며 1개의 [ICON_Promotion] 무료 진급을 갖추고 시작합니다.</Text>
+		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_MEKEWAP_DESCRIPTION" Language="ko_KR">
 			<Text>크리 특유의 메케와프를 지을 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_PRODUCTION] 생산력 +1 및 [ICON_Housing] 주거공간 +1을 제공합니다. 사치 자원이 인접해 있으면 [ICON_GOLD] 금 +1을 제공합니다. 인접 보너스 자원 2개마다 [ICON_FOOD] 식량 +1을 제공합니다. 공공 행정 사회제도를 보유하면 [ICON_HOUSING] 주거공간 +1을 추가 제공합니다. 기술 발전표와 사회 제도 진보에 따라 [ICON_PRODUCTION] 생산력과 [ICON_GOLD] 금, [ICON_FOOD] 식량이 추가됩니다. 보너스 자원이나 사치 자원 옆에 배치해야 합니다. 다른 메케와프 옆에 지을 수 없습니다.</Text>
@@ -331,7 +335,14 @@
 		<Replace Tag="LOC_ABILITY_ETHIOPIAN_OROMO_CAVALRY_DESCRIPTION" Language="ko_KR">
 			<Text>언덕에서 턴을 시작할 시 [ICON_Movement] 이동력 +1.[NEWLINE][ICON_Bullet] 언덕에서 전투시 [ICON_STRENGTH] 전투력 +4.</Text>
 		</Replace>
-
+		<!-- = unique improvement = -->
+		<Replace Tag="LOC_IMPROVEMENT_ROCK_HEWN_CHURCH_DESCRIPTION" Language="ko_KR">
+			<Text>에티오피아 특유 건물인 암굴 교회를 건설할 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE]인접한 산맥 및 언덕마다 [ICON_Faith] 신앙 +1을 제공합니다. 비행 연구 후 [ICON_FAITH] 신앙으로 [ICON_TOURISM] 관광을 제공합니다. 매력도 +1을 제공합니다. 다른 암굴 교회에 인접하지 않은 언덕에만 건설할 수 있습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_IMPROVEMENT_ROCK_HEWN_CHURCH_EXPANSION2_DESCRIPTION" Language="ko_KR">
+			<Text>에티오피아 특유 건물인 암굴 교회를 건설할 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE]인접한 산맥 및 언덕마다 [ICON_Faith] 신앙 +1을 제공합니다. 비행 연구 후 [ICON_FAITH] 신앙으로 [ICON_TOURISM] 관광을 제공합니다. 매력도 +1을 제공합니다. 자연재해로 인해서만 약탈당할 수 있으며 파괴되지 않습니다. 다른 암굴 교회에 인접하지 않은 언덕 또는 화산토에만 건설할 수 있습니다.</Text>
+		</Replace>
+		
 		<!-- == FRANCE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_WONDER_TOURISM_DESCRIPTION" Language="ko_KR">
@@ -721,6 +732,10 @@
 		</Replace>
 
 		<!-- == NUBIA == -->
+		<!-- = leader ability = --> <!-- production icon -->
+		<Replace Tag="LOC_TRAIT_LEADER_KANDAKE_OF_MEROE_DESCRIPTION" Language="ko_KR">
+			<Text>모든 특수지구 건설 시 [ICON_Production] 생산력 +20%를 제공합니다. 단, 누비아 피라미드가 도심부에 인접한 경우 [ICON_Production] 생산력 보너스가 +40%로 증가합니다.</Text>
+		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_PYRAMID_DESCRIPTION" Language="ko_KR">
 			<Text>장인정신 사회제도와 함께 잠금 해제되며 사막, 사막 언덕, 범람원, 평원 또는 초원에 지어야 하는 시설입니다. [ICON_FOOD] 식량 +1, [ICON_Faith] 신앙 +2를 제공합니다. 도심부에 인접하는 경우 [ICON_Food] 식량 +2를 제공합니다. 인접 보너스를 제공하는 다른 모든 특수지구(캠퍼스, 산업 단지, 극장가, 성지, 상업 중심지, 항만)에 대해 해당 특수지구가 인접했다면 해당 산출물 +2를 제공합니다. 다른 누비아 피라미드 옆에 지을 수 없습니다.</Text>
@@ -807,7 +822,7 @@
 		<!-- == ROME == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRAJANS_COLUMN_DESCRIPTION" Language="ko_KR">
-			<Text>법전 사회 제도를 획득하면 모든 도시가 추가적인 도심부 건물을 가지고 시작합니다. (고대 시대부터 시작할 경우 기념비 건물을 가지고 시작)</Text>
+			<Text>법전 사회 제도를 완료하면 직접 세운 모든 도시들이 추가적인 도심부 건물을 받습니다. (고대 시대부터 시작할 경우 기념비 건물을 받음.)</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_ROMAN_LEGION_DESCRIPTION" Language="ko_KR"> <!-- charge icon, even not needed -->
@@ -890,13 +905,13 @@
 			<Text>모든 왕을 능가함</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_DESCRIPTION" Language="ko_KR">
-			<Text>자신의 동맹국과 전쟁 중인 모든 세력에 전쟁광 페널티 없이 전쟁을 선포할 수 있습니다. 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. [NEWLINE]야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
+			<Text>고대 시대 시작시 시작 유닛으로 전사가 아닌 수메르 전차를 받습니다.[NEWLINE][NEWLINE]자신의 동맹국과 전쟁 중인 모든 세력에 전쟁광 페널티 없이 전쟁을 선포할 수 있습니다. 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. [NEWLINE]야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_EXPANSION1_DESCRIPTION" Language="ko_KR">
-			<Text>자신의 동맹국과 전쟁 중인 모든 세력에 전쟁광 페널티 없이 전쟁을 선포할 수 있습니다. 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. 동맹국의 동맹이 공동의 적과의 전투에 참여할 경우 동맹 점수를 얻습니다. [NEWLINE]야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
+			<Text>고대 시대 시작시 시작 유닛으로 전사가 아닌 수메르 전차를 받습니다.[NEWLINE][NEWLINE]자신의 동맹국과 전쟁 중인 모든 세력에 전쟁광 페널티 없이 전쟁을 선포할 수 있습니다. 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. 동맹국의 동맹이 공동의 적과의 전투에 참여할 경우 동맹 점수를 얻습니다. [NEWLINE]야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>활성화된 가장 높은 동맹 레벨만큼 [ICON_STRENGTH] 전투력을 얻습니다(1~3레벨). 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. 동맹국의 동맹이 공동의 적과의 전투에 참여할 경우 동맹 점수를 얻습니다. [NEWLINE]야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
+			<Text>고대 시대 시작시 시작 유닛으로 전사가 아닌 수메르 전차를 받습니다.[NEWLINE][NEWLINE]활성화된 가장 높은 동맹 레벨만큼 [ICON_STRENGTH] 전투력을 얻습니다(1~3레벨). 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. 동맹국의 동맹이 공동의 적과의 전투에 참여할 경우 동맹 점수를 얻습니다. [NEWLINE]야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_SUMMER_COMBAT_ALLY_1" Language="ko_KR">
 			<Text>활성화된 동맹 레벨에서 [ICON_Strength] 전투력 +1.</Text>
@@ -986,7 +1001,7 @@
 			<Text>고유한 진급 트리를 보유한 라호르 도시 국가 특유의 유닛입니다. [ICON_Faith] 신앙으로 구매할 수 있습니다.병영, 무기고, 사관 학교 건물을 먼저 건설하면 [ICON_Strength] 전투력이 증가합니다. 아무 시대의 [ICON_GREATGENERAL] 위대한 장군에게서 효과를 받을 수 있습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_TRADER_DESCRIPTION" Language="ko_KR"> <!-- embarkation tip -->
-			<Text>한 개의 [ICON_TradeRoute] 교역로를 생성하고 유지할 수 있습니다. 이동하면서 자동으로 도로를 생성합니다. 천문 항법 기술이 연구되면 해양 타일로 승선할 수 있습니다.</Text>
+			<Text>한 개의 [ICON_TradeRoute] 교역로를 생성하고 유지할 수 있습니다. 이동하면서 자동으로 도로를 생성합니다. 천문 항법 또는 조선 기술이 연구되면 해양 타일로 승선할 수 있습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_QUADRIREME_DESCRIPTION" Language="ko_KR">
 			<Text>[ICON_Range] 사거리가 1인 고전 시대의 해상 원거리 유닛입니다. 지도 제작을 연구할 때까지 해안에서만 운행할 수 있습니다.</Text>
@@ -1000,6 +1015,7 @@
 		<Replace Tag="LOC_UNIT_MISSILE_CRUISER_DESCRIPTION" Language="ko_KR">
 			<Text>[ICON_Range] 사거리가 4인 정보 시대의 해상 원거리 유닛입니다. 1타일 이내의 공중 및 핵 공격에 대한 방어를 제공합니다.</Text>
 		</Replace>
+
 
 
 		<!-- === UNIT PROMOTIONS === -->
@@ -1050,6 +1066,9 @@
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_MONK_DISCIPLES_DESCRIPTION" Language="ko_KR">
 			<Text>이 유닛은 야만인을 제외한 적 유닛 처치 시, 자신의 종교 영향력 250을 6타일 이내의 도시로 전파합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_GARRISON_DESCRIPTION" Language="ko_KR">
+			<Text>요새 또는 특수지구 점유 시 [ICON_Strength] 전투력 +10.</Text>
 		</Replace>
 
 
@@ -1252,10 +1271,10 @@
 			<Text>멋진 혹은 놀라운 매력도의 타일에서 [ICON_Faith] 신앙 +1을 획득합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_GODDESS_OF_THE_HUNT_DESCRIPTION" Language="ko_KR">
-			<Text>야영지에서 [ICON_Production] 생산력 +1, [ICON_Gold] 금 +2를 제공합니다.</Text>
+			<Text>야영지에서 [ICON_FOOD] 식량 +1, [ICON_Gold] 금 +2를 제공합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_GODDESS_OF_THE_HUNT_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>야영지에서 [ICON_Production] 생산력 +1, [ICON_Gold] 금 +2를 제공합니다.</Text>
+			<Text>야영지에서 [ICON_FOOD] 식량 +1, [ICON_Gold] 금 +2를 제공합니다.</Text>
 		</Replace>
 
 		
@@ -1356,7 +1375,7 @@
 			<Text>양식장을 지을 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Food] 식량 +1을 제공하며, 해양 자원에 인접해 있으면 추가 [ICON_Food] 식량 +1을 제공합니다. 해안 지역에 건설해야 합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_ROUTE_RAILROAD_DESCRIPTION" Language="ko_KR">
-			<Text>공병만 건설할 수 있습니다. 건설 비용은 없지만, [ICON_RESOURCE_IRON] 철 2가 소모됩니다. 철도 타일에서 다른 타일로 이동하는 모든 유닛의 [ICON_Movement] 이동 속도가 크게 증가합니다. 철도를 이용하는 [ICON_TradeRoute] 교역로는 목적지에 있는 특수지구에서 얻는 [ICON_Gold] 금의 양을 배가시킬 수 있습니다.</Text>
+			<Text>공병만 건설할 수 있습니다. [ICON_Charges] 건설 횟수를 소모하지는 않지만, 비용으로 [ICON_RESOURCE_IRON] 철 2가 소모됩니다. 철도 타일에서 다른 타일로 이동하는 모든 유닛의 [ICON_Movement] 이동 속도가 크게 증가합니다. 철도를 이용하는 [ICON_TradeRoute] 교역로는 목적지에 있는 특수지구에서 얻는 [ICON_Gold] 금의 양을 배가시킬 수 있습니다.</Text>
 		</Replace>
 		
 
@@ -1381,7 +1400,7 @@
 			<Text>턴당 [ICON_Favor] 외교적 환심 +3. 도시 국가의 유닛 징병에 소모되는 [ICON_Gold] 금이 절반으로 감소합니다.[NEWLINE]플레이어가 종주국인 경우 도시 국가의 유닛(징병된 유닛 포함)이 [ICON_Strength] 전투력 +4를 얻습니다.[NEWLINE][Icon_Governor] 총독 타이틀 +1을 부여합니다. [ICON_Envoy] 사절 +2 및 턴당 [ICON_Envoy] 사절 획득을 위한 우호도 점수 +2.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_GOV_FAITH_DESCRIPTION" Language="ko_KR">
-			<Text>본인이 지은 도시에서 [ICON_Faith] 신앙으로 지상 유닛을 구입할 수 있는 능력을 부여합니다.[NEWLINE]시설 및 특수지구 약탈 시 [ICON_Faith] 신앙 보너스를 제공합니다.[NEWLINE]보상으로 [Icon_Governor] 총독 타이틀 +1.</Text>
+			<Text>본인이 직접 세운 도시에서 [ICON_Faith] 신앙으로 지상 유닛을 구입할 수 있는 능력을 부여합니다.[NEWLINE]시설 및 특수지구 약탈 시 [ICON_Faith] 신앙 보너스를 제공합니다.[NEWLINE]보상으로 [Icon_Governor] 총독 타이틀 +1.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_GOV_SPIES_DESCRIPTION" Language="ko_KR">
 			<Text>무료 스파이 1명 및 스파이 최대치 +2를 제공합니다.[NEWLINE]스파이 생산시 [ICON_PRODUCTION] 생산력 +50%를 제공합니다. 모든 스파이 작전의 성공 확률이 증가합니다.[NEWLINE]보상으로 [Icon_Governor] 총독 타이틀 +1.</Text>
@@ -1390,7 +1409,7 @@
 			<Text>건설자와 공병이 모든 [ICON_Charges] 건설 횟수를 사용하여 특수지구 프로젝트에 [ICON_Production] 생산력 보너스를 제공할 수 있는 능력을 획득합니다. [ICON_Charges] 건설 횟수마다 프로젝트 생산을 2% 가속시킵니다. 턴당 도시마다 1회씩 사용할 수 있습니다.[NEWLINE]보상으로 [Icon_Governor] 총독 타이틀 +1.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SEAPORT_DESCRIPTION" Language="ko_KR">
-			<Text>이 도시에서 훈련된 모든 해상 유닛은 전투 경험치 +25%를 획득합니다. [ICON_Corps] 선단 및 [ICON_Army] 함대를 직접 훈련시킬 수 있습니다. [ICON_Corps] 선단 및 [ICON_Army] 함대 훈련 비용이 25% 감소합니다. 이 도시의 모든 해안 타일에 [ICON_GOLD] 금 +2를 제공합니다.</Text>
+			<Text>이 도시에서 훈련된 모든 해상 유닛은 전투 경험치 +25%를 획득합니다. 사회 제도 전제 조건이 충족되면 [ICON_Corps] 선단 및 [ICON_Army] 함대를 직접 훈련시킬 수 있습니다. [ICON_Corps] 선단 및 [ICON_Army] 함대 훈련 비용이 25% 감소합니다. 이 도시의 모든 해안 타일에 [ICON_GOLD] 금 +2를 제공합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_ARMORY_DESCRIPTION" Language="ko_KR">
 			<Text>이 도시에서 훈련된 모든 지상 유닛이 얻는 전투 경험치가 +25% 증가합니다.[ICON_RESOURCE_NITER] 질산칼륨 자원을 발견하였다면, [ICON_RESOURCE_NITER] 질산칼륨 자원을 매턴 1개씩 제공합니다.</Text>
@@ -1531,6 +1550,12 @@
 		</Replace>
 		<Replace Tag="LOC_BUILDING_ORSZAGHAZ_DESCRIPTION" Language="ko_KR">
 			<Text>종주국인 도시 국가 당 [ICON_Favor] 외교적 환심 +1을 얻습니다.[NEWLINE][NEWLINE]강에 건설해야 합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_KOTOKU_IN_DESCRIPTION" Language="ko_KR">
+			<Text>이 도시에 [ICON_Faith] 신앙 +20%를 제공합니다. 전투승 유닛 4개를 제공합니다. 도시의 종교 상황과 관계 없이 이 도시에서 [ICON_Faith] 신앙을 소비하여 전투승을 훈련할 수 있습니다.[NEWLINE][NEWLINE]사원이 있는 성지 특수지구 옆에 지어야 합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_TAJ_MAHAL_DESCRIPTION" Language="ko_KR">
+			<Text>이 불가사의를 완료하면 역사적 순간으로 2점 이상의 [ICON_GLORY_GOLDEN_AGE] 시대 점수를 얻을 때, 1점을 추가로 얻습니다. [NEWLINE][NEWLINE]강 옆에 건설해야 합니다.</Text>
 		</Replace>
 
 
@@ -1782,6 +1807,7 @@
 		<Replace Tag="LOC_POLICY_NEW_DEAL_DESCRIPTION_XP2" Language="ko_KR">
 			<Text>3개 이상의 [ICON_DISTRICT] 전문 특수지구가 있는 모든 도시에 [ICON_Housing] 주거공간 +4 및 [ICON_Amenities] 쾌적도 +2.</Text>
 		</Replace>
+		
 		<Replace Tag="LOC_POLICY_ROGUE_STATE_DESCRIPTION" Language="ko_KR">
 			<Text>핵 프로그램 및 원자 폭탄에 대한 [ICON_Production] 생산력 +50%.[NEWLINE]단, 새 [ICON_Envoy] 사절을 위한 턴당 [ICON_InfluencePerTurn] 우호도 점수를 획득할 수 없음.</Text>
 		</Replace>
@@ -1927,6 +1953,9 @@
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BAN_TRADE_WITH_PLAYER_DESC" Language="ko_KR">
 			<Text>선택한 플레이어의 국제 [ICON_TradeRoute] 교역로에서 [ICON_Gold] 금 -4(산출량이 음수가 될 수도 있음).</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_EMPOWER_RELIGION_DESC" Language="ko_KR">
+			<Text>선택한 [ICON_Religion] 종교의 모든 종교 유닛에 [ICON_Religion] 신앙력 +10 부여.</Text>
 		</Replace>
 
 
