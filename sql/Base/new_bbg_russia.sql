@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
---	FILE:	 new_bbg_mother_russia.sql
+--	FILE:	 new_bbg_russia.sql
 --	AUTHOR:  iElden, D. / Jack The Narrator
 --	PURPOSE: Database Civilization related modifications by new BBG
 ------------------------------------------------------------------------------
