@@ -652,8 +652,8 @@ UPDATE Routes_XP2 SET PrereqTech='TECH_SCIENTIFIC_THEORY' WHERE RouteType='ROUTE
 --14/07/2022: all spads to 10 normal speed
 --03/10/2022: to 15
 UPDATE Units_XP2 SET ResourceCost=15 WHERE UnitType='UNIT_SWORDSMAN';
-
-
+--17/10/2022: men at arm to 15
+UPDATE Units_XP2 SET ResourceCost=15 WHERE UnitType='UNIT_MAN_AT_ARMS';
 
 --==============================================================
 --******			W O N D E R S  (NATURAL)			  ******
