@@ -19,163 +19,167 @@
 	</Properties>
 	<!--
 	<Dependencies>
-    	<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Expansion: Gathering Storm" />
+		<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Expansion: Gathering Storm" />
 	</Dependencies>
 	-->
 	<!-- can load only select files based on these requirements, if applied -->
 	<ActionCriteria>
-	    <Criteria id="XP1">
-	      <GameCoreInUse>Expansion1</GameCoreInUse>
-	    </Criteria>
-	    <Criteria id="XP2">
-	      <GameCoreInUse>Expansion2</GameCoreInUse>
-	    </Criteria>
-	    <Criteria id="XP1 or XP2" any="1">
-	      <GameCoreInUse>Expansion1,Expansion2</GameCoreInUse>
-	    </Criteria>
-	    <Criteria id="DLC_Poland" any="1">
-	      <LeaderPlayable>Players:StandardPlayers::LEADER_JADWIGA,StandardPlayers::LEADER_JADWIGA,Players:Expansion1_Players::LEADER_JADWIGA,Players:Expansion2_Players::LEADER_JADWIGA</LeaderPlayable>
-	    </Criteria>
-	    <Criteria id="DLC_Australia" any="1">
-	      <LeaderPlayable>Players:StandardPlayers::LEADER_JOHN_CURTIN,StandardPlayers::LEADER_JOHN_CURTIN,Players:Expansion1_Players::LEADER_JOHN_CURTIN,Players:Expansion2_Players::LEADER_JOHN_CURTIN</LeaderPlayable>
-	    </Criteria>
-	    <Criteria id="DLC_Macedon_Persia" any="1">
-	      <LeaderPlayable>Players:StandardPlayers::LEADER_ALEXANDER,Players:StandardPlayers::LEADER_CYRUS,StandardPlayers::LEADER_ALEXANDER,StandardPlayers::LEADER_CYRUS,Players:Expansion1_Players::LEADER_ALEXANDER,Players:Expansion2_Players::LEADER_CYRUS,Players:Expansion2_Players::LEADER_ALEXANDER,Players:Expansion2_Players::LEADER_CYRUS</LeaderPlayable>
-	    </Criteria>
-	    <Criteria id="DLC_Nubia" any="1">
-	      <LeaderPlayable>Players:StandardPlayers::LEADER_AMANITORE,StandardPlayers::LEADER_AMANITORE,Players:Expansion1_Players::LEADER_AMANITORE,Players:Expansion2_Players::LEADER_AMANITORE</LeaderPlayable>
-	    </Criteria>
-	    <Criteria id="DLC_Indonesia_Khmer" any="1">
-	      <LeaderPlayable>Players:StandardPlayers::LEADER_GITARJA,Players:StandardPlayers::LEADER_JAYAVARMAN,StandardPlayers::LEADER_GITARJA,StandardPlayers::LEADER_JAYAVARMAN,Players:Expansion1_Players::LEADER_GITARJA,Players:Expansion2_Players::LEADER_JAYAVARMAN,Players:Expansion2_Players::LEADER_GITARJA,Players:Expansion2_Players::LEADER_JAYAVARMAN</LeaderPlayable>
-	    </Criteria>
-	    <Criteria id="GranColombia_Maya" any="1">
-	      <LeaderPlayable>Players:StandardPlayers::LEADER_SIMON_BOLIVAR,Players:StandardPlayers::LEADER_LADY_SIX_SKY,StandardPlayers::LEADER_SIMON_BOLIVAR,StandardPlayers::LEADER_LADY_SIX_SKY,Players:Expansion1_Players::LEADER_SIMON_BOLIVAR,Players:Expansion2_Players::LEADER_LADY_SIX_SKY,Players:Expansion2_Players::LEADER_SIMON_BOLIVAR,Players:Expansion2_Players::LEADER_LADY_SIX_SKY</LeaderPlayable>
-	    </Criteria>
-	    <Criteria id="Ethiopia">
-	      <ModInUse>1B394FE9-23DC-4868-8F0A-5220CB8FB427</ModInUse>
-	    </Criteria>
-	    <Criteria id="CatherinePersona">
-	      <ModInUse>CE5876CD-6900-46D1-9C9C-8DBA1F28872E</ModInUse>
-	    </Criteria>
-	    <Criteria id="No_CatherinePersona">
-	      <ModInUse inverse="1">CE5876CD-6900-46D1-9C9C-8DBA1F28872E</ModInUse>
-	    </Criteria>
-	    <Criteria id="TeddyPersona">
-	      <ModInUse>113D9459-0A3B-4FCB-A49C-483F40303575</ModInUse>
-	    </Criteria>
-	    <Criteria id="No_TeddyPersona">
-	      <ModInUse inverse="1">113D9459-0A3B-4FCB-A49C-483F40303575</ModInUse>
-	    </Criteria>
-	    <Criteria id="Byzantium_Gaul">
-	      <ModInUse>A1100FC4-70F2-4129-AC27-2A65A685ED08</ModInUse>
-	    </Criteria>
-	    <Criteria id="Babylon">
-	      <ModInUse>8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
-	    </Criteria>
-	    <Criteria id="No_Babylon">
-	      <ModInUse inverse="1">8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
-	    </Criteria>
-	    <Criteria id="KublaiKhan_Vietnam">
-	      <ModInUse>A3F42CD4-6C3E-4F5A-BC81-BE29E0C0B87C</ModInUse>
-	    </Criteria>
-	    <Criteria id="Portugal">
-	      <ModInUse>FFDF4E79-DEE2-47BB-919B-F5739106627A</ModInUse>
-	    </Criteria>
-	    <!-- -->
+		<Criteria id="XP1" any="1">
+			<GameCoreInUse>Expansion1</GameCoreInUse>
+			<RuleSetInUse>RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
+			<LeaderPlayable>Players:Expansion1_Players::LEADER_CHANDRAGUPTA,Players:Expansion1_Players::LEADER_GENGHIS_KHAN,Players:Expansion1_Players::LEADER_LAUTARO,Players:Expansion1_Players::LEADER_POUNDMAKER,Players:Expansion1_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion1_Players::LEADER_SEONDEOK,Players:Expansion1_Players::LEADER_SHAKA,Players:Expansion1_Players::LEADER_TAMAR,Players:Expansion1_Players::LEADER_WILHELMINA</LeaderPlayable>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_CHANDRAGUPTA,Players:Expansion2_Players::LEADER_GENGHIS_KHAN,Players:Expansion2_Players::LEADER_LAUTARO,Players:Expansion2_Players::LEADER_POUNDMAKER,Players:Expansion2_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion2_Players::LEADER_SEONDEOK,Players:Expansion2_Players::LEADER_SHAKA,Players:Expansion2_Players::LEADER_TAMAR,Players:Expansion2_Players::LEADER_WILHELMINA</LeaderPlayable>
+		</Criteria>
+		<Criteria id="XP2">
+			<GameCoreInUse>Expansion2</GameCoreInUse>
+		</Criteria>
+		<Criteria id="XP1_XP2" any="1">
+			<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_CHANDRAGUPTA,Players:Expansion2_Players::LEADER_GENGHIS_KHAN,Players:Expansion2_Players::LEADER_LAUTARO,Players:Expansion2_Players::LEADER_POUNDMAKER,Players:Expansion2_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion2_Players::LEADER_SEONDEOK,Players:Expansion2_Players::LEADER_SHAKA,Players:Expansion2_Players::LEADER_TAMAR,Players:Expansion2_Players::LEADER_WILHELMINA</LeaderPlayable>
+		</Criteria>
+		<Criteria id="DLC_Poland" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_JADWIGA,StandardPlayers::LEADER_JADWIGA,Players:Expansion1_Players::LEADER_JADWIGA,Players:Expansion2_Players::LEADER_JADWIGA</LeaderPlayable>
+		</Criteria>
+		<Criteria id="DLC_Australia" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_JOHN_CURTIN,StandardPlayers::LEADER_JOHN_CURTIN,Players:Expansion1_Players::LEADER_JOHN_CURTIN,Players:Expansion2_Players::LEADER_JOHN_CURTIN</LeaderPlayable>
+		</Criteria>
+		<Criteria id="DLC_Macedon_Persia" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_ALEXANDER,Players:StandardPlayers::LEADER_CYRUS,StandardPlayers::LEADER_ALEXANDER,StandardPlayers::LEADER_CYRUS,Players:Expansion1_Players::LEADER_ALEXANDER,Players:Expansion2_Players::LEADER_CYRUS,Players:Expansion2_Players::LEADER_ALEXANDER,Players:Expansion2_Players::LEADER_CYRUS</LeaderPlayable>
+		</Criteria>
+		<Criteria id="DLC_Nubia" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_AMANITORE,StandardPlayers::LEADER_AMANITORE,Players:Expansion1_Players::LEADER_AMANITORE,Players:Expansion2_Players::LEADER_AMANITORE</LeaderPlayable>
+		</Criteria>
+		<Criteria id="DLC_Indonesia_Khmer" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_GITARJA,Players:StandardPlayers::LEADER_JAYAVARMAN,StandardPlayers::LEADER_GITARJA,StandardPlayers::LEADER_JAYAVARMAN,Players:Expansion1_Players::LEADER_GITARJA,Players:Expansion2_Players::LEADER_JAYAVARMAN,Players:Expansion2_Players::LEADER_GITARJA,Players:Expansion2_Players::LEADER_JAYAVARMAN</LeaderPlayable>
+		</Criteria>
+		<Criteria id="GranColombia_Maya" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_SIMON_BOLIVAR,Players:StandardPlayers::LEADER_LADY_SIX_SKY,StandardPlayers::LEADER_SIMON_BOLIVAR,StandardPlayers::LEADER_LADY_SIX_SKY,Players:Expansion1_Players::LEADER_SIMON_BOLIVAR,Players:Expansion2_Players::LEADER_LADY_SIX_SKY,Players:Expansion2_Players::LEADER_SIMON_BOLIVAR,Players:Expansion2_Players::LEADER_LADY_SIX_SKY</LeaderPlayable>
+		</Criteria>
+		<Criteria id="Ethiopia">
+			<ModInUse>1B394FE9-23DC-4868-8F0A-5220CB8FB427</ModInUse>
+		</Criteria>
+		<Criteria id="CatherinePersona">
+			<ModInUse>CE5876CD-6900-46D1-9C9C-8DBA1F28872E</ModInUse>
+		</Criteria>
+		<Criteria id="No_CatherinePersona">
+			<ModInUse inverse="1">CE5876CD-6900-46D1-9C9C-8DBA1F28872E</ModInUse>
+		</Criteria>
+		<Criteria id="TeddyPersona">
+			<ModInUse>113D9459-0A3B-4FCB-A49C-483F40303575</ModInUse>
+		</Criteria>
+		<Criteria id="No_TeddyPersona">
+			<ModInUse inverse="1">113D9459-0A3B-4FCB-A49C-483F40303575</ModInUse>
+		</Criteria>
+		<Criteria id="Byzantium_Gaul">
+			<ModInUse>A1100FC4-70F2-4129-AC27-2A65A685ED08</ModInUse>
+		</Criteria>
+		<Criteria id="Babylon">
+			<ModInUse>8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
+		</Criteria>
+		<Criteria id="No_Babylon">
+			<ModInUse inverse="1">8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
+		</Criteria>
+		<Criteria id="KublaiKhan_Vietnam">
+			<ModInUse>A3F42CD4-6C3E-4F5A-BC81-BE29E0C0B87C</ModInUse>
+		</Criteria>
+		<Criteria id="Portugal">
+			<ModInUse>FFDF4E79-DEE2-47BB-919B-F5739106627A</ModInUse>
+		</Criteria>
+		<!-- -->
 		<Criteria id="CVSetting_2">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryCulturalSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>2</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryCulturalSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>2</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="CVSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryCulturalSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryCulturalSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		
 		<Criteria id="SVSetting_2">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryScienceSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>2</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryScienceSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>2</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="SVSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryScienceSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryScienceSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		
 		<Criteria id="DVSetting_2">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryDiploSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>2</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryDiploSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>2</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="DVSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryDiploSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryDiploSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		
 		<Criteria id="RVSetting_2">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryReligiousSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>2</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryReligiousSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>2</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="RVSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryReligiousSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryReligiousSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="TerritorialSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VICTORY_TRADITIONAL_DOMINATION</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VICTORY_TRADITIONAL_DOMINATION</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="GlobalSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryMasterSlider</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryMasterSlider</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="GlobalSetting_2">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryMasterSlider</ConfigurationId>
-                <Group>Game</Group>
-                <Value>2</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryMasterSlider</ConfigurationId>
+				<Group>Game</Group>
+				<Value>2</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="GlobalSetting_BBG_Legacy">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryMasterSlider</ConfigurationId>
-                <Group>Game</Group>
-                <Value>5</Value>
-            </ConfigurationValueMatches>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryMasterSlider</ConfigurationId>
+				<Group>Game</Group>
+				<Value>5</Value>
+			</ConfigurationValueMatches>
 		</Criteria>
 		<!-- Beta -->
 		<Criteria id="Criteria_BETA_BAN_TRADE_TREATY">
 			<ConfigurationValueMatches>
-                <ConfigurationId>BETA_BAN_TRADE_TREATY</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
+				<ConfigurationId>BETA_BAN_TRADE_TREATY</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
 		</Criteria>
 		<!-- Gamemode -->
 		<Criteria id="No_Gamemode_Babylon">
@@ -209,7 +213,7 @@
 			<File>lang/polish.xml</File>
 			<File>lang/japanese.xml</File>
 			<File>lang/portuguese.xml</File>
-            <File>lang/german.xml</File>
+			<File>lang/german.xml</File>
 			<File>lang/chinese.xml</File>
 			<File>lang/italian.xml</File>
 			<File>lang/spanish.xml</File>
@@ -221,7 +225,7 @@
 			<File>config/config.xml</File>
 			<File>config/config.sql</File>
 			<File>config/april_fool_2022_config.sql</File>
-        </UpdateDatabase>
+		</UpdateDatabase>
 	</FrontEndActions>
 
 	<!-- defines modifications to games (requires any LocalizedText from Settings above, and must import files before modifying any SQL tables) -->
@@ -241,7 +245,7 @@
 			<File>lang/polish.xml</File>
 			<File>lang/japanese.xml</File>
 			<File>lang/portuguese.xml</File>
-            <File>lang/german.xml</File>
+			<File>lang/german.xml</File>
 			<File>lang/chinese.xml</File>
 			<File>lang/italian.xml</File>
 			<File>lang/spanish.xml</File>
@@ -323,8 +327,7 @@
 			<Properties>
 				<LoadOrder>11615</LoadOrder>
 			</Properties>
-			<Criteria>XP1</Criteria>
-			<Criteria>XP2</Criteria>
+			<Criteria>XP1_XP2</Criteria>
 			<File>sql/XP1/xp2_rise_and_fall.sql</File>
 			<File>sql/XP1/new_bbg_mapuche.sql</File>
 		</UpdateDatabase>
@@ -518,103 +521,103 @@
 		</UpdateDatabase>
 		<!-- -->
 		<UpdateDatabase id="VictoryCulturalSetting_2">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>CVSetting_2</Criteria>
 			<File>sql/victories/new_bbg_cv.sql</File>
 			<File>sql/victories/new_bbg_cv_2.sql</File>
-        </UpdateDatabase>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryCulturalSetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>CVSetting_1</Criteria>
-            <File>sql/victories/new_bbg_cv.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_cv.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryScienceSetting_2">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>SVSetting_2</Criteria>
 			<Criteria>xp2</Criteria>
-            <File>sql/victories/new_bbg_sv_2.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_sv_2.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryScienceSetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>SVSetting_1</Criteria>
 			<Criteria>xp2</Criteria>
-            <File>sql/victories/new_bbg_sv_1.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_sv_1.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryDiploSetting_2">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>DVSetting_2</Criteria>
 			<Criteria>xp2</Criteria>
-            <File>sql/victories/new_bbg_dv_2.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_dv_2.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryDiploSetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>DVSetting_1</Criteria>
 			<Criteria>xp2</Criteria>
-            <File>sql/victories/new_bbg_dv_1.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_dv_1.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryReligiousSetting_2">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>RVSetting_2</Criteria>
-            <File>sql/victories/new_bbg_rv_2.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_rv_2.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryReligiousSetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>RVSetting_1</Criteria>
-            <File>sql/victories/new_bbg_rv_1.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_rv_1.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryTerritorialSetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>TerritorialSetting_1</Criteria>
-            <File>sql/victories/new_bbg_new_domination.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_new_domination.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="GlobalVictorySetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>GlobalSetting_1</Criteria>
-            <File>sql/victories/new_bbg_rv_1.sql</File>
+			<File>sql/victories/new_bbg_rv_1.sql</File>
 			<File>sql/victories/new_bbg_dv_1.sql</File>
 			<File>sql/victories/new_bbg_sv_1.sql</File>
 			<File>sql/victories/new_bbg_cv.sql</File>
-        </UpdateDatabase>	
+		</UpdateDatabase>	
 		<UpdateDatabase id="GlobalVictorySetting_2">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>GlobalSetting_2</Criteria>
-            <File>sql/victories/new_bbg_rv_2.sql</File>
+			<File>sql/victories/new_bbg_rv_2.sql</File>
 			<File>sql/victories/new_bbg_dv_2.sql</File>
 			<File>sql/victories/new_bbg_sv_2.sql</File>
 			<File>sql/victories/new_bbg_cv.sql</File>
 			<File>sql/victories/new_bbg_cv_2.sql</File>
-        </UpdateDatabase>	
+		</UpdateDatabase>	
 		<UpdateDatabase id="GlobalVictorySetting_BBG_Legacy">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>GlobalSetting_BBG_Legacy</Criteria>
 			<File>sql/victories/new_bbg_dv_2.sql</File>
 			<File>sql/victories/new_bbg_cv.sql</File>
 			<File>sql/victories/new_bbg_cv_2.sql</File>
-        </UpdateDatabase>
+		</UpdateDatabase>
 		<!-- -->
 		<UpdateIcons id="bbg_Icons">
 			<File>data/new_bbg_icons.xml</File>
@@ -651,26 +654,26 @@
 		<!-- Gamemode -->
 		<UpdateDatabase id="bbg_db_Gamemode_Babylon">
 			<Properties>
-                <LoadOrder>21010</LoadOrder>
-            </Properties>
+				<LoadOrder>21010</LoadOrder>
+			</Properties>
 			<Criteria>Gamemode_Babylon</Criteria>
 			<File>sql/april_fool.sql</File>
 		</UpdateDatabase>
 		<UpdateText>
 			<Properties>
-                <LoadOrder>21010</LoadOrder>
-            </Properties>
+				<LoadOrder>21010</LoadOrder>
+			</Properties>
 			<Criteria>Gamemode_Babylon</Criteria>
 			<File>lang/april_fool.xml</File>
 		</UpdateText>
 		<!-- Beta -->
 		<UpdateDatabase id="bbg_db_BETA_BAN_TRADE_TREATY">
-            <Properties>
-                <LoadOrder>21020</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>21020</LoadOrder>
+			</Properties>
 			<Criteria>Criteria_BETA_BAN_TRADE_TREATY</Criteria>
 			<File>sql/beta/ban_trade_treaty.sql</File>
-        </UpdateDatabase>
+		</UpdateDatabase>
 	</InGameActions>
 
 	<!-- defines file dependencies -->
@@ -684,7 +687,7 @@
 		<File>lang/polish.xml</File>
 		<File>lang/japanese.xml</File>
 		<File>lang/portuguese.xml</File>
-        <File>lang/german.xml</File>
+		<File>lang/german.xml</File>
 		<File>lang/chinese.xml</File>
 		<File>lang/italian.xml</File>
 		<File>lang/spanish.xml</File>
