@@ -5,9 +5,9 @@
 <Mod id="cb84075d-5007-4207-b662-c35a5f7be231" version="5011">
 -->
 <!-- WIP ModID-->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5011">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5012">
 	<Properties>
-		<Name>Better Balanced Game 5.1.1 Beta</Name>
+		<Name>Better Balanced Game 5.1.2 Beta</Name>
 		<Description>
 			Beta build of Better Balanced Game
 		</Description>
@@ -630,6 +630,14 @@
 			<LuaReplace>ui/replacements/worldrankings_bbg.lua</LuaReplace>
 			</Properties>
 		</ReplaceUIScript>
+		<ReplaceUIScript id="BBG_UnitPanel_XP2">
+			<Criteria>XP2</Criteria>
+			<Properties>
+				<LoadOrder>19999</LoadOrder>
+				<LuaContext>UnitPanel</LuaContext>
+				<LuaReplace>ui/replacements/UnitPanel_BBG.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
 		<!--
 		<ReplaceUIScript id="productionpanel_bbg">
 			<Criteria>BBGTS_ProductionPanel_BBG_Expansion2</Criteria>
@@ -650,7 +658,13 @@
 		<ImportFiles id="bbg_files">
 				<File>ui/replacements/endgamemenu_bbg.lua</File>
 				<File>ui/replacements/endgamemenu.xml</File>
+				<File>ui/replacements/TradeSupport.lua</File>
 		</ImportFiles>
+		<ImportFiles id="bbg_XP2_panel_override_files">
+			<Criteria>XP2</Criteria>	
+				<File>ui/replacements/UnitPanel_BBG.lua</File>
+		</ImportFiles>
+		
 		<!-- Gamemode -->
 		<UpdateDatabase id="bbg_db_Gamemode_Babylon">
 			<Properties>
@@ -785,6 +799,8 @@
 		<File>ui/replacements/endgamemenu.xml</File>
 		<!--<File>ui/replacements/ProductionPanel_BBG.lua</File>-->
 		<File>UI/Replacements/TradeOverview_BBG.lua</File>
+		<File>ui/replacements/UnitPanel_BBG.lua</File>
+		<File>ui/replacements/TradeSupport.lua</File>
 		
 		<File>data/new_bbg_icons.xml</File>
 		<File>config/config.xml</File>
