@@ -12,8 +12,8 @@ INSERT INTO StartBiasFeatures(CivilizationType, FeatureType, Tier) VALUES
 -- Farms adjacent to a River yield +1 food, Farms adjacent to a River get + 1 prop if next to Zigurat
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'FIRST_CIVILIZATION_FARM_FOOD'),
-    ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'FIRST_CIVILIZATION_WAR_CART_PREMIUM'),
     ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'FIRST_CIVILIZATION_FARM_PROD');
+    --('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'FIRST_CIVILIZATION_WAR_CART_PREMIUM'),
 
 INSERT INTO Modifiers
     (ModifierId, ModifierType, SubjectRequirementSetId,    SubjectStackLimit)
@@ -26,10 +26,11 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('FIRST_CIVILIZATION_FARM_FOOD', 'Amount', 1),
 
     ('FIRST_CIVILIZATION_FARM_PROD', 'YieldType', 'YIELD_PRODUCTION'),
-    ('FIRST_CIVILIZATION_FARM_PROD', 'Amount', 1),
--- This makes War Carts cost 120 gold in Online speed    Increase premium to 40->50
-    ('FIRST_CIVILIZATION_WAR_CART_PREMIUM', 'UnitType', 'UNIT_SUMERIAN_WAR_CART'),
-    ('FIRST_CIVILIZATION_WAR_CART_PREMIUM', 'Amount', -50);
+    ('FIRST_CIVILIZATION_FARM_PROD', 'Amount', 1);
+
+-- This makes War Carts cost 120 gold in Online speed    Increase premium to 40->50. Removed at BBG5.1
+    --('FIRST_CIVILIZATION_WAR_CART_PREMIUM', 'UnitType', 'UNIT_SUMERIAN_WAR_CART'),
+    --('FIRST_CIVILIZATION_WAR_CART_PREMIUM', 'Amount', -50);
 
 INSERT INTO RequirementSets (RequirementSetId,    RequirementSetType) VALUES
 	('FIRST_CIVILIZATION_FARM_FOOD_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL'),
