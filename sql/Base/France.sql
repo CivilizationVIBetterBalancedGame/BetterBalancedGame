@@ -7,6 +7,7 @@ UPDATE ModifierArguments SET Value='150' WHERE ModifierId='TRAIT_WONDER_DOUBLETO
 -- Chateau now gives 1 housing at Feudalism, and ajacent luxes now give stacking Culture in addition to stacking gold
 INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType , YieldType , YieldChange) VALUES
     ('IMPROVEMENT_CHATEAU' , 'YIELD_FOOD' , '1');
+UPDATE Improvement_YieldChanges SET YieldChange = '1' WHERE YieldType = 'YIELD_CULTURE' AND ImprovementType = 'IMPROVEMENT_CHATEAU';
 INSERT OR IGNORE INTO Improvement_Adjacencies (ImprovementType , YieldChangeId) VALUES
     ('IMPROVEMENT_CHATEAU' , 'BBG_Chateau_Luxury_Gold'),
 	('IMPROVEMENT_CHATEAU' , 'BBG_Chateau_Luxury_Culture');
