@@ -68,8 +68,14 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RIGHTEOUSNESS_OF_FAITH_DESCRIPTION" Language="ko_KR">
-			<Text>캠퍼스는 성지 특수지구로부터, 성지는 캠퍼스 특수지구로부터 일반적인 인접 보너스를 획득합니다. 해당 종교의 예배 건물은 일반적인 [ICON_Faith] 신앙 비용의 10%만 소진하여 구매할 수 있습니다. 이 예배 건물을 개선하면 아라비아 도시에서 생산되는 [ICON_Science] 과학, [ICON_Faith] 신앙 및 [ICON_Culture] 문화가 20% 추가됩니다.</Text>
+			<Text>캠퍼스는 성지 특수지구로부터, 성지는 캠퍼스 특수지구로부터 일반적인 인접 보너스를 획득합니다. 해당 [ICON_RELIGION] 종교의 예배 건물은 일반적인 [ICON_Faith] 신앙 비용의 10%만 소진하여 구매할 수 있습니다. 이 예배 건물을 개선하면 아라비아 도시에서 생산되는 [ICON_Science] 과학, [ICON_Faith] 신앙 및 [ICON_Culture] 문화가 20% 추가됩니다.</Text>
 		</Replace>
+		<Row Tag="BBG_LOC_HS_ARABIA_CAMPUS" Language="ko_KR">
+			<Text>인접한 캠퍼스 특수지구에서 [ICON_FAITH] 신앙 +{1_num}.</Text>
+		</Row>
+		<Row Tag="BBG_LOC_CAMPUS_ARABIA_HS" Language="ko_KR">
+			<Text>인접한 성지 특수지구에서 [ICON_SCIENCE] 과학 +{1_num}.</Text>
+		</Row>
 
 		<!-- == AUSTRALIA == -->
 		<!-- = civilization ability = -->
@@ -88,7 +94,7 @@
 		<!-- == AZTECS == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LEGEND_FIVE_SUNS_DESCRIPTION" Language="ko_KR">
-			<Text>건설자의 [ICON_Charges] 건설 횟수를 소진하여 특수지구 원래 비용의 30%를 기여합니다. 지상 근접 유닛 생성에 대한 [ICON_PRODUCTION] 생산력 +50%를 제공합니다.</Text>
+			<Text>건설자의 [ICON_Charges] 건설 횟수를 소진하여 [ICON_DISTRICT] 특수지구 원래 비용의 30%를 기여합니다. 지상 근접 유닛 생성에 대한 [ICON_PRODUCTION] 생산력 +50%를 제공합니다.</Text>
 		</Replace>
 		<!-- = unique building = -->
     		<Replace Tag="LOC_BUILDING_TLACHTLI_DESCRIPTION" Language="ko_KR">
@@ -105,10 +111,10 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HAMMURABI_DESCRIPTION" Language="ko_KR">
-			<Text>전문 특수지구를 처음 건설할 때마다 해당 전문 특수지구에서 현재 건설할 수 있는 가장 낮은 [ICON_PRODUCTION] 생산력 비용의 건물을 얻습니다.</Text>
+			<Text>전문 [ICON_DISTRICT] 특수지구를 처음 건설할 때마다 해당 지구에서 현재 건설할 수 있는 가장 낮은 [ICON_PRODUCTION] 생산력 비용의 건물을 얻습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_HAMMURABI_XP1_DESCRIPTION" Language="ko_KR">
-			<Text>정부 청사를 제외하고 전문 특수지구를 처음 건설할 때마다 해당 지구에서 현재 건설할 수 있는 가장 낮은 [ICON_PRODUCTION] 생산력 비용 건물을 얻습니다.</Text>
+			<Text>정부 청사를 제외하고 전문 [ICON_DISTRICT] 특수지구를 처음 건설할 때마다 해당 지구에서 현재 건설할 수 있는 가장 낮은 [ICON_PRODUCTION] 생산력 비용 건물을 얻습니다.</Text>
 		</Replace>
 		
 		<!-- == BRAZIL == -->
@@ -256,10 +262,10 @@
 		<!-- == EGYPT == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ITERU_DESCRIPTION" Language="ko_KR">
-			<Text>특수지구와 불가사의를 강 옆에 배치할 경우 이들의 건설에 대한 [ICON_Production] 생산력 +25%를 제공합니다. 범람원은 특수지구 및 불가사의 배치를 방해하지 않습니다.</Text>
+			<Text>[ICON_DISTRICT] 특수지구와 [ICON_DISTRICT_WONDER] 불가사의를 강 옆에 배치할 경우 이들의 건설에 대한 [ICON_Production] 생산력 +25%를 제공합니다. 범람원은 특수지구 및 불가사의 배치를 방해하지 않습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ITERU_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>특수지구와 불가사의를 강 옆에 배치할 경우 이들의 건설에 대한 [ICON_Production] 생산력 +25%를 제공합니다. 홍수 피해를 입지 않습니다.</Text>
+			<Text>[ICON_DISTRICT] 특수지구와 [ICON_DISTRICT_WONDER] 불가사의를 강 옆에 배치할 경우 이들의 건설에 대한 [ICON_Production] 생산력 +25%를 제공합니다. 홍수 피해를 입지 않습니다.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MEDITERRANEAN_EXPANSION2_DESCRIPTION" Language="ko_KR">
@@ -365,10 +371,10 @@
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_CHATEAU_DESCRIPTION" Language="ko_KR">
-			<Text>프랑스 특유의 샤토를 지을 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Culture] 문화 +2, [ICON_Food] 식량 +1, [ICON_GOLD] 금 +1, [ICON_HOUSING] 주거공간 +1을 제공합니다. 매력도 +1을 제공합니다. 인접한 모든 불가사의마다 [ICON_Culture] 문화 +1을 제공하며, 비행을 연구하면 [ICON_Culture] 문화 +1을 추가로 제공합니다. 강에 인접하면 [ICON_GOLD] 금 +2를 제공합니다. 인접한 모든 사치 자원마다 [ICON_Culture] 문화 +1과 [ICON_Gold] 금 +1을 제공합니다. 비행을 연구하면 [ICON_TOURISM] 관광을 제공합니다. 다른 샤토에 인접하게 지을 수 없습니다.</Text>
+			<Text>프랑스 특유의 샤토를 지을 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Culture] 문화 +1, [ICON_Food] 식량 +1, [ICON_GOLD] 금 +1, [ICON_HOUSING] 주거공간 +1을 제공합니다. 매력도 +1을 제공합니다. 인접한 모든 불가사의마다 [ICON_Culture] 문화 +1을 제공하며, 비행을 연구하면 [ICON_Culture] 문화 +1을 추가로 제공합니다. 강에 인접하면 [ICON_GOLD] 금 +2를 제공합니다. 인접한 모든 사치 자원마다 [ICON_Culture] 문화 +1과 [ICON_Gold] 금 +1을 제공합니다. 비행을 연구하면 [ICON_TOURISM] 관광을 제공합니다. 다른 샤토에 인접하게 지을 수 없습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_CHATEAU_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>프랑스 특유의 샤토를 지을 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Culture] 문화 +2, [ICON_Food] 식량 +1, [ICON_GOLD] 금 +1, [ICON_HOUSING] 주거공간 +1을 제공합니다. 매력도 +1을 제공합니다. 인접한 모든 불가사의마다 [ICON_Culture] 문화 +1을 제공하며, 비행을 연구하면 [ICON_Culture] 문화 +1을 추가로 제공합니다. 강에 인접하면 [ICON_GOLD] 금 +2를 제공합니다. 인접한 모든 사치 자원마다 [ICON_Culture] 문화 +1과 [ICON_Gold] 금 +1을 제공합니다. 비행을 연구하면 [ICON_TOURISM] 관광을 제공합니다. 다른 샤토에 인접하게 지을 수 없습니다.</Text>
+			<Text>프랑스 특유의 샤토를 지을 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Culture] 문화 +1, [ICON_Food] 식량 +1, [ICON_GOLD] 금 +1, [ICON_HOUSING] 주거공간 +1을 제공합니다. 매력도 +1을 제공합니다. 인접한 모든 불가사의마다 [ICON_Culture] 문화 +1을 제공하며, 비행을 연구하면 [ICON_Culture] 문화 +1을 추가로 제공합니다. 강에 인접하면 [ICON_GOLD] 금 +2를 제공합니다. 인접한 모든 사치 자원마다 [ICON_Culture] 문화 +1과 [ICON_Gold] 금 +1을 제공합니다. 비행을 연구하면 [ICON_TOURISM] 관광을 제공합니다. 다른 샤토에 인접하게 지을 수 없습니다.</Text>
 		</Replace>
 		<!-- = unique project (Magnificence) = -->
 		<Replace Tag="LOC_PROJECT_ECOURT_FESTIVAL_DESCRIPTION" Language="ko_KR">
@@ -423,7 +429,7 @@
 		<!-- == GERMANY == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_IMPERIAL_FREE_CITIES_DESCRIPTION" Language="ko_KR">
-			<Text>길드 사회 제도를 획득하면, 각 도시는 일반적( [ICON_Citizen] 인구 기반 보통 허용치 이상) 허용치보다 1개 더 많은 특수지구를 지을 수 있습니다.</Text>
+			<Text>길드 사회 제도를 획득하면, 각 도시는 일반적( [ICON_Citizen] 인구 기반 보통 허용치 이상) 허용치보다 1개 더 많은 [ICON_DISTRICT] 특수지구를 지을 수 있습니다.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HOLY_ROMAN_EMPEROR_DESCRIPTION" Language="ko_KR"> <!-- add icon -->
@@ -474,6 +480,10 @@
 		</Replace>
 
 		<!-- == HUNGARY == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_PEARL_DANUBE_DESCRIPTION" Language="ko_KR">
+			<Text>도심부의 강 맞은편에 건설한 [ICON_DISTRICT] 특수지구 및 건물 건설에 대한 [ICON_PRODUCTION] 생산력 +50%를 제공합니다.</Text>
+		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAVEN_KING_DESCRIPTION" Language="ko_KR">
 			<Text>징병된 유닛이 능력을 획득하여 [ICON_Strength] 전투력 +3 및 [ICON_Movement] 이동력 +1을 얻습니다. 징병된 유닛 업그레이드 시 [ICON_GOLD] 금 및 자원 소비량이 75% 감소합니다. 도시 국가의 군대를 징병하면 해당 도시 국가의 [ICON_ENVOY] 사절 1명을 얻습니다. 성 기술을 연구하면 특유 유닛인 검은 군대를 생산할 수 있습니다. 외교 정책 슬롯이 1개 더 추가됩니다.</Text>
@@ -492,7 +502,9 @@
 		<Replace Tag="LOC_ABILITY_HUSZAR_DESCRIPTION" Language="ko_KR">
 			<Text>종주국인 도시국가마다 [ICON_Strength] 전투력 +2.</Text>
 		</Replace>
-		
+		<Row Tag="LOC_ABILITY_HUSZAIR_COMBAT_PREVIEW" Language="ko_KR">	<!-- Change this word so it fits your language syntax and style! (for English UI tooltip now: +2 from Armagh) -->
+			<Text>에서</Text>
+		</Row>
 		<!-- == INCA == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PACHACUTI_QHAPAQ_NAN_DESCRIPTION" Language="ko_KR">
@@ -532,7 +544,7 @@
 		<!-- == JAPAN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ADJACENT_DISTRICTS_DESCRIPTION" Language="ko_KR">
-			<Text>모든 특수지구는 옆에 있는 다른 특수지구에서 기본 인접 보너스를 추가로 받습니다. 상업 중심지 특수지구는 더 이상 강으로부터 인접 보너스를 얻을 수 없습니다.</Text>
+			<Text>모든 [ICON_DISTRICT] 특수지구는 옆에 있는 다른 특수지구에서 기본 인접 보너스를 추가로 받습니다. 상업 중심지 특수지구는 더 이상 강으로부터 인접 보너스를 얻을 수 없습니다.</Text>
 		</Replace>
 
 		<!-- == KHMER == -->
@@ -708,13 +720,13 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_DESCRIPTION" Language="ko_KR">
-			<Text>모든 해상 근접 유닛이 해안 강습을 감행할 수 있게 되며, [ICON_PRODUCTION] 생산력 +50%를 제공합니다.[NEWLINE][NEWLINE]성지 특수지구를 건설할 때 [ICON_PRODUCTION] 생산력 +50%를 제공합니다. 성지는 인접한 해안 타일에서 일반적인 신앙 인접 보너스를 획득합니다. 성지 특수지구와 인접한 항만 특수지구에서 [ICON_GOLD] 금 +2의 인접 보너스를 획득합니다.</Text>
+			<Text>모든 해상 근접 유닛이 해안 강습을 감행할 수 있게 되며, [ICON_PRODUCTION] 생산력 +50%를 제공합니다.[NEWLINE][NEWLINE]성지 특수지구를 건설할 때 [ICON_PRODUCTION] 생산력 +50%를 제공합니다. 성지는 인접한 해안 및 호수 타일에서 일반적인 신앙 인접 보너스를 획득합니다. 성지 특수지구와 인접한 항만 특수지구에서 [ICON_GOLD] 금 +2의 인접 보너스를 획득합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>모든 해상 근접 유닛이 해안 강습을 감행할 수 있게 되며, 이 유닛 생성에 대한 [ICON_PRODUCTION] 생산력 +50%를 제공합니다. 광산을 약탈 또는 해안 강습하면 [ICON_GOLD] 금뿐만 아니라 [ICON_SCIENCE] 과학도 얻습니다. 채석장, 목장, 재배지, 야영지를 약탈 또는 해안 강습하면 [ICON_FAITH] 신앙뿐만 아니라 [ICON_CULTURE] 문화도 얻습니다. 항해를 통해 특유 유닛인 바이킹 롱십을 훈련할 수 있습니다.[NEWLINE][NEWLINE]성지 특수지구와 성지 특수지구 내 건물을 생산할 때 [ICON_PRODUCTION] 생산력 +50%를 제공합니다. 성지는 인접한 해안 타일에서 일반적인 신앙 인접 보너스를 획득합니다.[NEWLINE][NEWLINE]성지 특수지구와 인접한 항만 특수지구에서 [ICON_GOLD] 금 +2의 인접 보너스를 획득합니다.</Text>
+			<Text>모든 해상 근접 유닛이 해안 강습을 감행할 수 있게 되며, 이 유닛 생성에 대한 [ICON_PRODUCTION] 생산력 +50%를 제공합니다. 광산을 약탈 또는 해안 강습하면 [ICON_GOLD] 금뿐만 아니라 [ICON_SCIENCE] 과학도 얻습니다. 채석장, 목장, 재배지, 야영지를 약탈 또는 해안 강습하면 [ICON_FAITH] 신앙뿐만 아니라 [ICON_CULTURE] 문화도 얻습니다. 항해를 통해 특유 유닛인 바이킹 롱십을 훈련할 수 있습니다.[NEWLINE][NEWLINE]성지 특수지구와 성지 특수지구 내 건물을 생산할 때 [ICON_PRODUCTION] 생산력 +50%를 제공합니다. 성지는 인접한 해안 및 호수 타일에서 일반적인 신앙 인접 보너스를 획득합니다.[NEWLINE][NEWLINE]성지 특수지구와 인접한 항만 특수지구에서 [ICON_GOLD] 금 +2의 인접 보너스를 획득합니다.</Text>
 		</Replace>
 		<Row Tag="LOC_DISTRICT_HOLY_SITE_NORWAY_COAST_FAITH" Language="ko_KR">
-			<Text>성지 특수지구는 인접한 해안 타일에서 [ICON_Faith] 신앙 +{1_num}을 획득합니다.</Text>
+			<Text>성지 특수지구는 인접한 해안 및 호수 타일에서 [ICON_Faith] 신앙 +{1_num}을 획득합니다.</Text>
 		</Row>
 		<Row Tag="LOC_HOLY_SITE_HARBOR_ADJACENCY_DESCRIPTION" Language="ko_KR">
 			<Text>인접한 성지 특수지구에서 [ICON_Gold] 금 +{1_num}.</Text>
@@ -734,7 +746,7 @@
 		<!-- == NUBIA == -->
 		<!-- = leader ability = --> <!-- production icon -->
 		<Replace Tag="LOC_TRAIT_LEADER_KANDAKE_OF_MEROE_DESCRIPTION" Language="ko_KR">
-			<Text>모든 특수지구 건설 시 [ICON_Production] 생산력 +20%를 제공합니다. 단, 누비아 피라미드가 도심부에 인접한 경우 [ICON_Production] 생산력 보너스가 +40%로 증가합니다.</Text>
+			<Text>모든 [ICON_DISTRICT] 특수지구 건설 시 [ICON_Production] 생산력 +20%를 제공합니다. 단, 누비아 피라미드가 도심부에 인접한 경우 [ICON_Production] 생산력 보너스가 +40%로 증가합니다.</Text>
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_PYRAMID_DESCRIPTION" Language="ko_KR">
@@ -784,7 +796,7 @@
 		<!-- == PHOENICIA == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="ko_KR">
-			<Text>해당 도시에서 특유의 프로젝트를 완료하여 코톤이 있는 도시로 원래 [ICON_Capital] 수도를 이전할 수 있습니다. 각 정부 청사 내 건물에 대해 [ICON_TradeRoute] 교역로 최대치 +1을 제공합니다. 정부 청사가 있는 도시의 특수지구에 대한 [ICON_Production] 생산력 +50%를 제공합니다.</Text>
+			<Text>해당 도시에서 특유의 프로젝트를 완료하여 코톤이 있는 도시로 원래 [ICON_Capital] 수도를 이전할 수 있습니다. 각 정부 청사 내 건물에 대해 [ICON_TradeRoute] 교역로 최대치 +1을 제공합니다. 정부 청사가 있는 도시의 [ICON_DISTRICT] 특수지구에 대한 [ICON_Production] 생산력 +50%를 제공합니다.</Text>
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="ko_KR">
@@ -872,10 +884,10 @@
 		<!-- == SPAIN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_DESCRIPTION" Language="ko_KR">
-			<Text>일반 경우보다 더 빨리 [ICON_Corps] 선단(용병) 및 [ICON_Army] 함대(중상주의)를 형성할 수 있습니다. 사회 제도 조건을 만족한다면 조선소 건물이 있을 시 [ICON_Corps] 선단과 [ICON_Army] 함대를 직접 생산할 수 있습니다. [NEWLINE][ICON_TradeRoute] 교역로가 [ICON_Gold] 금 +3, [ICON_Faith] 신앙 +2, [ICON_Production] 생산력 +1을 얻습니다. 여러 대륙 간을 연결하는 [ICON_TradeRoute] 교역로의 경우 이러한 수치가 2배로 증가합니다. [ICON_Capital] 수도에서 8타일 이상 떨어진 곳에 도시를 건설하면 특수지구에 대한 [ICON_Production] 생산력 +25%를 얻습니다.</Text>
+			<Text>일반 경우보다 더 빨리 [ICON_Corps] 선단(용병) 및 [ICON_Army] 함대(중상주의)를 형성할 수 있습니다. 사회 제도 조건을 만족한다면 조선소 건물이 있을 시 [ICON_Corps] 선단과 [ICON_Army] 함대를 직접 생산할 수 있습니다. [NEWLINE][ICON_TradeRoute] 교역로가 [ICON_Gold] 금 +3, [ICON_Faith] 신앙 +2, [ICON_Production] 생산력 +1을 얻습니다. 여러 대륙 간을 연결하는 [ICON_TradeRoute] 교역로의 경우 이러한 수치가 2배로 증가합니다. [ICON_Capital] 수도에서 8타일 이상 떨어진 곳에 도시를 건설하면 [ICON_DISTRICT] 특수지구에 대한 [ICON_Production] 생산력 +25%를 얻습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>일반 경우보다 더 빨리 [ICON_Corps] 선단(용병) 및 [ICON_Army] 함대(중상주의)를 형성할 수 있습니다. 사회 제도 조건을 만족한다면 조선소 건물이 있을 시 [ICON_Corps] 선단과 [ICON_Army] 함대를 직접 생산할 수 있습니다. [NEWLINE][ICON_TradeRoute] 교역로가 [ICON_Gold] 금 +3, [ICON_Faith] 신앙 +2, [ICON_Production] 생산력 +1을 얻습니다. 여러 대륙 간을 연결하는 [ICON_TradeRoute] 교역로의 경우 이러한 수치가 2배로 증가합니다. [ICON_Capital] 수도에서 8타일 이상 떨어진 곳에 도시를 건설하면 특수지구에 대한 [ICON_Production] 생산력 +25%를 얻습니다.</Text>
+			<Text>일반 경우보다 더 빨리 [ICON_Corps] 선단(용병) 및 [ICON_Army] 함대(중상주의)를 형성할 수 있습니다. 사회 제도 조건을 만족한다면 조선소 건물이 있을 시 [ICON_Corps] 선단과 [ICON_Army] 함대를 직접 생산할 수 있습니다. [NEWLINE][ICON_TradeRoute] 교역로가 [ICON_Gold] 금 +3, [ICON_Faith] 신앙 +2, [ICON_Production] 생산력 +1을 얻습니다. 여러 대륙 간을 연결하는 [ICON_TradeRoute] 교역로의 경우 이러한 수치가 2배로 증가합니다. [ICON_Capital] 수도에서 8타일 이상 떨어진 곳에 도시를 건설하면 [ICON_DISTRICT] 특수지구에 대한 [ICON_Production] 생산력 +25%를 얻습니다.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SPANISH_CONQUISTADOR_DESCRIPTION" Language="ko_KR">
@@ -935,6 +947,9 @@
 		<Replace Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_DESCRIPTION_BBG" Language="ko_KR">
 			<Text>야만인과 전투 시 [ICON_Strength] 유닛 전투력 +4.[NEWLINE][ICON_Bullet]대기병 유닛과 전투할 때 페널티 없음.</Text>
 		</Replace>
+		<Row Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_COMBAT_DESCRIPTION_BBG" Language="ko_KR">
+			<Text>야만인과 전투 시 [ICON_Strength] 유닛 전투력 +4.</Text>
+		</Row>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_ZIGGURAT_DESCRIPTION" Language="ko_KR">
 			<Text>수메르 특유의 지구라트를 지을 수 있는 건설자의 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Science] 과학 +2를 제공합니다. 강 옆에 지으면 [ICON_Culture] 문화 +1을 제공합니다. 외교부 사회 제도를 획득하면 [ICON_CULTURE] 문화 +1을 추가 제공하며, 계몽주의 사회 제도를 획득하면 [ICON_CULTURE] 문화 +1과 [ICON_Science] 과학 +1을 추가 제공합니다. 언덕에 지을 수 없습니다.</Text>
@@ -1070,6 +1085,9 @@
 		<Replace Tag="LOC_PROMOTION_GARRISON_DESCRIPTION" Language="ko_KR">
 			<Text>요새 또는 특수지구 점유 시 [ICON_Strength] 전투력 +10.</Text>
 		</Replace>
+		<Row Tag="LOC_PROMOTION_TOP_COVER_NAME" Language="ko_KR">
+			<Text>갑옷 착용</Text>
+		</Row>
 
 
 
@@ -1090,7 +1108,7 @@
 
 		<!-- == Reyna == -->
 		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_DESCRIPTION" Language="ko_KR">
-			<Text>이 도시에서 [ICON_GOLD] 금으로 건물 및 특수지구(구매가 가능할 시)를 구매하는 비용이 50% 저렴합니다.</Text>
+			<Text>이 도시에서 [ICON_GOLD] 금으로 건물 및 [ICON_DISTRICT] 특수지구(구매가 가능할 시)를 구매하는 비용이 50% 저렴합니다.</Text>
 		</Row>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_LAND_ACQUISITION_DESCRIPTION" Language="ko_KR">
 			<Text>도시의 새 타일을 더 빠르게 확보합니다. 도시를 지나는 모든 다른 문명 [ICON_TradeRoute] 교역로에서 턴당 [ICON_Gold] 금 +4를 획득합니다.</Text>
@@ -1107,7 +1125,7 @@
 			<Text>도시 내 자원에 [ICON_PRODUCTION] 생산력 +1을 제공합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_WATER_WORKS_DESCRIPTION" Language="ko_KR">
-			<Text>이 도시의 특수지구 및 불가사의마다 [ICON_HOUSING] 주거공간 +1을 얻습니다.</Text>
+			<Text>이 도시의 [ICON_DISTRICT] 특수지구 및 [ICON_DISTRICT_WONDER] 불가사의마다 [ICON_HOUSING] 주거공간 +1을 얻습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_REINFORCED_INFRASTRUCTURE_DESCRIPTION" Language="ko_KR">
 			<Text>이 도시의 범람원 및 화산토 타일에 [ICON_PRODUCTION] 생산력 +1을 제공합니다. 이 도시의 시설, 건물 및 특수지구는 환경 효과에 의해 피해를 입지 않습니다.</Text>
@@ -1133,7 +1151,7 @@
 			<Text>도시가 생성하는 [ICON_Culture] 문화가 15% 증가하고 인근 도시에 미치는 종교 영향력이 100% 증가합니다. 이 도시의 각 전문 특수지구마다 [ICON_Faith] 신앙 +2를 얻습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT_DESCRIPTION" Language="ko_KR">
-			<Text>도시에서 [ICON_FAITH] 신앙으로 특수지구를 구매할 수 있습니다.</Text>
+			<Text>도시에서 [ICON_FAITH] 신앙으로 [ICON_DISTRICT] 특수지구를 구매할 수 있습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_THE_CARDINAL_DESCRIPTION" Language="ko_KR">
 			<Text>도시의 [ICON_Religion] 신앙심과 문화력을 강화하고 종교 유닛을 수용할 수 있는 종교 및 영적 지도자인 {LOC_GOVERNOR_THE_CARDINAL_NAME} 총독은 제국 [ICON_FAITH] 신앙과 [ICON_CULTURE] 문화의 등불입니다.</Text>
@@ -1194,8 +1212,14 @@
 		</Replace>
 
 		<!-- == Ibrahim == -->
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_PASHA_DESCRIPTION" Language="ko_KR">
+			<Text>내가 소유한 도시에 배치된 경우 도시의 모든 군사 유닛 생성에 대한 [ICON_Production] 생산력 +20%를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_SERASKER_DESCRIPTION" Language="ko_KR">
+			<Text>도심부 10타일 이내의 내 유닛에 방어 가능한 특수지구 공격 시 [ICON_Strength] 전투력 +10을 부여합니다.</Text>
+		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CAPOU_AGHA_DESCRIPTION" Language="ko_KR">
-			<Text>도심부 10타일 이내의 모든 우호 유닛에 [ICON_Movement] 이동력 +1을 부여합니다.</Text>
+			<Text>도심부 10타일 이내의 내 유닛에 [ICON_Movement] 이동력 +1을 부여합니다.</Text>
 		</Replace>
 
 
@@ -1624,16 +1648,16 @@
 			<Text>건설자가 수도원 시설을 건설할 수 있습니다.[NEWLINE][NEWLINE]수도원이 [ICON_Faith] 신앙 +3을 제공합니다. 이 타일에 위치하고 이번 턴에 공격하지 않은 우호적인 종교 유닛 체력이 +15 회복합니다. 다른 수도원 옆에 지을 수 없습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVILIZATION_ARMAGH_BONUS_XP2" Language="ko_KR">
-			<Text>건설자가 수도원 시설을 건설할 수 있습니다.[NEWLINE][NEWLINE]수도원이 [ICON_Faith] 신앙 +3을 제공합니다. 이 타일에 위치하고 이번 턴에 공격하지 않은 우호적인 종교 유닛 체력이 +15 회복합니다. 인접한 특수지구 2개마다 [ICON_FAITH] 신앙 +1을 제공합니다. [ICON_HOUSING] 주거공간 +1을 제공합니다. 식민주의를 발견하면 추가 [ICON_HOUSING] 주거공간을 제공합니다. 다른 수도원 옆에 지을 수 없습니다.</Text>
+			<Text>건설자가 수도원 시설을 건설할 수 있습니다.[NEWLINE][NEWLINE]수도원이 [ICON_Faith] 신앙 +3, [ICON_HOUSING] 주거공간 +1을 제공합니다. 이 타일에 위치하고 이번 턴에 공격하지 않은 우호적인 종교 유닛 체력이 +15 회복합니다. 인접한 특수지구 2개마다 [ICON_FAITH] 신앙 +1을 제공합니다. 식민주의를 발견하면 추가 [ICON_HOUSING] 주거공간을 제공합니다. 다른 수도원 옆에 지을 수 없습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVILIZATION_ARMAGH_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>건설자가 수도원 시설을 건설할 수 있습니다.[NEWLINE][NEWLINE]수도원이 [ICON_Faith] 신앙 +3을 제공합니다. 이 타일에 위치하고 이번 턴에 공격하지 않은 우호적인 종교 유닛 체력이 +15 회복합니다. 인접한 특수지구 2개마다 [ICON_FAITH] 신앙 +1을 제공합니다. [ICON_HOUSING] 주거공간 +1을 제공합니다. 식민주의를 발견하면 추가 [ICON_HOUSING] 주거공간을 제공합니다. 다른 수도원 옆에 지을 수 없습니다.</Text>
+			<Text>건설자가 수도원 시설을 건설할 수 있습니다.[NEWLINE][NEWLINE]수도원이 [ICON_Faith] 신앙 +3, [ICON_HOUSING] 주거공간 +1을 제공합니다. 이 타일에 위치하고 이번 턴에 공격하지 않은 우호적인 종교 유닛 체력이 +15 회복합니다. 인접한 특수지구 2개마다 [ICON_FAITH] 신앙 +1을 제공합니다. 식민주의를 발견하면 추가 [ICON_HOUSING] 주거공간을 제공합니다. 다른 수도원 옆에 지을 수 없습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_MONASTERY_DESCRIPTION" Language="ko_KR">
 			<Text>건설자의 수도원 건설 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Faith] 신앙 +3을 제공합니다. 이 타일에 위치하고 이번 턴에 공격하지 않은 우호적인 종교 유닛 체력이 +15 회복합니다. 다른 수도원 옆에 지을 수 없습니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_MONASTERY_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>건설자의 수도원 건설 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Faith] 신앙 +3. 이 타일에 위치하고 이번 턴에 공격하지 않은 우호적인 종교 유닛 체력이 +15 회복합니다. 인접한 특수지구 2개마다 [ICON_FAITH] 신앙 +1을 제공합니다. [ICON_HOUSING] 주거공간 +1을 제공합니다. 식민주의를 발견하면 추가 [ICON_HOUSING] 주거공간을 제공합니다. 다른 수도원 옆에 지을 수 없습니다.</Text>
+			<Text>건설자의 수도원 건설 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Faith] 신앙 +3, [ICON_HOUSING] 주거공간 +1. 이 타일에 위치하고 이번 턴에 공격하지 않은 우호적인 종교 유닛 체력이 +15 회복합니다. 인접한 특수지구 2개마다 [ICON_FAITH] 신앙 +1을 제공합니다. 식민주의를 발견하면 추가 [ICON_HOUSING] 주거공간을 제공합니다. 다른 수도원 옆에 지을 수 없습니다.</Text>
 		</Replace>
 
 
@@ -1818,8 +1842,14 @@
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CLASSREP_XP1" Language="ko_KR">
 			<Text>[ICON_GreatPerson] 위인 점수 +15%를 제공합니다.</Text>
 		</Replace>
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CLASSREP_XP1" Language="ko_KR">
+			<Text>[ICON_DISTRICT] 특수지구가 있는 모든 도시에 [ICON_Housing] 주거공간 +1, [ICON_Amenities] 쾌적도 +1을 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_DIGITAL_DEMOCRACY" Language="ko_KR">
+			<Text>모든 도시에서 [ICON_Amenities] 쾌적도 +2, 전문 [ICON_DISTRICT] 특수지구당 [ICON_Culture] 문화 +2를 제공합니다.</Text>
+		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_MERCHREP_XP1" Language="ko_KR">
-			<Text>특수지구 건설에 대한 [ICON_Production] 생산력 +15%를 제공합니다.</Text>
+			<Text>[ICON_DISTRICT] 특수지구 건설에 대한 [ICON_Production] 생산력 +15%를 제공합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_MONARCHY_XP1" Language="ko_KR">
 			<Text>[ICON_InfluencePerTurn] 우호도 점수가 +50% 증가합니다.</Text>
@@ -1929,7 +1959,7 @@
 			<Text>도시 국가를 제국에 흡수합니다. 이 도시에 턴당 충성심 +10을 부여합니다. 전쟁 중인 도시국가에서도 사용이 가능합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_GREATPERSON_TRADE_ROUTE_TOURISM_MODIFIER" Language="ko_KR">
-			<Text>[ICON_TradeRoute] 교역로를 보유한 다른 문명에 대한 [ICON_Tourism] 관광률이 +{Amount}% 상승합니다. [ICON_TradeRoute] 교역로 최대치가 1개 증가합니다.</Text>
+			<Text>[ICON_TradeRoute] 교역로를 보유한 다른 문명에 대한 [ICON_Tourism] 관광률이 +{Amount}% 상승합니다.</Text>
 		</Replace>
 
 		<Replace Tag="LOC_GREATPERSON_DMITRI_MENDELEEV_ACTIVE" Language="ko_KR">
