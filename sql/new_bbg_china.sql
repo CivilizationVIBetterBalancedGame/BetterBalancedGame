@@ -1,5 +1,0 @@
-
--- Move builder charge from Qin-Shi to China
-DELETE FROM TraitModifiers WHERE TraitType='FIRST_EMPEROR_TRAIT' AND ModifierId='TRAIT_ADJUST_BUILDER_CHARGES';
-INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('TRAIT_CIVILIZATION_DYNASTIC_CYCLE', 'TRAIT_ADJUST_BUILDER_CHARGES');
