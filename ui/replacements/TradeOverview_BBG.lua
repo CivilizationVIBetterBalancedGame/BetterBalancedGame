@@ -1,4 +1,6 @@
-include "TradeOverview"
+include("TradeOverview");
+
+print("TradeOverview BBG overide loaded")
 
 -- Show Available Routes Tab
 function ViewAvailableRoutes()

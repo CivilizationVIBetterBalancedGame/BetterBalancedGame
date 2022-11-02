@@ -1,5 +1,6 @@
 print("TradeSupport BBG overide loaded")
 
+
 -- Get idle Trade Units by Player ID
 function GetIdleTradeUnits( playerID:number )
 	local idleTradeUnits:table = {};
