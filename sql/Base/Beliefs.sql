@@ -340,8 +340,7 @@ INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_PLAYER_ALLOW_MONKS_IN_CITY', 'Tag', 'CLASS_WARRIOR_MONK');
 
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('ALLOW_WARRIOR_MONKS', 'ModifierId', 'BBG_PLAYER_ALLOW_MONKS_IN_CITY');
+UPDATE ModifierArguments SET Name = 'ModifierId', Value = 'BBG_PLAYER_ALLOW_MONKS_IN_CITY' WHERE ModifierId = 'ALLOW_WARRIOR_MONKS';
 
 -- Monks: Defines Scaling Combat Strength with Civics, Capped at the End of Industrial Civis
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
