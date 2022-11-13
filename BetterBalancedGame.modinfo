@@ -1,19 +1,19 @@
 <!-- Release ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5013">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5014">
 -->
 <!-- BETA ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5013">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5014">
 -->
 <!-- WIP ModID-->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5013">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5014">
 	<Properties>
-		<Name>Better Balanced Game 5.1.3</Name>
+		<Name>Better Balanced Game 5.1.4</Name>
 		<Description>
 			Release build of Better Balanced Game
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>5013</Version>
+		<Version>5014</Version>
 		<SpecialThanks>coloo, abstr, priz, seed.of.apricot, Klas, fl0r3k, WhySoHate, wazabaza, Ignasiuz, MarsLife(puj), Apeul, keride, Vodairo, FlashyFeeds, ZhenjaMax, iElden, D. / Jack The Narrator, codenaugh</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
@@ -648,18 +648,44 @@
 			</Properties>
 		</ReplaceUIScript>
 		-->
-		<ReplaceUIScript id="BBG_TradeOverview">
-			<Properties>
-				<LuaContext>TradeOverview</LuaContext>
-				<LuaReplace>UI/Replacements/tradeoverview_bbg.lua</LuaReplace>
-			</Properties>
-		</ReplaceUIScript>
 		<!-- -->
 		<ImportFiles id="bbg_files">
 				<File>ui/replacements/endgamemenu_bbg.lua</File>
 				<File>ui/replacements/endgamemenu.xml</File>
-				<File>ui/replacements/tradesupport.lua</File>
 		</ImportFiles>
+		<ImportFiles id="bbg_tradesupport">
+			<Properties>
+				<LoadOrder>300</LoadOrder>
+			</Properties
+			<File>ui/replacements/tradesupport.lua</File>
+		</ImportFiles>
+		<ImportFiles id="bbg_basetradeui">
+			<Properties>
+				<LoadOrder>301</LoadOrder>
+			</Properties				
+			<File>ui/replacements/compatibility/traderoutechooser.lua</File>
+			<File>ui/replacements/compatibility/tradeoverview.lua</File>
+		</ImportFiles>
+		<ReplaceUIScript id="base_tradeoverview">
+			<Properties>
+				<LoadOrder>302</LoadOrder>
+				<LuaContext>TradeOverview</LuaContext>
+				<LuaReplace>ui/replacements/compatibility/tradeoverview.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+		<ImportFiles id="bbg_tradeoverview_import">
+			<Properties>
+				<LoadOrder>303</LoadOrder>
+			</Properties
+			<File>ui/replacements/tradeoverview_bbg.lua</File>
+		</ImportFiles>
+		<ReplaceUIScript id="bbg_tradeoverview">
+			<Properties>
+				<LoadOrder>304</LoadOrder>
+				<LuaContext>TradeOverview</LuaContext>
+				<LuaReplace>ui/replacements/tradeoverview_bbg.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
 		<!--
 		<ImportFiles id="bbg_XP2_panel_override_files">
 			<Criteria>XP2</Criteria>	
@@ -799,10 +825,12 @@
 		<File>ui/replacements/endgamemenu_bbg.lua</File>
 		<File>ui/replacements/endgamemenu.xml</File>
 		<!--<File>ui/replacements/productionpanel_bbg.lua</File>-->
-		<File>UI/Replacements/tradeoverview_bbg.lua</File>
+		<File>ui/replacements/tradeoverview_bbg.lua</File>
 		<!--<File>ui/replacements/unitpanel_bbg.lua</File>-->
 		<File>ui/replacements/tradesupport.lua</File>
-		
+		<File>ui/replacements/compatibility/traderoutechooser.lua</File>
+		<File>ui/replacements/compatibility/tradeoverview.lua</File>
+
 		<File>data/new_bbg_icons.xml</File>
 		<File>config/config.xml</File>
 		<File>config/config.sql</File>
