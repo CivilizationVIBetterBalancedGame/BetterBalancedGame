@@ -782,6 +782,21 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 --==============================================================
 --******				G O V E R N O R S				  ******
 --==============================================================
+--5.1.4 add free starting promo on monks, 2nd promo bugged in 5.1.3
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+    ('BBG_REQUIRES_UNIT_TYPE_IS_MONK', 'REQUIREMENT_UNIT_TYPE_MATCHES');
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_UNIT_TYPE_IS_MONK', 'UnitType', 'UNIT_WARRIOR_MONK');
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('BBG_UNIT_TYPE_IS_MONK_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_TYPE_IS_MONK_REQSET', 'BBG_REQUIRES_UNIT_TYPE_IS_MONK');
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('MOKSHA_MONK_FREE_PROMO', 'MODIFIER_CITY_TRAINED_UNITS_ADJUST_GRANT_EXPERIENCE', 'BBG_UNIT_TYPE_IS_MONK_REQSET');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('MOKSHA_MONK_FREE_PROMO', 'Amount', '-1');
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierID) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'MOKSHA_MONK_FREE_PROMO');
 -- delete moksha's scrapped abilities
 DELETE FROM GovernorPromotions WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
 DELETE FROM GovernorPromotionSets WHERE GovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
