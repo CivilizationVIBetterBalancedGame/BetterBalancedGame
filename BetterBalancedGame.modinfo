@@ -86,6 +86,11 @@
 			<ModInUse>FFDF4E79-DEE2-47BB-919B-F5739106627A</ModInUse>
 		</Criteria>
 		<!-- -->
+		<Criteria id="NoConflictingUIMod">
+			<ModInUse inverse="1">1d44b5e7-753e-405b-af24-5ee634ec8a01</ModInUse>
+			<ModInUse inverse="1">8d4fa23a-ef43-440c-8422-2bec11f8f5d7</ModInUse>
+		</Criteria>
+		<!-- -->
 		<Criteria id="CVSetting_2">
 			<ConfigurationValueMatches>
 				<ConfigurationId>VictoryCulturalSetting</ConfigurationId>
@@ -657,12 +662,14 @@
 			<Properties>
 				<LoadOrder>300</LoadOrder>
 			</Properties>
+			<Criteria>NoConflictingUIMod</Criteria>
 			<File>ui/replacements/tradesupport.lua</File>
 		</ImportFiles>
 		<ImportFiles id="bbg_basetradeui">
 			<Properties>
 				<LoadOrder>301</LoadOrder>
-			</Properties>				
+			</Properties>
+			<Criteria>NoConflictingUIMod</Criteria>
 			<File>ui/replacements/compatibility/traderoutechooser.lua</File>
 			<File>ui/replacements/compatibility/tradeoverview.lua</File>
 		</ImportFiles>
@@ -672,11 +679,13 @@
 				<LuaContext>TradeOverview</LuaContext>
 				<LuaReplace>ui/replacements/compatibility/tradeoverview.lua</LuaReplace>
 			</Properties>
+			<Criteria>NoConflictingUIMod</Criteria>
 		</ReplaceUIScript>
 		<ImportFiles id="bbg_tradeoverview_import">
 			<Properties>
 				<LoadOrder>303</LoadOrder>
 			</Properties>
+			<Criteria>NoConflictingUIMod</Criteria>
 			<File>ui/replacements/tradeoverview_bbg.lua</File>
 		</ImportFiles>
 		<ReplaceUIScript id="bbg_tradeoverview">
@@ -685,11 +694,12 @@
 				<LuaContext>TradeOverview</LuaContext>
 				<LuaReplace>ui/replacements/tradeoverview_bbg.lua</LuaReplace>
 			</Properties>
+			<Criteria>NoConflictingUIMod</Criteria>
 		</ReplaceUIScript>
 		<!--
 		<ImportFiles id="bbg_XP2_panel_override_files">
 			<Criteria>XP2</Criteria>	
-				<File>ui/replacements/unitpanel_bbg.lua</File>
+			<File>ui/replacements/unitpanel_bbg.lua</File>
 		</ImportFiles>
 		-->		
 		<!-- Gamemode -->
