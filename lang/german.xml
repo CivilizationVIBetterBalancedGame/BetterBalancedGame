@@ -138,6 +138,10 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_BYZANTIUM_DESCRIPTION" Language="de_DE">
 			<Text>Einheiten erhalten +2 [ICON_STRENGTH] Kampfstärke oder [ICON_RELIGION] religiöse Stärke für jede zur [ICON_RELIGION] Religion von Byzanz bekehrte heilige Stadt (einschließlich der byzantinischen heiligen Stadt). +1 [ICON_GREATPROPHET] Großer-Prophet-Punkt in Städten mit einem Heilige Stätte-Bezirk. Immer wenn die Einheit einer anderen Zivilisation besiegt wird, wird außerdem religiöser Druck der byzantinischen [ICON_RELIGION] Religion (basierend auf der [ICON_STRENGTH] Nahkampfstärke der besiegten Einheit) im Umkreis von 5 Feldern erhöht.</Text>
 		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_BASIL_DESCRIPTION" Language="de_DE">
+     			<Text>Schwere und Leichte Kavallerieeinheiten verursachen in Städten, die derselben Religion wie Byzanz anhängen, den vollen Schaden. Erlangt die Spezialeinheit Tagma, wenn die Ausrichtung 'Göttliches Recht' entdeckt wurde.</Text>
+    		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_BYZANTINE_TAGMA_DESCRIPTION" Language="de_DE">
 			<Text>Spezialeinheit des Mittelalters von Basilius II., die den Ritter ersetzt. Landeinheiten im Umkreis von 1 Geländefeld der Tagma erhalten +2 [ICON_STRENGTH] Kampf- oder [ICON_RELIGION] religiöse Stärke.</Text>
@@ -151,6 +155,7 @@
 		<Replace Tag="LOC_ABILITY_TAGMA_RELIGIOUS_COMBAT_DESCRIPTION" Language="de_DE">
 			<Text>+2 [ICON_RELIGION] religiöse Stärke innerhalb eines Geländefeldes der Tagma</Text>
 		</Replace>
+
 
 		<!-- == CANADA == -->
 		<!-- = leader ability = -->
@@ -505,6 +510,10 @@
 		<Row Tag="LOC_ABILITY_HUSZAIR_COMBAT_PREVIEW" Language="de_DE">	<!-- Change this word so it fits your language syntax and style! (for English UI tooltip now: +2 from Armagh) -->	
 			<Text>+2 durch Armagh</Text>	
 		</Row>
+		<!-- = unique building = -->
+		<Replace Tag="LOC_BUILDING_THERMAL_BATH_DESCRIPTION" Language="de_DE">
+		        <Text>Einzigartiges Gebäude von Ungarn. +2 [ICON_AMENITIES] Annehmlichkeiten und +2 [ICON_PRODUCTION] Produktion erstrecken sich auf jedes Stadtzentrum innerhalb von 6 Geländefeldern. Diese Bonusse werden einmalig pro Stadt angewendet und mehrere Gebäude dieses Typs innerhalb von 6 Geländefeldern eines Stadtzentrums bieten keine zusätzlichen Bonusse.[NEWLINE]Diese Stadt erhält +3 [ICON_TOURISM] Tourismus und +2 zusätzliche [ICON_AMENITIES] Annehmlichkeiten, wenn es mindestens einen geothermischen Riss innerhalb der Stadtgrenzen gibt.</Text>
+		</Replace>
 		
 		<!-- == INCA == -->
 		<!-- = leader ability = -->
@@ -749,7 +758,6 @@
 		<Replace Tag="LOC_TRAIT_LEADER_KANDAKE_OF_MEROE_DESCRIPTION" Language="de_DE">
 			<Text>+20% [ICON_PRODUCTION] Produktion für alle [ICON_DISTRICT] Bezirke, erhöht sich bis auf +40% [ICON_PRODUCTION] Produktion, wenn eine Nubische Pyramide an das Stadtzentrum angrenzt.</Text>
 		</Replace>
-		<!-- = civilization ability = -->
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_PYRAMID_DESCRIPTION" Language="de_DE">
 			<Text>Die Ausrichtung 'Handwerkskunst' schaltet die Handwerker-Fähigkeit frei, eine Nubische Pyramide, die einzigartige Modernisierung Nubiens, zu bauen.[NEWLINE][NEWLINE]+1 [ICON_FOOD] Nahrung und +2 [ICON_FAITH] Glauben.[NEWLINE]Erhält zusätzliche Erträge durch angrenzende Bezirke:[NEWLINE]+2 [ICON_FOOD] Nahrung für das Stadtzentrum.[NEWLINE]+2 [ICON_SCIENCE] Wissenschaft durch jeden angrenzenden Campus.[NEWLINE]+2 [ICON_PRODUCTION] Produktion durch jedes angrenzende Industriegebiet.[NEWLINE]+2 [ICON_CULTURE] Kultur durch jeden angrenzenden Theaterplatz.[NEWLINE]+2 [ICON_FAITH] Glauben durch jede angrenzende Heilige Stätte.[NEWLINE]+2 [ICON_GOLD] Gold durch jedes angrenzende Handelszentrum- und jeden angrenzenden Hafen.[NEWLINE][NEWLINE]Kann nur auf Wüsten, Wüstenhügeln, Schwemmland, Ebenen oder Grasland gebaut werden. Kann nicht angrenzend an eine andere Nubische Pyramide errichtet werden.</Text>
@@ -796,6 +804,10 @@
 		</Replace>
 
 		<!-- == PHOENICIA == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="de_DE">
+      			<Text>Beginnt das Spiel mit dem [ICON_TECHBOOSTED] Heureka der Technologie 'Schrift'. Küstenstädte, die von den Phöniziern gegründet wurden und sich auf dem gleichen Kontinent wie die phönizische [ICON_CAPITAL] Hauptstadt befinden, sind zu 100 % loyal. Gewasserte Siedler erlangen +2 [ICON_MOVEMENT] Fortbewegung und +2 Sichtweite. Für Siedler gelten keine zusätzlichen [ICON_MOVEMENT] Fortbewegungskosten für das Wassern und Ausschiffen.</Text>
+   		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="de_DE">
 			<Text>Kann die ursprüngliche [ICON_CAPITAL] Hauptstadt in eine andere von Ihnen gegründete Stadt mit einem Kothon verlegen, indem in dieser Stadt ein einzigartiges Projekt abgeschlossen wird. +1 [ICON_TRADEROUTE] Handelsweg-Kapazität für jedes Regierungsplatz-Gebäude. +50% [ICON_PRODUCTION] Produktion für [ICON_DISTRICT] Bezirke in der Stadt mit dem Regierungplatz.</Text>
@@ -958,16 +970,29 @@
 		</Replace>
 
 		<!-- == SWEDEN == -->
+
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="de_DE">
 			<Text>Schweden erhält 50 [ICON_FAVOR] diplomatische Gunst, wenn es eine [ICON_GREATPERSON] Große Persönlichkeit verdient (auf Standardgeschwindigkeit). Wenn Schweden mit im Spiel ist, werden mit Beginn des Industriezeitalters drei zusätzliche einzigartige Weltkongress-Wettkämpfe hinzugefügt.[NEWLINE]+1 [ICON_GREATENGINEER] Großer-Ingenieur-Punkt durch Fabriken und +1 [ICON_GREATSCIENTIST] Großer-Wissenschaftler-Punkt durch Universitäten. +50% [ICON_PRODUCTION] Produktion auf Bibliotheken, Werkstätten, Universitäten, Fabriken und Regierungsplatz-Gebäude.</Text>
 		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_KRISTINA_AUTO_THEME_DESCRIPTION" Language="de_DE">
+      			<Text>Gebäude mit mindestens drei Plätzen für Große Werke und Wunder mit mindestens zwei Plätzen für Große Werke haben automatisch ein Thema, wenn die Plätze gefüllt sind. Sie kann auf dem Regierungsplatz die Bibliothek der Königin bauen.</Text>
+    		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_QUEENS_BIBLIOTHEQUE_DESCRIPTION" Language="de_DE">
 			<Text>Einzigartiges Gebäude Schwedens. Die Bibliothek der Königin bietet 2 Plätze für [ICON_GREATWORK_WRITING] Literatur, [ICON_GREATWORK_MUSIC] Musik und eine beliebige [ICON_GREATWORK_LANDSCAPE] Kunstform. Dieses Gebäude schließt sich nicht gegenseitig mit anderen Gebäuden des Regierungsplatzes aus.[NEWLINE]Verleiht +1 [ICON_GOVERNOR] Gouverneur-Titel.</Text>
 		</Replace>
+		<!-- = unique improvement = -->
+		<Replace Tag="LOC_IMPROVEMENT_OPEN_AIR_MUSEUM_DESCRIPTION" Language="de_DE">
+		        <Text>Schaltet die Handwerker-Fähigkeit frei, ein Freilichtmuseum, die einzigartige Modernisierung Schwedens, zu bauen.[NEWLINE]Bringt +2 Loyalität pro Runde in dieser Stadt. +2 [ICON_Culture] Kultur und +2 [ICON_Tourism] Tourismus für jede Geländeart (Schnee-, Tundra-, Wüsten-, Ebenen- und Graslandgeländefelder), auf der wenigstens eine schwedische Stadt gegründet wird.[NEWLINE][NEWLINE]Nur ein Freilichtmuseum pro Stadt. Geländefelder mit Freilichtmuseen können nicht getauscht werden.</Text>
+		</Replace>
 
 		<!-- == VIETNAM == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_VIETNAM_DESCRIPTION" Language="de_DE">
+		        <Text>Land-Spezialbezirke können nur auf Regenwald, Sumpf oder Wald gebaut werden. Ihr erhaltet folgende Erträge für jedes Gebäude, das auf einer dieser Geländearten steht: +1 [ICON_CULTURE] Kultur auf Wald, +1 [ICON_SCIENCE] Wissenschaft auf Regenwald und +1 [ICON_PRODUCTION] Produktion auf Sumpf. Wald kann mit der Ausrichtung 'Mittelaltermärkte' gepflanzt werden.</Text>
+		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRIEU_DESCRIPTION" Language="de_DE">
 			<Text>+2 [ICON_STRENGTH] Kampfstärke für Einheiten, die im Regenwald, Sumpf oder Wald kämpfen. +1 [ICON_MOVEMENT] Fortbewegung wenn sie ihren Zug dort beginnen. Beide Bonusse werden verdoppelt, wenn sich das Geländefeld in Eurem Gebiet befindet.</Text>
@@ -2325,8 +2350,6 @@
 			<Text>Um einen [COLOR:ResMilitaryLabelCS]HERRSCHAFTS[ENDCOLOR] Sieg zu erzielen, müsst Ihr die ursprüngliche [ICON_CAPITAL] Hauptstadt jeder anderen Zivilisation erobern.[NEWLINE][NEWLINE]Ein sarkes Militär ist äußert empfehlenswert</Text>
 		</Replace>
 
-
-
 		<Row Tag="BBG_GAMEMODE_BABYLON_NAME" Language="de_DE">
 			<Text>Aprilscherz 2022</Text>
 		</Row>
@@ -2340,27 +2363,6 @@
 		<Row Tag="LOC_BBG_FRONT_BETA_BAN_TRADE_TREATY_DESC" Language="de_DE">
 			<Text>Entfernt die Resolution zum Handelsabkommen vom Weltkongress.[NEWLINE](Diese Resolution ist standardmäßig deaktiviert)</Text>
 		</Row>
-
-
-		<!-- === BONUS FIX TEXT === -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="de_DE">
-      			<Text>Beginnt das Spiel mit dem [ICON_TECHBOOSTED] Heureka der Technologie 'Schrift'. Küstenstädte, die von den Phöniziern gegründet wurden und sich auf dem gleichen Kontinent wie die phönizische [ICON_CAPITAL] Hauptstadt befinden, sind zu 100 % loyal. Gewasserte Siedler erlangen +2 [ICON_MOVEMENT] Fortbewegung und +2 Sichtweite. Für Siedler gelten keine zusätzlichen [ICON_MOVEMENT] Fortbewegungskosten für das Wassern und Ausschiffen.</Text>
-   		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_KRISTINA_AUTO_THEME_DESCRIPTION" Language="de_DE">
-      			<Text>Gebäude mit mindestens drei Plätzen für Große Werke und Wunder mit mindestens zwei Plätzen für Große Werke haben automatisch ein Thema, wenn die Plätze gefüllt sind. Sie kann auf dem Regierungsplatz die Bibliothek der Königin bauen.</Text>
-    		</Replace>
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_VIETNAM_DESCRIPTION" Language="de_DE">
-		        <Text>Land-Spezialbezirke können nur auf Regenwald, Sumpf oder Wald gebaut werden. Ihr erhaltet folgende Erträge für jedes Gebäude, das auf einer dieser Geländearten steht: +1 [ICON_CULTURE] Kultur auf Wald, +1 [ICON_SCIENCE] Wissenschaft auf Regenwald und +1 [ICON_PRODUCTION] Produktion auf Sumpf. Wald kann mit der Ausrichtung 'Mittelaltermärkte' gepflanzt werden.</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_BASIL_DESCRIPTION" Language="de_DE">
-     			<Text>Schwere und Leichte Kavallerieeinheiten verursachen in Städten, die derselben Religion wie Byzanz anhängen, den vollen Schaden. Erlangt die Spezialeinheit Tagma, wenn die Ausrichtung 'Göttliches Recht' entdeckt wurde.</Text>
-    		</Replace>
-		<Replace Tag="LOC_IMPROVEMENT_OPEN_AIR_MUSEUM_DESCRIPTION" Language="de_DE">
-		        <Text>Schaltet die Handwerker-Fähigkeit frei, ein Freilichtmuseum, die einzigartige Modernisierung Schwedens, zu bauen.[NEWLINE]Bringt +2 Loyalität pro Runde in dieser Stadt. +2 [ICON_Culture] Kultur und +2 [ICON_Tourism] Tourismus für jede Geländeart (Schnee-, Tundra-, Wüsten-, Ebenen- und Graslandgeländefelder), auf der wenigstens eine schwedische Stadt gegründet wird.[NEWLINE][NEWLINE]Nur ein Freilichtmuseum pro Stadt. Geländefelder mit Freilichtmuseen können nicht getauscht werden.</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_THERMAL_BATH_DESCRIPTION" Language="de_DE">
-		        <Text>Einzigartiges Gebäude von Ungarn. +2 [ICON_AMENITIES] Annehmlichkeiten und +2 [ICON_PRODUCTION] Produktion erstrecken sich auf jedes Stadtzentrum innerhalb von 6 Geländefeldern. Diese Bonusse werden einmalig pro Stadt angewendet und mehrere Gebäude dieses Typs innerhalb von 6 Geländefeldern eines Stadtzentrums bieten keine zusätzlichen Bonusse.[NEWLINE]Diese Stadt erhält +3 [ICON_TOURISM] Tourismus und +2 zusätzliche [ICON_AMENITIES] Annehmlichkeiten, wenn es mindestens einen geothermischen Riss innerhalb der Stadtgrenzen gibt.</Text>
-		</Replace>
 
 	</LocalizedText>
 </GameData>
