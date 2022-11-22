@@ -85,6 +85,12 @@
 		<Criteria id="Portugal">
 			<ModInUse>FFDF4E79-DEE2-47BB-919B-F5739106627A</ModInUse>
 		</Criteria>
+		<Criteria id="Caesar">
+			<ModInUse>9ED63236-617C-45A6-BB70-8CB6B0BE8ED2</ModInUse>
+		</Criteria>
+		<Criteria id="Negotiators">
+			<ModInUse>7A66DB58-B354-4061-8C80-95B638DD6F6C</ModInUse>
+		</Criteria>
 		<!-- -->
 		<Criteria id="NoConflictingUIMod">
 			<ModInUse inverse="1">1d44b5e7-753e-405b-af24-5ee634ec8a01</ModInUse>
@@ -516,6 +522,25 @@
 			<File>sql/NFP/new_bbg_nfp_portugal.sql</File>
 		</UpdateDatabase>
 		<!-- -->
+		<UpdateDatabase id="BBG_Caesar">
+			<Properties>
+				<LoadOrder>11651</LoadOrder>
+			</Properties>
+			<Criteria>Caesar</Criteria>
+			<File>sql/LP/lp_rome_caesar.sql</File>
+		</UpdateDatabase>
+		<!-- -->
+		<UpdateDatabase id="BBG_Negotiators">
+			<Properties>
+				<LoadOrder>11652</LoadOrder>
+			</Properties>
+			<Criteria>Negotiators</Criteria>
+			<File>sql/LP/lp_america_lincoln.sql</File>
+			<File>sql/LP/lp_arabia_saladin_sultan.sql</File>
+			<File>sql/LP/lp_kongo_mbande.sql</File>
+		</UpdateDatabase>
+		<!-- -->
+
 		<UpdateDatabase id="BBG_XP2_SecretSocieties">
 			<Properties>
 				<LoadOrder>11660</LoadOrder>
@@ -828,6 +853,11 @@
 		<File>sql/NFP/new_bbg_kublai.sql</File>
 		<File>sql/NFP/new_bbg_buildings_preserve.sql</File>
 		<File>sql/NFP/new_bbg_nfp_portugal.sql</File>
+		<!-- -->
+		<File>sql/LP/lp_rome_caesar.sql</File>
+		<File>sql/LP/lp_america_lincoln.sql</File>
+		<File>sql/LP/lp_arabia_saladin_sultan.sql</File>
+		<File>sql/LP/lp_kongo_mbande.sql</File>
 		<!-- -->
 		<File>sql/Secret_Societies.sql</File>
 		<!-- -->
