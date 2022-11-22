@@ -1,3 +1,5 @@
+/*
+--Seige Ignore Obstacles--
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
 	('BBG_PROMOTION_CLASS_SIEGE_REQSET', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
@@ -18,3 +20,4 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_CAESAR', 'BBG_CAESAR_SIEGE_IGNORE_FEATURES'),
 	('TRAIT_LEADER_CAESAR', 'BBG_CAESAR_SIEGE_IGNORE_TERRAIN');
+*/
