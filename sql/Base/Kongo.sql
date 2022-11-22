@@ -1,3 +1,5 @@
+--======Mvemba(Old Kongo Leader)======--
+
 --5.1 Founder Belief Bug Fix
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES
 	('BBG_REQUIRES_PLAYER_IS_RELIGIOUS_CONVERT', 'REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES'),
@@ -15,6 +17,8 @@ INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
 	('BBG_REQUIRES_PLAYER_FOUNDED_RELIGION_OR_MVEMBA', 'RequirementSetId', 'BBG_REQSET_FOUNDER_OR_MVEMBA');
 
 UPDATE RequirementSetRequirements SET RequirementId = 'BBG_REQUIRES_PLAYER_FOUNDED_RELIGION_OR_MVEMBA' WHERE RequirementId = 'REQUIRES_PLAYER_FOUNDED_RELIGION' AND RequirementSetId <> 'BBG_REQSET_FOUNDER_OR_MVEMBA';
+
+--=======Kongo(Civilization)==========--
 
 -- +100% prod towards archealogists
 INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId) VALUES
