@@ -84,11 +84,11 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 	-- Attacker died to defender.
 	if(pAttackingUnit ~= nil and pDefendingUnit ~= nil and (pDefendingUnit:IsDead() or pDefendingUnit:IsDelayedDeath())) then
 		local religionType = pAttackerReligion:GetReligionTypeCreated()
-		print("Religion",religionType)
+		--print("Religion",religionType)
 		if religionType==nil or religionType==-1 then
 			religionType = pAttackerReligion:GetReligionInMajorityOfCities()
 		end
-		print("Religion",religionType)
+		--print("Religion",religionType)
 		if pAttackerLeader == "LEADER_BASIL" then
 			local x = pAttackingUnit:GetX()
 			local y = pAttackingUnit:GetY()
@@ -99,13 +99,13 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 			end
 		--Applying same kind of modifier as Basil to monk disciples
 		elseif GameInfo.Units[pAttackingUnit:GetType()].UnitType == 'UNIT_WARRIOR_MONK' and pAttackerLeader ~= "LEADER_BASIL" then
-			print('Monk Detected')
+			--print('Monk Detected')
 			local unitExperience = pAttackingUnit:GetExperience();
 			print(unitExperience)
 			if unitExperience~=nil then
-				print('Pass1', unitExperience)
+				--print('Pass1', unitExperience)
 				local bHasDisciples = unitExperience:HasPromotion(103);
-				print('Pass2', bHasDisciples)
+				--print('Pass2', bHasDisciples)
 				local x = pAttackingUnit:GetX()
 				local y = pAttackingUnit:GetY()
 				local power = pDefendingUnit:GetCombat()
@@ -332,27 +332,71 @@ function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
 
 	
 	local pUnitExp = pUnit:GetExperience();
-	print("Plus");
+	--print("Plus");
 	local pUnitExpPts = pUnitExp:GetExperiencePoints();
-	print("Exp", pUnitExpPts);
+	--print("Exp", pUnitExpPts);
 	local neededExp = pUnitExp:GetExperienceForNextLevel();
-	print("MissingExp", neededExp);
+	--print("MissingExp", neededExp);
 	local pUnitLevel=1;
 	for i, expCutoff in ipairs(expTable) do
 		if neededExp==expCutoff then
 			pUnitLevel=i-1;
-			print("Level", pUnitLevel);
+			--print("Level", pUnitLevel);
 		end
 	end
 
 	local thisLevelExp=expTable[pUnitLevel];
-	print("thisLevelExp",thisLevelExp);
+	--print("thisLevelExp",thisLevelExp);
 	local expVal = thisLevelExp-pUnitExpPts;
-	print("expVal", expVal);
+	--print("expVal", expVal);
 	if expVal>0 then
 		pUnitExp:ChangeExperience(expVal);
 	end
 end
+
+function OnCityBuilt(iPlayerID, iCityID, iX, iY)
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	if pPlayer:IsMajor() == true then
+		return
+	end
+	local pCity = CityManager.GetCityAt(iX,iY)
+	if pCity == nil then
+		return
+	end
+	local pCityAlt = CityManager.GetCity(iPlayerID, iCityID)
+	if pCityAlt == nil then
+		print("Event published by non-owner")
+		return
+	end
+	if pCityAlt ~= pCity then
+		print("Cities don't match, strange")
+		return
+	end
+	local pPlot = Map.GetPlot(iX, iY)
+	pPlot:SetProperty("CS_CAPITAL_BBG",1)
+	print("CS Property Set for "..tostring(pCity:GetName()))
+end
+
+function OnCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
+	local pNewOwner = Players[iNewOwnerID]
+	local pOldOwner = Players[iOldOwnerID]
+	print("New "..tostring(iNewOwnerID).." Old: "..tostring(iOldOwnerID))
+	if pOldOwner:IsMajor()~= true then 
+		return
+	end
+	if PlayerConfigurations[iNewOwnerID]:GetLeaderTypeName() ~= "LEADER_JULIUS_CAESAR" then
+		return
+	end
+	local pPlot = Map.GetPlot(iX, iY)
+	if pPlot:GetProperty("CS_CAPITAL_BBG")~=1 then
+		pPlot:SetProperty("CAESAR_MAJOR_RECONQUEST_BBG",1)
+	end
+	print("Reconquest Property Set for"..tostring(CityManager.GetCityAt(iX, iY):GetName()))
+end
+
 -- function OnTechBoost(playerID, iTechBoosted)
 --	print("OnTechBoost",playerID, iTechBoosted)
 --	local pPlayer = Players[playerID]
@@ -435,21 +479,21 @@ function ApplyByzantiumTrait(x,y,power,religionType,playerID)
 		return
 	end
 	local religionInfo = GameInfo.Religions[religionType]
-	print("Religion Spread Satred with",x,y,power,religionType,playerID)
+	--print("Religion Spread Satred with",x,y,power,religionType,playerID)
 	local pPlot = Map.GetPlot(x, y)
 	for i = 0, iReligion_ByzantiumRange do
 		local plotScanned = GetAdjacentTiles(pPlot, i)
 		if plotScanned ~= nil then
 			if plotScanned:IsCity() then
-				print("city Detected")
+				--print("city Detected")
 				local pCity = Cities.GetCityInPlot(plotScanned)
 				local pCityReligion = pCity:GetReligion()
 				local impact = power * iReligion_ByzantiumMultiplier
-				print("playerID "..tostring(playerID))
-				print("playerID "..tostring(religionType))
-				print("playerID "..tostring(impact))
+				--print("playerID "..tostring(playerID))
+				--print("playerID "..tostring(religionType))
+				--print("playerID "..tostring(impact))
 				pCityReligion:AddReligiousPressure(playerID, religionType, impact, -1);
-				print("Added Religious Pressure",impact,pCity:GetName())
+				--print("Added Religious Pressure",impact,pCity:GetName())
 				local message:string  = "+"..tostring(impact)
 				if religionInfo ~= nil then
 					message = message.." "..tostring("[ICON_Religion]")
@@ -2345,6 +2389,9 @@ function Initialize()
 	Events.UnitPromoted.Add(OnPromotionFixExp);
 	-- tech boost effect:
 	-- Events.TechBoostTriggered.Add(OnTechBoost);
+	-- Auxillary GameEvent for Caesar wildcard
+	GameEvents.CityBuilt.Add(OnCityBuilt);
+	GameEvents.CityConquered.Add(OnCityConquered)
 end
 
 Initialize();
