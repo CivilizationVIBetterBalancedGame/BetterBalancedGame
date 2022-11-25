@@ -28,18 +28,25 @@
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_ANCIENT" Language="ko_KR">
 			<Text>보유한 기술 또는 사회제도에서 [ICON_Strength] 전투력 +1. (고대 시대)</Text>
 		</Row>
-		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_ERA_CLASSICAL" Language="ko_KR">
+		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_CLASSICAL" Language="ko_KR">
 			<Text>보유한 기술 또는 사회제도에서 [ICON_Strength] 전투력 +2. (고전 시대)</Text>
 		</Row>
-		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_ERA_MEDIEVAL" Language="ko_KR">
+		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_MEDIEVAL" Language="ko_KR">
 			<Text>보유한 기술 또는 사회제도에서 [ICON_Strength] 전투력 +3. (중세 시대)</Text>
 		</Row>
-		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_ERA_RENAISSANCE" Language="ko_KR">
+		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_RENAISSANCE" Language="ko_KR">
 			<Text>보유한 기술 또는 사회제도에서 [ICON_Strength] 전투력 +4. (르네상스 시대)</Text>
 		</Row>
-		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_ERA_INDUSTRIAL" Language="ko_KR">
+		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_INDUSTRIAL" Language="ko_KR">
 			<Text>보유한 기술 또는 사회제도에서 [ICON_Strength] 전투력 +5. (산업 시대)</Text>
 		</Row>
+		<!-- = leader ability (Abraham Lincoln)= -->
+		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_DESCRIPTION" Language="ko_KR">
+			<Text>산업구역 특수지구 건설에 대한 [ICON_Production] 생산력 +100%를 제공합니다. 산업구역이 [ICON_Amenities] 쾌적도 +2를 제공합니다. 산업구역 및 산업구역 특수지구 내 건물 건설 후 근접 유닛을 받습니다. 무료 유닛은 생성되거나 유지할 때 자원이 필요하지 않으며 [ICON_Strength] 전투력 +5를 받습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_EXPANSION_DESCRIPTION" Language="ko_KR">
+			<Text>산업구역 특수지구 건설에 대한 [ICON_Production] 생산력 +100%를 제공합니다. 산업구역이 [ICON_Amenities] 쾌적도 +2 및 턴당 충성심 +3을 제공합니다. 재배지는 턴당 충성심 -2를 제공합니다. 산업구역 및 산업구역 특수지구 내 건물 건설 후 근접 유닛을 받습니다. 무료 유닛은 생성하거나 유지할 때 자원이 필요하지 않으며 [ICON_Strength] 전투력 +5를 받습니다.</Text>
+		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_AMERICAN_ROUGH_RIDER_DESCRIPTION" Language="ko_KR">
 			<Text>흉갑기병을 대체하는 루즈벨트 특유의 산업 시대 유닛입니다. [ICON_Capital] 수도가 있는 대륙에서 전투 승리시 패배한 유닛의 [ICON_Strength] 전투력 25%에 준하는 [ICON_Culture] 문화가 제공됩니다(온라인 속도 기준). 언덕에서 전투 시, [ICON_Strength] 전투력 +5를 획득합니다. 유지비가 낮습니다.</Text>
@@ -64,11 +71,11 @@
 		<!-- == ARABIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LAST_PROPHET_DESCRIPTION" Language="ko_KR">
-			<Text>점성술 기술을 연구하면 매 턴 [ICON_GreatProphet] 위대한 선지자 점수 +1을 얻습니다. 플레이어가 [ICON_GreatProphet] 위대한 선지자가 없을 시, 마지막에서 두 번째 위대한 선지자를 다른 문명이 영입하는 경우, 플레이어는 마지막 [ICON_GreatProphet] 위대한 선지자를 즉시 얻습니다. 아라비아의 종교를 믿는 타 문명 도시마다 [ICON_Science] 과학 +1을 제공합니다.</Text>
+			<Text>점성술 기술을 연구하면 매 턴 [ICON_GreatProphet] 위대한 선지자 점수 +1을 얻습니다. 플레이어가 [ICON_GreatProphet] 위대한 선지자가 없을 시, 마지막에서 두 번째 위대한 선지자를 다른 문명이 영입하는 경우, 플레이어는 마지막 [ICON_GreatProphet] 위대한 선지자를 즉시 얻습니다. [NEWLINE][NEWLINE]아라비아의 종교를 믿는 타 문명 도시마다 [ICON_Science] 과학 +1을 제공합니다. 캠퍼스는 성지 특수지구로부터, 성지는 캠퍼스 특수지구로부터 일반적인 인접 보너스를 획득합니다. </Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability (Saladin Vizier) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RIGHTEOUSNESS_OF_FAITH_DESCRIPTION" Language="ko_KR">
-			<Text>캠퍼스는 성지 특수지구로부터, 성지는 캠퍼스 특수지구로부터 일반적인 인접 보너스를 획득합니다. 해당 [ICON_RELIGION] 종교의 예배 건물은 일반적인 [ICON_Faith] 신앙 비용의 10%만 소진하여 구매할 수 있습니다. 이 예배 건물을 개선하면 아라비아 도시에서 생산되는 [ICON_Science] 과학, [ICON_Faith] 신앙 및 [ICON_Culture] 문화가 20% 추가됩니다.</Text>
+			<Text>[ICON_RELIGION] 종교의 예배 건물을 일반적인 [ICON_Faith] 신앙 비용의 10%만 소진하여 구매할 수 있습니다. 예배 건물을 보유한 도시에서 [ICON_Science] 과학, [ICON_Faith] 신앙 및 [ICON_Culture] 문화가 20% 추가됩니다.</Text>
 		</Replace>
 		<Row Tag="BBG_LOC_HS_ARABIA_CAMPUS" Language="ko_KR">
 			<Text>인접한 캠퍼스 특수지구에서 [ICON_FAITH] 신앙 +{1_num}.</Text>
@@ -107,7 +114,7 @@
 		<!-- == BABYLON == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_BABYLON_DESCRIPTION" Language="ko_KR">
-			<Text>[ICON_TechBoosted] 유레카는 기술에 65%의 [ICON_SCIENCE] 과학 상승효과를 제공합니다. 턴당 [ICON_SCIENCE] 과학이 -50% 감소한 채로 시작하며, 연구된 기술의 숫자마다 턴당 [ICON_SCIENCE] 과학이 +1% 증가합니다.[NEWLINE]자유 탐구 [ICON_GLORY_GOLDEN_AGE] 황금기 보너스로부터 추가적인 유레카 과학 상승효과 보너스를 받지 못합니다.</Text>
+			<Text>도서관 건물을 완성할 때 마다 무료 [ICON_TechBoosted] 유레카를 얻습니다.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HAMMURABI_DESCRIPTION" Language="ko_KR">
@@ -298,7 +305,7 @@
 		<!-- == ENGLAND == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION_DESCRIPTION" Language="ko_KR">
-			<Text>철광 및 탄광은 턴마다 자원을 2 더 축적합니다. 공병 생성에 대한 [ICON_PRODUCTION] 생산력 +100%를 제공합니다. 공병은 [ICON_Charges] 건설 횟수 +2를 획득합니다. [ICON_POWER] 전력 공급이 4 이상이 되면 건물들은 추가 생산량을 제공합니다. 산업구역 건물에 대한 [ICON_PRODUCTION] 생산력이 +20% 증가합니다. 항만 건물이 있으면 전략 자원 비축량이 +10 증가합니다(일반 속도 기준).</Text>
+			<Text>[ICON_RESOURCE_IRON] 철광 및 [ICON_RESOURCE_COAL] 탄광은 턴마다 자원을 2 더 축적합니다. 공병 생성에 대한 [ICON_PRODUCTION] 생산력 +100%를 제공합니다. 공병은 [ICON_Charges] 건설 횟수 +2를 획득합니다. [ICON_POWER] 전력 공급이 4 이상이 되면 건물들은 추가 생산량을 제공합니다. 산업구역 건물에 대한 [ICON_PRODUCTION] 생산력이 +20% 증가합니다. 항만 건물이 있으면 전략 자원 비축량이 +10 증가합니다(일반 속도 기준).</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PAX_BRITANNICA_DESCRIPTION" Language="ko_KR">
@@ -486,7 +493,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAVEN_KING_DESCRIPTION" Language="ko_KR">
-			<Text>징병된 유닛이 능력을 획득하여 [ICON_Strength] 전투력 +3 및 [ICON_Movement] 이동력 +1을 얻습니다. 징병된 유닛 업그레이드 시 [ICON_GOLD] 금 및 자원 소비량이 75% 감소합니다. 도시 국가의 군대를 징병하면 해당 도시 국가의 [ICON_ENVOY] 사절 1명을 얻습니다. 성 기술을 연구하면 특유 유닛인 검은 군대를 생산할 수 있습니다. 외교 정책 슬롯이 1개 더 추가됩니다.</Text>
+			<Text>징병된 유닛이 능력을 획득하여 [ICON_Strength] 전투력 +3 및 [ICON_Movement] 이동력 +1을 얻습니다. 징병된 유닛 업그레이드 시 [ICON_GOLD] 금 및 자원 소비량이 75% 감소합니다. 도시 국가의 군대를 징병하면 해당 도시 국가의 [ICON_ENVOY] 사절 1명을 얻습니다. 성 기술을 연구하면 특유 유닛인 검은 군대를 생산할 수 있습니다. 정치 철학 사회 제도를 보유하면 모든 [ICON_Government] 정부에 외교 정책 슬롯이 1개 더 추가됩니다.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_HUNGARY_BLACK_ARMY_DESCRIPTION" Language="ko_KR">
@@ -573,11 +580,19 @@
 		<!-- == KONGO == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NKISI_DESCRIPTION" Language="ko_KR">
-			<Text>각 정부 청사 특수지구 내 건물을 지을 때 마다 [ICON_GreatWork_Relic] 성유물을 제공합니다. 각 [ICON_GreatWork_Relic] 성유물, [ICON_GreatWork_Artifact] 유물, [ICON_GreatWork_Sculpture] 조각상 걸작 예술품에서 일반적으로 받는 [ICON_Culture] 문화 외에 추가로 [ICON_Food] 식량 +2, [ICON_Production] 생산력 +2, [ICON_Gold] 금 +4가 제공되며, [ICON_GreatWork_Relic] 성유물에는 [ICON_FAITH] 신앙 +1, [ICON_GreatWork_Artifact] 유물 및 [ICON_GreatWork_Sculpture] 조각상에는 [ICON_FAITH] 신앙 +4를 제공합니다. [NEWLINE][ICON_GreatWriter] 위대한 작가, [ICON_GreatArtist] 위대한 예술가, [ICON_GreatMusician] 위대한 음악가 및 [ICON_GreatMerchant] 위대한 상인 점수를 +50% 더 받습니다. 고고학자를 생산할 때 [ICON_Production] 생산력 +100%를 제공합니다. 궁전은 걸작 슬롯 5개를 가지고 있습니다.[NEWLINE][NEWLINE]모든 지상 전투 유닛이 숲 및 열대우림 지형에서 [ICON_Movement] 이동력 페널티를 무시합니다.</Text>
+			<Text>각 [ICON_GreatWork_Relic] 성유물, [ICON_GreatWork_Artifact] 유물, [ICON_GreatWork_Sculpture] 조각상 걸작 예술품에서 일반적으로 받는 [ICON_Culture] 문화 외에 추가로 [ICON_Food] 식량 +2, [ICON_Production] 생산력 +2, [ICON_Gold] 금 +4가 제공되며, [ICON_GreatWork_Relic] 성유물에는 [ICON_FAITH] 신앙 +1, [ICON_GreatWork_Artifact] 유물 및 [ICON_GreatWork_Sculpture] 조각상에는 [ICON_FAITH] 신앙 +4를 제공합니다. [NEWLINE][ICON_GreatWriter] 위대한 작가, [ICON_GreatArtist] 위대한 예술가, [ICON_GreatMusician] 위대한 음악가 및 [ICON_GreatMerchant] 위대한 상인 점수를 +50% 더 받습니다. 고고학자를 생산할 때 [ICON_Production] 생산력 +100%를 제공합니다. 궁전은 걸작 슬롯 5개를 가지고 있습니다.</Text>
+		</Replace>
+		<!-- = leader ability (Mvemba a Nzinga) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_RELIGIOUS_CONVERT_DESCRIPTION" Language="ko_KR">
+			<Text>성지 특수지구를 건설할 수 없고 위대한 선지자를 영입할 수 없으며 종교를 창시할 수 없습니다. 대부분의 도시에서 자체적으로 자리 잡은 모든 종교의 모든 교리를 얻습니다. 음반자 또는 극장가 특수지구를 완료할 때마다 도시 내 대중 종교의 사도 유닛 1개를 얻습니다.[NEWLINE][NEWLINE]모든 지상 전투 유닛이 숲 및 열대우림 지형에서 [ICON_Movement] 이동력 페널티를 무시합니다. 각 정부 청사 특수지구 내 건물을 지을 때 마다 [ICON_GreatWork_Relic] 성유물을 제공합니다. </Text>
 		</Replace>
 		<Row Tag="LOC_BBG_IGNORE_WOODS_ABILITY_DESCRIPTION" Language="ko_KR">
 			<Text>숲 및 열대우림 지형에서 [ICON_Movement] 이동력 페널티를 무시합니다.</Text>
 		</Row>
+		<!-- = leader ability (Nzinga Mbande) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_NZINGA_MBANDE_DESCRIPTION" Language="ko_KR">
+			<Text>[ICON_Capital] 수도와 같은 대륙에 있는 비수도 도시의 모든 생산량이 +10% 증가합니다. 다른 대륙에 있는 도시의 모든 생산량에는 -15%가 적용됩니다.</Text>
+		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_KONGO_SHIELD_BEARER_DESCRIPTION" Language="ko_KR">
 			<Text>검사를 대체하는 콩고 특유의 고전 시대 유닛입니다. 기본 [ICON_Movement] 이동력이 1 높으며, 원거리 공격 방어 시 [ICON_Strength] 전투력 +10을 획득합니다. 숲과 열대우림에서 시야 방해를 받지 않습니다.</Text>
@@ -651,14 +666,14 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="ko_KR">
-			<Text>인접한 모든 사막 및 사막 언덕 타일마다 도심부가 [ICON_FAITH] 신앙 +1과 [ICON_FOOD] 식량 +1을 얻습니다. 광산이 [ICON_PRODUCTION] 생산력 -1과 [ICON_GOLD] 금 +4를 적용받습니다. [ICON_Faith] 신앙으로 상업 중심지 특수지구 내부 건물을 구매할 수 있습니다. 건물 건축 또는 유닛 훈련에 대해 [ICON_PRODUCTION] 생산력 -30%가 적용됩니다. 자원을 수확하거나 지형 특성을 제거할 때 받는 [ICON_Food] 식량과 [ICON_Gold] 금 산출량이 -30%만큼 감소합니다.</Text>
+			<Text>인접한 모든 사막 및 사막 언덕 타일마다 도심부가 [ICON_FAITH] 신앙 +1과 [ICON_FOOD] 식량 +1을 얻습니다. 광산이 [ICON_PRODUCTION] 생산력 -1과 [ICON_GOLD] 금 +4를 적용받습니다. [ICON_Faith] 신앙으로 상업 중심지 특수지구 내부 건물을 구매할 수 있습니다. 건물 건축 또는 유닛 훈련에 대해 [ICON_PRODUCTION] 생산력 -30%가 적용됩니다. 자원을 수확하거나 지형 특성을 제거할 때 받는 산출량이 -30%만큼 감소합니다.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="ko_KR">
 			<Text>기사를 대체하는 말리 특유의 중세 시대 유닛입니다. 만데칼루 기병대로부터 4타일 이내의 육지 타일에 있는 상인 유닛은 약탈당하지 않습니다. 전투 승리시 패배한 유닛의 기본 [ICON_Strength] 전투력 50%에 준하는 [ICON_GOLD] 금을 얻습니다(온라인 속도 기준).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_MANDEKALU_DESCRIPTION" Language="ko_KR">
-			<Text>근처의 지상 상인 유닛이 약탈당하지 않도록 보호,[NEWLINE][ICON_Bullet]전멸시킨 유닛 기본 [ICON_Strength] 전투력의 50%에 준하는 [ICON_GOLD] 금 획득 (온라인 속도 기준).</Text>
+			<Text>4타일 이내의 지상 상인 유닛이 약탈당하지 않도록 보호,[NEWLINE][ICON_Bullet]전멸시킨 유닛 기본 [ICON_Strength] 전투력의 50%에 준하는 [ICON_GOLD] 금 획득 (온라인 속도 기준).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_MANDEKALU_PROTECT_TRADER_DESCRIPTION" Language="ko_KR">
 			<Text>이 만데칼루 기병대는 근처 상인 유닛이 육지 타일에서 약탈당하지 않도록 보호합니다.[NEWLINE][ICON_Bullet]전멸시킨 유닛 기본 [ICON_Strength] 전투력의 50%에 준하는 [ICON_GOLD] 금을 획득합니다(온라인 속도 기준).</Text>
@@ -681,7 +696,7 @@
 		<!-- == MAPUCHE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_ABILITY_TRAIT_MAPUCHE_DESCRIPTION" Language="ko_KR">
-			<Text>[ICON_GLORY_GOLDEN_AGE] 황금기에 진입한 다른 문명 상대 시 [ICON_Strength] 전투력 보너스 +5를 제공합니다. (라우타로)</Text>
+			<Text>자유 도시 및 [ICON_GLORY_GOLDEN_AGE] 황금기에 진입한 다른 문명 상대 시 [ICON_Strength] 전투력 보너스 +5를 제공합니다. (라우타로)</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LAUTARO_ABILITY_DESCRIPTION_ALT" Language="ko_KR">
@@ -832,12 +847,16 @@
 		</Replace>
 
 		<!-- == ROME == -->
-		<!-- = leader ability = -->
+		<!-- = leader ability (Trajan) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRAJANS_COLUMN_DESCRIPTION" Language="ko_KR">
 			<Text>법전 사회 제도를 완료하면 직접 세운 모든 도시들이 추가적인 도심부 건물을 받습니다. (고대 시대부터 시작할 경우 기념비 건물을 받음.)</Text>
 		</Replace>
+		<!-- = leader ability (Julius Caesar) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="ko_KR">
+			<Text>도시를 처음 점령할 때마다 [ICON_GOLD] 금 +200, [ICON_BARBARIAN] 야만인 주둔지에서 [ICON_GOLD] 금을 얻을 때마다 [ICON_GOLD] 금 +100을 얻습니다. 강철 연구가 완료되면 얻는 [ICON_GOLD] 금이 둘 다 [ICON_GOLD] 금 +500이 됩니다(일반 속도 기준). [NEWLINE][NEWLINE]도시를 건설할 때마다 근접 유닛을 제공합니다. 주요 문명이 직접 건설한 도시를 한개라도 점령 후 유지하고 있으면 모든 [ICON_Government] 정부에 와일드카드 정책 슬롯이 1개 더 추가됩니다.</Text>
+		</Replace>
 		<!-- = unique unit = -->
-		<Replace Tag="LOC_UNIT_ROMAN_LEGION_DESCRIPTION" Language="ko_KR"> <!-- charge icon, even not needed -->
+		<Replace Tag="LOC_UNIT_ROMAN_LEGION_DESCRIPTION" Language="ko_KR"> <!-- charge icon -->
 			<Text>검사를 대체하는 로마 특유의 고전 시대 근접 유닛입니다. [ICON_Charges] 건설 횟수를 사용하여 지형 특성을 제거하거나 로마 요새를 지을 수 있습니다.</Text>
 		</Replace>
 
@@ -917,13 +936,13 @@
 			<Text>모든 왕을 능가함</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_DESCRIPTION" Language="ko_KR">
-			<Text>고대 시대 시작시 시작 유닛으로 전사가 아닌 수메르 전차를 받습니다.[NEWLINE][NEWLINE]자신의 동맹국과 전쟁 중인 모든 세력에 전쟁광 페널티 없이 전쟁을 선포할 수 있습니다. 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. [NEWLINE]야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
+			<Text>고대 시대 시작시 시작 유닛으로 전사가 아닌 수메르 전차를 받습니다.[NEWLINE][NEWLINE]자신의 동맹국과 전쟁 중인 모든 세력에 전쟁광 페널티 없이 전쟁을 선포할 수 있습니다. 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. [NEWLINE][ICON_BARBARIAN] 야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_EXPANSION1_DESCRIPTION" Language="ko_KR">
-			<Text>고대 시대 시작시 시작 유닛으로 전사가 아닌 수메르 전차를 받습니다.[NEWLINE][NEWLINE]자신의 동맹국과 전쟁 중인 모든 세력에 전쟁광 페널티 없이 전쟁을 선포할 수 있습니다. 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. 동맹국의 동맹이 공동의 적과의 전투에 참여할 경우 동맹 점수를 얻습니다. [NEWLINE]야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
+			<Text>고대 시대 시작시 시작 유닛으로 전사가 아닌 수메르 전차를 받습니다.[NEWLINE][NEWLINE]자신의 동맹국과 전쟁 중인 모든 세력에 전쟁광 페널티 없이 전쟁을 선포할 수 있습니다. 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. 동맹국의 동맹이 공동의 적과의 전투에 참여할 경우 동맹 점수를 얻습니다. [NEWLINE][ICON_BARBARIAN] 야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>고대 시대 시작시 시작 유닛으로 전사가 아닌 수메르 전차를 받습니다.[NEWLINE][NEWLINE]활성화된 가장 높은 동맹 레벨만큼 [ICON_STRENGTH] 전투력을 얻습니다(1~3레벨). 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. 동맹국의 동맹이 공동의 적과의 전투에 참여할 경우 동맹 점수를 얻습니다. [NEWLINE]야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
+			<Text>고대 시대 시작시 시작 유닛으로 전사가 아닌 수메르 전차를 받습니다.[NEWLINE][NEWLINE]활성화된 가장 높은 동맹 레벨만큼 [ICON_STRENGTH] 전투력을 얻습니다(1~3레벨). 공통의 적과 전쟁 중인 경우 자신과 자신의 동맹국은 5타일 이내 전투에서 약탈 보상과 전투 경험치를 공유합니다. 동맹국의 동맹이 공동의 적과의 전투에 참여할 경우 동맹 점수를 얻습니다. [NEWLINE][ICON_BARBARIAN] 야만인 전초기지를 점령할 때 평상시 받는 [ICON_Gold] 금 보상 외에도 부족 마을 보상을 함께 받습니다. 도시 국가의 유닛 징병에 드는 비용이 절반이 됩니다.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_SUMMER_COMBAT_ALLY_1" Language="ko_KR">
 			<Text>활성화된 동맹 레벨에서 [ICON_Strength] 전투력 +1.</Text>
@@ -942,7 +961,7 @@
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SUMERIAN_WAR_CART_DESCRIPTION" Language="ko_KR">
-			<Text>수메르 특유의 고대 시대 유닛입니다. 대기병 유닛과 전투할 때 페널티가 없습니다. 야만인과 전투 시 [ICON_Strength] 전투력 +4가 적용됩니다. 개방 지형에서 턴을 시작하는 경우 [ICON_Movement] 이동력이 4가 됩니다.</Text>
+			<Text>수메르 특유의 고대 시대 유닛입니다. 대기병 유닛과 전투할 때 페널티가 없습니다. [ICON_BARBARIAN] 야만인과 전투 시 [ICON_Strength] 전투력 +4가 적용됩니다. 개방 지형에서 턴을 시작하는 경우 [ICON_Movement] 이동력이 4가 됩니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_DESCRIPTION_BBG" Language="ko_KR">
 			<Text>야만인과 전투 시 [ICON_Strength] 유닛 전투력 +4.[NEWLINE][ICON_Bullet]대기병 유닛과 전투할 때 페널티 없음.</Text>
@@ -1354,6 +1373,9 @@
 		</Replace>
 		<Replace Tag="LOC_BELIEF_RELIGIOUS_COMMUNITY_DESCRIPTION" Language="ko_KR">
 			<Text>성지 특수지구 및 성소와 사원에서 [ICON_Housing] 주거공간 +1을 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_RELIGIOUS_COMMUNITY_EXPANSION2_DESCRIPTION" Language="ko_KR">
+			<Text>국제 [ICON_TradeRoute] 교역로는 출발 도시에 성지가 있다면 [ICON_GOLD] 금 +2를 제공하며 성지 특수지구 안의 건물 수마다 [ICON_GOLD] 금 +2를 추가로 제공합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_PILGRIMAGE_DESCRIPTION" Language="ko_KR">
 			<Text>다른 문명 및 도시 국가에서 이 종교를 믿는 도시마다 [ICON_Faith] 신앙 +3을 획득합니다.</Text>
