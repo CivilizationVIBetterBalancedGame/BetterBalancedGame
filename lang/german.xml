@@ -41,6 +41,13 @@
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_INDUSTRIAL" Language="de_DE">
 			<Text>+5 [ICON_STRENGTH] Kampfstärke bei Erreichen des Industriezeitalters (Roosevelt Corollary).</Text>
 		</Row>
+		<!-- = leader ability (Abraham Lincoln)= -->
+		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_DESCRIPTION" Language="en_US">
+			<Text>Baut den Bezirk Industriegebiet in der Hälfte der Zeit. Industriegebiete erhalten +2 [ICON_AMENITIES] Annehmlichkeiten. Sie erhalten eine kostenlose Nahkampfeinheit, wenn Sie ein Industriegebiet und dessen Gebäude errichten. Die kostenlose Einheit benötigt keine Ressourcen bei der Erstellung oder im Unterhalt und erhält +5 [ICON_STRENGTH] Kampfkraft.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_EXPANSION_DESCRIPTION" Language="en_US">
+			<Text>Baut den Bezirk Industriegebiet in der Hälfte der Zeit. Industriegebiete erhalten +2 [ICON_AMENITIES] Annehmlichkeiten und +3 Loyalität pro Runde. Plantagen verursachen -2 Loyalität pro Runde.[NEWLINE][NEWLINE]Sie erhalten eine kostenlose Nahkampfeinheit, wenn Sie ein Industriegebiet und dessen Gebäude errichten. Die kostenlose Einheit benötigt keine Ressourcen bei der Erstellung oder im Unterhalt und erhält +5 [ICON_STRENGTH] Kampfkraft.</Text>
+		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_AMERICAN_ROUGH_RIDER_DESCRIPTION" Language="de_DE">
 			<Text>Amerikanische Spezialeinheit des Industriezeitalters mit Teddy Roosevelt als Anführer. Sie ersetzt den Kürassier. Kampfsiege auf dem Kontinent Ihrer [ICON_CAPITAL] Hauptstadt bringen [ICON_Culture] Kultur in Höhe von 25 % der Basis- [ICON_STRENGTH] Kampfstärke der besiegten Einheit (bei Online-Geschwindigkeit). +5 [ICON_STRENGTH] Kampfstärke beim Kampf auf Hügeln. Geringere Unterhaltskosten.</Text>
@@ -65,11 +72,11 @@
 		<!-- == ARABIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LAST_PROPHET_DESCRIPTION" Language="de_DE">
-			<Text>+1 [ICON_GREATPROPHET] Große-Persönlichkeit-Punkt des Typs "Großer Prophet" pro Runde nach Erforschung der Technologie 'Astrologie'. Der letzte verfügbare [ICON_GREATPROPHET] Große Prophet geht automatisch an Arabien, wenn der vorletzte beansprucht wurde (und nicht bereits ein Großer Prophet verdient wurde). +1 [ICON_SCIENCE] Wissenschaft für jede fremde Stadt mit Arabiens [ICON_RELIGION] Religion.</Text>
+			<Text>+1 [ICON_GREATPROPHET] Große-Persönlichkeit-Punkt des Typs "Großer Prophet" pro Runde nach Erforschung der Technologie 'Astrologie'. Der letzte verfügbare [ICON_GREATPROPHET] Große Prophet geht automatisch an Arabien, wenn der vorletzte beansprucht wurde (und nicht bereits ein Großer Prophet verdient wurde).[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Wissenschaft für jede fremde Stadt mit Arabiens [ICON_RELIGION] Religion. Campusse und Heilige Stätten erhalten einen Grundnachbarschaftsbonus voneinander.</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability (Saladin Vizier) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RIGHTEOUSNESS_OF_FAITH_DESCRIPTION" Language="de_DE">
-			<Text>Campusse und Heilige Stätten erhalten einen Standard-Nachbarschaftsbonus voneinander.[NEWLINE]Das Kultgebäude der arabischen [ICON_RELIGION] Religion kann von jedem Spieler für ein Zehntel der üblichen Glaubenskosten [ICON_FAITH] erworben werden. Es steigert in arabischen Städten den Ertrag von Wissenschaft [ICON_SCIENCE], Glauben [ICON_FAITH] und Kultur [ICON_CULTURE] um 20 %.</Text>
+			<Text>Das Kultgebäude der arabischen [ICON_RELIGION] Religion kann von jedem Spieler für ein Zehntel der üblichen Glaubenskosten [ICON_FAITH] erworben werden. Es steigert in arabischen Städten den Ertrag von Wissenschaft [ICON_SCIENCE], Glauben [ICON_FAITH] und Kultur [ICON_CULTURE] um 20 %.</Text>
 		</Replace>
 		<Row Tag="BBG_LOC_HS_ARABIA_CAMPUS" Language="de_DE">
 			<Text>+{1_num} [ICON_FAITH] Glauben durch jeden angrenzenden Campus-Bezirk.</Text>
@@ -107,7 +114,7 @@
 		<!-- == BABYLON == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_BABYLON_DESCRIPTION" Language="de_DE">
-			<Text>[ICON_TECHBOOSTED] Heurekas liefern 65% der [ICON_SCIENCE] Wissenschaft für Technologien. Ihr beginnt das Spiel mit -50% [ICON_SCIENCE] Wissenschaft pro Runde, aber jede abgeschlossene Technologie gewährt +1% zusätzliche [ICON_SCIENCE] Wissenschaft.[NEWLINE] Kann keine zusätzlichen Heureka-Boosts von der [ICON_GLORY_GOLDEN_AGE] Widmung 'Freie Forschung' erhalten.</Text>
+			<Text>Erhaltet ein kostenloses [ICON_TechBoosted] Eureka nach dem Bau eines Bibliotheksgebäudes.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HAMMURABI_DESCRIPTION" Language="de_DE">
@@ -583,11 +590,19 @@
 		<!-- == KONGO == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NKISI_DESCRIPTION" Language="de_DE">
-			<Text>[ICON_GREATWORK_RELIC] Reliquien gewähren zusätzlich +2 [ICON_FOOD] Nahrung, +2 [ICON_PRODUCTION] Produktion, +4 [ICON_GOLD] Gold und +1 [ICON_FAITH] Glauben. [ICON_GREATWORK_ARTIFACT] Artefakte und [ICON_GREATWORK_SCULPTURE] Skulpturwerke gewähren zusätzlich +2 [ICON_FOOD] Nahrung, +2 [ICON_PRODUCTION] Produktion, +4 [ICON_GOLD] Gold und +4 [ICON_FAITH] Glauben. +100% [ICON_PRODUCTION] Produktion auf Archäologen. Ein Palast verfügt über 5 Plätze für große Werke.[NEWLINE]Erhaltet [ICON_GREATWORK_RELIC] Relikte für jedes Regierungsplatz-Gebäude.[NEWLINE]Erhaltet 50% mehr [ICON_GREATWRITER] Große-Schriftsteller-, [ICON_GreatArtist] Große-Künstler-, [ICON_GreatMusician] Große-Musiker- und [ICON_GreatMerchant] Große-Händler-Punkte.[NEWLINE]Alle Landkampf-Einheiten ignorieren [ICON_MOVEMENT]  Fortbewegungsmalusse für Wald und Regenwald.</Text>
+			<Text>[ICON_GREATWORK_RELIC] Reliquien gewähren zusätzlich +2 [ICON_FOOD] Nahrung, +2 [ICON_PRODUCTION] Produktion, +4 [ICON_GOLD] Gold und +1 [ICON_FAITH] Glauben. [ICON_GREATWORK_ARTIFACT] Artefakte und [ICON_GREATWORK_SCULPTURE] Skulpturwerke gewähren zusätzlich +2 [ICON_FOOD] Nahrung, +2 [ICON_PRODUCTION] Produktion, +4 [ICON_GOLD] Gold und +4 [ICON_FAITH] Glauben. Ein Palast verfügt über 5 Plätze für große Werke.[NEWLINE]Erhaltet 50% mehr [ICON_GREATWRITER] Große-Schriftsteller-, [ICON_GreatArtist] Große-Künstler-, [ICON_GreatMusician] Große-Musiker- und [ICON_GreatMerchant] Große-Händler-Punkte. +100% [ICON_PRODUCTION] Produktion für Archäologen.</Text>
+		</Replace>
+		<!-- = leader ability (Mvemba a Nzinga) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_RELIGIOUS_CONVERT_DESCRIPTION" Language="en_US">
+			<Text>Darf keine Heiligen-Stätten-Bezirke bauen, keine [ICON_GreatProphet] Großen Propheten erlangen und keine Religionen gründen. Er erhält alle Glaubenssätze einer Religion, die sich in einer Mehrheit seiner Städte etabliert hat. Er erhält jedes Mal einen Apostel (der Mehrheitsreligion der Stadt), wenn er einen M'banza- oder Theaterplatz-Bezirk fertigstellt.[NEWLINE][NEWLINE]Er erhält [ICON_GreatWork_Relic] Reliquien für jedes Regierungsplatzgebäude.[NEWLINE][NEWLINE]Alle Landkampfeinheiten ignorieren den [ICON_Movement] Bewegungsmalus für Regenwald und Wald.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_IGNORE_WOODS_ABILITY_DESCRIPTION" Language="de_DE">
-			<Text>Ignoriert [ICON_MOVEMENT] Fortbewegungsmali für Regenwald und Wald (Nkisi).</Text>
+			<Text>Ignoriert [ICON_MOVEMENT] Fortbewegungsmali für Regenwald und Wald (Mvemba a Nzinga).</Text>
 		</Row>
+		<!-- = leader ability (Nzinga Mbande) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_NZINGA_MBANDE_DESCRIPTION" Language="en_US">
+			<Text>Städte auf dem Heimatkontinent (die [ICON_CAPITAL] Hautstadt ausgeschlossen) erhalten +10% Erträge. Alle anderen Städte (die [ICON_CAPITAL] Hautstadt ausgeschlossen) erhalten -15% Erträge.</Text>
+		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_KONGO_SHIELD_BEARER_DESCRIPTION" Language="de_DE">
 			<Text>Kongolesische Spezial-Einheit der Klassik, die den Schwertkämpfer ersetzt. +1 [ICON_MOVEMENT] Fortbewegung, +10 [ICON_STRENGTH] Kampfstärke bei der Verteidigung gegen Fernkampfangriffe.[NEWLINE]Kann durch Wälder und Regenwälder sehen.</Text>
@@ -599,7 +614,7 @@
 		<!-- == KOREA == -->
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION" Language="de_DE">
-			<Text>Ein ausschließlich Korea zur Verfügung stehender Bezirk, der den Campus-Bezirk ersetzt. +2 [ICON_SCIENCE] Wissenschaft Grundnachbarschaftsbonus.+1 [ICON_SCIENCE] Wissenschaft für jeweils 2 benachbarte Minen. -1 [ICON_SCIENCE] Wissenschaft für jeden benachbarten [ICON_DISTRICT] Bezirk mit Ausnahme des Theaterplatz-Bezirks. Gewährt +1 [ICON_CULTURE] für angrenzende Theaterplatz-Bezirke. Kulturschock auf angrenzenden Feldern bei Fertigstellung.[NEWLINE][NEWLINE]Kann nur auf Hügeln gebaut werden.</Text>
+			<Text>Ein ausschließlich Korea zur Verfügung stehender Bezirk, der den Campus-Bezirk ersetzt. +2 [ICON_SCIENCE] Wissenschaft Grundnachbarschaftsbonus. +1 [ICON_SCIENCE] Wissenschaft für jeweils 2 benachbarte Minen. -1 [ICON_SCIENCE] Wissenschaft für jeden benachbarten [ICON_DISTRICT] Bezirk mit Ausnahme des Theaterplatz-Bezirks. Gewährt +1 [ICON_CULTURE] für angrenzende Theaterplatz-Bezirke. Kulturschock auf angrenzenden Feldern bei Fertigstellung.[NEWLINE][NEWLINE]Kann nur auf Hügeln gebaut werden.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION_ADJACENCY" Language="de_DE">
 			<Text>Nachbarschaftsbonus: +1 [ICON_SCIENCE] Wissenschaft für jeweils 2 angrenzende Minen. -1 [ICON_SCIENCE] Wissenschaft für jeden angrenzenden Bezirk außer Theaterplätze. Gewährt +1 [ICON_CULTURE] Kultur für angrenzende Theaterbezirke.</Text>
@@ -661,7 +676,7 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="de_DE">
-			<Text>Stadtzentren erhalten +1 [ICON_FAITH] Glauben und +1 [ICON_FOOD] Nahrung für jedes benachbarte Wüsten- und Wüstenhügelfeld. Minen erhalten -1 [ICON_PRODUCTION] Produktion und +4 [ICON_GOLD] Gold. Kann mit [ICON_Faith] Glauben Gebäude im Handelszentrum kaufen. -30 % Erträge für [ICON_PRODUCTION] Produktion, [ICON_FOOD] Nahrung und [ICON_GOLD] Gold beim Ernten einer Ressource oder dem Entfernen von Geländeeigenschaften.</Text>
+			<Text>Stadtzentren erhalten +1 [ICON_FAITH] Glauben und +1 [ICON_FOOD] Nahrung für jedes benachbarte Wüsten- und Wüstenhügelfeld. Minen erhalten -1 [ICON_PRODUCTION] Produktion und +4 [ICON_GOLD] Gold. Kann mit [ICON_Faith] Glauben Gebäude im Handelszentrum kaufen. -30 % [ICON_PRODUCTION] Produktion beim Bau von Gebäuden und der Ausbildung von Einheiten. -30% Erträge beim Ernten einer Ressource oder dem Entfernen von Geländeeigenschaften.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="de_DE">
@@ -820,7 +835,7 @@
 		<!-- == POLAND == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GOLDEN_LIBERTY_DESCRIPTION" Language="de_DE"> <!-- government icon -->
-			<Text>Löst einen Kulturschock auf angrenzenden Geländefeldern bei Fertigstellung eines Lagers oder einer Festung innerhalb freundlich gesinnten Gebiets aus. Ein Militärpolitik-Platz in der aktuellen [ICON_GOVERNMENT] Regierung wird in einen Joker-Platz umgewandelt.</Text>	
+			<Text>Löst einen Kulturschock auf angrenzenden Geländefeldern bei Fertigstellung eines Lagers oder einer Festung innerhalb freundlich gesinnten Gebiets aus. Ein Militärpolitik-Platz in der aktuellen [ICON_GOVERNMENT] Regierung wird in einen Joker-Politikplatz umgewandelt.</Text>	
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LITHUANIAN_UNION_DESCRIPTION" Language="de_DE">
@@ -846,9 +861,13 @@
 		</Replace>
 
 		<!-- == ROME == -->
-		<!-- = leader ability = -->
+		<!-- = leader ability (Trajan) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRAJANS_COLUMN_DESCRIPTION" Language="de_DE">
 			<Text>Alle neu gegründeten Städte starten mit einem Monument, sobald die Ausrichtung 'Gesetzgebung' freigeschaltet worden ist.</Text>
+		</Replace>
+		<!-- = leader ability (Julius Caesar) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="en_US">
+			<Text>+200 [ICON_Gold] Gold bei der ersten Eroberung einer Stadt, +100 [ICON_Gold] Gold bei der Eroberung eines [ICON_BARBARIAN] Barbaren-Außenpostens, erhöht sich jeweils auf +500 [ICON_Gold] Gold mit der Technologie 'Stahl' (auf Standardgeschwindigkeit).[NEWLINE][NEWLINE]Sie erhalten jedes Mal eine kostenlose Nahkampfeinheit, wenn Sie eine Stadt gründen. Das Erobern und Halten von mindestens einer Stadt, die einer anderen Zivilisation gehört und von einer beliebigen größeren Zivilisation gegründet wurde, gewährt einen zusätzlichen Joker-Politikplatz in jeder [ICON_Government] Regierung.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_ROMAN_LEGION_DESCRIPTION" Language="de_DE"> <!-- charge icon -->
@@ -931,13 +950,13 @@
 			<Text>Shūtur eli sharrī</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_DESCRIPTION" Language="de_DE">
-			<Text>Beginnt das Spiel mit einem Kriegswagen anstelle einer Kriegereinheit.[NEWLINE][NEWLINE]Militäreinheiten erhalten einen Bonus auf [ICON_STRENGTH] Kampfstärke, der der Stufe Ihrer am weitesten fortgeschrittenen Allianz entspricht (max.3).[NEWLINE][NEWLINE]Wenn sie sich im Krieg mit einem gemeinsamen Feind befinden, teilen Sie und Ihre Verbündeten sich Plünderungsbelohnungen und Kampferfahrungsgewinne, wenn die Einheiten sich im Umkreis von 5 Feldern befinden. Ihre Allianzen erhalten Allianzpunkte, wenn sie sich im Krieg mit einem gemeinsamen Feind befinden.[NEWLINE]Wenn Sie einen Außenposten der Barbaren erobern, erhalten Sie zusätzlich zum üblichen [ICON_Gold] Gold eine Stammesdorfbelohnung.[NEWLINE]Zahlen Sie die Hälfte der gewöhnlichen Kosten, um Einheiten eines Stadtstaates auszuheben.</Text>
+			<Text>Beginnt das Spiel mit einem Kriegswagen anstelle einer Kriegereinheit.[NEWLINE][NEWLINE]Militäreinheiten erhalten einen Bonus auf [ICON_STRENGTH] Kampfstärke, der der Stufe Ihrer am weitesten fortgeschrittenen Allianz entspricht (max.3).[NEWLINE][NEWLINE]Wenn sie sich im Krieg mit einem gemeinsamen Feind befinden, teilen Sie und Ihre Verbündeten sich Plünderungsbelohnungen und Kampferfahrungsgewinne, wenn die Einheiten sich im Umkreis von 5 Feldern befinden. Ihre Allianzen erhalten Allianzpunkte, wenn sie sich im Krieg mit einem gemeinsamen Feind befinden.[NEWLINE][NEWLINE]Wenn Sie einen Außenposten der [ICON_BARBARIAN] Barbaren erobern, erhalten Sie zusätzlich zum üblichen [ICON_Gold] Gold eine Stammesdorfbelohnung.[NEWLINE]Zahlen Sie die Hälfte der gewöhnlichen Kosten, um Einheiten eines Stadtstaates auszuheben.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_EXPANSION1_DESCRIPTION" Language="de_DE">
-			<Text>Beginnt das Spiel mit einem Kriegswagen anstelle einer Kriegereinheit.[NEWLINE][NEWLINE]Militäreinheiten erhalten einen Bonus auf [ICON_STRENGTH] Kampfstärke, der der Stufe Ihrer am weitesten fortgeschrittenen Allianz entspricht (max.3).[NEWLINE][NEWLINE]Wenn sie sich im Krieg mit einem gemeinsamen Feind befinden, teilen sie und Ihre Verbündeten sich Plünderungsbelohnungen und Kampferfahrungsgewinne, wenn die Einheiten sich im Umkreis von 5 Feldern befinden. Ihre Allianzen erhalten Allianzpunkte, wenn sie sich im Krieg mit einem gemeinsamen Feind befinden.[NEWLINE]Wenn Sie einen Außenposten der Barbaren erobern, erhalten Sie zusätzlich zum üblichen [ICON_Gold] Gold eine Stammesdorfbelohnung.[NEWLINE]Zahlen Sie die Hälfte der gewöhnlichen Kosten, um Einheiten eines Stadtstaates auszuheben.</Text>
+			<Text>Beginnt das Spiel mit einem Kriegswagen anstelle einer Kriegereinheit.[NEWLINE][NEWLINE]Militäreinheiten erhalten einen Bonus auf [ICON_STRENGTH] Kampfstärke, der der Stufe Ihrer am weitesten fortgeschrittenen Allianz entspricht (max.3).[NEWLINE][NEWLINE]Wenn sie sich im Krieg mit einem gemeinsamen Feind befinden, teilen sie und Ihre Verbündeten sich Plünderungsbelohnungen und Kampferfahrungsgewinne, wenn die Einheiten sich im Umkreis von 5 Feldern befinden. Ihre Allianzen erhalten Allianzpunkte, wenn sie sich im Krieg mit einem gemeinsamen Feind befinden.[NEWLINE][NEWLINE]Wenn Sie einen Außenposten der [ICON_BARBARIAN] Barbaren erobern, erhalten Sie zusätzlich zum üblichen [ICON_Gold] Gold eine Stammesdorfbelohnung.[NEWLINE]Zahlen Sie die Hälfte der gewöhnlichen Kosten, um Einheiten eines Stadtstaates auszuheben.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_EXPANSION2_DESCRIPTION" Language="de_DE">
-			<Text>Beginnt das Spiel mit einem Kriegswagen anstelle einer Kriegereinheit.[NEWLINE][NEWLINE]Militäreinheiten erhalten einen Bonus auf [ICON_STRENGTH] Kampfstärke, der der Stufe Ihrer am weitesten fortgeschrittenen Allianz entspricht (max.3).[NEWLINE][NEWLINE]Wenn sie sich im Krieg mit einem gemeinsamen Feind befinden, teilen sie und Ihre Verbündeten sich Plünderungsbelohnungen und Kampferfahrungsgewinne, wenn sie beide sich im Umkreis von 5 Feldern befinden.[NEWLINE]Ihre Allianzen erhalten Allianzpunkte, wenn sie sich im Krieg mit einem gemeinsamen Feind befinden.[NEWLINE][NEWLINE]Wenn Sie einen Außenposten der Barbaren erobern, erhalten Sie zusätzlich zum üblichen [ICON_Gold] Gold eine Stammesdorfbelohnung.[NEWLINE]Zahlen Sie die Hälfte der üblichen Kosten, um Einheiten eines Stadtstaates auszuheben.</Text>
+			<Text>Beginnt das Spiel mit einem Kriegswagen anstelle einer Kriegereinheit.[NEWLINE][NEWLINE]Militäreinheiten erhalten einen Bonus auf [ICON_STRENGTH] Kampfstärke, der der Stufe Ihrer am weitesten fortgeschrittenen Allianz entspricht (max.3).[NEWLINE][NEWLINE]Wenn sie sich im Krieg mit einem gemeinsamen Feind befinden, teilen sie und Ihre Verbündeten sich Plünderungsbelohnungen und Kampferfahrungsgewinne, wenn die Einheiten sich im Umkreis von 5 Feldern befinden. Ihre Allianzen erhalten Allianzpunkte, wenn sie sich im Krieg mit einem gemeinsamen Feind befinden.[NEWLINE][NEWLINE]Wenn Sie einen Außenposten der [ICON_BARBARIAN] Barbaren erobern, erhalten Sie zusätzlich zum üblichen [ICON_Gold] Gold eine Stammesdorfbelohnung.[NEWLINE]Zahlen Sie die Hälfte der üblichen Kosten, um Einheiten eines Stadtstaates auszuheben.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_SUMMER_COMBAT_ALLY_1" Language="de_DE">
 			<Text>+1 [ICON_STRENGTH] Kampfstärke für die Allianzstufe (Shūtur eli sharrī)</Text>
@@ -952,11 +971,11 @@
 			<Text>Der König aller Könige ist ein mächtiger Anführer mit der Fähigkeit je nach Situation früh die aggressive Auseinandersetzung zu suchen oder aber ein hoch entwickeltes Reich aufzubauen.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_GILGAMESH_CHAPTER_DETAILED_BODY" Language="de_DE">
-			<Text>Als erste Zivilisation der Weltgeschichte, erleben die Sumerer eine frühe Blüte. Vom ersten Zug an können ihre Kriegswagen rekrutiert und ihre Zikkurats errichtet werden. Dank der Fähigkeit 'Wiege der Zivilisation' haben die Sumerer das Potenzial für ein schnelles Wachstum. Gilgamesh wird früh Kriegswagen rekrutieren um früh Barbarenlager zu zerstören, damit er Nutzen aus der Fähigkeit 'Shūtur eli sharrī' ziehen kann ("König der Könige"). Er wird an den Läufen nahegelegener Flüsse Zikkurats errichten um früh mithilfe einer guten Stadtplanung in [ICON_SCIENCE] Wissenschaft, [ICON_CULTURE] Kultur und sogar [ICON_FAITH] Glauben den anderen Zivilisationen davonzuziehen.</Text>
+			<Text>Als erste Zivilisation der Weltgeschichte, erleben die Sumerer eine frühe Blüte. Vom ersten Zug an können ihre Kriegswagen rekrutiert und ihre Zikkurats errichtet werden. Dank der Fähigkeit 'Wiege der Zivilisation' haben die Sumerer das Potenzial für ein schnelles Wachstum. Gilgamesh wird früh Kriegswagen rekrutieren um früh [ICON_BARBARIAN] Barbarenlager zu zerstören, damit er Nutzen aus der Fähigkeit 'Shūtur eli sharrī' ziehen kann ("König der Könige"). Er wird an den Läufen nahegelegener Flüsse Zikkurats errichten um früh mithilfe einer guten Stadtplanung in [ICON_SCIENCE] Wissenschaft, [ICON_CULTURE] Kultur und sogar [ICON_FAITH] Glauben den anderen Zivilisationen davonzuziehen.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SUMERIAN_WAR_CART_DESCRIPTION" Language="de_DE">
-			<Text>Einzigartige Sumerische Spezialeinheit der Antike. Keine Mali beim Kampf gegen Kavallerie-Abwehr-Einheiten. 4 [ICON_MOVEMENT] Fortbewegung, wenn diese Einheit auf offenem Gelände startet. +4 [ICON_STRENGTH] Kampfstärke der Einheit im Kampf gegen Barbaren.</Text>
+			<Text>Einzigartige Sumerische Spezialeinheit der Antike. Keine Mali beim Kampf gegen Kavallerie-Abwehr-Einheiten. 4 [ICON_MOVEMENT] Fortbewegung, wenn diese Einheit auf offenem Gelände startet. +4 [ICON_STRENGTH] Kampfstärke der im Kampf gegen [ICON_BARBARIAN] Barbaren.</Text>
 		</Replace>
 		<Row Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_DESCRIPTION_BBG" Language="de_DE">
 			<Text>+4 [ICON_STRENGTH] Kampfstärke der Einheit im Kampf gegen Barbaren.[NEWLINE][ICON_BULLET] Keine Mali beim Kampf gegen Kavallerie-Abwehr-Einheiten.</Text>
@@ -1809,7 +1828,7 @@
 			<Text>Extra [ICON_GOLD] Gold von Gebäuden im Handelszentrum: +50% bei einer [ICON_CITIZEN] Stadtbevölkerung von 13 und mehr, +50 % wenn der Bezirk mindestens einen Nachbarschaftsbonus von +4 hat.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_DISCIPLINE_DESCRIPTION" Language="de_DE">
-			<Text>+10 [ICON_STRENGTH] Kampfstärke im Kampf gegen Barbaren.</Text>
+			<Text>+10 [ICON_STRENGTH] Kampfstärke im Kampf gegen [ICON_BARBARIAN] Barbaren.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_LIMES_DESCRIPTION" Language="de_DE">
 			<Text>+50% [ICON_PRODUCTION] Produktion für Mauern.</Text>
