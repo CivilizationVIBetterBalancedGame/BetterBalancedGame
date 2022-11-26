@@ -1,209 +1,196 @@
 <!-- Release ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5001">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5014">
+-->
+<!-- BETA ModID
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5014">
 -->
 <!-- WIP ModID-->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5002">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5014">
 	<Properties>
-		<Name>Better Balanced Game 5.0.2</Name>
+		<Name>Better Balanced Game 5.1.4</Name>
 		<Description>
 			Release build of Better Balanced Game
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>5002</Version>
-		<SpecialThanks>coloo, abstr, priz, seed.of.apricot, Klas, fl0r3k, WhySoHate, wazabaza, Ignasiuz, MarsLife(puj), Apeul, keride, Vodairo, iElden, D. / Jack The Narrator, codenaugh</SpecialThanks>
+		<Version>5014</Version>
+		<SpecialThanks>coloo, abstr, priz, seed.of.apricot, Klas, fl0r3k, WhySoHate, wazabaza, Ignasiuz, MarsLife(puj), Apeul, keride, Vodairo, FlashyFeeds, ZhenjaMax, iElden, D. / Jack The Narrator, codenaugh</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
 	<!--
 	<Dependencies>
-    	<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Expansion: Gathering Storm" />
+		<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Expansion: Gathering Storm" />
 	</Dependencies>
 	-->
 	<!-- can load only select files based on these requirements, if applied -->
 	<ActionCriteria>
-		<Criteria id="xp1">
-			<ModInUse>1B28771A-C749-434B-9053-D1380C553DE9</ModInUse>
+		<Criteria id="XP1" any="1">
+			<GameCoreInUse>Expansion1</GameCoreInUse>
+			<RuleSetInUse>RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
+			<LeaderPlayable>Players:Expansion1_Players::LEADER_CHANDRAGUPTA,Players:Expansion1_Players::LEADER_GENGHIS_KHAN,Players:Expansion1_Players::LEADER_LAUTARO,Players:Expansion1_Players::LEADER_POUNDMAKER,Players:Expansion1_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion1_Players::LEADER_SEONDEOK,Players:Expansion1_Players::LEADER_SHAKA,Players:Expansion1_Players::LEADER_TAMAR,Players:Expansion1_Players::LEADER_WILHELMINA</LeaderPlayable>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_CHANDRAGUPTA,Players:Expansion2_Players::LEADER_GENGHIS_KHAN,Players:Expansion2_Players::LEADER_LAUTARO,Players:Expansion2_Players::LEADER_POUNDMAKER,Players:Expansion2_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion2_Players::LEADER_SEONDEOK,Players:Expansion2_Players::LEADER_SHAKA,Players:Expansion2_Players::LEADER_TAMAR,Players:Expansion2_Players::LEADER_WILHELMINA</LeaderPlayable>
 		</Criteria>
-		<Criteria id="xp2">
-			<ModInUse>4873eb62-8ccc-4574-b784-dda455e74e68</ModInUse>
+		<Criteria id="XP2">
+			<GameCoreInUse>Expansion2</GameCoreInUse>
 		</Criteria>
-		<Criteria id="xp1_xp2">
-			<ModInUse>1B28771A-C749-434B-9053-D1380C553DE9</ModInUse>
-			<ModInUse>4873eb62-8ccc-4574-b784-dda455e74e68</ModInUse>
+		<Criteria id="XP1_XP2" any="1">
+			<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_CHANDRAGUPTA,Players:Expansion2_Players::LEADER_GENGHIS_KHAN,Players:Expansion2_Players::LEADER_LAUTARO,Players:Expansion2_Players::LEADER_POUNDMAKER,Players:Expansion2_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion2_Players::LEADER_SEONDEOK,Players:Expansion2_Players::LEADER_SHAKA,Players:Expansion2_Players::LEADER_TAMAR,Players:Expansion2_Players::LEADER_WILHELMINA</LeaderPlayable>
 		</Criteria>
-		<Criteria id="dlc_australia">
-			<ModInUse>E3F53C61-371C-440B-96CE-077D318B36C0</ModInUse>
+		<Criteria id="DLC_Poland" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_JADWIGA,StandardPlayers::LEADER_JADWIGA,Players:Expansion1_Players::LEADER_JADWIGA,Players:Expansion2_Players::LEADER_JADWIGA</LeaderPlayable>
 		</Criteria>
-		<Criteria id="xp2_australia">
-			<LeaderPlayable>Players:Expansion2_Players::LEADER_JOHN_CURTIN</LeaderPlayable>
+		<Criteria id="DLC_Australia" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_JOHN_CURTIN,StandardPlayers::LEADER_JOHN_CURTIN,Players:Expansion1_Players::LEADER_JOHN_CURTIN,Players:Expansion2_Players::LEADER_JOHN_CURTIN</LeaderPlayable>
 		</Criteria>
-		<Criteria id="dlc_aztec">
-			<ModInUse>02A8BDDE-67EA-4D38-9540-26E685E3156E</ModInUse>
+		<Criteria id="DLC_Macedon_Persia" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_ALEXANDER,Players:StandardPlayers::LEADER_CYRUS,StandardPlayers::LEADER_ALEXANDER,StandardPlayers::LEADER_CYRUS,Players:Expansion1_Players::LEADER_ALEXANDER,Players:Expansion2_Players::LEADER_CYRUS,Players:Expansion2_Players::LEADER_ALEXANDER,Players:Expansion2_Players::LEADER_CYRUS</LeaderPlayable>
 		</Criteria>
-		<Criteria id="xp2_aztec">
-			<LeaderPlayable>Players:Expansion2_Players::LEADER_MONTEZUMA</LeaderPlayable>
+		<Criteria id="DLC_Nubia" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_AMANITORE,StandardPlayers::LEADER_AMANITORE,Players:Expansion1_Players::LEADER_AMANITORE,Players:Expansion2_Players::LEADER_AMANITORE</LeaderPlayable>
 		</Criteria>
-		<Criteria id="dlc_indo_khmer">
-			<ModInUse>1F367231-A040-4793-BDBB-088816853683</ModInUse>
+		<Criteria id="DLC_Indonesia_Khmer" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_GITARJA,Players:StandardPlayers::LEADER_JAYAVARMAN,StandardPlayers::LEADER_GITARJA,StandardPlayers::LEADER_JAYAVARMAN,Players:Expansion1_Players::LEADER_GITARJA,Players:Expansion2_Players::LEADER_JAYAVARMAN,Players:Expansion2_Players::LEADER_GITARJA,Players:Expansion2_Players::LEADER_JAYAVARMAN</LeaderPlayable>
 		</Criteria>
-		<Criteria id="xp2_indo_khmer">
-			<LeaderPlayable>Players:Expansion2_Players::LEADER_GITARJA,Players:Expansion2_Players::LEADER_JAYAVARMAN</LeaderPlayable>
+		<Criteria id="GranColombia_Maya" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_SIMON_BOLIVAR,Players:StandardPlayers::LEADER_LADY_SIX_SKY,StandardPlayers::LEADER_SIMON_BOLIVAR,StandardPlayers::LEADER_LADY_SIX_SKY,Players:Expansion1_Players::LEADER_SIMON_BOLIVAR,Players:Expansion2_Players::LEADER_LADY_SIX_SKY,Players:Expansion2_Players::LEADER_SIMON_BOLIVAR,Players:Expansion2_Players::LEADER_LADY_SIX_SKY</LeaderPlayable>
 		</Criteria>
-		<Criteria id="dlc_macedon_persia">
-			<ModInUse>E2749E9A-8056-45CD-901B-C368C8E83DEB</ModInUse>
-		</Criteria>
-		<Criteria id="xp2_macedon_persia">
-			<LeaderPlayable>Players:Expansion2_Players::LEADER_ALEXANDER,Players:Expansion2_Players::LEADER_CYRUS</LeaderPlayable>
-		</Criteria>
-		<Criteria id="dlc_nubia">
-			<ModInUse>643EA320-8E1A-4CF1-A01C-00D88DDD131A</ModInUse>
-		</Criteria>
-		<Criteria id="xp2_nubia">
-			<ModInUse>643EA320-8E1A-4CF1-A01C-00D88DDD131A</ModInUse>
-			<ModInUse>4873eb62-8ccc-4574-b784-dda455e74e68</ModInUse>
-		</Criteria>
-		<Criteria id="dlc_poland">
-			<ModInUse>3809975F-263F-40A2-A747-8BFB171D821A</ModInUse>
-		</Criteria>
-		<Criteria id="xp2_poland">
-			<LeaderPlayable>Players:Expansion2_Players::LEADER_JADWIGA</LeaderPlayable>
-		</Criteria>
-		<Criteria id="dlc_maya_colombia">
-			<ModInUse>9DE86512-DE1A-400D-8C0A-AB46EBBF76B9</ModInUse>
-		</Criteria>
-		<Criteria id="nfp_macedon_persia_maya_colombia">
-			<!-- for some reason, requires xp1 as well -->
-			<ModInUse>1B28771A-C749-434B-9053-D1380C553DE9</ModInUse>
-			<ModInUse>E2749E9A-8056-45CD-901B-C368C8E83DEB</ModInUse>
-			<ModInUse>9DE86512-DE1A-400D-8C0A-AB46EBBF76B9</ModInUse>
-		</Criteria>
-		<Criteria id="nfp_xp1_maya_colombia">
-			<ModInUse>1B28771A-C749-434B-9053-D1380C553DE9</ModInUse>
-			<ModInUse>9DE86512-DE1A-400D-8C0A-AB46EBBF76B9</ModInUse>
-		</Criteria>
-		<Criteria id="nfp_ethiopia">
+		<Criteria id="Ethiopia">
 			<ModInUse>1B394FE9-23DC-4868-8F0A-5220CB8FB427</ModInUse>
 		</Criteria>
-		<Criteria id="nfp_xp2_ethiopia">
-			<ModInUse>1B394FE9-23DC-4868-8F0A-5220CB8FB427</ModInUse>
-			<ModInUse>4873eb62-8ccc-4574-b784-dda455e74e68</ModInUse>
-		</Criteria>
-		<Criteria id="nfp_teddy_persona">
-			<ModInUse>113D9459-0A3B-4FCB-A49C-483F40303575</ModInUse>
-		</Criteria>
-		<Criteria id="nfp_catherine_persona">
+		<Criteria id="CatherinePersona">
 			<ModInUse>CE5876CD-6900-46D1-9C9C-8DBA1F28872E</ModInUse>
 		</Criteria>
-		<Criteria id="nfp_byzantium_gaul">
+		<Criteria id="No_CatherinePersona">
+			<ModInUse inverse="1">CE5876CD-6900-46D1-9C9C-8DBA1F28872E</ModInUse>
+		</Criteria>
+		<Criteria id="TeddyPersona">
+			<ModInUse>113D9459-0A3B-4FCB-A49C-483F40303575</ModInUse>
+		</Criteria>
+		<Criteria id="No_TeddyPersona">
+			<ModInUse inverse="1">113D9459-0A3B-4FCB-A49C-483F40303575</ModInUse>
+		</Criteria>
+		<Criteria id="Byzantium_Gaul">
 			<ModInUse>A1100FC4-70F2-4129-AC27-2A65A685ED08</ModInUse>
 		</Criteria>
-		<Criteria id="nfp_babylon">
+		<Criteria id="Babylon">
 			<ModInUse>8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
 		</Criteria>
-		<Criteria id="nfp_vietnam_kubilai">
+		<Criteria id="No_Babylon">
+			<ModInUse inverse="1">8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
+		</Criteria>
+		<Criteria id="KublaiKhan_Vietnam">
 			<ModInUse>A3F42CD4-6C3E-4F5A-BC81-BE29E0C0B87C</ModInUse>
 		</Criteria>
-		<Criteria id="nfp_portugal">
+		<Criteria id="Portugal">
 			<ModInUse>FFDF4E79-DEE2-47BB-919B-F5739106627A</ModInUse>
 		</Criteria>
-		<Criteria id="xp2_and_maya_colombia">
-			<ModInUse>4873eb62-8ccc-4574-b784-dda455e74e68</ModInUse>
-			<ModInUse>9DE86512-DE1A-400D-8C0A-AB46EBBF76B9</ModInUse>
+		<Criteria id="Caesar">
+			<ModInUse>9ED63236-617C-45A6-BB70-8CB6B0BE8ED2</ModInUse>
 		</Criteria>
+		<Criteria id="Negotiators">
+			<ModInUse>7A66DB58-B354-4061-8C80-95B638DD6F6C</ModInUse>
+		</Criteria>
+		<!-- -->
+		<Criteria id="NoConflictingUIMod">
+			<ModInUse inverse="1">1d44b5e7-753e-405b-af24-5ee634ec8a01</ModInUse>
+			<ModInUse inverse="1">8d4fa23a-ef43-440c-8422-2bec11f8f5d7</ModInUse>
+		</Criteria>
+		<!-- -->
 		<Criteria id="CVSetting_2">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryCulturalSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>2</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryCulturalSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>2</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="CVSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryCulturalSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryCulturalSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		
 		<Criteria id="SVSetting_2">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryScienceSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>2</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryScienceSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>2</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="SVSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryScienceSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryScienceSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		
 		<Criteria id="DVSetting_2">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryDiploSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>2</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryDiploSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>2</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		<Criteria id="DVSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryDiploSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryDiploSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 		
 		<Criteria id="RVSetting_2">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryReligiousSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>2</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
-		<Criteria id="RVSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryReligiousSetting</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
-		<Criteria id="TerritorialSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VICTORY_TRADITIONAL_DOMINATION</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
-		<Criteria id="GlobalSetting_1">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryMasterSlider</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
-		<Criteria id="GlobalSetting_2">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryMasterSlider</ConfigurationId>
-                <Group>Game</Group>
-                <Value>2</Value>
-            </ConfigurationValueMatches>
-        </Criteria>
-		<Criteria id="GlobalSetting_BBG_Legacy">
-            <ConfigurationValueMatches>
-                <ConfigurationId>VictoryMasterSlider</ConfigurationId>
-                <Group>Game</Group>
-                <Value>5</Value>
-            </ConfigurationValueMatches>
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryReligiousSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>2</Value>
+			</ConfigurationValueMatches>
 		</Criteria>
-			<!-- Beta -->
+		<Criteria id="RVSetting_1">
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryReligiousSetting</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
+		<Criteria id="TerritorialSetting_1">
+			<ConfigurationValueMatches>
+				<ConfigurationId>VICTORY_TRADITIONAL_DOMINATION</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
+		<Criteria id="GlobalSetting_1">
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryMasterSlider</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
+		<Criteria id="GlobalSetting_2">
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryMasterSlider</ConfigurationId>
+				<Group>Game</Group>
+				<Value>2</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
+		<Criteria id="GlobalSetting_BBG_Legacy">
+			<ConfigurationValueMatches>
+				<ConfigurationId>VictoryMasterSlider</ConfigurationId>
+				<Group>Game</Group>
+				<Value>5</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
+		<!-- Beta -->
 		<Criteria id="Criteria_BETA_BAN_TRADE_TREATY">
 			<ConfigurationValueMatches>
-                <ConfigurationId>BETA_BAN_TRADE_TREATY</ConfigurationId>
-                <Group>Game</Group>
-                <Value>1</Value>
-            </ConfigurationValueMatches>
+				<ConfigurationId>BETA_BAN_TRADE_TREATY</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
 		</Criteria>
 		<!-- Gamemode -->
 		<Criteria id="No_Gamemode_Babylon">
@@ -237,27 +224,28 @@
 			<File>lang/polish.xml</File>
 			<File>lang/japanese.xml</File>
 			<File>lang/portuguese.xml</File>
-            <File>lang/german.xml</File>
+			<File>lang/german.xml</File>
 			<File>lang/chinese.xml</File>
 			<File>lang/italian.xml</File>
 			<File>lang/spanish.xml</File>
 		</UpdateText>
 		<UpdateDatabase id="bbg_frontend_custom_victory">
 			<Properties>
-				<LoadOrder>19999</LoadOrder>
+				<LoadOrder>19998</LoadOrder>
 			</Properties>
 			<File>config/config.xml</File>
 			<File>config/config.sql</File>
 			<File>config/april_fool_2022_config.sql</File>
-        </UpdateDatabase>
+		</UpdateDatabase>
 	</FrontEndActions>
 
 	<!-- defines modifications to games (requires any LocalizedText from Settings above, and must import files before modifying any SQL tables) -->
 	<InGameActions>
-		<AddGameplayScripts id="bbg_core_script">
+		<AddGameplayScripts id="BBG_CoreScript">
 			<File>scripts/bbg_script.lua</File>
 		</AddGameplayScripts>
-		<UpdateText id="bbg_text_updates">
+		<!-- -->
+		<UpdateText id="BBG_TextUpdate">
 			<Properties>
 				<LoadOrder>152</LoadOrder>
 			</Properties>
@@ -268,378 +256,506 @@
 			<File>lang/polish.xml</File>
 			<File>lang/japanese.xml</File>
 			<File>lang/portuguese.xml</File>
-            <File>lang/german.xml</File>
+			<File>lang/german.xml</File>
 			<File>lang/chinese.xml</File>
 			<File>lang/italian.xml</File>
 			<File>lang/spanish.xml</File>
 		</UpdateText>
-		
-		<ReplaceUIScript id="bbg_worldranking">
-			<Properties>
-			<LoadOrder>19999</LoadOrder>
-			<LuaContext>WorldRankings</LuaContext>
-			<LuaReplace>ui/replacements/worldrankings_bbg.lua</LuaReplace>
-			</Properties>
-		</ReplaceUIScript>
-
+		<!-- -->
 		<UpdateDatabase id="bbg_preload_db_updated">
 			<Properties>
 				<LoadOrder>11611</LoadOrder>
 			</Properties>
 			<File>sql/_utils.sql</File>
 		</UpdateDatabase>
-
-		<UpdateDatabase id="bbg_base_db_updates">
+		<!-- -->
+		<UpdateDatabase id="BBG_Base">
 			<Properties>
 				<LoadOrder>11612</LoadOrder>
 			</Properties>
-			<File>sql/base.sql</File>
-			<File>sql/new_bbg_base_units.sql</File>
-			<File>sql/new_bbg_policies.sql</File>
-			<File>sql/new_bbg_mother_russia.sql</File>
-			<File>sql/new_bbg_catherine_black_queen.sql</File>	
-			<File>sql/new_bbg_england.sql</File>
-			<File>sql/new_bbg_sumer.sql</File>	
-			<File>sql/new_bbg_gilgamesh.sql</File>
-			<File>sql/new_bbg_citystates.sql</File>
-			<File>sql/new_bbg_great_people.sql</File>
-			<File>sql/new_bbg_great_works.sql</File>
-			<File>sql/new_bbg_belief.sql</File>
-			<File>sql/new_bbg_spain.sql</File>
-			<File>sql/new_bbg_buildings.sql</File>
-			<File>sql/new_bbg_spy.sql</File>
-			<File>sql/new_bbg_brazil.sql</File>
-			<File>sql/new_bbg_gorgo.sql</File>
-			<File>sql/new_bbg_china.sql</File>
+			<File>sql/Base/base.sql</File>
+			<File>sql/Base/America.sql</File>
+			<File>sql/Base/Arabia.sql</File>
+			<File>sql/Base/Aztec.sql</File>
+			<File>sql/Base/Beliefs.sql</File>
+			<File>sql/Base/Brazil.sql</File>
+			<File>sql/Base/Buildings.sql</File>
+			<File>sql/Base/China.sql</File>
+			<File>sql/Base/CityStates.sql</File>
+			<File>sql/Base/Districts.sql</File>
+			<File>sql/Base/Egypt.sql</File>
+			<File>sql/Base/England.sql</File>
+			<File>sql/Base/Features.sql</File>
+			<File>sql/Base/France.sql</File>
+			<File>sql/Base/Germany.sql</File>
+			<File>sql/Base/GreatPeoples.sql</File>
+			<File>sql/Base/GreatWorks.sql</File>
+			<File>sql/Base/Greece.sql</File>
+			<File>sql/Base/India.sql</File>
+			<File>sql/Base/Japan.sql</File>
+			<File>sql/Base/Kongo.sql</File>
+			<File>sql/Base/Norway.sql</File>
+			<File>sql/Base/Policies.sql</File>
+			<File>sql/Base/Rome.sql</File>
+			<File>sql/Base/Russia.sql</File>
+			<File>sql/Base/Scythia.sql</File>
+			<File>sql/Base/Spain.sql</File>
+			<File>sql/Base/Spy.sql</File>
+			<File>sql/Base/Sumer.sql</File>
+			<File>sql/Base/Units.sql</File>
+			<File>sql/Base/Wonders.sql</File>
 		</UpdateDatabase>
-		
-		<UpdateDatabase id="bbg_dlc_australia" criteria="dlc_australia">
+		<UpdateDatabase id="BBG_XP1">
 			<Properties>
 				<LoadOrder>11613</LoadOrder>
 			</Properties>
-			<File>sql/dlc_australia.sql</File>
+			<Criteria>XP1</Criteria>
+			<File>sql/XP1/xp1__rise_and_fall.sql</File>
+			<File>sql/XP1/new_bbg_xp1_dutch.sql</File>
+			<File>sql/XP1/new_bbg_xp1_policies.sql</File>
+			<File>sql/XP1/new_bbg_xp1_cree.sql</File>
+			<File>sql/XP1/new_bbg_xp1_scotland.sql</File>
+			<File>sql/XP1/new_bbg_xp1_zulus.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_dlc_aztec" criteria="dlc_aztec">
+		<UpdateDatabase id="BBG_XP2">
 			<Properties>
 				<LoadOrder>11614</LoadOrder>
 			</Properties>
-			<File>sql/dlc_aztec.sql</File>
+			<Criteria>XP2</Criteria>
+			<File>sql/XP2/xp2__gathering_storm.sql</File>
+			<File>sql/XP2/new_bbg_xp2_units.sql</File>
+			<File>sql/XP2/new_bbg_hungary.sql</File>
+			<File>sql/XP2/new_bbg_ottoman.sql</File>
+			<File>sql/XP2/new_bbg_sumer_xp2.sql</File>
+			<File>sql/XP2/new_bbg_citystates_xp2.sql</File>
+			<File>sql/XP2/new_bbg_xp2_phoenician.sql</File>
+			<File>sql/XP2/new_bbg_xp2_government.sql</File>
+			<File>sql/XP2/new_bbg_improvement.sql</File>
+			<File>sql/XP2/new_bbg_xp2_world_congress.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_dlc_indo_khmer" criteria="dlc_indo_khmer">
+		<!-- -->
+		<UpdateDatabase id="BBG_XP1_XP2">
 			<Properties>
 				<LoadOrder>11615</LoadOrder>
 			</Properties>
-			<File>sql/dlc_indo_khmer.sql</File>
+			<Criteria>XP1_XP2</Criteria>
+			<File>sql/XP1/xp2_rise_and_fall.sql</File>
+			<File>sql/XP1/new_bbg_mapuche.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_dlc_macedon_persia" criteria="dlc_macedon_persia">
+		<!-- -->
+		<UpdateDatabase id="BBG_Poland">
 			<Properties>
 				<LoadOrder>11616</LoadOrder>
 			</Properties>
-			<File>sql/dlc_macedon_persia.sql</File>
+			<Criteria>DLC_Poland</Criteria>
+			<File>sql/DLC_Poland/dlc_poland.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_dlc_nubia" criteria="dlc_nubia">
+		<UpdateDatabase id="BBG_XP2_Poland">
+			<Properties>
+				<LoadOrder>11617</LoadOrder>
+			</Properties>
+			<Criteria>DLC_Poland</Criteria>
+			<Criteria>XP2</Criteria>
+			<File>sql/DLC_Poland/xp2_poland.sql</File>
+		</UpdateDatabase>
+		<!-- -->
+		<UpdateDatabase id="BBG_Austrlia">
 			<Properties>
 				<LoadOrder>11618</LoadOrder>
 			</Properties>
-			<File>sql/dlc_nubia.sql</File>
+			<Criteria>DLC_Australia</Criteria>
+			<File>sql/DLC_Australia/dlc_australia.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_dlc_poland" criteria="dlc_poland">
+		<UpdateDatabase id="BBG_XP2_Australia">
 			<Properties>
 				<LoadOrder>11619</LoadOrder>
 			</Properties>
-			<File>sql/dlc_poland.sql</File>
+			<Criteria>DLC_Australia</Criteria>
+			<Criteria>XP2</Criteria>
+			<File>sql/DLC_Australia/xp2_australia.sql</File>
 		</UpdateDatabase>
-
-		<UpdateDatabase id="bbg_xp1_db_updates" criteria="xp1">
+		<!-- -->
+		<UpdateDatabase id="BBG_Macedon_Persia">
 			<Properties>
 				<LoadOrder>11620</LoadOrder>
 			</Properties>
-			<File>sql/xp1__rise_and_fall.sql</File>
-			<File>sql/new_bbg_xp1_dutch.sql</File>
-			<File>sql/new_bbg_xp1_policies.sql</File>
-			<File>sql/new_bbg_xp1_cree.sql</File>
-			<File>sql/new_bbg_xp1_scotland.sql</File>
-			<File>sql/new_bbg_xp1_zulus.sql</File>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<File>sql/DLC_Macedon_Persia/dlc_macedon_persia.sql</File>
 		</UpdateDatabase>
-		
-		<UpdateDatabase id="bbg_xp2_db_updates" criteria="xp2">
+		<UpdateDatabase id="BBG_XP2_Macedon_Persia">
 			<Properties>
 				<LoadOrder>11621</LoadOrder>
 			</Properties>
-			<File>sql/xp2__gathering_storm.sql</File>
-			<File>sql/new_bbg_xp2_units.sql</File>
-			<File>sql/new_bbg_hungary.sql</File>
-			<File>sql/new_bbg_ottoman.sql</File>
-			<File>sql/new_bbg_sumer_xp2.sql</File>
-			<File>sql/new_bbg_citystates_xp2.sql</File>
-			<File>sql/new_bbg_xp2_phoenician.sql</File>
-			<File>sql/new_bbg_xp2_government.sql</File>
-			<File>sql/new_bbg_improvement.sql</File>
-			<File>sql/new_bbg_xp2_world_congress.sql</File>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<Criteria>XP2</Criteria>
+			<File>sql/DLC_Macedon_Persia/xp2_macedon_persia.sql</File>
 		</UpdateDatabase>
-		
-		<UpdateDatabase id="bbg_xp1_xp2_db_updates" criteria="xp1_xp2">
+		<UpdateDatabase id="BBG_NFP_Macedon_Persia">
 			<Properties>
 				<LoadOrder>11622</LoadOrder>
 			</Properties>
-			<File>sql/xp2_rise_and_fall.sql</File>
-			<File>sql/new_bbg_mapuche.sql</File>
-			<File>sql/new_bbg_xp1_dutch.sql</File>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<Criteria>GranColombia_Maya</Criteria>
+			<File>sql/DLC_Macedon_Persia/nfp_macedon_persia_maya_colombia.sql</File>
 		</UpdateDatabase>
-		
-		<UpdateDatabase id="bbg_xp2_australia" criteria="xp2_australia">
+		<!-- -->
+		<UpdateDatabase id="BBG_Nubia">
 			<Properties>
 				<LoadOrder>11623</LoadOrder>
 			</Properties>
-			<File>sql/xp2_australia.sql</File>
+			<Criteria>DLC_Nubia</Criteria>
+			<File>sql/DLC_Nubia/dlc_nubia.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_xp2_aztec" criteria="xp2_aztec">
+		<UpdateDatabase id="BBG_XP2_Nubia">
 			<Properties>
 				<LoadOrder>11624</LoadOrder>
 			</Properties>
+			<Criteria>DLC_Nubia</Criteria>
+			<Criteria>XP2</Criteria>
+			<File>sql/DLC_Nubia/xp2_nubia.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_xp2_indo_khmer" criteria="xp2_indo_khmer">
+		<!-- -->
+		<UpdateDatabase id="BBG_Indonesia_Khmer">
 			<Properties>
 				<LoadOrder>11625</LoadOrder>
 			</Properties>
-			<File>sql/xp2_indo_khmer.sql</File>
+			<Criteria>DLC_Indonesia_Khmer</Criteria>
+			<File>sql/DLC_Indonesia_Khmer/dlc_indo_khmer.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_xp2_macedon_persia" criteria="xp2_macedon_persia">
+		<UpdateDatabase id="BBG_XP2_Indonesia_Khmer">
 			<Properties>
 				<LoadOrder>11626</LoadOrder>
 			</Properties>
-			<File>sql/xp2_macedon_persia.sql</File>
+			<Criteria>DLC_Indonesia_Khmer</Criteria>
+			<Criteria>XP2</Criteria>
+			<File>sql/DLC_Indonesia_Khmer/xp2_indo_khmer.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_xp2_nubia" criteria="xp2_nubia">
+		<!-- -->
+		<UpdateDatabase id="BBG_NFP_GranColombia_Maya">
 			<Properties>
-				<LoadOrder>11628</LoadOrder>
+				<LoadOrder>11640</LoadOrder>
 			</Properties>
-			<File>sql/xp2_nubia.sql</File>
-		</UpdateDatabase>
-		<UpdateDatabase id="bbg_xp2_poland" criteria="xp2_poland">
-			<Properties>
-				<LoadOrder>11629</LoadOrder>
-			</Properties>
-			<File>sql/xp2_poland.sql</File>
-		</UpdateDatabase>
-		<UpdateDatabase id="bbg_dlc_maya_colombia" criteria="dlc_maya_colombia">
-			<Properties>
-				<LoadOrder>11630</LoadOrder>
-			</Properties>
-			<File>sql/dlc_maya_colombia.sql</File>
+			<Criteria>GranColombia_Maya</Criteria>
+			<File>sql/NFP/dlc_maya_colombia.sql</File>
 		</UpdateDatabase>		
-		<UpdateDatabase id="bbg_nfp_macedon_persia_maya_colombia" criteria="nfp_macedon_persia_maya_colombia">
+		<UpdateDatabase id="BBG_NFP_XP1_GranColombia_Maya">
 			<Properties>
-				<LoadOrder>11631</LoadOrder>
+				<LoadOrder>11641</LoadOrder>
 			</Properties>
-			<File>sql/nfp_macedon_persia_maya_colombia.sql</File>
-		</UpdateDatabase>		
-		<UpdateDatabase id="bbg_nfp_xp1_maya_colombia" criteria="nfp_xp1_maya_colombia">
-			<Properties>
-				<LoadOrder>11632</LoadOrder>
-			</Properties>
-			<File>sql/nfp_xp1_maya_colombia.sql</File>
+			<Criteria>GranColombia_Maya</Criteria>
+			<Criteria>XP1</Criteria>
+			<File>sql/NFP/nfp_xp1_maya_colombia.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_nfp_ethiopia" criteria="nfp_ethiopia">
+		<UpdateDatabase id="NFP_XP2_GranColombia_Maya">
 			<Properties>
-				<LoadOrder>11633</LoadOrder>
+				<LoadOrder>11642</LoadOrder>
 			</Properties>
-			<File>sql/nfp_ethiopia.sql</File>
-			<File>sql/new_bbg_ethiopia.sql</File>
+			<Criteria>GranColombia_Maya</Criteria>
+			<Criteria>XP2</Criteria>
+			<File>sql/NFP/new_bbg_disasters.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_nfp_xp2_ethiopia" criteria="nfp_xp2_ethiopia">
+		<!-- -->
+		<UpdateDatabase id="BBG_Ethiopia">
 			<Properties>
-				<LoadOrder>11634</LoadOrder>
+				<LoadOrder>11643</LoadOrder>
 			</Properties>
-			<File>sql/nfp_xp2_ethiopia.sql</File>
+			<Criteria>Ethiopia</Criteria>
+			<File>sql/NFP/nfp_ethiopia.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_nfp_teddy_persona" criteria="nfp_teddy_persona">
+		<!-- -->
+		<UpdateDatabase id="BBG_TeddyPersona">
 			<Properties>
-				<LoadOrder>11635</LoadOrder>
+				<LoadOrder>11645</LoadOrder>
 			</Properties>
-			<File>sql/nfp_teddy_persona.sql</File>
+			<Criteria>TeddyPersona</Criteria>
+			<File>sql/NFP/Teddy_Persona.sql</File> <!-- Must split files for teddy persona -->
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_nfp_catherine_persona" criteria="nfp_catherine_persona">
+		<!-- -->
+		<UpdateDatabase id="BBG_CatherinePersona">
 			<Properties>
-				<LoadOrder>11636</LoadOrder>
+				<LoadOrder>11646</LoadOrder>
 			</Properties>
-			<File>sql/nfp_catherine_persona.sql</File>
-			<File>sql/new_bbg_catherine_magnificient.sql</File>
+			<Criteria>CatherinePersona</Criteria>
+			<File>sql/NFP/Catherine_Persona.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_nfp_byzantium_gaul" criteria="nfp_byzantium_gaul">
+		<!-- -->
+		<UpdateDatabase id="BBG_Byzantium_Gaul">
 			<Properties>
-				<LoadOrder>11637</LoadOrder>
+				<LoadOrder>11647</LoadOrder>
 			</Properties>
-			<File>sql/nfp_byzantium_gaul.sql</File>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<File>sql/NFP/nfp_byzantium_gaul.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_nfp_babylon" criteria="No_Gamemode_Babylon">
+		<!-- -->
+		<UpdateDatabase id="BBG_Babylon">
 			<Properties>
-				<LoadOrder>11638</LoadOrder>
+				<LoadOrder>11648</LoadOrder>
 			</Properties>
-			<File>sql/new_bbg_nfp_babylon.sql</File>
+			<Criteria>Babylon</Criteria>
+			<Criteria>No_Gamemode_Babylon</Criteria>
+			<File>sql/NFP/new_bbg_nfp_babylon.sql</File>
+			<File>sql/NFP/GreatPeoples.sql</File>
 		</UpdateDatabase>
+		<!-- Doesn't exist ?
 		<UpdateDatabase id="bbg_nfp_babylon_cs" criteria="nfp_babylon">
 			<Properties>
 				<LoadOrder>11638</LoadOrder>
 			</Properties>
 			<File>sql/new_bbg_nfp_babylon_city_states.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_nfp_vietnam_kubilai" criteria="nfp_vietnam_kubilai">
+		-->
+		<UpdateDatabase id="BBG_KublaiKhan_Vietnam">
 			<Properties>
-				<LoadOrder>11639</LoadOrder>
+				<LoadOrder>11649</LoadOrder>
 			</Properties>
-			<File>sql/new_bbg_nfp_vietnam.sql</File>
-			<File>sql/new_bbg_kublai.sql</File>
-			<File>sql/new_bbg_buildings_preserve.sql</File>
+			<Criteria>KublaiKhan_Vietnam</Criteria>
+			<File>sql/NFP/new_bbg_nfp_vietnam.sql</File>
+			<File>sql/NFP/new_bbg_kublai.sql</File>
+			<File>sql/NFP/new_bbg_buildings_preserve.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_nfp_portugal" criteria="nfp_portugal">
+		<!-- -->
+		<UpdateDatabase id="BBG_Portugal">
 			<Properties>
-				<LoadOrder>11640</LoadOrder>
+				<LoadOrder>11650</LoadOrder>
 			</Properties>
-			<File>sql/new_bbg_nfp_portugal.sql</File>
+			<Criteria>Portugal</Criteria>
+			<File>sql/NFP/new_bbg_nfp_portugal.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_xp2_and_maya_colombia" criteria="xp2_and_maya_colombia">
+		<!-- -->
+		<UpdateDatabase id="BBG_Caesar">
 			<Properties>
-				<LoadOrder>11641</LoadOrder>
+				<LoadOrder>11651</LoadOrder>
 			</Properties>
-			<File>sql/new_bbg_disasters.sql</File>
+			<Criteria>Caesar</Criteria>
+			<File>sql/LP/lp_rome_caesar.sql</File>
 		</UpdateDatabase>
+		<!-- -->
+		<UpdateDatabase id="BBG_Negotiators">
+			<Properties>
+				<LoadOrder>11652</LoadOrder>
+			</Properties>
+			<Criteria>Negotiators</Criteria>
+			<File>sql/LP/lp_america_lincoln.sql</File>
+			<File>sql/LP/lp_arabia_saladin_sultan.sql</File>
+			<File>sql/LP/lp_kongo_mbande.sql</File>
+		</UpdateDatabase>
+		<!-- -->
+
+		<UpdateDatabase id="BBG_XP2_SecretSocieties">
+			<Properties>
+				<LoadOrder>11660</LoadOrder>
+			</Properties>
+			<Criteria>Ethiopia</Criteria> <!-- Not fan of this criteria -->
+			<Criteria>XP2</Criteria>
+			<File>sql/Secret_Societies.sql</File>
+		</UpdateDatabase>
+		<!-- -->
 		<UpdateDatabase id="VictoryCulturalSetting_2">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>CVSetting_2</Criteria>
 			<File>sql/victories/new_bbg_cv.sql</File>
 			<File>sql/victories/new_bbg_cv_2.sql</File>
-        </UpdateDatabase>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryCulturalSetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>CVSetting_1</Criteria>
-            <File>sql/victories/new_bbg_cv.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_cv.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryScienceSetting_2">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>SVSetting_2</Criteria>
 			<Criteria>xp2</Criteria>
-            <File>sql/victories/new_bbg_sv_2.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_sv_2.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryScienceSetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>SVSetting_1</Criteria>
 			<Criteria>xp2</Criteria>
-            <File>sql/victories/new_bbg_sv_1.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_sv_1.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryDiploSetting_2">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>DVSetting_2</Criteria>
 			<Criteria>xp2</Criteria>
-            <File>sql/victories/new_bbg_dv_2.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_dv_2.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryDiploSetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>DVSetting_1</Criteria>
 			<Criteria>xp2</Criteria>
-            <File>sql/victories/new_bbg_dv_1.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_dv_1.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryReligiousSetting_2">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>RVSetting_2</Criteria>
-            <File>sql/victories/new_bbg_rv_2.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_rv_2.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryReligiousSetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>RVSetting_1</Criteria>
-            <File>sql/victories/new_bbg_rv_1.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_rv_1.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="VictoryTerritorialSetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>TerritorialSetting_1</Criteria>
-            <File>sql/victories/new_bbg_new_domination.sql</File>
-        </UpdateDatabase>
+			<File>sql/victories/new_bbg_new_domination.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="GlobalVictorySetting_1">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>GlobalSetting_1</Criteria>
-            <File>sql/victories/new_bbg_rv_1.sql</File>
+			<File>sql/victories/new_bbg_rv_1.sql</File>
 			<File>sql/victories/new_bbg_dv_1.sql</File>
 			<File>sql/victories/new_bbg_sv_1.sql</File>
 			<File>sql/victories/new_bbg_cv.sql</File>
-        </UpdateDatabase>	
+		</UpdateDatabase>	
 		<UpdateDatabase id="GlobalVictorySetting_2">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>GlobalSetting_2</Criteria>
-            <File>sql/victories/new_bbg_rv_2.sql</File>
+			<File>sql/victories/new_bbg_rv_2.sql</File>
 			<File>sql/victories/new_bbg_dv_2.sql</File>
 			<File>sql/victories/new_bbg_sv_2.sql</File>
 			<File>sql/victories/new_bbg_cv.sql</File>
 			<File>sql/victories/new_bbg_cv_2.sql</File>
-        </UpdateDatabase>	
+		</UpdateDatabase>	
 		<UpdateDatabase id="GlobalVictorySetting_BBG_Legacy">
-            <Properties>
-                <LoadOrder>20000</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
 			<Criteria>GlobalSetting_BBG_Legacy</Criteria>
 			<File>sql/victories/new_bbg_dv_2.sql</File>
 			<File>sql/victories/new_bbg_cv.sql</File>
 			<File>sql/victories/new_bbg_cv_2.sql</File>
-        </UpdateDatabase>
-		
+		</UpdateDatabase>
+		<!-- -->
 		<UpdateIcons id="bbg_Icons">
 			<File>data/new_bbg_icons.xml</File>
 		</UpdateIcons>
-		
+		<!-- -->
+		<ReplaceUIScript id="bbg_worldranking">
+			<Properties>
+			<LoadOrder>19998</LoadOrder>
+			<LuaContext>WorldRankings</LuaContext>
+			<LuaReplace>ui/replacements/worldrankings_bbg.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+		<!--
+		<ReplaceUIScript id="BBG_UnitPanel_XP2">
+			<Criteria>XP2</Criteria>
+			<Properties>
+				<LoadOrder>19999</LoadOrder>
+				<LuaContext>UnitPanel</LuaContext>
+				<LuaReplace>ui/replacements/unitpanel_bbg.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+		<ReplaceUIScript id="productionpanel_bbg">
+			<Criteria>BBGTS_ProductionPanel_BBG_Expansion2</Criteria>
+			<Properties>
+				<LoadOrder>19999</LoadOrder>
+				<LuaContext>ProductionPanel</LuaContext>
+				<LuaReplace>ui/replacements/productionpanel_bbg.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+		-->
+		<!-- -->
 		<ImportFiles id="bbg_files">
 				<File>ui/replacements/endgamemenu_bbg.lua</File>
 				<File>ui/replacements/endgamemenu.xml</File>
 		</ImportFiles>
+		<ImportFiles id="bbg_tradesupport">
+			<Properties>
+				<LoadOrder>300</LoadOrder>
+			</Properties>
+			<Criteria>NoConflictingUIMod</Criteria>
+			<File>ui/replacements/tradesupport.lua</File>
+		</ImportFiles>
+		<ImportFiles id="bbg_basetradeui">
+			<Properties>
+				<LoadOrder>301</LoadOrder>
+			</Properties>
+			<Criteria>NoConflictingUIMod</Criteria>
+			<File>ui/replacements/compatibility/traderoutechooser.lua</File>
+			<File>ui/replacements/compatibility/tradeoverview.lua</File>
+		</ImportFiles>
+		<ReplaceUIScript id="base_tradeoverview">
+			<Properties>
+				<LoadOrder>302</LoadOrder>
+				<LuaContext>TradeOverview</LuaContext>
+				<LuaReplace>ui/replacements/compatibility/tradeoverview.lua</LuaReplace>
+			</Properties>
+			<Criteria>NoConflictingUIMod</Criteria>
+		</ReplaceUIScript>
+		<ImportFiles id="bbg_tradeoverview_import">
+			<Properties>
+				<LoadOrder>303</LoadOrder>
+			</Properties>
+			<Criteria>NoConflictingUIMod</Criteria>
+			<File>ui/replacements/tradeoverview_bbg.lua</File>
+		</ImportFiles>
+		<ReplaceUIScript id="bbg_tradeoverview">
+			<Properties>
+				<LoadOrder>304</LoadOrder>
+				<LuaContext>TradeOverview</LuaContext>
+				<LuaReplace>ui/replacements/tradeoverview_bbg.lua</LuaReplace>
+			</Properties>
+			<Criteria>NoConflictingUIMod</Criteria>
+		</ReplaceUIScript>
+		<!--
+		<ImportFiles id="bbg_XP2_panel_override_files">
+			<Criteria>XP2</Criteria>	
+			<File>ui/replacements/unitpanel_bbg.lua</File>
+		</ImportFiles>
+		-->		
 		<!-- Gamemode -->
 		<UpdateDatabase id="bbg_db_Gamemode_Babylon">
 			<Properties>
-                <LoadOrder>21010</LoadOrder>
-            </Properties>
+				<LoadOrder>21010</LoadOrder>
+			</Properties>
 			<Criteria>Gamemode_Babylon</Criteria>
 			<File>sql/april_fool.sql</File>
 		</UpdateDatabase>
 		<UpdateText>
 			<Properties>
-                <LoadOrder>21010</LoadOrder>
-            </Properties>
+				<LoadOrder>21010</LoadOrder>
+			</Properties>
 			<Criteria>Gamemode_Babylon</Criteria>
 			<File>lang/april_fool.xml</File>
 		</UpdateText>
 		<!-- Beta -->
 		<UpdateDatabase id="bbg_db_BETA_BAN_TRADE_TREATY">
-            <Properties>
-                <LoadOrder>21020</LoadOrder>
-            </Properties>
+			<Properties>
+				<LoadOrder>21020</LoadOrder>
+			</Properties>
 			<Criteria>Criteria_BETA_BAN_TRADE_TREATY</Criteria>
 			<File>sql/beta/ban_trade_treaty.sql</File>
-        </UpdateDatabase>
+		</UpdateDatabase>
 	</InGameActions>
 
 	<!-- defines file dependencies -->
 	<Files>
 		<File>scripts/bbg_script.lua</File>
-
+		<!-- -->
 		<File>lang/english.xml</File>
 		<File>lang/korean.xml</File>
 		<File>lang/russian.xml</File>
@@ -647,80 +763,114 @@
 		<File>lang/polish.xml</File>
 		<File>lang/japanese.xml</File>
 		<File>lang/portuguese.xml</File>
-        <File>lang/german.xml</File>
+		<File>lang/german.xml</File>
 		<File>lang/chinese.xml</File>
 		<File>lang/italian.xml</File>
 		<File>lang/spanish.xml</File>
+		<!-- -->
 		<File>sql/_utils.sql</File>
-		<File>sql/base.sql</File>
-		<File>sql/dlc_australia.sql</File>
-		<File>sql/dlc_aztec.sql</File>
-		<File>sql/dlc_indo_khmer.sql</File>
-		<File>sql/dlc_macedon_persia.sql</File>
-		<File>sql/dlc_nubia.sql</File>
-		<File>sql/dlc_poland.sql</File>
-		<File>sql/xp1__rise_and_fall.sql</File>
-		<File>sql/xp2__gathering_storm.sql</File>
-		<File>sql/xp2_australia.sql</File>
-		<File>sql/xp2_indo_khmer.sql</File>
-		<File>sql/xp2_macedon_persia.sql</File>
-		<File>sql/xp2_nubia.sql</File>
-		<File>sql/xp2_poland.sql</File>
-		<File>sql/xp2_rise_and_fall.sql</File>
-		<File>sql/dlc_maya_colombia.sql</File>
-		<File>sql/nfp_macedon_persia_maya_colombia.sql</File>
-		<File>sql/nfp_xp1_maya_colombia.sql</File>
-		<File>sql/nfp_ethiopia.sql</File>
-		<File>sql/nfp_xp2_ethiopia.sql</File>
-		<File>sql/nfp_teddy_persona.sql</File>
-		<File>sql/nfp_catherine_persona.sql</File>
-		<File>sql/nfp_byzantium_gaul.sql</File>
-		<File>sql/new_bbg_policies.sql</File>
-		<File>sql/new_bbg_catherine_magnificient.sql</File>
-		<File>sql/new_bbg_catherine_black_queen.sql</File>		
-		<File>sql/new_bbg_mother_russia.sql</File>
-		<File>sql/new_bbg_ethiopia.sql</File>
-		<File>sql/new_bbg_mapuche.sql</File>
-		<File>sql/new_bbg_england.sql</File>
-		<File>sql/new_bbg_hungary.sql</File>
-		<File>sql/new_bbg_sumer.sql</File>
-		<File>sql/new_bbg_sumer_xp2.sql</File>	
-		<File>sql/new_bbg_gilgamesh.sql</File>
-		<File>sql/new_bbg_citystates.sql</File>
-		<File>sql/new_bbg_citystates_xp2.sql</File>
-		<File>sql/new_bbg_nfp_babylon.sql</File>
-		<File>sql/new_bbg_nfp_babylon_city_states.sql</File>
-		<File>sql/new_bbg_xp1_dutch.sql</File>
-		<File>sql/new_bbg_xp2_phoenician.sql</File>
-		<File>sql/new_bbg_great_people.sql</File>
-		<File>sql/new_bbg_great_works.sql</File>
-		<File>sql/new_bbg_base_units.sql</File>
-		<File>sql/new_bbg_xp2_units.sql</File>
-		<File>sql/new_bbg_xp1_policies.sql</File>
-		<File>sql/new_bbg_belief.sql</File>
-		<File>sql/new_bbg_xp1_cree.sql</File>
-		<File>sql/new_bbg_xp1_scotland.sql</File>
-		<File>sql/new_bbg_xp1_zulus.sql</File>
-		<File>sql/new_bbg_nfp_vietnam.sql</File>
-		<File>sql/new_bbg_xp2_government.sql</File>
-		<File>sql/new_bbg_spain.sql</File>
-		<File>sql/new_bbg_buildings.sql</File>
-		<File>sql/new_bbg_buildings_preserve.sql</File>
-		<File>sql/new_bbg_spy.sql</File>
-		<File>sql/new_bbg_nfp_portugal.sql</File>
-		<File>sql/new_bbg_brazil.sql</File>
-		<File>sql/new_bbg_gorgo.sql</File>
-		<File>sql/new_bbg_ottoman.sql</File>
-		<File>sql/new_bbg_improvement.sql</File>
-		<File>sql/new_bbg_china.sql</File>
-		<File>sql/new_bbg_kublai.sql</File>
-		<File>sql/new_bbg_disasters.sql</File>
-		<File>sql/new_bbg_xp2_world_congress.sql</File>
-
+		<!-- -->
+		<File>sql/Base/base.sql</File>
+		<File>sql/Base/America.sql</File>
+		<File>sql/Base/Arabia.sql</File>
+		<File>sql/Base/Aztec.sql</File>
+		<File>sql/Base/Beliefs.sql</File>
+		<File>sql/Base/Brazil.sql</File>
+		<File>sql/Base/Buildings.sql</File>
+		<File>sql/Base/China.sql</File>
+		<File>sql/Base/CityStates.sql</File>
+		<File>sql/Base/Districts.sql</File>
+		<File>sql/Base/Egypt.sql</File>
+		<File>sql/Base/England.sql</File>
+		<File>sql/Base/Features.sql</File>
+		<File>sql/Base/France.sql</File>
+		<File>sql/Base/Germany.sql</File>
+		<File>sql/Base/GreatPeoples.sql</File>
+		<File>sql/Base/GreatWorks.sql</File>
+		<File>sql/Base/Greece.sql</File>
+		<File>sql/Base/India.sql</File>
+		<File>sql/Base/Japan.sql</File>
+		<File>sql/Base/Kongo.sql</File>
+		<File>sql/Base/Norway.sql</File>
+		<File>sql/Base/Policies.sql</File>
+		<File>sql/Base/Rome.sql</File>
+		<File>sql/Base/Russia.sql</File>
+		<File>sql/Base/Scythia.sql</File>
+		<File>sql/Base/Spain.sql</File>
+		<File>sql/Base/Spy.sql</File>
+		<File>sql/Base/Sumer.sql</File>
+		<File>sql/Base/Units.sql</File>
+		<File>sql/Base/Wonders.sql</File>
+		<!-- -->
+		<File>sql/XP1/xp1__rise_and_fall.sql</File>
+		<File>sql/XP1/new_bbg_xp1_dutch.sql</File>
+		<File>sql/XP1/new_bbg_xp1_policies.sql</File>
+		<File>sql/XP1/new_bbg_xp1_cree.sql</File>
+		<File>sql/XP1/new_bbg_xp1_scotland.sql</File>
+		<File>sql/XP1/new_bbg_xp1_zulus.sql</File>
+		<!-- -->
+		<File>sql/XP2/xp2__gathering_storm.sql</File>
+		<File>sql/XP2/new_bbg_xp2_units.sql</File>
+		<File>sql/XP2/new_bbg_hungary.sql</File>
+		<File>sql/XP2/new_bbg_ottoman.sql</File>
+		<File>sql/XP2/new_bbg_sumer_xp2.sql</File>
+		<File>sql/XP2/new_bbg_citystates_xp2.sql</File>
+		<File>sql/XP2/new_bbg_xp2_phoenician.sql</File>
+		<File>sql/XP2/new_bbg_xp2_government.sql</File>
+		<File>sql/XP2/new_bbg_improvement.sql</File>
+		<File>sql/XP2/new_bbg_xp2_world_congress.sql</File>
+		<!-- -->
+		<File>sql/XP1/xp2_rise_and_fall.sql</File>
+		<File>sql/XP1/new_bbg_mapuche.sql</File>
+		<!-- -->
+		<File>sql/DLC_Poland/dlc_poland.sql</File>
+		<File>sql/DLC_Poland/xp2_poland.sql</File>
+		<!-- -->
+		<File>sql/DLC_Australia/dlc_australia.sql</File>
+		<File>sql/DLC_Australia/xp2_australia.sql</File>
+		<!-- -->
+		<File>sql/DLC_Macedon_Persia/dlc_macedon_persia.sql</File>
+		<File>sql/DLC_Macedon_Persia/xp2_macedon_persia.sql</File>
+		<File>sql/DLC_Macedon_Persia/nfp_macedon_persia_maya_colombia.sql</File>
+		<!-- -->
+		<File>sql/DLC_Nubia/dlc_nubia.sql</File>
+		<File>sql/DLC_Nubia/xp2_nubia.sql</File>
+		<!-- -->
+		<File>sql/DLC_Indonesia_Khmer/dlc_indo_khmer.sql</File>
+		<File>sql/DLC_Indonesia_Khmer/xp2_indo_khmer.sql</File>
+		<!-- -->
+		<File>sql/NFP/dlc_maya_colombia.sql</File>
+		<File>sql/NFP/nfp_xp1_maya_colombia.sql</File>
+		<File>sql/NFP/new_bbg_disasters.sql</File>
+		<!-- -->
+		<File>sql/NFP/nfp_ethiopia.sql</File>
+		<File>sql/NFP/Teddy_Persona.sql</File> <!-- Must split files for teddy persona -->
+		<File>sql/NFP/Catherine_Persona.sql</File>
+		<File>sql/NFP/nfp_byzantium_gaul.sql</File>
+		<File>sql/NFP/new_bbg_nfp_babylon.sql</File>
+		<File>sql/NFP/GreatPeoples.sql</File>
+		<File>sql/NFP/new_bbg_nfp_vietnam.sql</File>
+		<File>sql/NFP/new_bbg_kublai.sql</File>
+		<File>sql/NFP/new_bbg_buildings_preserve.sql</File>
+		<File>sql/NFP/new_bbg_nfp_portugal.sql</File>
+		<!-- -->
+		<File>sql/LP/lp_rome_caesar.sql</File>
+		<File>sql/LP/lp_america_lincoln.sql</File>
+		<File>sql/LP/lp_arabia_saladin_sultan.sql</File>
+		<File>sql/LP/lp_kongo_mbande.sql</File>
+		<!-- -->
+		<File>sql/Secret_Societies.sql</File>
+		<!-- -->
 		<File>ui/replacements/worldrankings_bbg.lua</File>
 		<File>ui/replacements/endgamemenu_bbg.lua</File>
 		<File>ui/replacements/endgamemenu.xml</File>
-		
+		<!--<File>ui/replacements/productionpanel_bbg.lua</File>-->
+		<File>ui/replacements/tradeoverview_bbg.lua</File>
+		<!--<File>ui/replacements/unitpanel_bbg.lua</File>-->
+		<File>ui/replacements/tradesupport.lua</File>
+		<File>ui/replacements/compatibility/traderoutechooser.lua</File>
+		<File>ui/replacements/compatibility/tradeoverview.lua</File>
+
 		<File>data/new_bbg_icons.xml</File>
 		<File>config/config.xml</File>
 		<File>config/config.sql</File>
