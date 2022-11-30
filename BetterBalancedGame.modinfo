@@ -97,6 +97,34 @@
 			<ModInUse inverse="1">8d4fa23a-ef43-440c-8422-2bec11f8f5d7</ModInUse>
 		</Criteria>
 		<!-- -->
+		<!--BBCC-->
+	    <Criteria id="bbcc_base">
+	      <ConfigurationValueMatches inverse = "1">
+	        <Group>Game</Group>
+	        <ConfigurationId>BBCC_SETTING</ConfigurationId>
+	        <Value>-1</Value>
+	      </ConfigurationValueMatches>
+	    </Criteria>
+	    <Criteria id="bbcc_cap">
+	      <ConfigurationValueMatches>
+	        <Group>Game</Group>
+	        <ConfigurationId>BBCC_SETTING</ConfigurationId>
+	        <Value>1</Value>
+	      </ConfigurationValueMatches>
+	    </Criteria>
+	    <Criteria id="nfp_maya_colombia">
+	      <ModInUse>9DE86512-DE1A-400D-8C0A-AB46EBBF76B9</ModInUse>
+	    </Criteria>
+	    <Criteria id="resourceful_lite">
+	      <ModInUse>24879c66-7cbb-45c0-a891-e5b4a2271b6c</ModInUse>
+	    </Criteria>   
+	    <Criteria id="resourceful_full">
+	      <ModInUse>23879c66-7cbb-4320-a891-ad24026f1b6b</ModInUse>
+	    </Criteria> 
+	    <Criteria id="sukr_res">
+	      <ModInUse>37fdca0b-9275-4235-9c18-c7ec348f930e</ModInUse>
+	    </Criteria>    		
+		<!-- -->
 		<Criteria id="CVSetting_2">
 			<ConfigurationValueMatches>
 				<ConfigurationId>VictoryCulturalSetting</ConfigurationId>
@@ -549,6 +577,64 @@
 			<Criteria>XP2</Criteria>
 			<File>sql/Secret_Societies.sql</File>
 		</UpdateDatabase>
+
+		<!--BBCC-->
+		<UpdateDatabase id="base_bbcc_db">
+	      <Properties>
+	          <LoadOrder>11661</LoadOrder>
+	      </Properties>
+	      <Criteria>bbcc_base</Criteria>
+	      <File>sql/bbcc/base_bbcc.sql</File>
+	    </UpdateDatabase>
+		<UpdateDatabase id="xp2_bbcc_db">
+	      <Properties>
+	          <LoadOrder>11662</LoadOrder>
+	      </Properties>
+	      <Criteria>bbcc_base</Criteria>
+	      <Criteria>XP2</Criteria>
+	      <File>sql/bbcc/xp2_bbcc.sql</File>
+	    </UpdateDatabase>	    
+	    <UpdateDatabase id="nfp_maya_colombia_bbcc_db">
+	      <Properties>
+	          <LoadOrder>11663</LoadOrder>
+	      </Properties>
+	      <Criteria>bbcc_base</Criteria>
+	      <Criteria>nfp_maya_colombia</Criteria>
+	      <File>sql/bbcc/nfp_maya_colombia_bbcc.sql</File>
+	    </UpdateDatabase>
+	    <UpdateDatabase id="comp_resfl_lite_bbcc_db">
+	      <Properties>
+	          <LoadOrder>11664</LoadOrder>
+	      </Properties>
+	      <Criteria>bbcc_base</Criteria>
+	      <Criteria>resourceful_lite</Criteria>
+	      <File>sql/bbcc/compatibility/resourceful_lite.sql</File>
+	    </UpdateDatabase>
+	    <UpdateDatabase id="comp_resfl_full_bbcc_db">
+	      <Properties>
+	          <LoadOrder>11665</LoadOrder>
+	      </Properties>
+	      <Criteria>bbcc_base</Criteria>
+	      <Criteria>resourceful_full</Criteria>
+	      <File>sql/bbcc/compatibility/resourceful_lite.sql</File>
+	      <File>sql/bbcc/compatibility/resourceful_full.sql</File>
+	    </UpdateDatabase>
+	    <UpdateDatabase id="comp_sukr_res_bbcc_db">
+	      <Properties>
+	          <LoadOrder>11666</LoadOrder>
+	      </Properties>
+	      <Criteria>sukr_res</Criteria>
+	      <Criteria>bbcc_base</Criteria>
+	      <File>sql/bbcc/compatibility/sukritact.sql</File>
+	    </UpdateDatabase>  
+	    <UpdateDatabase id="cap_bbcc_db">
+	      <Properties>
+	          <LoadOrder>11670</LoadOrder>
+	      </Properties>
+	      <Criteria>bbcc_base</Criteria>
+	      <Criteria>bbcc_cap</Criteria>
+	      <File>sql/bbcc/cap_only.sql</File>
+	    </UpdateDatabase>
 		<!-- -->
 		<UpdateDatabase id="VictoryCulturalSetting_2">
 			<Properties>
@@ -886,6 +972,14 @@
 		<File>sql/victories/new_bbg_new_domination.sql</File>
 
 		<File>sql/beta/ban_trade_treaty.sql</File>
+
+	    <File>sql/bbcc/base_bbcc.sql</File>
+	    <File>sql/bbcc/xp2_bbcc.sql</File>
+	    <File>sql/bbcc/nfp_maya_colombia_bbcc.sql</File>
+	    <File>sql/bbcc/cap_only.sql</File>
+	    <File>sql/bbcc/compatibility/resourceful_lite.sql</File>
+	    <File>sql/bbcc/compatibility/resourceful_full.sql</File>
+	    <File>sql/bbcc/compatibility/sukritact.sql</File>
 
 		<File>sql/april_fool.sql</File>
 		<File>lang/april_fool.xml</File>
