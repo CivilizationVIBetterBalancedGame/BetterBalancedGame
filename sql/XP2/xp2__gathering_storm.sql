@@ -1107,6 +1107,9 @@ INSERT OR IGNORE INTO GovernorPromotionModifiers (GovernorPromotionType, Modifie
 	( 'GOVERNOR_PROMOTION_REINFORCED_INFRASTRUCTURE', 'REINFORCED_INFRASTRUCTURE_FLOODPLAINS_PROD_BBG' ),
 	( 'GOVERNOR_PROMOTION_REINFORCED_INFRASTRUCTURE', 'REINFORCED_INFRASTRUCTURE_VOLCANO_PROD_BBG' );
 
+-- 07/12 Liang 3 turns
+UPDATE Governors SET TransitionStrength=150 WHERE GovernorType='GOVERNOR_THE_BUILDER';
+
 --==============================================================
 --******                   N U K E S                      ******
 --==============================================================
