@@ -122,6 +122,29 @@ UPDATE BBCC SET Sci = BBCC.Sci + Resource_YieldChanges.YieldChange
 	WHERE YieldType = 'YIELD_SCIENCE' 
 		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType;
 
+CREATE TABLE tmp
+AS 
+SELECT DISTINCT 
+	BBCC.ResourceType, 
+	BBCC.ResourceClassType, 
+	BBCC.TerrainType,
+	CASE
+		WHEN BBCC.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable=0)
+		THEN BBCC.FeatureType
+		ELSE NULL
+	END,
+	BBCC.Food,
+	BBCC.Prod,
+	BBCC.Gold,
+	BBCC.Faith,
+	BBCC.Cult,
+	BBCC.Sci
+FROM BBCC;
+
+DELETE FROM BBCC;
+INSERT INTO BBCC SELECT * FROM tmp;
+DROP TABLE tmp;
+
 --Create Positive Requirements
 --res
 INSERT INTO Requirements(RequirementId, RequirementType)
@@ -209,6 +232,16 @@ INSERT INTO RequirementArguments(RequirementId, Name, Value)
 	WHERE FeatureType IN (SELECT FeatureType FROM Features WHERE Removable=0) 
 		AND ResourceType NOT NULL;
 
+INSERT INTO Requirements(RequirementId, RequirementType)
+	SELECT 'REQ_PLOT_HAS_'||Terrains.TerrainType||'_BBCC', 'REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES'
+	FROM Terrains
+	WHERE TerrainType NOT LIKE '%COAST' AND TerrainType NOT LIKE '%OCEAN' AND TerrainType NOT LIKE '%MOUNTAIN';
+INSERT INTO RequirementArguments(RequirementId, Name, Value)
+	SELECT 'REQ_PLOT_HAS_'||Terrains.TerrainType||'_BBCC', 'TerrainType', Terrains.TerrainType
+	FROM Terrains
+	WHERE TerrainType NOT LIKE '%COAST' AND TerrainType NOT LIKE '%OCEAN' AND TerrainType NOT LIKE '%MOUNTAIN';
+
+/*
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
 	('REQSET_PLOT_IS_PLAINS_HILLS_CITY_BBCC', 'REQUIREMENTSET_TEST_ALL'),
 	('REQSET_PLOT_IS_TUNDRA_CITY_BBCC', 'REQUIREMENTSET_TEST_ALL'),
@@ -286,7 +319,44 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
 		END
 	FROM BBCC
 	WHERE Prod>=2 AND TerrainType LIKE '%HILLS' AND TerrainType<>'TERRAIN_PLAINS_HILLS';
-
+*/
+--============Adding Missing Yields:=============-----
+--food
+INSERT INTO Modifiers(ModifierId, ModifierType)
+	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(3-BBCC.Food AS varchar)||'_FOOD_BBCC', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD'
+	FROM BBCC
+	WHERE Food<3 
+		AND TerrainType NOT LIKE '%HILLS';
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+	SELECT DISTINCT 
+		'MODIFIER_ADD_'||CAST(1 AS varchar)||'_FOOD_BBCC', 'YieldType', 'YIELD_FOOD'
+	FROM BBCC
+	WHERE Food<3 
+		AND TerrainType NOT LIKE '%HILLS';
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+	SELECT DISTINCT 
+		'MODIFIER_ADD_'||CAST(1 AS varchar)||'_FOOD_BBCC', 'Amount', 1
+	FROM BBCC
+	WHERE Food<3 
+		AND TerrainType NOT LIKE '%HILLS';
+--prod
+INSERT INTO Modifiers(ModifierId, ModifierType)
+	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(1 AS varchar)||'_PRODUCTION_BBCC', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD'
+	FROM BBCC
+	WHERE Prod<2 
+		AND TerrainType LIKE '%HILLS';
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+	SELECT DISTINCT 
+		'MODIFIER_ADD_'||CAST(1 AS varchar)||'_PRODUCTION_BBCC', 'YieldType', 'YIELD_PRODUCTION'
+	FROM BBCC
+	WHERE Prod<2 
+		AND TerrainType LIKE '%HILLS';
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+	SELECT DISTINCT 
+		'MODIFIER_ADD_'||CAST(1 AS varchar)||'_PRODUCTION_BBCC', 'Amount', 1
+	FROM BBCC
+	WHERE Prod<2 
+		AND TerrainType LIKE '%HILLS';
 --============Removing Excess Yields:============-----
 --creating modifiers
 --food
@@ -423,7 +493,51 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 		'MODIFIER_REMOVE_'||CAST(BBCC.Sci AS varchar)||'_SCIENCE_BBCC', 'Amount', 0-BBCC.Sci
 	FROM BBCC
 	WHERE Sci>0;
-	
+
+CREATE TABLE BBCC_Modifiers(
+	ModifierId TEXT NOT NULL,
+	YieldType TEXT NOT NULL,
+	Amount TEXT NOT NULL,
+	SubjectRequirementSetId TEXT,
+	InnerReqSet TEXT,
+	TerrainType TEXT,
+	ResourceType TEXT,
+	ResourceClassType TEXT,
+	FeatureType TEXT,
+	ReqSet_TFR TEXT
+);
+
+INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount)
+	SELECT Modifiers.ModifierId, yt, am
+	FROM Modifiers 
+	INNER JOIN (SELECT ModifierArguments.ModifierId as yt_mId, ModifierArguments.Value as yt FROM ModifierArguments WHERE ModifierArguments.Name = 'YieldType') 
+		ON Modifiers.ModifierId = yt_mId
+	INNER JOIN (SELECT ModifierArguments.ModifierId as am_mId, ModifierArguments.Value as am FROM ModifierArguments WHERE ModifierArguments.Name = 'Amount')
+		ON Modifiers.ModifierId = am_mId
+	WHERE ModifierId LIKE 'MODIFIER_REMOVE_%_BBCC' OR ModifierId LIKE 'MODIFIER_ADD_%_BBCC';
+
+UPDATE BBCC_Modifiers SET SubjectRequirementSetId = REPLACE(ModifierId, 'MODIFIER_','REQSET_');
+UPDATE BBCC_Modifiers SET InnerReqSet = REPLACE(ModifierId, 'MODIFIER_','REQSET_VALID_TFR_');
+
+CREATE TABLE tmp(
+	ModifierId TEXT NOT NULL,
+	YieldType TEXT NOT NULL,
+	Amount TEXT NOT NULL,
+	SubjectRequirementSetId TEXT,
+	InnerReqSet TEXT,
+	TerrainType TEXT,
+	ResourceType TEXT,
+	ResourceClassType TEXT,
+	FeatureType TEXT,
+	ReqSet_TFR TEXT
+);
+
+INSERT INTO tmp
+	SELECT * 
+	FROM BBCC_Modifiers 
+	INNER JOIN BBCC ON CASE
+		
+
 DROP TABLE dummy;
 
 CREATE TABLE dummy AS
