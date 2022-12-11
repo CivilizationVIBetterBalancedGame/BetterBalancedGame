@@ -11,3 +11,6 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('MONARCHY_STARFORT_FAVOR', 'BuildingType', 'BUILDING_STAR_FORT'),
     ('MONARCHY_STARFORT_FAVOR', 'YieldType', 'YIELD_CULTURE'),
     ('MONARCHY_STARFORT_FAVOR', 'Amount', '2');
+
+
+UPDATE ModifierArguments SET Value=1 WHERE ModifierId='COMMUNISM_PRODUCTIVE_PEOPLE' and Name="Amount";
