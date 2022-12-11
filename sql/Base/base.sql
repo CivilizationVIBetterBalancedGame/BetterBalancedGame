@@ -67,8 +67,10 @@ DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_GREECE' AND T
 INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType)
 	VALUES ('RESOURCE_OIL', 'TERRAIN_PLAINS');
 -- incense +1 food
+-- mercury +1 food
 INSERT OR IGNORE INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange)
 	VALUES ('RESOURCE_INCENSE', 'YIELD_FOOD', 1);
+	VALUES ('RESOURCE_MERCURY', 'YIELD_FOOD', 1);
 -- add 1 production to fishing boat improvement
 UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_FISHING_BOATS' AND YieldType='YIELD_PRODUCTION';
 
