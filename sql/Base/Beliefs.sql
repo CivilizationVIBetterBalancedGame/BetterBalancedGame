@@ -515,3 +515,6 @@ UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_GURD
 UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_MEETING_HOUSE' AND YieldType = 'YIELD_PRODUCTION';
 UPDATE Building_YieldChanges SET YieldChange=7 WHERE BuildingType='BUILDING_MEETING_HOUSE' AND YieldType = 'YIELD_FAITH';
 UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_WAT' AND YieldType = 'YIELD_SCIENCE';
+
+--11/12/22 cathedral any art instead of only religious
+UPDATE Building_GreatWorks SET GreatWorkSlotType='GREATWORKSLOT_PALACE' WHERE BuildingType='BUILDING_CATHEDRAL';
