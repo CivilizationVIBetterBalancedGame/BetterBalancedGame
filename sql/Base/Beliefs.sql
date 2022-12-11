@@ -483,14 +483,8 @@ INSERT OR IGNORE INTO BeliefModifiers
     VALUES 
     ('BELIEF_WORK_ETHIC' , 'WORK_ETHIC_TEMPLE_PRODUCTION'),
     ('BELIEF_WORK_ETHIC' , 'WORK_ETHIC_SHRINE_PRODUCTION');
--- Dar E Mehr provides +2 culture instead of faith from eras
-DELETE FROM Building_YieldsPerEra WHERE BuildingType='BUILDING_DAR_E_MEHR';
-INSERT OR IGNORE INTO Building_YieldChanges 
-    (BuildingType          , YieldType       , YieldChange)
-    VALUES 
-    ('BUILDING_DAR_E_MEHR' , 'YIELD_CULTURE' , '2');
--- All worship building production costs reduced    
 
+-- All worship building production costs reduced    
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_CATHEDRAL'    ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_GURDWARA'     ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_MEETING_HOUSE';
@@ -500,3 +494,24 @@ INSERT OR IGNORE INTO Building_YieldChanges
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_WAT'          ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_STUPA'        ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_DAR_E_MEHR'   ;
+
+-- Pagoda: 1 Influance instead of 1 diplo favour
+DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_PAGODA' AND ModifierId='PAGODA_ADJUST_FAVOR';
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_PAGODA_INFLUENCE', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_PAGODA_INFLUENCE', 'Amount', '1');
+INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
+    ('BUILDING_PAGODA', 'BBG_PAGODA_INFLUENCE');
+
+-- Dar E Mehr provides +2 culture instead of faith from eras
+--11/12/22 to +3
+DELETE FROM Building_YieldsPerEra WHERE BuildingType='BUILDING_DAR_E_MEHR';
+INSERT INTO Building_YieldChanges(BuildingType, YieldType, YieldChange) VALUES 
+    ('BUILDING_DAR_E_MEHR', 'YIELD_CULTURE', '3');
+
+--11/12/22 +1 yield for worship buildings
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_GURDWARA' AND YieldType = 'YIELD_FOOD';
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_MEETING_HOUSE' AND YieldType = 'YIELD_PRODUCTION';
+UPDATE Building_YieldChanges SET YieldChange=7 WHERE BuildingType='BUILDING_MEETING_HOUSE' AND YieldType = 'YIELD_FAITH';
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_WAT' AND YieldType = 'YIELD_SCIENCE';
