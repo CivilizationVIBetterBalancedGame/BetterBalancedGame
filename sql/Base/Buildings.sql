@@ -16,6 +16,10 @@ UPDATE Buildings SET OuterDefenseHitPoints=75, Cost=100 WHERE BuildingType='BUIL
 UPDATE Buildings SET OuterDefenseHitPoints=75, Cost=200 WHERE BuildingType='BUILDING_CASTLE';
 UPDATE Buildings SET OuterDefenseHitPoints=75 WHERE BuildingType='BUILDING_STAR_FORT';
 UPDATE ModifierArguments SET Value='300' WHERE ModifierId='STEEL_UNLOCK_URBAN_DEFENSES';
+ 
+--11/12/22 ancient wall -3 (0 from 3) def medieval wall +3 (6 from 3)
+UPDATE Buildings SET OuterDefenseStrength=0 WHERE BuildingType='BUILDING_WALLS';
+UPDATE Buildings SET OuterDefenseStrength=6 WHERE BuildingType='BUILDING_CASTLE';
 
 -- chancery science from captured spies increased
 UPDATE ModifierArguments SET Value='200' WHERE ModifierId='CHANCERY_COUNTERYSPY_SCIENCE' AND Name='Amount';
