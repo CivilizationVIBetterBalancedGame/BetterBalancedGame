@@ -135,28 +135,6 @@ UPDATE Buildings SET Cost=60 WHERE BuildingType='BUILDING_ORDU';
 -- Keshig
 UPDATE Units SET RangedCombat=40, Cost=180 WHERE UnitType='UNIT_MONGOLIAN_KESHIG';
 
-
---==================
--- Scotland
---==================
--- Highlander gets +10 combat strength (defense)
-UPDATE Units SET Combat=65, RangedCombat=70 WHERE UnitType='UNIT_SCOTTISH_HIGHLANDER';
--- Golf Course moved to Games and Recreation
--- UPDATE Improvements SET PrereqCivic='CIVIC_GAMES_RECREATION' WHERE ImprovementType='IMPROVEMENT_GOLF_COURSE';
--- Golf Course base yields are 1 Culture and 2 Gold... +1 to each if next to City Center
-UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_GOLF_COURSE' AND YieldType='YIELD_CULTURE';
--- Golf Course extra housing moved to Urbanization
-UPDATE RequirementArguments SET Value='CIVIC_URBANIZATION' WHERE RequirementId='REQUIRES_PLAYER_HAS_GLOBALIZATION' AND Name='CivicType';
-INSERT OR IGNORE INTO Adjacency_YieldChanges (ID , Description , YieldType , YieldChange , TilesRequired , AdjacentDistrict)
-	VALUES ('BBG_GOLFCOURSE_CITYCENTERADJACENCY_GOLD' , 'Placeholder' , 'YIELD_GOLD' , 1 , 1 , 'DISTRICT_CITY_CENTER');
-INSERT OR IGNORE INTO Improvement_Adjacencies (ImprovementType , YieldChangeId)
-	VALUES ('IMPROVEMENT_GOLF_COURSE' , 'BBG_GOLFCOURSE_CITYCENTERADJACENCY_GOLD');
--- Golf Course gets extra yields a bit earlier
-INSERT OR IGNORE INTO Improvement_BonusYieldChanges (Id , ImprovementType , YieldType , BonusYieldChange , PrereqCivic)
-	VALUES ('204' , 'IMPROVEMENT_GOLF_COURSE' , 'YIELD_GOLD' , '1' , 'CIVIC_THE_ENLIGHTENMENT');
-INSERT OR IGNORE INTO Improvement_BonusYieldChanges (Id , ImprovementType , YieldType , BonusYieldChange , PrereqCivic)
-	VALUES ('205' , 'IMPROVEMENT_GOLF_COURSE' , 'YIELD_CULTURE' , '1' , 'CIVIC_THE_ENLIGHTENMENT');
-
 --==================
 -- Sumeria
 --==================
@@ -503,8 +481,11 @@ DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_MAPUCHE' AND 
 
 
 --==============================================================
---******			W O N D E R S  (NATURAL)			  ******
+--******			W O N D E R S  (MAN-MADE)			  ******
 --==============================================================
+-- Statue Liberty from 4 to 3 diplo points
+UPDATE ModifierArguments SET Value='3' WHERE ModifierId='STATUELIBERTY_DIPLOVP' AND Name='Amount';
+
 -- scott research station can be built and works in tundra
 INSERT OR IGNORE INTO Building_ValidTerrains (BuildingType, TerrainType) VALUES
 	('BUILDING_AMUNDSEN_SCOTT_RESEARCH_STATION', 'TERRAIN_TUNDRA'),
@@ -513,40 +494,6 @@ UPDATE RequirementArguments SET Value='TERRAIN_TUNDRA' WHERE RequirementId='REQU
 -- St. Basil gives 1 relic
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_ST_BASILS_CATHEDRAL', 'WONDER_GRANT_RELIC_BBG');
---Matterhorn +2 down from +3
--- UPDATE ModifierArguments SET Value='0' WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS' AND Name='Amount';
---23/08/22 no more combat bonus
-DELETE FROM UnitAbilityModifiers WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS';
-DELETE FROM Modifiers WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS';
-
-
-
---==============================================================
---******			W O N D E R S  (NATURAL)			  ******
---==============================================================
--- Eye of the Sahara gets 2 Food, 2 Production, and 2 Science
-UPDATE ModifierArguments SET Value='0' WHERE ModifierId='EYESAHARA_PRODUCTION_ATOMIC' AND Name='Amount';
-UPDATE ModifierArguments SET Value='0' WHERE ModifierId='EYESAHARA_SCIENCE_ATOMIC' AND Name='Amount';
-INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
-		VALUES ('FEATURE_EYE_OF_THE_SAHARA', 'YIELD_FOOD', 2);
-UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_EYE_OF_THE_SAHARA' AND YieldType='YIELD_PRODUCTION';
-INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
-	VALUES ('FEATURE_EYE_OF_THE_SAHARA', 'YIELD_SCIENCE', 2);
-UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_EYE_OF_THE_SAHARA' AND YieldType='YIELD_SCIENCE';
--- lake retba
-INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
-	VALUES ('FEATURE_LAKE_RETBA', 'YIELD_FOOD', 2);
-
-UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_UBSUNUR_HOLLOW' AND YieldType='YIELD_PRODUCTION';
-UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_UBSUNUR_HOLLOW' AND YieldType='YIELD_FOOD';
-
-
---==============================================================
---******			W O N D E R S  (MAN-MADE)			  ******
---==============================================================
--- Statue Liberty from 4 to 3 diplo points
-UPDATE ModifierArguments SET Value='3' WHERE ModifierId='STATUELIBERTY_DIPLOVP' AND Name='Amount';
-
 
 --==============================================================
 --******				    O T H E R					  ******
