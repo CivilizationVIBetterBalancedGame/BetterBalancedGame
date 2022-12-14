@@ -495,8 +495,8 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_TAJ_MAHAL', 'TAJ_MAHAL_GOLD_MODIFIER_IN_ALL_CITIES');
 
 
--- Torre de Belem - Remove free building to avoid conflict with dummy.
-
+-- Torre de Belem - International trade routes from any city recieve +2 gold for every luxury at the destination (from this city only).
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_CITIES_ADJUST_TRADE_ROUTE_YIELD_PER_DESTINATION_LUXURY_FOR_INTERNATIONAL' WHERE ModifierId='TORREDEBELEM_TRADE_GOLD_LUXURIES';
 
 -- Amundsen-Scott Research Station - +1 Science per snow tile in the city. Citizen can work snow tile for 3 science.
 
