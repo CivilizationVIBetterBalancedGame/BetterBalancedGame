@@ -1,14 +1,14 @@
 CREATE TABLE BBCC(
-	ResourceType TEXT,
-	ResourceClassType TEXT,
-	TerrainType TEXT,
-	FeatureType TEXT,
-	Food INT DEFAULT 0,
-	Prod INT DEFAULT 0,
-	Gold INT DEFAULT 0,
-	Faith INT DEFAULT 0,
-	Cult INT DEFAULT 0,
-	Sci INT DEFAULT 0
+    ResourceType TEXT,
+    ResourceClassType TEXT,
+    TerrainType TEXT,
+    FeatureType TEXT,
+    Food INT DEFAULT 0 NOT NULL,
+    Prod INT DEFAULT 0 NOT NULL,
+    Gold INT DEFAULT 0 NOT NULL,
+    Faith INT DEFAULT 0 NOT NULL,
+    Cult INT DEFAULT 0 NOT NULL,
+    Sci INT DEFAULT 0 NOT NULL
 );
 
 INSERT INTO BBCC(ResourceType, ResourceClassType, TerrainType)
@@ -29,6 +29,12 @@ INSERT INTO BBCC(ResourceType, ResourceClassType, TerrainType, FeatureType)
 	ON Resources.ResourceType = rt
 	WHERE (Resources.ResourceClassType<>'RESOURCECLASS_ARTIFACT');
 
+INSERT INTO BBCC(TerrainType)
+	SELECT Terrains.TerrainType 
+	FROM Terrains 
+	WHERE TerrainType NOT LIKE '%MOUNTAIN'
+		AND TerrainType NOT IN ('TERRAIN_COAST', 'TERRAIN_OCEAN');
+
 INSERT INTO BBCC(FeatureType, TerrainType)
 	SELECT DISTINCT Features.FeatureType, Feature_ValidTerrains.TerrainType
 	FROM Features
@@ -41,125 +47,118 @@ INSERT INTO BBCC(FeatureType, TerrainType)
 UPDATE BBCC SET TerrainType = REPLACE(TerrainType, '_HILLS','') 
 	WHERE FeatureType IN (SELECT FeatureType FROM Features WHERE NaturalWonder = 1);
 --terrain Yields
-
-UPDATE BBCC SET Food = BBCC.Food + Terrain_YieldChanges.YieldChange
+UPDATE OR IGNORE BBCC SET Food = (SELECT BBCC.Food + Terrain_YieldChanges.YieldChange
 	FROM Terrain_YieldChanges 
-	WHERE YieldType = 'YIELD_FOOD' 
-		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType;
-
-/*
-UPDATE BBCC SET Food = BBCC.Food + Terrain_YieldChanges.YieldChange
-	FROM Terrain_YieldChanges 
-	WHERE YieldType = 'YIELD_FOOD' 
-		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType;
-UPDATE BBCC SET Prod = BBCC.Prod + Terrain_YieldChanges.YieldChange
+	WHERE BBCC.TerrainType = Terrain_YieldChanges.TerrainType 
+		AND YieldType = 'YIELD_FOOD');
+UPDATE OR IGNORE BBCC SET Prod = (SELECT BBCC.Prod + Terrain_YieldChanges.YieldChange
 	FROM Terrain_YieldChanges 
 	WHERE YieldType = 'YIELD_PRODUCTION' 
-		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType;
-UPDATE BBCC SET Gold = BBCC.Gold + Terrain_YieldChanges.YieldChange
+		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType);
+UPDATE OR IGNORE BBCC SET Gold = (SELECT BBCC.Gold + Terrain_YieldChanges.YieldChange
 	FROM Terrain_YieldChanges 
 	WHERE YieldType = 'YIELD_GOLD' 
-		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType;
-UPDATE BBCC SET Prod = BBCC.Faith + Terrain_YieldChanges.YieldChange
+		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType);
+UPDATE OR IGNORE BBCC SET Faith = (SELECT BBCC.Faith + Terrain_YieldChanges.YieldChange
 	FROM Terrain_YieldChanges 
 	WHERE YieldType = 'YIELD_FAITH' 
-		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType;
-UPDATE BBCC SET Cult = BBCC.Cult + Terrain_YieldChanges.YieldChange
+		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType);
+UPDATE OR IGNORE BBCC SET Cult = (SELECT BBCC.Cult + Terrain_YieldChanges.YieldChange
 	FROM Terrain_YieldChanges 
 	WHERE YieldType = 'YIELD_CULTURE' 
-		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType;
-UPDATE BBCC SET Sci = BBCC.Sci + Terrain_YieldChanges.YieldChange
+		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType);
+UPDATE OR IGNORE BBCC SET Sci = (SELECT BBCC.Sci + Terrain_YieldChanges.YieldChange
 	FROM Terrain_YieldChanges 
 	WHERE YieldType = 'YIELD_SCIENCE' 
-		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType;
+		AND BBCC.TerrainType = Terrain_YieldChanges.TerrainType);
 --Irremovable Feature Yields (Non-Nat Wonders)
-UPDATE BBCC SET Food = BBCC.Food + Feature_YieldChanges.YieldChange
+UPDATE OR IGNORE BBCC SET Food = (SELECT BBCC.Food + Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_FOOD' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0);
-UPDATE BBCC SET Prod = BBCC.Prod + Feature_YieldChanges.YieldChange
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0));
+UPDATE OR IGNORE BBCC SET Prod = (SELECT BBCC.Prod + Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_PRODUCTION' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0);
-UPDATE BBCC SET Gold = BBCC.Gold + Feature_YieldChanges.YieldChange
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0));
+UPDATE OR IGNORE BBCC SET Gold = (SELECT BBCC.Gold + Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_GOLD' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0);
-UPDATE BBCC SET Faith = BBCC.Faith + Feature_YieldChanges.YieldChange
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0));
+UPDATE OR IGNORE BBCC SET Faith = (SELECT BBCC.Faith + Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_FAITH' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0);
-UPDATE BBCC SET Cult = BBCC.Cult + Feature_YieldChanges.YieldChange
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0));
+UPDATE OR IGNORE BBCC SET Cult = (SELECT BBCC.Cult + Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_CULTURE' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0);
-UPDATE BBCC SET Sci = BBCC.Sci + Feature_YieldChanges.YieldChange
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0));
+UPDATE OR IGNORE BBCC SET Sci = (SELECT BBCC.Sci + Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_SCIENCE' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0);
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 0));
 --Irremovable Feature Yields (NatWonder)
-UPDATE BBCC SET Food = Feature_YieldChanges.YieldChange
+UPDATE OR IGNORE BBCC SET Food = (SELECT Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_FOOD' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1);
-UPDATE BBCC SET Prod = Feature_YieldChanges.YieldChange
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1));
+UPDATE OR IGNORE BBCC SET Prod = (SELECT Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_PRODUCTION' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1);
-UPDATE BBCC SET Gold = Feature_YieldChanges.YieldChange
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1));
+UPDATE OR IGNORE BBCC SET Gold = (SELECT Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_GOLD' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1);
-UPDATE BBCC SET Faith = Feature_YieldChanges.YieldChange
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1));
+UPDATE OR IGNORE BBCC SET Faith = (SELECT Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_FAITH' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1);
-UPDATE BBCC SET Cult = Feature_YieldChanges.YieldChange
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1));
+UPDATE OR IGNORE BBCC SET Cult = (SELECT Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_CULTURE' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1);
-UPDATE BBCC SET Sci = Feature_YieldChanges.YieldChange
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1));
+UPDATE OR IGNORE BBCC SET Sci = (SELECT Feature_YieldChanges.YieldChange
 	FROM Feature_YieldChanges 
 	WHERE YieldType = 'YIELD_SCIENCE' 
 		AND BBCC.FeatureType = Feature_YieldChanges.FeatureType 
-		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1);
+		AND Feature_YieldChanges.FeatureType IN (SELECT FeatureType FROM Features WHERE Removable = 0 AND NaturalWonder = 1));
 --Resource Yields
-UPDATE BBCC SET Food = BBCC.Food + Resource_YieldChanges.YieldChange
+UPDATE OR IGNORE BBCC SET Food = (SELECT BBCC.Food + Resource_YieldChanges.YieldChange
 	FROM Resource_YieldChanges 
 	WHERE YieldType = 'YIELD_FOOD' 
-		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType;
-UPDATE BBCC SET Prod = BBCC.Prod + Resource_YieldChanges.YieldChange
+		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType);
+UPDATE OR IGNORE BBCC SET Prod = (SELECT BBCC.Prod + Resource_YieldChanges.YieldChange
 	FROM Resource_YieldChanges 
 	WHERE YieldType = 'YIELD_PRODUCTION' 
-		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType;
-UPDATE BBCC SET Gold = BBCC.Gold + Resource_YieldChanges.YieldChange
+		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType);
+UPDATE OR IGNORE BBCC SET Gold = (SELECT BBCC.Gold + Resource_YieldChanges.YieldChange
 	FROM Resource_YieldChanges 
 	WHERE YieldType = 'YIELD_GOLD' 
-		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType;
-UPDATE BBCC SET Faith = BBCC.Faith + Resource_YieldChanges.YieldChange
+		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType);
+UPDATE OR IGNORE BBCC SET Faith = (SELECT BBCC.Faith + Resource_YieldChanges.YieldChange
 	FROM Resource_YieldChanges 
 	WHERE YieldType = 'YIELD_FAITH' 
-		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType;
-UPDATE BBCC SET Cult = BBCC.Cult + Resource_YieldChanges.YieldChange
+		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType);
+UPDATE OR IGNORE BBCC SET Cult = (SELECT BBCC.Cult + Resource_YieldChanges.YieldChange
 	FROM Resource_YieldChanges 
 	WHERE YieldType = 'YIELD_CULTURE' 
-		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType;
-UPDATE BBCC SET Sci = BBCC.Sci + Resource_YieldChanges.YieldChange
+		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType);
+UPDATE OR IGNORE BBCC SET Sci = (SELECT BBCC.Sci + Resource_YieldChanges.YieldChange
 	FROM Resource_YieldChanges 
 	WHERE YieldType = 'YIELD_SCIENCE' 
-		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType;
-*/
+		AND BBCC.ResourceType = Resource_YieldChanges.ResourceType);
+
 CREATE TABLE tmp
 AS 
 SELECT DISTINCT 
@@ -186,11 +185,11 @@ DROP TABLE tmp;
 --strategic requirements
 INSERT INTO Requirements(RequirementId, RequirementType, Inverse)
 	SELECT DISTINCT 'REQ_HAS_NO_'||BBCC.ResourceType||'_BBCC', 'REQUIREMENT_PLOT_RESOURCE_TYPE_MATCHES', '1'
-	FROM BBCC;
+	FROM BBCC WHERE ResourceType IS NOT NULL;
 
 INSERT INTO RequirementArguments(RequirementId, Name, Value)
 	SELECT DISTINCT 'REQ_HAS_NO_'||BBCC.ResourceType||'_BBCC', 'ResourceType', BBCC.ResourceType
-	FROM BBCC;
+	FROM BBCC WHERE ResourceType IS NOT NULL;
 
 INSERT INTO Requirements(RequirementId, RequirementType, Inverse)
 	SELECT 'REQ_SEES_NO_'||Resources.ResourceType||'_BBCC', 'REQUIREMENT_PLAYER_HAS_RESOURCE_VISIBILITY', '1'
@@ -332,6 +331,9 @@ INSERT INTO Requirements(RequirementId, RequirementType, Inverse) VALUES
     ('REQ_PLOT_IS_NO_CITY_CENTER_BBCC' , 'REQUIREMENT_PLOT_DISTRICT_TYPE_MATCHES', '1');
 INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
     ('REQ_PLOT_IS_NO_CITY_CENTER_BBCC' , 'DistrictType', 'DISTRICT_CITY_CENTER');
+--Has no resource at all
+INSERT INTO Requirements(RequirementId, RequirementType, Inverse) VALUES
+	('REQ_HAS_NO_RESOURCE_BBCC', 'REQUIREMENT_PLOT_HAS_ANY_RESOURCE', 1);
 
 CREATE TABLE BBCC_Modifiers(
 	ModifierId TEXT NOT NULL,

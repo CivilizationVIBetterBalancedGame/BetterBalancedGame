@@ -13,115 +13,115 @@ INSERT INTO Hill_SpecialTerrain(SubjectRequirementSetId, YieldType, TerrainType)
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount-2) AS varchar)||'_FOOD_BBCC', 'YIELD_FOOD', Flat_CutOffYieldValues.Amount-2, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount-2) AS varchar)||'_FOOD_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_FOOD' = Flat_CutOffYieldValues.YieldType
-	WHERE (Food>=Flat_CutOffYieldValues.Amount
-		OR Prod>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
-		OR Gold>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
-		OR Faith>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
-		OR Cult>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
-		OR Sci>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE'))
+	WHERE Food<Flat_CutOffYieldValues.Amount
+		AND Prod<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
+		AND Gold<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
+		AND Faith<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
+		AND Cult<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
+		AND Sci<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE')
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount-2 > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount-2) AS varchar)||'_FOOD_BBCC', 'YIELD_FOOD', Hill_CutOffYieldValues.Amount-2, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount-2) AS varchar)||'_FOOD_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_FOOD' = Hill_CutOffYieldValues.YieldType
-	WHERE (Food>=Hill_CutOffYieldValues.Amount
-		OR Prod>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
-		OR Gold>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
-		OR Faith>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
-		OR Cult>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
-		OR Sci>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE'))
+	WHERE Food<Hill_CutOffYieldValues.Amount
+		AND Prod<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
+		AND Gold<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
+		AND Faith<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
+		AND Cult<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
+		AND Sci<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE')
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount-2 > 0;
 --prod
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount-1) AS varchar)||'_PRODUCTION_BBCC', 'YIELD_PRODUCTION', Flat_CutOffYieldValues.Amount-1, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount-1) AS varchar)||'_PRODUCTION_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_PRODUCTION' = Flat_CutOffYieldValues.YieldType
-	WHERE (Prod>=Flat_CutOffYieldValues.Amount
-		OR Food>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
-		OR Gold>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
-		OR Faith>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
-		OR Cult>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
-		OR Sci>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE'))
+	WHERE Prod<Flat_CutOffYieldValues.Amount
+		AND Food<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
+		AND Gold<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
+		AND Faith<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
+		AND Cult<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
+		AND Sci<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE')
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount-1 > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount-1) AS varchar)||'_PRODUCTION_BBCC', 'YIELD_PRODUCTION', Hill_CutOffYieldValues.Amount-1, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount-1) AS varchar)||'_PRODUCTION_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_PRODUCTION' = Hill_CutOffYieldValues.YieldType
-	WHERE (Prod>=Hill_CutOffYieldValues.Amount
-		OR Food>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
-		OR Gold>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
-		OR Faith>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
-		OR Cult>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
-		OR Sci>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE'))
+	WHERE Prod<Hill_CutOffYieldValues.Amount
+		AND Food<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
+		AND Gold<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
+		AND Faith<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
+		AND Cult<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
+		AND Sci<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE')
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount-1 > 0;
 --gold
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_GOLD_BBCC', 'YIELD_GOLD', Flat_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_GOLD_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_GOLD' = Flat_CutOffYieldValues.YieldType
-	WHERE (Gold>=Flat_CutOffYieldValues.Amount
-		OR Food>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
-		OR Prod>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
-		OR Faith>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
-		OR Cult>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
-		OR Sci>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE'))
+	WHERE Gold<Flat_CutOffYieldValues.Amount
+		AND Food<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
+		AND Prod<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
+		AND Faith<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
+		AND Cult<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
+		AND Sci<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE')
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_GOLD_BBCC', 'YIELD_GOLD', Hill_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_GOLD_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_GOLD' = Hill_CutOffYieldValues.YieldType
-	WHERE (Gold>=Hill_CutOffYieldValues.Amount
-		OR Food>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
-		OR Prod>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
-		OR Faith>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
-		OR Cult>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
-		OR Sci>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE'))
+	WHERE Gold<Hill_CutOffYieldValues.Amount
+		AND Food<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
+		AND Prod<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
+		AND Faith<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
+		AND Cult<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
+		AND Sci<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE')
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount > 0;
 --faith
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_FAITH_BBCC', 'YIELD_FAITH', Flat_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_FAITH_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_FAITH' = Flat_CutOffYieldValues.YieldType
-	WHERE (Faith>=Flat_CutOffYieldValues.Amount
-		OR Food>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
-		OR Prod>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
-		OR Gold>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
-		OR Cult>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
-		OR Sci>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE'))
+	WHERE Faith<Flat_CutOffYieldValues.Amount
+		AND Food<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
+		AND Prod<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
+		AND Gold<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
+		AND Cult<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
+		AND Sci<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE')
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_FAITH_BBCC', 'YIELD_FAITH', Hill_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_FAITH_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_FAITH' = Hill_CutOffYieldValues.YieldType
-	WHERE (Faith>=Hill_CutOffYieldValues.Amount
-		OR Food>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
-		OR Prod>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
-		OR Gold>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
-		OR Cult>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
-		OR Sci>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE'))
+	WHERE Faith<Hill_CutOffYieldValues.Amount
+		AND Food<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
+		AND Prod<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
+		AND Gold<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
+		AND Cult<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_CULTURE')
+		AND Sci<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE')
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount > 0;
 --culture
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_CULTURE_BBCC', 'YIELD_CULTURE', Flat_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_CULTURE_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_CULTURE' = Flat_CutOffYieldValues.YieldType
-	WHERE (Cult>=Flat_CutOffYieldValues.Amount
-		OR Food>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
-		OR Prod>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
-		OR Gold>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
-		OR Faith>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
-		OR Sci>(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE'))
+	WHERE Cult<Flat_CutOffYieldValues.Amount
+		AND Food<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
+		AND Prod<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
+		AND Gold<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
+		AND Faith<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
+		AND Sci<=(SELECT Amount FROM Flat_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE')
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_CULTURE_BBCC', 'YIELD_CULTURE', Hill_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_CULTURE_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_CULTURE' = Hill_CutOffYieldValues.YieldType
-	WHERE (Cult>=Hill_CutOffYieldValues.Amount
-		OR Food>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
-		OR Prod>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
-		OR Gold>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
-		OR Faith>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
-		OR Sci>(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE'))
+	WHERE Cult<Hill_CutOffYieldValues.Amount
+		AND Food<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FOOD')
+		AND Prod<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_PRODUCTION')
+		AND Gold<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_GOLD')
+		AND Faith<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_FAITH')
+		AND Sci<=(SELECT Amount FROM Hill_CutOffYieldValues WHERE YieldType = 'YIELD_SCIENCE')
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount > 0;
 --science
@@ -176,29 +176,14 @@ SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, yt, tt
 	WHERE YieldType = yt AND
 		SubjectRequirementSetId LIKE '%ADD%';
 
---todo make a querry for these cross terms
-INSERT INTO Hill_SpecialTerrain(SubjectRequirementSetId, YieldType, TerrainType) VALUES
-	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_GRASS_HILLS'),
-	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_PLAINS_HILLS'),
-	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_TUNDRA_HILLS'),
-	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_DESERT_HILLS'),
-	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_SNOW_HILLS');
-
-INSERT INTO Flat_SpecialTerrain(SubjectRequirementSetId, YieldType, TerrainType) VALUES
-	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_GRASS'),
-	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_PLAINS'),
-	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_TUNDRA'),
-	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_DESERT'),
-	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_SNOW');
-
-DELETE FROM BBCC_Modifiers WHERE ResourceType IS NULL;
-
+--================Building Modifiers and Respective Reqsets==================--------
 UPDATE BBCC_Modifiers SET InnerReqSet = REPLACE(ModifierId, 'MODIFIER_','REQSET_VALID_TFR_'), ReqSet_TFR = 'REQSET_TFR_'||TerrainType||'_'||
 CASE
-	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'HAS_NO_'||ResourceType||'_BBCC'
-	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'HAS_NO_SEES_NO_'||ResourceType||'_BBCC'
-	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'HAS_NO_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
-	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL THEN 'HAS_NO_'||FeatureType||'_BBCC'
+	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'HAS_'||ResourceType||'_BBCC'
+	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'HAS_AND_SEES_'||ResourceType||'_BBCC'
+	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
+	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL THEN 'HAS_'||FeatureType||'_BBCC'
+	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'HAS_NO_RESOURCE_BBCC'
 END
 WHERE NOT EXISTS 
 	(SELECT * FROM 
@@ -222,10 +207,11 @@ INSERT INTO RequirementSets
 INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT ReqSet_TFR, 
 	CASE
-		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_NO_'||ResourceType||'_BBCC'
-		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_NO_OR_SEES_NO_'||ResourceType||'_BBCC'
-		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'REQ_HAS_NO_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
+		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_'||ResourceType||'_BBCC'
+		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_AND_SEES_'||ResourceType||'_BBCC'
+		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'REQ_HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
 		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL THEN 'REQ_HAS_NO_'||FeatureType||'_BBCC'
+		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'REQ_HAS_NO_RESOURCE_BBCC'
 	END
 	FROM BBCC_Modifiers
 	WHERE ReqSet_TFR IS NOT NULL;
@@ -261,9 +247,11 @@ INSERT INTO RequirementSetRequirements
 INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, REPLACE(BBCC_Modifiers.InnerReqSet,'REQSET_','REQ_')
 	FROM BBCC_Modifiers;
+/*
 INSERT INTO RequirementSetRequirements
 	SELECT SubjectRequirementSetId, 'REQ_PLOT_HAS_NO_'||TerrainType||'_BBCC' 
 	FROM (SELECT * FROM Hill_SpecialTerrain UNION SELECT * FROM Flat_SpecialTerrain);
+*/
 --Finalizing the modifiers after the requirements are done
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
 	SELECT DISTINCT BBCC_Modifiers.ModifierId, 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', BBCC_Modifiers.SubjectRequirementSetId

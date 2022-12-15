@@ -3,78 +3,78 @@
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount-2) AS varchar)||'_FOOD_BBCC', 'YIELD_FOOD', Flat_CutOffYieldValues.Amount-2, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount-2) AS varchar)||'_FOOD_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_FOOD' = Flat_CutOffYieldValues.YieldType
-	WHERE Food>=Flat_CutOffYieldValues.Amount
+	WHERE Food<Flat_CutOffYieldValues.Amount
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount-2 > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount-2) AS varchar)||'_FOOD_BBCC', 'YIELD_FOOD', Hill_CutOffYieldValues.Amount-2, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount-2) AS varchar)||'_FOOD_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_FOOD' = Hill_CutOffYieldValues.YieldType
-	WHERE Food>=Hill_CutOffYieldValues.Amount
+	WHERE Food<Hill_CutOffYieldValues.Amount
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount-2 > 0;
 --prod
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount-1) AS varchar)||'_PRODUCTION_BBCC', 'YIELD_PRODUCTION', Flat_CutOffYieldValues.Amount-1, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount-1) AS varchar)||'_PRODUCTION_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_PRODUCTION' = Flat_CutOffYieldValues.YieldType
-	WHERE Prod>=Flat_CutOffYieldValues.Amount
+	WHERE Prod<Flat_CutOffYieldValues.Amount
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount-1 > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount-1) AS varchar)||'_PRODUCTION_BBCC', 'YIELD_PRODUCTION', Hill_CutOffYieldValues.Amount-1, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount-1) AS varchar)||'_PRODUCTION_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_PRODUCTION' = Hill_CutOffYieldValues.YieldType
-	WHERE Prod>=Hill_CutOffYieldValues.Amount
+	WHERE Prod<Hill_CutOffYieldValues.Amount
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount-1 > 0;
 --gold
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_GOLD_BBCC', 'YIELD_GOLD', Flat_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_GOLD_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_GOLD' = Flat_CutOffYieldValues.YieldType
-	WHERE Gold>=Flat_CutOffYieldValues.Amount
+	WHERE Gold<Flat_CutOffYieldValues.Amount
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_GOLD_BBCC', 'YIELD_GOLD', Hill_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_GOLD_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_GOLD' = Hill_CutOffYieldValues.YieldType
-	WHERE Gold>=Hill_CutOffYieldValues.Amount
+	WHERE Gold<Hill_CutOffYieldValues.Amount
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount > 0;
 --faith
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_FAITH_BBCC', 'YIELD_FAITH', Flat_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_FAITH_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_FAITH' = Flat_CutOffYieldValues.YieldType
-	WHERE Faith>=Flat_CutOffYieldValues.Amount
+	WHERE Faith<Flat_CutOffYieldValues.Amount
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_FAITH_BBCC', 'YIELD_FAITH', Hill_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_FAITH_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_FAITH' = Hill_CutOffYieldValues.YieldType
-	WHERE Faith>=Hill_CutOffYieldValues.Amount
+	WHERE Faith<Hill_CutOffYieldValues.Amount
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount > 0;
 --culture
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_CULTURE_BBCC', 'YIELD_CULTURE', Flat_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_CULTURE_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_CULTURE' = Flat_CutOffYieldValues.YieldType
-	WHERE Cult>=Flat_CutOffYieldValues.Amount
+	WHERE Cult<Flat_CutOffYieldValues.Amount
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_CULTURE_BBCC', 'YIELD_CULTURE', Hill_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_CULTURE_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_CULTURE' = Hill_CutOffYieldValues.YieldType
-	WHERE Cult>=Hill_CutOffYieldValues.Amount
+	WHERE Cult<Hill_CutOffYieldValues.Amount
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount > 0;
 --science
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_SCIENCE_BBCC', 'YIELD_SCIENCE', Flat_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount) AS varchar)||'_SCIENCE_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_SCIENCE' = Flat_CutOffYieldValues.YieldType
-	WHERE Sci>=Flat_CutOffYieldValues.Amount
+	WHERE Sci<Flat_CutOffYieldValues.Amount
 		AND TerrainType NOT LIKE '%HILLS'
 		AND Flat_CutOffYieldValues.Amount > 0;
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_SCIENCE_BBCC', 'YIELD_SCIENCE', Hill_CutOffYieldValues.Amount, 'REQSET_ADD_'||CAST(ABS(Hill_CutOffYieldValues.Amount) AS varchar)||'_SCIENCE_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_SCIENCE' = Hill_CutOffYieldValues.YieldType
-	WHERE Sci>=Hill_CutOffYieldValues.Amount
+	WHERE Sci<Hill_CutOffYieldValues.Amount
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount > 0;
 --removing excess yields
@@ -172,37 +172,33 @@ SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, yt, tt
 	ON BBCC_Modifiers.TerrainType = tt
 	WHERE YieldType = yt AND
 		SubjectRequirementSetId LIKE '%ADD%';
---make query for these
-INSERT INTO Hill_SpecialTerrain(SubjectRequirementSetId, YieldType, TerrainType) VALUES
-	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_GRASS_HILLS'),
-	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_PLAINS_HILLS'),
-	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_TUNDRA_HILLS'),
-	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_DESERT_HILLS'),
-	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_SNOW_HILLS');
 
-INSERT INTO Flat_SpecialTerrain(SubjectRequirementSetId, YieldType, TerrainType) VALUES
-	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_GRASS'),
-	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_PLAINS'),
-	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_TUNDRA'),
-	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_DESERT'),
-	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_SNOW');
-
+--================Building Modifiers and Respective Reqsets==================--------
 UPDATE BBCC_Modifiers SET InnerReqSet = REPLACE(ModifierId, 'MODIFIER_','REQSET_VALID_TFR_'), ReqSet_TFR = 'REQSET_TFR_'||TerrainType||'_'||
 CASE
-	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'HAS_NO_'||ResourceType||'_BBCC'
-	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'HAS_NO_SEES_NO_'||ResourceType||'_BBCC'
-	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'HAS_NO_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
-	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL THEN 'HAS_NO_'||FeatureType||'_BBCC'
-	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'HAS_'||ResourceType||'_BBCC'
-	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'HAS_AND_SEES_'||ResourceType||'_BBCC'
-	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
-	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NOT NULL THEN 'HAS_'||FeatureType||'_BBCC'
+	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'HAS_'||ResourceType||'_BBCC'
+	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'HAS_AND_SEES_'||ResourceType||'_BBCC'
+	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
+	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL THEN 'HAS_'||FeatureType||'_BBCC'
+	WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'HAS_NO_RESOURCE_BBCC'
 END
 WHERE NOT EXISTS 
 	(SELECT * FROM 
 		(SELECT * FROM Hill_SpecialTerrain UNION SELECT * FROM Flat_SpecialTerrain) as tmp 
 		WHERE tmp.SubjectRequirementSetId = BBCC_Modifiers.SubjectRequirementSetId 
-			AND tmp.TerrainType=BBCC_Modifiers.TerrainType);
+			AND tmp.TerrainType=BBCC_Modifiers.TerrainType)
+	AND ModifierId NOT LIKE '%REMOVE%';
+
+UPDATE BBCC_Modifiers SET InnerReqSet = REPLACE(ModifierId, 'MODIFIER_','REQSET_VALID_TFR_'), ReqSet_TFR = 'REQSET_TFR_'||TerrainType||'_'||
+CASE
+	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'HAS_'||ResourceType||'_BBCC'
+	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'HAS_AND_SEES_'||ResourceType||'_BBCC'
+	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
+	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NOT NULL THEN 'HAS_'||FeatureType||'_BBCC'
+	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'HAS_NO_RESOURCE_BBCC'
+END
+WHERE ModifierId NOT LIKE '%ADD%';
+
 
 UPDATE BBCC_Modifiers SET InnerReqSet = REPLACE(ModifierId, 'MODIFIER_','REQSET_VALID_TFR_');
 --Building Reqsets
@@ -220,14 +216,16 @@ INSERT INTO RequirementSets
 INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT ReqSet_TFR, 
 	CASE
-		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_NO_'||ResourceType||'_BBCC'
-		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_NO_OR_SEES_NO_'||ResourceType||'_BBCC'
-		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'REQ_HAS_NO_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
+		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_'||ResourceType||'_BBCC'
+		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_AND_SEES_'||ResourceType||'_BBCC'
+		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'REQ_HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
 		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL THEN 'REQ_HAS_NO_'||FeatureType||'_BBCC'
+		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'REQ_HAS_NO_RESOURCE_BBCC'
 		WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_'||ResourceType||'_BBCC'
 		WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_AND_SEES_'||ResourceType||'_BBCC'
 		WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'REQ_HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
 		WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NOT NULL THEN 'REQ_HAS_'||FeatureType||'_BBCC'
+		WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'REQ_HAS_NO_RESOURCE_BBCC'
 	END
 	FROM BBCC_Modifiers
 	WHERE ReqSet_TFR IS NOT NULL;
@@ -263,9 +261,11 @@ INSERT INTO RequirementSetRequirements
 INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, REPLACE(BBCC_Modifiers.InnerReqSet,'REQSET_','REQ_')
 	FROM BBCC_Modifiers;
+/*
 INSERT INTO RequirementSetRequirements
 	SELECT SubjectRequirementSetId, 'REQ_PLOT_HAS_NO_'||TerrainType||'_BBCC' 
 	FROM (SELECT * FROM Hill_SpecialTerrain UNION SELECT * FROM Flat_SpecialTerrain);
+*/
 --Finalizing the modifiers after the requirements are done
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
 	SELECT DISTINCT BBCC_Modifiers.ModifierId, 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', BBCC_Modifiers.SubjectRequirementSetId
@@ -289,19 +289,19 @@ DROP TABLE BBCC_Modifiers;
 DROP TABLE Hill_SpecialTerrain;
 DROP TABLE Flat_SpecialTerrain;
 
---Removing any extra yields (outside wonder settles)
+--=====================Removing any extra yields (outside wonder settles and disaster, for that only lua)================--------
 CREATE TABLE BBCC_DynamicYields(
 	ModifierB TEXT NOT NULL,
 	SubjectRequirementSetId TEXT,
 	Level INT DEFAULT 0,
-	Count INT,
+	Count INT DEFAULT 0 NOT NULL,
 	RequirementSetType TEXT,
 	RequirementId TEXT,
 	RequirementType TEXT,
 	Inverse INT,
 	ReqName TEXT,
 	ReqValue TEXT,
-	FeatureCount INT DEFAULT 0,
+	FeatureCount INT DEFAULT 0 NOT NULL,
 	PRIMARY KEY (ModifierB, SubjectRequirementSetId, RequirementId)
 );
 
@@ -341,21 +341,21 @@ INSERT OR IGNORE INTO BBCC_DynamicYields(ModifierB, SubjectRequirementSetId, Lev
 	INNER JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
 	LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId;
 
-UPDATE BBCC_DynamicYields SET Count = count1
+UPDATE OR IGNORE BBCC_DynamicYields SET Count = (SELECT count1
 	FROM 
 	(SELECT ModifierB as mod, SubjectRequirementSetId as srsid, Level as lvl,
 		COUNT(*) as count1
 		FROM BBCC_DynamicYields 
 		GROUP BY ModifierB, SubjectRequirementSetId, Level)
-	WHERE ModifierB = mod AND SubjectRequirementSetId = srsid AND Level = lvl;
+	WHERE BBCC_DynamicYields.ModifierB = mod AND BBCC_DynamicYields.SubjectRequirementSetId = srsid AND BBCC_DynamicYields.Level = lvl);
 
-UPDATE BBCC_DynamicYields SET FeatureCount= count1
+UPDATE OR IGNORE BBCC_DynamicYields SET FeatureCount= (SELECT count1
 	FROM 
 	(SELECT ModifierB as mod, SubjectRequirementSetId as srsid, Level as lvl,
 		COUNT(*) as count1
 		FROM BBCC_DynamicYields WHERE RequirementType = 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
 		GROUP BY ModifierB, SubjectRequirementSetId, Level)
-	WHERE ModifierB = mod AND SubjectRequirementSetId = srsid AND Level = lvl;
+	WHERE BBCC_DynamicYields.ModifierB = mod AND BBCC_DynamicYields.SubjectRequirementSetId = srsid AND BBCC_DynamicYields.Level = lvl);
 
 DELETE FROM BBCC_DynamicYields 
 WHERE ModifierB IN 
@@ -366,9 +366,9 @@ WHERE ModifierB IN
 			OR (RequirementType = 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES' AND ReqValue IN (SELECT FeatureType FROM Feature_ValidTerrains WHERE TerrainType NOT IN ('TERRAIN_GRASS', 'TERRAIN_GRASS_HILLS', 'TERRAIN_PLAINS', 'TERRAIN_PLAINS_HILLS', 'TERRAIN_DESERT', 'TERRAIN_DESERT_HILLS', 'TERRAIN_TUNDRA', 'TERRAIN_TUNDRA_HILLS', 'TERRAIN_SNOW', 'TERRAIN_SNOW_HILLS')))
 			OR (RequirementType = 'REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES' AND ReqValue NOT IN ('TERRAIN_GRASS', 'TERRAIN_GRASS_HILLS', 'TERRAIN_PLAINS', 'TERRAIN_PLAINS_HILLS', 'TERRAIN_DESERT', 'TERRAIN_DESERT_HILLS', 'TERRAIN_TUNDRA', 'TERRAIN_TUNDRA_HILLS', 'TERRAIN_SNOW', 'TERRAIN_SNOW_HILLS')));
 
-UPDATE BBCC_DynamicYields SET RequirementSetType = RequirementSets.RequirementSetType
+UPDATE BBCC_DynamicYields SET RequirementSetType = (SELECT RequirementSets.RequirementSetType
 	FROM RequirementSets
-	WHERE BBCC_DynamicYields.SubjectRequirementSetId = RequirementSets.RequirementSetId;
+	WHERE BBCC_DynamicYields.SubjectRequirementSetId = RequirementSets.RequirementSetId);
 
 --SELECT DISTINCT SubjectRequirementSetId FROM BBCC_DynamicYields WHERE RequirementSetType = 'REQUIREMENTSET_TEST_ANY' AND Level = 0;
 CREATE TABLE InvestigationLevel(
