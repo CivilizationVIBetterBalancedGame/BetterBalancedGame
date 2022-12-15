@@ -515,3 +515,13 @@ UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_WAT'
 
 --11/12/22 cathedral any art instead of only religious
 UPDATE Building_GreatWorks SET GreatWorkSlotType='GREATWORKSLOT_PALACE' WHERE BuildingType='BUILDING_CATHEDRAL';
+
+--15/12/22 Mosque grant missionary 
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
+    ('BBG_MOSQUE_GRANT_MISSIONARY', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY', 1, 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MOSQUE_GRANT_MISSIONARY', 'UnitType', 'UNIT_MISSIONARY'),
+    ('BBG_MOSQUE_GRANT_MISSIONARY', 'Amount', 1);
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+    ('BUILDING_MOSQUE', 'BBG_MOSQUE_GRANT_MISSIONARY');
+
