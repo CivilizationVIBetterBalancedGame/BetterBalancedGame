@@ -242,9 +242,6 @@ UPDATE ModifierArguments SET Value='5' WHERE ModifierId='JUST_WAR_COMBAT_BONUS_M
 -- Stewardship to +2/+2
 UPDATE ModifierArguments SET Value='2' WHERE Name='Amount' AND ModifierId IN ('STEWARDSHIP_SCIENCE_DISTRICTS_MODIFIER', 'STEWARDSHIP_GOLD_DISTRICTS_MODIFIER');
 
--- Synagogue to 7 Faith:
-UPDATE Building_YieldChanges SET YieldChange=7 WHERE BuildingType='BUILDING_SYNAGOGUE' AND YieldType='YIELD_FAITH';
-
 -- Jesuit Education give 15% discount on campus and theater purchase.
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
     SELECT 'BBG_GIVER_PURCHASE_CHEAPER_' || Buildings.BuildingType, 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_RELIGION_REQUIREMENTS'
@@ -513,7 +510,7 @@ INSERT INTO Building_YieldChanges(BuildingType, YieldType, YieldChange) VALUES
 --11/12/22 +1 yield for worship buildings
 UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_GURDWARA' AND YieldType = 'YIELD_FOOD';
 UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_MEETING_HOUSE' AND YieldType = 'YIELD_PRODUCTION';
-UPDATE Building_YieldChanges SET YieldChange=7 WHERE BuildingType='BUILDING_MEETING_HOUSE' AND YieldType = 'YIELD_FAITH';
+UPDATE Building_YieldChanges SET YieldChange=9 WHERE BuildingType='BUILDING_SYNAGOGUE' AND YieldType='YIELD_FAITH';
 UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_WAT' AND YieldType = 'YIELD_SCIENCE';
 
 --11/12/22 cathedral any art instead of only religious
