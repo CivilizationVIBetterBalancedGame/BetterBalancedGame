@@ -210,7 +210,7 @@ INSERT INTO RequirementSetRequirements
 		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_'||ResourceType||'_BBCC'
 		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_AND_SEES_'||ResourceType||'_BBCC'
 		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'REQ_HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
-		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL THEN 'REQ_HAS_NO_'||FeatureType||'_BBCC'
+		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL THEN 'REQ_HAS_'||FeatureType||'_BBCC'
 		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'REQ_HAS_NO_RESOURCE_BBCC'
 	END
 	FROM BBCC_Modifiers
