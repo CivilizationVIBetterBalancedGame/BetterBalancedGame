@@ -105,3 +105,22 @@ INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES 
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_RECON'),
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_NIHANG');
+
+-- 15/12 Mobile SAM buff 110 anti air
+-- Start of the -5 vs planes but didn't find an adapted modifier
+-- INSERT INTO Tags VALUES
+--     ('BBG_CLASS_MOBILE_SAM', 'ABILITY_CLASS');
+-- INSERT INTO Types (Type, Kind) VALUES 
+--     ('BBG_ABILITY_MINUS_CS_PLANES', 'KIND_ABILITY');
+-- INSERT INTO TypesTags VALUES
+--     ('UNIT_MOBILE_SAM', 'BBG_CLASS_MOBILE_SAM'),
+--     ('BBG_ABILITY_MINUS_PLANES', 'BBG_CLASS_MOBILE_SAM');
+
+-- INSERT INTO UnitAbilitiesModifiers (UnitAbilityType, UnitAbilityModifiers) VALUES
+--     ('BBG_ABILITY_MINUS_CS_PLANES', 'BBG_MODIFIER_MINUS_CS_PLANES');
+-- INSERT INTO UnitAbilities (UnitAbilityType, Name, Description) VALUES
+--     ('BBG_ABILITY_MINUS_CS_PLANES', 'LOC_BBG_ABILITY_MINUS_CS_PLANES_NAME', 'LOC_BBG_ABILITY_MINUS_CS_PLANES_DESC');
+
+-- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+--     ('BBG_MODIFIER_MINUS_CS_PLANES', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_REQUIREMENT_')
+UPDATE Units SET AntiAirCombat=110 WHERE UnitType='UNIT_MOBILE_SAM';
