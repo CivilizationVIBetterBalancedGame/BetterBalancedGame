@@ -230,6 +230,24 @@ INSERT INTO BeliefModifiers(BeliefType, ModifierID) VALUES
 UPDATE ModifierArguments SET Value='30' WHERE ModifierId='GOD_OF_THE_FORGE_UNIT_ANCIENT_CLASSICAL_PRODUCTION_MODIFIER' AND Name='Amount';
 
 
+-- 15/12/22 Remove pantheon "healing goddess" (we didn't find anything usefull with the same thematic) but replace it with a new "open sea" pantheon that grants +1culture to improved sea ressources
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('OPEN_SEA_FISHINGBOATS_CULTURE', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
+    ('OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'PLOT_HAS_FISHINGBOATS_REQUIREMENTS');
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('OPEN_SEA_FISHINGBOATS_CULTURE', 'ModifierId', 'OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER'),
+    ('OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER', 'YieldType', 'YIELD_CULTURE'),
+    ('OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER', 'Amount', 1);
+
+-- For now just replacing the beliefs of god of healing, because it's only beta
+UPDATE BeliefModifiers SET ModifierID='OPEN_SEA_FISHINGBOATS_CULTURE' WHERE BeliefType='BELIEF_GOD_OF_HEALING';
+-- INSERT INTO BeliefModifiers ('BELIEF_OPEN_SEA', 'OPEN_SEA_FISHINGBOATS_CULTURE');
+
+
+
+
+
 --==============================================================================================
 --******                RELIGION                        ******
 --==============================================================================================
