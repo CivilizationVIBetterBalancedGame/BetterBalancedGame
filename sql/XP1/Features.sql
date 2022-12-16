@@ -1,6 +1,6 @@
 
 -- Delicate Arch
-UPDATE Feature_AdjacentYields SET YieldChange=3 WHERE FeatureType='FEATURE_DELICATE_ARCH' AND YieldType='YIELD_FAITH';
+UPDATE Feature_AdjacentYields SET YieldChange=3 WHERE FeatureType='FEATURE_DELICATE_ARCH' AND YieldType='YIELD_GOLD';
 
 --Matterhorn +2 down from +3
 -- UPDATE ModifierArguments SET Value='0' WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS' AND Name='Amount';

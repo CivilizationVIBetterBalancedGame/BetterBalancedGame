@@ -49,36 +49,6 @@ INSERT INTO ModifierArguments (ModifierId , Name , Value) VALUES
 	('BBG_GEORGIA_FAITH_PER_ENVOY' , 'Amount', '1');
 
 --==================
--- India (Chandra)
---==================
--- replace Territorial Expansion Declaration Bonus with +1 movement
-DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_ARTHASHASTRA';
-
-INSERT OR IGNORE INTO TraitModifiers (TraitType , ModifierId)
-	VALUES ('TRAIT_LEADER_ARTHASHASTRA' , 'TRAIT_EXPANSION_MOVEMENT_BONUS_CPLMOD');
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType)
-	VALUES ('TRAIT_EXPANSION_MOVEMENT_BONUS_CPLMOD' , 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-	VALUES ('TRAIT_EXPANSION_MOVEMENT_BONUS_CPLMOD' , 'ModifierId', 'EXPANSION_MOVEMENT_BONUS_MODIFIER_CPLMOD');
-
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , OwnerRequirementSetId)
-	VALUES ('EXPANSION_MOVEMENT_BONUS_MODIFIER_CPLMOD' , 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT' , 'REQUIREMENTSET_LAND_MILITARY_CPLMOD');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-	VALUES ('EXPANSION_MOVEMENT_BONUS_MODIFIER_CPLMOD' , 'Amount' , '1');
-
-INSERT OR IGNORE INTO RequirementSets (RequirementSetId , RequirementSetType)
-	VALUES ('REQUIREMENTSET_LAND_MILITARY_CPLMOD' , 'REQUIREMENTSET_TEST_ANY');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId)
-	VALUES ('REQUIREMENTSET_LAND_MILITARY_CPLMOD' , 'REQUIREMENTS_LAND_MILITARY_CPLMOD');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId)
-	VALUES ('REQUIREMENTSET_LAND_MILITARY_CPLMOD' , 'REQUIRES_UNIT_IS_RELIGIOUS_ALL');
-INSERT OR IGNORE INTO Requirements (RequirementId , RequirementType)
-	VALUES ('REQUIREMENTS_LAND_MILITARY_CPLMOD', 'REQUIREMENT_UNIT_FORMATION_CLASS_MATCHES');
-INSERT OR IGNORE INTO RequirementArguments (RequirementId , Name , Value)
-	VALUES ('REQUIREMENTS_LAND_MILITARY_CPLMOD' , 'UnitFormationClass' , 'FORMATION_CLASS_LAND_COMBAT');
-
-
---==================
 -- Korea
 --==================
 -- Seowon gets +2 science base yield instead of 4, +1 for every 2 mines adjacent instead of 1 to 1
@@ -397,6 +367,8 @@ INSERT OR IGNORE INTO ModifierArguments(ModifierId, Name, Value) VALUES
 	('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
 INSERT OR IGNORE INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
 	('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'SURPLUS_LOGISTICS_TRADE_ROUTE_PROD');
+-- Magnus' Surplus Logistics gives only +1 food
+UPDATE ModifierArguments SET Value='1' WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD' AND Name='Amount';
 -- Magnus provision give 1 PM to Settler.
 INSERT INTO Types(Type, Kind) VALUES
     ('BBG_SETTLER_MOUVMENT_ABILITY', 'KIND_ABILITY');
