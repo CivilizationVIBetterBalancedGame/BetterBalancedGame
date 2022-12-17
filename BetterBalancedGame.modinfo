@@ -1,13 +1,13 @@
 <!-- Release ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5015">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5016">
 -->
 <!-- BETA ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5015">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5016">
 -->
 <!-- WIP ModID-->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5015">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5016">
 	<Properties>
-		<Name>Better Balanced Game 5.1.5</Name>
+		<Name>Better Balanced Game 5.1.6</Name>
 		<Description>
 			Release build of Better Balanced Game
 		</Description>
@@ -98,7 +98,7 @@
 		</Criteria>
 		<!-- -->
 		<!--BBCC-->
-	    <Criteria id="bbcc_base">
+	    <Criteria id="core_bbcc">
 	      <ConfigurationValueMatches inverse = "1">
 	        <Group>Game</Group>
 	        <ConfigurationId>BBCC_SETTING</ConfigurationId>
@@ -112,17 +112,26 @@
 	        <Value>1</Value>
 	      </ConfigurationValueMatches>
 	    </Criteria>
-	    <Criteria id="nfp_maya_colombia">
-	      <ModInUse>9DE86512-DE1A-400D-8C0A-AB46EBBF76B9</ModInUse>
+	    <Criteria id="standard_bbcc">
+	      <ConfigurationValueMatches>
+	        <Group>Game</Group>
+	        <ConfigurationId>BBCC_SETTING_YIELD</ConfigurationId>
+	        <Value>0</Value>
+	      </ConfigurationValueMatches>
 	    </Criteria>
-	    <Criteria id="resourceful_lite">
-	      <ModInUse>24879c66-7cbb-45c0-a891-e5b4a2271b6c</ModInUse>
+	    <Criteria id="no_rng_bbcc">
+	      <ConfigurationValueMatches>
+	        <Group>Game</Group>
+	        <ConfigurationId>BBCC_SETTING_YIELD</ConfigurationId>
+	        <Value>1</Value>
+	      </ConfigurationValueMatches>
 	    </Criteria>   
-	    <Criteria id="resourceful_full">
-	      <ModInUse>23879c66-7cbb-4320-a891-ad24026f1b6b</ModInUse>
-	    </Criteria> 
-	    <Criteria id="sukr_res">
-	      <ModInUse>37fdca0b-9275-4235-9c18-c7ec348f930e</ModInUse>
+	    <Criteria id="legacy_bbcc">
+	      <ConfigurationValueMatches>
+	        <Group>Game</Group>
+	        <ConfigurationId>BBCC_SETTING_YIELD</ConfigurationId>
+	        <Value>2</Value>
+	      </ConfigurationValueMatches>
 	    </Criteria>    		
 		<!-- -->
 		<Criteria id="CVSetting_2">
@@ -271,6 +280,12 @@
 	<InGameActions>
 		<AddGameplayScripts id="BBG_CoreScript">
 			<File>scripts/bbg_script.lua</File>
+		</AddGameplayScripts>
+		<!-- BBCC-->
+		<AddGameplayScripts id="bbcc_no_rng_script">
+	    	<Criteria>core_bbcc</Criteria>
+	    	<Criteria>no_rng_bbcc</Criteria>
+			<File>scripts/bbcc_no_rng.lua</File>
 		</AddGameplayScripts>
 		<!-- -->
 		<UpdateText id="BBG_TextUpdate">
@@ -579,59 +594,49 @@
 		</UpdateDatabase>
 
 		<!--BBCC-->
-		<UpdateDatabase id="base_bbcc_db">
+		<UpdateDatabase id="bbcc_configvalues_db">
 	      <Properties>
 	          <LoadOrder>11661</LoadOrder>
 	      </Properties>
-	      <Criteria>bbcc_base</Criteria>
-	      <File>sql/bbcc/base_bbcc.sql</File>
+	      <Criteria>core_bbcc</Criteria>
+	      <File>sql/bbcc/bbcc_configvalues.sql</File>
 	    </UpdateDatabase>
-		<UpdateDatabase id="xp2_bbcc_db">
+		<UpdateDatabase id="core_bbcc_db">
 	      <Properties>
 	          <LoadOrder>11662</LoadOrder>
 	      </Properties>
-	      <Criteria>bbcc_base</Criteria>
-	      <Criteria>XP2</Criteria>
-	      <File>sql/bbcc/xp2_bbcc.sql</File>
+	      <Criteria>core_bbcc</Criteria>
+	      <File>sql/bbcc/core_bbcc.sql</File>
 	    </UpdateDatabase>	    
-	    <UpdateDatabase id="nfp_maya_colombia_bbcc_db">
+	    <UpdateDatabase id="standard_bbcc_db">
 	      <Properties>
 	          <LoadOrder>11663</LoadOrder>
 	      </Properties>
-	      <Criteria>bbcc_base</Criteria>
-	      <Criteria>nfp_maya_colombia</Criteria>
-	      <File>sql/bbcc/nfp_maya_colombia_bbcc.sql</File>
+	      <Criteria>core_bbcc</Criteria>
+	      <Criteria>standard_bbcc</Criteria>
+	      <File>sql/bbcc/standard_bbcc.sql</File>
 	    </UpdateDatabase>
-	    <UpdateDatabase id="comp_resfl_lite_bbcc_db">
+	    <UpdateDatabase id="no_rng_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11664</LoadOrder>
+	          <LoadOrder>11663</LoadOrder>
 	      </Properties>
-	      <Criteria>bbcc_base</Criteria>
-	      <Criteria>resourceful_lite</Criteria>
-	      <File>sql/bbcc/compatibility/resourceful_lite.sql</File>
+	      <Criteria>core_bbcc</Criteria>
+	      <Criteria>no_rng_bbcc</Criteria>
+	      <File>sql/bbcc/no_rng_bbcc.sql</File>
 	    </UpdateDatabase>
-	    <UpdateDatabase id="comp_resfl_full_bbcc_db">
+	    <UpdateDatabase id="legacy_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11665</LoadOrder>
+	          <LoadOrder>11663</LoadOrder>
 	      </Properties>
-	      <Criteria>bbcc_base</Criteria>
-	      <Criteria>resourceful_full</Criteria>
-	      <File>sql/bbcc/compatibility/resourceful_lite.sql</File>
-	      <File>sql/bbcc/compatibility/resourceful_full.sql</File>
+	      <Criteria>core_bbcc</Criteria>
+	      <Criteria>legacy_bbcc</Criteria>
+	      <File>sql/bbcc/legacy_bbcc.sql</File>
 	    </UpdateDatabase>
-	    <UpdateDatabase id="comp_sukr_res_bbcc_db">
-	      <Properties>
-	          <LoadOrder>11666</LoadOrder>
-	      </Properties>
-	      <Criteria>sukr_res</Criteria>
-	      <Criteria>bbcc_base</Criteria>
-	      <File>sql/bbcc/compatibility/sukritact.sql</File>
-	    </UpdateDatabase>  
 	    <UpdateDatabase id="cap_bbcc_db">
 	      <Properties>
 	          <LoadOrder>11670</LoadOrder>
 	      </Properties>
-	      <Criteria>bbcc_base</Criteria>
+	      <Criteria>core_bbcc</Criteria>
 	      <Criteria>bbcc_cap</Criteria>
 	      <File>sql/bbcc/cap_only_bbcc.sql</File>
 	    </UpdateDatabase>
@@ -841,6 +846,7 @@
 	<!-- defines file dependencies -->
 	<Files>
 		<File>scripts/bbg_script.lua</File>
+		<File>scripts/bbcc_no_rng.lua</File>
 		<!-- -->
 		<File>lang/english.xml</File>
 		<File>lang/korean.xml</File>
@@ -973,13 +979,12 @@
 
 		<File>sql/beta/ban_trade_treaty.sql</File>
 
-	    <File>sql/bbcc/base_bbcc.sql</File>
-	    <File>sql/bbcc/xp2_bbcc.sql</File>
-	    <File>sql/bbcc/nfp_maya_colombia_bbcc.sql</File>
+		<File>sql/bbcc/bbcc_configvalues.sql</File>
+	    <File>sql/bbcc/core_bbcc.sql</File>
+	    <File>sql/bbcc/standard_bbcc.sql</File>
+	    <File>sql/bbcc/no_rng_bbcc.sql</File>
+	    <File>sql/bbcc/legacy_bbcc.sql</File>
 	    <File>sql/bbcc/cap_only_bbcc.sql</File>
-	    <File>sql/bbcc/compatibility/resourceful_lite.sql</File>
-	    <File>sql/bbcc/compatibility/resourceful_full.sql</File>
-	    <File>sql/bbcc/compatibility/sukritact.sql</File>
 
 		<File>sql/april_fool.sql</File>
 		<File>lang/april_fool.xml</File>
