@@ -281,6 +281,12 @@
 		<AddGameplayScripts id="BBG_CoreScript">
 			<File>scripts/bbg_script.lua</File>
 		</AddGameplayScripts>
+		<!-- BBCC-->
+		<AddGameplayScripts id="bbcc_no_rng_script">
+	    	<Criteria>core_bbcc</Criteria>
+	    	<Criteria>no_rng_bbcc</Criteria>
+			<File>scripts/bbcc_no_rng.lua</File>
+		</AddGameplayScripts>
 		<!-- -->
 		<UpdateText id="BBG_TextUpdate">
 			<Properties>
@@ -840,6 +846,7 @@
 	<!-- defines file dependencies -->
 	<Files>
 		<File>scripts/bbg_script.lua</File>
+		<File>scripts/bbcc_no_rng.lua</File>
 		<!-- -->
 		<File>lang/english.xml</File>
 		<File>lang/korean.xml</File>
