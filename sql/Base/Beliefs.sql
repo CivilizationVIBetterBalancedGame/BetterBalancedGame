@@ -230,6 +230,24 @@ INSERT INTO BeliefModifiers(BeliefType, ModifierID) VALUES
 UPDATE ModifierArguments SET Value='30' WHERE ModifierId='GOD_OF_THE_FORGE_UNIT_ANCIENT_CLASSICAL_PRODUCTION_MODIFIER' AND Name='Amount';
 
 
+-- 15/12/22 Remove pantheon "healing goddess" (we didn't find anything usefull with the same thematic) but replace it with a new "open sea" pantheon that grants +1culture to improved sea ressources
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('OPEN_SEA_FISHINGBOATS_CULTURE', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
+    ('OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'PLOT_HAS_FISHINGBOATS_REQUIREMENTS');
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('OPEN_SEA_FISHINGBOATS_CULTURE', 'ModifierId', 'OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER'),
+    ('OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER', 'YieldType', 'YIELD_CULTURE'),
+    ('OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER', 'Amount', 1);
+
+-- For now just replacing the beliefs of god of healing, because it's only beta
+UPDATE BeliefModifiers SET ModifierID='OPEN_SEA_FISHINGBOATS_CULTURE' WHERE BeliefType='BELIEF_GOD_OF_HEALING';
+-- INSERT INTO BeliefModifiers ('BELIEF_OPEN_SEA', 'OPEN_SEA_FISHINGBOATS_CULTURE');
+
+
+
+
+
 --==============================================================================================
 --******                RELIGION                        ******
 --==============================================================================================
@@ -241,9 +259,6 @@ UPDATE ModifierArguments SET Value='5' WHERE ModifierId='JUST_WAR_COMBAT_BONUS_M
 
 -- Stewardship to +2/+2
 UPDATE ModifierArguments SET Value='2' WHERE Name='Amount' AND ModifierId IN ('STEWARDSHIP_SCIENCE_DISTRICTS_MODIFIER', 'STEWARDSHIP_GOLD_DISTRICTS_MODIFIER');
-
--- Synagogue to 7 Faith:
-UPDATE Building_YieldChanges SET YieldChange=7 WHERE BuildingType='BUILDING_SYNAGOGUE' AND YieldType='YIELD_FAITH';
 
 -- Jesuit Education give 15% discount on campus and theater purchase.
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
@@ -483,14 +498,8 @@ INSERT OR IGNORE INTO BeliefModifiers
     VALUES 
     ('BELIEF_WORK_ETHIC' , 'WORK_ETHIC_TEMPLE_PRODUCTION'),
     ('BELIEF_WORK_ETHIC' , 'WORK_ETHIC_SHRINE_PRODUCTION');
--- Dar E Mehr provides +2 culture instead of faith from eras
-DELETE FROM Building_YieldsPerEra WHERE BuildingType='BUILDING_DAR_E_MEHR';
-INSERT OR IGNORE INTO Building_YieldChanges 
-    (BuildingType          , YieldType       , YieldChange)
-    VALUES 
-    ('BUILDING_DAR_E_MEHR' , 'YIELD_CULTURE' , '2');
--- All worship building production costs reduced    
 
+-- All worship building production costs reduced    
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_CATHEDRAL'    ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_GURDWARA'     ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_MEETING_HOUSE';
@@ -500,3 +509,37 @@ INSERT OR IGNORE INTO Building_YieldChanges
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_WAT'          ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_STUPA'        ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_DAR_E_MEHR'   ;
+
+-- Pagoda: 1 Influance instead of 1 diplo favour
+DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_PAGODA' AND ModifierId='PAGODA_ADJUST_FAVOR';
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_PAGODA_INFLUENCE', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_PAGODA_INFLUENCE', 'Amount', '1');
+INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
+    ('BUILDING_PAGODA', 'BBG_PAGODA_INFLUENCE');
+
+-- Dar E Mehr provides +2 culture instead of faith from eras
+--11/12/22 to +3
+DELETE FROM Building_YieldsPerEra WHERE BuildingType='BUILDING_DAR_E_MEHR';
+INSERT INTO Building_YieldChanges(BuildingType, YieldType, YieldChange) VALUES 
+    ('BUILDING_DAR_E_MEHR', 'YIELD_CULTURE', '3');
+
+--11/12/22 +1 yield for worship buildings
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_GURDWARA' AND YieldType = 'YIELD_FOOD';
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_MEETING_HOUSE' AND YieldType = 'YIELD_PRODUCTION';
+UPDATE Building_YieldChanges SET YieldChange=9 WHERE BuildingType='BUILDING_SYNAGOGUE' AND YieldType='YIELD_FAITH';
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_WAT' AND YieldType = 'YIELD_SCIENCE';
+
+--11/12/22 cathedral any art instead of only religious
+UPDATE Building_GreatWorks SET GreatWorkSlotType='GREATWORKSLOT_PALACE' WHERE BuildingType='BUILDING_CATHEDRAL';
+
+--15/12/22 Mosque grant missionary 
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
+    ('BBG_MOSQUE_GRANT_MISSIONARY', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY', 1, 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MOSQUE_GRANT_MISSIONARY', 'UnitType', 'UNIT_MISSIONARY'),
+    ('BBG_MOSQUE_GRANT_MISSIONARY', 'Amount', 1);
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+    ('BUILDING_MOSQUE', 'BBG_MOSQUE_GRANT_MISSIONARY');
+

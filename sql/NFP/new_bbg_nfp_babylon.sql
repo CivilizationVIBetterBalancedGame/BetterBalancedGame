@@ -85,6 +85,13 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 INSERT INTO BuildingModifiers(BuildingType, ModifierId)
     SELECT 'BUILDING_LIBRARY', 'BBG_BABYLON_FREE_EUREKA_LIBRARY_' || EraType FROM Eras;
 
+-- Palgum requires improved tile for bonus food yield
+INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
+	('REQUIRES_PLOT_HAS_ANY_IMPROVEMENT', 'REQUIREMENT_PLOT_HAS_ANY_IMPROVEMENT', 0);
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+	('PLOT_IS_FRESH', 'REQUIRES_PLOT_HAS_ANY_IMPROVEMENT');
+UPDATE RequirementSets SET RequirementSetType = 'REQUIREMENTSET_TEST_ALL' WHERE RequirementSetId = 'PLOT_IS_FRESH';
+
 --==============================================================
 --******                     CITY-STATES                  ******
 --==============================================================

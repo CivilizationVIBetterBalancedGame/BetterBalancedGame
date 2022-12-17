@@ -64,3 +64,8 @@ INSERT INTO Requirements(RequirementId, RequirementType, Inverse)
 INSERT INTO RequirementArguments(RequirementId, Name, Value)
     SELECT 'BBG_PLAYER_IS_NOT_IN_' || EraType || '_REQUIREMENT', 'EraType', EraType
     FROM Eras;
+
+INSERT OR IGNORE INTO RequirementSets VALUES
+    ('BBG_UNIT_ON_HILL_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+INSERT OR IGNORE INTO RequirementSetRequirements VALUES
+    ('BBG_UNIT_ON_HILL_REQUIREMENTS', 'PLOT_IS_HILLS_REQUIREMENT');
