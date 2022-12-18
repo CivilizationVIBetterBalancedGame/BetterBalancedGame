@@ -10,6 +10,8 @@
 		<Row Domain="Expansion2_Victories" VictoryType="VICTORY_DIPLOMATIC" Name="LOC_VICTORY_DIPLOMATIC_NAME" Description="LOC_VICTORY_DIPLOMATIC_TT" Visible="1"/>
 	</Victories>
 	<Parameters>
+		<Row ParameterId="BBCC_SETTING" Name="BBCC_SETTING_NAME" Description="BBCC_SETTING_DESC" Domain="BBCCSetting" DefaultValue="-1" ConfigurationGroup="Game" ConfigurationId="BBCC_SETTING" GroupId="GameOptions" SupportsSinglePlayer="1" SupportsPlayByCloud="1" SupportsHotSeat="1" SortIndex="10" />
+		<Row ParameterId="BBCC_SETTING_YIELD" Name="BBCC_SETTING_YIELD_NAME" Description="BBCC_SETTING_YIELD_DESC" Domain="BBCCSettingYield" DefaultValue="0" ConfigurationGroup="Game" ConfigurationId="BBCC_SETTING_YIELD" GroupId="GameOptions" SupportsSinglePlayer="1" SupportsPlayByCloud="1" SupportsHotSeat="1" SortIndex="11" />
 		<Row ParameterId="TRADITIONAL_DOMINATION_LEVEL" Name="Domination Level" Description="Description" Visible="0"  Domain="int" DefaultValue="66" ConfigurationGroup="Game" ConfigurationId="TRADITIONAL_DOMINATION_LEVEL" GroupId="AdvancedOptions" />
 		<Row ParameterId="VICTORY_TRADITIONAL_DOMINATION" Name="LOC_VICTORY_TRADITIONAL_DOMINATION_NAME" Description="LOC_VICTORY_TRADITIONAL_DOMINATION_TT" Visible="1"  Domain="bool" DefaultValue="1" ConfigurationGroup="Game" ConfigurationId="VICTORY_TRADITIONAL_DOMINATION" GroupId="Victories" />
 		<Row ParameterId="VICTORY_CONQUEST" Name="LOC_VICTORY_DOMINATION_NAME" Description="LOC_VICTORY_DOMINATION_TT" Visible="1" Domain="bool" DefaultValue="1" ConfigurationGroup="Game" ConfigurationId="VICTORY_CONQUEST" GroupId="Victories" />
@@ -37,6 +39,9 @@
 	</GameModeItems> -->
 
 	<ParameterCriteria>
+		<!--BBCC -->
+		<Row ParameterId="BBCC_SETTING_YIELD" 				ConfigurationGroup="Game" ConfigurationId="BBCC_SETTING" 		  Operator="NotEquals" ConfigurationValue="-1" />
+
    		<Row ParameterId="VICTORY_CULTURE" 					ConfigurationGroup="Game" ConfigurationId="BBGVictorySpeedSlider" Operator="NotEquals" ConfigurationValue="-1" />
    		<Row ParameterId="VICTORY_CONQUEST" 				ConfigurationGroup="Game" ConfigurationId="BBGVictorySpeedSlider" Operator="NotEquals" ConfigurationValue="-1" />			
    		<Row ParameterId="VICTORY_RELIGIOUS" 				ConfigurationGroup="Game" ConfigurationId="BBGVictorySpeedSlider" Operator="NotEquals" ConfigurationValue="-1" />		
@@ -102,6 +107,14 @@
 	</DomainRangeQueries>
 	 -->
 	<DomainValues>
+		<!--BBCC-Setting-->
+		<Row Domain="BBCCSetting" Value="-1" Name="LOC_BBG_FRONT_BBCC_SETTING_M1_NAME" Description="LOC_BBG_FRONT_BBCC_SETTING_M1_DESC" SortIndex="10"/>
+		<Row Domain="BBCCSetting" Value="0" Name="LOC_BBG_FRONT_BBCC_SETTING_0_NAME" Description="LOC_BBG_FRONT_BBCC_SETTING_0_DESC" SortIndex="20"/>
+		<Row Domain="BBCCSetting" Value="1" Name="LOC_BBG_FRONT_BBCC_SETTING_1_NAME" Description="LOC_BBG_FRONT_BBCC_SETTING_1_DESC" SortIndex="30"/>
+		<Row Domain="BBCCSettingYield" Value="0" Name="LOC_BBG_FRONT_BBCC_SETTING_YIELD_0_NAME" Description="LOC_BBG_FRONT_BBCC_SETTING_YIELD_0_DESC" SortIndex="10"/>
+		<Row Domain="BBCCSettingYield" Value="1" Name="LOC_BBG_FRONT_BBCC_SETTING_YIELD_1_NAME" Description="LOC_BBG_FRONT_BBCC_SETTING_YIELD_1_DESC" SortIndex="20"/>
+		<Row Domain="BBCCSettingYield" Value="2" Name="LOC_BBG_FRONT_BBCC_SETTING_YIELD_2_NAME" Description="LOC_BBG_FRONT_BBCC_SETTING_YIELD_2_DESC" SortIndex="30"/>
+		
 		<Row Domain="BBGBarbsSetting" Value="0" Name="BBG_FRONT_BARB_SETTING_0_NAME" Description="BBG_FRONT_BARB_SETTING_0_DESC" SortIndex="10"/>
 		<Row Domain="BBGBarbsSetting" Value="3" Name="BBG_FRONT_BARB_SETTING_3_NAME" Description="BBG_FRONT_BARB_SETTING_3_DESC" SortIndex="20"/>
 		<Row Domain="BBGBarbsSetting" Value="1" Name="BBG_FRONT_BARB_SETTING_1_NAME" Description="BBG_FRONT_BARB_SETTING_1_DESC" SortIndex="30"/>
