@@ -1,4 +1,5 @@
 --Populating
+/*
 INSERT INTO Flat_SpecialTerrain(SubjectRequirementSetId, YieldType, TerrainType) VALUES
 	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_TUNDRA'),
 	('REQSET_ADD_1_FOOD_BBCC','YIELD_FOOD','TERRAIN_DESERT'),
@@ -7,7 +8,7 @@ INSERT INTO Hill_SpecialTerrain(SubjectRequirementSetId, YieldType, TerrainType)
 	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_TUNDRA_HILLS'),
 	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_DESERT_HILLS'),
 	('REQSET_ADD_1_PRODUCTION_BBCC','YIELD_PRODUCTION','TERRAIN_SNOW_HILLS');
-
+*/
 --============Adding Missing Yields:=============-----
 --food
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
@@ -215,6 +216,19 @@ INSERT INTO RequirementSetRequirements
 	END
 	FROM BBCC_Modifiers
 	WHERE ReqSet_TFR IS NOT NULL;
+--Building Leader/Civ antirequrements for Mali, Russia, Canada
+--On laurier, On russia, On Mali
+INSERT INTO Requirements(RequirementId, RequirementType, Inverse) VALUES
+	('REQ_IS_NOT_LAURIER_BBCC', 'REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES', 1),
+	('REQ_IS_NOT_MALI_BBCC', 'REQUIREMENT_PLAYER_TYPE_MATCHES', 1),
+	('REQ_IS_NOT_RUSSIA_BBCC', 'REQUIREMENT_PLAYER_TYPE_MATCHES', 1);
+
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+	('REQ_IS_NOT_LAURIER_BBCC', 'LeaderType', 'LEADER_LAURIER'),
+	('REQ_IS_NOT_MALI_BBCC', 'CivilizationType', 'CIVILIZATION_MALI'),
+	('REQ_IS_NOT_RUSSIA_BBCC', 'CivilizationType', 'CIVILIZATION_RUSSIA');
+
+
 INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT ReqSet_TFR, 'REQ_PLOT_HAS_'||TerrainType||'_BBCC'
 	FROM BBCC_Modifiers
@@ -246,6 +260,16 @@ INSERT INTO RequirementSetRequirements
 	FROM BBCC_Modifiers;
 INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, REPLACE(BBCC_Modifiers.InnerReqSet,'REQSET_','REQ_')
+	FROM BBCC_Modifiers;
+--exclude Canada Mali and Russia
+INSERT INTO RequirementSetRequirements VALUES
+	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, 'REQ_IS_NOT_LAURIER_BBCC'
+	FROM BBCC_Modifiers;
+INSERT INTO RequirementSetRequirements VALUES
+	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, 'REQ_IS_NOT_MALI_BBCC'
+	FROM BBCC_Modifiers;
+INSERT INTO RequirementSetRequirements VALUES
+	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, 'REQ_IS_NOT_RUSSIA_BBCC'
 	FROM BBCC_Modifiers;
 /*
 INSERT INTO RequirementSetRequirements
