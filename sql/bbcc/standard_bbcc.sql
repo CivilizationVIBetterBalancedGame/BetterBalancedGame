@@ -262,13 +262,13 @@ INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, REPLACE(BBCC_Modifiers.InnerReqSet,'REQSET_','REQ_')
 	FROM BBCC_Modifiers;
 --exclude Canada Mali and Russia
-INSERT INTO RequirementSetRequirements VALUES
+INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, 'REQ_IS_NOT_LAURIER_BBCC'
 	FROM BBCC_Modifiers;
-INSERT INTO RequirementSetRequirements VALUES
+INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, 'REQ_IS_NOT_MALI_BBCC'
 	FROM BBCC_Modifiers;
-INSERT INTO RequirementSetRequirements VALUES
+INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, 'REQ_IS_NOT_RUSSIA_BBCC'
 	FROM BBCC_Modifiers;
 /*
