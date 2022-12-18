@@ -542,4 +542,6 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MOSQUE_GRANT_MISSIONARY', 'Amount', 1);
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_MOSQUE', 'BBG_MOSQUE_GRANT_MISSIONARY');
+--18/12/22 Mosque 2 charges per missionary
+UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MOSQUE_ADJUST_SPREAD_CHARGES' AND Name='Amount';
 
