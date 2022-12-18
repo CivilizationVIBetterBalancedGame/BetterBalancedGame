@@ -40,6 +40,13 @@
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_INDUSTRIAL" Language="en_US">
 			<Text>+5 [ICON_Strength] Combat Strength for reached Industrial Era (Roosevelt Corollary).</Text>
 		</Row>
+		<!-- = leader ability (Abraham Lincoln)= -->
+		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_DESCRIPTION" Language="en_US">
+			<Text>Builds Industrial Zone district in half the time. Industrial Zone give +2 [ICON_Amenities] Amenities. Receive a free Melee unit after constructing Industrial Zone and their buildings. The free unit does not require resources when created or to maintain and receives +5 [ICON_Strength] Combat Strength.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_EXPANSION_DESCRIPTION" Language="en_US">
+			<Text>Builds Industrial Zone district in half the time. Industrial Zone give +2 [ICON_Amenities] Amenities and +3 Loyalty per turn. Plantations give -2 Loyalty per turn.[NEWLINE][NEWLINE]Receive a free Melee unit after constructing Industrial Zone and their buildings. The free unit does not require resources when created or to maintain and receives +5 [ICON_Strength] Combat Strength.</Text>
+		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_AMERICAN_ROUGH_RIDER_DESCRIPTION" Language="en_US">
 			<Text>American unique Industrial era unit that replaces Cuirassier when Teddy Roosevelt is their leader. Combat victories on their [ICON_Capital] Capital's continent provide [ICON_Culture] Culture equal to 25% of the [ICON_Strength] Combat Strength of the defeated unit (on Online speed). +5 [ICON_Strength] Combat Strength when fighting on Hills. Lower maintenance cost.</Text>
@@ -64,11 +71,11 @@
 		<!-- == ARABIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LAST_PROPHET_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_GreatProphet] Great Prophet point per turn after researching Astrology. The last available [ICON_GreatProphet] Great Prophet will automatically go to Arabia, if they have not already recruited one. +1 [ICON_Science] Science for each foreign city following Arabia's Religion.</Text>
+			<Text>+1 [ICON_GreatProphet] Great Prophet point per turn after researching Astrology. The last available [ICON_GreatProphet] Great Prophet will automatically go to Arabia, if they have not already recruited one.[NEWLINE][NEWLINE]+1 [ICON_Science] Science for each foreign city following Arabia's Religion. Campuses and Holy Sites receive a standard adjacency bonus from each other.</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability (Saladin Vizier) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RIGHTEOUSNESS_OF_FAITH_DESCRIPTION" Language="en_US">
-			<Text>Campuses and Holy Sites receive a standard adjacency bonus from each other.[NEWLINE]The worship building for their [ICON_RELIGION] Religion can be purchased by any player for just one-tenth of the usual [ICON_Faith] Faith cost. It adds 20% to the [ICON_Science] Science, [ICON_Faith] Faith, and [ICON_Culture] Culture to the city's output.</Text>
+			<Text>The worship building for their [ICON_RELIGION] Religion can be purchased by any player for just one-tenth of the usual [ICON_Faith] Faith cost. It adds 20% to the [ICON_Science] Science, [ICON_Faith] Faith, and [ICON_Culture] Culture to the city's output.</Text>
 		</Replace>
 		<Row Tag="BBG_LOC_HS_ARABIA_CAMPUS" Language="en_US">
 			<Text>+{1_num} [ICON_FAITH] Faith from the adjacent Campus district.</Text>
@@ -107,7 +114,7 @@
 		<!-- == BABYLON == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_BABYLON_DESCRIPTION" Language="en_US">
-			<Text>[ICON_TechBoosted] Eurekas provide 65% of the [ICON_SCIENCE] Science for technologies. Start the game with -50% [ICON_SCIENCE] Science per turn, but each researched technology grants +1% extra [ICON_SCIENCE] Science. Cannot receive additional Eureka bonus from Free Inquiry [ICON_GLORY_GOLDEN_AGE] Golden Age dedication.</Text>
+			<Text>Receive a free [ICON_TechBoosted] Eureka after constructing Library building.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HAMMURABI_DESCRIPTION" Language="en_US">
@@ -298,14 +305,14 @@
 		<!-- == ENGLAND == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION_DESCRIPTION" Language="en_US"> <!-- charges icon -->
-			<Text>Iron and Coal Mines accumulate 2 more resources per turn. +100% [ICON_PRODUCTION] Production towards Military Engineers. Military Engineers receive +2 [ICON_Charges] charges. Buildings that provide additional yields when [ICON_POWER] Powered receive +4 of that yield. +20% [ICON_PRODUCTION] Production towards Industrial Zone buildings. Harbor buildings increase Strategic Resource Stockpiles by +10 (on Standard Speed).</Text>
+			<Text>[ICON_RESOURCE_IRON] Iron and [ICON_RESOURCE_COAL] Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10 (on Standard speed). +100% [ICON_PRODUCTION] Production towards Military Engineers. Military Engineers receive +2 [ICON_Charges] charges. Buildings that provide additional yields when [ICON_POWER] Powered receive +4 of that yield. +20% [ICON_PRODUCTION] Production towards Industrial Zone buildings.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PAX_BRITANNICA_DESCRIPTION" Language="en_US">
 			<Text>All cities founded on a continent other than your home continent receive a free melee unit. Constructing a Royal Navy Dockyard in that city will grant an additional free melee unit. Gain the Redcoat unique unit when the Military Science technology is researched.[NEWLINE]Lighthouse grants +1 [ICON_GREATADMIRAL] Great Admiral point per turn.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_PAX_BRITANNICA_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Each time you found your first city on a continent other than your home continent receive a free melee unit and a [ICON_TradeRoute] Trade Route capacity. Constructing any Royal Navy Dockyard grants you a copy of the strongest naval unit you can build. Gain the Redcoat unique unit when the Military Science technology is researched.[NEWLINE]Lighthouse grants +1 [ICON_GREATADMIRAL] Great Admiral point per turn.</Text>
+			<Text>Each time you found your first city on a continent other than your home continent receive a free melee unit and a [ICON_TradeRoute] Trade Route capacity. Constructing Royal Navy Dockyard grants you the strongest naval unit you can build. Gain the Redcoat unique unit when the Military Science technology is researched.[NEWLINE]Lighthouse grants +1 [ICON_GREATADMIRAL] Great Admiral point per turn.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_ENGLISH_REDCOAT_DESCRIPTION" Language="en_US">
@@ -343,10 +350,10 @@
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_ROCK_HEWN_CHURCH_DESCRIPTION" Language="en_US">
-			<Text>The Drama and Poetry civic unlocks the Builder ability to construct a Rock-Hewn Church, unique to Ethiopia.[NEWLINE][NEWLINE]+1 Appeal to adjacent tiles.[NEWLINE][NEWLINE]+1 [ICON_Faith] Faith for every adjacent Montain and Hills tile. Provides [ICON_TOURISM] Tourism from [ICON_FAITH] Faith after researching Flight.[NEWLINE][NEWLINE]Can only be built on Hills or Volcanic Soil not adjacent to another Rock-Hewn Church.</Text>
+			<Text>The Drama and Poetry civic unlocks the Builder ability to construct a Rock-Hewn Church, unique to Ethiopia.[NEWLINE][NEWLINE]+1 Appeal to adjacent tiles.[NEWLINE][NEWLINE]+1 [ICON_Faith] Faith for every adjacent Mountain and Hills tile. Provides [ICON_TOURISM] Tourism from [ICON_FAITH] Faith after researching Flight.[NEWLINE][NEWLINE]Can only be built on Hills or Volcanic Soil not adjacent to another Rock-Hewn Church.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_ROCK_HEWN_CHURCH_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>The Drama and Poetry civic unlocks the Builder ability to construct a Rock-Hewn Church, unique to Ethiopia.[NEWLINE][NEWLINE]+1 Appeal to adjacent tiles.[NEWLINE][NEWLINE]+1 [ICON_Faith] Faith for every adjacent Montain and Hills tile. Provides [ICON_TOURISM] Tourism from [ICON_FAITH] Faith after researching Flight.[NEWLINE][NEWLINE]Can only be built on Hills or Volcanic Soil not adjacent to another Rock-Hewn Church. Can only be pillaged (never destroyed) by natural disasters.</Text>
+			<Text>The Drama and Poetry civic unlocks the Builder ability to construct a Rock-Hewn Church, unique to Ethiopia.[NEWLINE][NEWLINE]+1 Appeal to adjacent tiles.[NEWLINE][NEWLINE]+1 [ICON_Faith] Faith for every adjacent Mountain and Hills tile. Provides [ICON_TOURISM] Tourism from [ICON_FAITH] Faith after researching Flight.[NEWLINE][NEWLINE]Can only be built on Hills or Volcanic Soil not adjacent to another Rock-Hewn Church. Can only be pillaged (never destroyed) by natural disasters.</Text>
 		</Replace>
 
 		<!-- == FRANCE == -->
@@ -486,7 +493,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAVEN_KING_DESCRIPTION" Language="en_US">
-			<Text>Levied units gain an ability giving them +1 [ICON_Movement] Movement. It cost 75% less [ICON_GOLD] Gold and resources to upgrade Levied units. If you Levy troops from a City-state, receive 1 [ICON_ENVOY] Envoys with that City-state. Levied unit got +3 [ICON_Strength] combat strength. Gain the Black Army unique unit when the Castles technology is researched. Get an additional diplomatic policy slots.</Text>
+			<Text>Levied units gain an ability giving them +1 [ICON_Movement] Movement. It cost 75% less [ICON_GOLD] Gold and resources to upgrade Levied units. If you Levy troops from a City-state, receive 1 [ICON_ENVOY] Envoys with that City-state. Levied unit got +3 [ICON_Strength] combat strength. Gain the Black Army unique unit when the Castles technology is researched.[NEWLINE][NEWLINE]One extra Diplomatic policy slot in any [ICON_Government] government after discovering Political Philosophy civic.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_HUNGARY_BLACK_ARMY_DESCRIPTION" Language="en_US">
@@ -538,7 +545,7 @@
 		<!-- == INDONESIA == -->
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_KAMPUNG_DESCRIPTION" Language="en_US">
-			<Text>The Shipbuilding technolohy unlocks the Builder ability to construct a Kampung, unique to Indonesia.[NEWLINE][NEWLINE]+1 [ICON_PRODUCTION] Production and +1 [ICON_Housing] Housing.[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_FAITH] Faith for each adjacent Fishing Boat. Additional +1 [ICON_Housing] Housing with the Mass Production technology. +1 [ICON_PRODUCTION] Production with the Civil Engineering civic. Provides [ICON_TOURISM] Tourism from [ICON_FOOD] Food after researching Flight.[NEWLINE][NEWLINE]Must be placed on a Coast or Lake tile adjacent to a sea resource.</Text>
+			<Text>The Shipbuilding technology unlocks the Builder ability to construct a Kampung, unique to Indonesia.[NEWLINE][NEWLINE]+1 [ICON_PRODUCTION] Production and +1 [ICON_Housing] Housing.[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_FAITH] Faith for each adjacent Fishing Boat. Additional +1 [ICON_Housing] Housing with the Mass Production technology. +1 [ICON_PRODUCTION] Production with the Civil Engineering civic. Provides [ICON_TOURISM] Tourism from [ICON_FOOD] Food after researching Flight.[NEWLINE][NEWLINE]Must be placed on a Coast or Lake tile adjacent to a sea resource.</Text>
 		</Replace>
 
 		<!-- == JAPAN == -->
@@ -573,11 +580,19 @@
 		<!-- == KONGO == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NKISI_DESCRIPTION" Language="en_US">
-			<Text>[ICON_GreatWork_Relic] Relics grant additional +2 [ICON_Food] Food, +2 [ICON_Production] Production, +4 [ICON_Gold] Gold and +1 [ICON_Faith] Faith. [ICON_GreatWork_Artifact] Artifacts and [ICON_GreatWork_Sculpture] Sculptures grant additional +2 [ICON_Food] Food, +2 [ICON_Production] Production, +4 [ICON_Gold] Gold and +4 [ICON_Faith] Faith. +100% [ICON_PRODUCTION] Production to Archaeologists. Palace has slots for 5 Great Works.[NEWLINE][NEWLINE]Receive [ICON_GreatWork_Relic] Relic for each Government Plaza building.[NEWLINE][NEWLINE]Receive 50% more [ICON_GreatWriter] Great Writer, [ICON_GreatArtist] Great Artist, [ICON_GreatMusician] Great Musician, and [ICON_GreatMerchant] Great Merchant points.[NEWLINE][NEWLINE]All land combat units ignore Rainforest and Woods [ICON_Movement] Movement penalty.</Text>
+			<Text>[ICON_GreatWork_Relic] Relics grant additional +2 [ICON_Food] Food, +2 [ICON_Production] Production, +4 [ICON_Gold] Gold and +1 [ICON_Faith] Faith. [ICON_GreatWork_Artifact] Artifacts and [ICON_GreatWork_Sculpture] Sculptures grant additional +2 [ICON_Food] Food, +2 [ICON_Production] Production, +4 [ICON_Gold] Gold and +4 [ICON_Faith] Faith. Palace has slots for 5 Great Works.[NEWLINE][NEWLINE]Receive 50% more [ICON_GreatWriter] Great Writer, [ICON_GreatArtist] Great Artist, [ICON_GreatMusician] Great Musician, and [ICON_GreatMerchant] Great Merchant points. +100% [ICON_PRODUCTION] Production to Archaeologists. </Text>
+		</Replace>
+		<!-- = leader ability (Mvemba a Nzinga) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_RELIGIOUS_CONVERT_DESCRIPTION" Language="en_US">
+			<Text>May not build Holy Site districts, gain [ICON_GreatProphet] Great Prophets, or found Religions. Gains all Beliefs of any Religion that has established itself in a majority of his cities. Receives an Apostle (of that city's majority Religion) each time he finishes a M'banza or Theater Square district.[NEWLINE][NEWLINE]Receive [ICON_GreatWork_Relic] Relic for each Government Plaza building.[NEWLINE][NEWLINE]All land combat units ignore Rainforest and Woods [ICON_Movement] Movement penalty.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_IGNORE_WOODS_ABILITY_DESCRIPTION" Language="en_US">
-			<Text>Ignores Rainforest and Woods [ICON_Movement] Movement penalty (Nkisi).</Text>
+			<Text>Ignores Rainforest and Woods [ICON_Movement] Movement penalty (Mvemba a Nzinga).</Text>
 		</Row>
+		<!-- = leader ability (Nzinga Mbande) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_NZINGA_MBANDE_DESCRIPTION" Language="en_US">
+			<Text>Non-capital cities on home continent gain +10% to all yields. Other non-capital cities receive -15% to all yields.</Text>
+		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_KONGO_SHIELD_BEARER_DESCRIPTION" Language="en_US">
 			<Text>Kongo unique Classical era unit that replaces the Swordsman. +1 [ICON_Movement] Movement, +10 [ICON_Strength] Combat Strength when defending against ranged attacks. Can see through Woods and Rainforests.</Text>
@@ -642,23 +657,23 @@
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_DESCRIPTION" Language="en_US">
-			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 25% of the unit's cost when a non-civilian unit is created in this city.[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.</Text>
+			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 25% of the unit's [ICON_PRODUCTION] Production cost when a non-civilian unit is trained in this city.[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 25% of the unit's cost when a non-civilian unit is created in this city.[NEWLINE][NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard Speed).[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.</Text>
+			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 25% of the unit's [ICON_PRODUCTION] Production cost when a non-civilian unit is trained in this city.[NEWLINE][NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed).[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.</Text>
 		</Replace>
 
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="en_US">
-			<Text>City Centers gain +1 [ICON_FAITH] Faith and +1 [ICON_FOOD] Food for every adjacent Desert and Desert Hills tiles. Mines receive -1 [ICON_PRODUCTION] Production and +4 [ICON_GOLD] Gold. May purchase Commercial Hub district buildings with [ICON_Faith] Faith. -30% [ICON_PRODUCTION] Production from any sources toward constructing buildings or training units. -30% [ICON_FOOD] Food and [ICON_GOLD] Gold yields for harvesting a resource or removing a feature.</Text>
+			<Text>City Centers gain +1 [ICON_FAITH] Faith and +1 [ICON_FOOD] Food for every adjacent Desert and Desert Hills tiles. Mines receive -1 [ICON_PRODUCTION] Production and +4 [ICON_GOLD] Gold. May purchase Commercial Hub district buildings with [ICON_Faith] Faith. -30% [ICON_PRODUCTION] Production toward constructing buildings or training units. -30% yields for harvesting a resource or removing a feature.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="en_US">
 			<Text>Mali unique Medieval Era unit that replaces the Knight. Trader units are immune to being plundered if they are within 4 tiles of a Mandekalu Cavalry and on a land tile. Combat victories provide [ICON_GOLD] Gold equal to 50% of that unit's base [ICON_Strength] Combat Strength (on Online speed).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_MANDEKALU_DESCRIPTION" Language="en_US">
-			<Text>Protects nearby land Trade units from Plunder.[NEWLINE][ICON_Bullet] Gain [ICON_GOLD] Gold equal to 50% that unit's base [ICON_Strength] Combat Strength (on Online speed).</Text>
+			<Text>Protects land Trade units from Plunder within 4 tiles.[NEWLINE][ICON_Bullet] Gain [ICON_GOLD] Gold equal to 50% that unit's base [ICON_Strength] Combat Strength (on Online speed).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_MANDEKALU_PROTECT_TRADER_DESCRIPTION" Language="en_US">
 			<Text>This Mandekalu Cavalry protects nearby Trade units from being plundered on land tiles.[NEWLINE][ICON_Bullet] Gain [ICON_GOLD] Gold equal to 50% that unit's base [ICON_Strength] Combat Strength (on Online speed).</Text>
@@ -681,14 +696,14 @@
 		<!-- == MAPUCHE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_ABILITY_TRAIT_MAPUCHE_DESCRIPTION" Language="en_US">
-			<Text>Unique trait for Mapuche: +5 [ICON_Strength] Combat Strength versus Opponents in [ICON_GLORY_GOLDEN_AGE] Golden Age.</Text>
+			<Text>Unique trait for Mapuche: +5 [ICON_Strength] Combat Strength versus Free Cities or Opponents in [ICON_GLORY_GOLDEN_AGE] Golden Age.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LAUTARO_ABILITY_DESCRIPTION_ALT" Language="en_US">
 			<Text>+5 [ICON_Strength] Combat Strength when fighting Free Cities or civilizations that are in a [ICON_GLORY_GOLDEN_AGE] Golden or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age. Defeating an enemy unit within the borders of an enemy city causes that city to lose 15 Loyalty, doubled if that civilization is in a [ICON_GLORY_GOLDEN_AGE] Golden or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age.</Text>
 		</Replace>
 		<Row Tag="LOC_PREVIEW_MAPUCHE_COMBAT_BONUS_TOQUI_VS_GOLDEN_AGE_CIV" Language="en_US">
-			<Text>+{1_num} vs. Golden/Heroic Age</Text>
+			<Text>+{1_num} vs. Free Cities or Golden/Heroic Age</Text>
 		</Row>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MAPUCHE_MALON_RAIDER_DESCRIPTION" Language="en_US">
@@ -806,7 +821,7 @@
 		<!-- == POLAND == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GOLDEN_LIBERTY_DESCRIPTION" Language="en_US"> <!-- government icon -->
-			<Text>Culture Bomb adjacent tiles when completing an Encampment or Fort inside friendly territory. One Military policy slot in the current [ICON_Government] government is converted to a Wildcard slot.</Text>	
+			<Text>Culture Bomb adjacent tiles when completing an Encampment or Fort inside friendly territory. One Military policy slot in the current [ICON_Government] government is converted to a Wildcard policy slot.</Text>	
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LITHUANIAN_UNION_DESCRIPTION" Language="en_US">
@@ -832,9 +847,13 @@
 		</Replace>
 
 		<!-- == ROME == -->
-		<!-- = leader ability = -->
+		<!-- = leader ability (Trajan) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRAJANS_COLUMN_DESCRIPTION" Language="en_US">
 			<Text>All founded cities get free Monument building after unlocking Code of Laws civic.</Text>
+		</Replace>
+		<!-- = leader ability (Julius Caesar) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="en_US">
+			<Text>+200 [ICON_Gold] Gold when you conquer a city for the first time, +100 [ICON_GOLD] Gold when you capture a [ICON_BARBARIAN] Barbarian Outpost, increasing to +500 [ICON_Gold] Gold for both with Steel technology (on Standard speed).[NEWLINE][NEWLINE]Receive a free melee unit each time you found a city. Capturing and retaining at least one city owned by other civilization and founded by any major civilization grants extra Wildcard policy slot in any [ICON_Government] government.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_ROMAN_LEGION_DESCRIPTION" Language="en_US"> <!-- charge icon -->
@@ -878,16 +897,16 @@
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_KURGAN_DESCRIPTION" Language="en_US">
-			<Text>The Animal Husbandry technology unlocks the Builder ability to construct a Kurgan, unique to Scythia.[NEWLINE][NEWLINE]+1 [ICON_Faith] Faith and +3 [ICON_Gold] Gold.[NEWLINE][NEWLINE]+1 [ICON_PRODUCTION] Production for each adjacent Pasture. +1 [ICON_Faith] Faith for each adjacent Pasture, increasing to +2 [ICON_Faith] Faith for each adjacent pasture with the Stirrups technology. Provides [ICON_TOURISM] Tourism from [ICON_FAITH] Faith after researching Flight.</Text>
+			<Text>The Animal Husbandry technology unlocks the Builder ability to construct a Kurgan, unique to Scythia.[NEWLINE][NEWLINE]+1 [ICON_Faith] Faith and +3 [ICON_Gold] Gold.[NEWLINE][NEWLINE]+1 [ICON_PRODUCTION] Production for each adjacent Pasture. +1 [ICON_Faith] Faith for each adjacent Pasture, increasing to +2 [ICON_Faith] Faith for each adjacent Pasture with the Stirrups technology. Provides [ICON_TOURISM] Tourism from [ICON_FAITH] Faith after researching Flight.</Text>
 		</Replace>
 		
 		<!-- == SPAIN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_DESCRIPTION" Language="en_US">
-			<Text>May form [ICON_Corps] Fleets and [ICON_Army] Armadas earlier than usual (Mercenaries and Mercantilism). Can create [ICON_Corps] Fleets and [ICON_Army] Armadas faster in cities with a shipyard.[NEWLINE][NEWLINE][ICON_TradeRoute] Trade Routes receive +3 [ICON_Gold] Gold, +2 [ICON_Faith] Faith, and +1 [ICON_Production] Production. [ICON_TradeRoute] Trade Routes between multiple continents receive double these numbers. Cities at least 8 tiles away from [ICON_CAPITAL] Capital receive +25% [ICON_Production] Production towards [ICON_DISTRICT] districts.</Text>
+			<Text>May form [ICON_Corps] Fleets and [ICON_Army] Armadas earlier than usual (Mercenaries and Mercantilism). Once required Civics are unlocked, Shipyard building allows training [ICON_Corps] Fleets and [ICON_Army] Armadas directly and their costs reduced by 25%.[NEWLINE][NEWLINE][ICON_TradeRoute] Trade Routes receive +3 [ICON_Gold] Gold, +2 [ICON_Faith] Faith, and +1 [ICON_Production] Production. [ICON_TradeRoute] Trade Routes between multiple continents receive double these numbers. Cities at least 8 tiles away from [ICON_CAPITAL] Capital receive +25% [ICON_Production] Production towards [ICON_DISTRICT] districts.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>May form [ICON_Corps] Fleets and [ICON_Army] Armadas earlier than usual (Mercenaries and Mercantilism). Can create [ICON_Corps] Fleets and [ICON_Army] Armadas faster in cities with a shipyard.[NEWLINE][NEWLINE][ICON_TradeRoute] Trade Routes receive +3 [ICON_Gold] Gold, +2 [ICON_Faith] Faith, and +1 [ICON_Production] Production. [ICON_TradeRoute] Trade Routes between multiple continents receive double these numbers. Cities at least 8 tiles away from [ICON_CAPITAL] Capital receive +25% [ICON_Production] Production towards [ICON_DISTRICT] districts.</Text>
+			<Text>May form [ICON_Corps] Fleets and [ICON_Army] Armadas earlier than usual (Mercenaries and Mercantilism). Once required Civics are unlocked, Shipyard building allows training [ICON_Corps] Fleets and [ICON_Army] Armadas directly and their costs reduced by 25%.[NEWLINE][NEWLINE][ICON_TradeRoute] Trade Routes receive +3 [ICON_Gold] Gold, +2 [ICON_Faith] Faith, and +1 [ICON_Production] Production. [ICON_TradeRoute] Trade Routes between multiple continents receive double these numbers. Cities at least 8 tiles away from [ICON_CAPITAL] Capital receive +25% [ICON_Production] Production towards [ICON_DISTRICT] districts.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SPANISH_CONQUISTADOR_DESCRIPTION" Language="en_US">
@@ -917,13 +936,13 @@
 			<Text>Shūtur eli sharrī</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_DESCRIPTION" Language="en_US">
-			<Text>Starts game with War-cart instead of Warrior unit.[NEWLINE][NEWLINE]Military Units receive bonus [ICON_STRENGTH] Combat Strength equal to the level of your most advanced Alliance (maximum 3).[NEWLINE][NEWLINE]When at war with a common foe, they and their allies share pillage rewards and combat experience gains if within 5 tiles. Their Alliances gain Alliance Points for being at war with a common foe.[NEWLINE][NEWLINE]When you capture a Barbarian Outpost, receive a Tribal Village reward in addition to the usual [ICON_Gold] Gold. Pay half the usual cost to levy City-state units.</Text>
+			<Text>Starts game with War-cart instead of Warrior unit.[NEWLINE][NEWLINE]Military Units receive bonus [ICON_STRENGTH] Combat Strength equal to the level of your most advanced Alliance (maximum 3).[NEWLINE][NEWLINE]When at war with a common foe, they and their allies share pillage rewards and combat experience gains if within 5 tiles. Their Alliances gain Alliance Points for being at war with a common foe.[NEWLINE][NEWLINE]When you capture a [ICON_BARBARIAN] Barbarian Outpost, receive a Tribal Village reward in addition to the usual [ICON_Gold] Gold. Pay half the usual cost to levy City-state units.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_EXPANSION1_DESCRIPTION" Language="en_US">
-			<Text>Starts game with War-cart instead of Warrior unit.[NEWLINE][NEWLINE]Military Units receive bonus [ICON_STRENGTH] Combat Strength equal to the level of your most advanced Alliance (maximum 3).[NEWLINE][NEWLINE]When at war with a common foe, they and their allies share pillage rewards and combat experience gains if within 5 tiles. Their Alliances gain Alliance Points for being at war with a common foe.[NEWLINE][NEWLINE]When you capture a Barbarian Outpost, receive a Tribal Village reward in addition to the usual [ICON_Gold] Gold. Pay half the usual cost to levy City-state units.</Text>
+			<Text>Starts game with War-cart instead of Warrior unit.[NEWLINE][NEWLINE]Military Units receive bonus [ICON_STRENGTH] Combat Strength equal to the level of your most advanced Alliance (maximum 3).[NEWLINE][NEWLINE]When at war with a common foe, they and their allies share pillage rewards and combat experience gains if within 5 tiles. Their Alliances gain Alliance Points for being at war with a common foe.[NEWLINE][NEWLINE]When you capture a [ICON_BARBARIAN] Barbarian Outpost, receive a Tribal Village reward in addition to the usual [ICON_Gold] Gold. Pay half the usual cost to levy City-state units.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Starts game with War-cart instead of Warrior unit.[NEWLINE][NEWLINE]Military Units receive bonus [ICON_STRENGTH] Combat Strength equal to the level of your most advanced Alliance (maximum 3).[NEWLINE][NEWLINE]When at war with a common foe, they and their allies share pillage rewards and combat experience gains if within 5 tiles. Their Alliances gain Alliance Points for being at war with a common foe.[NEWLINE][NEWLINE]When you capture a Barbarian Outpost, receive a Tribal Village reward in addition to the usual [ICON_Gold] Gold. Pay half the usual cost to levy City-state units.</Text>
+			<Text>Starts game with War-cart instead of Warrior unit.[NEWLINE][NEWLINE]Military Units receive bonus [ICON_STRENGTH] Combat Strength equal to the level of your most advanced Alliance (maximum 3).[NEWLINE][NEWLINE]When at war with a common foe, they and their allies share pillage rewards and combat experience gains if within 5 tiles. Their Alliances gain Alliance Points for being at war with a common foe.[NEWLINE][NEWLINE]When you capture a [ICON_BARBARIAN] Barbarian Outpost, receive a Tribal Village reward in addition to the usual [ICON_Gold] Gold. Pay half the usual cost to levy City-state units.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_SUMMER_COMBAT_ALLY_1" Language="en_US">
 			<Text>+1 [ICON_STRENGTH] Combat Strength for Alliance level (Shūtur eli sharrī)</Text>
@@ -938,11 +957,11 @@
 			<Text>The King surpassing all Kings is a powerful leader with the ability to engage into early aggression or build a tall empire depending on the situation.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_GILGAMESH_CHAPTER_DETAILED_BODY" Language="en_US">
-			<Text>As the first civilization in recorded history, Sumeria shines right out of the gate. Their War Carts and Ziggurats are buildable from the very first turn, and growth should be strong with The Cradle of Civilization ability. Gilgamesh will build War Carts and get out hunting Barbarian Camps early, so he can take advantage of his Shūtur eli sharrī ability ("Surpassing All Kings"). He will also scatter the edges of nearby Rivers with Ziggurats to push forward early in [ICON_Science] Science, [ICON_Culture] Culture and even [ICON_Faith] Faith with a good city planning.</Text>
+			<Text>As the first civilization in recorded history, Sumeria shines right out of the gate. Their War Carts and Ziggurats are buildable from the very first turn, and growth should be strong with The Cradle of Civilization ability. Gilgamesh will build War Carts and get out hunting [ICON_BARBARIAN] Barbarian Camps early, so he can take advantage of his Shūtur eli sharrī ability ("Surpassing All Kings"). He will also scatter the edges of nearby Rivers with Ziggurats to push forward early in [ICON_Science] Science, [ICON_Culture] Culture and even [ICON_Faith] Faith with a good city planning.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SUMERIAN_WAR_CART_DESCRIPTION" Language="en_US">
-			<Text>Sumerian unique Ancient era unit. No penalties against anti-cavalry units. 4 [ICON_Movement] Movement if this unit starts in open terrain. +4 [ICON_Strength] Unit Combat Strength when fighting Barbarians.</Text>
+			<Text>Sumerian unique Ancient era unit. No penalties against anti-cavalry units. 4 [ICON_Movement] Movement if this unit starts in open terrain. +4 [ICON_Strength] Combat Strength when fighting [ICON_BARBARIAN] Barbarians.</Text>
 		</Replace>
 		<Row Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_DESCRIPTION_BBG" Language="en_US">
 			<Text>+4 [ICON_Strength] Combat Strength vs. Barbarians.[NEWLINE][ICON_Bullet] No penalties against anti-cavalry units.</Text>
@@ -1355,6 +1374,9 @@
 		<Replace Tag="LOC_BELIEF_RELIGIOUS_COMMUNITY_DESCRIPTION" Language="en_US">
 			<Text>Holy Site Districts, Shrines, and Temples each provide +1 [ICON_Housing] Housing.</Text>
 		</Replace>
+		<Replace Tag="LOC_BELIEF_RELIGIOUS_COMMUNITY_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>International [ICON_TradeRoute] Trade Routes provide +2 [ICON_GOLD] Gold if the origin city has a Holy Site and an additional +2 [ICON_GOLD] Gold for every building in the Holy Site district.</Text>
+		</Replace>
 		<Replace Tag="LOC_BELIEF_PILGRIMAGE_DESCRIPTION" Language="en_US">
 			<Text>+3 [ICON_Faith] Faith for every foreign city following this Religion.</Text>
 		</Replace>
@@ -1427,7 +1449,7 @@
 			<Text>Grants the ability to buy land units with [ICON_Faith] Faith in all founded cities.[NEWLINE]Pillaging Improvements and Districts provides bonus [ICON_Faith] Faith.[NEWLINE]Awards +1 [Icon_Governor] Governor Title.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_GOV_SPIES_DESCRIPTION" Language="en_US">
-			<Text>+50% [ICON_PRODUCTION] toward Spies. All Spy Operations have a higher chance of success.[NEWLINE]Awards +1 [Icon_Governor] Governor Title, +2 Spy capacity and Spy unit.</Text>
+			<Text>+50% [ICON_PRODUCTION] toward Spies. All Spy Operations have a higher chance of success.[NEWLINE]Awards +1 [Icon_Governor] Governor Title, +2 Spy capacity and free Spy unit.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_GOV_SCIENCE_DESCRIPTION" Language="en_US">
 			<Text>Builders and Military Engineers gain the ability to use all of their [ICON_Charges] charges to provide bonus [ICON_Production] Production to a District Project. Each [ICON_Charges] charge grants 2% of project [ICON_Production] Production. Once per city per turn.[NEWLINE]Awards +1 [Icon_Governor] Governor Title.</Text>
@@ -1537,7 +1559,7 @@
 			<Text>Awards 1 Relic [ICON_GreatWork_Relic]. Holy City and [ICON_GreatWork_Relic] Relic [ICON_Tourism] Tourism is not diminished by other civilizations who have researched The Enlightenment civic. +100% [ICON_Tourism] Tourism from Seaside Resorts across your civilization.[NEWLINE][NEWLINE]Must be built on Hills.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_AMUNDSEN_SCOTT_RESEARCH_STATION_DESCRIPTION" Language="en_US">
-			<Text>+20% [ICON_SCIENCE] Science and 10% [ICON_PRODUCTION] Production in all cities. If there are 5 Tundra or Tundra Hills tiles within 3 tiles of a city and owned by this player these yields are doubled.[NEWLINE][NEWLINE]Must be built next to a Campus with a Research Lab on a Tundra or Snow tile.</Text>
+			<Text>+20% [ICON_SCIENCE] Science and +10% [ICON_PRODUCTION] Production in all cities. If there are 5 Tundra or Tundra Hills tiles within 3 tiles of a city and owned by this player these yields are doubled.[NEWLINE][NEWLINE]Must be built next to a Campus with a Research Lab on a Tundra or Snow tile.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_JEBEL_BARKAL_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>Awards 4 [ICON_RESOURCE_IRON] Iron per turn. +4 [ICON_Faith] Faith to each your City Center within 6 tiles.[NEWLINE][NEWLINE]Must be built on Desert Hills.</Text>
@@ -1784,7 +1806,7 @@
 			<Text>Extra [ICON_Gold] Gold from buildings in Commercial Hubs: +50% if city [ICON_CITIZEN] population is 13 or higher, +50% if district has at least +4 adjacency bonus.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_DISCIPLINE_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_Strength] Unit Combat Strength when fighting Barbarians.</Text>
+			<Text>+10 [ICON_Strength] Unit Combat Strength when fighting [ICON_BARBARIAN] Barbarians.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_LIMES_DESCRIPTION" Language="en_US">
 			<Text>+50% [ICON_Production] Production toward walls.</Text>

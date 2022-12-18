@@ -542,39 +542,24 @@ UPDATE Beliefs SET Description='LOC_BELIEF_LAY_MINISTRY_DESCRIPTION' WHERE Belie
 -- holy waters affects mili units instead of religious, and works in all converted city tiles
 -- 2020-12-03 was previously affecting all districts
 
--- We attach HOLY_WATERS_HEALING to all players that satisfy  REQUIRES_PLAYER_FOUNDED_RELIGION
-UPDATE Modifiers SET ModifierType='MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER' WHERE ModifierId='HOLY_WATERS_HEALING';
-
--- This modifier is then applied which applies to all of the founding players units
-UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNITS_ADJUST_HEAL_PER_TURN' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER';
-
+--5.1 Changed holly waters inconsistency so it follows the same logic as Defender/Crusade
+UPDATE Modifiers SET ModifierType='MODIFIER_ALL_UNITS_ATTACH_MODIFIER' WHERE ModifierId='HOLY_WATERS_HEALING';
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_ADJUST_HEAL_PER_TURN' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER';
+--Cleaning UP Firaxis code
 DELETE FROM RequirementSetRequirements WHERE RequirementSetId='HOLY_WATERS_HEALING_REQUIREMENTS';
 DELETE FROM RequirementSetRequirements WHERE RequirementSetId='HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS';
+UPDATE RequirementSets SET RequirementSetType='REQUIREMENTSET_TEST_ANY' WHERE RequirementSetId='HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS';
 INSERT OR IGNORE INTO RequirementSetRequirements VALUES
-	('HOLY_WATERS_HEALING_REQUIREMENTS', 'REQUIRES_PLAYER_FOUNDED_RELIGION'),
+	('HOLY_WATERS_HEALING_REQUIREMENTS', 'BBG_REQUIRES_PLAYER_FOUNDED_RELIGION_OR_MVEMBA'),
+    ('HOLY_WATERS_HEALING_REQUIREMENTS', 'BBG_REQUIRES_ANY_CITY_FOLLOWS_RELIGION'),
 	('HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS', 'REQUIRES_UNIT_NEAR_FRIENDLY_RELIGIOUS_CITY'),
 	('HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS', 'REQUIRES_UNIT_NEAR_ENEMY_RELIGIOUS_CITY');
-
--- Inclusion test in Friendly or Enemy converted territory (happens per unit)
-UPDATE RequirementSets SET RequirementSetType='REQUIREMENTSET_TEST_ANY' WHERE RequirementSetId='HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS';
-
--- Updated this value to match the description text
-UPDATE ModifierArguments SET Value='20' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER' AND Name='Amount';
-
---5.1 Changed holly waters inconsistency so it follows the same logic as Defender/Crusade 
-UPDATE Modifiers Set ModifierType = 'MODIFIER_ALL_UNITS_ATTACH_MODIFIER' WHERE ModifierId = 'HOLY_WATERS_HEALING';
-UPDATE Modifiers Set SubjectRequirementSetId = 'BBG_REQSET_FOUNDER_OR_MVEMBA' WHERE ModifierId = 'HOLY_WATERS_HEALING';
-UPDATE Modifiers Set ModifierType = 'MODIFIER_PLAYER_UNIT_ADJUST_HEAL_PER_TURN' WHERE ModifierId = 'HOLY_WATERS_HEALING_MODIFIER';
-UPDATE Modifiers Set SubjectRequirementSetId = NULL WHERE ModifierId = 'HOLY_WATERS_HEALING_MODIFIER';
-
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES
-    ('REQUIRES_CITY_SAME_RELIGION_PFBF', 'REQUIREMENT_REQUIREMENTSET_IS_MET');
-
+    ('BBG_REQUIRES_ANY_CITY_FOLLOWS_RELIGION', 'REQUIREMENT_REQUIREMENTSET_IS_MET');
 INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
-    ('REQUIRES_CITY_SAME_RELIGION_PFBF', 'RequirementSetId', 'HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS');
-
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-    ('HOLY_WATERS_HEALING_REQUIREMENTS', 'REQUIRES_CITY_SAME_RELIGION_PFBF');
+    ('BBG_REQUIRES_ANY_CITY_FOLLOWS_RELIGION', 'RequirementSetId', 'HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS');
+UPDATE ModifierArguments SET Value='20' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER' AND Name='Amount';
+UPDATE Modifiers Set SubjectRequirementSetId = NULL WHERE ModifierId = 'HOLY_WATERS_HEALING_MODIFIER';
 
 -- Monks: Cards/Governments
 INSERT INTO TypeTags(Type, Tag) VALUES
@@ -782,6 +767,21 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 --==============================================================
 --******				G O V E R N O R S				  ******
 --==============================================================
+--5.1.4 add free starting promo on monks, 2nd promo bugged in 5.1.3
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+    ('BBG_REQUIRES_UNIT_TYPE_IS_MONK', 'REQUIREMENT_UNIT_TYPE_MATCHES');
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_UNIT_TYPE_IS_MONK', 'UnitType', 'UNIT_WARRIOR_MONK');
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('BBG_UNIT_TYPE_IS_MONK_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_TYPE_IS_MONK_REQSET', 'BBG_REQUIRES_UNIT_TYPE_IS_MONK');
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('MOKSHA_MONK_FREE_PROMO', 'MODIFIER_CITY_TRAINED_UNITS_ADJUST_GRANT_EXPERIENCE', 'BBG_UNIT_TYPE_IS_MONK_REQSET');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('MOKSHA_MONK_FREE_PROMO', 'Amount', '-1');
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierID) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'MOKSHA_MONK_FREE_PROMO');
 -- delete moksha's scrapped abilities
 DELETE FROM GovernorPromotions WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
 DELETE FROM GovernorPromotionSets WHERE GovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
