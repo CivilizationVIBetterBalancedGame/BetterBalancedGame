@@ -95,6 +95,9 @@
 			<ModInUse>F48213B4-56F5-45DD-92F7-AC78E49BDA49</ModInUse>
 		</Criteria>
 		<!-- -->
+		<Criteria id="BBS">
+			<ModInUse>c88cba8b-8311-4d35-90c3-51a4a5d66550</ModInUse>
+		</Criteria>
 		<Criteria id="NoConflictingUIMod">
 			<ModInUse inverse="1">1d44b5e7-753e-405b-af24-5ee634ec8a01</ModInUse>
 			<ModInUse inverse="1">8d4fa23a-ef43-440c-8422-2bec11f8f5d7</ModInUse>
@@ -313,43 +316,55 @@
 				<LoadOrder>11600</LoadOrder>
 			</Properties>
 			<File>sql/_utils.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="bbg_preload_db_base_updated">
+			<Properties>
+				<LoadOrder>11601</LoadOrder>
+			</Properties>
 			<File>sql/Base/_base_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_aust_updated">
 			<Properties>
-				<LoadOrder>11601</LoadOrder>
+				<LoadOrder>11602</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Australia</Criteria>
 			<File>sql/DLC_Australia/_dlc_australia_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_indokhmer_updated">
 			<Properties>
-				<LoadOrder>11602</LoadOrder>
+				<LoadOrder>11603</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Indonesia_Khmer</Criteria>
-			<File>sql/DLC_Australia/_dlc_australia_utils.sql</File>
+			<File>sql/DLC_Indonesia_Khmer/_dlc_indo_khmer_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_xp1_updated">
 			<Properties>
-				<LoadOrder>11603</LoadOrder>
+				<LoadOrder>11604</LoadOrder>
 			</Properties>
 			<Criteria>XP1</Criteria>
 			<File>sql/XP1/_xp1_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_xp2_updated">
 			<Properties>
-				<LoadOrder>11604</LoadOrder>
+				<LoadOrder>11605</LoadOrder>
 			</Properties>
 			<Criteria>XP2</Criteria>
 			<File>sql/XP2/_xp2_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_mayacolombia_updated">
 			<Properties>
-				<LoadOrder>11605</LoadOrder>
+				<LoadOrder>11606</LoadOrder>
 			</Properties>
 			<Criteria>GranColombia_Maya</Criteria>
 			<File>sql/NFP/_nfp_maya_colombia_utils.sql</File>
-		</UpdateDatabase>		
+		</UpdateDatabase>
+		<UpdateDatabase id="bbg_preload_db_bbs_updated">
+			<Properties>
+				<LoadOrder>11607</LoadOrder>
+			</Properties>
+			<Criteria>BBS</Criteria>
+			<File>sql/mod_associations/bbs/_bbs_utils.sql</File>
+		</UpdateDatabase>			
 		<!-- -->
 		<UpdateDatabase id="BBG_Base">
 			<Properties>
@@ -1015,6 +1030,8 @@
 		<File>sql/LP/lp_ottoman_suleiman_magnificent.sql</File>
 		<!-- -->
 		<File>sql/Secret_Societies.sql</File>
+		<!-- -->
+		<File>sql/mod_associations/bbs/_bbs_utils.sql</File>
 		<!-- -->
 		<File>ui/replacements/worldrankings_bbg.lua</File>
 		<File>ui/replacements/endgamemenu_bbg.lua</File>
