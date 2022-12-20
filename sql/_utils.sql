@@ -78,3 +78,19 @@ CREATE TABLE WonderTerrainFeature_BBG(
     PRIMARY KEY(WonderType),
     FOREIGN KEY(FeatureType) REFERENCES Features(FeatureType) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+CREATE TABLE AbstractModifiers(
+    ParentObjectID TEXT NOT NULL,
+    ModifierAId TEXT,
+    ModifierAType TEXT,
+    ModifierAName TEXT,
+    ModifierAValue TEXT,
+    ModifierBId TEXT,
+    SubjectRequirementSetId TEXT,
+    RequirementSetType TEXT,
+    RequirementId TEXT,
+    RequirementType TEXT,
+    Inverse BOOL,
+    Name TEXT,
+    Value TEXT 
+    );

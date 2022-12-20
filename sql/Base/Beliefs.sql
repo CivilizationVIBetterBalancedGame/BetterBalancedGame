@@ -139,7 +139,32 @@ INSERT OR IGNORE INTO ModifierArguments
     ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'YieldType'                 , 'YIELD_FAITH'                                   ),
     ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'Amount'                    , '1'                                             ),
     ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'Description'               , 'LOC_DISTRICT_SACREDPATH_WOODS_FAITH'           );
--- Lady of the Reeds and Marshes now applies pantanal
+-- Lady of the Reeds and Marshes now applies to all respective wonders labeled as floodplains, oasis, marsh in utilities
+/*
+INSERT INTO AbstractModifiers(ParentObjectID, ModifierIdA, ModifierAType, ModifierAName, ModifierAValue, SubjectRequirementSetId, RequirementSetType, RequirementId, Inverse, Name, Value)
+    SELECT
+        BeliefModifiers.BeliefType, 
+        BeliefModifiers.ModifierID,
+        Modifiers.ModifierType,
+        ModifierArguments.Name,
+        ModifierArguments.Value,
+        Modifiers.SubjectRequirementSetId, 
+        RequirementSets.RequirementSetType, 
+        RequirementSetRequirements.RequirementId, 
+        Requirements.RequirementType, 
+        Requirements.Inverse,
+        RequirementArguments.Name,
+        RequirementArguments.Value
+    FROM BeliefModifiers
+        LEFT JOIN Modifiers ON BeliefModifiers.ModifierID = Modifiers.ModifierId
+        LEFT JOIN ModifierArguments ON Modifiers.ModifierID = ModifierArguments.ModifierId
+        LEFT JOIN RequirementSets ON Modifiers.SubjectRequirementSetId = RequirementSets.RequirementSetId
+        LEFT JOIN RequirementSetRequirements ON RequirementSets.RequirementSetId = RequirementSetRequirements.RequirementSetId
+        LEFT JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
+        LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId
+    WHERE
+        BeliefModifiers.BeliefType = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES';
+
 INSERT OR IGNORE INTO RequirementSetRequirements 
     (RequirementSetId              , RequirementId)
     VALUES 
@@ -152,7 +177,7 @@ INSERT OR IGNORE INTO RequirementArguments
     (RequirementId                          , Name          , Value)
     VALUES 
     ('REQUIRES_PLOT_HAS_PANTANAL'           , 'FeatureType' , 'FEATURE_PANTANAL'             );
-
+*/
 --04/10/22 goddess of the hunt nerf from 1p/1f to 1p/2g
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
