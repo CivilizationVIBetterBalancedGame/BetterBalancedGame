@@ -1,13 +1,13 @@
 <!-- Release ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5017">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5018">
 -->
 <!-- BETA ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5017">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5018">
 -->
 <!-- WIP ModID-->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5017">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5018">
 	<Properties>
-		<Name>Better Balanced Game 5.1.7</Name>
+		<Name>Better Balanced Game 5.1.8</Name>
 		<Description>
 			Release build of Better Balanced Game
 		</Description>
@@ -90,6 +90,9 @@
 		</Criteria>
 		<Criteria id="Negotiators">
 			<ModInUse>7A66DB58-B354-4061-8C80-95B638DD6F6C</ModInUse>
+		</Criteria>
+		<Criteria id="Warlords">
+			<ModInUse>F48213B4-56F5-45DD-92F7-AC78E49BDA49</ModInUse>
 		</Criteria>
 		<!-- -->
 		<Criteria id="NoConflictingUIMod">
@@ -582,6 +585,16 @@
 			<File>sql/LP/lp_arabia_saladin_sultan.sql</File>
 			<File>sql/LP/lp_kongo_mbande.sql</File>
 		</UpdateDatabase>
+
+		<UpdateDatabase id="BBG_Warlords">
+			<Properties>
+				<LoadOrder>11653</LoadOrder>
+			</Properties>
+			<Criteria>Warlords</Criteria>
+			<File>sql/LP/lp_japan_tokugawa.sql</File>
+			<File>sql/LP/lp_persia_nader.sql</File>
+			<File>sql/LP/lp_ottoman_suleiman_magnificent.sql</File>
+		</UpdateDatabase>
 		<!-- -->
 
 		<UpdateDatabase id="BBG_XP2_SecretSocieties">
@@ -950,6 +963,9 @@
 		<File>sql/LP/lp_america_lincoln.sql</File>
 		<File>sql/LP/lp_arabia_saladin_sultan.sql</File>
 		<File>sql/LP/lp_kongo_mbande.sql</File>
+		<File>sql/LP/lp_japan_tokugawa.sql</File>
+		<File>sql/LP/lp_persia_nader.sql</File>
+		<File>sql/LP/lp_ottoman_suleiman_magnificent.sql</File>
 		<!-- -->
 		<File>sql/Secret_Societies.sql</File>
 		<!-- -->
