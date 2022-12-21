@@ -140,8 +140,7 @@ INSERT OR IGNORE INTO ModifierArguments
     ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'Amount'                    , '1'                                             ),
     ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'Description'               , 'LOC_DISTRICT_SACREDPATH_WOODS_FAITH'           );
 -- Lady of the Reeds and Marshes now applies to all respective wonders labeled as floodplains, oasis, marsh in utilities
-/*
-INSERT INTO AbstractModifiers(ParentObjectID, ModifierIdA, ModifierAType, ModifierAName, ModifierAValue, SubjectRequirementSetId, RequirementSetType, RequirementId, Inverse, Name, Value)
+INSERT INTO AbstractModifiers(ParentObjectID, ModifierAId, ModifierAType, ModifierAName, ModifierAValue, SubjectRequirementSetId, RequirementSetType, RequirementId, RequirementType, Inverse, Name, Value)
     SELECT
         BeliefModifiers.BeliefType, 
         BeliefModifiers.ModifierID,
@@ -164,20 +163,43 @@ INSERT INTO AbstractModifiers(ParentObjectID, ModifierIdA, ModifierAType, Modifi
         LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId
     WHERE
         BeliefModifiers.BeliefType = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES';
+INSERT OR IGNORE INTO AbstractModifiers(ParentObjectID, ModifierBId, SubjectRequirementSetId, RequirementSetType, RequirementId, RequirementType, Inverse, Name, Value)
+    SELECT CASE
+        WHEN AbstractModifiers.ModifierAType LIKE '%ATTACH_MODIFIER%' 
+        THEN
+            AbstractModifiers.ParentObjectID 
+        ELSE NULL
+    END,
+        AbstractModifiers.ModifierAValue, 
+        Modifiers.SubjectRequirementSetId, 
+        RequirementSets.RequirementSetType, 
+        RequirementSetRequirements.RequirementId, 
+        Requirements.RequirementType, 
+        Requirements.Inverse,
+        RequirementArguments.Name,
+        RequirementArguments.Value
+    FROM AbstractModifiers
+        LEFT JOIN Modifiers ON AbstractModifiers.ModifierAValue = Modifiers.ModifierId
+        LEFT JOIN RequirementSets ON Modifiers.SubjectRequirementSetId = RequirementSets.RequirementSetId
+        LEFT JOIN RequirementSetRequirements ON RequirementSets.RequirementSetId = RequirementSetRequirements.RequirementSetId
+        LEFT JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
+        LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId;
 
-INSERT OR IGNORE INTO RequirementSetRequirements 
-    (RequirementSetId              , RequirementId)
-    VALUES 
-    ('PLOT_HAS_REEDS_REQUIREMENTS' , 'REQUIRES_PLOT_HAS_PANTANAL'          );
-INSERT OR IGNORE INTO Requirements 
-    (RequirementId                          , RequirementType)
-    VALUES 
-    ('REQUIRES_PLOT_HAS_PANTANAL'           , 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES');
-INSERT OR IGNORE INTO RequirementArguments 
-    (RequirementId                          , Name          , Value)
-    VALUES 
-    ('REQUIRES_PLOT_HAS_PANTANAL'           , 'FeatureType' , 'FEATURE_PANTANAL'             );
-*/
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
+    SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
+    FROM WonderTerrainFeature_BBG WHERE FeatureType IN  ('FEATURE_OASIS', 'FEATURE_MARSH', 'FEATURE_FLOODPLAINS', 'FEATURE_FLOODPLAINS_GRASSLAND', 'FEATURE_FLOODPLAINS_PLAINS');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value)
+    SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', FeatureType, WonderTerrainFeature_BBG.WonderType
+    FROM WonderTerrainFeature_BBG WHERE FeatureType IN  ('FEATURE_OASIS', 'FEATURE_MARSH', 'FEATURE_FLOODPLAINS', 'FEATURE_FLOODPLAINS_GRASSLAND', 'FEATURE_FLOODPLAINS_PLAINS');
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+    SELECT DISTINCT AbstractModifiers.SubjectRequirementSetId, 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG'
+    FROM AbstractModifiers
+    LEFT JOIN WonderTerrainFeature_BBG
+    WHERE WonderTerrainFeature_BBG.FeatureType IN ('FEATURE_OASIS', 'FEATURE_MARSH', 'FEATURE_FLOODPLAINS', 'FEATURE_FLOODPLAINS_GRASSLAND', 'FEATURE_FLOODPLAINS_PLAINS')
+        AND AbstractModifiers.Name = 'FeatureType'
+        AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType');
+DELETE FROM AbstractModifiers WHERE ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES';
+
 --04/10/22 goddess of the hunt nerf from 1p/1f to 1p/2g
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
