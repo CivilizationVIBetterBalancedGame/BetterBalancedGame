@@ -48,6 +48,10 @@
 		<Replace Tag="BBG_GORGO_GOVERNMENT_COMBAT_BONUS" Language="fr_FR">
 			<Text>Slots de doctrine militaire : +{1_Value}.</Text>
 		</Replace>
+		<!-- ========== HŌJŌ TOKIMUNE ========== -->
+		<Replace Tag="LOC_TRAIT_LEADER_DIVINE_WIND_EXPANSION2_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_Strength]+5 pour les unités terrestres sur les cases de terre adjacentes à la côte.[NEWLINE][ICON_Strength]+5 pour les unités navales sur les cases d'eau peu profonde.[NEWLINE][ICON_PRODUCTION]+100% pour les Campements, les Lieux Saints et les Places du Théâtre. [NEWLINE][NEWLINE]Les unités ne sont pas blessées par les ouragans. Les unités des civilisations en guerre avec le Japon sont deux fois plus vulnérables face aux ouragans sur le territoire japonais.</Text>
+		</Replace>
 		<!-- ========== JULES CESAR ========== -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="fr_FR">
       		<Text>Vous recevez un exemplaire de la plus puissante unité de classe Combat Rapproché que vous pouvez former à chaque fois que vous fondez une ville, Capitale incluse.[NEWLINE]Si vous parvenez à conquérir une Ville fondée par un autre joueur, et tant que vous en contrôlez au moins une, vous obtenez un emplacement de doctrine Joker supplémentaire.[NEWLINE][NEWLINE][ICON_GOLD] Or +200 lorsque vous prenez une ville pour la première fois ou +100 lorsque vous gagnez de l'[ICON_GOLD] or grâce à un avant-poste barbare. La quantité d'[ICON_GOLD] or reçue pour ces deux cas passe à +500 une fois l'acier découvert (en vitesse normale).</Text>
@@ -410,6 +414,9 @@
 		<Replace Tag="LOC_TRAIT_LEADER_RELIGION_CITY_STATES_DESCRIPTION" Language="fr_FR">
       		<Text>Les victoires militaires octroient un bonus en [ICON_FAITH] foi équivalent à 50 % de la puissance de combat de l'unité vaincue (vitesse en ligne). [NEWLINE][NEWLINE]Si votre religion est dominante dans votre empire, chaque [ICON_ENVOY] émissaire envoyé dans une cité-état où votre religion est majoritaire compte double. [NEWLINE][ICON_FAITH]Foi +1 pour chaque émissaire dans une cité-état.</Text>
     	</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_GOLDEN_AGE_QUESTS_DESCRIPTION" Language="fr_FR">
+      		<Text>[ICON_Production]+50 % pour les remparts.[NEWLINE][NEWLINE]Lorsque vous prenez un engagement au début d'un âge d'or ou d'un âge héroïque, vous recevez le bonus d'âge normal visant à augmenter le score d'ère, en plus de l'autre bonus.</Text>
+    	</Replace>
 		<!-- ========== GRÈCE ========== -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_PLATOS_REPUBLIC_DESCRIPTION" Language="fr_FR">
 			<Text>Une fois la philosophie politique atteinte, gagne un emplacement de doctrine Joker supplémentaire pour tous les types de gouvernement.</Text>
@@ -468,6 +475,10 @@
 		<!-- ========== INDONÉSIE ========== -->
 		<Replace Tag="LOC_IMPROVEMENT_KAMPUNG_DESCRIPTION" Language="fr_FR">
 			<Text>Débloque la compétence de bâtisseur permettant de construire un kampung, exclusif à l'Indonésie. [NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 et [ICON_Housing] habitations +1. [ICON_FOOD] Nourriture et [ICON_FAITH] Foi +1 pour chaque bateau de pêche adjacent. [ICON_PRODUCTION] Production, [ICON_Housing] habitations et [ICON_TOURISM] tourisme bonus à mesure que vous progressez dans les arbres des technologies et des dogmes. Doit être placé sur une case de côte ou de lac adjacente à une ressource maritime.</Text>
+		</Replace>
+		<!-- ========== JAPON ========== -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_ADJACENT_DISTRICTS_DESCRIPTION" Language="fr_FR">
+			<Text>Tous les quartiers bénéficient d'un bonus de proximité standard, plutôt que mineur, de la part des autres quartiers.[NEWLINE]En contrepartie, les Plateformes commerciales japonnaises ne bénéficient pas du bonus de proximité habituel de la part des rivières.</Text>
 		</Replace>
 		<!-- ========== KHMERS ========== -->
 		<Replace Tag="LOC_BUILDING_PRASAT_EXPANSION2_DESCRIPTION" Language="fr_FR">
@@ -1856,5 +1867,55 @@
 		<Replace Tag="LOC_BBG_FRONT_BETA_BAN_TRADE_TREATY_NAME" Language="fr_FR">
             <Text>[COLOR_GREEN]Ban Trade Treaty[ENDCOLOR]</Text>
         </Replace>
+
+		<!--BBCC-->
+		<Row Tag="BBCC_SETTING_NAME" Language="fr_FR">
+			<Text>[COLOR:92,216,92][BCY] ON/OFF[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="BBCC_SETTING_DESC" Language="fr_FR">
+			<Text>Guaranteed +3 [ICON_FOOD] +1 [ICON_PRODUCTION] for flat city-center [ICON_Capital].[NEWLINE]Guaranteed +2 [ICON_FOOD] +2 [ICON_PRODUCTION] for hills city-center [ICON_Capital].[NEWLINE]Consistent with Firaxis default formula.</Text>
+		</Row>
+		<Row Tag="BBCC_SETTING_YIELD_NAME" Language="fr_FR">
+			<Text>[COLOR:92,216,92][BCY] Calcul des rendements[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="BBCC_SETTING_YIELD_DESC" Language="fr_FR">
+			<Text>Guaranteed +3 [ICON_FOOD] +1 [ICON_PRODUCTION] for flat city-center [ICON_Capital].[NEWLINE]Guaranteed +2 [ICON_FOOD] +2 [ICON_PRODUCTION] for hills city-center [ICON_Capital].[NEWLINE]Consistent with Firaxis default formula.</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_M1_NAME" Language="fr_FR">
+			<Text>OFF</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_M1_DESC" Language="fr_FR">
+			<Text>BCY est désactivé</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_0_NAME" Language="fr_FR">
+			<Text>Toutes les villes</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_0_DESC" Language="fr_FR">
+			<Text>Activé sur toutes les villes</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_1_NAME" Language="fr_FR">
+			<Text>Capitales uniquement</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_1_DESC" Language="fr_FR">
+			<Text>Activé sur les Capitales uniquement</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_0_NAME" Language="fr_FR">
+			<Text>Standard</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_0_DESC" Language="fr_FR">
+			<Text>Rendements garantis :[NEWLINE]Cases plates de prairie et de plaine : 3[ICON_FOOD]1[ICON_PRODUCTION]0[ICON_GOLD]0[ICON_FAITH]0[ICON_CULTURE]0[ICON_SCIENCE][NEWLINE]Collines de prairie et de plaine : 2[ICON_FOOD]2[ICON_PRODUCTION]0[ICON_GOLD]0[ICON_FAITH]0[ICON_CULTURE]0[ICON_SCIENCE][NEWLINE]Les rendements des centre-villes sont fixés à ces valeurs. Si l'un des rendements est supérieur au rendement garantis (ex : 2 d'or d'un maïs), alors tous les rendements garantis sont annulés, et les valeurs du jeu de base sont appliquées.</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_1_NAME" Language="fr_FR">
+			<Text>NO RNG</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_1_DESC" Language="fr_FR">
+			<Text>Rendements garantis :[NEWLINE]Cases plates de tout type : 3[ICON_FOOD]1[ICON_PRODUCTION]0[ICON_GOLD]0[ICON_FAITH]0[ICON_CULTURE]0[ICON_SCIENCE][NEWLINE]Collines de tout type : 2[ICON_FOOD]2[ICON_PRODUCTION]0[ICON_GOLD]0[ICON_FAITH]0[ICON_CULTURE]0[ICON_SCIENCE][NEWLINE]Les rendements des centre-villes sont fixés à ces valeurs, quoi qu'il arrive.</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_2_NAME" Language="fr_FR">
+			<Text>Legacy</Text>
+		</Row>
+		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_2_DESC" Language="fr_FR">
+			<Text>Rendements garantis :[NEWLINE]Cases plates de tout type : 3[ICON_FOOD]1[ICON_PRODUCTION]0[ICON_GOLD]0[ICON_FAITH]0[ICON_CULTURE]0[ICON_SCIENCE][NEWLINE]Collines de tout type : 2[ICON_FOOD]2[ICON_PRODUCTION]0[ICON_GOLD]0[ICON_FAITH]0[ICON_CULTURE]0[ICON_SCIENCE][NEWLINE]Pour chaque type de rendement, votre centre-ville obtient la plus grande valeur entre le rendement garantis et le rendement du jeu de base.</Text>
+		</Row>
 	</LocalizedText>
 </GameData>
