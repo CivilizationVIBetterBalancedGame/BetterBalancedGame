@@ -1036,27 +1036,7 @@ UPDATE Projects SET Cost=1500 WHERE ProjectType='PROJECT_BUILD_THERMONUCLEAR_DEV
 UPDATE Project_ResourceCosts SET StartProductionCost=15 WHERE ProjectType='PROJECT_BUILD_NUCLEAR_DEVICE';
 UPDATE Project_ResourceCosts SET StartProductionCost=30 WHERE ProjectType='PROJECT_BUILD_THERMONUCLEAR_DEVICE';
 
---terrain/feature wonders
---adding campus adjacency to reef wonders
-INSERT OR IGNORE INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, TilesRequired, AdjacentFeature)
-    SELECT 
-       'ReefWonder_Science'||(SELECT COUNT(*)
-        FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'FEATURE_REEF')
-        WHERE t2<= t1.WonderType), 'Placeholder', 'YIELD_SCIENCE', 2, 1, t1.WonderType
-FROM WonderTerrainFeature_BBG AS t1
-WHERE t1.FeatureType = 'FEATURE_REEF'
-ORDER BY WonderType;
-INSERT INTO District_Adjacencies
-    SELECT 
-       'DISTRICT_CAMPUS', 'ReefWonder_Science'||(SELECT COUNT(*)
-        FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'FEATURE_REEF')
-        WHERE t2<= t1.WonderType)
-FROM WonderTerrainFeature_BBG AS t1
-WHERE t1.FeatureType = 'FEATURE_REEF'
-ORDER BY WonderType;
---adding reef wonders defense modifier
-UPDATE OR IGNORE Features SET DefenseModifier = 3
-    WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE FeatureType = 'FEATURE_REEF');
+
 --geothermal wonder amenity interraction with bath and aqueduct:
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
     SELECT 'REQ_PLOT_ADJACENT_TO_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'REQUIREMENT_PLOT_ADJACENT_FEATURE_TYPE_MATCHES'
@@ -1149,3 +1129,25 @@ INSERT INTO BuildingModifiers
     SELECT DISTINCT 'BUILDING_MACHU_PICCHU', MachuTemp.ModifierId
     FROM MachuTemp;
 DROP TABLE MachuTemp;
+
+--terrain/feature wonders
+--adding campus adjacency to reef wonders
+INSERT OR IGNORE INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, TilesRequired, AdjacentFeature)
+    SELECT 
+       'ReefWonder_Science'||(SELECT COUNT(*)
+        FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'FEATURE_REEF')
+        WHERE t2<= t1.WonderType), 'Placeholder', 'YIELD_SCIENCE', 2, 1, t1.WonderType
+FROM WonderTerrainFeature_BBG AS t1
+WHERE t1.FeatureType = 'FEATURE_REEF'
+ORDER BY WonderType;
+INSERT OR IGNORE INTO District_Adjacencies
+    SELECT 
+       'DISTRICT_CAMPUS', 'ReefWonder_Science'||(SELECT COUNT(*)
+        FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'FEATURE_REEF')
+        WHERE t2<= t1.WonderType)
+FROM WonderTerrainFeature_BBG AS t1
+WHERE t1.FeatureType = 'FEATURE_REEF'
+ORDER BY WonderType;
+--adding reef wonders defense modifier
+UPDATE OR IGNORE Features SET DefenseModifier = 3
+    WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE FeatureType = 'FEATURE_REEF');
