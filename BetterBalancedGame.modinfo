@@ -13,7 +13,7 @@
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>5015</Version>
+		<Version>5023</Version>
 		<SpecialThanks>coloo, abstr, priz, seed.of.apricot, Klas, fl0r3k, WhySoHate, wazabaza, Ignasiuz, MarsLife(puj), Apeul, keride, Vodairo, FlashyFeeds, ZhenjaMax, iElden, D. / Jack The Narrator, codenaugh</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
@@ -284,6 +284,9 @@
 
 	<!-- defines modifications to games (requires any LocalizedText from Settings above, and must import files before modifying any SQL tables) -->
 	<InGameActions>
+		<ImportFiles id="bbg_placement">
+			<File>ui/replacements/strategicview_mapplacement.lua</File>
+		</ImprotFiles>
 		<AddGameplayScripts id="BBG_CoreScript">
 			<File>scripts/bbg_script.lua</File>
 		</AddGameplayScripts>
@@ -1046,6 +1049,7 @@
 		<File>ui/replacements/tradesupport.lua</File>
 		<File>ui/replacements/compatibility/traderoutechooser.lua</File>
 		<File>ui/replacements/compatibility/tradeoverview.lua</File>
+		<File>ui/replacements/strategicview_mapplacement.lua</File>
 
 		<File>data/new_bbg_icons.xml</File>
 		<File>config/config.xml</File>
