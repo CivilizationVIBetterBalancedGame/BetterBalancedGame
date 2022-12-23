@@ -123,3 +123,34 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech)
 
 -- This is simply a visual change which makes the tech paths slighly more understandable (the dotted lines)
 -- UPDATE Technologies SET UITreeRow=-3 WHERE TechnologyType='TECH_INDUSTRIALIZATION';
+--==========Terrain==========--
+--adding campus adjacency to mountain wonders
+
+INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, TilesRequired, AdjacentFeature)
+	SELECT 
+       'Mountain_Science'||(SELECT COUNT(*)+5
+        FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN')
+        WHERE t2<= t1.WonderType), 'Placeholder', 'YIELD_SCIENCE', 1, 1, t1.WonderType
+FROM WonderTerrainFeature_BBG AS t1
+WHERE t1.TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN'
+ORDER BY WonderType;
+INSERT OR IGNORE INTO District_Adjacencies
+	SELECT 
+       'DISTRICT_CAMPUS', 'Mountain_Science'||(SELECT COUNT(*)+5
+        FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN')
+        WHERE t2<= t1.WonderType)
+FROM WonderTerrainFeature_BBG AS t1
+WHERE t1.TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN'
+ORDER BY WonderType;
+
+--lake
+UPDATE OR IGNORE Features SET AddsFreshWater = 1, Lake = 1 
+	WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE Other = 'LAKE');
+--oasis
+UPDATE OR IGNORE Features SET AddsFreshWater = 1
+	WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE FeatureType = 'FEATURE_OASIS');
+--Defense Modifier
+UPDATE OR IGNORE Features SET MovementChange=1,DefenseModifier = -2
+	WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE FeatureType = 'FEATURE_MARSH');
+UPDATE OR IGNORE Features SET MovementChange=1, SightThroughModifier=1, DefenseModifier = 3
+	WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE Other = 'HILLS');

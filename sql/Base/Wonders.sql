@@ -512,3 +512,4 @@ UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_CITIES_ADJUST_TRADE_ROUTE_YIE
 
 -- BioSphere - reduce cost
 UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_BIOSPHERE';
+
