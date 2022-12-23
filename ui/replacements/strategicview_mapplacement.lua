@@ -289,6 +289,9 @@ function RealizePlotArtForDistrictPlacement()
 		local tResults :table = CityManager.GetOperationTargets( pSelectedCity, CityOperationTypes.BUILD, tParameters );
 		-- Highlight the plots where the city can place the district
 		print(BuildRecursiveDataString(tResults[CityOperationResults.PLOTS]))
+		if tParameters[CityOperationTypes.PARAM_DISTRICT_TYPE] == -1188273497 then
+			print("fire")
+		end
 		if (tResults[CityOperationResults.PLOTS] ~= nil and table.count(tResults[CityOperationResults.PLOTS]) ~= 0) then			
 			local kPlots		= tResults[CityOperationResults.PLOTS];			
 			for i, plotId in ipairs(kPlots) do
