@@ -77,7 +77,8 @@ INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetI
 	WHERE Sci<Hill_CutOffYieldValues.Amount
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount > 0;
---removing excess yields
+--removing excess yields (went over to lua side completely, because it is conflicting)
+/*
 --flat food
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_REMOVE_'||CAST(ABS(Flat_CutOffYieldValues.Amount-BBCC.Food) AS varchar)||'_FOOD_BBCC', 'YIELD_FOOD', Flat_CutOffYieldValues.Amount-BBCC.Food, 'REQSET_REMOVE_'||CAST(ABS(Flat_CutOffYieldValues.Amount-BBCC.Food) AS varchar)||'_FOOD_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
@@ -144,6 +145,7 @@ INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetI
 	FROM BBCC INNER JOIN Hill_CutOffYieldValues ON 'YIELD_SCIENCE' = Hill_CutOffYieldValues.YieldType
 	WHERE Sci>Hill_CutOffYieldValues.Amount
 		AND TerrainType LIKE '%HILLS';
+*/
 --excluded terrains that already provide the correct values
 INSERT INTO Flat_SpecialTerrain
 SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, yt, tt
@@ -188,7 +190,7 @@ WHERE NOT EXISTS
 		WHERE tmp.SubjectRequirementSetId = BBCC_Modifiers.SubjectRequirementSetId 
 			AND tmp.TerrainType=BBCC_Modifiers.TerrainType)
 	AND ModifierId NOT LIKE '%REMOVE%';
-
+/*
 UPDATE BBCC_Modifiers SET InnerReqSet = REPLACE(ModifierId, 'MODIFIER_','REQSET_VALID_TFR_'), ReqSet_TFR = 'REQSET_TFR_'||TerrainType||'_'||
 CASE
 	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'HAS_'||ResourceType||'_BBCC'
@@ -198,7 +200,7 @@ CASE
 	WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'HAS_NO_RESOURCE_BBCC'
 END
 WHERE ModifierId NOT LIKE '%ADD%';
-
+*/
 
 UPDATE BBCC_Modifiers SET InnerReqSet = REPLACE(ModifierId, 'MODIFIER_','REQSET_VALID_TFR_');
 --Building Reqsets
@@ -221,11 +223,11 @@ INSERT INTO RequirementSetRequirements
 		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'REQ_HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
 		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NOT NULL THEN 'REQ_HAS_'||FeatureType||'_BBCC'
 		WHEN ModifierId LIKE '%ADD%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'REQ_HAS_NO_RESOURCE_BBCC'
-		WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_'||ResourceType||'_BBCC'
-		WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_AND_SEES_'||ResourceType||'_BBCC'
-		WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'REQ_HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
-		WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NOT NULL THEN 'REQ_HAS_'||FeatureType||'_BBCC'
-		WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'REQ_HAS_NO_RESOURCE_BBCC'
+		--WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType<>'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_'||ResourceType||'_BBCC'
+		--WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceClassType = 'RESOURCECLASS_STRATEGIC' THEN 'REQ_HAS_AND_SEES_'||ResourceType||'_BBCC'
+		--WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NOT NULL AND ResourceType IS NOT NULL THEN 'REQ_HAS_'||ResourceType||'_AND_'||FeatureType||'_BBCC'
+		--WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NOT NULL THEN 'REQ_HAS_'||FeatureType||'_BBCC'
+		--WHEN ModifierId LIKE '%REMOVE%' AND FeatureType IS NULL AND ResourceType IS NULL THEN 'REQ_HAS_NO_RESOURCE_BBCC'
 	END
 	FROM BBCC_Modifiers
 	WHERE ReqSet_TFR IS NOT NULL;
