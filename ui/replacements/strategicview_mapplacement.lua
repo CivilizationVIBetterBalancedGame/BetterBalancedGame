@@ -216,8 +216,25 @@ function ConfirmPlaceDistrict( pInputStruct:table)
 		local tResults;
 		if (bIsPurchase) then
 			bCanStart, tResults = CityManager.CanStartCommand( pSelectedCity, CityCommandTypes.PURCHASE, tParameters, true);
+			print("investigate purchase")
+			print(bCanStart)
+			if type(tResults)~="table" then
+				print(tResults)
+			else
+				print(BuildRecursiveDataString(tResults))
+			end
 		else
 			bCanStart, tResults = CityManager.CanStartOperation( pSelectedCity, CityOperationTypes.BUILD, tParameters, true);
+			print("investigate build")
+			print(bCanStart)
+			if type(tResults)~="table" then
+				print(tResults)
+			else
+				print(BuildRecursiveDataString(tResults))
+			end
+		end
+		if tParameters[CityOperationTypes.PARAM_DISTRICT_TYPE] == -1188273497 then
+
 		end
 		if pDistrictInfo ~= nil and bCanStart then
 			
@@ -290,8 +307,73 @@ function RealizePlotArtForDistrictPlacement()
 		-- Highlight the plots where the city can place the district
 		print(BuildRecursiveDataString(tResults[CityOperationResults.PLOTS]))
 		if tParameters[CityOperationTypes.PARAM_DISTRICT_TYPE] == -1188273497 then
+			local cityPlot = Map.GetPlot(pSelectedCity:GetX(), pSelectedCity:GetY())
+			local pPlayer = pSelectedCity:GetOwner()
+			local query = "SELECT WonderType FROM WonderTerrainFeature_BBG WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN' OR FeatureType = 'FEATURE_OASIS'"
+			local bbgAqueductQuery = DB.Query(query)
+			local bbgAqueductFeatures = {}
+			for i,row in ipairs(bbgAqueductQuery) do
+				bbgAqueductFeatures[i] = row.WonderType
+			end
+			print(BuildRecursiveDataString(bbgAqueductFeatures))
+			for i = 0,5 do
+				local posPlot = GetAdjacentTiles(cityPlot, i)
+				if posPlot~=nil then
+					print("Step1")
+					local iPosPlotID = Map.GetPlotIndex(posPlot:GetX(), posPlot:GetY())
+					local addToList = true
+					local posPlotFeature = posPlot:GetFeatureType()
+					local posPlotResource = posPlot:GetResourceType()
+					local posPlotTerrain = posPlot:GetTerrainType()
+					print("Step1.1")
+					if (posPlotTerrain == 2) or (posPlotTerrain == 5) or (posPlotTerrain == 8) or (posPlotTerrain == 11) or (posPlotTerrain == 14) or (posPlotTerrain == 15) or (posPlotTerrain == 16) then
+						addToList = addToList and false
+					end
+					print("Step1.2")
+					if posPlotFeature ~= -1 and GameInfo.Features[posPlotFeature].Removable == false then
+						addToList = addToList and false
+					elseif posPlotFeature == 2 and pPlayer:GetTechs():HasTech(GameInfo.Features[posPlotFeature].RemoveTech)==false then
+						addToList = addToList and false --jungle
+					elseif posPlotFeature == 3 and pPlayer:GetTechs():HasTech(GameInfo.Features[posPlotFeature].RemoveTech)==false then 
+						addToList = addToList and false-- woods
+					elseif posPlotFeature == 5 and pPlayer:GetTechs():HasTech(GameInfo.Features[posPlotFeature].RemoveTech)==false then 
+						addToList = addToList and false-- marsh
+					end
+					print("Step1.3")
+					if posPlotResource ~= -1 then 
+						if GameInfo.Resources[posPlotResource].ResourceClassType == 'RESOURCECLASS_LUXORY' then
+							addToList = addToList and false
+						elseif GameInfo.Resources[posPlotResource].ResourceClassType == 'RESOURCECLASS_STRATEGIC' and pPlayer:GetResources():IsResourceVisible(posPlotResource) then
+							addToList = addToList and false
+						elseif GameInfo.Resources[posPlotResource].ResourceClassType == 'RESOURCECLASS_BONUS' and pPlayer:GetTechs():HasTech(GameInfo.Resource_Harvests[GameInfo.Resources[posPlotResource].Hash].PrereqTech) == false then
+							addToList = addToList and false
+						end
+					end
+					for j = 0,5 do
+						local invPlot = GetAdjacentTiles(posPlot, j)
+						if invPlot~=nil then
+							print("Step2")
+							local myFeatureType = invPlot:GetFeatureType()
+							if myFeatureType~=-1 then
+								print("Step3")
+								print(GameInfo.Features[myFeatureType].FeatureType)
+								if IDToPos(bbgAqueductFeatures, GameInfo.Features[myFeatureType].FeatureType)==false then
+									addToList = addToList and false
+								end
+								if IDToPos(tResults[CityOperationResults.PLOTS], iPosPlotID)~=false then
+									print("Step4.2")
+									addToList = addToList and false		
+								end
+								
+								table.insert(tResults[CityOperationResults.PLOTS], iPosPlotID)
+							end
+						end
+					end
+				end
+			end
 			print("fire")
 		end
+		print(BuildRecursiveDataString(tResults[CityOperationResults.PLOTS]))
 		if (tResults[CityOperationResults.PLOTS] ~= nil and table.count(tResults[CityOperationResults.PLOTS]) ~= 0) then			
 			local kPlots		= tResults[CityOperationResults.PLOTS];			
 			for i, plotId in ipairs(kPlots) do
@@ -417,6 +499,7 @@ function RealizeCurrentPlaceDistrictOrWonderPlot()
 	end
 end
 
+--==========Support========--
 function BuildRecursiveDataString(data: table)
 	local str: string = ""
 	for k,v in pairs(data) do
@@ -431,4 +514,538 @@ function BuildRecursiveDataString(data: table)
 		end
 	end
 	return str
+end
+
+function IDToPos(List, SearchItem)
+	if List == nil then
+		return false
+	end
+	if List == {} then
+		return false
+	end
+    if SearchItem==nil then
+        return
+    end
+    for i, item in ipairs(List) do
+        if item == SearchItem then
+            return i;
+        end
+    end
+    return false
+end
+
+function GetHash(t)
+	local r = GameInfo.Types[t];
+	if(r) then
+		return r.Hash;
+	else
+		return 0;
+	end
+end
+
+function GetAdjacentTiles(plot, index)
+	-- This is an extended version of Firaxis, moving like a clockwise snail on the hexagon grids
+	local gridWidth, gridHeight = Map.GetGridSize();
+	local count = 0;
+	local k = 0;
+	local adjacentPlot = nil;
+	local adjacentPlot2 = nil;
+	local adjacentPlot3 = nil;
+	local adjacentPlot4 = nil;
+	local adjacentPlot5 = nil;
+
+
+	-- Return Spawn if index < 0
+	if(plot ~= nil and index ~= nil) then
+		if (index < 0) then
+			return plot;
+		end
+
+		else
+
+		__Debug("GetAdjacentTiles: Invalid Arguments");
+		return nil;
+	end
+
+	
+
+	-- Return Starting City Circle if index between #0 to #5 (like Firaxis' GetAdjacentPlot) 
+	for i = 0, 5 do
+		if(plot:GetX() >= 0 and plot:GetY() < gridHeight) then
+			adjacentPlot = Map.GetAdjacentPlot(plot:GetX(), plot:GetY(), i);
+			if (adjacentPlot ~= nil and index == i) then
+				return adjacentPlot
+			end
+		end
+	end
+
+	-- Return Inner City Circle if index between #6 to #17
+
+	count = 5;
+	for i = 0, 5 do
+		if(plot:GetX() >= 0 and plot:GetY() < gridHeight) then
+			adjacentPlot2 = Map.GetAdjacentPlot(plot:GetX(), plot:GetY(), i);
+		end
+
+		for j = i, i+1 do
+			--__Debug(i, j)
+			k = j;
+			count = count + 1;
+
+			if (k == 6) then
+				k = 0;
+			end
+
+			if (adjacentPlot2 ~= nil) then
+				if(adjacentPlot2:GetX() >= 0 and adjacentPlot2:GetY() < gridHeight) then
+					adjacentPlot = Map.GetAdjacentPlot(adjacentPlot2:GetX(), adjacentPlot2:GetY(), k);
+
+					else
+
+					adjacentPlot = nil;
+				end
+			end
+		
+
+			if (adjacentPlot ~=nil) then
+				if(index == count) then
+					return adjacentPlot
+				end
+			end
+
+		end
+	end
+
+	-- #18 to #35 Outer city circle
+	count = 0;
+	for i = 0, 5 do
+		if(plot:GetX() >= 0 and plot:GetY() < gridHeight) then
+			adjacentPlot = Map.GetAdjacentPlot(plot:GetX(), plot:GetY(), i);
+			adjacentPlot2 = nil;
+			adjacentPlot3 = nil;
+			else
+			adjacentPlot = nil;
+			adjacentPlot2 = nil;
+			adjacentPlot3 = nil;
+		end
+		if (adjacentPlot ~=nil) then
+			if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+				adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), i);
+			end
+			if (adjacentPlot3 ~= nil) then
+				if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+					adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i);
+				end
+			end
+		end
+
+		if (adjacentPlot2 ~= nil) then
+			count = 18 + i * 3;
+			if(index == count) then
+				return adjacentPlot2
+			end
+		end
+
+		adjacentPlot2 = nil;
+
+		if (adjacentPlot3 ~= nil) then
+			if (i + 1) == 6 then
+				if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+					adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), 0);
+				end
+				else
+				if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+					adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i +1);
+				end
+			end
+		end
+
+		if (adjacentPlot2 ~= nil) then
+			count = 18 + i * 3 + 1;
+			if(index == count) then
+				return adjacentPlot2
+			end
+		end
+
+		adjacentPlot2 = nil;
+
+		if (adjacentPlot ~= nil) then
+			if (i+1 == 6) then
+				if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+					adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), 0);
+				end
+				if (adjacentPlot3 ~= nil) then
+					if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+						adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), 0);
+					end
+				end
+				else
+				if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+					adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), i+1);
+				end
+				if (adjacentPlot3 ~= nil) then
+					if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+						adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i+1);
+					end
+				end
+			end
+		end
+
+		if (adjacentPlot2 ~= nil) then
+			count = 18 + i * 3 + 2;
+			if(index == count) then
+				return adjacentPlot2;
+			end
+		end
+
+	end
+
+	--  #35 #59 These tiles are outside the workable radius of the city
+	local count = 0
+	for i = 0, 5 do
+		if(plot:GetX() >= 0 and plot:GetY() < gridHeight) then
+			adjacentPlot = Map.GetAdjacentPlot(plot:GetX(), plot:GetY(), i);
+			adjacentPlot2 = nil;
+			adjacentPlot3 = nil;
+			adjacentPlot4 = nil;
+			else
+			adjacentPlot = nil;
+			adjacentPlot2 = nil;
+			adjacentPlot3 = nil;
+			adjacentPlot4 = nil;
+		end
+		if (adjacentPlot ~=nil) then
+			if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+				adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), i);
+			end
+			if (adjacentPlot3 ~= nil) then
+				if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+					adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i);
+					if (adjacentPlot4 ~= nil) then
+						if(adjacentPlot4:GetX() >= 0 and adjacentPlot4:GetY() < gridHeight) then
+							adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), i);
+						end
+					end
+				end
+			end
+		end
+
+		if (adjacentPlot2 ~= nil) then
+			terrainType = adjacentPlot2:GetTerrainType();
+			if (adjacentPlot2 ~=nil) then
+				count = 36 + i * 4;
+				if(index == count) then
+					return adjacentPlot2;
+				end
+			end
+
+		end
+
+		if (adjacentPlot3 ~= nil) then
+			if (i + 1) == 6 then
+				if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+					adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), 0);
+				end
+				else
+				if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+					adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i +1);
+				end
+			end
+		end
+
+		if (adjacentPlot4 ~= nil) then
+			if(adjacentPlot4:GetX() >= 0 and adjacentPlot4:GetY() < gridHeight) then
+				adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), i);
+				if (adjacentPlot2 ~= nil) then
+					count = 36 + i * 4 + 1;
+					if(index == count) then
+						return adjacentPlot2;
+					end
+				end
+			end
+
+
+		end
+
+		adjacentPlot4 = nil;
+
+		if (adjacentPlot ~= nil) then
+			if (i+1 == 6) then
+				if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+					adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), 0);
+				end
+				if (adjacentPlot3 ~= nil) then
+					if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+						adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), 0);
+					end
+				end
+				else
+				if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+					adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), i+1);
+				end
+				if (adjacentPlot3 ~= nil) then
+					if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+						adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i+1);
+					end
+				end
+			end
+		end
+
+		if (adjacentPlot4 ~= nil) then
+			if (adjacentPlot4:GetX() >= 0 and adjacentPlot4:GetY() < gridHeight) then
+				adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), i);
+				if (adjacentPlot2 ~= nil) then
+					count = 36 + i * 4 + 2;
+					if(index == count) then
+						return adjacentPlot2;
+					end
+
+				end
+			end
+
+		end
+
+		adjacentPlot4 = nil;
+
+		if (adjacentPlot ~= nil) then
+			if (i+1 == 6) then
+				if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+					adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), 0);
+				end
+				if (adjacentPlot3 ~= nil) then
+					if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+						adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), 0);
+					end
+				end
+				else
+				if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+					adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), i+1);
+				end
+				if (adjacentPlot3 ~= nil) then
+					if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+						adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i+1);
+					end
+				end
+			end
+		end
+
+		if (adjacentPlot4 ~= nil) then
+			if (adjacentPlot4:GetX() >= 0 and adjacentPlot4:GetY() < gridHeight) then
+				if (i+1 == 6) then
+					adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), 0);
+					else
+					adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), i+1);
+				end
+				if (adjacentPlot2 ~= nil) then
+					count = 36 + i * 4 + 3;
+					if(index == count) then
+						return adjacentPlot2;
+					end
+
+				end
+			end
+
+		end
+
+	end
+
+	--  > #60 to #90
+
+local count = 0
+	for i = 0, 5 do
+		if(plot:GetX() >= 0 and plot:GetY() < gridHeight) then
+			adjacentPlot = Map.GetAdjacentPlot(plot:GetX(), plot:GetY(), i); --first ring
+			adjacentPlot2 = nil;
+			adjacentPlot3 = nil;
+			adjacentPlot4 = nil;
+			adjacentPlot5 = nil;
+			else
+			adjacentPlot = nil;
+			adjacentPlot2 = nil;
+			adjacentPlot3 = nil;
+			adjacentPlot4 = nil;
+			adjacentPlot5 = nil;
+		end
+		if (adjacentPlot ~=nil) then
+			if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+				adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), i); --2nd ring
+			end
+			if (adjacentPlot3 ~= nil) then
+				if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+					adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i); --3rd ring
+					if (adjacentPlot4 ~= nil) then
+						if(adjacentPlot4:GetX() >= 0 and adjacentPlot4:GetY() < gridHeight) then
+							adjacentPlot5 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), i); --4th ring
+							if (adjacentPlot5 ~= nil) then
+								if(adjacentPlot5:GetX() >= 0 and adjacentPlot5:GetY() < gridHeight) then
+									adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot5:GetX(), adjacentPlot5:GetY(), i); --5th ring
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+
+		if (adjacentPlot2 ~= nil) then
+			count = 60 + i * 5;
+			if(index == count) then
+				return adjacentPlot2; --5th ring
+			end
+		end
+
+		adjacentPlot2 = nil;
+
+		if (adjacentPlot5 ~= nil) then
+			if (i + 1) == 6 then
+				if(adjacentPlot5:GetX() >= 0 and adjacentPlot5:GetY() < gridHeight) then
+					adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot5:GetX(), adjacentPlot5:GetY(), 0);
+				end
+				else
+				if(adjacentPlot5:GetX() >= 0 and adjacentPlot5:GetY() < gridHeight) then
+					adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot5:GetX(), adjacentPlot5:GetY(), i +1);
+				end
+			end
+		end
+
+
+		if (adjacentPlot2 ~= nil) then
+			count = 60 + i * 5 + 1;
+			if(index == count) then
+				return adjacentPlot2;
+			end
+
+		end
+
+		adjacentPlot2 = nil;
+
+		if (adjacentPlot ~=nil) then
+			if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+				adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), i);
+			end
+			if (adjacentPlot3 ~= nil) then
+				if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+					adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i);
+					if (adjacentPlot4 ~= nil) then
+						if(adjacentPlot4:GetX() >= 0 and adjacentPlot4:GetY() < gridHeight) then
+							if (i+1 == 6) then
+								adjacentPlot5 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), 0);
+								else
+								adjacentPlot5 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), i+1);
+							end
+							if (adjacentPlot5 ~= nil) then
+								if(adjacentPlot5:GetX() >= 0 and adjacentPlot5:GetY() < gridHeight) then
+									if (i+1 == 6) then
+										adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot5:GetX(), adjacentPlot5:GetY(), 0);
+										else
+										adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot5:GetX(), adjacentPlot5:GetY(), i+1);
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+
+		if (adjacentPlot2 ~= nil) then
+			count = 60 + i * 5 + 2;
+			if(index == count) then
+				return adjacentPlot2;
+			end
+
+		end
+
+		if (adjacentPlot ~=nil) then
+			if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+				if (i+1 == 6) then
+					adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), 0); -- 2 ring
+					else
+					adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), i+1); -- 2 ring
+				end
+			end
+			if (adjacentPlot3 ~= nil) then
+				if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+					if (i+1 == 6) then
+						adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), 0); -- 3ring
+						else
+						adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i+1); -- 3ring
+
+					end
+					if (adjacentPlot4 ~= nil) then
+						if(adjacentPlot4:GetX() >= 0 and adjacentPlot4:GetY() < gridHeight) then
+							if (i+1 == 6) then
+								adjacentPlot5 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), 0); --4th ring
+								else
+								adjacentPlot5 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), i+1); --4th ring
+							end
+							if (adjacentPlot5 ~= nil) then
+								if(adjacentPlot5:GetX() >= 0 and adjacentPlot5:GetY() < gridHeight) then
+									adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot5:GetX(), adjacentPlot5:GetY(), i); --5th ring
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+
+		if (adjacentPlot2 ~= nil) then
+			count = 60 + i * 5 + 3;
+			if(index == count) then
+				return adjacentPlot2;
+			end
+
+		end
+		
+		adjacentPlot2 = nil
+
+		if (adjacentPlot ~=nil) then
+			if(adjacentPlot:GetX() >= 0 and adjacentPlot:GetY() < gridHeight) then
+				if (i+1 == 6) then
+					adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), 0); -- 2 ring
+					else
+					adjacentPlot3 = Map.GetAdjacentPlot(adjacentPlot:GetX(), adjacentPlot:GetY(), i+1); -- 2 ring
+				end
+			end
+			if (adjacentPlot3 ~= nil) then
+				if(adjacentPlot3:GetX() >= 0 and adjacentPlot3:GetY() < gridHeight) then
+					if (i+1 == 6) then
+						adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), 0); -- 3ring
+						else
+						adjacentPlot4 = Map.GetAdjacentPlot(adjacentPlot3:GetX(), adjacentPlot3:GetY(), i+1); -- 3ring
+
+					end
+					if (adjacentPlot4 ~= nil) then
+						if(adjacentPlot4:GetX() >= 0 and adjacentPlot4:GetY() < gridHeight) then
+							if (i+1 == 6) then
+								adjacentPlot5 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), 0); --4th ring
+								else
+								adjacentPlot5 = Map.GetAdjacentPlot(adjacentPlot4:GetX(), adjacentPlot4:GetY(), i+1); --4th ring
+							end
+							if (adjacentPlot5 ~= nil) then
+								if(adjacentPlot5:GetX() >= 0 and adjacentPlot5:GetY() < gridHeight) then
+									if (i+1 == 6) then
+										adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot5:GetX(), adjacentPlot5:GetY(), 0); --5th ring
+										else
+										adjacentPlot2 = Map.GetAdjacentPlot(adjacentPlot5:GetX(), adjacentPlot5:GetY(), i+1); --5th ring
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+
+		if (adjacentPlot2 ~= nil) then
+			count = 60 + i * 5 + 4;
+			if(index == count) then
+				return adjacentPlot2;
+			end
+
+		end
+
+	end
+
 end
