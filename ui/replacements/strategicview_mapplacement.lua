@@ -233,9 +233,6 @@ function ConfirmPlaceDistrict( pInputStruct:table)
 				print(BuildRecursiveDataString(tResults))
 			end
 		end
-		if tParameters[CityOperationTypes.PARAM_DISTRICT_TYPE] == -1188273497 then
-
-		end
 		if pDistrictInfo ~= nil and bCanStart then
 			
 			local sConfirmText	:string = Locale.Lookup("LOC_DISTRICT_ZONE_CONFIRM_DISTRICT_POPUP", pDistrictInfo.Name);
@@ -245,6 +242,10 @@ function ConfirmPlaceDistrict( pInputStruct:table)
 					sConfirmText = sConfirmText .. "[NEWLINE]";
 				end
 				for i,v in ipairs(tResults[CityOperationResults.SUCCESS_CONDITIONS]) do
+					print(type(v))
+					local txt = Locale.Lookup("LOC_DISTRICT_ZONE_WILL_REMOVE_FEATURE", GameInfo.Features[12].Name)
+					print(Locale.Lookup(txt))
+					print(v)
 					sConfirmText = sConfirmText .. "[NEWLINE]" .. Locale.Lookup(v);
 				end
 			end
@@ -305,75 +306,8 @@ function RealizePlotArtForDistrictPlacement()
 
 		local tResults :table = CityManager.GetOperationTargets( pSelectedCity, CityOperationTypes.BUILD, tParameters );
 		-- Highlight the plots where the city can place the district
-		print(BuildRecursiveDataString(tResults[CityOperationResults.PLOTS]))
-		if tParameters[CityOperationTypes.PARAM_DISTRICT_TYPE] == -1188273497 then
-			local cityPlot = Map.GetPlot(pSelectedCity:GetX(), pSelectedCity:GetY())
-			local pPlayer = pSelectedCity:GetOwner()
-			local query = "SELECT WonderType FROM WonderTerrainFeature_BBG WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN' OR FeatureType = 'FEATURE_OASIS'"
-			local bbgAqueductQuery = DB.Query(query)
-			local bbgAqueductFeatures = {}
-			for i,row in ipairs(bbgAqueductQuery) do
-				bbgAqueductFeatures[i] = row.WonderType
-			end
-			print(BuildRecursiveDataString(bbgAqueductFeatures))
-			for i = 0,5 do
-				local posPlot = GetAdjacentTiles(cityPlot, i)
-				if posPlot~=nil then
-					print("Step1")
-					local iPosPlotID = Map.GetPlotIndex(posPlot:GetX(), posPlot:GetY())
-					local addToList = true
-					local posPlotFeature = posPlot:GetFeatureType()
-					local posPlotResource = posPlot:GetResourceType()
-					local posPlotTerrain = posPlot:GetTerrainType()
-					print("Step1.1")
-					if (posPlotTerrain == 2) or (posPlotTerrain == 5) or (posPlotTerrain == 8) or (posPlotTerrain == 11) or (posPlotTerrain == 14) or (posPlotTerrain == 15) or (posPlotTerrain == 16) then
-						addToList = addToList and false
-					end
-					print("Step1.2")
-					if posPlotFeature ~= -1 and GameInfo.Features[posPlotFeature].Removable == false then
-						addToList = addToList and false
-					elseif posPlotFeature == 2 and pPlayer:GetTechs():HasTech(GameInfo.Features[posPlotFeature].RemoveTech)==false then
-						addToList = addToList and false --jungle
-					elseif posPlotFeature == 3 and pPlayer:GetTechs():HasTech(GameInfo.Features[posPlotFeature].RemoveTech)==false then 
-						addToList = addToList and false-- woods
-					elseif posPlotFeature == 5 and pPlayer:GetTechs():HasTech(GameInfo.Features[posPlotFeature].RemoveTech)==false then 
-						addToList = addToList and false-- marsh
-					end
-					print("Step1.3")
-					if posPlotResource ~= -1 then 
-						if GameInfo.Resources[posPlotResource].ResourceClassType == 'RESOURCECLASS_LUXORY' then
-							addToList = addToList and false
-						elseif GameInfo.Resources[posPlotResource].ResourceClassType == 'RESOURCECLASS_STRATEGIC' and pPlayer:GetResources():IsResourceVisible(posPlotResource) then
-							addToList = addToList and false
-						elseif GameInfo.Resources[posPlotResource].ResourceClassType == 'RESOURCECLASS_BONUS' and pPlayer:GetTechs():HasTech(GameInfo.Resource_Harvests[GameInfo.Resources[posPlotResource].Hash].PrereqTech) == false then
-							addToList = addToList and false
-						end
-					end
-					for j = 0,5 do
-						local invPlot = GetAdjacentTiles(posPlot, j)
-						if invPlot~=nil then
-							print("Step2")
-							local myFeatureType = invPlot:GetFeatureType()
-							if myFeatureType~=-1 then
-								print("Step3")
-								print(GameInfo.Features[myFeatureType].FeatureType)
-								if IDToPos(bbgAqueductFeatures, GameInfo.Features[myFeatureType].FeatureType)==false then
-									addToList = addToList and false
-								end
-								if IDToPos(tResults[CityOperationResults.PLOTS], iPosPlotID)~=false then
-									print("Step4.2")
-									addToList = addToList and false		
-								end
-								
-								table.insert(tResults[CityOperationResults.PLOTS], iPosPlotID)
-							end
-						end
-					end
-				end
-			end
-			print("fire")
-		end
-		print(BuildRecursiveDataString(tResults[CityOperationResults.PLOTS]))
+
+
 		if (tResults[CityOperationResults.PLOTS] ~= nil and table.count(tResults[CityOperationResults.PLOTS]) ~= 0) then			
 			local kPlots		= tResults[CityOperationResults.PLOTS];			
 			for i, plotId in ipairs(kPlots) do
