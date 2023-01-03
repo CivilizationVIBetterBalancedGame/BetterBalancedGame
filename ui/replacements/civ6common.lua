@@ -829,14 +829,76 @@ function CityManager.GetOperationTargets(pCity: object, iOperationType, tParamet
 		augmentedResults = FiraxisGetOperationTargets(pCity, iOperationType, tParameters)
 	end
 
+	local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
+	for i, targetPlot in ipairs(pCity:GetOwnedPlots()) do
+		local iPlacementId = IDToPos(GameInfo.CustomPlacement(), GetHash(GameInfo.Districts[iDistrictId].DistrictType), "Hash")
+		local canPlace = true and MAPICheckTile()
+	end
 	return augmentedResults
 end
 
 function Plot.CanHaveDistrict(self, iDistrictId: number, iOwnerPlayerId: number, iCityId: number)
-	if IDToPos(GameInfo.CustomPlacement(), GetHash(GameInfo.Districts[iDistrictId]).DistrictType, "Hash") == false then
+	local iPlacementId = IDToPos(GameInfo.CustomPlacement(), GetHash(GameInfo.Districts[iDistrictId].DistrictType), "Hash")
+	if  iPlacementId == false then
 		return FiraxisPlotCanHaveDistrict(self, iDistrictId: number, iOwnerPlayerId: number, iCityId: number)
 	end
-	
+	local pCity = CityManager.GetCity(iOwnerPlayerId, iCityId)
+	if pCity == nil then --invalid input
+		return false
+	end
+	local cityX = pCity:GetX()
+	local cityY = pCity:GetY()
+	local nDistance = Map.GetPlotDistance(self:GetX(), self:GetY(), cityX, cityY)
+	if nDistance > 3 then --too far away
+		return false
+	end
+	local lCityPlots = pCity:GetOwnedPlots()
+	if IDToPos(lCityPlots, self) == false and self:GetOwner() == iOwnerPlayerId then -- owned by player but a different city
+		return false
+	end
+	local domainSea = false
+	if GameInfo.Districts[iDistrictId].AdjacentToLand == true then
+		domainSea = true
+	end
+	local canPlace = MAPICheckTile(self, domainSea)
+	if canPlace then
+		local kFunction = GameInfo.CustomPlacement[iPlacementId].PlacementFunction
+		canPlace = canPlace and ExposedMembers.CustomPlacement[kFunction](self)
+	end
+	canPlace = canPlace or FiraxisPlotCanHaveDistrict(self, iDistrictId: number, iOwnerPlayerId: number, iCityId: number)
+	return canPlace
+end
+
+function Plot.CanHaveWonder(self, iBuildingId: number, iOwnerPlayerId: number, iCityId: number)
+	local iPlacementId = IDToPos(GameInfo.CustomPlacement(), GetHash(GameInfo.Buildings[iBuildingId].BuildingType), "Hash")
+	if  iPlacementId == false then
+		return FiraxisPlotCanHaveWonder(self, iBuildingId: number, iOwnerPlayerId: number, iCityId: number)
+	end
+	local pCity = CityManager.GetCity(iOwnerPlayerId, iCityId)
+	if pCity == nil then --invalid input
+		return false
+	end
+	local cityX = pCity:GetX()
+	local cityY = pCity:GetY()
+	local nDistance = Map.GetPlotDistance(self:GetX(), self:GetY(), cityX, cityY)
+	if nDistance > 3 then --too far away
+		return false
+	end
+	local lCityPlots = pCity:GetOwnedPlots()
+	if IDToPos(lCityPlots, self) == false and self:GetOwner() == iOwnerPlayerId then -- owned by player but a different city
+		return false
+	end
+	local domainSea = false
+	if GameInfo.Buildings[iBuildingId].MustBeAdjacentLand == true then
+		domainSea = true
+	end
+	local canPlace = MAPICheckTile(self, domainSea)
+	if canPlace then
+		local kFunction = GameInfo.CustomPlacement[iPlacementId].PlacementFunction
+		canPlace = canPlace and ExposedMembers.CustomPlacement[kFunction](self)
+	end
+	canPlace = canPlace or FiraxisPlotCanHaveWonder(self, iBuildingId: number, iOwnerPlayerId: number, iCityId: number)
+	return canPlace
 end
 
 function MAPICheckTile(pPlot: object, domainSea: boolean, results: boolean)
@@ -854,8 +916,16 @@ function MAPICheckTile(pPlot: object, domainSea: boolean, results: boolean)
 		end
 		if domainSea==true and ((posPlotTerrain ~= 15) and (posPlotTerrain ~= 16)) then
 			addToList = addToList and false
-		end 
-		print("Step1.2") -- feature
+		end
+		print("Step1.2") -- placed districts
+		if(pPlot:GetDistrictID() ~= -1 and pPlot:GetDistrictType() ~= nil) then
+			addToList = addToList and false
+		end
+		print("Step1.3") -- placed wonders
+		if pPlot:GetWonderType() ~= -1 or pPlot:GetWonderType()~= nil then
+			addToList = addToList and false
+		end
+		print("Step1.4") -- feature
 		local posPlotFeature = pPlot:GetFeatureType()
 		if posPlotFeature ~= -1 and GameInfo.Features[posPlotFeature].Removable == false then
 			addToList = addToList and false
@@ -871,7 +941,7 @@ function MAPICheckTile(pPlot: object, domainSea: boolean, results: boolean)
 				table.insert(succResults, Locale.Lookup("LOC_DISTRICT_ZONE_WILL_REMOVE_FEATURE", GameInfo.Features[posPlotFeature].Name))
 			end
 		end
-		print("Step1.3") --resource
+		print("Step1.5") --resource
 		local posPlotResource = pPlot:GetResourceType()
 		if posPlotResource ~= -1 then 
 			if GameInfo.Resources[posPlotResource].ResourceClassType == 'RESOURCECLASS_LUXORY' then
@@ -896,7 +966,7 @@ function MAPICheckTile(pPlot: object, domainSea: boolean, results: boolean)
 				end
 			end
 		end
-		print("Step1.4") -- improvement
+		print("Step1.6") -- improvement
 		local posPlotImprovement = pPlot:GetImprovementType()
 		if posPlotImprovement ~= -1 then
 			if GameInfo.Improvements[posPlotImprovement].Removable == false then
