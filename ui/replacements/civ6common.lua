@@ -808,33 +808,50 @@ end
 
 function CityManager.GetOperationTargets(pCity: object, iOperationType, tParameters: table)
 	local hashToCheck : number
+	local iBuildingId = -1
+	local iDistrictId = -1
 	local augmentedResults = {}
-	if iOperationType ~= CityOperationTypes.BUILD then
+	local bEarlyFinish = false
+	while bEarlyFinish == false do
+		if iOperationType ~= CityOperationTypes.BUILD then
+			bEarlyFinish = true
+		end
+		if tParameters[CityOperationTypes.PARAM_BUILDING_TYPE]==nil or tParameters[CityOperationTypes.PARAM_DISTRICT_TYPE] == nil then
+			bEarlyFinish = true
+		elseif tParameters[CityOperationTypes.PARAM_BUILDING_TYPE]~=nil then
+			hashToCheck = tParameters[CityOperationTypes.PARAM_BUILDING_TYPE]
+			iBuildingId = IDToPos(GameInfo.Buildings(), hashToCheck, "Hash")
+		elseif tParameters[CityOperationTypes.PARAM_DISTRICT_TYPE] ~=nil then
+			hashToCheck = tParameters[CityOperationTypes.PARAM_DISTRICT_TYPE]
+			iDistrictId = IDToPos(GameInfo.Buildings(), hashToCheck, "Hash")
+		end
+		local iCustomPlacementID = IDToPos(GameInfo.CustomPlacement(), hashToCheck, "Hash")
+		if iCustomPlacementID == false then
+			bEarlyFinish = true
+		end
+		if GameInfo.CustomPlacement[iCustomPlacementID].OverridePlacement == false then
+			augmentedResults = FiraxisGetOperationTargets(pCity, iOperationType, tParameters)
+		end
+		break
+	end
+	if bEarlyFinish then
 		return FiraxisGetOperationTargets(pCity, iOperationType, tParameters)
-	end
-	if tParameters[CityOperationTypes.PARAM_BUILDING_TYPE]==nil then
-		return FiraxisGetOperationTargets(pCity, iOperationType, tParameters)
-	else
-		hashToCheck = tParameters[CityOperationTypes.PARAM_BUILDING_TYPE]
-	end
-	if tParameters[CityOperationTypes.PARAM_DISTRICT_TYPE]==nil then
-		return FiraxisGetOperationTargets(pCity, iOperationType, tParameters)
-	else
-		hashToCheck = tParameters[CityOperationTypes.PARAM_DISTRICT_TYPE]
-	end
-	if IDToPos(GameInfo.CustomPlacement(), hashToCheck, "Hash") == false then
-		return FiraxisGetOperationTargets(pCity, iOperationType, tParameters)
-	end
-	if GameInfo.CustomPlacement[IDToPos(GameInfo.CustomPlacement(), hashToCheck)].OverridePlacement == false then
-		augmentedResults = FiraxisGetOperationTargets(pCity, iOperationType, tParameters)
-	end
-
+	end	
 	local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
-	for i, targetPlot in ipairs(pCity:GetOwnedPlots()) do
-		local iPlacementId = IDToPos(GameInfo.CustomPlacement(), GetHash(GameInfo.Districts[iDistrictId].DistrictType), "Hash")
-		local canPlace = true and MAPICheckTile()
+	for i, pTargetPlot in ipairs(pCity:GetOwnedPlots()) do
+		local bKeep = false
+		if pTargetPlot ~= pPlot then
+			if iBuildingId ~= -1 and pTargetPlot:CanHaveWonder(iBuildingId, pCity:GetOwner(), pCity:GetID()) then
+				bKeep = true
+			elseif iDistrictId ~= -1 and pTargetPlot:CanHaveDistrict(iDistrictId, pCity:GetOwner(), pCity:GetID()) then
+				bKeep = true
+			end
+		end
+		if bKeep = true and ((IDToPos(augmentedResults), pTargetPlot)==false) then
+			table.insert(augmentedResults, pTargetPlot)
+		end
 	end
-	return augmentedResults
+	return augmentedResults	
 end
 
 function Plot.CanHaveDistrict(self, iDistrictId: number, iOwnerPlayerId: number, iCityId: number)
