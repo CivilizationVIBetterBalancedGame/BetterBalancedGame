@@ -119,6 +119,8 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech)
 
 -- This is simply a visual change which makes the tech paths slighly more understandable (the dotted lines)
 -- UPDATE Technologies SET UITreeRow=-3 WHERE TechnologyType='TECH_INDUSTRIALIZATION';
+
+
 --==========Terrain==========--
 --adding campus adjacency to mountain wonders
 
@@ -150,3 +152,8 @@ UPDATE OR IGNORE Features SET MovementChange=1,DefenseModifier = -2
 	WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE FeatureType = 'FEATURE_MARSH');
 UPDATE OR IGNORE Features SET MovementChange=1, SightThroughModifier=1, DefenseModifier = 3
 	WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE Other = 'HILLS');
+
+--aqueduct/bath custom placements (for wonder terrain/feature)
+INSERT INTO CustomPlacement(ObjectType, Hash, PlacementFunction)
+    SELECT Types.Type, Types.Hash, 'BBG_AQUEDUCT_CUSTOM_PLACEMENT'
+    FROM Types WHERE Type IN ('DISTRICT_AQUEDUCT', 'DISTRICT_BATH');
