@@ -384,6 +384,10 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 
 INSERT INTO GameModifiers(ModifierId) VALUES ('BBG_GOLDENGATE_IGNORE_CLIFF');
 
+INSERT INTO CustomPlacement(ObjectType, Hash, PlacementFunction)
+    SELECT Types.Type, Types.Hash, 'BBG_PANAMA_CANAL_CUSTOM_PLACEMENT'
+    FROM Types WHERE Type = 'BUILDING_PANAMA_CANAL';
+
 --==============================================================
 --******                 CITY_STATES                      ******
 --==============================================================
@@ -1151,3 +1155,4 @@ ORDER BY WonderType;
 --adding reef wonders defense modifier
 UPDATE OR IGNORE Features SET DefenseModifier = 3
     WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE FeatureType = 'FEATURE_REEF');
+

@@ -94,3 +94,12 @@ CREATE TABLE AbstractModifiers(
     Name TEXT,
     Value TEXT 
     );
+
+CREATE TABLE CustomPlacement(
+    ObjectType TEXT NOT NULL,
+    Hash INTEGER NOT NULL,
+    PlacementFunction TEXT NOT NULL,
+    OverridePlacement BOOLEAN NOT NULL CHECK(OverridePlacement IN (0,1)) DEFAULT 0,
+    PRIMARY KEY(ObjectType),
+    FOREIGN KEY(Hash) REFERENCES Types(Hash) ON DELETE CASCADE ON UPDATE CASCADE
+    );
