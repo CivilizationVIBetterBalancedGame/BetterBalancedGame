@@ -284,10 +284,12 @@
 
 	<!-- defines modifications to games (requires any LocalizedText from Settings above, and must import files before modifying any SQL tables) -->
 	<InGameActions>
+		<!--
 		<ImportFiles id="bbg_placement">
 			<File>ui/bbg_customplacement.lua</File>
 			<File>ui/replacements/strategicview_mapplacement.lua</File>
 		</ImprotFiles>
+		-->
 		<AddGameplayScripts id="BBG_CoreScript">
 			<File>scripts/bbg_script.lua</File>
 		</AddGameplayScripts>
@@ -1050,9 +1052,10 @@
 		<File>ui/replacements/tradesupport.lua</File>
 		<File>ui/replacements/compatibility/traderoutechooser.lua</File>
 		<File>ui/replacements/compatibility/tradeoverview.lua</File>
+		<!--
 		<File>ui/bbg_customplacement.lua</File>		
 		<File>ui/replacements/strategicview_mapplacement.lua</File>
-
+		-->
 
 		<File>data/new_bbg_icons.xml</File>
 		<File>config/config.xml</File>
