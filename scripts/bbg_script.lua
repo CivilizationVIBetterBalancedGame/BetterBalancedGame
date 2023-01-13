@@ -397,6 +397,23 @@ function OnCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 	print("Reconquest Property Set for"..tostring(CityManager.GetCityAt(iX, iY):GetName()))
 end
 
+function OnUnitInitialized(iPlayerId, iUnitId)
+	print("OnUnitInitialized started")
+	local pUnit = UnitManager.GetUnit(iPlayerId, iUnitId)
+	if pUnit == nil then
+		return
+	end
+	print(iUnitId)
+	print(pUnit:GetType())
+	print("Unit", GameInfo.Units[pUnit:GetType()].UnitType)
+	print("Check for 0 movement")
+	print("Moves", pUnit:GetMovesRemaining())
+	if pUnit:GetMovesRemaining() ~= 0 then
+		UnitManager.RestoreMovement(pUnit)
+		UnitManager.RestoreUnitAttacks(pUnit)
+		print("Moves Restored")
+	end
+end
 -- function OnTechBoost(playerID, iTechBoosted)
 --	print("OnTechBoost",playerID, iTechBoosted)
 --	local pPlayer = Players[playerID]
@@ -2392,6 +2409,8 @@ function Initialize()
 	-- Auxillary GameEvent for Caesar wildcard
 	GameEvents.CityBuilt.Add(OnCityBuilt);
 	GameEvents.CityConquered.Add(OnCityConquered)
+	-- Extra Movement bugfix
+	GameEvents.UnitInitialized.Add(OnUnitInitialized)
 end
 
 Initialize();
