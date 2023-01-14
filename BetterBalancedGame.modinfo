@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <!-- Release ModID
 <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5023">
 -->
@@ -227,14 +229,6 @@
 				<Value>5</Value>
 			</ConfigurationValueMatches>
 		</Criteria>
-		<!-- Beta -->
-		<Criteria id="Criteria_BETA_BAN_TRADE_TREATY">
-			<ConfigurationValueMatches>
-				<ConfigurationId>BETA_BAN_TRADE_TREATY</ConfigurationId>
-				<Group>Game</Group>
-				<Value>1</Value>
-			</ConfigurationValueMatches>
-		</Criteria>
 		<!-- Gamemode -->
 		<Criteria id="No_Gamemode_Babylon">
 			<ModInUse>8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
@@ -278,7 +272,6 @@
 			</Properties>
 			<File>config/config.xml</File>
 			<File>config/config.sql</File>
-			<File>config/april_fool_2022_config.sql</File>
 		</UpdateDatabase>
 	</FrontEndActions>
 
@@ -907,14 +900,6 @@
 			<Criteria>Gamemode_Babylon</Criteria>
 			<File>lang/april_fool.xml</File>
 		</UpdateText>
-		<!-- Beta -->
-		<UpdateDatabase id="bbg_db_BETA_BAN_TRADE_TREATY">
-			<Properties>
-				<LoadOrder>21020</LoadOrder>
-			</Properties>
-			<Criteria>Criteria_BETA_BAN_TRADE_TREATY</Criteria>
-			<File>sql/beta/ban_trade_treaty.sql</File>
-		</UpdateDatabase>
 	</InGameActions>
 
 	<!-- defines file dependencies -->
@@ -1070,8 +1055,6 @@
 		<File>sql/victories/new_bbg_rv_1.sql</File>
 		<File>sql/victories/new_bbg_rv_2.sql</File>
 		<File>sql/victories/new_bbg_new_domination.sql</File>
-
-		<File>sql/beta/ban_trade_treaty.sql</File>
 
 		<File>sql/bbcc/bbcc_configvalues.sql</File>
 	    <File>sql/bbcc/core_bbcc.sql</File>
