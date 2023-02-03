@@ -276,17 +276,7 @@
 	</FrontEndActions>
 
 	<!-- defines modifications to games (requires any LocalizedText from Settings above, and must import files before modifying any SQL tables) -->
-	<InGameActions>
-		<AddUserInterfaces id="bbg_uitogameplay_dummy_xml">
-			<Properties>
-				<Context>InGame</Context>
-			</Properties>
-			<File>scripts/bbg_uitogameplay.xml</File>
-		</AddUserInterfaces>
-		
-		<ImportFiles id="bbg_uitogameplay_lua">
-			<File>scripts/bbg_uitogameplay.lua</File>
-		</ImportFiles>
+	<InGameActions>		
 		<!--
 		<ImportFiles id="bbg_placement">
 			<File>ui/bbg_customplacement.lua</File>
@@ -296,12 +286,25 @@
 		<AddGameplayScripts id="BBG_CoreScript">
 			<File>scripts/bbg_script.lua</File>
 		</AddGameplayScripts>
+
+		<AddUserInterfaces id="bbg_uitogameplay_dummy_xml">
+			<Properties>
+				<Context>InGame</Context>
+			</Properties>
+			<File>scripts/bbg_uitogameplay.xml</File>
+		</AddUserInterfaces>
+		
 		<!-- BBCC-->
 		<AddGameplayScripts id="bbcc_no_rng_script">
 	    	<Criteria>core_bbcc</Criteria>
 	    	<Criteria>no_rng_bbcc</Criteria>
 			<File>scripts/bbcc_no_rng.lua</File>
 		</AddGameplayScripts>
+
+		<ImportFiles id="bbg_uitogameplay_lua">
+			<File>scripts/bbg_uitogameplay.lua</File>
+		</ImportFiles>
+
 		<!-- -->
 		<UpdateText id="BBG_TextUpdate">
 			<Properties>
