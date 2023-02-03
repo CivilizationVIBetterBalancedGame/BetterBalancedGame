@@ -31,7 +31,7 @@
 
 --include "bbg_stateutils"
 --include "bbg_unitcommands"
-
+ExposedMembers.LuaEvents = LuaEvents
 include("SupportFunctions");
 -- ===========================================================================
 --	Constants
@@ -412,6 +412,20 @@ function OnUnitInitialized(iPlayerId, iUnitId)
 		UnitManager.RestoreMovement(pUnit)
 		UnitManager.RestoreUnitAttacks(pUnit)
 		print("Moves Restored")
+	end
+end
+
+function OnIncaCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
+	if PlayerConfigurations[iOldOwnerID]:GetCivilizationTypeName() ~= "CIVILIZATION_INCA" then
+		return
+	end
+	local pCity = Map.GetCityInPlot(iX, iY)
+	for i, pPlot in ipairs(pCity:GetOwnedPlots()) do
+		if pPlot:IsImpassable() and pPlot:GetFeatureType()~=-1 and pPlot:GetFeatureType()~=34 then
+			for i = 0,5 do
+				pPlot:SetProperty(YieldPropertyDictionary(i), nil)
+			end
+		end
 	end
 end
 -- function OnTechBoost(playerID, iTechBoosted)
@@ -1276,11 +1290,40 @@ function InitBarbData()
 	end	
 end
 
+-- ===========================================================================
+-- UIToGameplay Scripts
+-- ===========================================================================
+-- Inca
+function OnUISetPlotProperty(iPlayerId, tParameters)
+	print("UISetPlotProperty triggered")
+	GameEvents.GameplaySetPlotProperty.Call(iPlayerID, tParameters)
+end
 
+LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
 
+function OnGameplaySetPlotProperty(iPlayerID, tParameters)
+	local pPlot = Map.GetPlot(tParameters.iX, tParameters.iY)
+	local tYields = tParameters.Yields
+	for i=0, 5 do
+		if tYields[i]>0 then
+			pPlot:SetProperty(YieldPropertyDictionary(i), tYields[i])
+		end
+	end
+end
 -- ===========================================================================
 --	Tools
 -- ===========================================================================
+
+function YieldPropertyDictionary(iYieldId)
+	local YieldDict = {}
+	YieldDict[0] = "EXTRA_YIELD_FOOD"
+	YieldDict[1] = "EXTRA_YIELD_PRODUCTION"
+	YieldDict[2] = "EXTRA_YIELD_GOLD"
+	YieldDict[3] = "EXTRA_YIELD_FAITH"
+	YieldDict[4] = "EXTRA_YIELD_CULTURE"
+	YieldDict[5] = "EXTRA_YIELD_SCIENCE"
+	return YieldDict[iYieldId]
+end
 
 function GetAliveMajorTeamIDs()
 	print("GetAliveMajorTeamIDs()")
@@ -2411,6 +2454,9 @@ function Initialize()
 	GameEvents.CityConquered.Add(OnCityConquered)
 	-- Extra Movement bugfix
 	GameEvents.UnitInitialized.Add(OnUnitInitialized)
+	-- Inca Yields on non-mountain impassibles bugfix
+	GameEvents.GameplaySetPlotProperty.Add(OnGameplaySetPlotProperty)
+	GameEvents.CityConquered.Add(OnIncaCityConquered)
 end
 
 Initialize();
