@@ -132,7 +132,7 @@ INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, Tile
 	SELECT 
        'Mountain_Science'||(SELECT COUNT(*)+5
         FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN')
-        WHERE t2<= t1.WonderType), 'Placeholder', 'YIELD_SCIENCE', 1, 1, t1.WonderType
+        WHERE t2<= t1.WonderType), 'LOC_CAMPUS_MOUNTAIN_WONDER_ADJACENCY_BBG', 'YIELD_SCIENCE', 1, 1, t1.WonderType
 FROM WonderTerrainFeature_BBG AS t1
 WHERE t1.TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN'
 ORDER BY WonderType;

@@ -1,10 +1,24 @@
-print("BCY: NO RNG script started")
+ExposedMembers.LuaEvents = LuaEvents
 
+print("BCY: NO RNG script started")
 include("SupportFunctions");
+
 --Hook Functions
 function OnCityBuiltBBCC(playerID, cityID, iX, iY)
 	RecalculateMapYield(iX, iY)
 	return
+end
+
+function OnUIBCYAdjustCityYield(playerID, kParameters)
+	print("BCY script called from UI event")
+	GameEvents.GameplayBCYAdjustCityYield.Call(playerID, kParameters)
+end
+
+LuaEvents.UIBCYAdjustCityYield.Add(OnUIBCYAdjustCityYield)
+
+function OnGameplayBCYAdjustCityYield(playerID, kParameters)
+	print("Gameplay Script Called")
+	RecalculateMapYield(iX, iY)
 end
 
 function OnRandomEventOccurredBBCC(iType, iSeverity, iX, iY, iMitigation)
@@ -106,4 +120,4 @@ function RecalculateMapYield(iX, iY)
 end
 --Game Events--
 GameEvents.CityBuilt.Add(OnCityBuiltBBCC)
-GameEvents.OnRandomEventOccurred.Add(OnRandomEventOccurredBBCC)
+GameEvents.GameplayBCYAdjustCityYield.Add(OnGameplayBCYAdjustCityYield)
