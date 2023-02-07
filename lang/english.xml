@@ -123,6 +123,10 @@
 		<Replace Tag="LOC_TRAIT_LEADER_HAMMURABI_XP1_DESCRIPTION" Language="en_US">
 			<Text>When each [ICON_DISTRICT] specialty district type except the Government Plaza is constructed for the first time receive the lowest [ICON_PRODUCTION] Production cost building that can currently be constructed in that district.</Text>
 		</Replace>
+		<!-- = unique building = -->
+		<Replace Tag="LOC_BUILDING_PALGUM_DESCRIPTION" Language="en_US">
+			<Text>A building unique to Babylon. +1 [ICON_HOUSING] Housing and +2 [ICON_PRODUCTION] Production. Freshwater improved tiles receive +1 [ICON_FOOD] Food. City must be adjacent to a River.</Text>
+		</Replace>
 
 		<!-- == BRAZIL == -->
 		<!-- = unique district = -->
@@ -2396,13 +2400,7 @@
 			<Text>[COLOR:92,216,92]BCY: affected City Centers[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="BBCC_SETTING_DESC" Language="en_US">
-			<Text>Guaranteed +3 [ICON_FOOD] +1 [ICON_PRODUCTION] for flat City Center.[NEWLINE]Guaranteed +2 [ICON_FOOD] +2 [ICON_PRODUCTION] for hills City Center.[NEWLINE]Consistent with Firaxis default formula.</Text>
-		</Row>
-		<Row Tag="BBCC_SETTING_YIELD_NAME" Language="en_US">
-			<Text>[COLOR:92,216,92]BCY: City Center Yields[ENDCOLOR]</Text>
-		</Row>
-		<Row Tag="BBCC_SETTING_YIELD_DESC" Language="en_US">
-			<Text>Guaranteed +3 [ICON_FOOD] +1 [ICON_PRODUCTION] for flat City Center.[NEWLINE]Guaranteed +2 [ICON_FOOD] +2 [ICON_PRODUCTION] for hills City Center.[NEWLINE]Consistent with Firaxis default formula.</Text>
+			<Text>Which City Centers should be affected?</Text>
 		</Row>
 		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_M1_NAME" Language="en_US">
 			<Text>OFF</Text>
@@ -2420,7 +2418,14 @@
 			<Text>Capitals Only</Text>
 		</Row>
 		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_1_DESC" Language="en_US">
-			<Text>Enabled only for Capitals</Text>
+			<Text>Enabled only for [ICON_Capital] Capitals</Text>
+		</Row>
+		
+		<Row Tag="BBCC_SETTING_YIELD_NAME" Language="en_US">
+			<Text>[COLOR:92,216,92]BCY: City Center yields[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="BBCC_SETTING_YIELD_DESC" Language="en_US">
+			<Text>How to calculate City Centers yields?</Text>
 		</Row>
 		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_0_NAME" Language="en_US">
 			<Text>Standard</Text>
