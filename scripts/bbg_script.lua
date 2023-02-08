@@ -1302,11 +1302,13 @@ end
 LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
 
 function OnGameplaySetPlotProperty(iPlayerID, tParameters)
+	print("OnGameplaySetPlotProperty started")
 	local pPlot = Map.GetPlot(tParameters.iX, tParameters.iY)
 	local tYields = tParameters.Yields
 	for i=0, 5 do
 		if tYields[i]>0 then
 			pPlot:SetProperty(YieldPropertyDictionary(i), tYields[i])
+			print("Property for "..GameInfo.Yields[i].YieldType.." set to "..tostring(tYields[i]))
 		end
 	end
 end
@@ -1319,9 +1321,9 @@ function YieldPropertyDictionary(iYieldId)
 	YieldDict[0] = "EXTRA_YIELD_FOOD"
 	YieldDict[1] = "EXTRA_YIELD_PRODUCTION"
 	YieldDict[2] = "EXTRA_YIELD_GOLD"
-	YieldDict[3] = "EXTRA_YIELD_FAITH"
+	YieldDict[5] = "EXTRA_YIELD_FAITH"
 	YieldDict[4] = "EXTRA_YIELD_CULTURE"
-	YieldDict[5] = "EXTRA_YIELD_SCIENCE"
+	YieldDict[3] = "EXTRA_YIELD_SCIENCE"
 	return YieldDict[iYieldId]
 end
 
