@@ -5,8 +5,8 @@ include("SupportFunctions");
 
 --Hook Functions
 function OnCityBuiltBBCC(playerID, cityID, iX, iY)
+	print("OnCityBuiltBBCC started")
 	RecalculateMapYield(iX, iY)
-	return
 end
 
 function OnUIBCYAdjustCityYield(playerID, kParameters)
@@ -18,12 +18,12 @@ LuaEvents.UIBCYAdjustCityYield.Add(OnUIBCYAdjustCityYield)
 
 function OnGameplayBCYAdjustCityYield(playerID, kParameters)
 	print("Gameplay Script Called")
-	RecalculateMapYield(iX, iY)
+	RecalculateMapYield(kParameters.iX, kParameters.iY)
 end
 
-function OnRandomEventOccurredBBCC(iType, iSeverity, iX, iY, iMitigation)
-	RecalculateMapYield(iX, iY)
-end
+--function OnRandomEventOccurredBBCC(iType, iSeverity, iX, iY, iMitigation)
+	--RecalculateMapYield(iX, iY)
+--end
 --Effect Functions
 function RecalculateMapYield(iX, iY)
 	local pCity = CityManager.GetCityAt(iX,iY)
@@ -33,11 +33,17 @@ function RecalculateMapYield(iX, iY)
 	print("BCY: Yield Recalculation Started")
 	local pPlot = Map.GetPlot(iX, iY)
 	local nFood = pPlot:GetYield(0)
+	print("Food",nFood)
 	local nProd = pPlot:GetYield(1)
+	print("Prod", nProd)
 	local nGold = pPlot:GetYield(2)
+	print("Gold", nGold)
 	local nFaith = pPlot:GetYield(5)
+	print("Faith", nFaith)
 	local nCult = pPlot:GetYield(4)
+	print("Cult", nCult)
 	local nSci = pPlot:GetYield(3)
+	print("Sci", nSci)
 	local iTerrain = pPlot:GetTerrainType()
 	--flats
 	if iTerrain==0 or iTerrain==3 or iTerrain==6 or iTerrain==9 or iTerrain==12 then
