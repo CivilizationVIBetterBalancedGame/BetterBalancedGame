@@ -47,35 +47,34 @@ function OnIncaPlotYieldChanged(iX, iY)
 		for i =0,5 do
 			local nControlProp = pPlot:GetProperty(YieldPropertyDictionary(i))
 			if nControlProp == nil then
-				kParameters.Yields[i] = pPlot:GetYield(i) -- food
+				kParameters.Yields[i] = pPlot:GetYield(i)
 			else
 				kParameters.Yields[i] = nControlProp + pPlot:GetYield(i)
 			end
 		end
 		UIEvents.UISetPlotProperty(iOwnerId, kParameters)
-	end
-end
-
-function OnBCYPlotYieldChanged(iX, iY)
-	local pPlot = Map.GetPlot(iX, iY)
-	if pPlot == nil then
-		return
-	end
-	local iOwnerId = pPlot:GetOwner()
-	--do nothing if unowned
-	if iOwnerId == -1 or iOwnerId == nil then
-		return
-	end
-	local kParameters = {}
-	kParameters["iX"] = iX
-	kParameters["iY"] = iY
-	UIEvents.UIBCYAdjustCityYield(iOwnerId, kParameters)
+	elseif GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 and CityManager.GetCityAt(iX, iY) ~= nil then
+		print("BCY no RNG detected, city detected at: ", iX, iY)
+		local kParameters = {}
+		kParameters["iX"] = iX
+		kParameters["iY"] = iY
+		kParameters.Yields = {}
+		for i =0,5 do
+			local nControlProp = pPlot:GetProperty(YieldPropertyDictionary(i))
+			if nControlProp == nil then
+				kParameters.Yields[i] = pPlot:GetYield(i)
+			else
+				kParameters.Yields[i] = nControlProp + pPlot:GetYield(i)
+			end
+		end
+		UIEvents.UISetPlotProperty(iOwnerId, kParameters)
+	end	
 end
 
 --Events
-Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
+Events.PlotYieldChanged.Add(OnPlotYieldChanged)
 --BCY no rng setting (param names are still called BBCC)
-if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
+if  then
 	print("BCY: No RNG detected")
 	Events.PlotYieldChanged.Add(OnBCYPlotYieldChanged)
 end
