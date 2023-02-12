@@ -560,6 +560,7 @@ UPDATE Units_XP2 SET ResourceCost=15 WHERE UnitType='UNIT_SWORDSMAN';
 --17/10/2022: men at arm to 15
 UPDATE Units_XP2 SET ResourceCost=15 WHERE UnitType='UNIT_MAN_AT_ARMS';
 
+
 --==============================================================
 --******            W O N D E R S  (NATURAL)              ******
 --==============================================================
