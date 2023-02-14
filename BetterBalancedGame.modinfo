@@ -96,6 +96,9 @@
 		<Criteria id="Warlords">
 			<ModInUse>F48213B4-56F5-45DD-92F7-AC78E49BDA49</ModInUse>
 		</Criteria>
+		<Criteria id="RulersChina">
+			<ModInUse>7D27831B-BAA6-4A8B-A39C-94243BAD3F47</ModInUse>
+		</Criteria>
 		<!-- -->
 		<Criteria id="BBS">
 			<ModInUse>c88cba8b-8311-4d35-90c3-51a4a5d66550</ModInUse>
@@ -665,6 +668,13 @@
 			<File>sql/LP/lp_persia_nader.sql</File>
 			<File>sql/LP/lp_ottoman_suleiman_magnificent.sql</File>
 		</UpdateDatabase>
+		<UpdateDatabase id="BBG_RulesChina">
+			<Properties>
+				<LoadOrder>11654</LoadOrder>
+			</Properties>
+			<Criteria>RulersChina</Criteria>
+			<File>sql/LP/QinUnifier.sql</File>
+		</UpdateDatabase>
 		<!-- -->
 
 		<UpdateDatabase id="BBG_XP2_SecretSocieties">
@@ -1047,6 +1057,7 @@
 		<File>sql/LP/lp_japan_tokugawa.sql</File>
 		<File>sql/LP/lp_persia_nader.sql</File>
 		<File>sql/LP/lp_ottoman_suleiman_magnificent.sql</File>
+		<File>sql/LP/QinUnifier.sql</File>
 		<!-- -->
 		<File>sql/Secret_Societies.sql</File>
 		<!-- -->
