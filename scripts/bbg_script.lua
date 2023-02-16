@@ -74,11 +74,13 @@ function PopulateTerrainYields()
 	local tTerrainIDs = {0,1,3,4,6,7,9,10,12,13}
 	local tCachedYieldChanges = DB.Query("SELECT * FROM Terrain_YieldChanges")
 	for i, index in ipairs(tTerrainIDs) do
+		print("Terrain Index", index)
 		local row = {}
 		local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Terrains[index].TerrainType, TerrainType, true)
 		if tOccurrenceIDs ~= false then
 			for _, jndex in ipairs(tOccurrenceIDs) do
 				row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
+				print(YieldNameToID(tCachedYieldChanges[jndex].YieldType), tCachedYieldChanges[jndex].YieldChange)
 			end
 			TerrainYieldsLookup[index] = row
 		end
@@ -89,12 +91,14 @@ function PopulateResourceYields()
 	local tCachedResources = DB.Query("SELECT * FROM Resources")
 	local tCachedYieldChanges = DB.Query("SELECT * FROM Resource_YieldChanges")
 	for index, tResourceData in ipairs(tCachedResources) do
+		print("Ressource Index", index-1)
 		if tResourceData.ResourceClassType~="RESOURCECLASS_ARTIFACT" then
 			local row = {}
 			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Resources[index-1].ResourceType, ResourceType, true)
 			if tOccurrenceIDs ~= false then
 				for _, jndex in ipairs(tOccurrenceIDs) do
 					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
+					print(YieldNameToID(tCachedYieldChanges[jndex].YieldType), tCachedYieldChanges[jndex].YieldChange)
 				end
 				ResourceYieldsLookup[index-1] = row
 			end
@@ -106,12 +110,14 @@ function PopulateFeatureYields()
 	local tCachedFeatures = DB.Query("SELECT * FROM Features")
 	local tCachedYieldChanges = DB.Query("SELECT * FROM Feature_YieldChanges")
 	for index, tFeatureData in ipairs(tCachedFeatures) do
+		print("Ressource Index", index-1)
 		if tFeatureData.Settlement==true and tFeatureData.Removable==false then
 			local row = {}
 			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, FeatureType, true)
 			if tOccurrenceIDs ~= false then
 				for _, jndex in ipairs(tOccurrenceIDs) do
 					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
+					print(YieldNameToID(tCachedYieldChanges[jndex].YieldType), tCachedYieldChanges[jndex].YieldChange)
 				end
 				FeatureYieldsLookup[index-1] = row
 			end
@@ -1591,7 +1597,7 @@ function IDToPos(List, SearchItem, key, multi)
 	    	end
 	    end
     end
-    if result == {} then
+    if results == {} then
     	return false
     else
     	return results
