@@ -45,7 +45,7 @@ function OnIncaPlotYieldChanged(iX, iY)
 		kParameters["iY"] = iY
 		kParameters.Yields = {}
 		for i =0,5 do
-			local nControlProp = pPlot:GetProperty(YieldPropertyDictionary(i))
+			local nControlProp = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
 			if nControlProp == nil then
 				kParameters.Yields[i] = pPlot:GetYield(i)
 			else
@@ -53,34 +53,53 @@ function OnIncaPlotYieldChanged(iX, iY)
 			end
 		end
 		UIEvents.UISetPlotProperty(iOwnerId, kParameters)
-	elseif GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 and CityManager.GetCityAt(iX, iY) ~= nil then
-		print("BCY no RNG detected, city detected at: ", iX, iY)
-		local kParameters = {}
-		kParameters["iX"] = iX
-		kParameters["iY"] = iY
-		kParameters.Yields = {}
-		for i =0,5 do
-			local nControlProp = pPlot:GetProperty(YieldPropertyDictionary(i))
-			if nControlProp == nil then
-				kParameters.Yields[i] = pPlot:GetYield(i)
-			else
-				kParameters.Yields[i] = nControlProp + pPlot:GetYield(i)
-			end
+	end
+end
+
+function OnBCYPlotYieldChanged(iX, iY)
+	local pPlot = Map.GetPlot(iX, iY)
+	if pPlot == nil then
+		return
+	end
+	local iOwnerId = pPlot:GetOwner()
+	--do nothing if unowned
+	if iOwnerId == -1 or iOwnerId == nil then
+		return
+	end
+	local pCity = CityManager.GetCityAt(iX, iY)
+	if pCity == nil then
+		return
+	end
+	if CityManager.GetCity(iOwnerId, pCity:GetID()) == nil then
+		return
+	end
+	local kParameters = {}
+	kParameters["iX"] = iX
+	kParameters["iY"] = iY
+	kParameters.Yields = {}
+	for i =0,5 do
+		local nControlProp = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
+		if nControlProp == nil then
+			kParameters.Yields[i] = pPlot:GetYield(i) -- food
+		else
+			kParameters.Yields[i] = nControlProp + pPlot:GetYield(i)
 		end
-		UIEvents.UISetPlotProperty(iOwnerId, kParameters)
-	end	
+	end
+	UIEvents.UIBCYAdjustCityYield(iOwnerId, kParameters)
 end
 
 --Events
-Events.PlotYieldChanged.Add(OnPlotYieldChanged)
+Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
 --BCY no rng setting (param names are still called BBCC)
-if  then
+if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 	print("BCY: No RNG detected")
 	Events.PlotYieldChanged.Add(OnBCYPlotYieldChanged)
 end
 --Support
-function IDToPos(List, SearchItem, key)
+function IDToPos(List, SearchItem, key, multi)
+	multi = multi or false
 	key = key or nil
+	local results = {}
 	if List == {} then
 		return false
 	end
@@ -91,19 +110,31 @@ function IDToPos(List, SearchItem, key)
     	if key == nil then
     		print(item)
 	        if item == SearchItem then
-	            return i;
+	        	if multi then
+	        		table.insert(results, i)
+	        	else
+	            	return i;
+	            end
 	        end
 	    else
 	    	print(item[key])
 	    	if item[key] == SearchItem then
-	    		return i
+	        	if multi then
+	        		table.insert(results, i)
+	        	else
+	            	return i;
+	            end
 	    	end
 	    end
     end
-    return false
+    if result == {} then
+    	return false
+    else
+    	return result
+    end
 end
 
-function YieldPropertyDictionary(iYieldId)
+function ExtraYieldPropertyDictionary(iYieldId)
 	local YieldDict = {}
 	YieldDict[0] = "EXTRA_YIELD_FOOD"
 	YieldDict[1] = "EXTRA_YIELD_PRODUCTION"

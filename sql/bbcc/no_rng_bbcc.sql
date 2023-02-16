@@ -430,6 +430,8 @@ DELETE FROM BBCC_DynamicYields
 DROP TABLE BBCC_DynamicYields;
 DROP TABLE InvestigationLevel;
 
+
+/*
 --free modifiers to remove yields dynamically in lua
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
 	('REQSET_PLOT_IS_CITY_CENTER_BBCC', 'REQUIREMENTSET_TEST_ALL');
@@ -455,3 +457,4 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 	('MODIFIER_REMOVE_DYN_CULT_BBCC', 'Amount', -1),
 	('MODIFIER_REMOVE_DYN_SCI_BBCC', 'YieldType', 'YIELD_SCIENCE'),
 	('MODIFIER_REMOVE_DYN_SCI_BBCC', 'Amount', -1);
+*/

@@ -27,99 +27,48 @@ end
 --Effect Functions
 function RecalculateMapYield(iX, iY)
 	local pCity = CityManager.GetCityAt(iX,iY)
+	print("Check 0")
 	if pCity == nil then
 		return
 	end
-	print("BCY: Yield Recalculation Started")
+	print("Check 1")
+	if GameConfiguration.GetValue("BBCC_SETTING") == 1 and Players[pCity:GetOwner()]:GetCities():GetCapitalCity()~=pCity then
+		return
+	end
+	print("BCY no RNG: Yield Recalculation Started")
 	local pPlot = Map.GetPlot(iX, iY)
-	local nFood = pPlot:GetYield(0)
-	print("Food",nFood)
-	local nProd = pPlot:GetYield(1)
-	print("Prod", nProd)
-	local nGold = pPlot:GetYield(2)
-	print("Gold", nGold)
-	local nFaith = pPlot:GetYield(5)
-	print("Faith", nFaith)
-	local nCult = pPlot:GetYield(4)
-	print("Cult", nCult)
-	local nSci = pPlot:GetYield(3)
-	print("Sci", nSci)
 	local iTerrain = pPlot:GetTerrainType()
 	--flats
 	if iTerrain==0 or iTerrain==3 or iTerrain==6 or iTerrain==9 or iTerrain==12 then
-		local nFoodDiff = nFood - GameInfo.Flat_CutOffYieldValues[0].Amount
-		if nFoodDiff>0 then
-			for i=1, nFoodDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_FOOD_BBCC')
+		for i=0,5 do
+			local nYield = 0
+			if pPlot:GetProperty(ExtraYieldPropertyDictionary(i))~=nil then
+				nYield = pPlot:GetYield(i) - pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
+			else
+				nYield = math.max(pPlot:GetYield(i), GameInfo.Flat_CutOffYieldValues[i].Amount)
 			end
-		end
-		local nProdDiff = nProd - GameInfo.Flat_CutOffYieldValues[1].Amount
-		if nProdDiff>0 then
-			for i=1, nProdDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_PROD_BBCC')
-			end
-		end
-		local nGoldDiff = nGold - GameInfo.Flat_CutOffYieldValues[2].Amount
-		if nGoldDiff>0 then
-			for i=1, nGoldDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_GOLD_BBCC')
-			end
-		end
-		local nFaithDiff = nFaith - GameInfo.Flat_CutOffYieldValues[3].Amount
-		if nFaithDiff>0 then
-			for i=1, nFaithDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_FAITH_BBCC')
-			end
-		end
-		local nCultDiff = nCult - GameInfo.Flat_CutOffYieldValues[4].Amount
-		if nCultDiff>0 then
-			for i=1, nCultDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_CULT_BBCC')
-			end
-		end
-		local nSciDiff = nSci - GameInfo.Flat_CutOffYieldValues[5].Amount
-		if nSciDiff>0 then
-			for i=1, nSciDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_SCI_BBCC')
+			local nYieldDiff = nYield - GameInfo.Flat_CutOffYieldValues[i].Amount
+			print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
+			if nYieldDiff > 0 then
+				pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nYieldDiff)
+				print("Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff))
 			end
 		end
 	end
 	--hills
 	if iTerrain==1 or iTerrain==4 or iTerrain==7 or iTerrain==10 or iTerrain==13 then
-		local nFoodDiff = nFood - GameInfo.Hill_CutOffYieldValues[0].Amount
-		if nFoodDiff>0 then
-			for i=1, nFoodDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_FOOD_BBCC')
+		for i=0,5 do
+			local nYield = 0
+			if pPlot:GetProperty(ExtraYieldPropertyDictionary(i))~=nil then
+				nYield = pPlot:GetYield(i) - pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
+			else
+				nYield = math.max(pPlot:GetYield(i), GameInfo.Hill_CutOffYieldValues[i].Amount)
 			end
-		end
-		local nProdDiff = nProd - GameInfo.Hill_CutOffYieldValues[1].Amount
-		if nProdDiff>0 then
-			for i=1, nProdDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_PROD_BBCC')
-			end
-		end
-		local nGoldDiff = nGold - GameInfo.Hill_CutOffYieldValues[2].Amount
-		if nGoldDiff>0 then
-			for i=1, nGoldDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_GOLD_BBCC')
-			end
-		end
-		local nFaithDiff = nFaith - GameInfo.Hill_CutOffYieldValues[3].Amount
-		if nFaithDiff>0 then
-			for i=1, nFaithDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_FAITH_BBCC')
-			end
-		end
-		local nCultDiff = nCult - GameInfo.Hill_CutOffYieldValues[4].Amount
-		if nCultDiff>0 then
-			for i=1, nCultDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_CULT_BBCC')
-			end
-		end
-		local nSciDiff = nSci - GameInfo.Hill_CutOffYieldValues[5].Amount
-		if nSciDiff>0 then
-			for i=1, nSciDiff do
-				pCity:AttachModifierByID('MODIFIER_REMOVE_DYN_SCI_BBCC')
+			local nYieldDiff = nYield - GameInfo.Hill_CutOffYieldValues[i].Amount
+			print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
+			if nYieldDiff > 0 then
+				pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nYieldDiff)
+				print("Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff))
 			end
 		end
 	end
@@ -127,3 +76,15 @@ end
 --Game Events--
 GameEvents.CityBuilt.Add(OnCityBuiltBBCC)
 GameEvents.GameplayBCYAdjustCityYield.Add(OnGameplayBCYAdjustCityYield)
+
+--support
+function ExtraYieldPropertyDictionary(iYieldId)
+	local YieldDict = {}
+	YieldDict[0] = "EXTRA_YIELD_FOOD"
+	YieldDict[1] = "EXTRA_YIELD_PRODUCTION"
+	YieldDict[2] = "EXTRA_YIELD_GOLD"
+	YieldDict[5] = "EXTRA_YIELD_FAITH"
+	YieldDict[4] = "EXTRA_YIELD_CULTURE"
+	YieldDict[3] = "EXTRA_YIELD_SCIENCE"
+	return YieldDict[iYieldId]
+end
