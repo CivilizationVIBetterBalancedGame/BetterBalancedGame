@@ -130,7 +130,7 @@ function IDToPos(List, SearchItem, key, multi)
     if result == {} then
     	return false
     else
-    	return result
+    	return results
     end
 end
 

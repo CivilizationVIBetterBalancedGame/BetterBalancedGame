@@ -89,14 +89,14 @@ function PopulateResourceYields()
 	local tCachedResources = DB.Query("SELECT * FROM Resources")
 	local tCachedYieldChanges = DB.Query("SELECT * FROM Resource_YieldChanges")
 	for index, tResourceData in ipairs(tCachedResources) do
-		if tResourceData.ResourceClassType~="RESOURCECLASS_ARTIFACT" do
+		if tResourceData.ResourceClassType~="RESOURCECLASS_ARTIFACT" then
 			local row = {}
-			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Resources[index].ResurceType, ResourceType, true)
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Resources[index-1].ResourceType, ResourceType, true)
 			if tOccurrenceIDs ~= false then
 				for _, jndex in ipairs(tOccurrenceIDs) do
 					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
 				end
-				ResourceYieldsLookup[index] = row
+				ResourceYieldsLookup[index-1] = row
 			end
 		end
 	end
@@ -104,10 +104,29 @@ end
 
 function PopulateFeatureYields()
 	local tCachedFeatures = DB.Query("SELECT * FROM Features")
-	local tCachedYieldChanges = DB.Query("SELECT * FROM Feature_AdjacentYields")
+	local tCachedYieldChanges = DB.Query("SELECT * FROM Feature_YieldChanges")
 	for index, tFeatureData in ipairs(tCachedFeatures) do
-		if tFeatureData.NaturalWonder==true do
-			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index].FeatureType, FeatureType, true)
+		if tFeatureData.Settlement==true and tFeatureData.Removable==false then
+			local row = {}
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, FeatureType, true)
+			if tOccurrenceIDs ~= false then
+				for _, jndex in ipairs(tOccurrenceIDs) do
+					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
+				end
+				FeatureYieldsLookup[index-1] = row
+			end
+		end
+	end
+end
+
+function PopulateBugWonders()
+	local tCachedFeatures = DB.Query("SELECT * FROM Features")
+	local tCachedYieldChanges = DB.Query("SELECT * FROM Feature_AdjacentYields")
+	print("Size", #tCachedYieldChanges)
+	for index, tFeatureData in ipairs(tCachedFeatures) do
+		if tFeatureData.NaturalWonder==true then
+			print("PopulateBugWonders evaluates:", index, GameInfo.Features[index-1].FeatureType)
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, FeatureType, true)
 			if tOccurrenceIDs ~= false then
 				local bControl = false
 				for _, jndex in ipairs(tOccurrenceIDs) do
@@ -116,29 +135,14 @@ function PopulateFeatureYields()
 					end
 				end
 				if bControl then
-					RelevantBugWonders[index] = true
+					RelevantBugWonders[index-1] = true
+					print("Added")
 				end
 			end
 		end
 	end
 end
 
-function PopulateBugWonders()
-	local tCachedFeatures = DB.Query("SELECT * FROM Features")
-	local tCachedYieldChanges = DB.Query("SELECT * FROM Feature_YieldChanges")
-	for index, tFeatureData in ipairs(tCachedFeatures) do
-		if tFeatureData.Settlement==true and tFeatureData.Removable==false do
-			local row = {}
-			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index].FeatureType, FeatureType, true)
-			if tOccurrenceIDs ~= false then
-				for _, jndex in ipairs(tOccurrenceIDs) do
-					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
-				end
-				FeatureYieldsLookup[index] = row
-			end
-		end
-	end
-end
 -- ===========================================================================
 --	Function
 -- ===========================================================================
@@ -529,22 +533,32 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 		local pAdjPlot = Map.GetAdjacentPlot(iX, iY, i);
 		if pAdjPlot ~= nil then
 			local iFeatureType = pAdjPlot:GetFeatureType()
+			if iFeatureType~=-1 and iFeatureType ~= nil then
+				print("Evaluating: "..GameInfo.Features[iFeatureType].FeatureType.." With result")
+				print(RelevantBugWonders[iFeatureType])
+			end
 			if RelevantBugWonders[iFeatureType] == true then
 				bControl = true
 			end
 		end
 	end
-	local tBasePlotYields = CalculatePlotYield(pPlot)
+	local pPlot = Map.GetPlot(iX, iY)
+	local tBasePlotYields = CalculateBaseYield(pPlot)
 	if bControl then
 		for i =0,1 do
+			print("Base bug: Evaluating Yield: "..tostring(GameInfo.Yields[i].YieldType))
 			local nAddedYieldDiff = tBaseGuaranteedYields[i] - tBasePlotYields[i]
 			if nAddedYieldDiff>0 then
+				print("Base bug: Firaxis city center added diff "..tostring(nAddedYieldDiff))
 				local nBaseFullTileYield = pPlot:GetYield(i)+nAddedYieldDiff
+				print("Base bug: Firaxis city center nBaseFullTileYield"..tostring(nBaseFullTileYield))
 				pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nBaseFullTileYield)
 				local nTrueYield = math.max(pPlot:GetYield(i), tBaseGuaranteedYields[i])
+				print("Base bug: Firaxis city center nTrueYield "..tostring(nTrueYield))
 				local nExtraYield = nBaseFullTileYield - nTrueYield
 				if nExtraYield > 0 then
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield)
+					print("Base bug: Firaxis city center nExtraYield"..tostring(nExtraYield))
 				end
 				--BCY so this doesn't happen on any version
 				local bDoBCYCheck = false
@@ -554,8 +568,11 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 					bDoBCYCheck = true
 				end
 				if bDoBCYCheck == true and nExtraYield>0 then
-					local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, tBasePlotYields[i]) - tBasePlotYields[i]
+					local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
+					print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
+					local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield+nExtraBCYYield)
+					print("Extra Yield set to "..tostring(nExtraYield+nExtraBCYYield))
 				end
 			end
 		end
@@ -1480,14 +1497,26 @@ function CalculateBaseYield(pPlot: object)
 	return tCalculatedYields
 end
 
-function GetYield(sObjecType: str, iObjID, iYieldID)
+function GetYield(sObjecType: string, iObjID: number, iYieldID: number)
 	local yield = nil
 	if sObjecType == "TERRAIN" then
-		yield = TerrainYieldsLookup[iObjID][iYieldID]
+		if TerrainYieldsLookup[iObjID] == nil then
+			yield = nil
+		else
+			yield = TerrainYieldsLookup[iObjID][iYieldID]
+		end
 	elseif sObjecType == "RESOURCE" then
-		yield = ResourceYieldsLookup[iObjID][iYieldID]
+		if ResourceYieldsLookup[iObjID] == nil then
+			yield = nil
+		else 
+			yield = ResourceYieldsLookup[iObjID][iYieldID]
+		end
 	elseif sObjecType == "FEATURE" then
-		yield = FeatureYieldsLookup[iObjID][iYieldID]
+		if FeatureYieldsLookup[iObjID] == nil then
+			yield = nil
+		else
+			yield = FeatureYieldsLookup[iObjID][iYieldID]
+		end
 	else
 		return print("ObjType Error")
 	end
@@ -1498,7 +1527,7 @@ function GetYield(sObjecType: str, iObjID, iYieldID)
 	end
 end
 
-function YieldNameToID(name: str)
+function YieldNameToID(name: string)
 	local dict = {}
 	dict["YIELD_FOOD"] = 0
 	dict["YIELD_PRODUCTION"] = 1
@@ -1543,7 +1572,7 @@ function IDToPos(List, SearchItem, key, multi)
     end
     for i, item in ipairs(List) do
     	if key == nil then
-    		print(item)
+    		--print(item)
 	        if item == SearchItem then
 	        	if multi then
 	        		table.insert(results, i)
@@ -1552,7 +1581,7 @@ function IDToPos(List, SearchItem, key, multi)
 	            end
 	        end
 	    else
-	    	print(item[key])
+	    	--print(item[key])
 	    	if item[key] == SearchItem then
 	        	if multi then
 	        		table.insert(results, i)
@@ -1565,7 +1594,7 @@ function IDToPos(List, SearchItem, key, multi)
     if result == {} then
     	return false
     else
-    	return result
+    	return results
     end
 end
 
@@ -1607,6 +1636,7 @@ function GetShuffledCopyOfTable(incoming_table)
 end
 --BCY no rng recalculation support
 function BCY_RecalculateMapYield(iX, iY)
+	print("BCY: Recalculating for X,Y"..tostring(iX)..","..tostring(iY))
 	local pCity = CityManager.GetCityAt(iX,iY)
 	print("Check 0")
 	if pCity == nil then
@@ -1619,7 +1649,7 @@ function BCY_RecalculateMapYield(iX, iY)
 	print("BCY no RNG: Yield Recalculation Started")
 	local pPlot = Map.GetPlot(iX, iY)
 	local iTerrain = pPlot:GetTerrainType()
-	local tBasePlotYields = CalculatePlotYield(pPlot)
+	local tBasePlotYields = CalculateBaseYield(pPlot)
 	local sControllString = ""
 	--flats
 	if iTerrain==0 or iTerrain==3 or iTerrain==6 or iTerrain==9 or iTerrain==12 then
@@ -1630,19 +1660,27 @@ function BCY_RecalculateMapYield(iX, iY)
 		return
 	end 
 	for i=0,5 do
+		print("Evaluated yield: "..GameInfo.Yields[i].YieldType)
+		print("Base Plot Yield ", tBasePlotYields[i])
 		local nYield = 0
 		local nFiraxisFullTileYield  = pPlot:GetProperty(FiraxisYieldPropertyDictionary(i))
 		local nExtraYield = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
 		if nFiraxisFullTileYield == nil then
 			nFiraxisFullTileYield = math.max(pPlot:GetYield(i), tBaseGuaranteedYields[i])
-			pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nFiraxisFullTileYield)
+		else
+			nFiraxisFullTileYield = math.max(pPlot:GetYield(i), nFiraxisFullTileYield)
 		end
+		print("Firaxis yield "..tostring(nFiraxisFullTileYield))
+		pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nFiraxisFullTileYield)
 		if nExtraYield == nil then
 			nExtraYield = 0
 		end
-		local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, tBasePlotYields[i]) - tBasePlotYields[i]
+		local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
+		print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
+		local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
+		print("Extra BCY yield "..tostring(nExtraBCYYield))
 		nYield = nFiraxisFullTileYield-nExtraYield + nExtraBCYYield
-		local nYieldDiff = nYield - GameInfo.Flat_CutOffYieldValues[i].Amount
+		local nYieldDiff = nYield - GameInfo[sControllString][i].Amount
 		print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
 		if nYieldDiff > 0 then
 			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nYieldDiff + nExtraYield)
@@ -2726,7 +2764,7 @@ function Initialize()
 	print("BBG - ressource yields populated")
 	PopulateFeatureYields()
 	print("BBG - relevant feature yields populated")
-	PopulateFeatureYields()
+	PopulateBugWonders()
 	print("BBG - relevant Bug wonders populated")	
 
 	
