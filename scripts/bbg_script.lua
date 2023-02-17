@@ -76,7 +76,7 @@ function PopulateTerrainYields()
 	for i, index in ipairs(tTerrainIDs) do
 		print("Terrain Index", index)
 		local row = {}
-		local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Terrains[index].TerrainType, TerrainType, true)
+		local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Terrains[index].TerrainType, "TerrainType", true)
 		if tOccurrenceIDs ~= false then
 			for _, jndex in ipairs(tOccurrenceIDs) do
 				row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
@@ -94,7 +94,7 @@ function PopulateResourceYields()
 		print("Ressource Index", index-1)
 		if tResourceData.ResourceClassType~="RESOURCECLASS_ARTIFACT" then
 			local row = {}
-			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Resources[index-1].ResourceType, ResourceType, true)
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Resources[index-1].ResourceType, "ResourceType", true)
 			if tOccurrenceIDs ~= false then
 				for _, jndex in ipairs(tOccurrenceIDs) do
 					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
@@ -113,7 +113,7 @@ function PopulateFeatureYields()
 		print("Ressource Index", index-1)
 		if tFeatureData.Settlement==true and tFeatureData.Removable==false then
 			local row = {}
-			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, FeatureType, true)
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, "FeatureType", true)
 			if tOccurrenceIDs ~= false then
 				for _, jndex in ipairs(tOccurrenceIDs) do
 					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
@@ -132,7 +132,7 @@ function PopulateBugWonders()
 	for index, tFeatureData in ipairs(tCachedFeatures) do
 		if tFeatureData.NaturalWonder==true then
 			print("PopulateBugWonders evaluates:", index, GameInfo.Features[index-1].FeatureType)
-			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, FeatureType, true)
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, "FeatureType", true)
 			if tOccurrenceIDs ~= false then
 				local bControl = false
 				for _, jndex in ipairs(tOccurrenceIDs) do
@@ -1567,8 +1567,11 @@ function FiraxisYieldPropertyDictionary(iYieldId)
 end
 
 function IDToPos(List, SearchItem, key, multi)
+	print(SearchItem)
 	multi = multi or false
+	print(multi)
 	key = key or nil
+	print(key)
 	local results = {}
 	if List == {} then
 		return false
@@ -1578,7 +1581,7 @@ function IDToPos(List, SearchItem, key, multi)
     end
     for i, item in ipairs(List) do
     	if key == nil then
-    		--print(item)
+    		print(item)
 	        if item == SearchItem then
 	        	if multi then
 	        		table.insert(results, i)
@@ -1587,7 +1590,7 @@ function IDToPos(List, SearchItem, key, multi)
 	            end
 	        end
 	    else
-	    	--print(item[key])
+	    	print(item[key])
 	    	if item[key] == SearchItem then
 	        	if multi then
 	        		table.insert(results, i)
@@ -1600,6 +1603,10 @@ function IDToPos(List, SearchItem, key, multi)
     if results == {} then
     	return false
     else
+    	print("IDtoPos Results:")
+    	for _, item in ipairs(results) do
+    		print(item)
+    	end
     	return results
     end
 end

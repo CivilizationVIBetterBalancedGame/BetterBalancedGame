@@ -97,8 +97,11 @@ if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 end
 --Support
 function IDToPos(List, SearchItem, key, multi)
+	print(SearchItem)
 	multi = multi or false
+	print(multi)
 	key = key or nil
+	print(key)
 	local results = {}
 	if List == {} then
 		return false
@@ -127,9 +130,14 @@ function IDToPos(List, SearchItem, key, multi)
 	    	end
 	    end
     end
-    if result == {} then
+    if results == {} or #results == 0 then
+    	print("false")
     	return false
     else
+    	print("IDtoPos Results:")
+    	for _, item in ipairs(results) do
+    		print(item)
+    	end
     	return results
     end
 end
