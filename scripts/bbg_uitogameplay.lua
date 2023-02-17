@@ -88,8 +88,16 @@ function OnBCYPlotYieldChanged(iX, iY)
 	UIEvents.UIBCYAdjustCityYield(iOwnerId, kParameters)
 end
 
+function OnCityWorkerChanged(iPlayerID, iCityID, iX, iY)
+	local pPlayer = Players[iPlayerID]
+	print("OnCityWorkerChanged: Citizen Changed")
+	print("parameters", iPlayerID, iCityID, iX, iY)
+end
 --Events
+--inca dynamic yield cancelation
 Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
+--Communism
+Events.CityWorkerChanged.Add(OnCityWorkerChanged)
 --BCY no rng setting (param names are still called BBCC)
 if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 	print("BCY: No RNG detected")
