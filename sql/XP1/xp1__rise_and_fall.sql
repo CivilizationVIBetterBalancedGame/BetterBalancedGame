@@ -49,36 +49,6 @@ INSERT INTO ModifierArguments (ModifierId , Name , Value) VALUES
 	('BBG_GEORGIA_FAITH_PER_ENVOY' , 'Amount', '1');
 
 --==================
--- India (Chandra)
---==================
--- replace Territorial Expansion Declaration Bonus with +1 movement
-DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_ARTHASHASTRA';
-
-INSERT OR IGNORE INTO TraitModifiers (TraitType , ModifierId)
-	VALUES ('TRAIT_LEADER_ARTHASHASTRA' , 'TRAIT_EXPANSION_MOVEMENT_BONUS_CPLMOD');
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType)
-	VALUES ('TRAIT_EXPANSION_MOVEMENT_BONUS_CPLMOD' , 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-	VALUES ('TRAIT_EXPANSION_MOVEMENT_BONUS_CPLMOD' , 'ModifierId', 'EXPANSION_MOVEMENT_BONUS_MODIFIER_CPLMOD');
-
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , OwnerRequirementSetId)
-	VALUES ('EXPANSION_MOVEMENT_BONUS_MODIFIER_CPLMOD' , 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT' , 'REQUIREMENTSET_LAND_MILITARY_CPLMOD');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-	VALUES ('EXPANSION_MOVEMENT_BONUS_MODIFIER_CPLMOD' , 'Amount' , '1');
-
-INSERT OR IGNORE INTO RequirementSets (RequirementSetId , RequirementSetType)
-	VALUES ('REQUIREMENTSET_LAND_MILITARY_CPLMOD' , 'REQUIREMENTSET_TEST_ANY');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId)
-	VALUES ('REQUIREMENTSET_LAND_MILITARY_CPLMOD' , 'REQUIREMENTS_LAND_MILITARY_CPLMOD');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId)
-	VALUES ('REQUIREMENTSET_LAND_MILITARY_CPLMOD' , 'REQUIRES_UNIT_IS_RELIGIOUS_ALL');
-INSERT OR IGNORE INTO Requirements (RequirementId , RequirementType)
-	VALUES ('REQUIREMENTS_LAND_MILITARY_CPLMOD', 'REQUIREMENT_UNIT_FORMATION_CLASS_MATCHES');
-INSERT OR IGNORE INTO RequirementArguments (RequirementId , Name , Value)
-	VALUES ('REQUIREMENTS_LAND_MILITARY_CPLMOD' , 'UnitFormationClass' , 'FORMATION_CLASS_LAND_COMBAT');
-
-
---==================
 -- Korea
 --==================
 -- Seowon gets +2 science base yield instead of 4, +1 for every 2 mines adjacent instead of 1 to 1
@@ -110,23 +80,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
 --==================
 -- Mapuche
 --==================
--- Combat bonus against Golden Age Civs set to 5 instead of 10
-UPDATE ModifierArguments SET Value='5' WHERE ModifierId='TRAIT_TOQUI_COMBAT_BONUS_VS_GOLDEN_AGE_CIV';
--- Malon Raiders become Horseman replacement and territory bonus replaced with +1 movement
-UPDATE Units SET Combat=36 , Cost=90 , Maintenance=2 , BaseMoves=5 , PrereqTech='TECH_HORSEBACK_RIDING' , MandatoryObsoleteTech='TECH_SYNTHETIC_MATERIALS' WHERE UnitType='UNIT_MAPUCHE_MALON_RAIDER';
-INSERT OR IGNORE INTO UnitReplaces (CivUniqueUnitType , ReplacesUnitType)
-	VALUES ('UNIT_MAPUCHE_MALON_RAIDER' , 'UNIT_HORSEMAN');
-UPDATE UnitUpgrades SET UpgradeUnit='UNIT_CAVALRY' WHERE Unit='UNIT_MAPUCHE_MALON_RAIDER';
-DELETE FROM UnitAbilityModifiers WHERE ModifierId='MALON_RAIDER_TERRITORY_COMBAT_BONUS';
--- Chemamull Unique Improvement gets +1 Production (another at Civil Service Civic)
---INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType , YieldType , YieldChange)
---	VALUES ('IMPROVEMENT_CHEMAMULL' , 'YIELD_PRODUCTION' , 1);
---INSERT OR IGNORE INTO Improvement_BonusYieldChanges (Id , ImprovementType , YieldType , BonusYieldChange , PrereqCivic)
---	VALUES ('203' , 'IMPROVEMENT_CHEMAMULL' , 'YIELD_PRODUCTION' , '1' , 'CIVIC_CIVIL_SERVICE');
 
--- 20/12/14 Chemamull's now allowed on volcanic soil
-INSERT OR IGNORE INTO Improvement_ValidFeatures (ImprovementType, FeatureType)
-	VALUES ('IMPROVEMENT_CHEMAMULL','FEATURE_VOLCANIC_SOIL');
 
 --==================
 -- Netherlands
@@ -150,28 +104,6 @@ DELETE FROM Modifiers WHERE ModifierId='TRAIT_TRADING_POST_DIPLO_VISIBILITY';
 UPDATE Buildings SET Cost=60 WHERE BuildingType='BUILDING_ORDU';
 -- Keshig
 UPDATE Units SET RangedCombat=40, Cost=180 WHERE UnitType='UNIT_MONGOLIAN_KESHIG';
-
-
---==================
--- Scotland
---==================
--- Highlander gets +10 combat strength (defense)
-UPDATE Units SET Combat=65, RangedCombat=70 WHERE UnitType='UNIT_SCOTTISH_HIGHLANDER';
--- Golf Course moved to Games and Recreation
--- UPDATE Improvements SET PrereqCivic='CIVIC_GAMES_RECREATION' WHERE ImprovementType='IMPROVEMENT_GOLF_COURSE';
--- Golf Course base yields are 1 Culture and 2 Gold... +1 to each if next to City Center
-UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_GOLF_COURSE' AND YieldType='YIELD_CULTURE';
--- Golf Course extra housing moved to Urbanization
-UPDATE RequirementArguments SET Value='CIVIC_URBANIZATION' WHERE RequirementId='REQUIRES_PLAYER_HAS_GLOBALIZATION' AND Name='CivicType';
-INSERT OR IGNORE INTO Adjacency_YieldChanges (ID , Description , YieldType , YieldChange , TilesRequired , AdjacentDistrict)
-	VALUES ('BBG_GOLFCOURSE_CITYCENTERADJACENCY_GOLD' , 'Placeholder' , 'YIELD_GOLD' , 1 , 1 , 'DISTRICT_CITY_CENTER');
-INSERT OR IGNORE INTO Improvement_Adjacencies (ImprovementType , YieldChangeId)
-	VALUES ('IMPROVEMENT_GOLF_COURSE' , 'BBG_GOLFCOURSE_CITYCENTERADJACENCY_GOLD');
--- Golf Course gets extra yields a bit earlier
-INSERT OR IGNORE INTO Improvement_BonusYieldChanges (Id , ImprovementType , YieldType , BonusYieldChange , PrereqCivic)
-	VALUES ('204' , 'IMPROVEMENT_GOLF_COURSE' , 'YIELD_GOLD' , '1' , 'CIVIC_THE_ENLIGHTENMENT');
-INSERT OR IGNORE INTO Improvement_BonusYieldChanges (Id , ImprovementType , YieldType , BonusYieldChange , PrereqCivic)
-	VALUES ('205' , 'IMPROVEMENT_GOLF_COURSE' , 'YIELD_CULTURE' , '1' , 'CIVIC_THE_ENLIGHTENMENT');
 
 --==================
 -- Sumeria
@@ -435,6 +367,8 @@ INSERT OR IGNORE INTO ModifierArguments(ModifierId, Name, Value) VALUES
 	('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
 INSERT OR IGNORE INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
 	('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'SURPLUS_LOGISTICS_TRADE_ROUTE_PROD');
+-- Magnus' Surplus Logistics gives only +1 food
+UPDATE ModifierArguments SET Value='1' WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD' AND Name='Amount';
 -- Magnus provision give 1 PM to Settler.
 INSERT INTO Types(Type, Kind) VALUES
     ('BBG_SETTLER_MOUVMENT_ABILITY', 'KIND_ABILITY');
@@ -519,8 +453,11 @@ DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_MAPUCHE' AND 
 
 
 --==============================================================
---******			W O N D E R S  (NATURAL)			  ******
+--******			W O N D E R S  (MAN-MADE)			  ******
 --==============================================================
+-- Statue Liberty from 4 to 3 diplo points
+UPDATE ModifierArguments SET Value='3' WHERE ModifierId='STATUELIBERTY_DIPLOVP' AND Name='Amount';
+
 -- scott research station can be built and works in tundra
 INSERT OR IGNORE INTO Building_ValidTerrains (BuildingType, TerrainType) VALUES
 	('BUILDING_AMUNDSEN_SCOTT_RESEARCH_STATION', 'TERRAIN_TUNDRA'),
@@ -529,40 +466,6 @@ UPDATE RequirementArguments SET Value='TERRAIN_TUNDRA' WHERE RequirementId='REQU
 -- St. Basil gives 1 relic
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_ST_BASILS_CATHEDRAL', 'WONDER_GRANT_RELIC_BBG');
---Matterhorn +2 down from +3
--- UPDATE ModifierArguments SET Value='0' WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS' AND Name='Amount';
---23/08/22 no more combat bonus
-DELETE FROM UnitAbilityModifiers WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS';
-DELETE FROM Modifiers WHERE ModifierId='ALPINE_TRAINING_COMBAT_HILLS';
-
-
-
---==============================================================
---******			W O N D E R S  (NATURAL)			  ******
---==============================================================
--- Eye of the Sahara gets 2 Food, 2 Production, and 2 Science
-UPDATE ModifierArguments SET Value='0' WHERE ModifierId='EYESAHARA_PRODUCTION_ATOMIC' AND Name='Amount';
-UPDATE ModifierArguments SET Value='0' WHERE ModifierId='EYESAHARA_SCIENCE_ATOMIC' AND Name='Amount';
-INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
-		VALUES ('FEATURE_EYE_OF_THE_SAHARA', 'YIELD_FOOD', 2);
-UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_EYE_OF_THE_SAHARA' AND YieldType='YIELD_PRODUCTION';
-INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
-	VALUES ('FEATURE_EYE_OF_THE_SAHARA', 'YIELD_SCIENCE', 2);
-UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_EYE_OF_THE_SAHARA' AND YieldType='YIELD_SCIENCE';
--- lake retba
-INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
-	VALUES ('FEATURE_LAKE_RETBA', 'YIELD_FOOD', 2);
-
-UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_UBSUNUR_HOLLOW' AND YieldType='YIELD_PRODUCTION';
-UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_UBSUNUR_HOLLOW' AND YieldType='YIELD_FOOD';
-
-
---==============================================================
---******			W O N D E R S  (MAN-MADE)			  ******
---==============================================================
--- Statue Liberty from 4 to 3 diplo points
-UPDATE ModifierArguments SET Value='3' WHERE ModifierId='STATUELIBERTY_DIPLOVP' AND Name='Amount';
-
 
 --==============================================================
 --******				    O T H E R					  ******

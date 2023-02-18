@@ -86,3 +86,17 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value , Extra , Sec
 	VALUES
 	('THUNDERBOLT_HOLY_SITE_DISTRICT_BOOST'               , 'DistrictType' , 'DISTRICT_HOLY_SITE' , null , null),
 	('THUNDERBOLT_HOLY_SITE_DISTRICT_BOOST'               , 'Amount'       , '50'                 , null , null);
+
+-- Naval Melee Production from 50% to 25%
+update ModifierArguments
+set Value = '25'
+where ModifierId in (
+	'TRAIT_ANCIENT_NAVAL_MELEE_PRODUCTION',
+	'TRAIT_ATOMIC_NAVAL_MELEE_PRODUCTION',
+	'TRAIT_CLASSICAL_NAVAL_MELEE_PRODUCTION',
+	'TRAIT_INDUSTRIAL_NAVAL_MELEE_PRODUCTION',
+	'TRAIT_INFORMATION_NAVAL_MELEE_PRODUCTION',
+	'TRAIT_MEDIEVAL_NAVAL_MELEE_PRODUCTION',
+	'TRAIT_MODERN_NAVAL_MELEE_PRODUCTION',
+	'TRAIT_RENAISSANCE_NAVAL_MELEE_PRODUCTION'
+) and name = 'Amount';
