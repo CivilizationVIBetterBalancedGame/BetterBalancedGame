@@ -31,7 +31,7 @@
 
 --include "bbg_stateutils"
 --include "bbg_unitcommands"
-
+ExposedMembers.LuaEvents = LuaEvents
 include("SupportFunctions");
 -- ===========================================================================
 --	Constants
@@ -55,6 +55,120 @@ local NO_DISTRICT :number = -1;
 local NO_IMPROVEMENT :number = -1;
 local NO_BUILDING :number = -1;
 
+-- ==========================================================================
+-- Setting Up data to easily deal with tile yields (performance/convenience)
+-- ==========================================================================
+local TerrainYieldsLookup = {}
+local ResourceYieldsLookup = {}
+local FeatureYieldsLookup = {}
+local RelevantBugWonders = {}
+local tBaseGuaranteedYields = {}
+tBaseGuaranteedYields[0] = 2
+tBaseGuaranteedYields[1] = 1 
+tBaseGuaranteedYields[2] = 0
+tBaseGuaranteedYields[3] = 0
+tBaseGuaranteedYields[4] = 0
+tBaseGuaranteedYields[5] = 0
+
+function PopulateTerrainYields()
+	local tTerrainIDs = {0,1,3,4,6,7,9,10,12,13}
+	local tCachedYieldChanges = DB.Query("SELECT * FROM Terrain_YieldChanges")
+	for i, index in ipairs(tTerrainIDs) do
+		print("Terrain Index", index)
+		local row = {}
+		local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Terrains[index].TerrainType, "TerrainType", true)
+		if tOccurrenceIDs ~= false then
+			for _, jndex in ipairs(tOccurrenceIDs) do
+				row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
+				print(YieldNameToID(tCachedYieldChanges[jndex].YieldType), tCachedYieldChanges[jndex].YieldChange)
+			end
+			TerrainYieldsLookup[index] = row
+		end
+	end
+end
+
+function PopulateResourceYields()
+	local tCachedResources = DB.Query("SELECT * FROM Resources")
+	local tCachedYieldChanges = DB.Query("SELECT * FROM Resource_YieldChanges")
+	for index, tResourceData in ipairs(tCachedResources) do
+		print("Ressource Index", index-1)
+		if tResourceData.ResourceClassType~="RESOURCECLASS_ARTIFACT" then
+			local row = {}
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Resources[index-1].ResourceType, "ResourceType", true)
+			if tOccurrenceIDs ~= false then
+				for _, jndex in ipairs(tOccurrenceIDs) do
+					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
+					print(YieldNameToID(tCachedYieldChanges[jndex].YieldType), tCachedYieldChanges[jndex].YieldChange)
+				end
+				ResourceYieldsLookup[index-1] = row
+			end
+		end
+	end
+end
+
+function PopulateFeatureYields()
+	local tCachedFeatures = DB.Query("SELECT * FROM Features")
+	local tCachedYieldChanges = DB.Query("SELECT * FROM Feature_YieldChanges")
+	for index, tFeatureData in ipairs(tCachedFeatures) do
+		print("Ressource Index", index-1)
+		if tFeatureData.Settlement==true and tFeatureData.Removable==false then
+			local row = {}
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, "FeatureType", true)
+			if tOccurrenceIDs ~= false then
+				for _, jndex in ipairs(tOccurrenceIDs) do
+					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
+					print(YieldNameToID(tCachedYieldChanges[jndex].YieldType), tCachedYieldChanges[jndex].YieldChange)
+				end
+				FeatureYieldsLookup[index-1] = row
+			end
+		end
+	end
+end
+
+function PopulateBugWonders()
+	local tCachedFeatures = DB.Query("SELECT * FROM Features")
+	local tCachedYieldChanges = DB.Query("SELECT * FROM Feature_AdjacentYields")
+	print("Size", #tCachedYieldChanges)
+	for index, tFeatureData in ipairs(tCachedFeatures) do
+		if tFeatureData.NaturalWonder==true then
+			print("PopulateBugWonders evaluates:", index, GameInfo.Features[index-1].FeatureType)
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, "FeatureType", true)
+			if tOccurrenceIDs ~= false then
+				local bControl = false
+				for _, jndex in ipairs(tOccurrenceIDs) do
+					if tCachedYieldChanges[jndex].YieldType == "YIELD_FOOD" or tCachedYieldChanges[jndex].YieldType == "YIELD_PRODUCTION" then
+						bControl = true
+					end
+				end
+				if bControl then
+					RelevantBugWonders[index-1] = true
+					print("Added")
+				end
+			end
+		end
+	end
+end
+-- ==========================================================================
+-- Setting Up data to easily deal with communism(legacy) workers
+-- ==========================================================================
+--local tSpecialistBuildingIDs = {}
+--[==[
+function PopulateSpecialistBuildingIDs()
+	local tCachedBuildings = DB.Query("SELECT * FROM Buildings")
+	for i = 1,7 do
+		local row = {}
+		for j=1,3 do
+			local sSearchString = "BUILDING_"..WorkerDictionary(i).."_"..tostring(j)
+			local iSearchID = IDToPos(tCachedBuildings, sSearchString, "BuildingType")
+			print("IDToPos found index", iSearchID)
+			if iSearchID ~= false then
+				row[j] = iSearchID-1
+			end
+		end
+		tSpecialistBuildingIDs[i] = row
+	end
+end
+]==]--
 -- ===========================================================================
 --	Function
 -- ===========================================================================
@@ -395,6 +509,111 @@ function OnCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 		pPlot:SetProperty("CAESAR_MAJOR_RECONQUEST_BBG",1)
 	end
 	print("Reconquest Property Set for"..tostring(CityManager.GetCityAt(iX, iY):GetName()))
+end
+
+function OnUnitInitialized(iPlayerId, iUnitId)
+	print("OnUnitInitialized started")
+	local pUnit = UnitManager.GetUnit(iPlayerId, iUnitId)
+	if pUnit == nil then
+		return
+	end
+	print(iUnitId)
+	print(pUnit:GetType())
+	print("Unit", GameInfo.Units[pUnit:GetType()].UnitType)
+	print("Check for 0 movement")
+	print("Moves", pUnit:GetMovesRemaining())
+	if pUnit:GetMovesRemaining() ~= 0 then
+		UnitManager.RestoreMovement(pUnit)
+		UnitManager.RestoreUnitAttacks(pUnit)
+		print("Moves Restored")
+	end
+end
+--nulling out those inca plot properties
+function OnIncaCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
+	if PlayerConfigurations[iOldOwnerID]:GetCivilizationTypeName() ~= "CIVILIZATION_INCA" then
+		return
+	end
+	local pCity = Map.GetCityInPlot(iX, iY)
+	local pStartPlot = Map.GetPlot(iX,iY)
+	for i = 0, 35 do
+		local pPlot = GetAdjacentTiles(pStartPlot, i)
+		if pPlot ~= nil then
+			if Cities.GetPlotPurchaseCity(pPlot) == pCity then
+				if pPlot:IsImpassable() and pPlot:GetFeatureType()~=-1 and pPlot:GetFeatureType()~=34 then
+					for i = 0,5 do
+						pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nil)
+					end
+				end
+			end
+		end
+	end
+end
+
+--Base Game Wonder Bug
+function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pCity = CityManager.GetCityAt(iX,iY)
+	if pCity == nil then
+		return
+	end
+	--faraxis food prod bug
+	local bControl = false
+	for i = 0,5 do
+		local pAdjPlot = Map.GetAdjacentPlot(iX, iY, i);
+		if pAdjPlot ~= nil then
+			local iFeatureType = pAdjPlot:GetFeatureType()
+			if iFeatureType~=-1 and iFeatureType ~= nil then
+				print("Evaluating: "..GameInfo.Features[iFeatureType].FeatureType.." With result")
+				print(RelevantBugWonders[iFeatureType])
+			end
+			if RelevantBugWonders[iFeatureType] == true then
+				bControl = true
+			end
+		end
+	end
+	local pPlot = Map.GetPlot(iX, iY)
+	local tBasePlotYields = CalculateBaseYield(pPlot)
+	if bControl then
+		for i =0,1 do
+			print("Base bug: Evaluating Yield: "..tostring(GameInfo.Yields[i].YieldType))
+			local nAddedYieldDiff = tBaseGuaranteedYields[i] - tBasePlotYields[i]
+			if nAddedYieldDiff>0 then
+				print("Base bug: Firaxis city center added diff "..tostring(nAddedYieldDiff))
+				local nBaseFullTileYield = pPlot:GetYield(i)+nAddedYieldDiff
+				print("Base bug: Firaxis city center nBaseFullTileYield"..tostring(nBaseFullTileYield))
+				pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nBaseFullTileYield)
+				local nTrueYield = math.max(pPlot:GetYield(i), tBaseGuaranteedYields[i])
+				print("Base bug: Firaxis city center nTrueYield "..tostring(nTrueYield))
+				local nExtraYield = nBaseFullTileYield - nTrueYield
+				if nExtraYield > 0 then
+					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield)
+					print("Base bug: Firaxis city center nExtraYield"..tostring(nExtraYield))
+				end
+				--BCY so this doesn't happen on any version
+				local bDoBCYCheck = false
+				if GameConfiguration.GetValue("BBCC_SETTING")==0 then
+					bDoBCYCheck = true
+				elseif GameConfiguration.GetValue("BBCC_SETTING") == 1 and Players[pCity:GetOwner()]:GetCities():GetCapitalCity()==pCity then
+					bDoBCYCheck = true
+				end
+				if bDoBCYCheck == true and nExtraYield>0 then
+					local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
+					print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
+					local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
+					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield+nExtraBCYYield)
+					print("Extra Yield set to "..tostring(nExtraYield+nExtraBCYYield))
+				end
+			end
+		end
+	end
+	--BCY settled cities (inside this function to controll execution order)
+	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
+		print("OnCityBuiltBCY started")
+		BCY_RecalculateMapYield(iX, iY)
+	end
 end
 
 -- function OnTechBoost(playerID, iTechBoosted)
@@ -1259,11 +1478,356 @@ function InitBarbData()
 	end	
 end
 
+-- ===========================================================================
+-- UIToGameplay Scripts
+-- ===========================================================================
+-- Inca
+function OnUISetPlotProperty(iPlayerId, tParameters)
+	print("UISetPlotProperty triggered")
+	GameEvents.GameplaySetPlotProperty.Call(iPlayerID, tParameters)
+end
 
+LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
 
+function OnGameplaySetPlotProperty(iPlayerID, tParameters)
+	print("OnGameplaySetPlotProperty started")
+	local pPlot = Map.GetPlot(tParameters.iX, tParameters.iY)
+	local tYields = tParameters.Yields
+	for i=0, 5 do
+		if tYields[i]>0 then
+			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), tYields[i])
+			print("Property for "..GameInfo.Yields[i].YieldType.." set to "..tostring(tYields[i]))
+		end
+	end
+end
+-- Communism Specialists
+function OnUIBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+	print("UIBBGWorkersChanged Triggered")
+	GameEvents.GameplayBBGWorkersChanged.Call(iPlayerID, iCityID, iX, iY)
+end
+
+LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
+
+function OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+	print("BBG - OnGameplayBBGWorkersChanged triggered")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	pPlayer:SetProperty("HAS_COMMUNISM",true)
+	local pCity = CityManager.GetCity(iPlayerID, iCityID)
+	if pCity == nil then
+		return
+	end
+	CityRecalculateSpecialistBuildings(pCity)
+end
+
+function OnUIBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+	print("UIBBGDestroyDummyBuildings Triggered")
+	GameEvents.GameplayBBGDestroyDummyBuildings.Call(iPlayerID, iCityID, iX, iY)
+end
+
+LuaEvents.UIBBGDestroyDummyBuildings.Add(OnUIBBGDestroyDummyBuildings)
+
+function OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+	print("OnGameplayBBGDestroyDummyBuildings called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	pPlayer:SetProperty("HAS_COMMUNISM", false)
+	local pCity = CityManager.GetCity(iPlayerID, iCityID)
+	if pCity == nil then
+		return
+	end
+	local pCityPlot = Map.GetPlot(iX, iY)
+	for i=1,7 do
+		local sPropertyStr = "BUILDING_"..WorkerDictionary(i)
+		local nDummyVal = pCityPlot:GetProperty(sPropertyStr)
+		if nDummyVal ~= nil then
+			print("Dummy With indicies detected", WorkerDictionary(i), nDummyVal)
+			pCityPlot:SetProperty(sPropertyStr, nil)
+			print("Should be removed")
+		end
+	end
+	print("Dummy buildings removed")
+end
+
+function OnUIBBGGovChanged(iPlayerID, iGovID)
+	print("OnUIBBGGovChanged triggered")
+	GameEvents.GameplayBBGGovChanged.Call(iPlayerID, iGovID)
+end
+LuaEvents.UIBBGGovChanged.Add(OnUIBBGGovChanged)
+
+function OnGameplayBBGGovChanged(iPlayerID, iGovID)
+	print("OnGameplayBBGGovChanged called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pPlayerCities = pPlayer:GetCities()
+	if iGovID == 8 then
+		for i, pCity in pPlayerCities:Members() do
+			local iX = pCity:GetX()
+			local iY = pCity:GetY()
+			local iCityID = pCity:GetID()
+			OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+		end
+	elseif pPlayer:GetProperty("HAS_COMMUNISM") then
+		for i, pCity in pPlayerCities:Members() do
+			local iX = pCity:GetX()
+			local iY = pCity:GetY()
+			local iCityID = pCity:GetID()
+			OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+		end
+	end
+end
+
+function OnPolicyChanged(iPlayerID, iPolicyID, bEnacted)
+	print("Policy Changed Check for Communism")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	if iPolicyID == 105 then
+		print("Communism Legacy Detected")
+		local pPlayerCities = pPlayer:GetCities()
+		for i, pCity in pPlayerCities:Members() do
+			local iCityID = pCity:GetID()
+			local iX = pCity:GetX()
+			local iY = pCity:GetY()
+			if bEnacted == true then
+				OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+			elseif bEnacted == false then
+				OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+			end
+		end
+	end
+	print("Communism Legacy Yields Readjusted")
+end
+
+function GetCitySpecialists(pCity: object)
+	print("BBG - fetching specialists")
+	if pCity==nil then
+		return print("Nil input")
+	end
+	local tWorkers = {}
+	for i = 1,7 do -- setting initial values
+ 		tWorkers[i] = 0
+	end
+	local pStartPlot = Map.GetPlot(pCity:GetX(),pCity:GetY())
+	for i = 0,35 do
+		local pPlot = GetAdjacentTiles(pStartPlot, i)
+		if pPlot~=nil then
+			if Cities.GetPlotPurchaseCity(pPlot) == pCity then --plot owned by city
+				local iDistrictID = pPlot:GetDistrictType()
+				print("District:", iDistrictID)
+				if iDistrictID == 1 or iDistrictID == 17 then --holy site/lavra
+					print("HolySite found worker count", pPlot:GetWorkerCount())
+					tWorkers[1] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 2 or iDistrictID == 22 or iDistrictID == 30 then --campus/seo/observatory
+					print("Campus found worker count", pPlot:GetWorkerCount())
+					tWorkers[2] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 3 or iDistrictID == 21 or iDistrictID == 33 then -- encampmente/ikkanda/thanh
+					print("Encampment found worker count", pPlot:GetWorkerCount())
+					tWorkers[3] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 4 or iDistrictID == 20 or iDistrictID == 28 then -- harbor/royal dockyard/cothon
+					print("Harbor found worker count", pPlot:GetWorkerCount())
+					tWorkers[4] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 6 or iDistrictID == 29 then -- commercial/suguba
+					print("Commercial found worker count", pPlot:GetWorkerCount())
+					tWorkers[5] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 8 or iDistrictID == 14 then --theater/acropolis
+					print("Theater found worker count", pPlot:GetWorkerCount())
+					tWorkers[6] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 9 or iDistrictID == 16 or iDistrictID == 32 then -- IZ/Hansa/Opi
+					print("Industrial found worker count", pPlot:GetWorkerCount())
+					tWorkers[7] = pPlot:GetWorkerCount()
+				end
+			end
+		end
+	end
+	return tWorkers
+end
+
+function CityRecalculateSpecialistBuildings(pCity: object)
+	print("BBG - recalculating specialist yields")
+	if pCity == nil then
+		return
+	end
+	local tWorkers = GetCitySpecialists(pCity)
+	print("Workers:")
+	for i = 1,7 do 
+		print(WorkerDictionary(i), tWorkers[i])
+	end
+	local pCityPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
+	for i=1,7 do
+		local nWorkers = tWorkers[i]
+		local sPropertyStr = "BUILDING_"..WorkerDictionary(i)
+		for j = 1,3 do
+			if j<= nWorkers then
+				print("Doesn't have dummy building for j=", j)
+				local nDummyVal = pCityPlot:GetProperty(sPropertyStr)
+				if nDummyVal == nil then
+					pCityPlot:SetProperty(sPropertyStr, j)
+					print("Dummy building added", sPropertyStr, j)
+				elseif nDummyVal<=j then
+					pCityPlot:SetProperty(sPropertyStr, j)
+					print("Dummy building added", sPropertyStr, j)
+				end
+			elseif j>nWorkers and pCityPlot:GetProperty(sPropertyStr) == j then
+				print("Dummy With indicies detected", WorkerDictionary(i), j)
+				if nWorkers == 0 then
+					pCityPlot:SetProperty(sPropertyStr, nil)
+					print("Should be removed, set to nil")
+				elseif nWorkers>0 then
+					pCityPlot:SetProperty(sPropertyStr, nWorkers)
+					print("Should be removed set to", nWorkers)
+				end
+			end
+		end
+	end
+end
+
+function WorkerDictionary(index: number)
+	local tWorkerDict={"HOLY","CAMP","ENCA","HARB","COMM", "THEA","INDU"}
+	return tWorkerDict[index]
+end
+-- BCY
+function OnUIBCYAdjustCityYield(playerID, kParameters)
+	print("BCY script called from UI event")
+	GameEvents.GameplayBCYAdjustCityYield.Call(playerID, kParameters)
+end
+
+function OnGameplayBCYAdjustCityYield(playerID, kParameters)
+	print("Gameplay Script Called")
+	BCY_RecalculateMapYield(kParameters.iX, kParameters.iY)
+end
+
+if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
+	LuaEvents.UIBCYAdjustCityYield.Add(OnUIBCYAdjustCityYield)
+end
 -- ===========================================================================
 --	Tools
 -- ===========================================================================
+function CalculateBaseYield(pPlot: object)
+	local tCalculatedYields = {}
+	local iTerrain = pPlot:GetTerrainType()
+	local iResource = pPlot:GetResourceType()
+	local iFeature = pPlot:GetFeatureType()
+	for i =0, 5 do
+		tCalculatedYields[i] = GetYield("TERRAIN", iTerrain, i) + GetYield("RESOURCE", iResource, i) + GetYield("FEATURE", iFeature, i)
+	end
+	return tCalculatedYields
+end
+
+function GetYield(sObjecType: string, iObjID: number, iYieldID: number)
+	local yield = nil
+	if sObjecType == "TERRAIN" then
+		if TerrainYieldsLookup[iObjID] == nil then
+			yield = nil
+		else
+			yield = TerrainYieldsLookup[iObjID][iYieldID]
+		end
+	elseif sObjecType == "RESOURCE" then
+		if ResourceYieldsLookup[iObjID] == nil then
+			yield = nil
+		else 
+			yield = ResourceYieldsLookup[iObjID][iYieldID]
+		end
+	elseif sObjecType == "FEATURE" then
+		if FeatureYieldsLookup[iObjID] == nil then
+			yield = nil
+		else
+			yield = FeatureYieldsLookup[iObjID][iYieldID]
+		end
+	else
+		return print("ObjType Error")
+	end
+	if yield == nil then
+		return 0
+	else
+		return yield
+	end
+end
+
+function YieldNameToID(name: string)
+	local dict = {}
+	dict["YIELD_FOOD"] = 0
+	dict["YIELD_PRODUCTION"] = 1
+	dict["YIELD_GOLD"] = 2
+	dict["YIELD_SCIENCE"] = 3
+	dict["YIELD_CULTURE"] = 4
+	dict["YIELD_FAITH"] = 5
+	return dict[name]
+end	
+
+function ExtraYieldPropertyDictionary(iYieldId)
+	local YieldDict = {}
+	YieldDict[0] = "EXTRA_YIELD_FOOD"
+	YieldDict[1] = "EXTRA_YIELD_PRODUCTION"
+	YieldDict[2] = "EXTRA_YIELD_GOLD"
+	YieldDict[5] = "EXTRA_YIELD_FAITH"
+	YieldDict[4] = "EXTRA_YIELD_CULTURE"
+	YieldDict[3] = "EXTRA_YIELD_SCIENCE"
+	return YieldDict[iYieldId]
+end
+
+function FiraxisYieldPropertyDictionary(iYieldId)
+	local YieldDict = {}
+	YieldDict[0] = "FIRAXIS_YIELD_FOOD"
+	YieldDict[1] = "FIRAXIS_YIELD_PRODUCTION"
+	YieldDict[2] = "FIRAXIS_YIELD_GOLD"
+	YieldDict[5] = "FIRAXIS_YIELD_FAITH"
+	YieldDict[4] = "FIRAXIS_YIELD_CULTURE"
+	YieldDict[3] = "FIRAXIS_YIELD_SCIENCE"
+	return YieldDict[iYieldId]
+end
+
+function IDToPos(List, SearchItem, key, multi)
+	--print(SearchItem)
+	multi = multi or false
+	--print(multi)
+	key = key or nil
+	--print(key)
+	local results = {}
+	if List == {} then
+		return false
+	end
+    if SearchItem==nil then
+        return print("Search Error")
+    end
+    for i, item in ipairs(List) do
+    	if key == nil then
+    		--print(item)
+	        if item == SearchItem then
+	        	if multi then
+	        		table.insert(results, i)
+	        	else
+	            	return i;
+	            end
+	        end
+	    else
+	    	--print(item[key])
+	    	if item[key] == SearchItem then
+	        	if multi then
+	        		table.insert(results, i)
+	        	else
+	            	return i;
+	            end
+	    	end
+	    end
+    end
+    if results == {} then
+    	return false
+    else
+    	--print("IDtoPos Results:")
+    	for _, item in ipairs(results) do
+    		--print(item)
+    	end
+    	return results
+    end
+end
 
 function GetAliveMajorTeamIDs()
 	print("GetAliveMajorTeamIDs()")
@@ -1300,6 +1864,60 @@ function GetShuffledCopyOfTable(incoming_table)
 		left_to_do = left_to_do - 1;
 	end
 	return shuffledVersion
+end
+--BCY no rng recalculation support
+function BCY_RecalculateMapYield(iX, iY)
+	print("BCY: Recalculating for X,Y"..tostring(iX)..","..tostring(iY))
+	local pCity = CityManager.GetCityAt(iX,iY)
+	print("Check 0")
+	if pCity == nil then
+		return
+	end
+	print("Check 1")
+	if GameConfiguration.GetValue("BBCC_SETTING") == 1 and Players[pCity:GetOwner()]:GetCities():GetCapitalCity()~=pCity then
+		return
+	end
+	print("BCY no RNG: Yield Recalculation Started")
+	local pPlot = Map.GetPlot(iX, iY)
+	local iTerrain = pPlot:GetTerrainType()
+	local tBasePlotYields = CalculateBaseYield(pPlot)
+	local sControllString = ""
+	--flats
+	if iTerrain==0 or iTerrain==3 or iTerrain==6 or iTerrain==9 or iTerrain==12 then
+		sControllString = "Flat_CutOffYieldValues"
+	elseif iTerrain==1 or iTerrain==4 or iTerrain==7 or iTerrain==10 or iTerrain==13 then
+		sControllString = "Hill_CutOffYieldValues"
+	else
+		return
+	end 
+	for i=0,5 do
+		print("Evaluated yield: "..GameInfo.Yields[i].YieldType)
+		print("Base Plot Yield ", tBasePlotYields[i])
+		local nYield = 0
+		local nFiraxisFullTileYield  = pPlot:GetProperty(FiraxisYieldPropertyDictionary(i))
+		local nExtraYield = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
+		if nFiraxisFullTileYield == nil then
+			nFiraxisFullTileYield = math.max(pPlot:GetYield(i), tBaseGuaranteedYields[i])
+		else
+			nFiraxisFullTileYield = math.max(pPlot:GetYield(i), nFiraxisFullTileYield)
+		end
+		print("Firaxis yield "..tostring(nFiraxisFullTileYield))
+		pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nFiraxisFullTileYield)
+		if nExtraYield == nil then
+			nExtraYield = 0
+		end
+		local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
+		print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
+		local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
+		print("Extra BCY yield "..tostring(nExtraBCYYield))
+		nYield = nFiraxisFullTileYield-nExtraYield + nExtraBCYYield
+		local nYieldDiff = nYield - GameInfo[sControllString][i].Amount
+		print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
+		if nYieldDiff > 0 then
+			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nYieldDiff + nExtraYield)
+			print("Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff+nExtraYield))
+		end
+	end
 end
 
 function GetAdjacentTiles(plot, index)
@@ -2371,6 +2989,21 @@ function Initialize()
 	print("BBG - Gameplay Script Launched")
 	local currentTurn = Game.GetCurrentGameTurn()
 	local startTurn = GameConfiguration.GetStartTurn()
+	PopulateTerrainYields()
+	print("BBG - terrain yields populated")
+	PopulateResourceYields()
+	print("BBG - ressource yields populated")
+	PopulateFeatureYields()
+	print("BBG - relevant feature yields populated")
+	PopulateBugWonders()
+	print("BBG - relevant Bug wonders populated")	
+	--PopulateSpecialistBuildingIDs()
+	--print("BBG - tSpecialistBuildingIDs populated")
+	--for i = 1,7 do
+		--for j=1,3 do
+			--print("tSpecialistBuildingIDs: BUILDING_"..WorkerDictionary(i).."_"..tostring(j), tSpecialistBuildingIDs[i][j])
+		--end
+	--end
 	
 	if currentTurn == startTurn then
 		ApplySumeriaTrait()
@@ -2392,6 +3025,21 @@ function Initialize()
 	-- Auxillary GameEvent for Caesar wildcard
 	GameEvents.CityBuilt.Add(OnCityBuilt);
 	GameEvents.CityConquered.Add(OnCityConquered)
+	-- Extra Movement bugfix
+	GameEvents.UnitInitialized.Add(OnUnitInitialized)
+	-- Inca Yields on non-mountain impassibles bugfix
+	GameEvents.GameplaySetPlotProperty.Add(OnGameplaySetPlotProperty)
+	GameEvents.CityConquered.Add(OnIncaCityConquered)
+	-- Yield Adjustment hook
+	GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
+	-- communism
+	GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
+	GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
+	GameEvents.PolicyChanged.Add(OnPolicyChanged)
+	GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
+	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
+		GameEvents.GameplayBCYAdjustCityYield.Add(OnGameplayBCYAdjustCityYield)
+	end
 end
 
 Initialize();
