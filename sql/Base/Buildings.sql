@@ -16,10 +16,6 @@ UPDATE Buildings SET OuterDefenseHitPoints=75, Cost=100 WHERE BuildingType='BUIL
 UPDATE Buildings SET OuterDefenseHitPoints=75, Cost=200 WHERE BuildingType='BUILDING_CASTLE';
 UPDATE Buildings SET OuterDefenseHitPoints=75 WHERE BuildingType='BUILDING_STAR_FORT';
 UPDATE ModifierArguments SET Value='300' WHERE ModifierId='STEEL_UNLOCK_URBAN_DEFENSES';
- 
---11/12/22 ancient wall -3 (0 from 3) def medieval wall +3 (6 from 3)
-UPDATE Buildings SET OuterDefenseStrength=0 WHERE BuildingType='BUILDING_WALLS';
-UPDATE Buildings SET OuterDefenseStrength=6 WHERE BuildingType='BUILDING_CASTLE';
 
 -- chancery science from captured spies increased
 UPDATE ModifierArguments SET Value='200' WHERE ModifierId='CHANCERY_COUNTERYSPY_SCIENCE' AND Name='Amount';
@@ -39,7 +35,14 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
     ('BUILDING_WATER_MILL', 'BBG_WATERMILL_PRODUCTION_FARM');
 
-
+-- Pagoda: 1 Influance instead of 1 diplo favour
+DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_PAGODA' AND ModifierId='PAGODA_ADJUST_FAVOR';
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_PAGODA_INFLUENCE', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_PAGODA_INFLUENCE', 'Amount', '1');
+INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
+    ('BUILDING_PAGODA', 'BBG_PAGODA_INFLUENCE');
 
 -- Grandmaster Chapel only faith buy in owned city. (XP1)
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
@@ -117,4 +120,3 @@ INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
     ('BUILDING_BANK', 'BBG_BANK_TRADEROUTE_TO_INTERNATIONAL'),
     ('BUILDING_STOCK_EXCHANGE', 'BBG_STOCK_EXCHANGE_TRADEROUTE_FROM_INTERNATIONAL'),
     ('BUILDING_STOCK_EXCHANGE', 'BBG_STOCK_EXCHANGE_TRADEROUTE_TO_INTERNATIONAL');
-

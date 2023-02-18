@@ -3,6 +3,9 @@
 -- Portugal UI (Feitora) nerf
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='TRADE_GOLD_FROM_FEITORIA' AND Name='Amount';
 
+-- Nau can build only 1 Feitora
+UPDATE Units SET BuildCharges=1 WHERE UnitType='UNIT_PORTUGUESE_NAU';
+
 -- Trade route only give gold yield multiplier.
 UPDATE ModifierArguments SET Value='0, 0, 0, 0, 50, 0' WHERE ModifierId='TRAIT_INTERNATIONAL_TRADE_GAIN_ALL_YIELDS' AND Name='Amount';
 

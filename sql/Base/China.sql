@@ -34,14 +34,6 @@ INSERT OR IGNORE INTO ModifierStrings (ModifierId , Context , Text)
     VALUES ('TIGER_ADJACENCY_DAMAGE' , 'Preview' , 'LOC_ABILITY_TIGER_ADJACENCY_DESCRIPTION');
 
 -- Move builder charge from Qin-Shi to China
---DELETE FROM TraitModifiers WHERE TraitType='FIRST_EMPEROR_TRAIT' AND ModifierId='TRAIT_ADJUST_BUILDER_CHARGES';
---INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
---    ('TRAIT_CIVILIZATION_DYNASTIC_CYCLE', 'TRAIT_ADJUST_BUILDER_CHARGES');
--- Remove 10% eureka/inspiration (return to QinShi leader only)
---DELETE FROM TraitModifiers WHERE ModifierId in ('TRAIT_CIVIC_BOOST', 'TRAIT_TECHNOLOGY_BOOST');
-
---INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
---	('FIRST_EMPEROR_TRAIT', 'TRAIT_CIVIC_BOOST'),
---	('FIRST_EMPEROR_TRAIT', 'TRAIT_TECHNOLOGY_BOOST');
-
--- UPDATE 10/01/2023 Give back eureka to all China and move back builder to Qin-Shin only
+DELETE FROM TraitModifiers WHERE TraitType='FIRST_EMPEROR_TRAIT' AND ModifierId='TRAIT_ADJUST_BUILDER_CHARGES';
+INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
+    ('TRAIT_CIVILIZATION_DYNASTIC_CYCLE', 'TRAIT_ADJUST_BUILDER_CHARGES');
