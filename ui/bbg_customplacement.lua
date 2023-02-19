@@ -4,6 +4,9 @@
 --FlashyFeeds override that allows for custom placements
 --======================================================
 ---======functions to replace original firaxis functions after inclusion of this file=======---
+
+--Check all of these for GetDistrictID and see if needs replaceing with GetDistrictType
+
 print("BBG CustomPlacement included")
 local qQuery = "SELECT WonderType FROM WonderTerrainFeature_BBG WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN' OR FeatureType = 'FEATURE_OASIS'"
 print(type(DB.Query(qQuery)))
