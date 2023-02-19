@@ -92,12 +92,22 @@ function OnCityWorkerChanged(iPlayerID, iCityID, iX, iY)
 	local pPlayer = Players[iPlayerID]
 	print("OnCityWorkerChanged: Citizen Changed")
 	print("parameters", iPlayerID, iCityID, iX, iY)
+	local pPlayerCulture = pPlayer:GetCulture()
+	local iGovID = pPlayerCulture:GetCurrentGovernment()
+	if iGovID == 8 or pPlayerCulture:IsPolicyActive(105) then
+		UIEvents.UIBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+	end
+end
+
+function OnGovernmentChanged(iPlayerID, iGovID)
+	UIEvents.UIBBGGovChanged(iPlayerID, iGovID)
 end
 --Events
 --inca dynamic yield cancelation
 Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
 --Communism
 Events.CityWorkerChanged.Add(OnCityWorkerChanged)
+Events.GovernmentChanged.Add(OnGovernmentChanged)
 --BCY no rng setting (param names are still called BBCC)
 if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 	print("BCY: No RNG detected")
@@ -105,11 +115,11 @@ if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 end
 --Support
 function IDToPos(List, SearchItem, key, multi)
-	print(SearchItem)
+	--print(SearchItem)
 	multi = multi or false
-	print(multi)
+	--print(multi)
 	key = key or nil
-	print(key)
+	--print(key)
 	local results = {}
 	if List == {} then
 		return false
@@ -119,7 +129,7 @@ function IDToPos(List, SearchItem, key, multi)
     end
     for i, item in ipairs(List) do
     	if key == nil then
-    		print(item)
+    		--print(item)
 	        if item == SearchItem then
 	        	if multi then
 	        		table.insert(results, i)
@@ -128,7 +138,7 @@ function IDToPos(List, SearchItem, key, multi)
 	            end
 	        end
 	    else
-	    	print(item[key])
+	    	--print(item[key])
 	    	if item[key] == SearchItem then
 	        	if multi then
 	        		table.insert(results, i)
@@ -138,13 +148,12 @@ function IDToPos(List, SearchItem, key, multi)
 	    	end
 	    end
     end
-    if results == {} or #results == 0 then
-    	print("false")
+    if results == {} then
     	return false
     else
-    	print("IDtoPos Results:")
+    	--print("IDtoPos Results:")
     	for _, item in ipairs(results) do
-    		print(item)
+    		--print(item)
     	end
     	return results
     end

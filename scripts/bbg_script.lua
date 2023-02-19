@@ -148,7 +148,27 @@ function PopulateBugWonders()
 		end
 	end
 end
-
+-- ==========================================================================
+-- Setting Up data to easily deal with communism(legacy) workers
+-- ==========================================================================
+--local tSpecialistBuildingIDs = {}
+--[==[
+function PopulateSpecialistBuildingIDs()
+	local tCachedBuildings = DB.Query("SELECT * FROM Buildings")
+	for i = 1,7 do
+		local row = {}
+		for j=1,3 do
+			local sSearchString = "BUILDING_"..WorkerDictionary(i).."_"..tostring(j)
+			local iSearchID = IDToPos(tCachedBuildings, sSearchString, "BuildingType")
+			print("IDToPos found index", iSearchID)
+			if iSearchID ~= false then
+				row[j] = iSearchID-1
+			end
+		end
+		tSpecialistBuildingIDs[i] = row
+	end
+end
+]==]--
 -- ===========================================================================
 --	Function
 -- ===========================================================================
@@ -514,10 +534,16 @@ function OnIncaCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 		return
 	end
 	local pCity = Map.GetCityInPlot(iX, iY)
-	for i, pPlot in ipairs(pCity:GetOwnedPlots()) do
-		if pPlot:IsImpassable() and pPlot:GetFeatureType()~=-1 and pPlot:GetFeatureType()~=34 then
-			for i = 0,5 do
-				pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nil)
+	local pStartPlot = Map.GetPlot(iX,iY)
+	for i = 0, 35 do
+		local pPlot = GetAdjacentTiles(pStartPlot, i)
+		if pPlot ~= nil then
+			if Cities.GetPlotPurchaseCity(pPlot) == pCity then
+				if pPlot:IsImpassable() and pPlot:GetFeatureType()~=-1 and pPlot:GetFeatureType()~=34 then
+					for i = 0,5 do
+						pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nil)
+					end
+				end
 			end
 		end
 	end
@@ -1474,7 +1500,199 @@ function OnGameplaySetPlotProperty(iPlayerID, tParameters)
 		end
 	end
 end
+-- Communism Specialists
+function OnUIBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+	print("UIBBGWorkersChanged Triggered")
+	GameEvents.GameplayBBGWorkersChanged.Call(iPlayerID, iCityID, iX, iY)
+end
 
+LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
+
+function OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+	print("BBG - OnGameplayBBGWorkersChanged triggered")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	pPlayer:SetProperty("HAS_COMMUNISM",true)
+	local pCity = CityManager.GetCity(iPlayerID, iCityID)
+	if pCity == nil then
+		return
+	end
+	CityRecalculateSpecialistBuildings(pCity)
+end
+
+function OnUIBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+	print("UIBBGDestroyDummyBuildings Triggered")
+	GameEvents.GameplayBBGDestroyDummyBuildings.Call(iPlayerID, iCityID, iX, iY)
+end
+
+LuaEvents.UIBBGDestroyDummyBuildings.Add(OnUIBBGDestroyDummyBuildings)
+
+function OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+	print("OnGameplayBBGDestroyDummyBuildings called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	pPlayer:SetProperty("HAS_COMMUNISM", false)
+	local pCity = CityManager.GetCity(iPlayerID, iCityID)
+	if pCity == nil then
+		return
+	end
+	local pCityPlot = Map.GetPlot(iX, iY)
+	for i=1,7 do
+		local sPropertyStr = "BUILDING_"..WorkerDictionary(i)
+		local nDummyVal = pCityPlot:GetProperty(sPropertyStr)
+		if nDummyVal ~= nil then
+			print("Dummy With indicies detected", WorkerDictionary(i), nDummyVal)
+			pCityPlot:SetProperty(sPropertyStr, nil)
+			print("Should be removed")
+		end
+	end
+	print("Dummy buildings removed")
+end
+
+function OnUIBBGGovChanged(iPlayerID, iGovID)
+	print("OnUIBBGGovChanged triggered")
+	GameEvents.GameplayBBGGovChanged.Call(iPlayerID, iGovID)
+end
+LuaEvents.UIBBGGovChanged.Add(OnUIBBGGovChanged)
+
+function OnGameplayBBGGovChanged(iPlayerID, iGovID)
+	print("OnGameplayBBGGovChanged called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pPlayerCities = pPlayer:GetCities()
+	if iGovID == 8 then
+		for i, pCity in pPlayerCities:Members() do
+			local iX = pCity:GetX()
+			local iY = pCity:GetY()
+			local iCityID = pCity:GetID()
+			OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+		end
+	elseif pPlayer:GetProperty("HAS_COMMUNISM") then
+		for i, pCity in pPlayerCities:Members() do
+			local iX = pCity:GetX()
+			local iY = pCity:GetY()
+			local iCityID = pCity:GetID()
+			OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+		end
+	end
+end
+
+function OnPolicyChanged(iPlayerID, iPolicyID, bEnacted)
+	print("Policy Changed Check for Communism")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	if iPolicyID == 105 then
+		print("Communism Legacy Detected")
+		local pPlayerCities = pPlayer:GetCities()
+		for i, pCity in pPlayerCities:Members() do
+			local iCityID = pCity:GetID()
+			local iX = pCity:GetX()
+			local iY = pCity:GetY()
+			if bEnacted == true then
+				OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+			elseif bEnacted == false then
+				OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+			end
+		end
+	end
+	print("Communism Legacy Yields Readjusted")
+end
+
+function GetCitySpecialists(pCity: object)
+	print("BBG - fetching specialists")
+	if pCity==nil then
+		return print("Nil input")
+	end
+	local tWorkers = {}
+	for i = 1,7 do -- setting initial values
+ 		tWorkers[i] = 0
+	end
+	local pStartPlot = Map.GetPlot(pCity:GetX(),pCity:GetY())
+	for i = 0,35 do
+		local pPlot = GetAdjacentTiles(pStartPlot, i)
+		if pPlot~=nil then
+			if Cities.GetPlotPurchaseCity(pPlot) == pCity then --plot owned by city
+				local iDistrictID = pPlot:GetDistrictType()
+				print("District:", iDistrictID)
+				if iDistrictID == 1 or iDistrictID == 17 then --holy site/lavra
+					print("HolySite found worker count", pPlot:GetWorkerCount())
+					tWorkers[1] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 2 or iDistrictID == 22 or iDistrictID == 30 then --campus/seo/observatory
+					print("Campus found worker count", pPlot:GetWorkerCount())
+					tWorkers[2] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 3 or iDistrictID == 21 or iDistrictID == 33 then -- encampmente/ikkanda/thanh
+					print("Encampment found worker count", pPlot:GetWorkerCount())
+					tWorkers[3] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 4 or iDistrictID == 20 or iDistrictID == 28 then -- harbor/royal dockyard/cothon
+					print("Harbor found worker count", pPlot:GetWorkerCount())
+					tWorkers[4] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 6 or iDistrictID == 29 then -- commercial/suguba
+					print("Commercial found worker count", pPlot:GetWorkerCount())
+					tWorkers[5] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 8 or iDistrictID == 14 then --theater/acropolis
+					print("Theater found worker count", pPlot:GetWorkerCount())
+					tWorkers[6] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 9 or iDistrictID == 16 or iDistrictID == 32 then -- IZ/Hansa/Opi
+					print("Industrial found worker count", pPlot:GetWorkerCount())
+					tWorkers[7] = pPlot:GetWorkerCount()
+				end
+			end
+		end
+	end
+	return tWorkers
+end
+
+function CityRecalculateSpecialistBuildings(pCity: object)
+	print("BBG - recalculating specialist yields")
+	if pCity == nil then
+		return
+	end
+	local tWorkers = GetCitySpecialists(pCity)
+	print("Workers:")
+	for i = 1,7 do 
+		print(WorkerDictionary(i), tWorkers[i])
+	end
+	local pCityPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
+	for i=1,7 do
+		local nWorkers = tWorkers[i]
+		local sPropertyStr = "BUILDING_"..WorkerDictionary(i)
+		for j = 1,3 do
+			if j<= nWorkers then
+				print("Doesn't have dummy building for j=", j)
+				local nDummyVal = pCityPlot:GetProperty(sPropertyStr)
+				if nDummyVal == nil then
+					pCityPlot:SetProperty(sPropertyStr, j)
+					print("Dummy building added", sPropertyStr, j)
+				elseif nDummyVal<=j then
+					pCityPlot:SetProperty(sPropertyStr, j)
+					print("Dummy building added", sPropertyStr, j)
+				end
+			elseif j>nWorkers and pCityPlot:GetProperty(sPropertyStr) == j then
+				print("Dummy With indicies detected", WorkerDictionary(i), j)
+				if nWorkers == 0 then
+					pCityPlot:SetProperty(sPropertyStr, nil)
+					print("Should be removed, set to nil")
+				elseif nWorkers>0 then
+					pCityPlot:SetProperty(sPropertyStr, nWorkers)
+					print("Should be removed set to", nWorkers)
+				end
+			end
+		end
+	end
+end
+
+function WorkerDictionary(index: number)
+	local tWorkerDict={"HOLY","CAMP","ENCA","HARB","COMM", "THEA","INDU"}
+	return tWorkerDict[index]
+end
 -- BCY
 function OnUIBCYAdjustCityYield(playerID, kParameters)
 	print("BCY script called from UI event")
@@ -1567,11 +1785,11 @@ function FiraxisYieldPropertyDictionary(iYieldId)
 end
 
 function IDToPos(List, SearchItem, key, multi)
-	print(SearchItem)
+	--print(SearchItem)
 	multi = multi or false
-	print(multi)
+	--print(multi)
 	key = key or nil
-	print(key)
+	--print(key)
 	local results = {}
 	if List == {} then
 		return false
@@ -1581,7 +1799,7 @@ function IDToPos(List, SearchItem, key, multi)
     end
     for i, item in ipairs(List) do
     	if key == nil then
-    		print(item)
+    		--print(item)
 	        if item == SearchItem then
 	        	if multi then
 	        		table.insert(results, i)
@@ -1590,7 +1808,7 @@ function IDToPos(List, SearchItem, key, multi)
 	            end
 	        end
 	    else
-	    	print(item[key])
+	    	--print(item[key])
 	    	if item[key] == SearchItem then
 	        	if multi then
 	        		table.insert(results, i)
@@ -1603,9 +1821,9 @@ function IDToPos(List, SearchItem, key, multi)
     if results == {} then
     	return false
     else
-    	print("IDtoPos Results:")
+    	--print("IDtoPos Results:")
     	for _, item in ipairs(results) do
-    		print(item)
+    		--print(item)
     	end
     	return results
     end
@@ -2779,7 +2997,13 @@ function Initialize()
 	print("BBG - relevant feature yields populated")
 	PopulateBugWonders()
 	print("BBG - relevant Bug wonders populated")	
-
+	--PopulateSpecialistBuildingIDs()
+	--print("BBG - tSpecialistBuildingIDs populated")
+	--for i = 1,7 do
+		--for j=1,3 do
+			--print("tSpecialistBuildingIDs: BUILDING_"..WorkerDictionary(i).."_"..tostring(j), tSpecialistBuildingIDs[i][j])
+		--end
+	--end
 	
 	if currentTurn == startTurn then
 		ApplySumeriaTrait()
@@ -2808,6 +3032,11 @@ function Initialize()
 	GameEvents.CityConquered.Add(OnIncaCityConquered)
 	-- Yield Adjustment hook
 	GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
+	-- communism
+	GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
+	GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
+	GameEvents.PolicyChanged.Add(OnPolicyChanged)
+	GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 		GameEvents.GameplayBCYAdjustCityYield.Add(OnGameplayBCYAdjustCityYield)
 	end
