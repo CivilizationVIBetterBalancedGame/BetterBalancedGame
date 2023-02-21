@@ -102,15 +102,6 @@ INSERT OR IGNORE INTO CommemorationModifiers (CommemorationType, ModifierId)
 	VALUES ('COMMEMORATION_CULTURAL', 'COMMEMORATION_CULTURAL_DISTRICTGOLD');
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='COMMEMORATION_CULTURAL_DISTRICTCULTURE' and Name='Amount';
 
-
-
-
-
-
-
-
-
-
 --==============================================================
 --******				PANTHEONS					  ******
 --==============================================================
