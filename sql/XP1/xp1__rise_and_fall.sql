@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 INSERT INTO Unit_BuildingPrereqs(Unit, PrereqBuilding, NumSupported) VALUES
 	('UNIT_WARRIOR_MONK', 'BUILDING_KOTOKU_IN', '-1');
 
