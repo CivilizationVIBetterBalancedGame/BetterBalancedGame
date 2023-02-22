@@ -78,11 +78,6 @@ UPDATE Units SET Combat=70, Cost=360 WHERE UnitType='UNIT_CANADA_MOUNTIE';
 UPDATE RequirementArguments SET Value='4' WHERE RequirementId='UNIT_PARK_REQUIREMENT'       AND Name='MaxDistance';
 UPDATE RequirementArguments SET Value='4' WHERE RequirementId='UNIT_OWNER_PARK_REQUIREMENT' AND Name='MaxDistance';
 
---==================
--- DIDO
---==================
-UPDATE ModifierArguments SET Value='25' WHERE ModifierId='COTHON_NAVAL_UNIT_PRODUCTION' AND Name='Amount';
-UPDATE ModifierArguments SET Value='25' WHERE ModifierId='COTHON_SETTLER_PRODUCTION' AND Name='Amount';
 
 
 --==========
@@ -182,69 +177,12 @@ DROP TABLE TmpEldenEleonore;
 UPDATE Units_XP2 SET ResourceCost=10 WHERE UnitType='UNIT_FRENCH_GARDE_IMPERIALE';
 
 
---==================
--- Hungary
---==================
--- only 1 envoy from levying city-states units
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='LEVY_MILITARY_TWO_FREE_ENVOYS';
--- no combat bonus for levied units
--- DELETE FROM ModifierArguments WHERE ModifierId='RAVEN_LEVY_COMBAT' AND Name='Amount' AND Value='5';
--- Huszars only +2 combat strength from each alliance instead of 3
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='HUSZAR_ALLIES_COMBAT_BONUS';
--- Black Army only +2 combat strength from adjacent levied units
-UPDATE ModifierArguments SET Value='2' WHERE ModifierId='BLACK_ARMY_ADJACENT_LEVY';
--- Only 1 extra movement for levied units
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='RAVEN_LEVY_MOVEMENT';
-
-
---==========
--- India
---==========
--- Varu upgrades to
--- 23/04/2021: Implemented by Firaxis
---UPDATE UnitUpgrades SET UpgradeUnit='UNIT_CUIRASSIER' WHERE Unit='UNIT_INDIAN_VARU';
-
-
 
 --==================
 -- Kongo
 --==================
 UPDATE Units_XP2 SET ResourceCost=10 WHERE UnitType='UNIT_KONGO_SHIELD_BEARER';
 
-
---==========
--- Mali
---==========
-
--- Moved to Mali.sql
-
---==================
--- Maori
---==================
-DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='POPULATION_PRESETTLEMENT';
-UPDATE Modifiers SET SubjectRequirementSetId='UNIT_IS_DOMAIN_LAND' WHERE ModifierId='TRAIT_MAORI_MANA_OCEAN';
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('VARU_ADJACENT_AT_WAR_REQUIREMENTS', 'REQUIRES_UNIT_IS_DOMAIN_LAND');
--- UPDATE Units SET Maintenance=2, Combat=40 WHERE UnitType='UNIT_MAORI_TOA';
-
--- Delay bonus production
-INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
-    ('BBG_PLOT_HAS_FOREST_EARLY_EMPIRE', 'REQUIREMENTSET_TEST_ALL'),
-    ('BBG_PLOT_HAS_JUNGLE_EARLY_EMPIRE', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-    ('BBG_PLOT_HAS_FOREST_EARLY_EMPIRE', 'BBG_PLAYER_HAS_EARLY_EMPIRE_REQUIREMENT'),
-    ('BBG_PLOT_HAS_FOREST_EARLY_EMPIRE', 'PLOT_IS_FOREST_REQUIREMENT'),
-    ('BBG_PLOT_HAS_FOREST_EARLY_EMPIRE', 'REQUIRES_PLOT_HAS_NO_IMPROVEMENT'),
-    ('BBG_PLOT_HAS_JUNGLE_EARLY_EMPIRE', 'BBG_PLAYER_HAS_EARLY_EMPIRE_REQUIREMENT'),
-    ('BBG_PLOT_HAS_JUNGLE_EARLY_EMPIRE', 'PLOT_IS_JUNGLE_REQUIREMENT'),
-    ('BBG_PLOT_HAS_JUNGLE_EARLY_EMPIRE', 'REQUIRES_PLOT_HAS_NO_IMPROVEMENT');
-INSERT INTO Requirements(RequirementId, RequirementType) VALUES
-    ('BBG_PLAYER_HAS_EARLY_EMPIRE_REQUIREMENT', 'REQUIREMENT_PLAYER_HAS_CIVIC');
-INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
-    ('BBG_PLAYER_HAS_EARLY_EMPIRE_REQUIREMENT', 'CivicType', 'CIVIC_EARLY_EMPIRE');
-
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_HAS_FOREST_EARLY_EMPIRE' WHERE ModifierId='TRAIT_MAORI_PRODUCTION_WOODS';
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_HAS_JUNGLE_EARLY_EMPIRE' WHERE ModifierId='TRAIT_MAORI_PRODUCTION_RAINFOREST';
 
 
 --==================
@@ -504,61 +442,7 @@ DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_INCA' AND Ter
 
 
 
---==============================================================
---******              UNITS  (NON-UNIQUE)                ******
---==============================================================
-UPDATE Units_XP2 SET ResourceMaintenanceAmount=2 WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
-UPDATE Units SET StrategicResource='RESOURCE_OIL' WHERE UnitType='UNIT_HELICOPTER';
-UPDATE Units_XP2 SET ResourceMaintenanceAmount=1, ResourceCost=1, ResourceMaintenanceType='RESOURCE_OIL' WHERE UnitType='UNIT_HELICOPTER';
-UPDATE Units SET Cost=200 WHERE UnitType='UNIT_KNIGHT';
-UPDATE Units SET Cost=180 WHERE UnitType='UNIT_COURSER';
-UPDATE Units SET StrategicResource='RESOURCE_NITER' WHERE UnitType='UNIT_INFANTRY';
-UPDATE Units_XP2 SET ResourceMaintenanceType='RESOURCE_NITER' WHERE UnitType='UNIT_INFANTRY';
-UPDATE Units SET PrereqTech='TECH_STEEL' WHERE UnitType='UNIT_ANTIAIR_GUN';
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
-    VALUES ('SIEGE_DEFENSE_BONUS_VS_RANGED_COMBAT', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'SIEGE_DEFENSE_REQUIREMENTS');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
-    VALUES ('SIEGE_DEFENSE_BONUS_VS_RANGED_COMBAT', 'Amount', '10');
-INSERT OR IGNORE INTO ModifierStrings (ModifierId, Context, Text)
-    VALUES ('SIEGE_DEFENSE_BONUS_VS_RANGED_COMBAT', 'Preview', '{LOC_SIEGE_RANGED_DEFENSE_DESCRIPTION}');
-INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType)
-    VALUES ('SIEGE_DEFENSE_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
-    VALUES ('SIEGE_DEFENSE_REQUIREMENTS', 'RANGED_COMBAT_REQUIREMENTS');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
-    VALUES ('SIEGE_DEFENSE_REQUIREMENTS', 'PLAYER_IS_DEFENDER_REQUIREMENTS');
-INSERT OR IGNORE INTO Types (Type, Kind)
-    VALUES ('ABILITY_SIEGE_RANGED_DEFENSE', 'KIND_ABILITY');
-INSERT OR IGNORE INTO TypeTags (Type, Tag)
-    VALUES ('ABILITY_SIEGE_RANGED_DEFENSE', 'CLASS_SIEGE');
-INSERT OR IGNORE INTO UnitAbilities (UnitAbilityType, Name, Description)
-    VALUES ('ABILITY_SIEGE_RANGED_DEFENSE', 'LOC_PROMOTION_TORTOISE_NAME', 'LOC_PROMOTION_TORTOISE_DESCRIPTION');
-INSERT OR IGNORE INTO UnitAbilityModifiers (UnitAbilityType, ModifierId)
-    VALUES ('ABILITY_SIEGE_RANGED_DEFENSE', 'SIEGE_DEFENSE_BONUS_VS_RANGED_COMBAT');
 
--- -5 combat strength to all airplanes (P-51 change in America section)
-UPDATE Units SET Combat=75,  RangedCombat=70  WHERE UnitType='UNIT_BIPLANE';
-UPDATE Units SET Combat=95,  RangedCombat=95  WHERE UnitType='UNIT_FIGHTER';
-UPDATE Units SET Combat=105, RangedCombat=105 WHERE UnitType='UNIT_JET_FIGHTER';
-UPDATE Units SET Combat=80,  Bombard=105      WHERE UnitType='UNIT_BOMBER';
-UPDATE Units SET Combat=85,  Bombard=115      WHERE UnitType='UNIT_JET_BOMBER';
-
--- Military Engineers get tunnels at military science
-UPDATE Improvements SET PrereqTech='TECH_MILITARY_SCIENCE' WHERE ImprovementType='IMPROVEMENT_MOUNTAIN_TUNNEL';
--- Military Engineers can build roads without using charges
-UPDATE Routes_XP2 SET BuildWithUnitChargeCost=0 WHERE RouteType='ROUTE_ANCIENT_ROAD';
-UPDATE Routes_XP2 SET BuildWithUnitChargeCost=0 WHERE RouteType='ROUTE_INDUSTRIAL_ROAD';
-UPDATE Routes_XP2 SET BuildWithUnitChargeCost=0 WHERE RouteType='ROUTE_MEDIEVAL_ROAD';
-UPDATE Routes_XP2 SET BuildWithUnitChargeCost=0 WHERE RouteType='ROUTE_MODERN_ROAD';
-
--- 23/08/22 move road from 
-UPDATE Routes_XP2 SET PrereqTech='TECH_SCIENTIFIC_THEORY' WHERE RouteType='ROUTE_RAILROAD';
-
---14/07/2022: all spads to 10 normal speed
---03/10/2022: to 15
-UPDATE Units_XP2 SET ResourceCost=15 WHERE UnitType='UNIT_SWORDSMAN';
---17/10/2022: men at arm to 15
-UPDATE Units_XP2 SET ResourceCost=15 WHERE UnitType='UNIT_MAN_AT_ARMS';
 
 
 --==============================================================
