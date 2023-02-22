@@ -8,7 +8,7 @@ tRemoveIncaYieldsFromFeatures=DB.Query(qQuery)
 for i, row in ipairs(tRemoveIncaYieldsFromFeatures) do
 	print(i, row.WonderType)
 end
---
+--Inca bug
 function OnIncaPlotYieldChanged(iX, iY)
 	print("OnIncaPlotYieldChanged started for", iX, iY)
 	local pPlot = Map.GetPlot(iX, iY)
@@ -55,7 +55,7 @@ function OnIncaPlotYieldChanged(iX, iY)
 		UIEvents.UISetPlotProperty(iOwnerId, kParameters)
 	end
 end
-
+--BCY no rng remove disaster yields
 function OnBCYPlotYieldChanged(iX, iY)
 	local pPlot = Map.GetPlot(iX, iY)
 	if pPlot == nil then
@@ -87,7 +87,7 @@ function OnBCYPlotYieldChanged(iX, iY)
 	end
 	UIEvents.UIBCYAdjustCityYield(iOwnerId, kParameters)
 end
-
+--Communism
 function OnCityWorkerChanged(iPlayerID, iCityID, iX, iY)
 	local pPlayer = Players[iPlayerID]
 	print("OnCityWorkerChanged: Citizen Changed")
@@ -102,18 +102,144 @@ end
 function OnGovernmentChanged(iPlayerID, iGovID)
 	UIEvents.UIBBGGovChanged(iPlayerID, iGovID)
 end
+
+--Amani
+function OnGovernorAssigned(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
+	print("OnGovernorAssigned")
+	print(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
+	if iGovernorType ~= 1 then -- not amani
+		return
+	end
+	local pPlayer = Players[iGovernorOwnerID]
+	if pPlayer == nil then
+		return
+	end
+	local pTargetCity = CityManager.GetCity(iCityOwnerID, iCityID)
+	if pTargetCity == nil then
+		return
+	end
+	--above all mandatory checks that amani is assigned
+	--set player property
+	local tAmani = {}
+	tAmani["iCityID"] = iCityID
+	tAmani["iMinorID"] = iCityOwnerID
+	tAmani["Status"] = 0 
+	--0: establishing, 1: established, -1 not assigned
+	UIEvents.UISetAmaniProperty(iGovernorOwnerID, tAmani)
+end
+
+function OnTradeRouteActivityChanged(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
+	print("OnTradeRouteActivityChanged")
+	print(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
+	local pOriginPlayer = Players[iOriginPlayerID]
+	if pOriginPlayer == nil then
+		return
+	end
+	local pTargetPlayer = Players[iTargetPlayerID]
+	if pTargetPlayer == nil then
+		return
+	end
+	local pOriginCity = CityManager.GetCity(iOriginPlayerID, iOriginCityID)
+	if pOriginCity == nil then
+		return
+	end
+	local pTargetCity = CityManager.GetCity(iTargetPlayerID, iTargetCityID)
+	if pTargetCity == nil then
+		return
+	end
+	--above mandatory checks
+	if pTargetPlayer:IsMajor() then -- script only works for CS
+		return
+	end
+	--recalculate trade plot properties
+	local pCityOutTrade = pOriginCity:GetTrade():GetOutgoingRoutes()
+	local bControl = false
+	if pCityOutTrade ~= nil then
+		for _, route in ipairs(pCityOutTrade) do
+			if route.DestinationCityPlayer == iTargetPlayerID then
+				bControl = true
+			end
+		end
+	end
+	if bControl == true then
+		print("Sending Add trader req")
+		UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+	else
+		print("Sending Remove trader req")
+		UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, 0-iTargetPlayerID)
+	end
+end
+
+function OnGovernorChanged(iPlayerID, iGovernorID)
+	print("OnGovernorChanged")
+	print(iPlayerID, iGovernorID)
+	local pPlayer = Players[iPlayerID]
+	if pPlayer==nil then
+		return
+	end
+	if iGovernorID ~= 1 then --not amani
+		return
+	end
+	local tAmani = pPlayer:GetProperty("AMANI")
+	if tAmani == nil then
+		return
+	end
+	local pPlayerGovernors = pPlayer:GetGovernors()
+	local pPlayerGovernor = GetAppointedGovernor(iPlayerID, iGovernorID)
+	if pPlayerGovernor:IsEstablished(1) and tAmani~=nil then
+		local pCity = CityManager.GetCity(tAmani.iMinorID, tAmani.iCityID)
+		if pPlayerGovernor:GetAssignedCity() == pCity then
+			--amani established -> recalculate amani yields and plot properties
+			tAmani.Status = 1
+			UIEvents.UISetAmaniProperty(iPlayerID, tAmani)
+		end
+	elseif pPlayerGovernor:IsEstablished(1) == false and tAmani.iCityID ~= nil then
+		--amani removed -> recalculate amani yields and plot properties, player properties as well
+		tAmani.Status = -1
+		UIEvents.UISetAmaniProperty(iPlayerID, tAmani)
+	end
+end
 --Events
 --inca dynamic yield cancelation
 Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
 --Communism
 Events.CityWorkerChanged.Add(OnCityWorkerChanged)
 Events.GovernmentChanged.Add(OnGovernmentChanged)
+--Amani
+Events.GovernorAssigned.Add(OnGovernorAssigned)
+Events.GovernorChanged.Add(OnGovernorChanged)
+Events.TradeRouteActivityChanged.Add(OnTradeRouteActivityChanged)
 --BCY no rng setting (param names are still called BBCC)
 if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 	print("BCY: No RNG detected")
 	Events.PlotYieldChanged.Add(OnBCYPlotYieldChanged)
 end
 --Support
+function GetAppointedGovernor(playerID:number, governorTypeIndex:number)
+	-- Make sure we're looking for a valid governor
+	if playerID < 0 or governorTypeIndex < 0 then
+		return nil;
+	end
+
+	-- Get the player governor list
+	local pGovernorDef = GameInfo.Governors[governorTypeIndex];
+	local pPlayer:table = Players[playerID];
+	local pPlayerGovernors:table = pPlayer:GetGovernors();
+	local bHasGovernors, tGovernorList = pPlayerGovernors:GetGovernorList();
+
+	-- Find and return the governor from the governor list
+	if pPlayerGovernors:HasGovernor(pGovernorDef.Hash) then
+		for i,governor in ipairs(tGovernorList) do
+			if governor:GetType() == governorTypeIndex then
+				return governor;
+			end
+		end
+	end
+
+	-- Return nil if this player has not appointed that governor
+	return nil;
+end
+
 function IDToPos(List, SearchItem, key, multi)
 	--print(SearchItem)
 	multi = multi or false
@@ -148,12 +274,12 @@ function IDToPos(List, SearchItem, key, multi)
 	    	end
 	    end
     end
-    if results == {} then
+    if results == {} or #results==0 or results==nil then
     	return false
     else
     	--print("IDtoPos Results:")
     	for _, item in ipairs(results) do
-    		--print(item)
+    		print(item)
     	end
     	return results
     end
@@ -168,4 +294,20 @@ function ExtraYieldPropertyDictionary(iYieldId)
 	YieldDict[4] = "EXTRA_YIELD_CULTURE"
 	YieldDict[3] = "EXTRA_YIELD_SCIENCE"
 	return YieldDict[iYieldId]
+end
+
+function BuildRecursiveDataString(data: table)
+	local str: string = ""
+	for k,v in pairs(data) do
+		if type(v)=="table" then
+			--print("BuildRecursiveDataString: Table Detected")
+			local deeper_data = v
+			local new_string = BuildRecursiveDataString(deeper_data)
+			--print("NewString ="..new_string)
+			str = "table: "..new_string.."; "
+		else
+			str = str..tostring(k)..": "..tostring(v).." "
+		end
+	end
+	return str
 end

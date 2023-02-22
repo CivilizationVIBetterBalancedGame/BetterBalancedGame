@@ -1693,6 +1693,126 @@ function WorkerDictionary(index: number)
 	local tWorkerDict={"HOLY","CAMP","ENCA","HARB","COMM", "THEA","INDU"}
 	return tWorkerDict[index]
 end
+
+--Amani
+function OnUISetAmaniProperty(iGovernorOwnerID, tAmani)
+	print("OnUISetAmaniProperty called")
+	GameEvents.GameplaySetAmaniProperty.Call(iGovernorOwnerID, tAmani)
+end
+
+LuaEvents.UISetAmaniProperty.Add(OnUISetAmaniProperty)
+
+function OnGameplaySetAmaniProperty(iGovernorOwnerID, tAmani)
+	print("OnGameplaySetAmaniProperty called")
+	local pPlayer = Players[iGovernorOwnerID]
+	if pPlayer == nil then
+		return
+	end
+	pPlayer:SetProperty("AMANI", tAmani)
+	Amani_RecalculatePlayer(pPlayer)
+end
+
+function OnUISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+	print("OnUISetCSTrader called")
+	GameEvents.GameplaySetCSTrader.Call(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+end
+
+LuaEvents.UISetCSTrader.Add(OnUISetCSTrader)
+
+function OnGameplaySetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+	print("OnGameplaySetCSTrader called")
+	local pPlayer = Players[iOriginPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pCity = CityManager.GetCity(iOriginPlayerID, iOriginCityID)
+	if pCity == nil then
+		return
+	end
+	local tCsTraders = pCity:GetProperty("CS_TRADERS")
+	if tCsTraders == nil then
+		tCsTraders = {}
+	end
+	--debug control
+	if tCsTraders~= nil or tCsTraders~={} then
+		for i, iMinorIDs in ipairs(tCsTraders) do
+			print(pCity, "trader to", iMinorIDs)
+		end
+	end
+	if iTargetPlayerID > 0 then
+		print("Adding CS ID to trader list")
+		table.insert(tCsTraders, iTargetPlayerID)
+		--debug lines
+		if tCsTraders~= nil or tCsTraders~={} then
+			for i, iMinorIDs in ipairs(tCsTraders) do
+				print(pCity, "trader to", iMinorIDs)
+			end
+		end
+	elseif iTargetPlayerID<0 then
+		print("Removing CS ID from trader list", 0-iTargetPlayerID)
+		local iRemovePos = IDToPos(tCsTraders, 0-iTargetPlayerID)
+		if iRemovePos~=false then
+			table.remove(tCsTraders, iRemovePos)
+		end
+		--debug lines
+		if tCsTraders~= nil or tCsTraders~={} then
+			for i, iMinorIDs in ipairs(tCsTraders) do
+				print(pCity, "trader to", iMinorIDs)
+			end
+		end
+	end
+	pCity:SetProperty("CS_TRADERS", tCsTraders)
+	Amani_RecalculateCity(pPlayer, pCity)
+end
+
+function Amani_RecalculateCity(pPlayer, pCity)
+	print("Amani_RecalculateCity called")
+	local tAmani = pPlayer:GetProperty("AMANI")
+	local tCsTraders = pCity:GetProperty("CS_TRADERS")
+	local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
+	local bAmaniCS = pPlot:GetProperty("AMANI_ESTABLISHED_CS")
+	local bTraderToAmani = pPlot:GetProperty("TRADER_TO_AMANI_CS")
+	if tAmani ~= nil then
+		print("Player AMANI Property Detected")
+		local iMinorID = tAmani["iMinorID"]
+		print("Amani iMinorID", iMinorID)
+		if tAmani.Status == 1 and bAmaniCS == nil then
+			pPlot:SetProperty("AMANI_ESTABLISHED_CS", 1) -- assign amani modifier control property
+			print("Amani control Property assigned")
+		elseif (tAmani.Status == 0 or tAmani.Status == -1) and bAmaniCS == 1 then
+			pPlot:SetProperty("AMANI_ESTABLISHED_CS", nil) -- remove amani modifier control property
+			print("Amani control property removed")
+		end
+		if tCsTraders ~= nil then
+			print("City CS property Detected")
+			local vSearchResult = IDToPos(tCsTraders, iMinorID)
+			--debug lines
+			if tCsTraders~= nil or tCsTraders~={} then
+				for i, iMinorIDs in ipairs(tCsTraders) do
+					print(pCity, "trader to", iMinorIDs)
+				end
+			end
+			print("Search Result", vSearchResult)
+			print("bTraderToAmani", bTraderToAmani)
+			if vSearchResult == false and bTraderToAmani == 1 then
+				pPlot:SetProperty("TRADER_TO_AMANI_CS", nil) --remove trader modifier control property
+				print("trader control property removed")
+			elseif vSearchResult~=false and bTraderToAmani == nil then
+				pPlot:SetProperty("TRADER_TO_AMANI_CS", 1) -- assign trader modifier control property
+				print("trader control property assigned")
+			end
+		end
+	end
+end
+
+function Amani_RecalculatePlayer(pPlayer)
+	print("Amani_RecalculatePlayer called")
+	local pPlayerCities = pPlayer:GetCities()
+	for i, pCity in pPlayerCities:Members() do
+		Amani_RecalculateCity(pPlayer, pCity)
+	end
+end
+
 -- BCY
 function OnUIBCYAdjustCityYield(playerID, kParameters)
 	print("BCY script called from UI event")
@@ -1785,11 +1905,11 @@ function FiraxisYieldPropertyDictionary(iYieldId)
 end
 
 function IDToPos(List, SearchItem, key, multi)
-	--print(SearchItem)
+	print(SearchItem)
 	multi = multi or false
-	--print(multi)
+	print(multi)
 	key = key or nil
-	--print(key)
+	print(key)
 	local results = {}
 	if List == {} then
 		return false
@@ -1818,12 +1938,12 @@ function IDToPos(List, SearchItem, key, multi)
 	    	end
 	    end
     end
-    if results == {} then
+    if results == {} or #results==0 or results==nil then
     	return false
     else
     	--print("IDtoPos Results:")
     	for _, item in ipairs(results) do
-    		--print(item)
+    		print(item)
     	end
     	return results
     end
@@ -3037,6 +3157,9 @@ function Initialize()
 	GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
 	GameEvents.PolicyChanged.Add(OnPolicyChanged)
 	GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
+	--Amani
+	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
+	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 		GameEvents.GameplayBCYAdjustCityYield.Add(OnGameplayBCYAdjustCityYield)
 	end
