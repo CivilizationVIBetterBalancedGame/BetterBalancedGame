@@ -1,11 +1,3 @@
---==============================================================
---******			  G O V E R N M E N T S				  ******
---==============================================================
--- fascism attack bonus works on defense now too
-UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_ATTACK_BUFF';
-UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_LEGACY_ATTACK_BUFF';
-
-
 
 --==============================================================
 --******				S  C  O  R  E				  	  ******

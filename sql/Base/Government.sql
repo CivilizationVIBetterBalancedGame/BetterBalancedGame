@@ -1,6 +1,9 @@
 --==============================================================================================
 --******				GOVERNMENT						   ******
 --==============================================================================================
+-- fascism attack bonus works on defense now too
+UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_ATTACK_BUFF';
+UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_LEGACY_ATTACK_BUFF';
 
 --5.2.5 buff autocracy (extend bonus to plaza/diplo quarter district AND diplo quarter buildings)
 INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
@@ -43,7 +46,7 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('MONARCHY_STARFORT_FAVOR', 'YieldType', 'YIELD_CULTURE'),
     ('MONARCHY_STARFORT_FAVOR', 'Amount', '2');
 
---- === Government ===
+
 -- Government slot
 UPDATE Government_SlotCounts SET NumSlots=1 WHERE GovernmentType='GOVERNMENT_MERCHANT_REPUBLIC' AND GovernmentSlotType='SLOT_DIPLOMATIC';
 UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_MERCHANT_REPUBLIC' AND GovernmentSlotType='SLOT_WILDCARD';
@@ -62,3 +65,6 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_COLLECTIVIZATION_TRADE_GOLD', 'YieldType', 'YIELD_GOLD'),
     ('BBG_COLLECTIVIZATION_TRADE_GOLD', 'Amount', '4');
 INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
+    ('POLICY_COLLECTIVIZATION', 'BBG_COLLECTIVIZATION_TRADE_GOLD');
+
+

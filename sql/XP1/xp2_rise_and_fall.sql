@@ -1,28 +1,4 @@
--- Warlord's Throne extra resource stockpile
-INSERT OR IGNORE INTO BuildingModifiers (BuildingType , ModifierId)
-	VALUES
-	('BUILDING_GOV_CONQUEST' , 'BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE');
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , SubjectRequirementSetId , OwnerRequirementSetId)
-	VALUES
-	('BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE' , 'MODIFIER_PLAYER_ADJUST_RESOURCE_STOCKPILE_CAP' , NULL , NULL);
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-	VALUES
-	('BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE' , 'Amount' , '30');
---Warlord's Throne +2 revealed strategics/turn (abstract, robust to reveal tech change in Resources Table)
---Creating Modifiers
-INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
-	SELECT 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'PLAYER_CAN_SEE_'||REPLACE(Resources.ResourceType, 'RESOURCE_','')||'_CPLMOD'
-	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
-INSERT INTO ModifierArguments(ModifierId, Name, Value)
-	SELECT 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER', 'ResourceType', Resources.ResourceType
-	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
-INSERT INTO ModifierArguments(ModifierId, Name, Value)
-	SELECT 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER', 'Amount', 2
-	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
---Attaching Modifiers to Warlor's Throne
-INSERT INTO BuildingModifiers(BuildingType, ModifierId)
-	SELECT 'BUILDING_GOV_CONQUEST', 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER'
-	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';	
+
 
 --==================
 -- Cree
