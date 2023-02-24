@@ -12,8 +12,8 @@ INSERT OR IGNORE INTO ModifierArguments(ModifierId, Name, Value) VALUES
 	('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
 INSERT OR IGNORE INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
 	('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'SURPLUS_LOGISTICS_TRADE_ROUTE_PROD');
--- Magnus' Surplus Logistics gives only +1 food
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD' AND Name='Amount';
+-- Magnus' Surplus Logistics gives only +1 food (reverted)
+--UPDATE ModifierArguments SET Value='1' WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD' AND Name='Amount';
 -- Magnus provision give 1 PM to Settler.
 INSERT INTO Types(Type, Kind) VALUES
     ('BBG_SETTLER_MOUVMENT_ABILITY', 'KIND_ABILITY');

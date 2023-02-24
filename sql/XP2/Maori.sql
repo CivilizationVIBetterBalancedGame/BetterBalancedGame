@@ -1,7 +1,11 @@
 --==================
 -- Maori
 --==================
-DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='POPULATION_PRESETTLEMENT';
+--(5.2.5) revert pop on settle
+--DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='POPULATION_PRESETTLEMENT';
+--(5.2.5) revert remove builder
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='BUILDER_PRESETTLEMENT';
+
 UPDATE Modifiers SET SubjectRequirementSetId='UNIT_IS_DOMAIN_LAND' WHERE ModifierId='TRAIT_MAORI_MANA_OCEAN';
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('VARU_ADJACENT_AT_WAR_REQUIREMENTS', 'REQUIRES_UNIT_IS_DOMAIN_LAND');
