@@ -19,10 +19,10 @@
 		</Row>
 		<!-- = leader ability (Abraham Lincoln)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_DESCRIPTION" Language="ru_RU">
-			<Text>+100% к [ICON_PRODUCTION] производству промышленных зон. Промышленные зоны дают +2 [ICON_Amenities] довольства. После строительства промышленных зон и построек в них вы получаете бесплатный юнит ближнего боя. На создание и содержание этого юнита не расходуются ресурсы, также он получает +5 [ICON_Strength] боевой мощи. Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше.</Text>
+			<Text>+100% к [ICON_PRODUCTION] производству промышленных зон. Промышленные зоны дают +2 [ICON_Amenities] довольства. После строительства промышленных зон и построек в них вы получаете бесплатный юнит ближнего боя. На создание и содержание этого юнита не расходуются ресурсы, также он получает +5 [ICON_Strength] боевой мощи. [NEWLINE][NEWLINE]Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_EXPANSION_DESCRIPTION" Language="ru_RU">
-			<Text>+100% к [ICON_PRODUCTION] производству промышленных зон. Промышленные зоны дают +2 [ICON_Amenities] довольства. После строительства промышленных зон и построек в них вы получаете бесплатный юнит ближнего боя. На создание и содержание этого юнита не расходуются ресурсы, также он получает +5 [ICON_Strength] боевой мощи. Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше.</Text>
+			<Text>+100% к [ICON_PRODUCTION] производству промышленных зон. Промышленные зоны дают +2 [ICON_Amenities] довольства. После строительства промышленных зон и построек в них вы получаете бесплатный юнит ближнего боя. На создание и содержание этого юнита не расходуются ресурсы, также он получает +5 [ICON_Strength] боевой мощи. [NEWLINE][NEWLINE]Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше.</Text>
 		</Replace>
 		<!-- = leader ability (Bull Moose)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_ANTIQUES_AND_PARKS_DESCRIPTION" Language="ru_RU">
@@ -192,7 +192,7 @@
         </Replace>
         <!-- = leader ability (Yongle) = -->
         <Replace Tag="LOC_TRAIT_LEADER_YONGLE_XP_DESCRIPTION" Language="ru_RU">
-             <Text>Все города получают доступ к проектам, позволяющим обратить 50% производства в [Icon_Food] пищу, [Icon_Faith] веру или 100% — в [Icon_GOLD] золото. Города с населением 10 или более получают +1 [Icon_Gold] золота, +0,5 [Icon_Science] науки и +0,3 [Icon_Culture] культуры за ход за каждую ед. населения в городе.</Text>
+             <Text>Все города получают доступ к проектам, позволяющим обратить 50% производства в [Icon_Food] пищу, [Icon_Faith] веру или 100% — в [Icon_GOLD] золото. Города с населением 10 или более получают +1 [Icon_Gold] золота, +0.5 [Icon_Science] науки и +0.3 [Icon_Culture] культуры за ход за каждую ед. населения в городе.</Text>
         </Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_CHINESE_CROUCHING_TIGER_DESCRIPTION" Language="ru_RU">
@@ -215,10 +215,10 @@
 		<!-- == COLOMBIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_EJERCITO_PATRIOTA_DESCRIPTION" Language="ru_RU">
-			<Text>Все юниты получают +1 [ICON_Movement] очко перемещения. Повышение юнита не заканчивает его ход</Text>
+			<Text>Все боевые юниты получают +1 [ICON_Movement] очко перемещения. Повышение юнита не заканчивает его ход</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_EJERCITO_PATRIOTA_EXTRA_MOVEMENT_DESCRIPTION" Language="ru_RU">
-			<Text>Все юниты получают +1 [ICON_Movement] очко перемещения.</Text>
+			<Text>Все боевые юниты получают +1 [ICON_Movement] очко перемещения (Армия патриотов)</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAMPANA_ADMIRABLE_DESCRIPTION" Language="ru_RU">
@@ -1330,6 +1330,12 @@
 		<Replace Tag="LOC_BELIEF_GODDESS_OF_THE_HUNT_EXPANSION2_DESCRIPTION" Language="ru_RU">
 			<Text>+1 [ICON_FOOD] пищи и +2 [ICON_GOLD] золота от лагерей.</Text>
 		</Replace>
+		<Replace Tag="LOC_BELIEF_GOD_OF_HEALING_NAME" Language="ru_RU">	<!-- replacement BBG - God of Healing  -->
+			<Text>Богиня приливов</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_GOD_OF_HEALING_DESCRIPTION" Language="ru_RU">
+			<Text>+1 [ICON_CULTURE] культура от рыбацких лодок.</Text>
+		</Replace>
 
 
 		
@@ -1356,8 +1362,11 @@
             <Text>Позволяет строительство ватов (+3 [ICON_Faith] веры, +3 [ICON_Science] науки).</Text>
         </Replace>
         <Replace Tag="LOC_BELIEF_MOSQUE_DESCRIPTION" Language="ru_RU">
-            <Text>Позволяет строить мечети (+3 [ICON_Faith] веры). После завершения строительства в городе появляется миссионер. Миссионеры, приобретённые в этом городе получают +1 заряд для распространения религии. </Text>
+            <Text>Позволяет строить мечети (+3 [ICON_Faith] веры). После завершения строительства в городе появляется миссионер преобладающей религии. Миссионеры, приобретённые в этом городе получают +2 заряда для распространения религии. </Text>
         </Replace>
+		<Replace Tag="LOC_BUILDING_MOSQUE_DESCRIPTION" Language="ru_RU">
+			<Text>После завершения строительства в городе появляется миссионер преобладающей религии. Миссионеры, приобретённые в этом городе получают +2 заряда для распространения религии.</Text>
+		</Replace>
         <Replace Tag="LOC_BELIEF_CATHEDRAL_DESCRIPTION" Language="ru_RU">
             <Text>Позволяет строить соборы (+3 [ICON_Faith] веры, 1 ячейка шедевра любого типа).</Text>
         </Replace>
@@ -1589,6 +1598,9 @@
 		<Replace Tag="LOC_FEATURE_LYSEFJORDEN_DESCRIPTION" Language="ru_RU">
 			<Text>Морские боевые юниты, оказавшиеся на соседних клетках, получают +2 [ICON_Movement] очка перемещения до конца игры. +1 [ICON_Production] производства на соседних клетках.</Text>
 		</Replace>
+		<Row Tag="LOC_BBG_LYSEFJORD_GRANT_MOVEMENT_ABILITY_DESC" Language="ru_RU">
+			<Text>Благословение Ньерда : +2 [ICON_Movement] очка перемещения</Text>
+		</Row>
 
 
 
@@ -1665,6 +1677,9 @@
         <Replace Tag="LOC_BUILDING_TORRE_DE_BELEM_DESCRIPTION" Language="ru_RU">
             <Text>Ваши международные [ICON_TradeRoute] торговые пути получают +2 [ICON_GOLD] золота за каждый редкий ресурс в пункте назначения. При строительстве Торри-ди-Белен города за пределами вашего родного континента получают самое дешевое в плане [ICON_PRODUCTION] производства здание в городском центре, которое в них можно построить.[NEWLINE][NEWLINE]Можно построить только на берегу рядом с гаванью.</Text>
         </Replace>
+		<Replace Tag="LOC_BUILDING_HERMITAGE_DESCRIPTION" Language="ru_RU">
+			<Text>Это чудо автоматически становится тематическим, когда все его ячейки шедевров заполнены.[NEWLINE][NEWLINE]Можно построить только у реки.</Text>
+		</Replace>
 
 
 
