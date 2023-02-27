@@ -1813,6 +1813,157 @@ function Amani_RecalculatePlayer(pPlayer)
 	end
 end
 
+--Unifier
+function OnUIGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	print("OnUIGPGeneralUnifierCreated called")
+	GameEvents.GameplayGPGeneralUnifierCreated.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+end
+
+LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
+
+function OnGameplayGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	print("OnGameplayGPGeneralUnifierCreated called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
+	if pUnit == nil then
+		return
+	end
+	--local pUnitAbilities = pUnit:GetAbility()
+	--print("Extra charge", pUnitAbilities:GetAbilityCount("ABILITY_QIN_ALT_EXTRA_GENERAL_CHARGE"))
+	--pUnitAbilities:ChangeAbilityCount("ABILITY_QIN_ALT_EXTRA_GENERAL_CHARGE", 1)
+	--print("Extra charge", pUnitAbilities:GetAbilityCount("ABILITY_QIN_ALT_EXTRA_GENERAL_CHARGE"))
+
+	--local pPlot = Map.GetPlot(pUnit:GetX(), pUnit:GetY())
+	--pPlot:SetProperty('NOT_SUNTZU', 1);
+	--pPlayer:AttachModifierByID("BBG_LEADER_QIN_ALT_GENERAL_CHARGES")
+	--print("Charge added to iUnitID", iUnitID, "for player", iPlayerID, PlayerConfigurations[iPlayerID]:GetLeaderTypeName(), "General", GameInfo.GreatPersonIndividuals[iGPIndividualID].GreatPersonIndividualType)
+	--pPlot:SetProperty('NOT_SUNTZU', nil)
+	--print("Plot Property Removed")
+	if iGPIndividualID == 176 or iGPIndividualID == 74 or iGPIndividualID == 67 then
+		local tCoords = {}
+		tCoords["iX"] = pUnit:GetX()
+		tCoords["iY"] = pUnit:GetY()
+		tCoords["Retired"] = false
+		local sPropertyStr = "GENERAL_"..tostring(iGPIndividualID).."_COORDS"
+		pPlayer:SetProperty(sPropertyStr, tCoords)
+	end
+end
+
+function OnUINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	print("OnUINotUnifierDeleteSunTzu called")
+	GameEvents.GameplayNotUnifierDeleteSunTzu.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+end
+
+LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
+
+function OnGameplayNotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	print("OnGameplayNotUnifierDeleteSunTzu called")
+	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
+	if pUnit == nil then
+		return
+	end
+	UnitManager.Kill(pUnit)
+	print("SunTzu removed for generic civ")
+end
+
+function OnUIUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
+	print("OnUIUnifierTrackRelevantGenerals called")
+	GameEvents.GameplayUnifierTrackRelevantGenerals.Call(iPlayerID, iGPIndividualID, iX, iY)
+end
+
+LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
+
+function OnGameplayUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
+	print("OnGameplayUnifierTrackRelevantGenerals called")
+	print("iGPIndividualID, iX, iY", iGPIndividualID, iX, iY)
+	local pPlayer = Players[iPlayerID]
+	local sPropertyStr = "GENERAL_"..tostring(iGPIndividualID).."_COORDS"
+	if iX ~=-9999 or iY ~= -9999 then
+		local tCoords = {}
+		tCoords["iX"] = iX
+		tCoords["iY"] = iY
+		tCoords["Retired"] = false
+		pPlayer:SetProperty(sPropertyStr, tCoords)
+	else
+		local tCoords = pPlayer:GetProperty(sPropertyStr)
+		tCoords["Retired"] = true
+		pPlayer:SetProperty(sPropertyStr, tCoords)
+	end
+end
+
+function OnUIUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	print("OnUIUnifierSameUnitUniqueEffect called")
+	GameEvents.GameplayUnifierSameUnitUniqueEffect.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+end
+
+LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
+
+function OnGameplayUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	print("OnGameplayUnifierSameUnitUniqueEffect called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
+	if pUnit == nil then 
+		return
+	end
+	local sPropertyStr = "GENERAL_"..tostring(iGPIndividualID).."_COORDS"
+	local tCoords = pPlayer:GetProperty(sPropertyStr)
+	local pPlot = Map.GetPlot(tCoords.iX, tCoords.iY)
+	for i, pUnit in ipairs(Units.GetUnitsInPlot(pPlot)) do
+		if GameInfo.Units[pUnit:GetType()].FormationClass == "FORMATION_CLASS_LAND_COMBAT" then
+			local pUnitAbilities = pUnit:GetAbility()
+			if iGPIndividualID == 176 then
+				if pUnitAbilities:GetAbilityCount("ABILITY_TIMUR_BONUS_EXPERIENCE") == 2 then
+					pUnitAbilities:ChangeAbilityCount("ABILITY_TIMUR_BONUS_EXPERIENCE", -1)
+					pUnitAbilities:ChangeAbilityCount("ABILITY_TIMUR_BONUS_EXPERIENCE_QIN_ALT", 1)
+					print("Timur extra set")
+				end
+			elseif iGPIndividualID == 67 then
+				if pUnitAbilities:GetAbilityCount("ABILITY_JOHN_MONASH_BONUS_EXPERIENCE") == 2 then
+					pUnitAbilities:ChangeAbilityCount("ABILITY_JOHN_MONASH_BONUS_EXPERIENCE", -1)
+					pUnitAbilities:ChangeAbilityCount("ABILITY_JOHN_MONASH_BONUS_EXPERIENCE_QIN_ALT", 1)
+					print("Monash extra set")
+				end
+			elseif iGPIndividualID == 74 then
+				if pUnitAbilities:GetAbilityCount("ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE") == 2 then
+					pUnitAbilities:ChangeAbilityCount("ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE", -1)
+					pUnitAbilities:ChangeAbilityCount("ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE_QIN_ALT", 1)
+					print("Vijaya Extra Set")
+				end
+			end
+		end
+	end
+	if tCoords["Retired"] == true then
+		pPlayer:SetProperty(sPropertyStr, nil)
+	end
+end
+
+function OnUIUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	print("OnUIUnifierSamePlayerUniqueEffect called")
+	GameEvents.GameplayUnifierSamePlayerUniqueEffect.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+end
+
+LuaEvents.UIUnifierSamePlayerUniqueEffect.Add(OnUIUnifierSamePlayerUniqueEffect)
+
+function OnGameplayUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	print("OnGameplayUnifierSamePlayerUniqueEffect called")
+	local pPlayer = Players[iPlayerID]
+	local nZhukovUsed = pPlayer:GetProperty("ZHUKOV_USED")
+	if nZhukovUsed == nil then
+		pPlayer:SetProperty("ZHUKOV_USED", 1)
+		print("Zhukov use 1 detected")
+	elseif nZhukovUsed == 1 then
+		pPlayer:AttachModifierByID("GREATPERSON_GEORGY_ZHUKOV_ACTIVE_QIN_ALT")
+		pPlayer:SetProperty("ZHUKOV_USED", nil)
+		print("Zhukov use 2 detected")
+	end
+end
+
 -- BCY
 function OnUIBCYAdjustCityYield(playerID, kParameters)
 	print("BCY script called from UI event")
@@ -3160,6 +3311,12 @@ function Initialize()
 	--Amani
 	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
 	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
+	--Qin Unifier
+	GameEvents.GameplayGPGeneralUnifierCreated.Add(OnGameplayGPGeneralUnifierCreated)
+	GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
+	GameEvents.GameplayUnifierSameUnitUniqueEffect.Add(OnGameplayUnifierSameUnitUniqueEffect)
+	GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
+	GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 		GameEvents.GameplayBCYAdjustCityYield.Add(OnGameplayBCYAdjustCityYield)
 	end
