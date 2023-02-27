@@ -127,9 +127,11 @@
       		<Text>首次建造出一种 [ICON_DISTRICT] 特色区域（市政广场除外）时，获得当前可在该区域中建造的、所需 [ICON_PRODUCTION] 生产力最低的建筑。</Text>
     	</Replace>
 		<!-- = unique building = -->
+		<!-- REVERTED 5.2 Beta, build 6
 		<Replace Tag="LOC_BUILDING_PALGUM_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>巴比伦特色建筑。+1 [ICON_HOUSING] 住房、+2 [ICON_PRODUCTION] 生产力。改良后的淡水单元格产出的 [ICON_FOOD] 食物+1。城市必须建在河流旁。</Text>
 		</Replace>
+		-->
 
 		<!-- == BRAZIL == -->
 		<!-- = unique district = -->
@@ -202,7 +204,7 @@
 		</Replace>
 		<!-- = leader ability (Qin Shi Huang, Unifier) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_QIN_ALT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>近战单位获得“蛮族归顺”操作。此操作能将蛮族单位转化为你的单位，但会移除近战单位。所有 [ICON_GreatGeneral] 大将军拥有额外一次隐退次数。</Text>
+			<Text>近战单位获得“蛮族归顺”操作。此操作能将蛮族单位转化为你的单位，但会移除近战单位。所有 [ICON_GreatGeneral] 大将军拥有额外一次隐退次数。[COLOR_RED]（已知BUG：孙子不产生巨作；额外%经验值无法在同一单位上叠加；朱可夫仅生效一次）[ENDCOLOR]</Text>
 		</Replace>
 		<!-- = leader ability (Yongle) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_YONGLE_XP_DESCRIPTION" Language="zh_Hans_CN">
@@ -228,14 +230,12 @@
 
 		<!-- == COLOMBIA == -->
 		<!-- = civilization ability = -->
-		<!-- REVERTED to base-game, v5.2 Beta build 1
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_EJERCITO_PATRIOTA_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>所有单位+1视野。升级单位不会结束其回合。</Text>
+			<Text>所有军事单位+1 [ICON_Movement] 移动力。升级单位不会结束其回合。</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_EJERCITO_PATRIOTA_EXTRA_MOVEMENT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>所有单位+1视野。</Text>
+			<Text>所有军事单位+1 [ICON_Movement] 移动力（爱国军）</Text>
 		</Replace>
-		-->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAMPANA_ADMIRABLE_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>每进入一个新时代则获得1名总指挥。无法招募 [ICON_GreatGeneral] 大将军。</Text>
@@ -538,7 +538,7 @@
 		<!-- == INDIA == -->
 		<!-- = leader ability (Chandragupta) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ARTHASHASTRA_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>圣地每回合提供+1 [ICON_GreatGeneral] 点数。[NEWLINE]拥有神社的城市训练的军事单位+1 [ICON_Movement] 移动力。[NEWLINE]拥有寺庙的城市训练的军事单位+1视野。[NEWLINE]拥有祭祀建筑的城市训练的军事单位+2 [ICON_STRENGTH] 战斗力。</Text>
+			<Text>圣地每回合提供+1 [ICON_GreatGeneral] 大将军点数。[NEWLINE]拥有神社的城市训练的军事单位+1 [ICON_Movement] 移动力。[NEWLINE]拥有寺庙的城市训练的军事单位+1视野。[NEWLINE]拥有祭祀建筑的城市训练的军事单位+2 [ICON_STRENGTH] 战斗力。</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_CHANDRA_MOVEMENT_ABILITY_DESC" Language="zh_Hans_CN">
 			<Text>+1 [ICON_Movement] 移动力，来自神社（政事论）</Text>
@@ -710,7 +710,7 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>每个相邻沙漠或沙漠丘陵单元格为市中心提供+1 [ICON_FAITH] 信仰值与+1 [ICON_FOOD] 食物。矿山-1 [ICON_PRODUCTION] 生产力，但+2 [ICON_GOLD] 金币，研究“银行业”和“经济”后均额外+1 [ICON_GOLD] 金币。可用 [ICON_Faith] 信仰值购买商业中心区域建筑。建造建筑或生产单位时-30% [ICON_PRODUCTION] 生产力。收获资源或移除地貌时-30%产出。</Text>
+			<Text>每个相邻沙漠或沙漠丘陵单元格为市中心提供+1 [ICON_FAITH] 信仰值与+1 [ICON_FOOD] 食物。矿山-1 [ICON_PRODUCTION] 生产力，但+1 [ICON_GOLD] 金币，研究“货币”、“银行业”、“经济”后均额外+1 [ICON_GOLD] 金币。可用 [ICON_Faith] 信仰值购买商业中心区域建筑。建造建筑或生产单位时-30% [ICON_PRODUCTION] 生产力。收获资源或移除地貌时-30%产出。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="zh_Hans_CN">
@@ -730,7 +730,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KUPES_VOYAGE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>游戏开始时位于海洋单元格中。建立首座城市之前每回合获得+2 [ICON_SCIENCE] 科技和+2 [ICON_CULTURE] 文化值。建立首座城市时免费获得1名建造者。宫殿获得+3 [ICON_HOUSING] 住房和+1 [ICON_AMENITIES] 宜居度。</Text>
+			<Text>游戏开始时位于海洋单元格中。建立首座城市之前每回合获得+2 [ICON_SCIENCE] 科技和+2 [ICON_CULTURE] 文化值。建立首座城市时+1 [ICON_Citizen] 人口。宫殿获得+3 [ICON_HOUSING] 住房和+1 [ICON_AMENITIES] 宜居度。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MAORI_TOA_DESCRIPTION" Language="zh_Hans_CN"> <!-- = charge icon = -->
@@ -786,7 +786,7 @@
 			<Text>生产所有海军近战单位+25% [ICON_PRODUCTION] 生产力，且海军近战单位可以掠夺海岸单元格。[NEWLINE][NEWLINE]建造圣地以及其建筑+50% [ICON_PRODUCTION] 生产力。海岸和湖泊单元格为圣地提供标准相邻加成。[NEWLINE][NEWLINE]圣地为相邻港口额外提供+2 [ICON_GOLD] 金币相邻加成。</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>生产所有海军近战单位+50% [ICON_PRODUCTION] 生产力，且海军近战单位可以掠夺海岸单元格。掠夺矿山除 [ICON_GOLD] 金币还将获得 [ICON_SCIENCE] 科技值。掠夺采石场，牧场，种植园除 [ICON_FAITH] 信仰值还将获得 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]建造圣地时+50% [ICON_PRODUCTION] 生产力。海岸和湖泊单元格为圣地提供标准相邻加成。[NEWLINE][NEWLINE]圣地为相邻港口额外提供+2 [ICON_GOLD] 金币相邻加成。</Text>
+			<Text>生产所有海军近战单位+25% [ICON_PRODUCTION] 生产力，且海军近战单位可以掠夺海岸单元格。掠夺矿山除 [ICON_GOLD] 金币还将获得 [ICON_SCIENCE] 科技值。掠夺采石场，牧场，种植园除 [ICON_FAITH] 信仰值还将获得 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]建造圣地时+50% [ICON_PRODUCTION] 生产力。海岸和湖泊单元格为圣地提供标准相邻加成。[NEWLINE][NEWLINE]圣地为相邻港口额外提供+2 [ICON_GOLD] 金币相邻加成。</Text>
 		</Replace>
 		<Row Tag="LOC_DISTRICT_HOLY_SITE_NORWAY_COAST_FAITH" Language="zh_Hans_CN">
 			<Text>+{1_num} [ICON_Faith] 信仰，来自相邻海岸和湖泊单元格。</Text>
@@ -1275,8 +1275,11 @@
 		</Replace>
 		
 		<!-- == Amani == -->
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_MESSENGER_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>可派遣至城邦，效力等同于2名 [ICON_Envoy] 使者。拥有通向该城邦 [ICON_TradeRoute] 贸易路线的己方城市获得+2 [ICON_Food] 食物和+2 [ICON_PRODUCTION] 生产力。</Text>
+		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>每回合所有解锁的战略资源额外+1。</Text>
+			<Text>每回合所有解锁的战略资源额外+2。</Text>
 		</Replace>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_NAME" Language="zh_Hans_CN">
 			<Text>谈判者</Text>
@@ -1296,7 +1299,7 @@
 			<Text>城市中燃煤发电厂、燃油发电厂与核电站+4 [ICON_Production] 生产力、+4 [ICON_POWER] 电力。</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>+20%城市 [ICON_Food] 食物增长。终点到该城市的 [ICON_TradeRoute] 贸易路线为起点城市提供+1 [ICON_Food] 食物和+2 [ICON_PRODUCTION] 生产力。</Text>
+			<Text>+20%城市 [ICON_Food] 食物增长。终点到该城市的 [ICON_TradeRoute] 贸易路线为起点城市提供+2 [ICON_Food] 食物和+2 [ICON_PRODUCTION] 生产力。</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>城市中生产的开拓者不计入 [ICON_Citizen] 人口，并且+1 [ICON_Movement] 移动力。</Text>
@@ -1497,7 +1500,7 @@
 			<Text>允许建造大教堂（+3 [ICON_Faith] 信仰值，1个任意巨作槽位）。</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_MOSQUE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>允许建造清真寺（+3 [ICON_Faith] 信仰值）。建成时获得一个该城市主流宗教的传教士，此处创建的传教士和使徒+2传教次数。</Text>
+			<Text>允许建造清真寺（+3 [ICON_Faith] 信仰值，建成时获得一个该城市主流宗教的传教士，此处创建的传教士和使徒+2传教次数）。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_MOSQUE_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>建成时获得一个该城市主流宗教的传教士，此处创建的传教士和使徒+2传教次数。</Text>
@@ -1535,7 +1538,7 @@
 			<Text>有 [ICON_Governor] 总督的城市+1 [ICON_Amenities] 宜居度、+2 [ICON_FOOD] 食物和+3 [ICON_Housing] 住房。[NEWLINE]无 [ICON_Governor] 总督的城市-2忠诚度。[NEWLINE]奖励1个 [Icon_Governor] 总督头衔。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_GOV_CONQUEST_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>所有城市生产海军和陆地战斗单位时+25% [ICON_Production] 生产力。单位维护费用减少1 [ICON_Gold] 金币。战略资源储存上限增加15（联机速度下）。[NEWLINE] 奖励1个 [Icon_Governor] 总督头衔。</Text>
+			<Text>所有城市生产海军和陆地战斗单位时+25% [ICON_Production] 生产力。单位维护费用减少1 [ICON_Gold] 金币。战略资源储存上限增加15（联机速度下）。每回合提供2点已解锁的战略资源。[NEWLINE] 奖励1个 [Icon_Governor] 总督头衔。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_GOV_CITYSTATES_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>每回合+3 [ICON_Favor] 外交支持，+2 [ICON_InfluencePerTurn] 影响力点数。征召城邦单位消耗的 [ICON_Gold] 金币减半。如果你是城邦的宗主国，则城邦单位+4 [ICON_Strength] 战斗力（征召单位包含在内）。[NEWLINE]奖励1个 [Icon_Governor] 总督头衔。奖励2个 [ICON_Envoy] 使者。</Text>
@@ -1584,7 +1587,7 @@
 		</Replace>
 
 		<!-- === DISTRICTS === -->
-		<!-- WIP BBG v5.2 Beta build 1
+		<!-- WIP BBG v5.2 Beta build 1, NOT IMPLEMENTED
 		<Replace Tag="LOC_DISTRICT_CANAL_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>A district to connect two bodies of water or a body of water to a City Center. [ICON_TradeRoute] Trade Routes traveling through it can multiply the [ICON_Gold] Gold they get from districts at their destination. Military Engineers can spend a [ICON_Charges] charge to complete 20% of a Canal's cost.[NEWLINE][NEWLINE]Must be built on flat tile that have a full land tile on each side of the waterway they create. Can be built on hill tile with the Steam Power technology. Canals may either go straight through the hex or bend by 60 degrees. Three-way Canal junctures are not allowed.</Text>
 		</Replace>
@@ -1597,11 +1600,6 @@
 
 
 		<!-- === NATURAL WONDERS === -->
-		<!-- WIP BBG v5.2 Beta build 1
-		<Replace Tag="LOC_FEATURE_BERMUDA_TRIANGLE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>占据3单元格的海上自然奇观。进入此奇观的单位将被传送到远方的海洋单元格，而进行操作的海军单位将获得能力“谜之暗流”（+1 [ICON_Movement] 移动力）。</Text>
-		</Replace>
-		-->
 		<Replace Tag="LOC_FEATURE_PAITITI_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>占据3单元格且无法通行的自然奇观。为相邻单元格提供+1 [ICON_Gold] 金币和+1 [ICON_Culture] 文化值。若城市拥有至少一个此奇观单元格，则从该城市出发的贸易路线+4 [ICON_Gold] 金币。</Text>
 		</Replace>
@@ -1657,13 +1655,13 @@
 			<Text>占1个单元格的自然奇观，无法通行。为相邻的单元格+2 [ICON_FAITH] 信仰值、+1 [ICON_Production] 生产力。</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_BARRIER_REEF_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>占1个单元格的自然奇观，在水域旁出现，表现为礁石。提供+3 [ICON_Food] 食物、+1 [ICON_Production] 生产力。</Text>
+			<Text>占1个单元格的自然奇观，在水域旁出现，表现为礁石。提供+3 [ICON_Food] 食物、+1 [ICON_Production] 生产力、+2 [ICON_Science] 科技值。</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_DELICATE_ARCH_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>占1个单元格的自然奇观，无法通行。为相邻单元格+2 [ICON_FAITH] 信仰值、+3 [ICON_GOLD] 金币。</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_EVEREST_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>占3个单元格的自然奇观，无法通行，表现为山脉。为相邻单元格+1 [ICON_Faith] 信仰值。移动到珠穆朗玛峰附近的宗教单位可在之后的游戏中无视丘陵地貌的影响。</Text>
+			<Text>占3个单元格的自然奇观，无法通行，表现为山脉。为相邻单元格+3 [ICON_Faith] 信仰值。移动到珠穆朗玛峰附近的宗教单位可在之后的游戏中无视丘陵地貌的影响。</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_TSINGY_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>占1个单元格的自然奇观，无法通行。为相邻单元格+1 [ICON_Food] 食物、+1 [ICON_Science] 科技值、+1 [ICON_Culture] 文化值。</Text>
@@ -1678,7 +1676,7 @@
 			<Text>占2个单元格的自然奇观，无法通行，表现为山脉。所有邻近单元格的地形产量翻倍。</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_ZHANGYE_DANXIA_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>占3个单元格的自然奇观，无法通行，表现为山脉。如果拥有至少1格奇观单元格，每回合提供2点 [ICON_GREATGENERAL] 大将军点数和2点 [ICON_GREATMERCHANT] 大商人点数。</Text>
+			<Text>占3个单元格的自然奇观，无法通行，表现为山脉。如果拥有至少1个该奇观单元格，每回合获得2点 [ICON_GREATGENERAL] 大将军点数和2点 [ICON_GREATMERCHANT] 大商人点数。</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_FOUNTAIN_OF_YOUTH_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>占1个单元格的自然奇观，表现为绿洲。提供+4 [ICON_Science] 科技值、+4 [ICON_Faith] 信仰值。进入此奇观的陆地战斗单位将获得能力“生命之水”（在任意领土中+10生命值恢复）。</Text>
@@ -2121,7 +2119,7 @@
 			<Text>荣光时刻：在本国领土中作战时+5 [ICON_Strength] 战斗力。</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="zh_Hans_CN">
-			<Text>拥有 [ICON_Governor] 总督的城市中每位 [ICON_Citizen] 公民+1 [ICON_Production] 生产力。</Text>
+			<Text>拥有 [ICON_Governor] 总督的城市中每位 [ICON_Citizen] 公民+1 [ICON_Production] 生产力。所有专家在对应区域中产出+1.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="zh_Hans_CN">
 			<Text>宫殿、市政广场及其中建筑、外交区及其中建筑的所有产出+1。</Text>
@@ -2212,7 +2210,7 @@
 			<Text>陆地和海洋远程单位不会受到支援加成。</Text>
 		</Row>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_7_CHAPTER_CONTENT_PARA_4" Language="zh_Hans_CN">
-			<Text>夹击和支援加成：要成为战场中的常胜将军，重要的是以计谋制敌、让作战单位获得队友的支援。在《文明VI》中，模拟此战术的则是夹击和支援加成。完成“军事传统”市政后，军队便可获得此类加成。[NEWLINE][NEWLINE]夹击：如在战斗中2个或以上的相邻友方近战单位包围敌方近战单位，则视为对敌方形成夹击；每个额外夹击的近战单位可使发起进攻的近战单位战斗力+2。[NEWLINE][NEWLINE]支援：防御敌方近战攻击时，每个相邻的友方单位可使防御单位战斗力+2。（[COLOR_RED]陆地和海洋远程单位除外 - Better 平衡 Game[ENDCOLOR]）[NEWLINE][NEWLINE]空中单位和防空单位从每个相邻单位获得战斗力加成，该加成类似于支援加成但是不需要完成“军事传统”市政。[NEWLINE][NEWLINE]防空单位从每个具有防空能力的相邻单位获得+5战斗力加成。</Text>
+			<Text>夹击和支援加成：要成为战场中的常胜将军，重要的是以计谋制敌、让作战单位获得队友的支援。在《文明VI》中，模拟此战术的则是夹击和支援加成。完成“军事传统”市政后，军队便可获得此类加成。[NEWLINE][NEWLINE]夹击：如在战斗中2个或以上的相邻友方近战单位包围敌方近战单位，则视为对敌方形成夹击；每个额外夹击的近战单位可使发起进攻的近战单位战斗力+2。[NEWLINE][NEWLINE]支援：防御敌方近战攻击时，每个相邻的友方单位可使防御单位战斗力+2。（[COLOR_RED]陆地和海洋远程单位除外 - BBG[ENDCOLOR]）[NEWLINE][NEWLINE]空中单位和防空单位从每个相邻单位获得战斗力加成，该加成类似于支援加成但是不需要完成“军事传统”市政。[NEWLINE][NEWLINE]防空单位从每个具有防空能力的相邻单位获得+5战斗力加成。</Text>
 		</Replace>
 		<Replace Tag="LOC_SIEGE_RANGED_DEFENSE_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>防御远程攻击时+10战斗力。</Text>
