@@ -1,4 +1,14 @@
--- by: iElden
+-- only 1 envoy from levying city-states units
+UPDATE ModifierArguments SET Value='1' WHERE ModifierId='LEVY_MILITARY_TWO_FREE_ENVOYS';
+-- no combat bonus for levied units
+-- DELETE FROM ModifierArguments WHERE ModifierId='RAVEN_LEVY_COMBAT' AND Name='Amount' AND Value='5';
+-- Huszars only +2 combat strength from each alliance instead of 3
+UPDATE ModifierArguments SET Value='1' WHERE ModifierId='HUSZAR_ALLIES_COMBAT_BONUS';
+-- Black Army only +2 combat strength from adjacent levied units
+UPDATE ModifierArguments SET Value='2' WHERE ModifierId='BLACK_ARMY_ADJACENT_LEVY';
+-- Only 1 extra movement for levied units
+UPDATE ModifierArguments SET Value='1' WHERE ModifierId='RAVEN_LEVY_MOVEMENT';
+
 
 -- Levy combat to +3
 UPDATE ModifierArguments SET VALUE='3' WHERE ModifierId='RAVEN_LEVY_COMBAT' AND Name='Amount';

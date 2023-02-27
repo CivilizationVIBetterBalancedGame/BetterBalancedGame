@@ -24,8 +24,8 @@ UPDATE StartBiasTerrains SET Tier=3 WHERE CivilizationType='CIVILIZATION_NETHERL
 
 -- Polder
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, TilesRequired, AdjacentImprovement, AdjacentDistrict, ObsoleteTech) VALUES
-    ('BBG_Polder_production_polder', 'Placeholder', 'YIELD_PRODUCTION', 1, 2, 'IMPROVEMENT_POLDER', NULL, 'TECH_REPLACEABLE_PARTS'),
-    ('BBG_Polder_production_harbor', 'Placeholder', 'YIELD_PRODUCTION', 1, 1, NULL, 'DISTRICT_HARBOR', NULL);
+    ('BBG_POLDER_PRODUCTION_POLDER', 'Placeholder', 'YIELD_PRODUCTION', 1, 2, 'IMPROVEMENT_POLDER', NULL, 'TECH_REPLACEABLE_PARTS'),
+    ('BBG_POLDER_PRODUCTION_HARBOR', 'Placeholder', 'YIELD_PRODUCTION', 1, 1, NULL, 'DISTRICT_HARBOR', NULL);
 INSERT INTO Improvement_Adjacencies(ImprovementType, YieldChangeId) VALUES
-    ('IMPROVEMENT_POLDER', 'BBG_Polder_production_polder'),
-    ('IMPROVEMENT_POLDER', 'BBG_Polder_production_harbor');
+    ('IMPROVEMENT_POLDER', 'BBG_POLDER_PRODUCTION_POLDER'),
+    ('IMPROVEMENT_POLDER', 'BBG_POLDER_PRODUCTION_HARBOR');

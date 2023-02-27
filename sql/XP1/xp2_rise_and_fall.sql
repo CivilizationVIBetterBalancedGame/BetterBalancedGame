@@ -1,14 +1,3 @@
--- Warlord's Throne extra resource stockpile
-INSERT OR IGNORE INTO BuildingModifiers (BuildingType , ModifierId)
-	VALUES
-	('BUILDING_GOV_CONQUEST' , 'BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE');
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , SubjectRequirementSetId , OwnerRequirementSetId)
-	VALUES
-	('BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE' , 'MODIFIER_PLAYER_ADJUST_RESOURCE_STOCKPILE_CAP' , NULL , NULL);
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-	VALUES
-	('BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE' , 'Amount' , '30');
-
 
 
 --==================
