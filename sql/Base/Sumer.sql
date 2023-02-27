@@ -176,3 +176,11 @@ INSERT INTO ModifierArguments
 VALUES  ('TRAIT_GILGAMESH_COMBAT_EXPERIENCE',               'Amount',                   25);
 
 -- Sumerian War Carts as a starting unit in Ancient is coded on the lua front
+
+-- extra +3 envoys points per turn
+--INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
+--  VALUES ('SUMERIA_ENVOY_POINTS_FROM_MILITARY_ALLIANCE', 'Amount', '3');
+--INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
+--  VALUES ('SUMERIA_ENVOY_POINTS_FROM_MILITARY_ALLIANCE', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN');
+--INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
+--  VALUES ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'SUMERIA_ENVOY_POINTS_FROM_MILITARY_ALLIANCE');

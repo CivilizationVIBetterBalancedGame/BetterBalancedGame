@@ -6,9 +6,6 @@
 INSERT INTO District_TradeRouteYields(DistrictType, YieldType, YieldChangeAsOrigin, YieldChangeAsDomesticDestination, YieldChangeAsInternationalDestination) VALUES
     ('DISTRICT_AERODROME', 'YIELD_PRODUCTION', 0.0, 1.0, 1.0);
 
--- Green District cost same as other district (from 81)
-UPDATE Districts SET Cost=54 WHERE DistrictType IN ('DISTRICT_CANAL', 'DISTRICT_DAM');
-
 -- Preserve give ability to plant wood.
 -- INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
 --    ('BBG_PRESERVE_PLANT_WOOD', 'MODIFIER_PLAYER_ADJUST_FEATURE_UNLOCK');
@@ -17,3 +14,10 @@ UPDATE Districts SET Cost=54 WHERE DistrictType IN ('DISTRICT_CANAL', 'DISTRICT_
 --    ('BBG_PRESERVE_PLANT_WOOD', 'CivicType', 'CIVIC_CODE_OF_LAWS');
 -- INSERT INTO DistrictModifiers(DistrictType, ModifierId) VALUES
 --    ('DISTRICT_PRESERVE', 'BBG_PRESERVE_PLANT_WOOD');
+
+--5.2.5 buff commercial hub +1 gold on hub close to city center / -1 gold on market 
+INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentDistrict) VALUES
+    ('BBG_COMMERCIAL_HUB_CITY_CENTER', 'LOC_DISTRICT_CITY_CENTER_GOLD', 'YIELD_GOLD', 1, 'DISTRICT_CITY_CENTER');
+INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
+    ('DISTRICT_COMMERCIAL_HUB', 'BBG_COMMERCIAL_HUB_CITY_CENTER');
+UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_MARKET' AND YieldType='YIELD_GOLD';
