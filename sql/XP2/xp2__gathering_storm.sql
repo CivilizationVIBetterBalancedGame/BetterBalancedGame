@@ -1041,9 +1041,9 @@ INSERT OR IGNORE INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldCh
     SELECT 
        'ReefWonder_Science'||(SELECT COUNT(*)
         FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'FEATURE_REEF')
-        WHERE t2<= t1.WonderType), 'Placeholder', 'YIELD_SCIENCE', 2, 1, t1.WonderType
+        WHERE t2<= t1.WonderType), 'LOC_REEF_WONDER_SCIENCE', 'YIELD_SCIENCE', 2, 1, t1.WonderType
 FROM WonderTerrainFeature_BBG AS t1
-WHERE t1.FeatureType = 'FEATURE_REEF'
+WHERE t1.FeatureType = 'FEATURE_REEF' AND t1.WonderType<>'FEATURE_BARRIER_REEF'
 ORDER BY WonderType;
 INSERT OR IGNORE INTO District_Adjacencies
     SELECT 
@@ -1051,7 +1051,7 @@ INSERT OR IGNORE INTO District_Adjacencies
         FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'FEATURE_REEF')
         WHERE t2<= t1.WonderType)
 FROM WonderTerrainFeature_BBG AS t1
-WHERE t1.FeatureType = 'FEATURE_REEF'
+WHERE t1.FeatureType = 'FEATURE_REEF' AND t1.WonderType<>'FEATURE_BARRIER_REEF'
 ORDER BY WonderType;
 --adding reef wonders defense modifier
 UPDATE OR IGNORE Features SET DefenseModifier = 3
