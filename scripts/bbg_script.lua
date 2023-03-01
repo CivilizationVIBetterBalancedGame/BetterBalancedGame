@@ -467,7 +467,7 @@ function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
 		pUnitExp:ChangeExperience(expVal);
 	end
 end
-
+-- Caesar
 function OnCityBuilt(iPlayerID, iCityID, iX, iY)
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
@@ -528,6 +528,84 @@ function OnUnitInitialized(iPlayerId, iUnitId)
 		print("Moves Restored")
 	end
 end
+--Macedon (Reminder to Optimize those hooks)
+function OnMacedonConqueredACity(iNewOwnerID, iOldOwnerID, iCityID, iX, iY) -- refresh macedon trait as game property
+	--print("OnMacedonConqueredACity started")
+	local pNewOwner = Players[iNewOwnerID]
+	local pOldOwner = Players[iOldOwnerID]
+	--print("New "..tostring(iNewOwnerID).." Old: "..tostring(iOldOwnerID))
+	if PlayerConfigurations[iNewOwnerID]:GetCivilizationTypeName() ~= "CIVILIZATION_MACEDON" then
+		--print("Not Macedon CityConquered -> return")
+		return
+	end
+	if iOldOwnerID >= 60 then -- barbs and free cities
+		return
+	end
+	local nGameTurn = Game.GetCurrentGameTurn()
+	local tMacedon = {}
+	tMacedon.MacedonID = iNewOwnerID
+	tMacedon.nExpireTurn = nGameTurn+5
+	--print("MacedonID, nExpireTurn", tMacedon.MacedonID, tMacedon.nExpireTurn)
+	Game:SetProperty("MACEDON_CONQUEST", tMacedon)
+	--print("Game Property Set")
+	local pMacedonCities = pNewOwner:GetCities()
+	for i, pCity in pMacedonCities:Members() do
+		if pCity ~= nil then 
+			local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
+			if pPlot~=nil then
+				pPlot:SetProperty("GETS_MACEDON_20", 1)
+				--print("Macedon Plot Property Set for pCity", pCity)
+			end
+		end
+	end
+end
+
+function OnGameTurnStartedCheckMacedon(iPlayerID) --nil macedon property when time's up
+	--print("OnGameTurnStartedCheckMacedon started")
+	local nCurrentTurn = Game.GetCurrentGameTurn()
+	local tMacedon = Game:GetProperty("MACEDON_CONQUEST")
+	if tMacedon == nil then
+		--print("No Macedon Game Prop")
+		return
+	end
+	local pPlayer = Players[tMacedon.MacedonID]
+	local pPlayerCities = pPlayer:GetCities()
+	if nCurrentTurn>=tMacedon.nExpireTurn then
+		--print("Macedon End loop")
+		for i, pCity in pPlayerCities:Members() do
+			if pCity~=nil then
+				local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
+				if pPlot~=nil then 
+					pPlot:SetProperty("GETS_MACEDON_20", nil)
+					--print("Macedon plot Property removed for pCity", pCity)
+				end
+			end
+		end
+		Game:SetProperty("MACEDON_CONQUEST", nil)
+		--print("Macedon Game Property Removed")
+	else
+		--print("Macedon Properties Stay")
+	end
+end
+
+function OnMacedonCitySettled(iPlayerID, iCityID, iX, iY)
+	--print("OnMacedonCitySettled called")
+	if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()~= "CIVILIZATION_MACEDON" then
+		return
+	end
+	local tMacedon = Game:GetProperty("MACEDON_CONQUEST")
+	if tMacedon==nil then
+		--print("No Macedon Game prop -> exit")
+		return
+	end
+	local pPlot = Map.GetPlot(iX, iY)
+	if pPlot == nil then
+		return
+	end
+	pPlot:SetProperty("GETS_MACEDON_20", 1)
+	--print("New City Macedon plot property set", pCity)
+end
+
 --nulling out those inca plot properties
 function OnIncaCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 	if PlayerConfigurations[iOldOwnerID]:GetCivilizationTypeName() ~= "CIVILIZATION_INCA" then
@@ -3308,6 +3386,10 @@ function Initialize()
 	GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
 	GameEvents.PolicyChanged.Add(OnPolicyChanged)
 	GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
+	--Macedon
+	GameEvents.CityConquered.Add(OnMacedonConqueredACity)
+	GameEvents.OnGameTurnStarted.Add(OnGameTurnStartedCheckMacedon)
+	GameEvents.CityBuilt.Add(OnMacedonCitySettled)
 	--Amani
 	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
 	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
