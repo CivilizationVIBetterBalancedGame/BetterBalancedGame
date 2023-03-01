@@ -19,7 +19,13 @@ UPDATE ModifierArguments SET Value='300' WHERE ModifierId='STEEL_UNLOCK_URBAN_DE
  
 --11/12/22 ancient wall -2 (1 from 3) def medieval wall +2 (5 from 3)
 UPDATE Buildings SET OuterDefenseStrength=1 WHERE BuildingType='BUILDING_WALLS';
-UPDATE Buildings SET OuterDefenseStrength=5 WHERE BuildingType='BUILDING_CASTLE';
+UPDATE Buildings SET OuterDefenseStrength=6 WHERE BuildingType='BUILDING_CASTLE';
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('ALL_CIV_WALL_BASTION_REFIX_MODIFIER_BBG', 'MODIFIER_PLAYER_CITIES_ADJUST_OUTER_DEFENSE', 'CITY_HAS_ANCIENT_WALLS');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('ALL_CIV_WALL_BASTION_REFIX_MODIFIER_BBG', 'Amount', -1);
+INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_MAJOR_CIV', 'ALL_CIV_WALL_BASTION_REFIX_MODIFIER_BBG');
 
 -- chancery science from captured spies increased
 UPDATE ModifierArguments SET Value='200' WHERE ModifierId='CHANCERY_COUNTERYSPY_SCIENCE' AND Name='Amount';
