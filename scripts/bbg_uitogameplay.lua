@@ -205,7 +205,7 @@ function OnUnitGreatPersonCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualI
 	if pPlayer == nil then
 		return
 	end
-	print("Class ID", iGPClassID, "Individual ID", iGPIndividualID)
+	--print("Class ID", iGPClassID, "Individual ID", iGPIndividualID)
 	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_QIN_ALT" then
 		return
 	end
@@ -237,7 +237,7 @@ function OnUnitGreatPersonActivated(iPlayerID, iUnitID, iGPClassID, iGPIndividua
 	if iGPClassID ~= 0 then
 		return
 	end
-	print("Class ID", iGPClassID, "Individual ID", iGPIndividualID)
+	--print("Class ID", iGPClassID, "Individual ID", iGPIndividualID)
 	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_QIN_ALT" and iGPIndividualID == 58 then
 		UIEvents.UINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 	elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
@@ -264,7 +264,7 @@ function OnUnitMoved(iPlayerID, iUnitID, iX, iY, bVis, bStateChange)
 	local pGreatPerson = pUnit:GetGreatPerson()
 	local iGPClassID = pGreatPerson:GetClass()
 	local iGPIndividualID = pGreatPerson:GetIndividual()
-	print(pGreatPerson, iGPClassID, iGPIndividualID)
+	--print(pGreatPerson, iGPClassID, iGPIndividualID)
 	if iGPClassID~=0 and (iGPIndividualID~=176 or iGPIndividualID~=67 or iGPIndividualID~=74) then
 		return
 	end

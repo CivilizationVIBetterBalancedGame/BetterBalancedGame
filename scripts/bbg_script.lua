@@ -1815,14 +1815,14 @@ end
 
 --Unifier
 function OnUIGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-	print("OnUIGPGeneralUnifierCreated called")
+	--print("OnUIGPGeneralUnifierCreated called")
 	GameEvents.GameplayGPGeneralUnifierCreated.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 end
 
 LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
 
 function OnGameplayGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-	print("OnGameplayGPGeneralUnifierCreated called")
+	--print("OnGameplayGPGeneralUnifierCreated called")
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
 		return
@@ -1853,32 +1853,32 @@ function OnGameplayGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIn
 end
 
 function OnUINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-	print("OnUINotUnifierDeleteSunTzu called")
+	--print("OnUINotUnifierDeleteSunTzu called")
 	GameEvents.GameplayNotUnifierDeleteSunTzu.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 end
 
 LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
 
 function OnGameplayNotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-	print("OnGameplayNotUnifierDeleteSunTzu called")
+	--print("OnGameplayNotUnifierDeleteSunTzu called")
 	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
 	if pUnit == nil then
 		return
 	end
 	UnitManager.Kill(pUnit)
-	print("SunTzu removed for generic civ")
+	--print("SunTzu removed for generic civ")
 end
 
 function OnUIUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
-	print("OnUIUnifierTrackRelevantGenerals called")
+	--print("OnUIUnifierTrackRelevantGenerals called")
 	GameEvents.GameplayUnifierTrackRelevantGenerals.Call(iPlayerID, iGPIndividualID, iX, iY)
 end
 
 LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
 
 function OnGameplayUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
-	print("OnGameplayUnifierTrackRelevantGenerals called")
-	print("iGPIndividualID, iX, iY", iGPIndividualID, iX, iY)
+	--print("OnGameplayUnifierTrackRelevantGenerals called")
+	--print("iGPIndividualID, iX, iY", iGPIndividualID, iX, iY)
 	local pPlayer = Players[iPlayerID]
 	local sPropertyStr = "GENERAL_"..tostring(iGPIndividualID).."_COORDS"
 	if iX ~=-9999 or iY ~= -9999 then
@@ -1895,14 +1895,14 @@ function OnGameplayUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, 
 end
 
 function OnUIUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-	print("OnUIUnifierSameUnitUniqueEffect called")
+	--print("OnUIUnifierSameUnitUniqueEffect called")
 	GameEvents.GameplayUnifierSameUnitUniqueEffect.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 end
 
 LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
 
 function OnGameplayUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-	print("OnGameplayUnifierSameUnitUniqueEffect called")
+	--print("OnGameplayUnifierSameUnitUniqueEffect called")
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
 		return
@@ -1921,19 +1921,19 @@ function OnGameplayUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, i
 				if pUnitAbilities:GetAbilityCount("ABILITY_TIMUR_BONUS_EXPERIENCE") == 2 then
 					pUnitAbilities:ChangeAbilityCount("ABILITY_TIMUR_BONUS_EXPERIENCE", -1)
 					pUnitAbilities:ChangeAbilityCount("ABILITY_TIMUR_BONUS_EXPERIENCE_QIN_ALT", 1)
-					print("Timur extra set")
+					--print("Timur extra set")
 				end
 			elseif iGPIndividualID == 67 then
 				if pUnitAbilities:GetAbilityCount("ABILITY_JOHN_MONASH_BONUS_EXPERIENCE") == 2 then
 					pUnitAbilities:ChangeAbilityCount("ABILITY_JOHN_MONASH_BONUS_EXPERIENCE", -1)
 					pUnitAbilities:ChangeAbilityCount("ABILITY_JOHN_MONASH_BONUS_EXPERIENCE_QIN_ALT", 1)
-					print("Monash extra set")
+					--print("Monash extra set")
 				end
 			elseif iGPIndividualID == 74 then
 				if pUnitAbilities:GetAbilityCount("ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE") == 2 then
 					pUnitAbilities:ChangeAbilityCount("ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE", -1)
 					pUnitAbilities:ChangeAbilityCount("ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE_QIN_ALT", 1)
-					print("Vijaya Extra Set")
+					--print("Vijaya Extra Set")
 				end
 			end
 		end
@@ -1956,11 +1956,11 @@ function OnGameplayUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID,
 	local nZhukovUsed = pPlayer:GetProperty("ZHUKOV_USED")
 	if nZhukovUsed == nil then
 		pPlayer:SetProperty("ZHUKOV_USED", 1)
-		print("Zhukov use 1 detected")
+		--print("Zhukov use 1 detected")
 	elseif nZhukovUsed == 1 then
 		pPlayer:AttachModifierByID("GREATPERSON_GEORGY_ZHUKOV_ACTIVE_QIN_ALT")
 		pPlayer:SetProperty("ZHUKOV_USED", nil)
-		print("Zhukov use 2 detected")
+		--print("Zhukov use 2 detected")
 	end
 end
 
