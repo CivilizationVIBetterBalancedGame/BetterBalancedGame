@@ -199,6 +199,78 @@ function OnGovernorChanged(iPlayerID, iGovernorID)
 		UIEvents.UISetAmaniProperty(iPlayerID, tAmani)
 	end
 end
+
+function OnUnitGreatPersonCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	--print("Class ID", iGPClassID, "Individual ID", iGPIndividualID)
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_QIN_ALT" then
+		return
+	end
+	--iGPClassID:
+	--0 = General
+	--1 = Admiral
+	--2 = Engineer
+	--3 = Merchant
+	--4 = Prophet
+	--5 = Scientist
+	--6 = Writer
+	--7 = Artist
+	--8 = Musician
+	--9 = Comandante
+	if iGPClassID ~= 0 then
+		return
+	end
+	if iGPIndividualID == 58 then
+		return
+	end
+	UIEvents.UIGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+end
+
+function OnUnitGreatPersonActivated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	if iGPClassID ~= 0 then
+		return
+	end
+	--print("Class ID", iGPClassID, "Individual ID", iGPIndividualID)
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_QIN_ALT" and iGPIndividualID == 58 then
+		UIEvents.UINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
+		if iGPIndividualID == 176 or iGPIndividualID == 67 or iGPIndividualID == 74 then --timur, sudirman (177 bbg changed him), monash. vijaya
+			UIEvents.UIUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+		elseif iGPIndividualID == 71 then -- zhukov
+			UIEvents.UIUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+		end
+	end
+end
+
+function OnUnitMoved(iPlayerID, iUnitID, iX, iY, bVis, bStateChange)
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()~= 'LEADER_QIN_ALT' then
+		return
+	end
+	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
+	if pUnit == nil then
+		return
+	end
+	local pGreatPerson = pUnit:GetGreatPerson()
+	local iGPClassID = pGreatPerson:GetClass()
+	local iGPIndividualID = pGreatPerson:GetIndividual()
+	--print(pGreatPerson, iGPClassID, iGPIndividualID)
+	if iGPClassID~=0 and (iGPIndividualID~=176 or iGPIndividualID~=67 or iGPIndividualID~=74) then
+		return
+	end
+	UIEvents.UIUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
+end
+
 --Events
 --inca dynamic yield cancelation
 Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
@@ -209,6 +281,10 @@ Events.GovernmentChanged.Add(OnGovernmentChanged)
 Events.GovernorAssigned.Add(OnGovernorAssigned)
 Events.GovernorChanged.Add(OnGovernorChanged)
 Events.TradeRouteActivityChanged.Add(OnTradeRouteActivityChanged)
+--Qin Unifier
+Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
+Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivated)
+Events.UnitMoved.Add(OnUnitMoved)
 --BCY no rng setting (param names are still called BBCC)
 if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 	print("BCY: No RNG detected")
