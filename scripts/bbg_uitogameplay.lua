@@ -5,12 +5,12 @@ print("BBG UI to Gameplay Script started")
 tRemoveIncaYieldsFromFeatures = {}
 local qQuery = "SELECT WonderType FROM WonderTerrainFeature_BBG WHERE TerrainClassType<>'TERRAIN_CLASS_MOUNTAIN' OR TerrainClassType IS NULL"
 tRemoveIncaYieldsFromFeatures=DB.Query(qQuery)
-for i, row in ipairs(tRemoveIncaYieldsFromFeatures) do
-	print(i, row.WonderType)
-end
+--for i, row in ipairs(tRemoveIncaYieldsFromFeatures) do
+	--print(i, row.WonderType)
+--end
 --Inca bug
 function OnIncaPlotYieldChanged(iX, iY)
-	print("OnIncaPlotYieldChanged started for", iX, iY)
+	--print("OnIncaPlotYieldChanged started for", iX, iY)
 	local pPlot = Map.GetPlot(iX, iY)
 	if pPlot == nil then
 		return
@@ -18,13 +18,13 @@ function OnIncaPlotYieldChanged(iX, iY)
 	local iOwnerId = pPlot:GetOwner()
 	--do nothing if unowned
 	if iOwnerId == -1 or iOwnerId == nil then
-		print("No Owner -> Exit")
+		--print("No Owner -> Exit")
 		return
 	end
 	local sCivilizationType = PlayerConfigurations[iOwnerId]:GetCivilizationTypeName()
 	--do nothing if not inca
 	if sCivilizationType ~= "CIVILIZATION_INCA" then
-		print("Not Owned by Inca -> Exit")
+		--print("Not Owned by Inca -> Exit")
 		return
 	end
 	--do nothing if not impassible
@@ -34,12 +34,12 @@ function OnIncaPlotYieldChanged(iX, iY)
 
 	local iFeatureId = pPlot:GetFeatureType()
 	if iFeatureId ~= -1 then
-		print(GameInfo.Features[iFeatureId].FeatureType)
+		--print(GameInfo.Features[iFeatureId].FeatureType)
 		if IDToPos(tRemoveIncaYieldsFromFeatures, GameInfo.Features[iFeatureId].FeatureType, "WonderType")==false then
-			print("No Match -> Exit")
+			--print("No Match -> Exit")
 			return
 		end
-		print(GameInfo.Features[iFeatureId].FeatureType.." feature detected at: ", iX, iY)
+		--print(GameInfo.Features[iFeatureId].FeatureType.." feature detected at: ", iX, iY)
 		local kParameters = {}
 		kParameters["iX"] = iX
 		kParameters["iY"] = iY
@@ -90,8 +90,8 @@ end
 --Communism
 function OnCityWorkerChanged(iPlayerID, iCityID, iX, iY)
 	local pPlayer = Players[iPlayerID]
-	print("OnCityWorkerChanged: Citizen Changed")
-	print("parameters", iPlayerID, iCityID, iX, iY)
+	--print("OnCityWorkerChanged: Citizen Changed")
+	--print("parameters", iPlayerID, iCityID, iX, iY)
 	local pPlayerCulture = pPlayer:GetCulture()
 	local iGovID = pPlayerCulture:GetCurrentGovernment()
 	if iGovID == 8 or pPlayerCulture:IsPolicyActive(105) then
@@ -105,8 +105,8 @@ end
 
 --Amani
 function OnGovernorAssigned(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
-	print("OnGovernorAssigned")
-	print(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
+	--print("OnGovernorAssigned")
+	--print(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
 	if iGovernorType ~= 1 then -- not amani
 		return
 	end
@@ -129,8 +129,8 @@ function OnGovernorAssigned(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorTy
 end
 
 function OnTradeRouteActivityChanged(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
-	print("OnTradeRouteActivityChanged")
-	print(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
+	--print("OnTradeRouteActivityChanged")
+	--print(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
 	local pOriginPlayer = Players[iOriginPlayerID]
 	if pOriginPlayer == nil then
 		return
@@ -162,17 +162,17 @@ function OnTradeRouteActivityChanged(iPlayerID, iOriginPlayerID, iOriginCityID, 
 		end
 	end
 	if bControl == true then
-		print("Sending Add trader req")
+		--print("Sending Add trader req")
 		UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
 	else
-		print("Sending Remove trader req")
+		--print("Sending Remove trader req")
 		UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, 0-iTargetPlayerID)
 	end
 end
 
 function OnGovernorChanged(iPlayerID, iGovernorID)
-	print("OnGovernorChanged")
-	print(iPlayerID, iGovernorID)
+	--print("OnGovernorChanged")
+	--print(iPlayerID, iGovernorID)
 	local pPlayer = Players[iPlayerID]
 	if pPlayer==nil then
 		return
@@ -271,25 +271,6 @@ function OnUnitMoved(iPlayerID, iUnitID, iX, iY, bVis, bStateChange)
 	UIEvents.UIUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
 end
 
---Events
---inca dynamic yield cancelation
-Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
---Communism
-Events.CityWorkerChanged.Add(OnCityWorkerChanged)
-Events.GovernmentChanged.Add(OnGovernmentChanged)
---Amani
-Events.GovernorAssigned.Add(OnGovernorAssigned)
-Events.GovernorChanged.Add(OnGovernorChanged)
-Events.TradeRouteActivityChanged.Add(OnTradeRouteActivityChanged)
---Qin Unifier
-Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
-Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivated)
-Events.UnitMoved.Add(OnUnitMoved)
---BCY no rng setting (param names are still called BBCC)
-if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
-	print("BCY: No RNG detected")
-	Events.PlotYieldChanged.Add(OnBCYPlotYieldChanged)
-end
 --Support
 function GetAppointedGovernor(playerID:number, governorTypeIndex:number)
 	-- Make sure we're looking for a valid governor
@@ -355,7 +336,7 @@ function IDToPos(List, SearchItem, key, multi)
     else
     	--print("IDtoPos Results:")
     	for _, item in ipairs(results) do
-    		print(item)
+    		--print(item)
     	end
     	return results
     end
@@ -387,3 +368,35 @@ function BuildRecursiveDataString(data: table)
 	end
 	return str
 end
+
+--=========Events=========--
+
+function Initialize()
+	--Communism
+	Events.CityWorkerChanged.Add(OnCityWorkerChanged)
+	Events.GovernmentChanged.Add(OnGovernmentChanged)
+	--Amani
+	Events.GovernorAssigned.Add(OnGovernorAssigned)
+	Events.GovernorChanged.Add(OnGovernorChanged)
+	Events.TradeRouteActivityChanged.Add(OnTradeRouteActivityChanged)
+	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
+	for i, iPlayerID in ipairs(tMajorIDs) do
+		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
+			--Qin Unifier
+			Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
+			Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivated)
+			Events.UnitMoved.Add(OnUnitMoved)
+		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
+			--inca dynamic yield cancelation
+			Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
+		end
+	end
+	--BCY no rng setting (param names are still called BBCC)
+	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
+		print("BCY: No RNG detected")
+		Events.PlotYieldChanged.Add(OnBCYPlotYieldChanged)
+	end
+end
+
+--====Activation====--
+Initialize()
