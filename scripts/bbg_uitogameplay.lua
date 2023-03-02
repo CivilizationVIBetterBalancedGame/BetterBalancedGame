@@ -8,6 +8,10 @@ tRemoveIncaYieldsFromFeatures=DB.Query(qQuery)
 --for i, row in ipairs(tRemoveIncaYieldsFromFeatures) do
 	--print(i, row.WonderType)
 --end
+--Exp bug
+function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
+	UIEvents.UIPromotionFixExp(iUnitPlayerID, iUnitID)
+end
 --Inca bug
 function OnIncaPlotYieldChanged(iX, iY)
 	--print("OnIncaPlotYieldChanged started for", iX, iY)
@@ -229,7 +233,7 @@ function OnUnitGreatPersonCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualI
 	UIEvents.UIGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 end
 
-function OnUnitGreatPersonActivated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+function OnUnitGreatPersonActivatedQinUnifier(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
 		return
@@ -238,14 +242,26 @@ function OnUnitGreatPersonActivated(iPlayerID, iUnitID, iGPClassID, iGPIndividua
 		return
 	end
 	--print("Class ID", iGPClassID, "Individual ID", iGPIndividualID)
-	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_QIN_ALT" and iGPIndividualID == 58 then
-		UIEvents.UINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-	elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
 		if iGPIndividualID == 176 or iGPIndividualID == 67 or iGPIndividualID == 74 then --timur, sudirman (177 bbg changed him), monash. vijaya
 			UIEvents.UIUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 		elseif iGPIndividualID == 71 then -- zhukov
 			UIEvents.UIUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 		end
+	end
+end
+
+function OnUnitGreatPersonActivatedNotQinUnifier(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	if iGPClassID ~= 0 then
+		return
+	end
+	--print("Track suntzu")
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_QIN_ALT" and iGPIndividualID == 58 then
+		UIEvents.UINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 	end
 end
 
@@ -372,19 +388,26 @@ end
 --=========Events=========--
 
 function Initialize()
+	--Exp bug
+	Events.UnitPromoted.Add(OnPromotionFixExp);
 	--Communism
 	Events.CityWorkerChanged.Add(OnCityWorkerChanged)
 	Events.GovernmentChanged.Add(OnGovernmentChanged)
+	print("Delete Communism UI hooks added")
 	--Amani
 	Events.GovernorAssigned.Add(OnGovernorAssigned)
 	Events.GovernorChanged.Add(OnGovernorChanged)
 	Events.TradeRouteActivityChanged.Add(OnTradeRouteActivityChanged)
+	print("Delete Amani UI hooks added")
+	--delete suntzu after use for non-unifier
+	Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedNotQinUnifier)
+	print("Delete Suntzu UI Hook added")
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
 		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
 			--Qin Unifier
 			Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
-			Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivated)
+			Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedQinUnifier)
 			Events.UnitMoved.Add(OnUnitMoved)
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			--inca dynamic yield cancelation

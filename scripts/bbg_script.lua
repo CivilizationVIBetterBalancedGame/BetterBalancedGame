@@ -179,7 +179,7 @@ function OnGameTurnStarted( turn:number )
 	Check_Barbarians()
 end
 
-function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
+function OnBasilCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
 	if(attackerPlayerID == NO_PLAYER 
 		or defenderPlayerID == NO_PLAYER) then
 		return;
@@ -211,11 +211,38 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 				ApplyByzantiumTrait(x,y,power,religionType,attackerPlayerID)
 				--print('Basil Spread Applied')
 			end
+		end
+	end
+end
+
+function OnMonkCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
+	if(attackerPlayerID == NO_PLAYER 
+		or defenderPlayerID == NO_PLAYER) then
+		return;
+	end
+
+	local pAttackerPlayer = Players[attackerPlayerID];
+	--print("AttackerID",attackerPlayerID);
+	local pAttackerReligion = pAttackerPlayer:GetReligion()
+	local pAttackerLeader = PlayerConfigurations[attackerPlayerID]:GetLeaderTypeName()
+	local pDefenderPlayer = Players[defenderPlayerID];
+	local pAttackingUnit :object = attackerUnitID ~= NO_UNIT and pAttackerPlayer:GetUnits():FindID(attackerUnitID) or nil;
+	local pDefendingUnit :object = defenderUnitID ~= NO_UNIT and pDefenderPlayer:GetUnits():FindID(defenderUnitID) or nil;
+	local pAttackingDistrict :object = attackerDistrictID ~= NO_DISTRICT and pAttackerPlayer:GetDistricts():FindID(attackerDistrictID) or nil;
+	local pDefendingDistrict :object = defenderDistrictID ~= NO_DISTRICT and pDefenderPlayer:GetDistricts():FindID(defenderDistrictID) or nil;
+	
+	-- Attacker died to defender.
+	if(pAttackingUnit ~= nil and pDefendingUnit ~= nil and (pDefendingUnit:IsDead() or pDefendingUnit:IsDelayedDeath())) then
+		local religionType = pAttackerReligion:GetReligionTypeCreated()
+		--print("Religion",religionType)
+		if religionType==nil or religionType==-1 then
+			religionType = pAttackerReligion:GetReligionInMajorityOfCities()
+		end
 		--Applying same kind of modifier as Basil to monk disciples
-		elseif GameInfo.Units[pAttackingUnit:GetType()].UnitType == 'UNIT_WARRIOR_MONK' and pAttackerLeader ~= "LEADER_BASIL" then
+		if GameInfo.Units[pAttackingUnit:GetType()].UnitType == 'UNIT_WARRIOR_MONK' and pAttackerLeader ~= "LEADER_BASIL" then
 			--print('Monk Detected')
 			local unitExperience = pAttackingUnit:GetExperience();
-			print(unitExperience)
+			--print(unitExperience)
 			if unitExperience~=nil then
 				--print('Pass1', unitExperience)
 				local bHasDisciples = unitExperience:HasPromotion(103);
@@ -230,7 +257,23 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 			end
 		end
 	end
-	
+end
+
+function OnGilgaCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
+	if(attackerPlayerID == NO_PLAYER 
+		or defenderPlayerID == NO_PLAYER) then
+		return;
+	end
+
+	local pAttackerPlayer = Players[attackerPlayerID];
+	--print("AttackerID",attackerPlayerID);
+	local pAttackerReligion = pAttackerPlayer:GetReligion()
+	local pAttackerLeader = PlayerConfigurations[attackerPlayerID]:GetLeaderTypeName()
+	local pDefenderPlayer = Players[defenderPlayerID];
+	local pAttackingUnit :object = attackerUnitID ~= NO_UNIT and pAttackerPlayer:GetUnits():FindID(attackerUnitID) or nil;
+	local pDefendingUnit :object = defenderUnitID ~= NO_UNIT and pDefenderPlayer:GetUnits():FindID(defenderUnitID) or nil;
+	local pAttackingDistrict :object = attackerDistrictID ~= NO_DISTRICT and pAttackerPlayer:GetDistricts():FindID(attackerDistrictID) or nil;
+	local pDefendingDistrict :object = defenderDistrictID ~= NO_DISTRICT and pDefenderPlayer:GetDistricts():FindID(defenderDistrictID) or nil;	
 	-- Gilga XP Sharing, Gilga is not attacker or defender
 	local pDiplomacyAttacker:table = pAttackerPlayer:GetDiplomacy();
 	local pDiplomacyDefender:table = pDefenderPlayer:GetDiplomacy();
@@ -361,7 +404,7 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 
 end
 
-function OnPillage(iUnitPlayerID :number, iUnitID :number, eImprovement :number, eBuilding :number, eDistrict :number, iPlotIndex :number)
+function OnGilgaPillage(iUnitPlayerID :number, iUnitID :number, eImprovement :number, eBuilding :number, eDistrict :number, iPlotIndex :number)
 	--print("OnPillage",iUnitPlayerID)
 	if(iUnitPlayerID == NO_PLAYER) then
 		return;
@@ -424,10 +467,12 @@ end
 
 --exp bug fix for upgradable units that start with 1 free promotion (Nau Janissary Malon, in general MODIFIER_PLAYER_UNIT_ADJUST_GRANT_EXPERIENCE applied to units)
 --Author: FlashyFeeds
+function OnUIPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
+	GameEvents.GameplayPromotionFixExp.Call(iUnitPlayerID, iUnitID)
+end
 
-function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
+function OnGameplayPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
 	--print("OnPromoitionFixExp",iUnitPlayerID, iUnitID);
-
 	local pUnitPlayer :object = Players[iUnitPlayerID];
 	if(pUnitPlayer == nil) then
 		return;
@@ -3322,7 +3367,6 @@ end
 -- ===========================================================================
 
 function Initialize()
-
 	print("BBG - Gameplay Script Launched")
 	local currentTurn = Game.GetCurrentGameTurn()
 	local startTurn = GameConfiguration.GetStartTurn()
@@ -3333,48 +3377,62 @@ function Initialize()
 	PopulateFeatureYields()
 	print("BBG - relevant feature yields populated")
 	PopulateBugWonders()
-	print("BBG - relevant Bug wonders populated")	
-	--PopulateSpecialistBuildingIDs()
-	--print("BBG - tSpecialistBuildingIDs populated")
-	--for i = 1,7 do
-		--for j=1,3 do
-			--print("tSpecialistBuildingIDs: BUILDING_"..WorkerDictionary(i).."_"..tostring(j), tSpecialistBuildingIDs[i][j])
-		--end
-	--end
-	
+	print("BBG - relevant Bug wonders populated")
 	if currentTurn == startTurn then
 		ApplySumeriaTrait()
 		--InitBarbData()
 	end
 	-- turn checked effects:
 	GameEvents.OnGameTurnStarted.Add(OnGameTurnStarted);
-
-	-- combat effect:
-	GameEvents.OnCombatOccurred.Add(OnCombatOccurred);
-	
-	-- pillage effect:
-	GameEvents.OnPillage.Add(OnPillage)
-	
+	print("BBG Barb Hooks Added")
+	print("BBG Domination Victory Hook Added")
+	-- monk spread
+	GameEvents.OnCombatOccurred.Add(OnMonkCombatOccurred);
+	print("BBG Monk Hook Added")
 	-- upgradable uu exp bug fix
-	Events.UnitPromoted.Add(OnPromotionFixExp);
+	LuaEvents.UIPromotionFixExp.Add(OnUIPromotionFixExp)
+	GameEvents.GameplayPromotionFixExp.Add(OnGameplayPromotionFixExp)
+	print("BBG Promotion bugfix hook added")
 	-- tech boost effect:
 	-- Events.TechBoostTriggered.Add(OnTechBoost);
-	
 	-- Extra Movement bugfix
 	GameEvents.UnitInitialized.Add(OnUnitInitialized)
+	print("BBG Movement bugfix hook added")
 	-- Yield Adjustment hook
 	GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
+	print("BBG Fix firaxis wonder yield hook added")
 	-- communism
 	GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
 	GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
 	GameEvents.PolicyChanged.Add(OnPolicyChanged)
 	GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
-		--Amani
+	print("BBG Communism Hooks Added")
+	--Amani
 	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
 	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
+	print("BBG Amani Gameplay hooks added")
+	--Delete Suntzu for not-Unifier
+	LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
+	GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
+	print("BBG Suntzu Gameplay Deletion hooks added")
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
-		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_JULIUS_CAESAR" then
+		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_BASIL" then
+			--basil spread
+			GameEvents.OnCombatOccurred.Add(OnBasilCombatOccurred)
+			print("BBG Basil Hook Added")
+		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_GILGAMESH" then
+			--gilga pillage
+			GameEvents.OnPillage.Add(OnGilgaPillage)
+			GameEvents.OnCombatOccurred.Add(OnGilgaCombatOccurred)
+			print("BBG Gilga Hooks Added")
+		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
+			-- Inca Yields on non-mountain impassibles bugfix
+			LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
+			GameEvents.GameplaySetPlotProperty.Add(OnGameplaySetPlotProperty)
+			GameEvents.CityConquered.Add(OnIncaCityConquered)
+			print("BBG Inca Hooks Added")
+		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_JULIUS_CAESAR" then
 			-- Caesar wildcard
 			GameEvents.CityBuilt.Add(OnCityBuilt);
 			GameEvents.CityConquered.Add(OnCityConquered)
@@ -3385,21 +3443,13 @@ function Initialize()
 			GameEvents.OnGameTurnStarted.Add(OnGameTurnStartedCheckMacedon)
 			GameEvents.CityBuilt.Add(OnMacedonCitySettled)
 			print("BBG Macedon Hooks Added")
-		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
-			-- Inca Yields on non-mountain impassibles bugfix
-			LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
-			GameEvents.GameplaySetPlotProperty.Add(OnGameplaySetPlotProperty)
-			GameEvents.CityConquered.Add(OnIncaCityConquered)
-			print("BBG Inca Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
 			--Qin Unifier general bugfix
 			LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
-			LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
 			LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
 			LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
 			LuaEvents.UIUnifierSamePlayerUniqueEffect.Add(OnUIUnifierSamePlayerUniqueEffect)
 			GameEvents.GameplayGPGeneralUnifierCreated.Add(OnGameplayGPGeneralUnifierCreated)
-			GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
 			GameEvents.GameplayUnifierSameUnitUniqueEffect.Add(OnGameplayUnifierSameUnitUniqueEffect)
 			GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
 			GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
