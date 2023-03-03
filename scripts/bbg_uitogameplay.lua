@@ -400,15 +400,15 @@ function Initialize()
 	Events.TradeRouteActivityChanged.Add(OnTradeRouteActivityChanged)
 	print("Delete Amani UI hooks added")
 	--delete suntzu after use for non-unifier
-	Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedNotQinUnifier)
-	print("Delete Suntzu UI Hook added")
+	--Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedNotQinUnifier)
+	print("Delete Suntzu UI Hook added(ignored)")
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
 		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
 			--Qin Unifier
-			Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
-			Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedQinUnifier)
-			Events.UnitMoved.Add(OnUnitMoved)
+			--Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
+			--Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedQinUnifier)
+			--Events.UnitMoved.Add(OnUnitMoved)
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			--inca dynamic yield cancelation
 			Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)

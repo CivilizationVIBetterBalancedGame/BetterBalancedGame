@@ -1,3 +1,4 @@
+/*
 --Timur Unifier Interraction depends on XP1
 INSERT INTO Types(Type, Kind) VALUES
 	('ABILITY_TIMUR_BONUS_EXPERIENCE_QIN_ALT', 'KIND_ABILITY');
@@ -18,3 +19,4 @@ INSERT INTO Modifiers(ModifierId, ModifierType, RunOnce, Permanent, SubjectRequi
 	('GREATPERSON_TIMUR_ACTIVE_UNIT_BONUS_QIN_ALT', 'MODIFIER_PLAYER_UNIT_GRANT_ABILITY', 1, 1, NULL);
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 	('GREATPERSON_TIMUR_ACTIVE_UNIT_BONUS_QIN_ALT', 'AbilityType', 'ABILITY_TIMUR_BONUS_EXPERIENCE_QIN_ALT');
+*/

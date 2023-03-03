@@ -3412,9 +3412,9 @@ function Initialize()
 	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
 	print("BBG Amani Gameplay hooks added")
 	--Delete Suntzu for not-Unifier
-	LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
-	GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
-	print("BBG Suntzu Gameplay Deletion hooks added")
+	--LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
+	--GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
+	print("BBG Suntzu Gameplay Deletion hooks added (ignored)")
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
 		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_BASIL" then
@@ -3445,15 +3445,15 @@ function Initialize()
 			print("BBG Macedon Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
 			--Qin Unifier general bugfix
-			LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
-			LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
-			LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
-			LuaEvents.UIUnifierSamePlayerUniqueEffect.Add(OnUIUnifierSamePlayerUniqueEffect)
-			GameEvents.GameplayGPGeneralUnifierCreated.Add(OnGameplayGPGeneralUnifierCreated)
-			GameEvents.GameplayUnifierSameUnitUniqueEffect.Add(OnGameplayUnifierSameUnitUniqueEffect)
-			GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
-			GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
-			print("BBG Unifier Hooks Added")
+			--LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
+			--LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
+			--LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
+			--LuaEvents.UIUnifierSamePlayerUniqueEffect.Add(OnUIUnifierSamePlayerUniqueEffect)
+			--GameEvents.GameplayGPGeneralUnifierCreated.Add(OnGameplayGPGeneralUnifierCreated)
+			--GameEvents.GameplayUnifierSameUnitUniqueEffect.Add(OnGameplayUnifierSameUnitUniqueEffect)
+			--GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
+			--GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
+			print("BBG Unifier Hooks Added(Ignored)")
 		end
 	end
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
