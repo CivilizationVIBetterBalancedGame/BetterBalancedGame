@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Release ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5027">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5028">
 -->
 <!-- BETA ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5027">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5028">
 -->
 <!-- WIP ModID-->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5027">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5028">
 	<Properties>
-		<Name>Better Balanced Game 5.2.7</Name>
+		<Name>Better Balanced Game 5.2.8</Name>
 		<Description>
 			Release build of Better Balanced Game
 		</Description>
@@ -28,7 +28,7 @@
 	<ActionCriteria>
 		<Criteria id="XP1" any="1">
 			<GameCoreInUse>Expansion1</GameCoreInUse>
-			<RuleSetInUse>RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
+			<RuleSetInUse>RULESET_EXPANSION_1</RuleSetInUse><!--,RULESET_EXPANSION_2-->
 			<LeaderPlayable>Players:Expansion1_Players::LEADER_CHANDRAGUPTA,Players:Expansion1_Players::LEADER_GENGHIS_KHAN,Players:Expansion1_Players::LEADER_LAUTARO,Players:Expansion1_Players::LEADER_POUNDMAKER,Players:Expansion1_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion1_Players::LEADER_SEONDEOK,Players:Expansion1_Players::LEADER_SHAKA,Players:Expansion1_Players::LEADER_TAMAR,Players:Expansion1_Players::LEADER_WILHELMINA</LeaderPlayable>
 			<LeaderPlayable>Players:Expansion2_Players::LEADER_CHANDRAGUPTA,Players:Expansion2_Players::LEADER_GENGHIS_KHAN,Players:Expansion2_Players::LEADER_LAUTARO,Players:Expansion2_Players::LEADER_POUNDMAKER,Players:Expansion2_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion2_Players::LEADER_SEONDEOK,Players:Expansion2_Players::LEADER_SHAKA,Players:Expansion2_Players::LEADER_TAMAR,Players:Expansion2_Players::LEADER_WILHELMINA</LeaderPlayable>
 		</Criteria>
@@ -36,8 +36,14 @@
 			<GameCoreInUse>Expansion2</GameCoreInUse>
 		</Criteria>
 		<Criteria id="XP1_XP2" any="1">
-			<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
+			<!--<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>-->
 			<LeaderPlayable>Players:Expansion2_Players::LEADER_CHANDRAGUPTA,Players:Expansion2_Players::LEADER_GENGHIS_KHAN,Players:Expansion2_Players::LEADER_LAUTARO,Players:Expansion2_Players::LEADER_POUNDMAKER,Players:Expansion2_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion2_Players::LEADER_SEONDEOK,Players:Expansion2_Players::LEADER_SHAKA,Players:Expansion2_Players::LEADER_TAMAR,Players:Expansion2_Players::LEADER_WILHELMINA</LeaderPlayable>
+		</Criteria>
+		<Criteria id="DLC_Aztec">
+			<ModInUse>02A8BDDE-67EA-4D38-9540-26E685E3156E</ModInUse>
+		</Criteria>
+		<Criteria id="DLC_Vikings">
+			<ModInUse>2F6E858A-28EF-46B3-BEAC-B985E52E9BC1</ModInUse>
 		</Criteria>
 		<Criteria id="DLC_Poland" any="1">
 			<LeaderPlayable>Players:StandardPlayers::LEADER_JADWIGA,StandardPlayers::LEADER_JADWIGA,Players:Expansion1_Players::LEADER_JADWIGA,Players:Expansion2_Players::LEADER_JADWIGA</LeaderPlayable>
@@ -339,44 +345,51 @@
 			</Properties>
 			<File>sql/Base/_base_utils.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_preload_db_aust_updated">
+		<UpdateDatabase id="bbg_preload_db_vikings_updated">
 			<Properties>
 				<LoadOrder>11602</LoadOrder>
+			</Properties>
+			<Criteria>DLC_Vikings</Criteria>
+			<File>sql/DLC_Vikings/_dlc_vikings_utils.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="bbg_preload_db_aust_updated">
+			<Properties>
+				<LoadOrder>11603</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Australia</Criteria>
 			<File>sql/DLC_Australia/_dlc_australia_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_indokhmer_updated">
 			<Properties>
-				<LoadOrder>11603</LoadOrder>
+				<LoadOrder>11604</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Indonesia_Khmer</Criteria>
 			<File>sql/DLC_Indonesia_Khmer/_dlc_indo_khmer_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_xp1_updated">
 			<Properties>
-				<LoadOrder>11604</LoadOrder>
+				<LoadOrder>11605</LoadOrder>
 			</Properties>
 			<Criteria>XP1</Criteria>
 			<File>sql/XP1/_xp1_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_xp2_updated">
 			<Properties>
-				<LoadOrder>11605</LoadOrder>
+				<LoadOrder>11606</LoadOrder>
 			</Properties>
 			<Criteria>XP2</Criteria>
 			<File>sql/XP2/_xp2_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_mayacolombia_updated">
 			<Properties>
-				<LoadOrder>11606</LoadOrder>
+				<LoadOrder>11607</LoadOrder>
 			</Properties>
 			<Criteria>GranColombia_Maya</Criteria>
 			<File>sql/NFP/_nfp_maya_colombia_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_bbs_updated">
 			<Properties>
-				<LoadOrder>11607</LoadOrder>
+				<LoadOrder>11608</LoadOrder>
 			</Properties>
 			<Criteria>BBS</Criteria>
 			<File>sql/mod_associations/bbs/_bbs_utils.sql</File>
@@ -389,7 +402,6 @@
 			<File>sql/Base/base.sql</File>
 			<File>sql/Base/America.sql</File>
 			<File>sql/Base/Arabia.sql</File>
-			<File>sql/Base/Aztec.sql</File>
 			<File>sql/Base/Beliefs.sql</File>
 			<File>sql/Base/Brazil.sql</File>
 			<File>sql/Base/Buildings.sql</File>
@@ -435,9 +447,12 @@
 			<File>sql/XP1/Georgia.sql</File>
 			<File>sql/XP1/Governors.sql</File>
 			<File>sql/XP1/Korea.sql</File>
+			<File>sql/XP1/Mapuche.sql</File>
 			<File>sql/XP1/Mongolia.sql</File>
 			<File>sql/XP1/Netherlands.sql</File>
-
+			<File>sql/XP1/Chandragupta.sql</File>
+			<File>sql/XP1/kongo_xp1.sql</File>
+			<File>sql/XP1/summer_xp1.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_XP2">
 			<Properties>
@@ -466,20 +481,34 @@
 			</Properties>
 			<Criteria>XP1_XP2</Criteria>
 			<File>sql/XP1/xp2_rise_and_fall.sql</File>
-			<File>sql/XP1/Mapuche.sql</File>
-			<File>sql/XP1/Chandragupta.sql</File>
+			<File>sql/XP2/xp2_mapuche.sql</File>
 		</UpdateDatabase>
 		<!-- -->
-		<UpdateDatabase id="BBG_Poland">
+		<UpdateDatabase id="BBG_Aztec">
 			<Properties>
 				<LoadOrder>11616</LoadOrder>
+			</Properties>
+			<Criteria>DLC_Aztec</Criteria>
+			<File>sql/Base/Aztec.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Vikings">
+			<Properties>
+				<LoadOrder>11617</LoadOrder>
+			</Properties>
+			<Criteria>DLC_Vikings</Criteria>
+			<File>sql/DLC_Vikings/dlc_vikings.sql</File>
+		</UpdateDatabase>
+		
+		<UpdateDatabase id="BBG_Poland">
+			<Properties>
+				<LoadOrder>11618</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Poland</Criteria>
 			<File>sql/DLC_Poland/dlc_poland.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_XP2_Poland">
 			<Properties>
-				<LoadOrder>11617</LoadOrder>
+				<LoadOrder>11619</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Poland</Criteria>
 			<Criteria>XP2</Criteria>
@@ -488,14 +517,14 @@
 		<!-- -->
 		<UpdateDatabase id="BBG_Austrlia">
 			<Properties>
-				<LoadOrder>11618</LoadOrder>
+				<LoadOrder>11620</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Australia</Criteria>
 			<File>sql/DLC_Australia/dlc_australia.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_XP2_Australia">
 			<Properties>
-				<LoadOrder>11619</LoadOrder>
+				<LoadOrder>11621</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Australia</Criteria>
 			<Criteria>XP2</Criteria>
@@ -504,38 +533,48 @@
 		<!-- -->
 		<UpdateDatabase id="BBG_Macedon_Persia">
 			<Properties>
-				<LoadOrder>11620</LoadOrder>
+				<LoadOrder>11622</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Macedon_Persia</Criteria>
 			<File>sql/DLC_Macedon_Persia/dlc_macedon_persia.sql</File>
 		</UpdateDatabase>
+		<UpdateDatabase id="BBG_NFP_Macedon_Persia">
+			<Properties>
+				<LoadOrder>11623</LoadOrder>
+			</Properties>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<Criteria>XP1</Criteria>
+			<File>sql/DLC_Macedon_Persia/xp1_macedon_persia.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="BBG_XP2_Macedon_Persia">
 			<Properties>
-				<LoadOrder>11621</LoadOrder>
+				<LoadOrder>11624</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Macedon_Persia</Criteria>
 			<Criteria>XP2</Criteria>
 			<File>sql/DLC_Macedon_Persia/xp2_macedon_persia.sql</File>
 		</UpdateDatabase>
+		<!--
 		<UpdateDatabase id="BBG_NFP_Macedon_Persia">
 			<Properties>
-				<LoadOrder>11622</LoadOrder>
+				<LoadOrder>11624</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Macedon_Persia</Criteria>
 			<Criteria>GranColombia_Maya</Criteria>
 			<File>sql/DLC_Macedon_Persia/nfp_macedon_persia_maya_colombia.sql</File>
 		</UpdateDatabase>
+	-->
 		<!-- -->
 		<UpdateDatabase id="BBG_Nubia">
 			<Properties>
-				<LoadOrder>11623</LoadOrder>
+				<LoadOrder>11625</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Nubia</Criteria>
 			<File>sql/DLC_Nubia/dlc_nubia.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_XP2_Nubia">
 			<Properties>
-				<LoadOrder>11624</LoadOrder>
+				<LoadOrder>11626</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Nubia</Criteria>
 			<Criteria>XP2</Criteria>
@@ -544,14 +583,14 @@
 		<!-- -->
 		<UpdateDatabase id="BBG_Indonesia_Khmer">
 			<Properties>
-				<LoadOrder>11625</LoadOrder>
+				<LoadOrder>11627</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Indonesia_Khmer</Criteria>
 			<File>sql/DLC_Indonesia_Khmer/dlc_indo_khmer.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_XP2_Indonesia_Khmer">
 			<Properties>
-				<LoadOrder>11626</LoadOrder>
+				<LoadOrder>11628</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Indonesia_Khmer</Criteria>
 			<Criteria>XP2</Criteria>
@@ -623,6 +662,16 @@
 			<File>sql/NFP/new_bbg_nfp_babylon.sql</File>
 			<File>sql/NFP/GreatPeoples.sql</File>
 		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Babylon">
+			<Properties>
+				<LoadOrder>11649</LoadOrder>
+			</Properties>
+			<Criteria>Babylon</Criteria>
+			<Criteria>No_Gamemode_Babylon</Criteria>
+			<Criteria>XP2</Criteria>
+			<File>sql/NFP/mali_dlc_babylon.sql</File>
+		</UpdateDatabase>
+		
 		<!-- Doesn't exist ?
 		<UpdateDatabase id="bbg_nfp_babylon_cs" criteria="nfp_babylon">
 			<Properties>
@@ -633,7 +682,7 @@
 		-->
 		<UpdateDatabase id="BBG_KublaiKhan_Vietnam">
 			<Properties>
-				<LoadOrder>11649</LoadOrder>
+				<LoadOrder>11650</LoadOrder>
 			</Properties>
 			<Criteria>KublaiKhan_Vietnam</Criteria>
 			<File>sql/NFP/new_bbg_nfp_vietnam.sql</File>
@@ -643,7 +692,7 @@
 		<!-- -->
 		<UpdateDatabase id="BBG_Portugal">
 			<Properties>
-				<LoadOrder>11650</LoadOrder>
+				<LoadOrder>11651</LoadOrder>
 			</Properties>
 			<Criteria>Portugal</Criteria>
 			<File>sql/NFP/new_bbg_nfp_portugal.sql</File>
@@ -651,7 +700,7 @@
 		<!-- -->
 		<UpdateDatabase id="BBG_Caesar">
 			<Properties>
-				<LoadOrder>11651</LoadOrder>
+				<LoadOrder>11652</LoadOrder>
 			</Properties>
 			<Criteria>Caesar</Criteria>
 			<File>sql/LP/lp_rome_caesar.sql</File>
@@ -659,16 +708,25 @@
 		<!-- -->
 		<UpdateDatabase id="BBG_Negotiators">
 			<Properties>
-				<LoadOrder>11652</LoadOrder>
+				<LoadOrder>11653</LoadOrder>
 			</Properties>
 			<Criteria>Negotiators</Criteria>
 			<File>sql/LP/lp_america_lincoln.sql</File>
 			<File>sql/LP/lp_arabia_saladin_sultan.sql</File>
 			<File>sql/LP/lp_kongo_mbande.sql</File>
 		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Negotiators_XP2">
+			<Properties>
+				<LoadOrder>11654</LoadOrder>
+			</Properties>
+			<Criteria>Negotiators</Criteria>
+			<Criteria>XP2</Criteria>
+			<File>sql/LP/lp_arabia_saladin_sultan_xp2.sql</File>
+		</UpdateDatabase>
+		
 		<UpdateDatabase id="BBG_Warlords">
 			<Properties>
-				<LoadOrder>11653</LoadOrder>
+				<LoadOrder>11655</LoadOrder>
 			</Properties>
 			<Criteria>Warlords</Criteria>
 			<File>sql/LP/lp_japan_tokugawa.sql</File>
@@ -677,10 +735,26 @@
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulesChina">
 			<Properties>
-				<LoadOrder>11654</LoadOrder>
+				<LoadOrder>11656</LoadOrder>
 			</Properties>
 			<Criteria>RulersChina</Criteria>
 			<File>sql/LP/QinUnifier.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_RulesChina_XP1">
+			<Properties>
+				<LoadOrder>11657</LoadOrder>
+			</Properties>
+			<Criteria>RulersChina</Criteria>
+			<Criteria>XP1</Criteria>
+			<File>sql/LP/lp_qin_unifier_xp1.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_RulesChina_XP2">
+			<Properties>
+				<LoadOrder>11657</LoadOrder>
+			</Properties>
+			<Criteria>RulersChina</Criteria>
+			<Criteria>XP2</Criteria>
+			<File>sql/LP/lp_qin_unifier_xp2.sql</File>	
 		</UpdateDatabase>
 		<!-- -->
 
@@ -919,6 +993,7 @@
 		</ImportFiles>
 		-->		
 		<!-- Gamemode -->
+		<!--
 		<UpdateDatabase id="bbg_db_Gamemode_Babylon">
 			<Properties>
 				<LoadOrder>21010</LoadOrder>
@@ -933,6 +1008,7 @@
 			<Criteria>Gamemode_Babylon</Criteria>
 			<File>lang/april_fool.xml</File>
 		</UpdateText>
+	-->
 	</InGameActions>
 
 	<!-- defines file dependencies -->
@@ -1008,6 +1084,8 @@
 		<File>sql/XP1/Korea.sql</File>
 		<File>sql/XP1/Mongolia.sql</File>
 		<File>sql/XP1/Netherlands.sql</File>
+		<File>sql/XP1/kongo_xp1.sql</File>
+		<File>sql/XP1/summer_xp1.sql</File>
 		<!-- -->
 		<File>sql/XP2/_xp2_utils.sql</File>
 		<File>sql/XP2/xp2__gathering_storm.sql</File>
@@ -1024,10 +1102,14 @@
 		<File>sql/XP2/Maori.sql</File>
 		<File>sql/XP2/Phoenicie.sql</File>
 		<File>sql/XP2/Units.sql</File>
+		<File>sql/XP2/xp2_mapuche.sql</File>
 		<!-- -->
 		<File>sql/XP1/xp2_rise_and_fall.sql</File>
 		<File>sql/XP1/Mapuche.sql</File>
 		<File>sql/XP1/Chandragupta.sql</File>
+		<!-- -->
+		<File>sql/DLC_Vikings/_dlc_vikings_utils.sql</File>
+		<File>sql/DLC_Vikings/dlc_vikings.sql</File>
 		<!-- -->
 		<File>sql/DLC_Poland/dlc_poland.sql</File>
 		<File>sql/DLC_Poland/xp2_poland.sql</File>
@@ -1038,7 +1120,7 @@
 		<!-- -->
 		<File>sql/DLC_Macedon_Persia/dlc_macedon_persia.sql</File>
 		<File>sql/DLC_Macedon_Persia/xp2_macedon_persia.sql</File>
-		<File>sql/DLC_Macedon_Persia/nfp_macedon_persia_maya_colombia.sql</File>
+		<File>sql/DLC_Macedon_Persia/xp1_macedon_persia.sql</File>
 		<!-- -->
 		<File>sql/DLC_Nubia/dlc_nubia.sql</File>
 		<File>sql/DLC_Nubia/xp2_nubia.sql</File>
@@ -1057,6 +1139,7 @@
 		<File>sql/NFP/Catherine_Persona.sql</File>
 		<File>sql/NFP/nfp_byzantium_gaul.sql</File>
 		<File>sql/NFP/new_bbg_nfp_babylon.sql</File>
+		<File>sql/NFP/mali_dlc_babylon.sql</File>
 		<File>sql/NFP/GreatPeoples.sql</File>
 		<File>sql/NFP/new_bbg_nfp_vietnam.sql</File>
 		<File>sql/NFP/new_bbg_kublai.sql</File>
@@ -1066,11 +1149,14 @@
 		<File>sql/LP/lp_rome_caesar.sql</File>
 		<File>sql/LP/lp_america_lincoln.sql</File>
 		<File>sql/LP/lp_arabia_saladin_sultan.sql</File>
+		<File>sql/LP/lp_arabia_saladin_sultan_xp2.sql</File>
 		<File>sql/LP/lp_kongo_mbande.sql</File>
 		<File>sql/LP/lp_japan_tokugawa.sql</File>
 		<File>sql/LP/lp_persia_nader.sql</File>
 		<File>sql/LP/lp_ottoman_suleiman_magnificent.sql</File>
 		<File>sql/LP/QinUnifier.sql</File>
+		<File>sql/LP/lp_qin_unifier_xp2.sql</File>
+		<File>sql/LP/lp_qin_unifier_xp1.sql</File>
 		<!-- -->
 		<File>sql/Secret_Societies.sql</File>
 		<!-- -->

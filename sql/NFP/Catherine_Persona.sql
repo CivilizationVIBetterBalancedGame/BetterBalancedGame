@@ -25,6 +25,11 @@ UPDATE Modifiers SET SubjectRequirementSetId='PLAYER_HAS_MEDIEVAL_FAIRES' WHERE 
 
 
 -- 15/07/2022: Magnificence castel/theater gives culture to improved strategic adjacent
+--REQUIRES_PLOT_HAS_IMPROVED_STRATEGIC exists only in GS, recreate
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
+    ('REQUIRES_PLOT_HAS_IMPROVED_STRATEGIC', 'REQUIREMENT_PLOT_IMPROVED_RESOURCE_CLASS_TYPE_MATCHES');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('REQUIRES_PLOT_HAS_IMPROVED_STRATEGIC', 'ResourceClassType', 'RESOURCECLASS_STRATEGIC');
 INSERT INTO RequirementSets (RequirementSetId , RequirementSetType) VALUES
     ('BBG_PLOT_STRATEGIC_ADJACENT_TO_THEATER_SQUARE_OR_CHATEAU_REQUIREMENTS',  'REQUIREMENTSET_TEST_ALL'); 
 INSERT INTO RequirementSetRequirements (RequirementSetId , RequirementId) VALUES

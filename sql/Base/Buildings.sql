@@ -37,6 +37,15 @@ UPDATE Buildings SET Entertainment=1 WHERE BuildingType='BUILDING_SEWER';
 DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_WATER_MILL' AND
     ModifierId IN ('WATERMILL_ADDRICEFOOD', 'WATERMILL_ADDWHEATYIELD', 'WATERMILL_ADDMAIZEYIELD');
 -- Watermill give 1 production towards farm
+--Plot has farm doesn't exist in base, recreate
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
+    ('REQUIRES_PLOT_HAS_FARM', 'REQUIREMENT_PLOT_IMPROVEMENT_TYPE_MATCHES');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('REQUIRES_PLOT_HAS_FARM', 'ImprovementType', 'IMPROVEMENT_FARM');
+INSERT OR IGNORE INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('PLOT_HAS_FARM_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+INSERT OR IGNORE INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('PLOT_HAS_FARM_REQUIREMENTS', 'REQUIRES_PLOT_HAS_FARM');
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_WATERMILL_PRODUCTION_FARM', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'PLOT_HAS_FARM_REQUIREMENTS');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
@@ -44,15 +53,6 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_WATERMILL_PRODUCTION_FARM', 'Amount', '1');
 INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
     ('BUILDING_WATER_MILL', 'BBG_WATERMILL_PRODUCTION_FARM');
-
-
-
--- Grandmaster Chapel only faith buy in owned city. (XP1)
-INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
-    ('BBG_CITY_WAS_FOUNDED', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-    ('BBG_CITY_WAS_FOUNDED', 'REQUIRES_CITY_WAS_FOUNDED');
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_WAS_FOUNDED' WHERE ModifierId LIKE 'GOV_FAITH_PURCHASE_%';
 
 -- Workshop cost less and give more production
 UPDATE Buildings SET Cost=160 WHERE BuildingType='BUILDING_WORKSHOP';
@@ -72,7 +72,7 @@ UPDATE Building_GreatPersonPoints SET PointsPerTurn=2 WHERE BuildingType='BUILDI
 UPDATE Building_GreatPersonPoints SET PointsPerTurn=3 WHERE BuildingType='BUILDING_STOCK_EXCHANGE';
 UPDATE Building_YieldChanges SET YieldChange=6 WHERE BuildingType='BUILDING_BANK' AND YieldType='YIELD_GOLD';
 UPDATE Building_YieldChanges SET YieldChange=8 WHERE BuildingType='BUILDING_STOCK_EXCHANGE' AND YieldType='YIELD_GOLD';
-UPDATE Building_YieldChangesBonusWithPower SET YieldChange=12 WHERE BuildingType='BUILDING_STOCK_EXCHANGE' AND YieldType='YIELD_GOLD';
+
 
 -- Commercial hub building traderoute modifier :
 UPDATE Buildings SET Description='LOC_BBG_BUILDING_BANK_DESCRIPTION' WHERE BuildingType='BUILDING_BANK';
