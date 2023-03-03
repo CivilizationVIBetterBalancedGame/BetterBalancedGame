@@ -3399,8 +3399,10 @@ function Initialize()
 	-- GameEvents.UnitInitialized.Add(OnUnitInitialized)
 	print("BBG Movement bugfix hook added (ignored)")
 	-- Yield Adjustment hook
-	GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
-	print("BBG Fix firaxis wonder yield hook added")
+	if GameConfiguration.GetValue("BBCC_SETTING") == -1 then
+		GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
+		print("BBG Fix firaxis wonder yield hook added (only for bcy players)")
+	end
 	-- communism
 	GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
 	GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
