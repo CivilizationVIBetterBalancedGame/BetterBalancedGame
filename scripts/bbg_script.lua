@@ -1627,7 +1627,7 @@ function OnUIBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
 	GameEvents.GameplayBBGWorkersChanged.Call(iPlayerID, iCityID, iX, iY)
 end
 
-LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
+--LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
 
 function OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
 	--print("BBG - OnGameplayBBGWorkersChanged triggered")
@@ -1648,7 +1648,7 @@ function OnUIBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
 	GameEvents.GameplayBBGDestroyDummyBuildings.Call(iPlayerID, iCityID, iX, iY)
 end
 
-LuaEvents.UIBBGDestroyDummyBuildings.Add(OnUIBBGDestroyDummyBuildings)
+--LuaEvents.UIBBGDestroyDummyBuildings.Add(OnUIBBGDestroyDummyBuildings)
 
 function OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
 	--print("OnGameplayBBGDestroyDummyBuildings called")
@@ -1678,7 +1678,7 @@ function OnUIBBGGovChanged(iPlayerID, iGovID)
 	--print("OnUIBBGGovChanged triggered")
 	GameEvents.GameplayBBGGovChanged.Call(iPlayerID, iGovID)
 end
-LuaEvents.UIBBGGovChanged.Add(OnUIBBGGovChanged)
+--LuaEvents.UIBBGGovChanged.Add(OnUIBBGGovChanged)
 
 function OnGameplayBBGGovChanged(iPlayerID, iGovID)
 	--print("OnGameplayBBGGovChanged called")
@@ -3404,11 +3404,11 @@ function Initialize()
 		print("BBG Fix firaxis wonder yield hook added (only for bcy players)")
 	end
 	-- communism
-	GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
-	GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
-	GameEvents.PolicyChanged.Add(OnPolicyChanged)
-	GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
-	print("BBG Communism Hooks Added")
+	--GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
+	--GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
+	--GameEvents.PolicyChanged.Add(OnPolicyChanged)
+	--GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
+	print("BBG Communism Hooks Added(Ignored)")
 	--Amani
 	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
 	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)

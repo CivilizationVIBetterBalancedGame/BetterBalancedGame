@@ -391,9 +391,9 @@ function Initialize()
 	--Exp bug
 	Events.UnitPromoted.Add(OnPromotionFixExp);
 	--Communism
-	Events.CityWorkerChanged.Add(OnCityWorkerChanged)
-	Events.GovernmentChanged.Add(OnGovernmentChanged)
-	print("Delete Communism UI hooks added")
+	--Events.CityWorkerChanged.Add(OnCityWorkerChanged)
+	--Events.GovernmentChanged.Add(OnGovernmentChanged)
+	print("Delete Communism UI hooks added(ignored)")
 	--Amani
 	Events.GovernorAssigned.Add(OnGovernorAssigned)
 	Events.GovernorChanged.Add(OnGovernorChanged)

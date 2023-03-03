@@ -125,6 +125,8 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('COMMUNISM_INDU_2', 'BuildingType', 'BUILDING_INDU_2'),
     ('COMMUNISM_INDU_3', 'BuildingType', 'BUILDING_INDU_3');
 */
+
+/*
 -- Creating Related Reqs and Reqsets
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES
     ('BBG_CITY_HAS_BUILDING_HOLY_1_REQ', 'REQUIREMENT_PLOT_PROPERTY_MATCHES'),
@@ -324,3 +326,4 @@ INSERT INTO GovernmentModifiers(GovernmentType, ModifierId)
     SELECT 'GOVERNMENT_COMMUNISM', Modifiers.ModifierId
     FROM Modifiers WHERE ModifierId LIKE 'COMMUNISM%MODIFIER_BBG';
 
+*/
