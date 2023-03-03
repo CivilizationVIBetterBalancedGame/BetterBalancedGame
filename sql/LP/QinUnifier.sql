@@ -4,7 +4,7 @@
 UPDATE ModifierArguments SET Value='0.5' WHERE ModifierId='YONGLE_SCIENCE_POPULATION' AND Name='Amount';
 UPDATE ModifierArguments SET Value='0.3' WHERE ModifierId='YONGLE_CULTURE_POPULATION' AND Name='Amount';
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='YONGLE_GOLD_POPULATION' AND Name='Amount';
-
+/*
 -- 5.2.5 Qin unifier general gains 1 charge
 INSERT INTO Types(Type, Kind) VALUES
     ('MODIFIER_SINGLE_UNIT_ADJUST_GP_CHARGES', 'KIND_MODIFIER');
@@ -27,6 +27,7 @@ INSERT INTO ModifierArguments (ModifierId , Name , Value) VALUES
 INSERT INTO GreatPersonIndividualBirthModifiers(GreatPersonIndividualType, ModifierId)
     SELECT GreatPersonIndividuals.GreatPersonIndividualType, 'BBG_LEADER_QIN_ALT_GENERAL_CHARGES'
     FROM GreatPersonIndividuals WHERE GreatPersonClassType = 'GREAT_PERSON_CLASS_GENERAL' AND GreatPersonIndividualType <> 'GREAT_PERSON_INDIVIDUAL_SUN_TZU';
+    */
 /*
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES
     ('REQ_UNIT_IS_NOT_SUNTZU', 'REQUIREMENT_PLOT_PROPERTY_MATCHES');
@@ -43,6 +44,7 @@ INSERT INTO Requirements (RequirementId, RequirementType) VALUES
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
     ('REQUIREMENT_UNIT_IS_GENERAL', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_GENERAL');
 */
+/*
 --Sun Tzu duplicate book
 INSERT INTO Types(Type, Kind) VALUES
     ('GREATWORK_SUN_TZU_QIN_ALT', 'KIND_GREATWORK');
@@ -112,3 +114,4 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     --('GREATPERSON_TIMUR_ACTIVE_UNIT_BONUS_QIN_ALT', 'AbilityType', 'ABILITY_TIMUR_BONUS_EXPERIENCE_QIN_ALT'),
     ('GREATPERSON_JOHN_MONASH_ACTIVE_UNIT_BONUS_QIN_ALT', 'AbilityType', 'ABILITY_JOHN_MONASH_BONUS_EXPERIENCE_QIN_ALT'),
     ('GREATPERSON_VIJAYA_WIMALARATNE_ACTIVE_UNIT_BONUS_QIN_ALT', 'AbilityType', 'ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE_QIN_ALT');
+*/
