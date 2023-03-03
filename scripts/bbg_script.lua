@@ -3439,10 +3439,10 @@ function Initialize()
 			print("BBG Caesar Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_MACEDON" then
 			--Macedon 20%
-			GameEvents.CityConquered.Add(OnMacedonConqueredACity)
-			GameEvents.OnGameTurnStarted.Add(OnGameTurnStartedCheckMacedon)
-			GameEvents.CityBuilt.Add(OnMacedonCitySettled)
-			print("BBG Macedon Hooks Added")
+			--GameEvents.CityConquered.Add(OnMacedonConqueredACity)
+			--GameEvents.OnGameTurnStarted.Add(OnGameTurnStartedCheckMacedon)
+			--GameEvents.CityBuilt.Add(OnMacedonCitySettled)
+			print("BBG Macedon Hooks Added (ignored)")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
 			--Qin Unifier general bugfix
 			LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
