@@ -1821,7 +1821,7 @@ function OnUISetAmaniProperty(iGovernorOwnerID, tAmani)
 	GameEvents.GameplaySetAmaniProperty.Call(iGovernorOwnerID, tAmani)
 end
 
-LuaEvents.UISetAmaniProperty.Add(OnUISetAmaniProperty)
+--LuaEvents.UISetAmaniProperty.Add(OnUISetAmaniProperty)
 
 function OnGameplaySetAmaniProperty(iGovernorOwnerID, tAmani)
 	--print("OnGameplaySetAmaniProperty called")
@@ -1838,7 +1838,7 @@ function OnUISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
 	GameEvents.GameplaySetCSTrader.Call(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
 end
 
-LuaEvents.UISetCSTrader.Add(OnUISetCSTrader)
+--LuaEvents.UISetCSTrader.Add(OnUISetCSTrader)
 
 function OnGameplaySetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
 	--print("OnGameplaySetCSTrader called")
@@ -3408,9 +3408,9 @@ function Initialize()
 	GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
 	print("BBG Communism Hooks Added")
 	--Amani
-	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
-	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
-	print("BBG Amani Gameplay hooks added")
+	--GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
+	--GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
+	print("BBG Amani Gameplay hooks added (ignored)")
 	--Delete Suntzu for not-Unifier
 	LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
 	GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
