@@ -3396,8 +3396,8 @@ function Initialize()
 	-- tech boost effect:
 	-- Events.TechBoostTriggered.Add(OnTechBoost);
 	-- Extra Movement bugfix
-	GameEvents.UnitInitialized.Add(OnUnitInitialized)
-	print("BBG Movement bugfix hook added")
+	-- GameEvents.UnitInitialized.Add(OnUnitInitialized)
+	print("BBG Movement bugfix hook added (ignored)")
 	-- Yield Adjustment hook
 	GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
 	print("BBG Fix firaxis wonder yield hook added")
