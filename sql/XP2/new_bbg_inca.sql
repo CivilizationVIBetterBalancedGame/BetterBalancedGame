@@ -40,6 +40,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_PACHACUTI_QHAPAQ_NAN', 'BBG_INTERNATIONAL_TRADE_ROUTE_GOLD_TUNDRA_MOUNTAIN_ORIGIN'),
     ('TRAIT_LEADER_PACHACUTI_QHAPAQ_NAN', 'BBG_INTERNATIONAL_TRADE_ROUTE_GOLD_SNOW_MOUNTAIN_ORIGIN');
 --add prod on mountain wonders
+/*
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
     ('REQSET_PLOT_IS_MOUNTAIN_WONDER_BBG', 'REQUIREMENTSET_TEST_ANY');
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
@@ -126,3 +127,4 @@ WHERE t1.TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN'
 ORDER BY WonderType;
 
 --Removal of work of non-mountain impassibles is done via lua
+*/

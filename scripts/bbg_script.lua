@@ -3430,10 +3430,10 @@ function Initialize()
 			print("BBG Gilga Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			-- Inca Yields on non-mountain impassibles bugfix
-			LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
-			GameEvents.GameplaySetPlotProperty.Add(OnGameplaySetPlotProperty)
-			GameEvents.CityConquered.Add(OnIncaCityConquered)
-			print("BBG Inca Hooks Added")
+			--LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
+			--GameEvents.GameplaySetPlotProperty.Add(OnGameplaySetPlotProperty)
+			--GameEvents.CityConquered.Add(OnIncaCityConquered)
+			print("BBG Inca Hooks Added(Ignored)")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_JULIUS_CAESAR" then
 			-- Caesar wildcard
 			GameEvents.CityBuilt.Add(OnCityBuilt);

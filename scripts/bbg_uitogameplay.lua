@@ -2,9 +2,9 @@ UIEvents = ExposedMembers.LuaEvents
 print("BBG UI to Gameplay Script started")
 --- Inca Scrits
 -- Constants: populating the table of features from which we remove inca bug yields
-tRemoveIncaYieldsFromFeatures = {}
-local qQuery = "SELECT WonderType FROM WonderTerrainFeature_BBG WHERE TerrainClassType<>'TERRAIN_CLASS_MOUNTAIN' OR TerrainClassType IS NULL"
-tRemoveIncaYieldsFromFeatures=DB.Query(qQuery)
+--tRemoveIncaYieldsFromFeatures = {}
+--local qQuery = "SELECT WonderType FROM WonderTerrainFeature_BBG WHERE TerrainClassType<>'TERRAIN_CLASS_MOUNTAIN' OR TerrainClassType IS NULL"
+--tRemoveIncaYieldsFromFeatures=DB.Query(qQuery)
 --for i, row in ipairs(tRemoveIncaYieldsFromFeatures) do
 	--print(i, row.WonderType)
 --end
@@ -411,7 +411,8 @@ function Initialize()
 			--Events.UnitMoved.Add(OnUnitMoved)
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			--inca dynamic yield cancelation
-			Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
+			--Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
+			print("Inca Hooks Added(Ignored)")
 		end
 	end
 	--BCY no rng setting (param names are still called BBCC)
