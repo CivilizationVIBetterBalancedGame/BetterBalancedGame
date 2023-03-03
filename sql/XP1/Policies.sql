@@ -45,7 +45,10 @@ INSERT INTO Requirements (RequirementId, RequirementType) VALUES
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
     ('CITY_HAS_DIPLOMATIC_DISTRICT_BBG_REQ', 'DistrictType', 'DISTRICT_DIPLOMATIC_QUARTER'),
     ('CITY_HAS_GOV_DISTRICT_BBG_REQ', 'DistrictType', 'DISTRICT_GOVERNMENT');
+
+/*
 --5.2.5 Communism -- moved from base
 INSERT INTO PolicyModifiers(PolicyType, ModifierId)
     SELECT 'POLICY_GOV_COMMUNISM', Modifiers.ModifierId
     FROM Modifiers WHERE ModifierId LIKE 'COMMUNISM%MODIFIER_BBG';
+*/
