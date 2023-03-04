@@ -44,6 +44,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
 	VALUES
 		('SCIENCE_ON_KILLS_BBG', 'PercentDefeatedStrength', '50'),
 		('SCIENCE_ON_KILLS_BBG', 'YieldType', 'YIELD_SCIENCE');
+/*
 -- +20% Production for 10 turns after conquering a city
 INSERT OR IGNORE INTO TraitModifiers (TraitType , ModifierId)
 	VALUES
@@ -62,8 +63,8 @@ INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER', 'YieldType', 'YIELD_PRODUCTION'),
 	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER', 'Amount', 20);
-
-/*--this is greyed out because Diplo Modifiers are bugged
+*/
+--this is greyed out because Diplo Modifiers are bugged
 INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType)
 	VALUES
 	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER' , 'MODIFIER_PLAYER_ADD_DIPLOMATIC_YIELD_MODIFIER');
@@ -73,7 +74,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER' , 'TurnsActive'           , '10'              ),
 	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER' , 'YieldType'             , 'YIELD_PRODUCTION'),
 	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER' , 'Amount'                , '20'              );
-*/
+
 -- Hetairoi no longer a Horseman replacement
 DELETE FROM UnitReplaces WHERE CivUniqueUnitType='UNIT_MACEDONIAN_HETAIROI';
 
