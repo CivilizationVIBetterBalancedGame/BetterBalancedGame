@@ -50,6 +50,17 @@ INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, Mod
 UPDATE GreatPersonIndividuals SET ActionCharges=2 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_MIMAR_SINAN';
 
 -- Boudica gives Military Engineer (instead of convert barbarian units)
+
+--PLAYER_HAS_AT_LEAST_ONE_CITY_REQUIREMENTS was introduced in GS recreate
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
+    ('REQUIRES_PLAYER_HAS_AT_LEAST_ONE_CITY', 'REQUIREMENT_PLAYER_HAS_AT_LEAST_NUMBER_CITIES');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('REQUIRES_PLAYER_HAS_AT_LEAST_ONE_CITY', 'Amount', 1);
+INSERT OR IGNORE INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('PLAYER_HAS_AT_LEAST_ONE_CITY_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+INSERT OR IGNORE INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('PLAYER_HAS_AT_LEAST_ONE_CITY_REQUIREMENTS', 'REQUIRES_PLAYER_HAS_AT_LEAST_ONE_CITY');
+
 UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL' WHERE ModifierId='GREATPERSON_BOUDICA_ACTIVE';
 UPDATE Modifiers SET SubjectRequirementSetId='PLAYER_HAS_AT_LEAST_ONE_CITY_REQUIREMENTS' WHERE ModifierId='GREATPERSON_BOUDICA_ACTIVE';
 DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_BOUDICA_ACTIVE';
@@ -144,6 +155,16 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
 
 --Alvaro Aalto add +2 gold per breathtaking tile in the city
+--PLOT_BREATHTAKING_APPEAL doesn't exist recreate
+INSERT OR IGNORE INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('PLOT_BREATHTAKING_APPEAL', 'REQUIREMENTSET_TEST_ALL');
+INSERT OR IGNORE INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('PLOT_BREATHTAKING_APPEAL', 'REQUIRES_PLOT_BREATHTAKING_APPEAL');
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
+    ('REQUIRES_PLOT_BREATHTAKING_APPEAL', 'REQUIRES_PLOT_BREATHTAKING_APPEAL');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('REQUIRES_PLOT_BREATHTAKING_APPEAL', 'MinimumAppeal', '4');
+
 INSERT INTO Modifiers (ModifierId, ModifierType, Permanent, SubjectRequirementSetId) VALUES
     ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 1, 'PLOT_BREATHTAKING_APPEAL');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES

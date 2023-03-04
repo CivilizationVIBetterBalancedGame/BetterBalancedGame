@@ -3,6 +3,13 @@
 --==============================================================
 UPDATE ModifierArguments SET Value='6' WHERE ModifierId='SHOPPING_MALL_TOURISM';
 
+-- Grandmaster Chapel only faith buy in owned city. (XP1)
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_WAS_FOUNDED', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('BBG_CITY_WAS_FOUNDED', 'REQUIRES_CITY_WAS_FOUNDED');
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_WAS_FOUNDED' WHERE ModifierId LIKE 'GOV_FAITH_PURCHASE_%';
+
 -- 04/10/22: intel agency buff
 UPDATE ModifierArguments SET Value=2 WHERE ModifierId='GOV_GRANT_SPY' AND Name='Amount';
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
@@ -65,7 +72,7 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 --Attaching Modifiers to Warlor's Throne
 INSERT INTO BuildingModifiers(BuildingType, ModifierId)
 	SELECT 'BUILDING_GOV_CONQUEST', 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER'
-	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';	
+	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
 
 
 -- Foreign Ministry gets +2 influence per turn and 2 envoys
@@ -78,3 +85,13 @@ INSERT OR IGNORE INTO Modifiers(ModifierId, ModifierType) VALUES
 INSERT OR IGNORE INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('GOV_BUILDING_CS_BONUS_INFLUENCE_CPLMOD'   , 'Amount'                  , '2'),
 	('FOREIGN_MINISTRY_ENVOYS'					, 'Amount'					, '2');
+
+--Wonders
+-- Taj Mahal +10% gold for all your cities if you are in golden age
+INSERT INTO Modifiers (ModifierId , ModifierType, SubjectRequirementSetId) VALUES
+	('TAJ_MAHAL_GOLD_MODIFIER_IN_ALL_CITIES', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER', 'PLAYER_HAS_GOLDEN_AGE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('TAJ_MAHAL_GOLD_MODIFIER_IN_ALL_CITIES', 'YieldType', 'YIELD_GOLD'),
+    ('TAJ_MAHAL_GOLD_MODIFIER_IN_ALL_CITIES', 'Amount', '10');
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+	('BUILDING_TAJ_MAHAL', 'TAJ_MAHAL_GOLD_MODIFIER_IN_ALL_CITIES');

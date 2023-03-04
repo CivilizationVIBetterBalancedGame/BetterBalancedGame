@@ -75,8 +75,7 @@ CREATE TABLE WonderTerrainFeature_BBG(
     TerrainClassType TEXT,
     FeatureType TEXT,
     Other TEXT,
-    PRIMARY KEY(WonderType),
-    FOREIGN KEY(FeatureType) REFERENCES Features(FeatureType) ON DELETE CASCADE ON UPDATE CASCADE
+    PRIMARY KEY(WonderType)
 );
 
 CREATE TABLE AbstractModifiers(

@@ -1,10 +1,3 @@
-INSERT OR IGNORE INTO RequirementSetRequirements VALUES
-    ('BUILDING_IS_BARRACKS_STABLE_MILITARITIC_CITY_STATE', 'REQUIRES_CITY_HAS_ORDU_BBG');
-INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) VALUES
-    ('REQUIRES_CITY_HAS_ORDU_BBG', 'REQUIREMENT_CITY_HAS_BUILDING');
-INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) VALUES
-    ('REQUIRES_CITY_HAS_ORDU_BBG', 'BuildingType', 'BUILDING_ORDU');
-
 -- Add GrandComandante mouvement point
 --15/12/22 reverted
 -- INSERT OR IGNORE INTO GreatPersonIndividualBirthModifiers(GreatPersonIndividualType, ModifierId) VALUES
@@ -18,3 +11,10 @@ INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) VALUES
 --     ('GREAT_PERSON_INDIVIDUAL_COMMANDANTE_NARINO', 'GREATPERSON_COMANDANTE_MOVEMENT_AOE_LAND'),
 --     ('GREAT_PERSON_INDIVIDUAL_COMMANDANTE_MONTILLA', 'GREATPERSON_COMANDANTE_MOVEMENT_AOE_LAND'),
 --     ('GREAT_PERSON_INDIVIDUAL_COMMANDANTE_RIBAS', 'GREATPERSON_COMANDANTE_MOVEMENT_AOE_LAND');
+
+--Simon's Plantation Bias With Olives
+INSERT OR IGNORE INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
+    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_OLIVES', 5);
+--Maya's Plantation Bias with Olives
+INSERT OR IGNORE INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
+    ('CIVILIZATION_MAYA', 'RESOURCE_OLIVES', 3);

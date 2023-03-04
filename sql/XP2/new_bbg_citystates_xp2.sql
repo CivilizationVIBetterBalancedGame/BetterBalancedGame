@@ -42,6 +42,3 @@ INSERT INTO ModifierArguments(ModifierId, Name , Value) VALUES
 
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 	('MINOR_CIV_AKKAD_TRAIT', 'MINOR_CIV_AKKAD_UNIQUE_INFLUENCE_BONUS_MONK_BBG');
-
--- Armagh
-UPDATE Improvement_YieldChanges SET YieldChange=3 WHERE ImprovementType='IMPROVEMENT_MONASTERY' AND YieldType='YIELD_FAITH';

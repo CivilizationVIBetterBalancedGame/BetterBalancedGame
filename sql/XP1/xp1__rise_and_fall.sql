@@ -124,6 +124,9 @@ INSERT INTO TypeTags(Type, Tag) VALUES
 INSERT INTO TypeTags(Type, Tag) VALUES
 	('ABILITY_ALPINE_TRAINING', 'CLASS_WARRIOR_MONK');
 
+INSERT INTO TypeTags(Type, Tag) VALUES
+	('ABILITY_TIMUR_BONUS_EXPERIENCE', 'CLASS_WARRIOR_MONK');
+
 	--==============================================================
 --******				S  C  O  R  E				  	  ******
 --==============================================================
