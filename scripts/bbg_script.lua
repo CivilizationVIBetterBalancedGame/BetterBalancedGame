@@ -31,7 +31,7 @@
 
 --include "bbg_stateutils"
 --include "bbg_unitcommands"
-
+ExposedMembers.LuaEvents = LuaEvents
 include("SupportFunctions");
 -- ===========================================================================
 --	Constants
@@ -55,6 +55,120 @@ local NO_DISTRICT :number = -1;
 local NO_IMPROVEMENT :number = -1;
 local NO_BUILDING :number = -1;
 
+-- ==========================================================================
+-- Setting Up data to easily deal with tile yields (performance/convenience)
+-- ==========================================================================
+local TerrainYieldsLookup = {}
+local ResourceYieldsLookup = {}
+local FeatureYieldsLookup = {}
+local RelevantBugWonders = {}
+local tBaseGuaranteedYields = {}
+tBaseGuaranteedYields[0] = 2
+tBaseGuaranteedYields[1] = 1 
+tBaseGuaranteedYields[2] = 0
+tBaseGuaranteedYields[3] = 0
+tBaseGuaranteedYields[4] = 0
+tBaseGuaranteedYields[5] = 0
+
+function PopulateTerrainYields()
+	local tTerrainIDs = {0,1,3,4,6,7,9,10,12,13}
+	local tCachedYieldChanges = DB.Query("SELECT * FROM Terrain_YieldChanges")
+	for i, index in ipairs(tTerrainIDs) do
+		--print("Terrain Index", index)
+		local row = {}
+		local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Terrains[index].TerrainType, "TerrainType", true)
+		if tOccurrenceIDs ~= false then
+			for _, jndex in ipairs(tOccurrenceIDs) do
+				row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
+				--print(YieldNameToID(tCachedYieldChanges[jndex].YieldType), tCachedYieldChanges[jndex].YieldChange)
+			end
+			TerrainYieldsLookup[index] = row
+		end
+	end
+end
+
+function PopulateResourceYields()
+	local tCachedResources = DB.Query("SELECT * FROM Resources")
+	local tCachedYieldChanges = DB.Query("SELECT * FROM Resource_YieldChanges")
+	for index, tResourceData in ipairs(tCachedResources) do
+		--print("Ressource Index", index-1)
+		if tResourceData.ResourceClassType~="RESOURCECLASS_ARTIFACT" then
+			local row = {}
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Resources[index-1].ResourceType, "ResourceType", true)
+			if tOccurrenceIDs ~= false then
+				for _, jndex in ipairs(tOccurrenceIDs) do
+					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
+					--print(YieldNameToID(tCachedYieldChanges[jndex].YieldType), tCachedYieldChanges[jndex].YieldChange)
+				end
+				ResourceYieldsLookup[index-1] = row
+			end
+		end
+	end
+end
+
+function PopulateFeatureYields()
+	local tCachedFeatures = DB.Query("SELECT * FROM Features")
+	local tCachedYieldChanges = DB.Query("SELECT * FROM Feature_YieldChanges")
+	for index, tFeatureData in ipairs(tCachedFeatures) do
+		--print("Ressource Index", index-1)
+		if tFeatureData.Settlement==true and tFeatureData.Removable==false then
+			local row = {}
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, "FeatureType", true)
+			if tOccurrenceIDs ~= false then
+				for _, jndex in ipairs(tOccurrenceIDs) do
+					row[YieldNameToID(tCachedYieldChanges[jndex].YieldType)] = tCachedYieldChanges[jndex].YieldChange
+					--print(YieldNameToID(tCachedYieldChanges[jndex].YieldType), tCachedYieldChanges[jndex].YieldChange)
+				end
+				FeatureYieldsLookup[index-1] = row
+			end
+		end
+	end
+end
+
+function PopulateBugWonders()
+	local tCachedFeatures = DB.Query("SELECT * FROM Features")
+	local tCachedYieldChanges = DB.Query("SELECT * FROM Feature_AdjacentYields")
+	--print("Size", #tCachedYieldChanges)
+	for index, tFeatureData in ipairs(tCachedFeatures) do
+		if tFeatureData.NaturalWonder==true then
+			--print("PopulateBugWonders evaluates:", index, GameInfo.Features[index-1].FeatureType)
+			local tOccurrenceIDs = IDToPos(tCachedYieldChanges, GameInfo.Features[index-1].FeatureType, "FeatureType", true)
+			if tOccurrenceIDs ~= false then
+				local bControl = false
+				for _, jndex in ipairs(tOccurrenceIDs) do
+					if tCachedYieldChanges[jndex].YieldType == "YIELD_FOOD" or tCachedYieldChanges[jndex].YieldType == "YIELD_PRODUCTION" then
+						bControl = true
+					end
+				end
+				if bControl then
+					RelevantBugWonders[index-1] = true
+					--print("Added")
+				end
+			end
+		end
+	end
+end
+-- ==========================================================================
+-- Setting Up data to easily deal with communism(legacy) workers
+-- ==========================================================================
+--local tSpecialistBuildingIDs = {}
+--[==[
+function PopulateSpecialistBuildingIDs()
+	local tCachedBuildings = DB.Query("SELECT * FROM Buildings")
+	for i = 1,7 do
+		local row = {}
+		for j=1,3 do
+			local sSearchString = "BUILDING_"..WorkerDictionary(i).."_"..tostring(j)
+			local iSearchID = IDToPos(tCachedBuildings, sSearchString, "BuildingType")
+			print("IDToPos found index", iSearchID)
+			if iSearchID ~= false then
+				row[j] = iSearchID-1
+			end
+		end
+		tSpecialistBuildingIDs[i] = row
+	end
+end
+]==]--
 -- ===========================================================================
 --	Function
 -- ===========================================================================
@@ -65,14 +179,14 @@ function OnGameTurnStarted( turn:number )
 	Check_Barbarians()
 end
 
-function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
+function OnBasilCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
 	if(attackerPlayerID == NO_PLAYER 
 		or defenderPlayerID == NO_PLAYER) then
 		return;
 	end
 
 	local pAttackerPlayer = Players[attackerPlayerID];
-	print("AttackerID",attackerPlayerID);
+	--print("AttackerID",attackerPlayerID);
 	local pAttackerReligion = pAttackerPlayer:GetReligion()
 	local pAttackerLeader = PlayerConfigurations[attackerPlayerID]:GetLeaderTypeName()
 	local pDefenderPlayer = Players[defenderPlayerID];
@@ -95,13 +209,40 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 			local power = pDefendingUnit:GetCombat()
 			if x ~= nil and y ~= nil and power ~= nil and religionType ~= nil and religionType ~= -1 then
 				ApplyByzantiumTrait(x,y,power,religionType,attackerPlayerID)
-				print('Basil Spread Applied')
+				--print('Basil Spread Applied')
 			end
+		end
+	end
+end
+
+function OnMonkCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
+	if(attackerPlayerID == NO_PLAYER 
+		or defenderPlayerID == NO_PLAYER) then
+		return;
+	end
+
+	local pAttackerPlayer = Players[attackerPlayerID];
+	--print("AttackerID",attackerPlayerID);
+	local pAttackerReligion = pAttackerPlayer:GetReligion()
+	local pAttackerLeader = PlayerConfigurations[attackerPlayerID]:GetLeaderTypeName()
+	local pDefenderPlayer = Players[defenderPlayerID];
+	local pAttackingUnit :object = attackerUnitID ~= NO_UNIT and pAttackerPlayer:GetUnits():FindID(attackerUnitID) or nil;
+	local pDefendingUnit :object = defenderUnitID ~= NO_UNIT and pDefenderPlayer:GetUnits():FindID(defenderUnitID) or nil;
+	local pAttackingDistrict :object = attackerDistrictID ~= NO_DISTRICT and pAttackerPlayer:GetDistricts():FindID(attackerDistrictID) or nil;
+	local pDefendingDistrict :object = defenderDistrictID ~= NO_DISTRICT and pDefenderPlayer:GetDistricts():FindID(defenderDistrictID) or nil;
+	
+	-- Attacker died to defender.
+	if(pAttackingUnit ~= nil and pDefendingUnit ~= nil and (pDefendingUnit:IsDead() or pDefendingUnit:IsDelayedDeath())) then
+		local religionType = pAttackerReligion:GetReligionTypeCreated()
+		--print("Religion",religionType)
+		if religionType==nil or religionType==-1 then
+			religionType = pAttackerReligion:GetReligionInMajorityOfCities()
+		end
 		--Applying same kind of modifier as Basil to monk disciples
-		elseif GameInfo.Units[pAttackingUnit:GetType()].UnitType == 'UNIT_WARRIOR_MONK' and pAttackerLeader ~= "LEADER_BASIL" then
+		if GameInfo.Units[pAttackingUnit:GetType()].UnitType == 'UNIT_WARRIOR_MONK' and pAttackerLeader ~= "LEADER_BASIL" then
 			--print('Monk Detected')
 			local unitExperience = pAttackingUnit:GetExperience();
-			print(unitExperience)
+			--print(unitExperience)
 			if unitExperience~=nil then
 				--print('Pass1', unitExperience)
 				local bHasDisciples = unitExperience:HasPromotion(103);
@@ -111,12 +252,28 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 				local power = pDefendingUnit:GetCombat()
 				if bHasDisciples == true and x ~= nil and y ~= nil and religionType ~= nil and religionType ~= -1 then 
 					ApplyByzantiumTrait(x,y,power,religionType,attackerPlayerID)
-					print('Monk Spread Applied')
+					--print('Monk Spread Applied')
 				end
 			end
 		end
 	end
-	
+end
+
+function OnGilgaCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
+	if(attackerPlayerID == NO_PLAYER 
+		or defenderPlayerID == NO_PLAYER) then
+		return;
+	end
+
+	local pAttackerPlayer = Players[attackerPlayerID];
+	--print("AttackerID",attackerPlayerID);
+	local pAttackerReligion = pAttackerPlayer:GetReligion()
+	local pAttackerLeader = PlayerConfigurations[attackerPlayerID]:GetLeaderTypeName()
+	local pDefenderPlayer = Players[defenderPlayerID];
+	local pAttackingUnit :object = attackerUnitID ~= NO_UNIT and pAttackerPlayer:GetUnits():FindID(attackerUnitID) or nil;
+	local pDefendingUnit :object = defenderUnitID ~= NO_UNIT and pDefenderPlayer:GetUnits():FindID(defenderUnitID) or nil;
+	local pAttackingDistrict :object = attackerDistrictID ~= NO_DISTRICT and pAttackerPlayer:GetDistricts():FindID(attackerDistrictID) or nil;
+	local pDefendingDistrict :object = defenderDistrictID ~= NO_DISTRICT and pDefenderPlayer:GetDistricts():FindID(defenderDistrictID) or nil;	
 	-- Gilga XP Sharing, Gilga is not attacker or defender
 	local pDiplomacyAttacker:table = pAttackerPlayer:GetDiplomacy();
 	local pDiplomacyDefender:table = pDefenderPlayer:GetDiplomacy();
@@ -141,7 +298,7 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 						local unitGilgaPlot = Map.GetPlot(unit:GetX(), unit:GetY())
 						local iGilgaPlotIndex = unitGilgaPlot:GetIndex()
 						local distance_check =  Map.GetPlotDistance(iPlotIndex, iGilgaPlotIndex);
-						print("OnCombat - distance_check ",distance_check, UnitManager.GetTypeName(unit))
+						--print("OnCombat - distance_check ",distance_check, UnitManager.GetTypeName(unit))
 						if distance_check ~= nil and distance_check > -1 then
 							if distance_check < iTrait_GilgameshXPRange then
 								ApplyGilgameshTrait_XP(iPlayerID,unit,unitGilgaPlot,false)
@@ -168,7 +325,7 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 						local unitGilgaPlot = Map.GetPlot(unit:GetX(), unit:GetY())
 						local iGilgaPlotIndex = unitGilgaPlot:GetIndex()
 						local distance_check =  Map.GetPlotDistance(iPlotIndex, iGilgaPlotIndex);
-						print("OnCombat - distance_check ",distance_check, UnitManager.GetTypeName(unit))
+						--print("OnCombat - distance_check ",distance_check, UnitManager.GetTypeName(unit))
 						if distance_check ~= nil and distance_check > -1 then
 							if distance_check < iTrait_GilgameshXPRange then
 								ApplyGilgameshTrait_XP(iPlayerID,unit,unitGilgaPlot,false)
@@ -200,7 +357,7 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 							local unitGilgaPlot = Map.GetPlot(unit:GetX(), unit:GetY())
 							local iGilgaPlotIndex = unitGilgaPlot:GetIndex()
 							local distance_check =  Map.GetPlotDistance(iPlotIndex, iGilgaPlotIndex);
-							print("OnCombat - distance_check ",distance_check, UnitManager.GetTypeName(unit))
+							--print("OnCombat - distance_check ",distance_check, UnitManager.GetTypeName(unit))
 							if distance_check ~= nil and distance_check > -1 then
 								if distance_check < iTrait_GilgameshXPRange then
 									ApplyGilgameshTrait_XP(iPlayerID,unit,unitGilgaPlot,true)
@@ -231,7 +388,7 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 							local unitGilgaPlot = Map.GetPlot(unit:GetX(), unit:GetY())
 							local iGilgaPlotIndex = unitGilgaPlot:GetIndex()
 							local distance_check =  Map.GetPlotDistance(iPlotIndex, iGilgaPlotIndex);
-							print("OnCombat - distance_check ",distance_check, UnitManager.GetTypeName(unit))
+							--print("OnCombat - distance_check ",distance_check, UnitManager.GetTypeName(unit))
 							if distance_check ~= nil and distance_check > -1 then
 								if distance_check < iTrait_GilgameshXPRange then
 									ApplyGilgameshTrait_XP(iPlayerID,unit,unitGilgaPlot,true)
@@ -247,8 +404,8 @@ function OnCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defe
 
 end
 
-function OnPillage(iUnitPlayerID :number, iUnitID :number, eImprovement :number, eBuilding :number, eDistrict :number, iPlotIndex :number)
-	print("OnPillage",iUnitPlayerID)
+function OnGilgaPillage(iUnitPlayerID :number, iUnitID :number, eImprovement :number, eBuilding :number, eDistrict :number, iPlotIndex :number)
+	--print("OnPillage",iUnitPlayerID)
 	if(iUnitPlayerID == NO_PLAYER) then
 		return;
 	end
@@ -293,7 +450,7 @@ function OnPillage(iUnitPlayerID :number, iUnitID :number, eImprovement :number,
 						local unitGilgaPlot = Map.GetPlot(unit:GetX(), unit:GetY())
 						local iGilgaPlotIndex = unitGilgaPlot:GetIndex()
 						local distance_check =  Map.GetPlotDistance(iPlotIndex, iGilgaPlotIndex);
-						print("OnPillage - distance_check ",distance_check, UnitManager.GetTypeName(unit))
+						--print("OnPillage - distance_check ",distance_check, UnitManager.GetTypeName(unit))
 						if distance_check ~= nil and distance_check > -1 then
 							if distance_check < iTrait_GilgameshPillageRange then
 								ApplyGilgameshTrait_Pillage(iPlayerID,iUnitID,unitGilgaPlot,eImprovement,eBuilding,eDistrict)
@@ -310,10 +467,12 @@ end
 
 --exp bug fix for upgradable units that start with 1 free promotion (Nau Janissary Malon, in general MODIFIER_PLAYER_UNIT_ADJUST_GRANT_EXPERIENCE applied to units)
 --Author: FlashyFeeds
+function OnUIPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
+	GameEvents.GameplayPromotionFixExp.Call(iUnitPlayerID, iUnitID)
+end
 
-function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
-	print("OnPromoitionFixExp",iUnitPlayerID, iUnitID);
-
+function OnGameplayPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
+	--print("OnPromoitionFixExp",iUnitPlayerID, iUnitID);
 	local pUnitPlayer :object = Players[iUnitPlayerID];
 	if(pUnitPlayer == nil) then
 		return;
@@ -353,7 +512,7 @@ function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
 		pUnitExp:ChangeExperience(expVal);
 	end
 end
-
+-- Caesar
 function OnCityBuilt(iPlayerID, iCityID, iX, iY)
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
@@ -368,11 +527,11 @@ function OnCityBuilt(iPlayerID, iCityID, iX, iY)
 	end
 	local pCityAlt = CityManager.GetCity(iPlayerID, iCityID)
 	if pCityAlt == nil then
-		print("Event published by non-owner")
+		--print("Event published by non-owner")
 		return
 	end
 	if pCityAlt ~= pCity then
-		print("Cities don't match, strange")
+		--print("Cities don't match, strange")
 		return
 	end
 	local pPlot = Map.GetPlot(iX, iY)
@@ -383,7 +542,7 @@ end
 function OnCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 	local pNewOwner = Players[iNewOwnerID]
 	local pOldOwner = Players[iOldOwnerID]
-	print("New "..tostring(iNewOwnerID).." Old: "..tostring(iOldOwnerID))
+	--print("New "..tostring(iNewOwnerID).." Old: "..tostring(iOldOwnerID))
 	if pOldOwner:IsMajor()~= true then 
 		return
 	end
@@ -394,7 +553,190 @@ function OnCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 	if pPlot:GetProperty("CS_CAPITAL_BBG")~=1 then
 		pPlot:SetProperty("CAESAR_MAJOR_RECONQUEST_BBG",1)
 	end
-	print("Reconquest Property Set for"..tostring(CityManager.GetCityAt(iX, iY):GetName()))
+	--print("Reconquest Property Set for"..tostring(CityManager.GetCityAt(iX, iY):GetName()))
+end
+
+function OnUnitInitialized(iPlayerId, iUnitId)
+	--print("OnUnitInitialized started")
+	local pUnit = UnitManager.GetUnit(iPlayerId, iUnitId)
+	if pUnit == nil then
+		return
+	end
+	--print(iUnitId)
+	--print(pUnit:GetType())
+	--print("Unit", GameInfo.Units[pUnit:GetType()].UnitType)
+	--print("Check for 0 movement")
+	--print("Moves", pUnit:GetMovesRemaining())
+	if pUnit:GetMovesRemaining() ~= 0 then
+		UnitManager.RestoreMovement(pUnit)
+		UnitManager.RestoreUnitAttacks(pUnit)
+		--print("Moves Restored")
+	end
+end
+--Macedon (Reminder to Optimize those hooks)
+function OnMacedonConqueredACity(iNewOwnerID, iOldOwnerID, iCityID, iX, iY) -- refresh macedon trait as game property
+	--print("OnMacedonConqueredACity started")
+	local pNewOwner = Players[iNewOwnerID]
+	local pOldOwner = Players[iOldOwnerID]
+	--print("New "..tostring(iNewOwnerID).." Old: "..tostring(iOldOwnerID))
+	if PlayerConfigurations[iNewOwnerID]:GetCivilizationTypeName() ~= "CIVILIZATION_MACEDON" then
+		--print("Not Macedon CityConquered -> return")
+		return
+	end
+	if iOldOwnerID >= 60 then -- barbs and free cities
+		return
+	end
+	local nGameTurn = Game.GetCurrentGameTurn()
+	local tMacedon = {}
+	tMacedon.MacedonID = iNewOwnerID
+	tMacedon.nExpireTurn = nGameTurn+5
+	--print("MacedonID, nExpireTurn", tMacedon.MacedonID, tMacedon.nExpireTurn)
+	Game:SetProperty("MACEDON_CONQUEST", tMacedon)
+	--print("Game Property Set")
+	local pMacedonCities = pNewOwner:GetCities()
+	for i, pCity in pMacedonCities:Members() do
+		if pCity ~= nil then 
+			local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
+			if pPlot~=nil then
+				pPlot:SetProperty("GETS_MACEDON_20", 1)
+				--print("Macedon Plot Property Set for pCity", pCity)
+			end
+		end
+	end
+end
+
+function OnGameTurnStartedCheckMacedon(iPlayerID) --nil macedon property when time's up
+	--print("OnGameTurnStartedCheckMacedon started")
+	local nCurrentTurn = Game.GetCurrentGameTurn()
+	local tMacedon = Game:GetProperty("MACEDON_CONQUEST")
+	if tMacedon == nil then
+		--print("No Macedon Game Prop")
+		return
+	end
+	local pPlayer = Players[tMacedon.MacedonID]
+	local pPlayerCities = pPlayer:GetCities()
+	if nCurrentTurn>=tMacedon.nExpireTurn then
+		--print("Macedon End loop")
+		for i, pCity in pPlayerCities:Members() do
+			if pCity~=nil then
+				local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
+				if pPlot~=nil then 
+					pPlot:SetProperty("GETS_MACEDON_20", nil)
+					--print("Macedon plot Property removed for pCity", pCity)
+				end
+			end
+		end
+		Game:SetProperty("MACEDON_CONQUEST", nil)
+		--print("Macedon Game Property Removed")
+	else
+		--print("Macedon Properties Stay")
+	end
+end
+
+function OnMacedonCitySettled(iPlayerID, iCityID, iX, iY)
+	--print("OnMacedonCitySettled called")
+	if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()~= "CIVILIZATION_MACEDON" then
+		return
+	end
+	local tMacedon = Game:GetProperty("MACEDON_CONQUEST")
+	if tMacedon==nil then
+		--print("No Macedon Game prop -> exit")
+		return
+	end
+	local pPlot = Map.GetPlot(iX, iY)
+	if pPlot == nil then
+		return
+	end
+	pPlot:SetProperty("GETS_MACEDON_20", 1)
+	--print("New City Macedon plot property set", pCity)
+end
+
+--nulling out those inca plot properties
+function OnIncaCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
+	if PlayerConfigurations[iOldOwnerID]:GetCivilizationTypeName() ~= "CIVILIZATION_INCA" then
+		return
+	end
+	local pCity = Map.GetCityInPlot(iX, iY)
+	local pStartPlot = Map.GetPlot(iX,iY)
+	for i = 0, 35 do
+		local pPlot = GetAdjacentTiles(pStartPlot, i)
+		if pPlot ~= nil then
+			if Cities.GetPlotPurchaseCity(pPlot) == pCity then
+				if pPlot:IsImpassable() and pPlot:GetFeatureType()~=-1 and pPlot:GetFeatureType()~=34 then
+					for i = 0,5 do
+						pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nil)
+					end
+				end
+			end
+		end
+	end
+end
+
+--Base Game Wonder Bug
+function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pCity = CityManager.GetCityAt(iX,iY)
+	if pCity == nil then
+		return
+	end
+	--faraxis food prod bug
+	local bControl = false
+	for i = 0,5 do
+		local pAdjPlot = Map.GetAdjacentPlot(iX, iY, i);
+		if pAdjPlot ~= nil then
+			local iFeatureType = pAdjPlot:GetFeatureType()
+			if iFeatureType~=-1 and iFeatureType ~= nil then
+				--print("Evaluating: "..GameInfo.Features[iFeatureType].FeatureType.." With result")
+				--print(RelevantBugWonders[iFeatureType])
+			end
+			if RelevantBugWonders[iFeatureType] == true then
+				bControl = true
+			end
+		end
+	end
+	local pPlot = Map.GetPlot(iX, iY)
+	local tBasePlotYields = CalculateBaseYield(pPlot)
+	if bControl then
+		for i =0,1 do
+			--print("Base bug: Evaluating Yield: "..tostring(GameInfo.Yields[i].YieldType))
+			local nAddedYieldDiff = tBaseGuaranteedYields[i] - tBasePlotYields[i]
+			if nAddedYieldDiff>0 then
+				--print("Base bug: Firaxis city center added diff "..tostring(nAddedYieldDiff))
+				local nBaseFullTileYield = pPlot:GetYield(i)+nAddedYieldDiff
+				--print("Base bug: Firaxis city center nBaseFullTileYield"..tostring(nBaseFullTileYield))
+				pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nBaseFullTileYield)
+				local nTrueYield = math.max(pPlot:GetYield(i), tBaseGuaranteedYields[i])
+				--print("Base bug: Firaxis city center nTrueYield "..tostring(nTrueYield))
+				local nExtraYield = nBaseFullTileYield - nTrueYield
+				if nExtraYield > 0 then
+					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield)
+					--print("Base bug: Firaxis city center nExtraYield"..tostring(nExtraYield))
+				end
+				--BCY so this doesn't happen on any version
+				local bDoBCYCheck = false
+				if GameConfiguration.GetValue("BBCC_SETTING")==0 then
+					bDoBCYCheck = true
+				elseif GameConfiguration.GetValue("BBCC_SETTING") == 1 and Players[pCity:GetOwner()]:GetCities():GetCapitalCity()==pCity then
+					bDoBCYCheck = true
+				end
+				if bDoBCYCheck == true and nExtraYield>0 then
+					local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
+					--print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
+					local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
+					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield+nExtraBCYYield)
+					--print("Extra Yield set to "..tostring(nExtraYield+nExtraBCYYield))
+				end
+			end
+		end
+	end
+	--BCY settled cities (inside this function to controll execution order)
+	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
+		--print("OnCityBuiltBCY started")
+		BCY_RecalculateMapYield(iX, iY)
+	end
 end
 
 -- function OnTechBoost(playerID, iTechBoosted)
@@ -417,7 +759,7 @@ end
 -- ===========================================================================
 
 function ApplyHammurabiTrait(playerID, iTechBoosted)
-	print("ApplyHammurabiTrait",playerID, iTechBoosted)
+	--print("ApplyHammurabiTrait",playerID, iTechBoosted)
 	local pPlayer = Players[playerID]
 	if (pPlayer == nil) or (iTechBoosted == nil) or (iTechBoosted < 0) then
 		return
@@ -462,7 +804,7 @@ function ApplyHammurabiTrait(playerID, iTechBoosted)
 			if cost ~= nil and iSpeedCostMultiplier ~= nil then
 				cost = cost * iSpeedCostMultiplier/100
 			end
-			print("ApplyHammurabiTrait bNotGainedViaTeam == true",bNotGainedViaTeam,TechBoosted.Index,cost)
+			--print("ApplyHammurabiTrait bNotGainedViaTeam == true",bNotGainedViaTeam,TechBoosted.Index,cost)
 			pPlayerTechs:SetResearchProgress(TechBoosted.Index,cost)
 			return
 		end
@@ -475,11 +817,11 @@ end
 -- ===========================================================================
 function ApplyByzantiumTrait(x,y,power,religionType,playerID)
 	if x == nil or y == nil or power == nil or religionType == nil then
-		print(x,y,power,religionType, playerID)
+		--print(x,y,power,religionType, playerID)
 		return
 	end
 	local religionInfo = GameInfo.Religions[religionType]
-	--print("Religion Spread Satred with",x,y,power,religionType,playerID)
+	----print("Religion Spread Satred with",x,y,power,religionType,playerID)
 	local pPlot = Map.GetPlot(x, y)
 	for i = 0, iReligion_ByzantiumRange do
 		local plotScanned = GetAdjacentTiles(pPlot, i)
@@ -685,7 +1027,7 @@ function ApplyScientificTheory(iPlayerID:number)
 			local iCityReligion = pCityReligion:GetMajorityReligion()
 			if iCityReligion ~= iMainReligion then
 				pCity:GetReligion():AddReligiousPressure(iPlayerID, iCityReligion, iReligion_ScientificDecay, -1);
-				print("Reduced Religious Pressure in", pCity:GetName())
+				--print("Reduced Religious Pressure in", pCity:GetName())
 			end
 		end
 	end	
@@ -701,7 +1043,7 @@ function Check_DominationVictory()
 	local hasWon = false
 	local victoryTeam = -99
 	local iDomination_level = 1
-	print("TRADITIONAL_DOMINATION_LEVEL",GameConfiguration.GetValue("VICTORY_TRADITIONAL_DOMINATION"))
+	--print("TRADITIONAL_DOMINATION_LEVEL",GameConfiguration.GetValue("VICTORY_TRADITIONAL_DOMINATION"))
 	if GameConfiguration.GetValue("VICTORY_TRADITIONAL_DOMINATION") == false or GameConfiguration.GetValue("VICTORY_TRADITIONAL_DOMINATION") == nil then
 		return
     else
@@ -761,7 +1103,7 @@ function Check_DominationVictory()
 			local pCapCity = pPlayer:GetCities():GetCapitalCity()
 			if pCapCity ~= nil then
 				-- Add Victory Flag
-				print("Add Victory Flag",playerID)
+				--print("Add Victory Flag",playerID)
 				local flag = GameInfo.Buildings["BUILDING_TRADITIONAL_DOMINATION_VICTORY_FLAG"]
 				if pCapCity:GetBuildings():HasBuilding(flag.Index) == false then
 					pCapCity:GetBuildQueue():CreateBuilding(flag.Index)
@@ -790,7 +1132,7 @@ function Check_Barbarians()
 	local currentTurn = Game.GetCurrentGameTurn()
 	local startTurn = GameConfiguration.GetStartTurn()
 	if currentTurn == startTurn + 1 then
-		print("Original Barb Placement")
+		--print("Original Barb Placement")
 		PlaceOriginalBarbCamps()
 		return
 		elseif currentTurn < startTurn + 3 then
@@ -824,15 +1166,15 @@ function Check_Barbarians()
 	rng = rng / 100	
 		
 	if currentCamps < maxCamps and rng < iBarbs_Spawn_Chance then
-		print("Total Camp",currentCamps,maxCamps,"Will Add a Barb Camp")
+		--print("Total Camp",currentCamps,maxCamps,"Will Add a Barb Camp")
 		AddBarbCamps()
 		else
-		print("Total Camp",currentCamps,maxCamps,"No need to add Camp")
+		--print("Total Camp",currentCamps,maxCamps,"No need to add Camp")
 	end
 end
 
 function AddBarbCamps()
-	print("		AddBarbCamps()")			
+	--print("		AddBarbCamps()")			
 	local rng = RandRange(1, 100, "BBG - AddBarbCamps()");
 	rng = rng / 100
 	local iCount = Map.GetPlotCount();
@@ -1063,7 +1405,7 @@ function AddBarbCamps()
 		
 	table.sort (BarbBalance, function(a, b) return (((a.team_score == b.team_score) and (a.score < b.score)) or ((a.team_score < b.team_score))); end)
 	for i, score in ipairs(BarbBalance) do 
-		print("BARB: TEAM",score.team,score.team_score,"ID",score.id,score.score,PlayerConfigurations[score.id]:GetLeaderTypeName())
+		--print("BARB: TEAM",score.team,score.team_score,"ID",score.id,score.score,PlayerConfigurations[score.id]:GetLeaderTypeName())
 	end
 	-- Place going for the least impacted player so far:
 	for i, score in ipairs(BarbBalance) do 
@@ -1100,7 +1442,7 @@ function PlaceOriginalBarbCamps()
 	local base = PlayerManager.GetAliveMajorsCount()
 	base = tonumber(base)
 	local placed_camps = 0
-	print("PlaceOriginalBarbCamps()",base,BarbsSetting)
+	--print("PlaceOriginalBarbCamps()",base,BarbsSetting)
 	if base > 0 then
 		local iCount = Map.GetPlotCount();
 		local validPlots = {};
@@ -1225,7 +1567,7 @@ function PlaceBarbarianCamp(x, y, playerID, tribeType)
 		local plotScanned = GetAdjacentTiles(pPlot, i)
 		if plotScanned ~= nil then
 			if plotScanned:GetImprovementType() == BARB_CAMP_ID then
-				print("Already has a Barbarian Camp Nearby")
+				--print("Already has a Barbarian Camp Nearby")
 				return
 			end
 		end
@@ -1239,7 +1581,7 @@ function PlaceBarbarianCamp(x, y, playerID, tribeType)
 
 
    local iTribeNumber = pBarbManager:CreateTribeOfType(tribeType, pPlot:GetIndex());
-	print("Placed Barbarian camp at",x,y,playerID,tribeType)
+	--print("Placed Barbarian camp at",x,y,playerID,tribeType)
 	if Game.GetProperty("BARB_"..targetId.."_"..targetTeam ) == nil or tonumber(Game.GetProperty("BARB_"..targetId.."_"..targetTeam )) == nil then
 		Game.SetProperty("BARB_"..targetId.."_"..targetTeam ,1)
 		else
@@ -1259,14 +1601,618 @@ function InitBarbData()
 	end	
 end
 
+-- ===========================================================================
+-- UIToGameplay Scripts
+-- ===========================================================================
+-- Inca
+function OnUISetPlotProperty(iPlayerId, tParameters)
+	--print("UISetPlotProperty triggered")
+	GameEvents.GameplaySetPlotProperty.Call(iPlayerID, tParameters)
+end
 
+function OnGameplaySetPlotProperty(iPlayerID, tParameters)
+	--print("OnGameplaySetPlotProperty started")
+	local pPlot = Map.GetPlot(tParameters.iX, tParameters.iY)
+	local tYields = tParameters.Yields
+	for i=0, 5 do
+		if tYields[i]>0 then
+			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), tYields[i])
+			--print("Property for "..GameInfo.Yields[i].YieldType.." set to "..tostring(tYields[i]))
+		end
+	end
+end
+-- Communism Specialists
+function OnUIBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+	--print("UIBBGWorkersChanged Triggered")
+	GameEvents.GameplayBBGWorkersChanged.Call(iPlayerID, iCityID, iX, iY)
+end
 
+LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
+
+function OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+	--print("BBG - OnGameplayBBGWorkersChanged triggered")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	pPlayer:SetProperty("HAS_COMMUNISM",true)
+	local pCity = CityManager.GetCity(iPlayerID, iCityID)
+	if pCity == nil then
+		return
+	end
+	CityRecalculateSpecialistBuildings(pCity)
+end
+
+function OnUIBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+	--print("UIBBGDestroyDummyBuildings Triggered")
+	GameEvents.GameplayBBGDestroyDummyBuildings.Call(iPlayerID, iCityID, iX, iY)
+end
+
+LuaEvents.UIBBGDestroyDummyBuildings.Add(OnUIBBGDestroyDummyBuildings)
+
+function OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+	--print("OnGameplayBBGDestroyDummyBuildings called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	pPlayer:SetProperty("HAS_COMMUNISM", false)
+	local pCity = CityManager.GetCity(iPlayerID, iCityID)
+	if pCity == nil then
+		return
+	end
+	local pCityPlot = Map.GetPlot(iX, iY)
+	for i=1,7 do
+		local sPropertyStr = "BUILDING_"..WorkerDictionary(i)
+		local nDummyVal = pCityPlot:GetProperty(sPropertyStr)
+		if nDummyVal ~= nil then
+			--print("Dummy With indicies detected", WorkerDictionary(i), nDummyVal)
+			pCityPlot:SetProperty(sPropertyStr, nil)
+			--print("Should be removed")
+		end
+	end
+	--print("Dummy buildings removed")
+end
+
+function OnUIBBGGovChanged(iPlayerID, iGovID)
+	--print("OnUIBBGGovChanged triggered")
+	GameEvents.GameplayBBGGovChanged.Call(iPlayerID, iGovID)
+end
+LuaEvents.UIBBGGovChanged.Add(OnUIBBGGovChanged)
+
+function OnGameplayBBGGovChanged(iPlayerID, iGovID)
+	--print("OnGameplayBBGGovChanged called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pPlayerCities = pPlayer:GetCities()
+	if iGovID == 8 then
+		for i, pCity in pPlayerCities:Members() do
+			local iX = pCity:GetX()
+			local iY = pCity:GetY()
+			local iCityID = pCity:GetID()
+			OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+		end
+	elseif pPlayer:GetProperty("HAS_COMMUNISM") then
+		for i, pCity in pPlayerCities:Members() do
+			local iX = pCity:GetX()
+			local iY = pCity:GetY()
+			local iCityID = pCity:GetID()
+			OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+		end
+	end
+end
+
+function OnPolicyChanged(iPlayerID, iPolicyID, bEnacted)
+	--print("Policy Changed Check for Communism")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	if iPolicyID == 105 then
+		--print("Communism Legacy Detected")
+		local pPlayerCities = pPlayer:GetCities()
+		for i, pCity in pPlayerCities:Members() do
+			local iCityID = pCity:GetID()
+			local iX = pCity:GetX()
+			local iY = pCity:GetY()
+			if bEnacted == true then
+				OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+			elseif bEnacted == false then
+				OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+			end
+		end
+	end
+	--print("Communism Legacy Yields Readjusted")
+end
+
+function GetCitySpecialists(pCity: object)
+	--print("BBG - fetching specialists")
+	if pCity==nil then
+		return print("Nil input")
+	end
+	local tWorkers = {}
+	for i = 1,7 do -- setting initial values
+ 		tWorkers[i] = 0
+	end
+	local pStartPlot = Map.GetPlot(pCity:GetX(),pCity:GetY())
+	for i = 0,35 do
+		local pPlot = GetAdjacentTiles(pStartPlot, i)
+		if pPlot~=nil then
+			if Cities.GetPlotPurchaseCity(pPlot) == pCity then --plot owned by city
+				local iDistrictID = pPlot:GetDistrictType()
+				--print("District:", iDistrictID)
+				if iDistrictID == 1 or iDistrictID == 17 then --holy site/lavra
+					--print("HolySite found worker count", pPlot:GetWorkerCount())
+					tWorkers[1] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 2 or iDistrictID == 22 or iDistrictID == 30 then --campus/seo/observatory
+					--print("Campus found worker count", pPlot:GetWorkerCount())
+					tWorkers[2] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 3 or iDistrictID == 21 or iDistrictID == 33 then -- encampmente/ikkanda/thanh
+					--print("Encampment found worker count", pPlot:GetWorkerCount())
+					tWorkers[3] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 4 or iDistrictID == 20 or iDistrictID == 28 then -- harbor/royal dockyard/cothon
+					--print("Harbor found worker count", pPlot:GetWorkerCount())
+					tWorkers[4] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 6 or iDistrictID == 29 then -- commercial/suguba
+					--print("Commercial found worker count", pPlot:GetWorkerCount())
+					tWorkers[5] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 8 or iDistrictID == 14 then --theater/acropolis
+					--print("Theater found worker count", pPlot:GetWorkerCount())
+					tWorkers[6] = pPlot:GetWorkerCount()
+				elseif iDistrictID == 9 or iDistrictID == 16 or iDistrictID == 32 then -- IZ/Hansa/Opi
+					--print("Industrial found worker count", pPlot:GetWorkerCount())
+					tWorkers[7] = pPlot:GetWorkerCount()
+				end
+			end
+		end
+	end
+	return tWorkers
+end
+
+function CityRecalculateSpecialistBuildings(pCity: object)
+	--print("BBG - recalculating specialist yields")
+	if pCity == nil then
+		return
+	end
+	local tWorkers = GetCitySpecialists(pCity)
+	--print("Workers:")
+	for i = 1,7 do 
+		--print(WorkerDictionary(i), tWorkers[i])
+	end
+	local pCityPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
+	for i=1,7 do
+		local nWorkers = tWorkers[i]
+		local sPropertyStr = "BUILDING_"..WorkerDictionary(i)
+		for j = 1,3 do
+			if j<= nWorkers then
+				--print("Doesn't have dummy building for j=", j)
+				local nDummyVal = pCityPlot:GetProperty(sPropertyStr)
+				if nDummyVal == nil then
+					pCityPlot:SetProperty(sPropertyStr, j)
+					--print("Dummy building added", sPropertyStr, j)
+				elseif nDummyVal<=j then
+					pCityPlot:SetProperty(sPropertyStr, j)
+					--print("Dummy building added", sPropertyStr, j)
+				end
+			elseif j>nWorkers and pCityPlot:GetProperty(sPropertyStr) == j then
+				--print("Dummy With indicies detected", WorkerDictionary(i), j)
+				if nWorkers == 0 then
+					pCityPlot:SetProperty(sPropertyStr, nil)
+					--print("Should be removed, set to nil")
+				elseif nWorkers>0 then
+					pCityPlot:SetProperty(sPropertyStr, nWorkers)
+					--print("Should be removed set to", nWorkers)
+				end
+			end
+		end
+	end
+end
+
+function WorkerDictionary(index: number)
+	local tWorkerDict={"HOLY","CAMP","ENCA","HARB","COMM", "THEA","INDU"}
+	return tWorkerDict[index]
+end
+
+--Amani
+function OnUISetAmaniProperty(iGovernorOwnerID, tAmani)
+	--print("OnUISetAmaniProperty called")
+	GameEvents.GameplaySetAmaniProperty.Call(iGovernorOwnerID, tAmani)
+end
+
+LuaEvents.UISetAmaniProperty.Add(OnUISetAmaniProperty)
+
+function OnGameplaySetAmaniProperty(iGovernorOwnerID, tAmani)
+	--print("OnGameplaySetAmaniProperty called")
+	local pPlayer = Players[iGovernorOwnerID]
+	if pPlayer == nil then
+		return
+	end
+	pPlayer:SetProperty("AMANI", tAmani)
+	Amani_RecalculatePlayer(pPlayer)
+end
+
+function OnUISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+	--print("OnUISetCSTrader called")
+	GameEvents.GameplaySetCSTrader.Call(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+end
+
+LuaEvents.UISetCSTrader.Add(OnUISetCSTrader)
+
+function OnGameplaySetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+	--print("OnGameplaySetCSTrader called")
+	local pPlayer = Players[iOriginPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pCity = CityManager.GetCity(iOriginPlayerID, iOriginCityID)
+	if pCity == nil then
+		return
+	end
+	local tCsTraders = pCity:GetProperty("CS_TRADERS")
+	if tCsTraders == nil then
+		tCsTraders = {}
+	end
+	--debug control
+	--if tCsTraders~= nil or tCsTraders~={} then
+		--for i, iMinorIDs in ipairs(tCsTraders) do
+			--print(pCity, "trader to", iMinorIDs)
+		--end
+	--end
+	if iTargetPlayerID > 0 then
+		--print("Adding CS ID to trader list")
+		table.insert(tCsTraders, iTargetPlayerID)
+		--debug lines
+		--if tCsTraders~= nil or tCsTraders~={} then
+			--for i, iMinorIDs in ipairs(tCsTraders) do
+				--print(pCity, "trader to", iMinorIDs)
+			--end
+		--end
+	elseif iTargetPlayerID<0 then
+		--print("Removing CS ID from trader list", 0-iTargetPlayerID)
+		local iRemovePos = IDToPos(tCsTraders, 0-iTargetPlayerID)
+		if iRemovePos~=false then
+			table.remove(tCsTraders, iRemovePos)
+		end
+		--debug lines
+		--if tCsTraders~= nil or tCsTraders~={} then
+			--for i, iMinorIDs in ipairs(tCsTraders) do
+				--print(pCity, "trader to", iMinorIDs)
+			--end
+		--end
+	end
+	pCity:SetProperty("CS_TRADERS", tCsTraders)
+	Amani_RecalculateCity(pPlayer, pCity)
+end
+
+function Amani_RecalculateCity(pPlayer, pCity)
+	--print("Amani_RecalculateCity called")
+	local tAmani = pPlayer:GetProperty("AMANI")
+	local tCsTraders = pCity:GetProperty("CS_TRADERS")
+	local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
+	local bAmaniCS = pPlot:GetProperty("AMANI_ESTABLISHED_CS")
+	local bTraderToAmani = pPlot:GetProperty("TRADER_TO_AMANI_CS")
+	if tAmani ~= nil then
+		--print("Player AMANI Property Detected")
+		local iMinorID = tAmani["iMinorID"]
+		--print("Amani iMinorID", iMinorID)
+		if tAmani.Status == 1 and bAmaniCS == nil then
+			pPlot:SetProperty("AMANI_ESTABLISHED_CS", 1) -- assign amani modifier control property
+			--print("Amani control Property assigned")
+		elseif (tAmani.Status == 0 or tAmani.Status == -1) and bAmaniCS == 1 then
+			pPlot:SetProperty("AMANI_ESTABLISHED_CS", nil) -- remove amani modifier control property
+			--print("Amani control property removed")
+		end
+		if tCsTraders ~= nil then
+			--print("City CS property Detected")
+			local vSearchResult = IDToPos(tCsTraders, iMinorID)
+			--debug lines
+			if tCsTraders~= nil or tCsTraders~={} then
+				for i, iMinorIDs in ipairs(tCsTraders) do
+					--print(pCity, "trader to", iMinorIDs)
+				end
+			end
+			--print("Search Result", vSearchResult)
+			--print("bTraderToAmani", bTraderToAmani)
+			if vSearchResult == false and bTraderToAmani == 1 then
+				pPlot:SetProperty("TRADER_TO_AMANI_CS", nil) --remove trader modifier control property
+				--print("trader control property removed")
+			elseif vSearchResult~=false and bTraderToAmani == nil then
+				pPlot:SetProperty("TRADER_TO_AMANI_CS", 1) -- assign trader modifier control property
+				--print("trader control property assigned")
+			end
+		end
+	end
+end
+
+function Amani_RecalculatePlayer(pPlayer)
+	--print("Amani_RecalculatePlayer called")
+	local pPlayerCities = pPlayer:GetCities()
+	for i, pCity in pPlayerCities:Members() do
+		Amani_RecalculateCity(pPlayer, pCity)
+	end
+end
+
+--Unifier
+function OnUIGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	--print("OnUIGPGeneralUnifierCreated called")
+	GameEvents.GameplayGPGeneralUnifierCreated.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+end
+
+function OnGameplayGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	--print("OnGameplayGPGeneralUnifierCreated called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
+	if pUnit == nil then
+		return
+	end
+	--local pUnitAbilities = pUnit:GetAbility()
+	--print("Extra charge", pUnitAbilities:GetAbilityCount("ABILITY_QIN_ALT_EXTRA_GENERAL_CHARGE"))
+	--pUnitAbilities:ChangeAbilityCount("ABILITY_QIN_ALT_EXTRA_GENERAL_CHARGE", 1)
+	--print("Extra charge", pUnitAbilities:GetAbilityCount("ABILITY_QIN_ALT_EXTRA_GENERAL_CHARGE"))
+
+	--local pPlot = Map.GetPlot(pUnit:GetX(), pUnit:GetY())
+	--pPlot:SetProperty('NOT_SUNTZU', 1);
+	--pPlayer:AttachModifierByID("BBG_LEADER_QIN_ALT_GENERAL_CHARGES")
+	--print("Charge added to iUnitID", iUnitID, "for player", iPlayerID, PlayerConfigurations[iPlayerID]:GetLeaderTypeName(), "General", GameInfo.GreatPersonIndividuals[iGPIndividualID].GreatPersonIndividualType)
+	--pPlot:SetProperty('NOT_SUNTZU', nil)
+	--print("Plot Property Removed")
+	if iGPIndividualID == 176 or iGPIndividualID == 74 or iGPIndividualID == 67 then
+		local tCoords = {}
+		tCoords["iX"] = pUnit:GetX()
+		tCoords["iY"] = pUnit:GetY()
+		tCoords["Retired"] = false
+		local sPropertyStr = "GENERAL_"..tostring(iGPIndividualID).."_COORDS"
+		pPlayer:SetProperty(sPropertyStr, tCoords)
+	end
+end
+
+function OnUINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	--print("OnUINotUnifierDeleteSunTzu called")
+	GameEvents.GameplayNotUnifierDeleteSunTzu.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+end
+
+function OnGameplayNotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	--print("OnGameplayNotUnifierDeleteSunTzu called")
+	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
+	if pUnit == nil then
+		return
+	end
+	UnitManager.Kill(pUnit)
+	--print("SunTzu removed for generic civ")
+end
+
+function OnUIUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
+	--print("OnUIUnifierTrackRelevantGenerals called")
+	GameEvents.GameplayUnifierTrackRelevantGenerals.Call(iPlayerID, iGPIndividualID, iX, iY)
+end
+
+function OnGameplayUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
+	--print("OnGameplayUnifierTrackRelevantGenerals called")
+	--print("iGPIndividualID, iX, iY", iGPIndividualID, iX, iY)
+	local pPlayer = Players[iPlayerID]
+	local sPropertyStr = "GENERAL_"..tostring(iGPIndividualID).."_COORDS"
+	if iX ~=-9999 or iY ~= -9999 then
+		local tCoords = {}
+		tCoords["iX"] = iX
+		tCoords["iY"] = iY
+		tCoords["Retired"] = false
+		pPlayer:SetProperty(sPropertyStr, tCoords)
+	else
+		local tCoords = pPlayer:GetProperty(sPropertyStr)
+		tCoords["Retired"] = true
+		pPlayer:SetProperty(sPropertyStr, tCoords)
+	end
+end
+
+function OnUIUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	--print("OnUIUnifierSameUnitUniqueEffect called")
+	GameEvents.GameplayUnifierSameUnitUniqueEffect.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+end
+
+function OnGameplayUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	--print("OnGameplayUnifierSameUnitUniqueEffect called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
+	if pUnit == nil then 
+		return
+	end
+	local sPropertyStr = "GENERAL_"..tostring(iGPIndividualID).."_COORDS"
+	local tCoords = pPlayer:GetProperty(sPropertyStr)
+	local pPlot = Map.GetPlot(tCoords.iX, tCoords.iY)
+	for i, pUnit in ipairs(Units.GetUnitsInPlot(pPlot)) do
+		if GameInfo.Units[pUnit:GetType()].FormationClass == "FORMATION_CLASS_LAND_COMBAT" then
+			local pUnitAbilities = pUnit:GetAbility()
+			if iGPIndividualID == 176 then
+				if pUnitAbilities:GetAbilityCount("ABILITY_TIMUR_BONUS_EXPERIENCE") == 2 then
+					pUnitAbilities:ChangeAbilityCount("ABILITY_TIMUR_BONUS_EXPERIENCE", -1)
+					pUnitAbilities:ChangeAbilityCount("ABILITY_TIMUR_BONUS_EXPERIENCE_QIN_ALT", 1)
+					--print("Timur extra set")
+				end
+			elseif iGPIndividualID == 67 then
+				if pUnitAbilities:GetAbilityCount("ABILITY_JOHN_MONASH_BONUS_EXPERIENCE") == 2 then
+					pUnitAbilities:ChangeAbilityCount("ABILITY_JOHN_MONASH_BONUS_EXPERIENCE", -1)
+					pUnitAbilities:ChangeAbilityCount("ABILITY_JOHN_MONASH_BONUS_EXPERIENCE_QIN_ALT", 1)
+					--print("Monash extra set")
+				end
+			elseif iGPIndividualID == 74 then
+				if pUnitAbilities:GetAbilityCount("ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE") == 2 then
+					pUnitAbilities:ChangeAbilityCount("ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE", -1)
+					pUnitAbilities:ChangeAbilityCount("ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE_QIN_ALT", 1)
+					--print("Vijaya Extra Set")
+				end
+			end
+		end
+	end
+	if tCoords["Retired"] == true then
+		pPlayer:SetProperty(sPropertyStr, nil)
+	end
+end
+
+function OnUIUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	--print("OnUIUnifierSamePlayerUniqueEffect called")
+	GameEvents.GameplayUnifierSamePlayerUniqueEffect.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+end
+
+function OnGameplayUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	--print("OnGameplayUnifierSamePlayerUniqueEffect called")
+	local pPlayer = Players[iPlayerID]
+	local nZhukovUsed = pPlayer:GetProperty("ZHUKOV_USED")
+	if nZhukovUsed == nil then
+		pPlayer:SetProperty("ZHUKOV_USED", 1)
+		--print("Zhukov use 1 detected")
+	elseif nZhukovUsed == 1 then
+		pPlayer:AttachModifierByID("GREATPERSON_GEORGY_ZHUKOV_ACTIVE_QIN_ALT")
+		pPlayer:SetProperty("ZHUKOV_USED", nil)
+		--print("Zhukov use 2 detected")
+	end
+end
+
+-- BCY
+function OnUIBCYAdjustCityYield(playerID, kParameters)
+	--print("BCY script called from UI event")
+	GameEvents.GameplayBCYAdjustCityYield.Call(playerID, kParameters)
+end
+
+function OnGameplayBCYAdjustCityYield(playerID, kParameters)
+	--print("Gameplay Script Called")
+	BCY_RecalculateMapYield(kParameters.iX, kParameters.iY)
+end
+
+if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
+	LuaEvents.UIBCYAdjustCityYield.Add(OnUIBCYAdjustCityYield)
+end
 -- ===========================================================================
 --	Tools
 -- ===========================================================================
+function CalculateBaseYield(pPlot: object)
+	local tCalculatedYields = {}
+	local iTerrain = pPlot:GetTerrainType()
+	local iResource = pPlot:GetResourceType()
+	local iFeature = pPlot:GetFeatureType()
+	for i =0, 5 do
+		tCalculatedYields[i] = GetYield("TERRAIN", iTerrain, i) + GetYield("RESOURCE", iResource, i) + GetYield("FEATURE", iFeature, i)
+	end
+	return tCalculatedYields
+end
+
+function GetYield(sObjecType: string, iObjID: number, iYieldID: number)
+	local yield = nil
+	if sObjecType == "TERRAIN" then
+		if TerrainYieldsLookup[iObjID] == nil then
+			yield = nil
+		else
+			yield = TerrainYieldsLookup[iObjID][iYieldID]
+		end
+	elseif sObjecType == "RESOURCE" then
+		if ResourceYieldsLookup[iObjID] == nil then
+			yield = nil
+		else 
+			yield = ResourceYieldsLookup[iObjID][iYieldID]
+		end
+	elseif sObjecType == "FEATURE" then
+		if FeatureYieldsLookup[iObjID] == nil then
+			yield = nil
+		else
+			yield = FeatureYieldsLookup[iObjID][iYieldID]
+		end
+	else
+		return print("ObjType Error")
+	end
+	if yield == nil then
+		return 0
+	else
+		return yield
+	end
+end
+
+function YieldNameToID(name: string)
+	local dict = {}
+	dict["YIELD_FOOD"] = 0
+	dict["YIELD_PRODUCTION"] = 1
+	dict["YIELD_GOLD"] = 2
+	dict["YIELD_SCIENCE"] = 3
+	dict["YIELD_CULTURE"] = 4
+	dict["YIELD_FAITH"] = 5
+	return dict[name]
+end	
+
+function ExtraYieldPropertyDictionary(iYieldId)
+	local YieldDict = {}
+	YieldDict[0] = "EXTRA_YIELD_FOOD"
+	YieldDict[1] = "EXTRA_YIELD_PRODUCTION"
+	YieldDict[2] = "EXTRA_YIELD_GOLD"
+	YieldDict[5] = "EXTRA_YIELD_FAITH"
+	YieldDict[4] = "EXTRA_YIELD_CULTURE"
+	YieldDict[3] = "EXTRA_YIELD_SCIENCE"
+	return YieldDict[iYieldId]
+end
+
+function FiraxisYieldPropertyDictionary(iYieldId)
+	local YieldDict = {}
+	YieldDict[0] = "FIRAXIS_YIELD_FOOD"
+	YieldDict[1] = "FIRAXIS_YIELD_PRODUCTION"
+	YieldDict[2] = "FIRAXIS_YIELD_GOLD"
+	YieldDict[5] = "FIRAXIS_YIELD_FAITH"
+	YieldDict[4] = "FIRAXIS_YIELD_CULTURE"
+	YieldDict[3] = "FIRAXIS_YIELD_SCIENCE"
+	return YieldDict[iYieldId]
+end
+
+function IDToPos(List, SearchItem, key, multi)
+	--print(SearchItem)
+	multi = multi or false
+	--print(multi)
+	key = key or nil
+	--print(key)
+	local results = {}
+	if List == {} then
+		return false
+	end
+    if SearchItem==nil then
+        return print("Search Error")
+    end
+    for i, item in ipairs(List) do
+    	if key == nil then
+    		--print(item)
+	        if item == SearchItem then
+	        	if multi then
+	        		table.insert(results, i)
+	        	else
+	            	return i;
+	            end
+	        end
+	    else
+	    	--print(item[key])
+	    	if item[key] == SearchItem then
+	        	if multi then
+	        		table.insert(results, i)
+	        	else
+	            	return i;
+	            end
+	    	end
+	    end
+    end
+    if results == {} or #results==0 or results==nil then
+    	return false
+    else
+    	--print("IDtoPos Results:")
+    	for _, item in ipairs(results) do
+    		--print(item)
+    	end
+    	return results
+    end
+end
 
 function GetAliveMajorTeamIDs()
-	print("GetAliveMajorTeamIDs()")
+	--print("GetAliveMajorTeamIDs()")
 	local ti = 1;
 	local result = {};
 	local duplicate_team = {};
@@ -1300,6 +2246,60 @@ function GetShuffledCopyOfTable(incoming_table)
 		left_to_do = left_to_do - 1;
 	end
 	return shuffledVersion
+end
+--BCY no rng recalculation support
+function BCY_RecalculateMapYield(iX, iY)
+	--print("BCY: Recalculating for X,Y"..tostring(iX)..","..tostring(iY))
+	local pCity = CityManager.GetCityAt(iX,iY)
+	--print("Check 0")
+	if pCity == nil then
+		return
+	end
+	--print("Check 1")
+	if GameConfiguration.GetValue("BBCC_SETTING") == 1 and Players[pCity:GetOwner()]:GetCities():GetCapitalCity()~=pCity then
+		return
+	end
+	--print("BCY no RNG: Yield Recalculation Started")
+	local pPlot = Map.GetPlot(iX, iY)
+	local iTerrain = pPlot:GetTerrainType()
+	local tBasePlotYields = CalculateBaseYield(pPlot)
+	local sControllString = ""
+	--flats
+	if iTerrain==0 or iTerrain==3 or iTerrain==6 or iTerrain==9 or iTerrain==12 then
+		sControllString = "Flat_CutOffYieldValues"
+	elseif iTerrain==1 or iTerrain==4 or iTerrain==7 or iTerrain==10 or iTerrain==13 then
+		sControllString = "Hill_CutOffYieldValues"
+	else
+		return
+	end 
+	for i=0,5 do
+		--print("Evaluated yield: "..GameInfo.Yields[i].YieldType)
+		--print("Base Plot Yield ", tBasePlotYields[i])
+		local nYield = 0
+		local nFiraxisFullTileYield  = pPlot:GetProperty(FiraxisYieldPropertyDictionary(i))
+		local nExtraYield = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
+		if nFiraxisFullTileYield == nil then
+			nFiraxisFullTileYield = math.max(pPlot:GetYield(i), tBaseGuaranteedYields[i])
+		else
+			nFiraxisFullTileYield = math.max(pPlot:GetYield(i), nFiraxisFullTileYield)
+		end
+		--print("Firaxis yield "..tostring(nFiraxisFullTileYield))
+		pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nFiraxisFullTileYield)
+		if nExtraYield == nil then
+			nExtraYield = 0
+		end
+		local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
+		--print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
+		local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
+		--print("Extra BCY yield "..tostring(nExtraBCYYield))
+		nYield = nFiraxisFullTileYield-nExtraYield + nExtraBCYYield
+		local nYieldDiff = nYield - GameInfo[sControllString][i].Amount
+		--print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
+		if nYieldDiff > 0 then
+			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nYieldDiff + nExtraYield)
+			--print("Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff+nExtraYield))
+		end
+	end
 end
 
 function GetAdjacentTiles(plot, index)
@@ -1815,7 +2815,7 @@ end
 -- ===========================================================================
 
 function GetAliveMajorTeamIDs()
-	print("GetAliveMajorTeamIDs()")
+	--print("GetAliveMajorTeamIDs()")
 	local ti = 1;
 	local result = {};
 	local duplicate_team = {};
@@ -2367,31 +3367,98 @@ end
 -- ===========================================================================
 
 function Initialize()
-
 	print("BBG - Gameplay Script Launched")
 	local currentTurn = Game.GetCurrentGameTurn()
 	local startTurn = GameConfiguration.GetStartTurn()
-	
+	PopulateTerrainYields()
+	print("BBG - terrain yields populated")
+	PopulateResourceYields()
+	print("BBG - ressource yields populated")
+	PopulateFeatureYields()
+	print("BBG - relevant feature yields populated")
+	PopulateBugWonders()
+	print("BBG - relevant Bug wonders populated")
 	if currentTurn == startTurn then
 		ApplySumeriaTrait()
 		--InitBarbData()
 	end
 	-- turn checked effects:
 	GameEvents.OnGameTurnStarted.Add(OnGameTurnStarted);
-
-	-- combat effect:
-	GameEvents.OnCombatOccurred.Add(OnCombatOccurred);
-	
-	-- pillage effect:
-	GameEvents.OnPillage.Add(OnPillage)
-	
+	print("BBG Barb Hooks Added")
+	print("BBG Domination Victory Hook Added")
+	-- monk spread
+	GameEvents.OnCombatOccurred.Add(OnMonkCombatOccurred);
+	print("BBG Monk Hook Added")
 	-- upgradable uu exp bug fix
-	Events.UnitPromoted.Add(OnPromotionFixExp);
+	LuaEvents.UIPromotionFixExp.Add(OnUIPromotionFixExp)
+	GameEvents.GameplayPromotionFixExp.Add(OnGameplayPromotionFixExp)
+	print("BBG Promotion bugfix hook added")
 	-- tech boost effect:
 	-- Events.TechBoostTriggered.Add(OnTechBoost);
-	-- Auxillary GameEvent for Caesar wildcard
-	GameEvents.CityBuilt.Add(OnCityBuilt);
-	GameEvents.CityConquered.Add(OnCityConquered)
+	-- Extra Movement bugfix
+	GameEvents.UnitInitialized.Add(OnUnitInitialized)
+	print("BBG Movement bugfix hook added")
+	-- Yield Adjustment hook
+	GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
+	print("BBG Fix firaxis wonder yield hook added")
+	-- communism
+	GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
+	GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
+	GameEvents.PolicyChanged.Add(OnPolicyChanged)
+	GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
+	print("BBG Communism Hooks Added")
+	--Amani
+	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
+	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
+	print("BBG Amani Gameplay hooks added")
+	--Delete Suntzu for not-Unifier
+	LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
+	GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
+	print("BBG Suntzu Gameplay Deletion hooks added")
+	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
+	for i, iPlayerID in ipairs(tMajorIDs) do
+		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_BASIL" then
+			--basil spread
+			GameEvents.OnCombatOccurred.Add(OnBasilCombatOccurred)
+			print("BBG Basil Hook Added")
+		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_GILGAMESH" then
+			--gilga pillage
+			GameEvents.OnPillage.Add(OnGilgaPillage)
+			GameEvents.OnCombatOccurred.Add(OnGilgaCombatOccurred)
+			print("BBG Gilga Hooks Added")
+		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
+			-- Inca Yields on non-mountain impassibles bugfix
+			LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
+			GameEvents.GameplaySetPlotProperty.Add(OnGameplaySetPlotProperty)
+			GameEvents.CityConquered.Add(OnIncaCityConquered)
+			print("BBG Inca Hooks Added")
+		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_JULIUS_CAESAR" then
+			-- Caesar wildcard
+			GameEvents.CityBuilt.Add(OnCityBuilt);
+			GameEvents.CityConquered.Add(OnCityConquered)
+			print("BBG Caesar Hooks Added")
+		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_MACEDON" then
+			--Macedon 20%
+			GameEvents.CityConquered.Add(OnMacedonConqueredACity)
+			GameEvents.OnGameTurnStarted.Add(OnGameTurnStartedCheckMacedon)
+			GameEvents.CityBuilt.Add(OnMacedonCitySettled)
+			print("BBG Macedon Hooks Added")
+		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
+			--Qin Unifier general bugfix
+			LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
+			LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
+			LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
+			LuaEvents.UIUnifierSamePlayerUniqueEffect.Add(OnUIUnifierSamePlayerUniqueEffect)
+			GameEvents.GameplayGPGeneralUnifierCreated.Add(OnGameplayGPGeneralUnifierCreated)
+			GameEvents.GameplayUnifierSameUnitUniqueEffect.Add(OnGameplayUnifierSameUnitUniqueEffect)
+			GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
+			GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
+			print("BBG Unifier Hooks Added")
+		end
+	end
+	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
+		GameEvents.GameplayBCYAdjustCityYield.Add(OnGameplayBCYAdjustCityYield)
+	end
 end
 
 Initialize();

@@ -2,13 +2,16 @@
 --== WONDERS ==
 --=============
 
--- cristo gets 1 relic
+-- cristo gets 1 relic + reduce cost
 INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , RunOnce , Permanent)
 	VALUES ('WONDER_GRANT_RELIC_BBG' , 'MODIFIER_PLAYER_GRANT_RELIC' , 1 , 1);	
 INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 	VALUES ('WONDER_GRANT_RELIC_BBG' , 'Amount' , '1');
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_CRISTO_REDENTOR', 'WONDER_GRANT_RELIC_BBG');
+
+UPDATE Buildings SET Cost=1220 WHERE BuildingType='BUILDING_CRISTO_REDENTOR';
+
 -- Hanging Gardens gives +1 housing to cities within 6 tiles
 UPDATE Buildings SET Housing='1' WHERE BuildingType='BUILDING_HANGING_GARDENS';
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType , ModifierId)
@@ -370,41 +373,128 @@ UPDATE Building_YieldChanges SET YieldChange=1 WHERE BuildingType='BUILDING_COLO
 -- Jabel Barkal - Increase strategics ressource storage by 20 (online speed).
 
 
--- Chichen Itza - Culture +1 for all jungle in the empire.
+-- Chichen Itza - Culture +2 / prod +1 for all jungle in the empire.
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_ADJUST_PLOT_YIELD' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_CULTURE';
+UPDATE Modifiers SET SubjectRequirementSetId='PLOT_HAS_JUNGLE_REQUIREMENTS' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_CULTURE';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('CHICHEN_ITZA_JUNGLE_CULTURE', 'YieldType', 'YIELD_CULTURE'),
+    ('CHICHEN_ITZA_JUNGLE_CULTURE', 'Amount', '2');
 
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_ADJUST_PLOT_YIELD' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_PRODUCTION';
+UPDATE Modifiers SET SubjectRequirementSetId='PLOT_HAS_JUNGLE_REQUIREMENTS' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_PRODUCTION';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('CHICHEN_ITZA_JUNGLE_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
+    ('CHICHEN_ITZA_JUNGLE_PRODUCTION', 'Amount', '1');
+--CHICHEN_ITZA_JUNGLE_CULTURE_MODIFIER and CHICHEN_ITZA_PRODUCTION_CULTURE_MODIFIER are not used anymore
 
--- Hagia Sophia - Religious pressure +200% for this city.
-
+-- Hagia Sophia - Missionaries/apostles recieve +2 movement and missionaries are 30% cheaper to purchase.
+INSERT INTO Modifiers (ModifierId , ModifierType) VALUES
+	('HAGIA_SOPHIA_GRANT_MISSIONARY_APOSTLE_MOVEMENT' , 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY'),
+	('HAGIA_SOPHIA_ADJUST_MISSIONARY_APOSTLE_MOVEMENT' , 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT'),
+	('HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT' , 'MODIFIER_PLAYER_CITIES_ADJUST_UNIT_PURCHASE_COST');
+INSERT INTO Types (Type, Kind) VALUES
+    ('ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT', 'KIND_ABILITY');
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT', 'CLASS_RELIGIOUS');
+INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive) VALUES
+    ('ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT', 'LOC_HAGIA_SOPHIA_MOVEMENT_ABILITY', 'LOC_HAGIA_SOPHIA_MOVEMENT_ABILITY', 1);
+INSERT INTO UnitAbilityModifiers (UnitAbilityType, ModifierId) VALUES
+    ('ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT', 'HAGIA_SOPHIA_ADJUST_MISSIONARY_APOSTLE_MOVEMENT');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('HAGIA_SOPHIA_GRANT_MISSIONARY_APOSTLE_MOVEMENT', 'AbilityType', 'ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT'),
+    ('HAGIA_SOPHIA_ADJUST_MISSIONARY_APOSTLE_MOVEMENT', 'Amount', '2'),
+    ('HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT', 'UnitType', 'UNIT_MISSIONARY'),
+    ('HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT', 'Amount', '30');
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+	('BUILDING_HAGIA_SOPHIA', 'HAGIA_SOPHIA_GRANT_MISSIONARY_APOSTLE_MOVEMENT'),
+	('BUILDING_HAGIA_SOPHIA', 'HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT');
 
 -- Kotoku-in - Increase strength of player warrior Monk.
 
+-- Mont St. Michel - Culture +1 for flood plains in the empire. (unless you wanna split this change amongst many dlc recreate the reqs and use abstract queries)
+CREATE TABLE Floodplains_tmp(
+	FloodplainType TEXT NOT NULL
+	);
+--populate
+INSERT INTO Floodplains_tmp(FloodplainType)
+	SELECT Features.FeatureType 
+	FROM Features WHERE FeatureType LIKE '%FLOODPLAINS%';
+--Create Reqs and Reqsets, use INSERT OR IGNORE to not clash with similar code
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
+	SELECT 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQ_BBG', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
+	FROM Floodplains_tmp;
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value)
+	SELECT 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQ_BBG', 'FeatureType', Floodplains_tmp.FloodplainType
+	FROM Floodplains_tmp;
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
+	SELECT 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQSET_BBG', 'REQUIREMENTSET_TEST_ALL'
+	FROM Floodplains_tmp;
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+	SELECT 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQSET_BBG', 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQ_BBG'
+	FROM Floodplains_tmp;
+--Modifiers
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+	SELECT 'MONT_ST_MICHEL_CULTURE_'||Floodplains_tmp.FloodplainType, 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQSET_BBG'
+	FROM Floodplains_tmp;
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+	SELECT 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType, 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQSET_BBG'
+	FROM Floodplains_tmp;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+	SELECT 'MONT_ST_MICHEL_CULTURE_'||Floodplains_tmp.FloodplainType, 'YieldType', 'YIELD_CULTURE'
+	FROM Floodplains_tmp;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+	SELECT 'MONT_ST_MICHEL_CULTURE_'||Floodplains_tmp.FloodplainType, 'Amount', '1'
+	FROM Floodplains_tmp;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+	SELECT 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType, 'YieldType', 'YIELD_FOOD'
+	FROM Floodplains_tmp;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+	SELECT 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType, 'Amount', '1'
+	FROM Floodplains_tmp;
+INSERT INTO BuildingModifiers (BuildingType, ModifierId)
+	SELECT 'BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_CULTURE_'||Floodplains_tmp.FloodplainType
+	FROM Floodplains_tmp;
+INSERT INTO BuildingModifiers (BuildingType, ModifierId)
+	SELECT 'BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType
+	FROM Floodplains_tmp;
+DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MONT_ST_MICHEL' AND ModifierId='MONT_ST_MICHEL_GRANT_MARTYR';
+DROP TABLE Floodplains_tmp;
 
--- Meenakshi Temple - Religious pressure +50% in Empire? (TODO: Check if Guru can heal Warrior Monk => Should)
+-- Great Zimbabwe - Give 2 trader capacity instead of 1
+UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREAT_ZIMBABWE_ADDTRADEROUTE';
 
+-- Orszaghaz +300% diplomatic favor for each turn starting as the suz of a city state (from +100%)
+UPDATE ModifierArguments SET Value='300' WHERE ModifierId='ORSZAGHAZ_DOUBLE_FAVOR_SUZERAIN';
 
--- Mont St. Michel - Awards a relic.
-
-
--- University of Sankore - Increase trade route yield given by wonder.
-
-
--- Great Zimbabwe
-
-
--- Orszaghaz
-
-
--- Taj Mahal
-
-
--- Torre de Belem - Remove free building to avoid conflict with dummy.
-
+-- Torre de Belem - International trade routes from any city recieve +2 gold for every luxury at the destination (from this city only).
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_CITIES_ADJUST_TRADE_ROUTE_YIELD_PER_DESTINATION_LUXURY_FOR_INTERNATIONAL' WHERE ModifierId='TORREDEBELEM_TRADE_GOLD_LUXURIES';
 
 -- Amundsen-Scott Research Station - +1 Science per snow tile in the city. Citizen can work snow tile for 3 science.
 
-
 -- Golden Gate Bridge
 
+-- Hermitage - GW inside double their tourism yields
+--INSERT INTO Modifiers (ModifierId , ModifierType, Permanent) VALUES
+--	('HERMITAGE_DOUBLE_TOURISM_GREAT_WORK', 'MODIFIER_PLAYER_ADJUST_GREAT_WORK_OBJECT_TOURISM', 1);
+--INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+--    ('HERMITAGE_DOUBLE_TOURISM_GREAT_WORK', 'Amount', '100');
+--INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+--	('BUILDING_HERMITAGE', 'HERMITAGE_DOUBLE_TOURISM_GREAT_WORK');
+INSERT OR IGNORE INTO Modifiers(ModifierId, ModifierType) VALUES
+	('THEMED_YIELD_MODIFIER', 'MODIFIER_PLAYER_ADJUST_THEMED_ALL_YIELDS'),
+	('THEMED_TOURISM_MODIFIER', 'MODIFIER_PLAYER_ADJUST_THEMED_TOURISM');
+INSERT OR IGNORE INTO ModifierArguments(ModifierId, Name, Value) VALUES
+	('THEMED_YIELD_MODIFIER', 'Amount', 100),
+	('THEMED_TOURISM_MODIFIER', 'Amount', 100);
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+	('HERMITAGE_AUTOTHEMING_BBG', 'MODIFIER_PLAYER_ADJUST_AUTO_THEMED_BUILDING');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+	('HERMITAGE_AUTOTHEMING_BBG', 'BuildingType', 'BUILDING_HERMITAGE');
+INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
+	('TRAIT_LEADER_MAJOR_CIV', 'HERMITAGE_AUTOTHEMING_BBG'),
+	('TRAIT_LEADER_MAJOR_CIV', 'THEMED_YIELD_MODIFIER'),
+	('TRAIT_LEADER_MAJOR_CIV', 'THEMED_TOURISM_MODIFIER');
 
--- BioSphere - Drastically reduce polution (making player generating more diplomatic favour by pollution modifier).
+-- BioSphere - reduce cost
+UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_BIOSPHERE';
 

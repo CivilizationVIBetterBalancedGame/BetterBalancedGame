@@ -16,6 +16,16 @@ UPDATE Buildings SET OuterDefenseHitPoints=75, Cost=100 WHERE BuildingType='BUIL
 UPDATE Buildings SET OuterDefenseHitPoints=75, Cost=200 WHERE BuildingType='BUILDING_CASTLE';
 UPDATE Buildings SET OuterDefenseHitPoints=75 WHERE BuildingType='BUILDING_STAR_FORT';
 UPDATE ModifierArguments SET Value='300' WHERE ModifierId='STEEL_UNLOCK_URBAN_DEFENSES';
+ 
+--11/12/22 ancient wall -2 (1 from 3) def medieval wall +2 (5 from 3)
+UPDATE Buildings SET OuterDefenseStrength=1 WHERE BuildingType='BUILDING_WALLS';
+UPDATE Buildings SET OuterDefenseStrength=6 WHERE BuildingType='BUILDING_CASTLE';
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('ALL_CIV_WALL_BASTION_REFIX_MODIFIER_BBG', 'MODIFIER_PLAYER_CITIES_ADJUST_OUTER_DEFENSE', 'CITY_HAS_ANCIENT_WALLS');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('ALL_CIV_WALL_BASTION_REFIX_MODIFIER_BBG', 'Amount', -1);
+INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_MAJOR_CIV', 'ALL_CIV_WALL_BASTION_REFIX_MODIFIER_BBG');
 
 -- chancery science from captured spies increased
 UPDATE ModifierArguments SET Value='200' WHERE ModifierId='CHANCERY_COUNTERYSPY_SCIENCE' AND Name='Amount';
@@ -27,6 +37,15 @@ UPDATE Buildings SET Entertainment=1 WHERE BuildingType='BUILDING_SEWER';
 DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_WATER_MILL' AND
     ModifierId IN ('WATERMILL_ADDRICEFOOD', 'WATERMILL_ADDWHEATYIELD', 'WATERMILL_ADDMAIZEYIELD');
 -- Watermill give 1 production towards farm
+--Plot has farm doesn't exist in base, recreate
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
+    ('REQUIRES_PLOT_HAS_FARM', 'REQUIREMENT_PLOT_IMPROVEMENT_TYPE_MATCHES');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('REQUIRES_PLOT_HAS_FARM', 'ImprovementType', 'IMPROVEMENT_FARM');
+INSERT OR IGNORE INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('PLOT_HAS_FARM_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+INSERT OR IGNORE INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('PLOT_HAS_FARM_REQUIREMENTS', 'REQUIRES_PLOT_HAS_FARM');
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_WATERMILL_PRODUCTION_FARM', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'PLOT_HAS_FARM_REQUIREMENTS');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
@@ -34,22 +53,6 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_WATERMILL_PRODUCTION_FARM', 'Amount', '1');
 INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
     ('BUILDING_WATER_MILL', 'BBG_WATERMILL_PRODUCTION_FARM');
-
--- Pagoda: 1 Influance instead of 1 diplo favour
-DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_PAGODA' AND ModifierId='PAGODA_ADJUST_FAVOR';
-INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
-    ('BBG_PAGODA_INFLUENCE', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_PAGODA_INFLUENCE', 'Amount', '1');
-INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
-    ('BUILDING_PAGODA', 'BBG_PAGODA_INFLUENCE');
-
--- Grandmaster Chapel only faith buy in owned city. (XP1)
-INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
-    ('BBG_CITY_WAS_FOUNDED', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-    ('BBG_CITY_WAS_FOUNDED', 'REQUIRES_CITY_WAS_FOUNDED');
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_WAS_FOUNDED' WHERE ModifierId LIKE 'GOV_FAITH_PURCHASE_%';
 
 -- Workshop cost less and give more production
 UPDATE Buildings SET Cost=160 WHERE BuildingType='BUILDING_WORKSHOP';
@@ -69,7 +72,7 @@ UPDATE Building_GreatPersonPoints SET PointsPerTurn=2 WHERE BuildingType='BUILDI
 UPDATE Building_GreatPersonPoints SET PointsPerTurn=3 WHERE BuildingType='BUILDING_STOCK_EXCHANGE';
 UPDATE Building_YieldChanges SET YieldChange=6 WHERE BuildingType='BUILDING_BANK' AND YieldType='YIELD_GOLD';
 UPDATE Building_YieldChanges SET YieldChange=8 WHERE BuildingType='BUILDING_STOCK_EXCHANGE' AND YieldType='YIELD_GOLD';
-UPDATE Building_YieldChangesBonusWithPower SET YieldChange=12 WHERE BuildingType='BUILDING_STOCK_EXCHANGE' AND YieldType='YIELD_GOLD';
+
 
 -- Commercial hub building traderoute modifier :
 UPDATE Buildings SET Description='LOC_BBG_BUILDING_BANK_DESCRIPTION' WHERE BuildingType='BUILDING_BANK';

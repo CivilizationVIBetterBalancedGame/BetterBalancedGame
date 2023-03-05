@@ -64,3 +64,41 @@ INSERT INTO Requirements(RequirementId, RequirementType, Inverse)
 INSERT INTO RequirementArguments(RequirementId, Name, Value)
     SELECT 'BBG_PLAYER_IS_NOT_IN_' || EraType || '_REQUIREMENT', 'EraType', EraType
     FROM Eras;
+
+INSERT OR IGNORE INTO RequirementSets VALUES
+    ('BBG_UNIT_ON_HILL_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+INSERT OR IGNORE INTO RequirementSetRequirements VALUES
+    ('BBG_UNIT_ON_HILL_REQUIREMENTS', 'PLOT_IS_HILLS_REQUIREMENT');
+
+CREATE TABLE WonderTerrainFeature_BBG(
+    WonderType TEXT NOT NULL,
+    TerrainClassType TEXT,
+    FeatureType TEXT,
+    Other TEXT,
+    PRIMARY KEY(WonderType)
+);
+
+CREATE TABLE AbstractModifiers(
+    ParentObjectID TEXT NOT NULL,
+    ModifierAId TEXT,
+    ModifierAType TEXT,
+    ModifierAName TEXT,
+    ModifierAValue TEXT,
+    ModifierBId TEXT,
+    SubjectRequirementSetId TEXT,
+    RequirementSetType TEXT,
+    RequirementId TEXT,
+    RequirementType TEXT,
+    Inverse BOOL,
+    Name TEXT,
+    Value TEXT 
+    );
+
+CREATE TABLE CustomPlacement(
+    ObjectType TEXT NOT NULL,
+    Hash INTEGER NOT NULL,
+    PlacementFunction TEXT NOT NULL,
+    OverridePlacement BOOLEAN NOT NULL CHECK(OverridePlacement IN (0,1)) DEFAULT 0,
+    PRIMARY KEY(ObjectType),
+    FOREIGN KEY(Hash) REFERENCES Types(Hash) ON DELETE CASCADE ON UPDATE CASCADE
+    );

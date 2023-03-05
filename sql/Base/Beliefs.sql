@@ -139,19 +139,84 @@ INSERT OR IGNORE INTO ModifierArguments
     ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'YieldType'                 , 'YIELD_FAITH'                                   ),
     ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'Amount'                    , '1'                                             ),
     ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'Description'               , 'LOC_DISTRICT_SACREDPATH_WOODS_FAITH'           );
--- Lady of the Reeds and Marshes now applies pantanal
-INSERT OR IGNORE INTO RequirementSetRequirements 
-    (RequirementSetId              , RequirementId)
-    VALUES 
-    ('PLOT_HAS_REEDS_REQUIREMENTS' , 'REQUIRES_PLOT_HAS_PANTANAL'          );
-INSERT OR IGNORE INTO Requirements 
-    (RequirementId                          , RequirementType)
-    VALUES 
-    ('REQUIRES_PLOT_HAS_PANTANAL'           , 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES');
-INSERT OR IGNORE INTO RequirementArguments 
-    (RequirementId                          , Name          , Value)
-    VALUES 
-    ('REQUIRES_PLOT_HAS_PANTANAL'           , 'FeatureType' , 'FEATURE_PANTANAL'             );
+-- Lady of the Reeds and Marshes now applies to all respective wonders labeled as floodplains, oasis, marsh in utilities
+-- FireGodess works on all volcanic soil and geothermal wonders
+INSERT INTO AbstractModifiers(ParentObjectID, ModifierAId, ModifierAType, ModifierAName, ModifierAValue, SubjectRequirementSetId, RequirementSetType, RequirementId, RequirementType, Inverse, Name, Value)
+    SELECT
+        BeliefModifiers.BeliefType, 
+        BeliefModifiers.ModifierID,
+        Modifiers.ModifierType,
+        ModifierArguments.Name,
+        ModifierArguments.Value,
+        Modifiers.SubjectRequirementSetId, 
+        RequirementSets.RequirementSetType, 
+        RequirementSetRequirements.RequirementId, 
+        Requirements.RequirementType, 
+        Requirements.Inverse,
+        RequirementArguments.Name,
+        RequirementArguments.Value
+    FROM BeliefModifiers
+        LEFT JOIN Modifiers ON BeliefModifiers.ModifierID = Modifiers.ModifierId
+        LEFT JOIN ModifierArguments ON Modifiers.ModifierID = ModifierArguments.ModifierId
+        LEFT JOIN RequirementSets ON Modifiers.SubjectRequirementSetId = RequirementSets.RequirementSetId
+        LEFT JOIN RequirementSetRequirements ON RequirementSets.RequirementSetId = RequirementSetRequirements.RequirementSetId
+        LEFT JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
+        LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId
+    WHERE
+        BeliefModifiers.BeliefType IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'BELIEF_GODDESS_OF_FIRE');
+INSERT OR IGNORE INTO AbstractModifiers(ParentObjectID, ModifierBId, SubjectRequirementSetId, RequirementSetType, RequirementId, RequirementType, Inverse, Name, Value)
+    SELECT CASE
+        WHEN AbstractModifiers.ModifierAType LIKE '%ATTACH_MODIFIER%' 
+        THEN
+            AbstractModifiers.ParentObjectID 
+        ELSE NULL
+    END,
+        AbstractModifiers.ModifierAValue, 
+        Modifiers.SubjectRequirementSetId, 
+        RequirementSets.RequirementSetType, 
+        RequirementSetRequirements.RequirementId, 
+        Requirements.RequirementType, 
+        Requirements.Inverse,
+        RequirementArguments.Name,
+        RequirementArguments.Value
+    FROM AbstractModifiers
+        LEFT JOIN Modifiers ON AbstractModifiers.ModifierAValue = Modifiers.ModifierId
+        LEFT JOIN RequirementSets ON Modifiers.SubjectRequirementSetId = RequirementSets.RequirementSetId
+        LEFT JOIN RequirementSetRequirements ON RequirementSets.RequirementSetId = RequirementSetRequirements.RequirementSetId
+        LEFT JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
+        LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId;
+--updating reqs for reeds and marshes
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
+    SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
+    FROM WonderTerrainFeature_BBG WHERE FeatureType IN  ('FEATURE_OASIS', 'FEATURE_MARSH', 'FEATURE_FLOODPLAINS', 'FEATURE_FLOODPLAINS_GRASSLAND', 'FEATURE_FLOODPLAINS_PLAINS');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value)
+    SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'FeatureType', WonderTerrainFeature_BBG.WonderType
+    FROM WonderTerrainFeature_BBG WHERE FeatureType IN  ('FEATURE_OASIS', 'FEATURE_MARSH', 'FEATURE_FLOODPLAINS', 'FEATURE_FLOODPLAINS_GRASSLAND', 'FEATURE_FLOODPLAINS_PLAINS');
+--updating reqsets for reeds and marshes
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+    SELECT DISTINCT AbstractModifiers.SubjectRequirementSetId, 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG'
+    FROM AbstractModifiers
+    LEFT JOIN WonderTerrainFeature_BBG
+    WHERE WonderTerrainFeature_BBG.FeatureType IN ('FEATURE_OASIS', 'FEATURE_MARSH', 'FEATURE_FLOODPLAINS', 'FEATURE_FLOODPLAINS_GRASSLAND', 'FEATURE_FLOODPLAINS_PLAINS')
+        AND AbstractModifiers.Name = 'FeatureType'
+        AND AbstractModifiers.ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES'
+        AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType' AND ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
+--updating reqs for fire godess
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
+    SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
+    FROM WonderTerrainFeature_BBG WHERE FeatureType IN  ('FEATURE_GEOTHERMAL_FISSURE', 'FEATURE_VOLCANIC_SOIL');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value)
+    SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'FeatureType', WonderTerrainFeature_BBG.WonderType
+    FROM WonderTerrainFeature_BBG WHERE FeatureType IN  ('FEATURE_GEOTHERMAL_FISSURE', 'FEATURE_VOLCANIC_SOIL');
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+    SELECT DISTINCT AbstractModifiers.SubjectRequirementSetId, 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG'
+    FROM AbstractModifiers
+    LEFT JOIN WonderTerrainFeature_BBG
+    WHERE WonderTerrainFeature_BBG.FeatureType IN ('FEATURE_GEOTHERMAL_FISSURE', 'FEATURE_VOLCANIC_SOIL')
+        AND AbstractModifiers.Name = 'FeatureType'
+        AND AbstractModifiers.ParentObjectID = 'BELIEF_GODDESS_OF_FIRE'
+        AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType' AND ParentObjectID = 'BELIEF_GODDESS_OF_FIRE');
+DELETE FROM AbstractModifiers WHERE ParentObjectID IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'BELIEF_GODDESS_OF_FIRE');
 
 --04/10/22 goddess of the hunt nerf from 1p/1f to 1p/2g
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
@@ -208,6 +273,16 @@ INSERT INTO BeliefModifiers(BeliefType, ModifierID) VALUES
     ('BELIEF_RELIGIOUS_SETTLEMENTS', 'BBG_RELIGIOUS_SETTLEMENT_TILE_GRAB');
 
 -- Initiation Rites gives 30% faith for each military land unit produced
+--PLAYER_HAS_AT_LEAST_ONE_CITY_REQUIREMENTS was introduced in GS recreate
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
+    ('REQUIRES_PLAYER_HAS_AT_LEAST_ONE_CITY', 'REQUIREMENT_PLAYER_HAS_AT_LEAST_NUMBER_CITIES');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('REQUIRES_PLAYER_HAS_AT_LEAST_ONE_CITY', 'Amount', 1);
+INSERT OR IGNORE INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('PLAYER_HAS_AT_LEAST_ONE_CITY_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+INSERT OR IGNORE INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('PLAYER_HAS_AT_LEAST_ONE_CITY_REQUIREMENTS', 'REQUIRES_PLAYER_HAS_AT_LEAST_ONE_CITY');
+
 INSERT INTO Modifiers(ModifierId, ModifierType, RunOnce, Permanent, SubjectRequirementSetId) VALUES
     ('INITIATION_RITES_FAITH_YIELD_CPL_MOD', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 0, 0, 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
     ('INITIATION_RITES_FAITH_YIELD_MODIFIER_CPL_MOD', 'MODIFIER_SINGLE_CITY_GRANT_YIELD_PER_UNIT_COST', 0, 0, NULL),
@@ -230,6 +305,24 @@ INSERT INTO BeliefModifiers(BeliefType, ModifierID) VALUES
 UPDATE ModifierArguments SET Value='30' WHERE ModifierId='GOD_OF_THE_FORGE_UNIT_ANCIENT_CLASSICAL_PRODUCTION_MODIFIER' AND Name='Amount';
 
 
+-- 15/12/22 Remove pantheon "healing goddess" (we didn't find anything usefull with the same thematic) but replace it with a new "open sea" pantheon that grants +1culture to improved sea ressources
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('OPEN_SEA_FISHINGBOATS_CULTURE', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
+    ('OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'PLOT_HAS_FISHINGBOATS_REQUIREMENTS');
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('OPEN_SEA_FISHINGBOATS_CULTURE', 'ModifierId', 'OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER'),
+    ('OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER', 'YieldType', 'YIELD_CULTURE'),
+    ('OPEN_SEA_FISHINGBOATS_CULTURE_MODIFIER', 'Amount', 1);
+
+-- For now just replacing the beliefs of god of healing, because it's only beta
+UPDATE BeliefModifiers SET ModifierID='OPEN_SEA_FISHINGBOATS_CULTURE' WHERE BeliefType='BELIEF_GOD_OF_HEALING';
+-- INSERT INTO BeliefModifiers ('BELIEF_OPEN_SEA', 'OPEN_SEA_FISHINGBOATS_CULTURE');
+
+
+
+
+
 --==============================================================================================
 --******                RELIGION                        ******
 --==============================================================================================
@@ -241,9 +334,6 @@ UPDATE ModifierArguments SET Value='5' WHERE ModifierId='JUST_WAR_COMBAT_BONUS_M
 
 -- Stewardship to +2/+2
 UPDATE ModifierArguments SET Value='2' WHERE Name='Amount' AND ModifierId IN ('STEWARDSHIP_SCIENCE_DISTRICTS_MODIFIER', 'STEWARDSHIP_GOLD_DISTRICTS_MODIFIER');
-
--- Synagogue to 7 Faith:
-UPDATE Building_YieldChanges SET YieldChange=7 WHERE BuildingType='BUILDING_SYNAGOGUE' AND YieldType='YIELD_FAITH';
 
 -- Jesuit Education give 15% discount on campus and theater purchase.
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
@@ -278,6 +368,13 @@ INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_ENABLE_WALL_ATTACK_MONK', 'PromotionClass', 'PROMOTION_CLASS_MONK'),
     ('BBG_BYPASS_WALLS_MONK', 'PromotionClass', 'PROMOTION_CLASS_MONK');
+--These abilities depend on XP2, recreate
+INSERT OR IGNORE INTO Types(Type, Kind) VALUES
+    ('ABILITY_BYPASS_WALLS_PROMOTION_CLASS', 'KIND_ABILITY'),
+    ('ABILITY_ENABLE_WALL_ATTACK_PROMOTION_CLASS', 'KIND_ABILITY'); 
+INSERT OR IGNORE INTO UnitAbilities(UnitAbilityType, Name, Description, Permanent) VALUES
+    ('ABILITY_BYPASS_WALLS_PROMOTION_CLASS', 'LOC_ABILITY_BYPASS_WALLS_NAME','LOC_ABILITY_BYPASS_WALLS_PROMOTION_CLASS_DESCRIPTION', 1),
+    ('ABILITY_ENABLE_WALL_ATTACK_PROMOTION_CLASS', 'LOC_ABILITY_ENABLE_WALL_ATTACK_NAME', 'LOC_ABILITY_ENABLE_WALL_PROMOTION_CLASS_ATTACK_DESCRIPTION', 1);
 
 INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
     ('ABILITY_ENABLE_WALL_ATTACK_PROMOTION_CLASS','BBG_ENABLE_WALL_ATTACK_MONK'),
@@ -302,8 +399,7 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
 INSERT INTO TypeTags(Type, Tag) VALUES
     ('ABILITY_GEORGY_ZHUKOV_FLANKING_BONUS', 'CLASS_WARRIOR_MONK'),
     ('ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE', 'CLASS_WARRIOR_MONK'),
-    ('ABILITY_JOHN_MONASH_BONUS_EXPERIENCE','CLASS_WARRIOR_MONK'),
-    ('ABILITY_TIMUR_BONUS_EXPERIENCE', 'CLASS_WARRIOR_MONK');
+    ('ABILITY_JOHN_MONASH_BONUS_EXPERIENCE','CLASS_WARRIOR_MONK');
 
 --Monks: All civs CS/MS interractions:
 INSERT INTO TypeTags(Type, Tag) VALUES
@@ -483,14 +579,8 @@ INSERT OR IGNORE INTO BeliefModifiers
     VALUES 
     ('BELIEF_WORK_ETHIC' , 'WORK_ETHIC_TEMPLE_PRODUCTION'),
     ('BELIEF_WORK_ETHIC' , 'WORK_ETHIC_SHRINE_PRODUCTION');
--- Dar E Mehr provides +2 culture instead of faith from eras
-DELETE FROM Building_YieldsPerEra WHERE BuildingType='BUILDING_DAR_E_MEHR';
-INSERT OR IGNORE INTO Building_YieldChanges 
-    (BuildingType          , YieldType       , YieldChange)
-    VALUES 
-    ('BUILDING_DAR_E_MEHR' , 'YIELD_CULTURE' , '2');
--- All worship building production costs reduced    
 
+-- All worship building production costs reduced    
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_CATHEDRAL'    ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_GURDWARA'     ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_MEETING_HOUSE';
@@ -500,3 +590,39 @@ INSERT OR IGNORE INTO Building_YieldChanges
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_WAT'          ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_STUPA'        ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_DAR_E_MEHR'   ;
+
+-- Pagoda: 1 Influance instead of 1 diplo favour
+DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_PAGODA' AND ModifierId='PAGODA_ADJUST_FAVOR';
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_PAGODA_INFLUENCE', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_PAGODA_INFLUENCE', 'Amount', '1');
+INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
+    ('BUILDING_PAGODA', 'BBG_PAGODA_INFLUENCE');
+
+-- Dar E Mehr provides +2 culture instead of faith from eras
+--11/12/22 to +3
+DELETE FROM Building_YieldsPerEra WHERE BuildingType='BUILDING_DAR_E_MEHR';
+INSERT INTO Building_YieldChanges(BuildingType, YieldType, YieldChange) VALUES 
+    ('BUILDING_DAR_E_MEHR', 'YIELD_CULTURE', '3');
+
+--11/12/22 +1 yield for worship buildings
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_GURDWARA' AND YieldType = 'YIELD_FOOD';
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_MEETING_HOUSE' AND YieldType = 'YIELD_PRODUCTION';
+UPDATE Building_YieldChanges SET YieldChange=9 WHERE BuildingType='BUILDING_SYNAGOGUE' AND YieldType='YIELD_FAITH';
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_WAT' AND YieldType = 'YIELD_SCIENCE';
+
+--11/12/22 cathedral any art instead of only religious
+UPDATE Building_GreatWorks SET GreatWorkSlotType='GREATWORKSLOT_PALACE' WHERE BuildingType='BUILDING_CATHEDRAL';
+
+--15/12/22 Mosque grant missionary 
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
+    ('BBG_MOSQUE_GRANT_MISSIONARY', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY', 1, 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MOSQUE_GRANT_MISSIONARY', 'UnitType', 'UNIT_MISSIONARY'),
+    ('BBG_MOSQUE_GRANT_MISSIONARY', 'Amount', 1);
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+    ('BUILDING_MOSQUE', 'BBG_MOSQUE_GRANT_MISSIONARY');
+--18/12/22 Mosque 2 charges per missionary
+UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MOSQUE_ADJUST_SPREAD_CHARGES' AND Name='Amount';
+

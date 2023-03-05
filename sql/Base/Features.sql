@@ -9,16 +9,34 @@
 -- Several lack-luster wonders improved
 UPDATE Features SET Settlement=1 WHERE FeatureType='FEATURE_CLIFFS_DOVER';
 INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
-	VALUES ('FEATURE_PANTANAL', 'YIELD_SCIENCE', 2);
-INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
 	VALUES ('FEATURE_CLIFFS_DOVER', 'YIELD_FOOD', 2);
+
+INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
+	VALUES ('FEATURE_PANTANAL', 'YIELD_SCIENCE', 2);
+
 INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
 	VALUES ('FEATURE_DEAD_SEA', 'YIELD_FOOD', 2);
+
 INSERT OR IGNORE INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange)
 	VALUES ('FEATURE_CRATER_LAKE', 'YIELD_FOOD', 2);
 UPDATE Feature_YieldChanges SET YieldChange=2 WHERE FeatureType='FEATURE_CRATER_LAKE' AND YieldType='YIELD_SCIENCE'; 
+
 INSERT OR IGNORE INTO Feature_AdjacentYields (FeatureType, YieldType, YieldChange)
 	VALUES ('FEATURE_GALAPAGOS', 'YIELD_FOOD', 1);
---Causeway +3 down from +5
-UPDATE ModifierArguments SET Value='3' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH' AND Name='Amount';
-UPDATE Modifiers SET SubjectRequirementSetId='ATTACKING_REQUIREMENT_SET' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH';
+
+-- Tsingy
+INSERT INTO Feature_AdjacentYields (FeatureType, YieldType, YieldChange) VALUES
+    ('FEATURE_TSINGY', 'YIELD_FOOD', 1);
+
+-- Pantanal
+INSERT INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange) VALUES
+    ('FEATURE_PANTANAL', 'YIELD_PRODUCTION', 1);
+
+-- Everest
+UPDATE Feature_AdjacentYields SET YieldChange=3 WHERE FeatureType='FEATURE_EVEREST';
+
+-- Barrier Reef
+INSERT INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange) VALUES
+    ('FEATURE_BARRIER_REEF', 'YIELD_PRODUCTION', 1);
+
+
