@@ -13,8 +13,8 @@
 --     ('GREAT_PERSON_INDIVIDUAL_COMMANDANTE_RIBAS', 'GREATPERSON_COMANDANTE_MOVEMENT_AOE_LAND');
 
 --Simon's Plantation Bias With Olives
-INSERT OR IGNORE INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
+INSERT OR REPLACE INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
     ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_OLIVES', 5);
 --Maya's Plantation Bias with Olives
-INSERT OR IGNORE INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
+INSERT OR REPLACE INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
     ('CIVILIZATION_MAYA', 'RESOURCE_OLIVES', 3);
