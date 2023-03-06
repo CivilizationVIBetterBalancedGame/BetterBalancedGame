@@ -14,3 +14,10 @@ UPDATE Buildings SET Cost=60 WHERE BuildingType='BUILDING_ORDU';
 UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_ORDU';
 -- Keshig
 UPDATE Units SET RangedCombat=40, Cost=180 WHERE UnitType='UNIT_MONGOLIAN_KESHIG';
+
+INSERT OR IGNORE INTO RequirementSetRequirements VALUES
+    ('BUILDING_IS_BARRACKS_STABLE_MILITARITIC_CITY_STATE', 'REQUIRES_CITY_HAS_ORDU_BBG');
+INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) VALUES
+    ('REQUIRES_CITY_HAS_ORDU_BBG', 'REQUIREMENT_CITY_HAS_BUILDING');
+INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('REQUIRES_CITY_HAS_ORDU_BBG', 'BuildingType', 'BUILDING_ORDU');

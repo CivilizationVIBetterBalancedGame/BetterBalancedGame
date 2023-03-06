@@ -1,0 +1,5 @@
+--========Natural Wonder Types========--
+INSERT INTO WonderTerrainFeature_BBG(WonderType, TerrainClassType, FeatureType, Other) VALUES
+	('FEATURE_EYJAFJALLAJOKULL', 'TERRAIN_CLASS_MOUNTAIN', 'FEATURE_VOLCANO', NULL),
+	('FEATURE_LYSEFJORDEN', NULL, NULL, 'FJORD'),
+	('FEATURE_GIANTS_CAUSEWAY', NULL, NULL, 'COASTAL');

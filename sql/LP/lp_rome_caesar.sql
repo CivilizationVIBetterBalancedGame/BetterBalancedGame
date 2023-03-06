@@ -24,6 +24,11 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 
 --Free Melee Unit on Settle--
 -- 22/12/22 not giving a warrior on capital
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
+	('REQUIRES_OBJECT_1_OR_MORE_TILES_FROM_CAPITAL','REQUIREMENT_PLOT_NEAR_CAPITAL');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
+	('REQUIRES_OBJECT_1_OR_MORE_TILES_FROM_CAPITAL', 'MinDistance', '1');
+	
 INSERT INTO Modifiers (ModifierId, ModifierType, Permanent, SubjectRequirementSetId) VALUES
     ('BBG_TRAIT_GRANT_FREE_MELEE_UNIT_ON_NEW_CITY', 'MODIFIER_PLAYER_CITIES_GRANT_UNIT_BY_CLASS', 1, 'BBG_CITY_FOUNDER_NOT_CAPITAL_REQUIREMENTS');
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES

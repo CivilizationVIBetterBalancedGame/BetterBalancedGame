@@ -2,10 +2,14 @@
 -- America
 --==================
 
--- Teddy-BM get vietnam ability to plant wood
+-- Teddy-BM get vietnam ability to plant wood (have to recreate modifier to not be dependent on kublai-vietnam dlc)
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+  ('TEDDY_PLANT_MEDIEVAL_WOODS_BBG', 'MODIFIER_PLAYER_ADJUST_FEATURE_UNLOCK');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+  ('TEDDY_PLANT_MEDIEVAL_WOODS_BBG', 'FeatureType', 'FEATURE_FOREST'),
+  ('TEDDY_PLANT_MEDIEVAL_WOODS_BBG', 'CivicType', 'CIVIC_MEDIEVAL_FAIRES');
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-  ('TRAIT_LEADER_ANTIQUES_AND_PARKS', 'TRAIT_PLANT_MEDIEVAL_WOODS');
-
+  ('TRAIT_LEADER_ANTIQUES_AND_PARKS', 'TEDDY_PLANT_MEDIEVAL_WOODS_BBG');
 
 -- Codenaugh's BM modification
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='TRAIT_ANTIQUES_AND_PARKS_CULTURE_FORESTS_OR_WONDERS' AND Name='Amount';
