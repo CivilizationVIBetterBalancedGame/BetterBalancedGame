@@ -181,7 +181,7 @@ UPDATE Units_XP2 SET ResourceCost=10 WHERE UnitType='UNIT_FRENCH_GARDE_IMPERIALE
 --==================
 -- Kongo
 --==================
-UPDATE Units_XP2 SET ResourceCost=10 WHERE UnitType='UNIT_KONGO_SHIELD_BEARER';
+UPDATE Units_XP2 SET ResourceCost=15 WHERE UnitType='UNIT_KONGO_SHIELD_BEARER';
 
 
 
