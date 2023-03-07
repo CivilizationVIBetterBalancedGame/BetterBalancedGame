@@ -201,9 +201,11 @@
 			<Text>When building Ancient and Classical wonders you may spend Builder [ICON_Charges] charge to complete 15% of the original wonder cost. Builder receive an additional [ICON_Charges] charge. Canals are unlocked with the Masonry technology.</Text>
 		</Replace>
 		<!-- = leader ability (Qin Shi Huang, Unifier) = -->
-		<Replace Tag="LOC_TRAIT_LEADER_QIN_ALT_DESCRIPTION" Language="en_US">
+		<!-- 5.2.9 REVERTED
+			<Replace Tag="LOC_TRAIT_LEADER_QIN_ALT_DESCRIPTION" Language="en_US">
 			<Text>Melee units receive the Convert Barbarians action, but it removes the melee unit. All [ICON_GreatGeneral] Great Generals have an additional charge.</Text>
 		</Replace>
+		-->
 		<!-- = leader ability (Yongle) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_YONGLE_XP_DESCRIPTION" Language="en_US">
 			<Text>All Cities receive Projects where they can convert 50% of their [Icon_Production] Production into [Icon_Food] Food,  [Icon_Faith] Faith, or 100% if it is [Icon_GOLD] Gold. Cities with 10 or more [ICON_CITIZEN] Population receive +1 [Icon_Gold] Gold, +0.5 [Icon_Science] Science, and +0.3 [Icon_Culture] Culture per turn for each [ICON_CITIZEN] Population in the city.</Text>
@@ -1272,9 +1274,11 @@
 		</Replace>
 		
 		<!-- == Amani == -->
+		<!-- 5.2.9 REVERTED
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_MESSENGER_DESCRIPTION" Language="en_US">
 			<Text>Can be assigned to a City-state, where she acts as 2 [ICON_Envoy] Envoys. When established to a City-state, your cities that have Trade route to this city gain +2 [ICON_FOOD] Food and +2 [ICON_PRODUCTION] Production.</Text>
 		</Replace>
+		-->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE_DESCRIPTION" Language="en_US">
 			<Text>Provides an additional Strategic Resource per turn of each one you have revealed.</Text>
 		</Replace>
@@ -1772,7 +1776,7 @@
 			<Text>+1 [ICON_GLORY_GOLDEN_AGE] Era Score from Historic Moment earned after this wonder is complete if that Moment is usually worth 2 or more [ICON_GLORY_GOLDEN_AGE] Era Score. All your cities gain +10% [ICON_GOLD] Gold when you are in [ICON_GLORY_GOLDEN_AGE] Golden or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age.[NEWLINE][NEWLINE]Must be built next to a River.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_CHICHEN_ITZA_DESCRIPTION" Language="en_US">
-			<Text>+2 [ICON_Culture] Culture and +1 [ICON_Production] Production to all Rainforest tiles in your empire.[NEWLINE][NEWLINE]Must be built on Rainforest.</Text>
+			<Text>+1 [ICON_Culture] Culture and +1 [ICON_Production] Production to all Rainforest tiles in your empire.[NEWLINE][NEWLINE]Must be built on Rainforest.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_HAGIA_SOPHIA_DESCRIPTION" Language="en_US">
 			<Text>+2 [ICON_Movement] Movement for Missionaries, Apostles and Gurus. Missionaries and Apostles can spread Religion 1 extra time. Missionaries are 30% cheaper to purchase.[NEWLINE][NEWLINE]Must be built on flat land adjacent to a Holy Site district, and you must have founded a Religion.</Text>
@@ -2132,7 +2136,7 @@
 			<Text>+5 [ICON_Strength] Combat Strength when in your territory (Finest Hour)</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
-			<Text>+1 [ICON_Production] Production per [ICON_Citizen] Citizen in cities with [ICON_Governor] Governors. +1 yield to specialists of the respective district yield.</Text>
+			<Text>+1 [ICON_Production] Production per [ICON_Citizen] Citizen in cities with [ICON_Governor] Governors.</Text> <!-- 5.2.9 REVERTED +1 yield to specialists of the respective district yield. -->
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="en_US">
 			<Text>+1 to all yields for Palace, Government Plaza, Diplomatic Quarter and these districts' buildings.</Text>
