@@ -669,6 +669,7 @@ function OnIncaCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 				end
 			end
 		end
+		pCity:SetProperty("INCA_CC_"..ExtraYieldPropertyDictionary(i), nil)
 	end
 end
 
@@ -707,12 +708,19 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 				--print("Base bug: Firaxis city center added diff "..tostring(nAddedYieldDiff))
 				local nBaseFullTileYield = pPlot:GetYield(i)+nAddedYieldDiff
 				--print("Base bug: Firaxis city center nBaseFullTileYield"..tostring(nBaseFullTileYield))
+				--sets the property
 				pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nBaseFullTileYield)
 				local nTrueYield = math.max(pPlot:GetYield(i), tBaseGuaranteedYields[i])
 				--print("Base bug: Firaxis city center nTrueYield "..tostring(nTrueYield))
 				local nExtraYield = nBaseFullTileYield - nTrueYield
 				if nExtraYield > 0 then
+					--set plot property for req
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield)
+					--attach modifiers to the city
+					for j=0, nExtraYield do
+						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
+						pCity:AttachModifierByID(sModifierStringID)
+					end
 					--print("Base bug: Firaxis city center nExtraYield"..tostring(nExtraYield))
 				end
 				--BCY so this doesn't happen on any version
@@ -727,6 +735,11 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 					--print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
 					local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield+nExtraBCYYield)
+					--attaching modifiers
+					for j=1, nExtraBCYYield do
+						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(nExtraYield+j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
+						pCity:AttachModifierByID(sModifierStringID)
+					end
 					--print("Extra Yield set to "..tostring(nExtraYield+nExtraBCYYield))
 				end
 			end
@@ -1605,20 +1618,53 @@ end
 -- UIToGameplay Scripts
 -- ===========================================================================
 -- Inca
-function OnUISetPlotProperty(iPlayerId, tParameters)
+--function OnUISetPlotProperty(iPlayerId, tParameters)
 	--print("UISetPlotProperty triggered")
-	GameEvents.GameplaySetPlotProperty.Call(iPlayerID, tParameters)
-end
+	--GameEvents.GameplayFixIncaBug.Call(iPlayerID, tParameters)
+--end
 
-function OnGameplaySetPlotProperty(iPlayerID, tParameters)
+function OnGameplayFixIncaBug(iPlayerID, tParameters)
 	--print("OnGameplaySetPlotProperty started")
+	local iPlayerID = tParameters["iOwnerId"]
 	local pPlot = Map.GetPlot(tParameters.iX, tParameters.iY)
 	local tYields = tParameters.Yields
+	local pCity = Cities.GetPlotPurchaseCity(pPlot)
+	if pCity == nil then
+		return
+	end
+	local pCityCenterPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
 	for i=0, 5 do
 		if tYields[i]>0 then
-			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), tYields[i])
+			local nCenterRemovedYield = pCityCenterPlot:GetProperty(ExtraYieldPropertyDictionary(i))
+			if nCenterRemovedYield == nil then
+				nCenterRemovedYield = 0
+			end
+			local nIncaCCRemovedYield = pCityCenterPlot:GetProperty("INCA_CC_"..ExtraYieldPropertyDictionary(i))
+			if nIncaCCRemovedYield == nil then
+				nIncaCCRemovedYield = 0
+			end
+			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), tYields[i]) -- update wonder tile property
+			--Attaching city center modifiers
+			if nIncaCCRemovedYield>=nCenterRemovedYield then
+				if tYields[i]>nIncaCCRemovedYield then
+					for j = nIncaCCRemovedYield+1, tYields[i] do
+						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
+						pCity:AttachModifierByID(sModifierStringID)						
+					end
+				end
+			else
+				if tYields[i]>nCenterRemovedYield then
+					for j = nCenterRemovedYield+1, tYields[i] do
+						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
+						pCity:AttachModifierByID(sModifierStringID)						
+					end
+				end					
+			end
+			
 			--print("Property for "..GameInfo.Yields[i].YieldType.." set to "..tostring(tYields[i]))
-		end
+
+			pCityCenterPlot:SetProperty("INCA_CC_"..ExtraYieldPropertyDictionary(i), tYields[i])
+		end	
 	end
 end
 -- Communism Specialists
@@ -2076,19 +2122,19 @@ function OnGameplayUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID,
 end
 
 -- BCY
-function OnUIBCYAdjustCityYield(playerID, kParameters)
+--function OnUIBCYAdjustCityYield(playerID, kParameters)
 	--print("BCY script called from UI event")
-	GameEvents.GameplayBCYAdjustCityYield.Call(playerID, kParameters)
-end
+	--GameEvents.GameplayBCYAdjustCityYield.Call(playerID, kParameters)
+--end
 
 function OnGameplayBCYAdjustCityYield(playerID, kParameters)
 	--print("Gameplay Script Called")
 	BCY_RecalculateMapYield(kParameters.iX, kParameters.iY)
 end
 
-if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
-	LuaEvents.UIBCYAdjustCityYield.Add(OnUIBCYAdjustCityYield)
-end
+--if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
+	--LuaEvents.UIBCYAdjustCityYield.Add(OnUIBCYAdjustCityYield)
+--end
 -- ===========================================================================
 --	Tools
 -- ===========================================================================
@@ -2247,7 +2293,7 @@ function GetShuffledCopyOfTable(incoming_table)
 	end
 	return shuffledVersion
 end
---BCY no rng recalculation support
+--BCY no rng subtractive recalculation support
 function BCY_RecalculateMapYield(iX, iY)
 	--print("BCY: Recalculating for X,Y"..tostring(iX)..","..tostring(iY))
 	local pCity = CityManager.GetCityAt(iX,iY)
@@ -2261,6 +2307,10 @@ function BCY_RecalculateMapYield(iX, iY)
 	end
 	--print("BCY no RNG: Yield Recalculation Started")
 	local pPlot = Map.GetPlot(iX, iY)
+	local pOwningCity = Cities.GetPlotPurchaseCity(pPlot)
+	if pOriginCity ~= pCity then
+		return
+	end
 	local iTerrain = pPlot:GetTerrainType()
 	local tBasePlotYields = CalculateBaseYield(pPlot)
 	local sControllString = ""
@@ -2297,6 +2347,23 @@ function BCY_RecalculateMapYield(iX, iY)
 		--print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
 		if nYieldDiff > 0 then
 			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nYieldDiff + nExtraYield)
+			if GameEvents.GameplayFixIncaBug == nil or GameEvents.GameplayFixIncaBug == {} then
+				for j=1, nYieldDiff do
+					local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(nExtraYield+j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
+					pCity:AttachModifierByID(sModifierStringID)
+				end
+			else
+				local nIncaCCRemovedYield = pPlot:GetProperty("INCA_CC_"..ExtraYieldPropertyDictionary(i))
+				if nIncaCCRemovedYield == nil then
+					nIncaCCRemovedYield = 0
+				end
+				if (nExtraYield <= nIncaCCRemovedYield) and (nExtraYield + nYieldDiff > nIncaCCRemovedYield) then
+					for j=nIncaCCRemovedYield+1, nExtraYield + nYieldDiff do
+						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
+						pCity:AttachModifierByID(sModifierStringID)
+					end
+				end
+			end					
 			--print("Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff+nExtraYield))
 		end
 	end
@@ -3429,7 +3496,7 @@ function Initialize()
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			-- Inca Yields on non-mountain impassibles bugfix
 			LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
-			GameEvents.GameplaySetPlotProperty.Add(OnGameplaySetPlotProperty)
+			GameEvents.GameplayFixIncaBug.Add(OnGameplayFixIncaBug)
 			GameEvents.CityConquered.Add(OnIncaCityConquered)
 			print("BBG Inca Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_JULIUS_CAESAR" then

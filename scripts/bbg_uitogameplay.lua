@@ -45,18 +45,22 @@ function OnIncaPlotYieldChanged(iX, iY)
 		end
 		--print(GameInfo.Features[iFeatureId].FeatureType.." feature detected at: ", iX, iY)
 		local kParameters = {}
+		kParameters.OnStart = "GameplayFixIncaBug"
+		kParameters["iOwnerId"] = iOwnerId
 		kParameters["iX"] = iX
 		kParameters["iY"] = iY
 		kParameters.Yields = {}
 		for i =0,5 do
-			local nControlProp = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
-			if nControlProp == nil then
-				kParameters.Yields[i] = pPlot:GetYield(i)
-			else
-				kParameters.Yields[i] = nControlProp + pPlot:GetYield(i)
-			end
+			--local nControlProp = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
+			--if nControlProp == nil then
+				--kParameters.Yields[i] = pPlot:GetYield(i)
+			--else
+				--kParameters.Yields[i] = nControlProp + pPlot:GetYield(i)
+			--end
+			kParameters.Yields[i] = pPlot:GetYield(i)
 		end
-		UIEvents.UISetPlotProperty(iOwnerId, kParameters)
+		UI.RequestPlayerOperation(iOwnerId, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+		--UIEvents.UISetPlotProperty(iOwnerId, kParameters)	
 	end
 end
 --BCY no rng remove disaster yields
@@ -78,18 +82,21 @@ function OnBCYPlotYieldChanged(iX, iY)
 		return
 	end
 	local kParameters = {}
+	kParameters.OnStart = "GameplayBCYAdjustCityYield"
+	kParameters["iOwnerId"] = iOwnerId
 	kParameters["iX"] = iX
 	kParameters["iY"] = iY
-	kParameters.Yields = {}
-	for i =0,5 do
-		local nControlProp = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
-		if nControlProp == nil then
-			kParameters.Yields[i] = pPlot:GetYield(i) -- food
-		else
-			kParameters.Yields[i] = nControlProp + pPlot:GetYield(i)
-		end
-	end
-	UIEvents.UIBCYAdjustCityYield(iOwnerId, kParameters)
+	UI.RequestPlayerOperation(iOwnerId, PlayerOperations.EXECUTE_SCRIPT, kParameters);	
+	--kParameters.Yields = {}
+	--for i =0,5 do
+		--local nControlProp = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
+		--if nControlProp == nil then
+			--kParameters.Yields[i] = pPlot:GetYield(i) -- food
+		--else
+			--kParameters.Yields[i] = nControlProp + pPlot:GetYield(i)
+		--end
+	--end
+	--UIEvents.UIBCYAdjustCityYield(iOwnerId, kParameters)
 end
 --Communism
 function OnCityWorkerChanged(iPlayerID, iCityID, iX, iY)
