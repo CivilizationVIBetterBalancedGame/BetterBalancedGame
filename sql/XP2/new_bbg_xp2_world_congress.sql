@@ -1,3 +1,10 @@
+--==============================================================
+--******                C O N G R E S S                   ******
+--==============================================================
+DELETE FROM ModifierArguments WHERE ModifierId='APPLY_RES_UNIT_COMBAT_DEBUFF';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('APPLY_RES_UNIT_COMBAT_DEBUFF','ModifierId', 'WC_RES_UNIT_COMBAT_DEBUFF');
+
 -- by: iElden
 
 -- 15/07/2022: Reverted

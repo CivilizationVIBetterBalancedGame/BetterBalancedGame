@@ -160,9 +160,9 @@ INSERT INTO TraitModifiers(TraitType, ModifierId)
 
 DROP TABLE Numbers;
 
-
---==========Terrain==========--
---adding campus adjacency to mountain wonders
+--=======================================================================
+--******               Wonder+Terrain/Feature                      ******
+--=======================================================================
 
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, TilesRequired, AdjacentFeature)
 	SELECT 

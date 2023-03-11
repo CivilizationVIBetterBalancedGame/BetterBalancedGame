@@ -100,3 +100,6 @@ INSERT INTO RequirementArguments(RequirementId , Name, Value) VALUES
 -- 16/05/2021: Replace Science Yield by Culture Yield
 UPDATE ModifierArguments SET Value='YIELD_CULTURE' WHERE Name='YieldType' AND ModifierID IN
     ('TRAIT_IKANDA_BARRACKS_SCIENCE', 'TRAIT_IKANDA_STABLE_SCIENCE', 'TRAIT_IKANDA_ARMORY_SCIENCE', 'TRAIT_IKANDA_MILITARY_ACADEMY_SCIENCE');
+
+-- citizen yields
+UPDATE District_CitizenYieldChanges SET YieldChange=2 WHERE YieldType='YIELD_PRODUCTION'    AND DistrictType='DISTRICT_IKANDA';

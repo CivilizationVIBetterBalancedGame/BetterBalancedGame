@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Release ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5029">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="50210">
 -->
 <!-- BETA ModID
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5029">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="50210">
 -->
 <!-- WIP ModID-->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5029">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="50210">
 	<Properties>
-		<Name>Better Balanced Game 5.2.9</Name>
+		<Name>Better Balanced Game 5.2.10</Name>
 		<Description>
-			Release build of Better Balanced Game
+			Release (WIP test) build of Better Balanced Game
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>5029</Version>
+		<Version>50210</Version>
 		<SpecialThanks>coloo, abstr, priz, seed.of.apricot, Klas, fl0r3k, WhySoHate, wazabaza, Ignasiuz, MarsLife(puj), Apeul, keride, Vodairo, FlashyFeeds, ZhenjaMax, iElden, D. / Jack The Narrator, codenaugh</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
@@ -26,18 +26,26 @@
 	-->
 	<!-- can load only select files based on these requirements, if applied -->
 	<ActionCriteria>
+		<!--
 		<Criteria id="XP1" any="1">
 			<GameCoreInUse>Expansion1</GameCoreInUse>
-			<RuleSetInUse>RULESET_EXPANSION_1</RuleSetInUse><!--,RULESET_EXPANSION_2-->
+			<RuleSetInUse>RULESET_EXPANSION_1</RuleSetInUse> <-RULESET_EXPANSION_2
 			<LeaderPlayable>Players:Expansion1_Players::LEADER_CHANDRAGUPTA,Players:Expansion1_Players::LEADER_GENGHIS_KHAN,Players:Expansion1_Players::LEADER_LAUTARO,Players:Expansion1_Players::LEADER_POUNDMAKER,Players:Expansion1_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion1_Players::LEADER_SEONDEOK,Players:Expansion1_Players::LEADER_SHAKA,Players:Expansion1_Players::LEADER_TAMAR,Players:Expansion1_Players::LEADER_WILHELMINA</LeaderPlayable>
 			<LeaderPlayable>Players:Expansion2_Players::LEADER_CHANDRAGUPTA,Players:Expansion2_Players::LEADER_GENGHIS_KHAN,Players:Expansion2_Players::LEADER_LAUTARO,Players:Expansion2_Players::LEADER_POUNDMAKER,Players:Expansion2_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion2_Players::LEADER_SEONDEOK,Players:Expansion2_Players::LEADER_SHAKA,Players:Expansion2_Players::LEADER_TAMAR,Players:Expansion2_Players::LEADER_WILHELMINA</LeaderPlayable>
+		</Criteria>-->
+		<Criteria id="XP1">
+			<ModInUse>1B28771A-C749-434B-9053-D1380C553DE9</ModInUse>
 		</Criteria>
 		<Criteria id="XP2">
 			<GameCoreInUse>Expansion2</GameCoreInUse>
 		</Criteria>
-		<Criteria id="XP1_XP2" any="1">
+		<Criteria id="XP1_AND_XP2" any="1">
 			<!--<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>-->
 			<LeaderPlayable>Players:Expansion2_Players::LEADER_CHANDRAGUPTA,Players:Expansion2_Players::LEADER_GENGHIS_KHAN,Players:Expansion2_Players::LEADER_LAUTARO,Players:Expansion2_Players::LEADER_POUNDMAKER,Players:Expansion2_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion2_Players::LEADER_SEONDEOK,Players:Expansion2_Players::LEADER_SHAKA,Players:Expansion2_Players::LEADER_TAMAR,Players:Expansion2_Players::LEADER_WILHELMINA</LeaderPlayable>
+		</Criteria>
+		<Criteria id="XP1_OR_XP2" any="1">
+			<GameCoreInUse>Expansion1</GameCoreInUse>
+			<GameCoreInUse>Expansion2</GameCoreInUse>
 		</Criteria>
 		<Criteria id="DLC_Aztec">
 			<ModInUse>02A8BDDE-67EA-4D38-9540-26E685E3156E</ModInUse>
@@ -397,63 +405,72 @@
 		<!-- -->
 		<UpdateDatabase id="BBG_Base">
 			<Properties>
-				<LoadOrder>11612</LoadOrder>
+				<LoadOrder>11611</LoadOrder>
 			</Properties>
 			<File>sql/Base/base.sql</File>
-			<File>sql/Base/America.sql</File>
-			<File>sql/Base/Arabia.sql</File>
 			<File>sql/Base/Beliefs.sql</File>
-			<File>sql/Base/Brazil.sql</File>
+			<File>sql/Base/Features.sql</File>
 			<File>sql/Base/Buildings.sql</File>
-			<File>sql/Base/China.sql</File>
 			<File>sql/Base/CityStates.sql</File>
 			<File>sql/Base/Districts.sql</File>
-			<File>sql/Base/Egypt.sql</File>
-			<File>sql/Base/England.sql</File>
-			<File>sql/Base/Features.sql</File>
-			<File>sql/Base/France.sql</File>
-			<File>sql/Base/Germany.sql</File>
 			<File>sql/Base/Government.sql</File>
 			<File>sql/Base/GreatPeoples.sql</File>
 			<File>sql/Base/GreatWorks.sql</File>
+			<File>sql/Base/Policies.sql</File>
+			<File>sql/Base/Spy.sql</File>
+			<File>sql/Base/Units.sql</File>
+			<File>sql/Base/Wonders.sql</File>
+			<File>sql/Base/America.sql</File>
+			<File>sql/Base/Arabia.sql</File>
+			<File>sql/Base/Brazil.sql</File>
+			<File>sql/Base/China.sql</File>
+			<File>sql/Base/Egypt.sql</File>
+			<File>sql/Base/England.sql</File>
+			<File>sql/Base/France.sql</File>
+			<File>sql/Base/Germany.sql</File>
 			<File>sql/Base/Greece.sql</File>
 			<File>sql/Base/India.sql</File>
 			<File>sql/Base/Japan.sql</File>
 			<File>sql/Base/Kongo.sql</File>
 			<File>sql/Base/Norway.sql</File>
-			<File>sql/Base/Policies.sql</File>
 			<File>sql/Base/Rome.sql</File>
 			<File>sql/Base/Russia.sql</File>
 			<File>sql/Base/Scythia.sql</File>
 			<File>sql/Base/Spain.sql</File>
-			<File>sql/Base/Spy.sql</File>
 			<File>sql/Base/Sumer.sql</File>
-			<File>sql/Base/Units.sql</File>
-			<File>sql/Base/Wonders.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_XP1">
 			<Properties>
-				<LoadOrder>11613</LoadOrder>
+				<LoadOrder>11612</LoadOrder>
 			</Properties>
 			<Criteria>XP1</Criteria>
 			<File>sql/XP1/xp1__rise_and_fall.sql</File>
+			<File>sql/XP1/Features.sql</File>
+			<File>sql/XP1/Buildings.sql</File>
 			<File>sql/XP1/Dutch.sql</File>
-			<File>sql/XP1/Policies.sql</File>
 			<File>sql/XP1/Cree.sql</File>
 			<File>sql/XP1/Scotland.sql</File>
 			<File>sql/XP1/Zulu.sql</File>
-			<File>sql/XP1/Features.sql</File>
-			<File>sql/XP1/Buildings.sql</File>
 			<File>sql/XP1/Georgia.sql</File>
-			<File>sql/XP1/Governors.sql</File>
 			<File>sql/XP1/Korea.sql</File>
 			<File>sql/XP1/Mapuche.sql</File>
 			<File>sql/XP1/Mongolia.sql</File>
 			<File>sql/XP1/Netherlands.sql</File>
 			<File>sql/XP1/Chandragupta.sql</File>
-			<!-- -->
-			<File>sql/Base/Kongo_XP1.sql</File>
-			<File>sql/Base/Sumer_XP1.sql</File>
+		</UpdateDatabase>
+		<!-- XP1 or XP2-->
+		<UpdateDatabase id="BBG_XP1_OR_XP2">
+			<Properties>
+				<LoadOrder>11613</LoadOrder>
+			</Properties>
+			<Criteria>XP1_OR_XP2</Criteria>
+			<File>sql/XP1/Government_XP1_or_XP2.sql</File>
+			<File>sql/XP1/Policies_XP1_or_XP2.sql</File>
+			<File>sql/XP1/Buildings_XP1_or_XP2.sql</File>
+			<File>sql/XP1/Governors_XP1_or_XP2.sql</File>
+			<File>sql/Base/Kongo_XP1_or_XP2.sql</File>
+			<File>sql/Base/Sumer_XP1_or_XP2.sql</File>
+			<File>sql/XP1/Other_XP1_or_XP2.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_XP2">
 			<Properties>
@@ -462,27 +479,41 @@
 			<Criteria>XP2</Criteria>
 			<File>sql/XP2/xp2__gathering_storm.sql</File>
 			<File>sql/XP2/Districts.sql</File>
+			<File>sql/XP2/Buildings.sql</File>
+			<File>sql/XP2/Features.sql</File>
+			<File>sql/XP2/Government.sql</File>
+			<File>sql/XP2/Governors.sql</File>
+			<File>sql/XP2/new_bbg_citystates_xp2.sql</File>
+			<File>sql/XP2/new_bbg_improvement.sql</File>
+			<File>sql/XP2/new_bbg_xp2_world_congress.sql</File>
+			<File>sql/XP2/Policies.sql</File>
+			<File>sql/XP2/Units.sql</File>
+			<File>sql/XP2/Maori.sql</File>
+			<File>sql/XP2/Phoenicie.sql</File>
+			<File>sql/XP2/Canada.sql</File>
+			<File>sql/XP2/Eleanor.sql</File>
+			<File>sql/XP2/Sweden.sql</File>
 			<File>sql/XP2/Mali.sql</File>
 			<File>sql/XP2/new_bbg_hungary.sql</File>
 			<File>sql/XP2/new_bbg_ottoman.sql</File>
 			<File>sql/XP2/new_bbg_inca.sql</File>
-			<File>sql/XP2/new_bbg_citystates_xp2.sql</File>
-			<File>sql/XP2/new_bbg_improvement.sql</File>
-			<File>sql/XP2/new_bbg_xp2_world_congress.sql</File>
-			<File>sql/XP2/Gouvernments.sql</File>
-			<File>sql/XP2/Maori.sql</File>
-			<File>sql/XP2/Phoenicie.sql</File>
-			<File>sql/XP2/Units.sql</File>
 			<!-- -->
 			<File>sql/Base/Sumer_XP2.sql</File>
+			<File>sql/Base/America_XP2.sql</File>
+			<File>sql/Base/Egypt_XP2.sql</File>
+			<File>sql/Base/France_XP2.sql</File>
+			<File>sql/Base/Kongo_XP2.sql</File>
+			<File>sql/Base/Rome_XP2.sql</File>
+			<File>sql/Base/Scythia_XP2.sql</File>
 		</UpdateDatabase>
-		<!-- -->
-		<UpdateDatabase id="BBG_XP1_XP2">
+		<!-- XP1 and XP2 -->
+		<UpdateDatabase id="BBG_XP1_AND_XP2">
 			<Properties>
 				<LoadOrder>11615</LoadOrder>
 			</Properties>
-			<Criteria>XP1_XP2</Criteria>
-			<File>sql/XP1/xp2_rise_and_fall.sql</File>
+			<Criteria>XP1_AND_XP2</Criteria>
+			<File>sql/XP1/Buildings_XP1_and_XP2.sql</File>
+			<File>sql/XP1/Cree_XP2.sql</File>
 			<File>sql/XP1/Mapuche_XP2.sql</File>
 		</UpdateDatabase>
 		<!-- -->
@@ -557,6 +588,7 @@
 			<Criteria>DLC_Macedon_Persia</Criteria>
 			<Criteria>XP2</Criteria>
 			<File>sql/DLC_Macedon_Persia/Macedon_XP2.sql</File>
+			<File>sql/DLC_Macedon_Persia/Persia_XP2.sql</File>
 		</UpdateDatabase>
 		<!--
 		<UpdateDatabase id="BBG_NFP_Macedon_Persia">
@@ -1025,7 +1057,7 @@
 		<!-- Integrated in BBG beta inside bbg script
 		<File>scripts/bbcc_no_rng.lua</File>
 			-->
-		<!-- -->
+		<!-- lang -->
 		<File>lang/english.xml</File>
 		<File>lang/korean.xml</File>
 		<File>lang/russian.xml</File>
@@ -1037,9 +1069,9 @@
 		<File>lang/chinese.xml</File>
 		<File>lang/italian.xml</File>
 		<File>lang/spanish.xml</File>
-		<!-- -->
+		<!-- utils -->
 		<File>sql/_utils.sql</File>
-		<!-- -->
+		<!--Base -->
 		<File>sql/Base/_base_utils.sql</File>
 		<File>sql/Base/base.sql</File>
 		<File>sql/Base/America.sql</File>
@@ -1072,45 +1104,63 @@
 		<File>sql/Base/Sumer.sql</File>
 		<File>sql/Base/Units.sql</File>
 		<File>sql/Base/Wonders.sql</File>
-		<!-- -->
-		<File>sql/Base/Sumer_XP1.sql</File>
-		<File>sql/Base/Kongo_XP1.sql</File>
-		<!-- -->
+		<!-- XP 1-->
 		<File>sql/XP1/_xp1_utils.sql</File>
 		<File>sql/XP1/xp1__rise_and_fall.sql</File>
 		<File>sql/XP1/Dutch.sql</File>
-		<File>sql/XP1/Policies.sql</File>
 		<File>sql/XP1/Cree.sql</File>
 		<File>sql/XP1/Scotland.sql</File>
 		<File>sql/XP1/Zulu.sql</File>
 		<File>sql/XP1/Features.sql</File>
 		<File>sql/XP1/Buildings.sql</File>
 		<File>sql/XP1/Georgia.sql</File>
-		<File>sql/XP1/Governors.sql</File>
 		<File>sql/XP1/Korea.sql</File>
 		<File>sql/XP1/Mongolia.sql</File>
 		<File>sql/XP1/Netherlands.sql</File>
 		<File>sql/XP1/Mapuche.sql</File>
 		<File>sql/XP1/Chandragupta.sql</File>
-		<!-- -->
+		<!-- XP1 or XP2-->
+		<File>sql/XP1/Government_XP1_or_XP2.sql</File>
+		<File>sql/XP1/Policies_XP1_or_XP2.sql</File>
+		<File>sql/XP1/Buildings_XP1_or_XP2.sql</File>
+		<File>sql/XP1/Governors_XP1_or_XP2.sql</File>
+		<File>sql/XP1/Other_XP1_or_XP2.sql</File>
+		<File>sql/Base/Sumer_XP1_or_XP2.sql</File>
+		<File>sql/Base/Kongo_XP1_or_XP2.sql</File>
+		<!-- XP2 -->
 		<File>sql/XP2/_xp2_utils.sql</File>
 		<File>sql/XP2/xp2__gathering_storm.sql</File>
+		<File>sql/XP2/Buildings.sql</File>
 		<File>sql/XP2/Districts.sql</File>
-		<File>sql/XP2/Mali.sql</File>
-		<File>sql/XP2/new_bbg_hungary.sql</File>
-		<File>sql/XP2/new_bbg_ottoman.sql</File>
-		<File>sql/XP2/new_bbg_inca.sql</File>
+		<File>sql/XP2/Features.sql</File>
+		<File>sql/XP2/Government.sql</File>
+		<File>sql/XP2/Governors.sql</File>
 		<File>sql/XP2/new_bbg_citystates_xp2.sql</File>
 		<File>sql/XP2/new_bbg_improvement.sql</File>
 		<File>sql/XP2/new_bbg_xp2_world_congress.sql</File>
-		<File>sql/XP2/Gouvernments.sql</File>
+		<File>sql/XP2/Policies.sql</File>
+		<File>sql/XP2/Units.sql</File>
+		<File>sql/XP2/Mali.sql</File>
+		<File>sql/XP2/Canada.sql</File>
+		<File>sql/XP2/new_bbg_hungary.sql</File>
+		<File>sql/XP2/new_bbg_ottoman.sql</File>
+		<File>sql/XP2/new_bbg_inca.sql</File>
 		<File>sql/XP2/Maori.sql</File>
 		<File>sql/XP2/Phoenicie.sql</File>
-		<File>sql/XP2/Units.sql</File>
-		<!-- -->
+		<File>sql/XP2/Eleanor.sql</File>
+		<File>sql/XP2/Sweden.sql</File>
+		<!-- Base+XP2 -->
 		<File>sql/Base/Sumer_XP2.sql</File>
-		<File>sql/XP1/xp2_rise_and_fall.sql</File>
+		<File>sql/Base/America_XP2.sql</File>
+		<File>sql/Base/Egypt_XP2.sql</File>
+		<File>sql/Base/France_XP2.sql</File>
+		<File>sql/Base/Kongo_XP2.sql</File>
+		<File>sql/Base/Rome_XP2.sql</File>
+		<File>sql/Base/Scythia_XP2.sql</File>
+		<!-- XP1 and XP2-->
+		<File>sql/XP1/Cree_XP2.sql</File>
 		<File>sql/XP1/Mapuche_XP2.sql</File>
+		<File>sql/XP1/Buildings_XP1_and_XP2.sql</File>
 		<!-- -->
 		<File>sql/DLC_Aztec/Aztec.sql</File>
 		<!-- -->
@@ -1126,6 +1176,7 @@
 		<!-- -->
 		<File>sql/DLC_Macedon_Persia/Macedon.sql</File>
 		<File>sql/DLC_Macedon_Persia/Persia.sql</File>
+		<File>sql/DLC_Macedon_Persia/Persia_XP2.sql</File>
 		<File>sql/DLC_Macedon_Persia/Wonders.sql</File>
 		<File>sql/DLC_Macedon_Persia/Macedon_XP1.sql</File>
 		<File>sql/DLC_Macedon_Persia/Macedon_XP2.sql</File>

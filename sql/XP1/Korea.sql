@@ -26,3 +26,5 @@ INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
 	VALUES ('TRAIT_SEOWON_BOMB', 'MODIFIER_PLAYER_ADD_CULTURE_BOMB_TRIGGER');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
 	VALUES ('TRAIT_SEOWON_BOMB', 'DistrictType', 'DISTRICT_SEOWON');
+--citizen yields
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' 		AND DistrictType='DISTRICT_SEOWON';

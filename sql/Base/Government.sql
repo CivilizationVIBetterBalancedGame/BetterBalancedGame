@@ -19,8 +19,6 @@ UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COM
 UPDATE Government_SlotCounts SET NumSlots=4 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_ECONOMIC';
 
 --11/12/22
-UPDATE ModifierArguments SET Value=1 WHERE ModifierId='COMMUNISM_PRODUCTIVE_PEOPLE' and Name="Amount";
-
 --11/12/22 Collectivization also give +4 gold per traderoute
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_COLLECTIVIZATION_TRADE_GOLD', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD');
