@@ -690,8 +690,8 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 		if pAdjPlot ~= nil then
 			local iFeatureType = pAdjPlot:GetFeatureType()
 			if iFeatureType~=-1 and iFeatureType ~= nil then
-				--print("Evaluating: "..GameInfo.Features[iFeatureType].FeatureType.." With result")
-				--print(RelevantBugWonders[iFeatureType])
+				print("Evaluating: "..GameInfo.Features[iFeatureType].FeatureType.." With result")
+				print(RelevantBugWonders[iFeatureType])
 			end
 			if RelevantBugWonders[iFeatureType] == true then
 				bControl = true
@@ -702,16 +702,16 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 	local tBasePlotYields = CalculateBaseYield(pPlot)
 	if bControl then
 		for i =0,1 do
-			--print("Base bug: Evaluating Yield: "..tostring(GameInfo.Yields[i].YieldType))
+			print("Base bug: Evaluating Yield: "..tostring(GameInfo.Yields[i].YieldType))
 			local nAddedYieldDiff = tBaseGuaranteedYields[i] - tBasePlotYields[i]
 			if nAddedYieldDiff>0 then
-				--print("Base bug: Firaxis city center added diff "..tostring(nAddedYieldDiff))
+				print("Base bug: Firaxis city center added diff "..tostring(nAddedYieldDiff))
 				local nBaseFullTileYield = pPlot:GetYield(i)+nAddedYieldDiff
-				--print("Base bug: Firaxis city center nBaseFullTileYield"..tostring(nBaseFullTileYield))
+				print("Base bug: Firaxis city center nBaseFullTileYield"..tostring(nBaseFullTileYield))
 				--sets the property
 				pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nBaseFullTileYield)
 				local nTrueYield = math.max(pPlot:GetYield(i), tBaseGuaranteedYields[i])
-				--print("Base bug: Firaxis city center nTrueYield "..tostring(nTrueYield))
+				print("Base bug: Firaxis city center nTrueYield "..tostring(nTrueYield))
 				local nExtraYield = nBaseFullTileYield - nTrueYield
 				if nExtraYield > 0 then
 					--set plot property for req
@@ -721,7 +721,7 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 						pCity:AttachModifierByID(sModifierStringID)
 					end
-					--print("Base bug: Firaxis city center nExtraYield"..tostring(nExtraYield))
+					print("Base bug: Firaxis city center nExtraYield"..tostring(nExtraYield))
 				end
 				--BCY so this doesn't happen on any version
 				local bDoBCYCheck = false
@@ -740,7 +740,7 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 						return
 					end
 					local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
-					--print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
+					print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
 					local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield+nExtraBCYYield)
 					--attaching modifiers
@@ -748,14 +748,14 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(nExtraYield+j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 						pCity:AttachModifierByID(sModifierStringID)
 					end
-					--print("Extra Yield set to "..tostring(nExtraYield+nExtraBCYYield))
+					print("Extra Yield set to "..tostring(nExtraYield+nExtraBCYYield))
 				end
 			end
 		end
 	end
 	--BCY settled cities (inside this function to controll execution order)
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
-		--print("OnCityBuiltBCY started")
+		print("OnCityBuiltBCY started")
 		BCY_RecalculateMapYield(iX, iY)
 	end
 end
@@ -2136,7 +2136,7 @@ end
 --end
 
 function OnGameplayBCYAdjustCityYield(playerID, kParameters)
-	--print("Gameplay Script Called")
+	print("OnGameplayBCYAdjustCityYield Gameplay Script Called")
 	BCY_RecalculateMapYield(kParameters.iX, kParameters.iY)
 end
 
@@ -2303,21 +2303,21 @@ function GetShuffledCopyOfTable(incoming_table)
 end
 --BCY no rng subtractive recalculation support
 function BCY_RecalculateMapYield(iX, iY)
-	--print("BCY: Recalculating for X,Y"..tostring(iX)..","..tostring(iY))
+	print("BCY: Recalculating for X,Y"..tostring(iX)..","..tostring(iY))
 	local pCity = CityManager.GetCityAt(iX,iY)
-	--print("Check 0")
+	print("Check 0")
 	if pCity == nil then
 		return
 	end
-	--print("Check 1")
+	print("Check 1")
 	if GameConfiguration.GetValue("BBCC_SETTING") == 1 and Players[pCity:GetOwner()]:GetCities():GetCapitalCity()~=pCity then
 		return
 	end
-	--print("BCY no RNG: Yield Recalculation Started")
+	print("BCY no RNG: Yield Recalculation Started")
 	local pPlot = Map.GetPlot(iX, iY)
 	local pOwningCity = Cities.GetPlotPurchaseCity(pPlot)
 	if pOriginCity ~= pCity then
-		return
+		return print("pOriginCity ~= pCity => exit")
 	end
 	local iTerrain = pPlot:GetTerrainType()
 	local tBasePlotYields = CalculateBaseYield(pPlot)
@@ -2331,8 +2331,8 @@ function BCY_RecalculateMapYield(iX, iY)
 		return
 	end 
 	for i=0,5 do
-		--print("Evaluated yield: "..GameInfo.Yields[i].YieldType)
-		--print("Base Plot Yield ", tBasePlotYields[i])
+		print("Evaluated yield: "..GameInfo.Yields[i].YieldType)
+		print("Base Plot Yield ", tBasePlotYields[i])
 		local nYield = 0
 		local nFiraxisFullTileYield  = pPlot:GetProperty(FiraxisYieldPropertyDictionary(i))
 		local nExtraYield = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
@@ -2341,26 +2341,28 @@ function BCY_RecalculateMapYield(iX, iY)
 		else
 			nFiraxisFullTileYield = math.max(pPlot:GetYield(i), nFiraxisFullTileYield)
 		end
-		--print("Firaxis yield "..tostring(nFiraxisFullTileYield))
+		print("Firaxis yield "..tostring(nFiraxisFullTileYield))
 		pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nFiraxisFullTileYield)
 		if nExtraYield == nil then
 			nExtraYield = 0
 		end
 		local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
-		--print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
+		print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
 		local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
-		--print("Extra BCY yield "..tostring(nExtraBCYYield))
+		print("Extra BCY yield "..tostring(nExtraBCYYield))
 		nYield = nFiraxisFullTileYield-nExtraYield + nExtraBCYYield
 		local nYieldDiff = nYield - GameInfo[sControllString][i].Amount
-		--print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
+		print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
 		if nYieldDiff > 0 then
 			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nYieldDiff + nExtraYield)
 			if GameEvents.GameplayFixIncaBug == nil or GameEvents.GameplayFixIncaBug == {} then
+				print("Not Inca City")
 				for j=1, nYieldDiff do
 					local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(nExtraYield+j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 					pCity:AttachModifierByID(sModifierStringID)
 				end
 			else
+				print("Inca City")
 				local nIncaCCRemovedYield = pPlot:GetProperty("INCA_CC_"..ExtraYieldPropertyDictionary(i))
 				if nIncaCCRemovedYield == nil then
 					nIncaCCRemovedYield = 0
@@ -2372,7 +2374,7 @@ function BCY_RecalculateMapYield(iX, iY)
 					end
 				end
 			end					
-			--print("Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff+nExtraYield))
+			print("Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff+nExtraYield))
 		end
 	end
 end
