@@ -731,6 +731,14 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 					bDoBCYCheck = true
 				end
 				if bDoBCYCheck == true and nExtraYield>0 then
+					local sControllString = ""
+					if iTerrain==0 or iTerrain==3 or iTerrain==6 or iTerrain==9 or iTerrain==12 then --flats
+						sControllString = "Flat_CutOffYieldValues"
+					elseif iTerrain==1 or iTerrain==4 or iTerrain==7 or iTerrain==10 or iTerrain==13 then --hills
+						sControllString = "Hill_CutOffYieldValues"
+					else
+						return
+					end
 					local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
 					--print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
 					local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
@@ -3495,7 +3503,7 @@ function Initialize()
 			print("BBG Gilga Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			-- Inca Yields on non-mountain impassibles bugfix
-			LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
+			--LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
 			GameEvents.GameplayFixIncaBug.Add(OnGameplayFixIncaBug)
 			GameEvents.CityConquered.Add(OnIncaCityConquered)
 			print("BBG Inca Hooks Added")
