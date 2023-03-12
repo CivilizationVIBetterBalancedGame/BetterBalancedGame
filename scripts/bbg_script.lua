@@ -716,10 +716,12 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 				if nExtraYield > 0 then
 					--set plot property for req
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield)
+					print("BugWonder: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff))
 					--attach modifiers to the city
-					for j=0, nExtraYield do
+					for j=1, nExtraYield do
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 						pCity:AttachModifierByID(sModifierStringID)
+						print("Wonder Bug-Fix Modifier Attached", sModifierStringID)
 					end
 					print("Base bug: Firaxis city center nExtraYield"..tostring(nExtraYield))
 				end
@@ -731,6 +733,7 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 					bDoBCYCheck = true
 				end
 				if bDoBCYCheck == true and nExtraYield>0 then
+					print("Wonder Bug-Fix BCY detected")
 					local sControllString = ""
 					if iTerrain==0 or iTerrain==3 or iTerrain==6 or iTerrain==9 or iTerrain==12 then --flats
 						sControllString = "Flat_CutOffYieldValues"
@@ -743,10 +746,12 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 					print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
 					local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield+nExtraBCYYield)
+					print("BugWonder: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nExtraYield+nExtraBCYYield))
 					--attaching modifiers
 					for j=1, nExtraBCYYield do
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(nExtraYield+j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 						pCity:AttachModifierByID(sModifierStringID)
+						print("Wonder Bug-Fix Modifier Attached", sModifierStringID)
 					end
 					print("Extra Yield set to "..tostring(nExtraYield+nExtraBCYYield))
 				end
@@ -1632,7 +1637,7 @@ end
 --end
 
 function OnGameplayFixIncaBug(iPlayerID, tParameters)
-	--print("OnGameplaySetPlotProperty started")
+	print("OnGameplaySetPlotProperty started")
 	local iPlayerID = tParameters["iOwnerId"]
 	local pPlot = Map.GetPlot(tParameters.iX, tParameters.iY)
 	local tYields = tParameters.Yields
@@ -1640,6 +1645,7 @@ function OnGameplayFixIncaBug(iPlayerID, tParameters)
 	if pCity == nil then
 		return
 	end
+	print("Inca Evaluation plot with iX, iY:", tParameters.iX, tParameters.iY)
 	local pCityCenterPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
 	for i=0, 5 do
 		if tYields[i]>0 then
@@ -1647,24 +1653,33 @@ function OnGameplayFixIncaBug(iPlayerID, tParameters)
 			if nCenterRemovedYield == nil then
 				nCenterRemovedYield = 0
 			end
+			print("BCY's nCenterRemovedYield: ", nCenterRemovedYield)
 			local nIncaCCRemovedYield = pCityCenterPlot:GetProperty("INCA_CC_"..ExtraYieldPropertyDictionary(i))
 			if nIncaCCRemovedYield == nil then
 				nIncaCCRemovedYield = 0
 			end
+			print("Inca's nIncaCCRemovedYield: ", nIncaCCRemovedYield)
 			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), tYields[i]) -- update wonder tile property
+			print("Inca BugFix: plot iX, iY: "..tostring(tParameters.iX)..","..tostring(tParameters.iY).." Property for "..GameInfo.Yields[i].YieldType.." set to "..tostring(tYields[i]))
 			--Attaching city center modifiers
 			if nIncaCCRemovedYield>=nCenterRemovedYield then
+				print("Inca >= BCY")
 				if tYields[i]>nIncaCCRemovedYield then
+					print("Attaching Subtraction Modifiers")
 					for j = nIncaCCRemovedYield+1, tYields[i] do
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
-						pCity:AttachModifierByID(sModifierStringID)						
+						pCity:AttachModifierByID(sModifierStringID)
+						print("Inca Modifier Attached", sModifierStringID)					
 					end
 				end
 			else
+				print("BCY > Inca")
 				if tYields[i]>nCenterRemovedYield then
+					print("Attaching Subtraction Modifiers")
 					for j = nCenterRemovedYield+1, tYields[i] do
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
-						pCity:AttachModifierByID(sModifierStringID)						
+						pCity:AttachModifierByID(sModifierStringID)
+						print("Inca Modifier Attached", sModifierStringID)						
 					end
 				end					
 			end
@@ -2316,9 +2331,9 @@ function BCY_RecalculateMapYield(iX, iY)
 	print("BCY no RNG: Yield Recalculation Started")
 	local pPlot = Map.GetPlot(iX, iY)
 	local pOwningCity = Cities.GetPlotPurchaseCity(pPlot)
-	if pOriginCity ~= pCity then
-		return print("pOriginCity ~= pCity => exit")
-	end
+	--if pOriginCity ~= pCity then
+		--return print("pOriginCity ~= pCity => exit")
+	--end
 	local iTerrain = pPlot:GetTerrainType()
 	local tBasePlotYields = CalculateBaseYield(pPlot)
 	local sControllString = ""
@@ -2355,11 +2370,13 @@ function BCY_RecalculateMapYield(iX, iY)
 		print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
 		if nYieldDiff > 0 then
 			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nYieldDiff + nExtraYield)
+			print("BCY no RNG: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff+nExtraYield))
 			if GameEvents.GameplayFixIncaBug == nil or GameEvents.GameplayFixIncaBug == {} then
 				print("Not Inca City")
 				for j=1, nYieldDiff do
 					local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(nExtraYield+j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 					pCity:AttachModifierByID(sModifierStringID)
+					print("BCY no RNG Modifier Attached", sModifierStringID)
 				end
 			else
 				print("Inca City")
@@ -2371,10 +2388,10 @@ function BCY_RecalculateMapYield(iX, iY)
 					for j=nIncaCCRemovedYield+1, nExtraYield + nYieldDiff do
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 						pCity:AttachModifierByID(sModifierStringID)
+						print("BCY no RNG Modifier Attached", sModifierStringID)
 					end
 				end
 			end					
-			print("Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff+nExtraYield))
 		end
 	end
 end

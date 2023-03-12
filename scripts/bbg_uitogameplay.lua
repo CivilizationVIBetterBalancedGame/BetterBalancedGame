@@ -51,13 +51,13 @@ function OnIncaPlotYieldChanged(iX, iY)
 		kParameters["iY"] = iY
 		kParameters.Yields = {}
 		for i =0,5 do
-			--local nControlProp = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
-			--if nControlProp == nil then
-				--kParameters.Yields[i] = pPlot:GetYield(i)
-			--else
-				--kParameters.Yields[i] = nControlProp + pPlot:GetYield(i)
-			--end
-			kParameters.Yields[i] = pPlot:GetYield(i)
+			local nControlProp = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
+			if nControlProp == nil then
+				kParameters.Yields[i] = pPlot:GetYield(i)
+			else
+				kParameters.Yields[i] = nControlProp + pPlot:GetYield(i)
+			end
+			--kParameters.Yields[i] = pPlot:GetYield(i)
 		end
 		UI.RequestPlayerOperation(iOwnerId, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 		--UIEvents.UISetPlotProperty(iOwnerId, kParameters)	
