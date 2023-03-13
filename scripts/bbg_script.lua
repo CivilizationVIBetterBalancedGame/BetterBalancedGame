@@ -561,15 +561,35 @@ function OnCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 end
 
 function OnGameplayMovementBugFix(iPlayerID, kParameters)
-	--print("OnUnitInitialized started")
+	print("OnGameplayMovementBugFix started")
 	local iPlayerID = kParameters["iPlayerID"]
 	local iUnitID = kParameters["iUnitID"]
 	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
 	if pUnit == nil then
+		return print("Nil Unit -> Exit")
+	end
+	print(pUnit, pUnit:GetID())
+	print("Get Extra Moves:", pUnit:GetExtraMoves())
+	if pUnit:GetExtraMoves() > 0 then
+		UnitManager.RestoreMovement(pUnit)
+		UnitManager.RestoreUnitAttacks(pUnit)
+	end
+end
+
+function OnGameplayMovementBugFixUpgrade(iPlayerID, kParameters)
+	print("OnGameplayMovementBugFixUpgrade called")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iUnitID = kParameters["iUnitID"]
+	local nBaseMoves = kParameters["nBaseMoves"]
+	pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
+	if pUnit == nil then
 		return
 	end
-	UnitManager.RestoreMovement(pUnit)
-	UnitManager.RestoreUnitAttacks(pUnit)
+	local nExtraMoves = pUnit:GetExtraMoves()
+	print(pUnit, pUnit:GetID())
+	--pUnit:ChangeExtraMoves(-nBaseMoves - nExtraMoves)
+	UnitManager.ChangeMovesRemaining(pUnit, -nBaseMoves - nExtraMoves)
+	print("Post Upgrade Movement Readjusted")
 end
 --Macedon (Reminder to Optimize those hooks)
 function OnMacedonConqueredACity(iNewOwnerID, iOldOwnerID, iCityID, iX, iY) -- refresh macedon trait as game property
@@ -1759,10 +1779,13 @@ function OnGameplayBBGGovChanged(iPlayerID, kParameters)
 	local pPlayerCities = pPlayer:GetCities()
 	if iGovID == 8 then
 		for i, pCity in pPlayerCities:Members() do
-			local iX = pCity:GetX()
-			local iY = pCity:GetY()
-			local iCityID = pCity:GetID()
-			OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+			local kParameters = {}
+			kParameters.OnStart = "GameplayBBGWorkersChanged"
+			kParameters["iPlayerID"] = iPlayerID
+			kParameters["iX"] = pCity:GetX()
+			kParameters["iY"] = pCity:GetY()
+			kParameters["iCityID"] = pCity:GetID()
+			OnGameplayBBGWorkersChanged(iPlayerID, kParameters)
 		end
 	elseif pPlayer:GetProperty("HAS_COMMUNISM") then
 		for i, pCity in pPlayerCities:Members() do
@@ -1788,7 +1811,13 @@ function OnPolicyChanged(iPlayerID, iPolicyID, bEnacted)
 			local iX = pCity:GetX()
 			local iY = pCity:GetY()
 			if bEnacted == true then
-				OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+				local kParameters = {}
+				kParameters.OnStart = "GameplayBBGWorkersChanged"
+				kParameters["iPlayerID"] = iPlayerID
+				kParameters["iCityID"] = iCityID
+				kParameters["iX"] = iX
+				kParameters["iY"] = iY
+				OnGameplayBBGWorkersChanged(iPlayerID, kParameters)
 			elseif bEnacted == false then
 				OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
 			end
@@ -1892,7 +1921,7 @@ end
 --end
 
 function OnGameplaySetAmaniProperty(iGovernorOwnerID, kParameters)
-	--print("OnGameplaySetAmaniProperty called")
+	print("OnGameplaySetAmaniProperty called")
 	local iGovernorOwnerID = kParameters["iGovernorOwnerID"]
 	local tAmani = kParameters["tAmani"]
 	local pPlayer = Players[iGovernorOwnerID]
@@ -1903,13 +1932,13 @@ function OnGameplaySetAmaniProperty(iGovernorOwnerID, kParameters)
 	Amani_RecalculatePlayer(pPlayer)
 end
 
-function OnUISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+--function OnUISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
 	--print("OnUISetCSTrader called")
-	GameEvents.GameplaySetCSTrader.Call(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
-end
+	--GameEvents.GameplaySetCSTrader.Call(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+--end
 
 function OnGameplaySetCSTrader(iOriginPlayerID, kParameters)
-	--print("OnGameplaySetCSTrader called")
+	print("OnGameplaySetCSTrader called")
 	local iOriginPlayerID = kParameters["iOriginPlayerID"]
 	local iOriginCityID = kParameters["iOriginCityID"]
 	local iTargetPlayerID = kParameters["iTargetPlayerID"]
@@ -1926,79 +1955,79 @@ function OnGameplaySetCSTrader(iOriginPlayerID, kParameters)
 		tCsTraders = {}
 	end
 	--debug control
-	--if tCsTraders~= nil or tCsTraders~={} then
-		--for i, iMinorIDs in ipairs(tCsTraders) do
-			--print(pCity, "trader to", iMinorIDs)
-		--end
-	--end
+	if tCsTraders~= nil or tCsTraders~={} then
+		for i, iMinorIDs in ipairs(tCsTraders) do
+			print(pCity, "trader to", iMinorIDs)
+		end
+	end
 	if iTargetPlayerID > 0 then
-		--print("Adding CS ID to trader list")
+		print("Adding CS ID to trader list")
 		table.insert(tCsTraders, iTargetPlayerID)
 		--debug lines
-		--if tCsTraders~= nil or tCsTraders~={} then
-			--for i, iMinorIDs in ipairs(tCsTraders) do
-				--print(pCity, "trader to", iMinorIDs)
-			--end
-		--end
+		if tCsTraders~= nil or tCsTraders~={} then
+			for i, iMinorIDs in ipairs(tCsTraders) do
+				print(pCity, "trader to", iMinorIDs)
+			end
+		end
 	elseif iTargetPlayerID<0 then
-		--print("Removing CS ID from trader list", 0-iTargetPlayerID)
+		print("Removing CS ID from trader list", 0-iTargetPlayerID)
 		local iRemovePos = IDToPos(tCsTraders, 0-iTargetPlayerID)
 		if iRemovePos~=false then
 			table.remove(tCsTraders, iRemovePos)
 		end
 		--debug lines
-		--if tCsTraders~= nil or tCsTraders~={} then
-			--for i, iMinorIDs in ipairs(tCsTraders) do
-				--print(pCity, "trader to", iMinorIDs)
-			--end
-		--end
+		if tCsTraders~= nil or tCsTraders~={} then
+			for i, iMinorIDs in ipairs(tCsTraders) do
+				print(pCity, "trader to", iMinorIDs)
+			end
+		end
 	end
 	pCity:SetProperty("CS_TRADERS", tCsTraders)
 	Amani_RecalculateCity(pPlayer, pCity)
 end
 
 function Amani_RecalculateCity(pPlayer, pCity)
-	--print("Amani_RecalculateCity called")
+	print("Amani_RecalculateCity called")
 	local tAmani = pPlayer:GetProperty("AMANI")
 	local tCsTraders = pCity:GetProperty("CS_TRADERS")
 	local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
 	local bAmaniCS = pPlot:GetProperty("AMANI_ESTABLISHED_CS")
 	local bTraderToAmani = pPlot:GetProperty("TRADER_TO_AMANI_CS")
 	if tAmani ~= nil then
-		--print("Player AMANI Property Detected")
+		print("Player AMANI Property Detected")
 		local iMinorID = tAmani["iMinorID"]
-		--print("Amani iMinorID", iMinorID)
+		print("Amani iMinorID", iMinorID)
 		if tAmani.Status == 1 and bAmaniCS == nil then
 			pPlot:SetProperty("AMANI_ESTABLISHED_CS", 1) -- assign amani modifier control property
-			--print("Amani control Property assigned")
+			print("Amani control Property assigned")
 		elseif (tAmani.Status == 0 or tAmani.Status == -1) and bAmaniCS == 1 then
 			pPlot:SetProperty("AMANI_ESTABLISHED_CS", nil) -- remove amani modifier control property
-			--print("Amani control property removed")
+			print("Amani control property removed")
 		end
 		if tCsTraders ~= nil then
-			--print("City CS property Detected")
+			print("City CS property Detected")
 			local vSearchResult = IDToPos(tCsTraders, iMinorID)
 			--debug lines
 			if tCsTraders~= nil or tCsTraders~={} then
 				for i, iMinorIDs in ipairs(tCsTraders) do
-					--print(pCity, "trader to", iMinorIDs)
+					print(pCity, "trader to", iMinorIDs)
 				end
 			end
-			--print("Search Result", vSearchResult)
-			--print("bTraderToAmani", bTraderToAmani)
+			print("Search Result", vSearchResult)
+			print("bTraderToAmani", bTraderToAmani)
 			if vSearchResult == false and bTraderToAmani == 1 then
 				pPlot:SetProperty("TRADER_TO_AMANI_CS", nil) --remove trader modifier control property
-				--print("trader control property removed")
+				print("trader control property removed")
 			elseif vSearchResult~=false and bTraderToAmani == nil then
 				pPlot:SetProperty("TRADER_TO_AMANI_CS", 1) -- assign trader modifier control property
-				--print("trader control property assigned")
+				print("trader control property assigned")
 			end
 		end
 	end
 end
 
 function Amani_RecalculatePlayer(pPlayer)
-	--print("Amani_RecalculatePlayer called")
+	print("Amani_RecalculatePlayer called")
 	local pPlayerCities = pPlayer:GetCities()
 	for i, pCity in pPlayerCities:Members() do
 		Amani_RecalculateCity(pPlayer, pCity)
@@ -3494,10 +3523,6 @@ function Initialize()
 	print("BBG - relevant feature yields populated")
 	PopulateBugWonders()
 	print("BBG - relevant Bug wonders populated")
-	if currentTurn == startTurn then
-		ApplySumeriaTrait()
-		--InitBarbData()
-	end
 	-- turn checked effects:
 	GameEvents.OnGameTurnStarted.Add(OnGameTurnStarted);
 	print("BBG Barb Hooks Added")
@@ -3513,6 +3538,7 @@ function Initialize()
 	-- Events.TechBoostTriggered.Add(OnTechBoost);
 	-- Extra Movement bugfix
 	GameEvents.GameplayMovementBugFix.Add(OnGameplayMovementBugFix)
+	GameEvents.GameplayMovementBugFixUpgrade.Add(OnGameplayMovementBugFixUpgrade)
 	print("BBG Movement bugfix hook added")
 	-- Yield Adjustment hook
 	GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
@@ -3547,6 +3573,12 @@ function Initialize()
 			GameEvents.OnPillage.Add(OnGilgaPillage)
 			GameEvents.OnCombatOccurred.Add(OnGilgaCombatOccurred)
 			print("BBG Gilga Hooks Added")
+		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_SUMERIA" then
+			if currentTurn == startTurn then
+				ApplySumeriaTrait()
+				--InitBarbData()
+			end
+			print("Sumeria Warcart Added")
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			-- Inca Yields on non-mountain impassibles bugfix
 			--LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)

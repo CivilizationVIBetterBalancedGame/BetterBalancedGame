@@ -16,6 +16,7 @@ tRemoveIncaYieldsFromFeatures=DB.Query(qQuery)
 --end
 --Exp bug
 function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
+	local kParameters = {}
 	kParameters.OnStart = "GameplayPromotionFixExp"
 	kParameters["iUnitPlayerID"] = iUnitPlayerID
 	kParameters["iUnitID"] = iUnitID
@@ -24,21 +25,40 @@ function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
 end
 
 function OnUnitAddedToMap(iPlayerID, iUnitID)
+	print("OnUnitAddedToMap called", iPlayerID, iUnitID)
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
-		return
+		return print("nil player")
 	end
 	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
 	if pUnit == nil then
-		return
+		return print("nil unit")
 	end
-	if pUnit:GetMovementMovesRemaining()>0 then
+	print(pUnit)
+	print("Get Moves Remaining",  pUnit:GetMovesRemaining())
+	print("GetMovementMovesRemaining", pUnit:GetMovementMovesRemaining())
+	print("GetMaxMoves", pUnit:GetMaxMoves())
+	print("IsReadyToMove", pUnit:IsReadyToMove())
+	--if pUnit:GetMovesRemaining()>0 then
+		--print("has moves => restore if incomplete")
 		local kParameters = {}
 		kParameters.OnStart = "GameplayMovementBugFix"
 		kParameters["iPlayerID"] = iPlayerID
 		kParameters["iUnitID"] = iUnitID
-		UI.RequestPlayerOperation(iUnitPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
-	end
+		UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+	--end
+end
+
+function OnUnitUpgraded(iPlayerID, iUnitID)
+	print("OnUnitUpgraded called", iPlayerID, iUnitID)
+	local kParameters = {}
+	kParameters.OnStart = "GameplayMovementBugFixUpgrade"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iUnitID"] = iUnitID
+	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
+	print(pUnit:GetMaxMoves())
+	kParameters["nBaseMoves"] = pUnit:GetMaxMoves() 
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 end
 --Inca bug
 function OnIncaPlotYieldChanged(iX, iY)
@@ -147,16 +167,16 @@ end
 
 function OnGovernmentChanged(iPlayerID, iGovID)
 	local kParameters = {}
-	local kParameters.OnStart = "GameplayBBGGovChanged"
-	local kParameters["iPlayerID"] = iPlayerID
-	local kParameters["iGovID"] = iGovID 
+	kParameters.OnStart = "GameplayBBGGovChanged"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iGovID"] = iGovID 
 	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 end
 
 --Amani
 function OnGovernorAssigned(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
-	--print("OnGovernorAssigned")
-	--print(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
+	print("OnGovernorAssigned")
+	print(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
 	if iGovernorType ~= 1 then -- not amani
 		return
 	end
@@ -179,13 +199,13 @@ function OnGovernorAssigned(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorTy
 	kParameters.OnStart = "GameplaySetAmaniProperty"
 	kParameters["iGovernorOwnerID"] = iGovernorOwnerID
 	kParameters["tAmani"] = tAmani
-	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+	UI.RequestPlayerOperation(iGovernorOwnerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 	--UIEvents.UISetAmaniProperty(iGovernorOwnerID, tAmani)
 end
 
 function OnTradeRouteActivityChanged(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
-	--print("OnTradeRouteActivityChanged")
-	--print(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
+	print("OnTradeRouteActivityChanged")
+	print(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
 	local pOriginPlayer = Players[iOriginPlayerID]
 	if pOriginPlayer == nil then
 		return
@@ -221,22 +241,22 @@ function OnTradeRouteActivityChanged(iPlayerID, iOriginPlayerID, iOriginCityID, 
 	kParameters["iOriginPlayerID"] = iOriginPlayerID
 	kParameters["iOriginCityID"] = iOriginCityID
 	if bControl == true then
-		--print("Sending Add trader req")
+		print("Sending Add trader req")
 		kParameters["iTargetPlayerID"] = iTargetPlayerID
 		UI.RequestPlayerOperation(iOriginPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 		--UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
 	else
-		--print("Sending Remove trader req")
+		print("Sending Remove trader req")
 		kParameters["iTargetPlayerID"] = 0 - iTargetPlayerID
 		UI.RequestPlayerOperation(iOriginPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 		--UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, 0-iTargetPlayerID)
 	end
 end
 
-function OnGovernorChanged(iPlayerID, iGovernorID)
-	--print("OnGovernorChanged")
-	--print(iPlayerID, iGovernorID)
-	local pPlayer = Players[iPlayerID]
+function OnGovernorChanged(iGovernorOwnerID, iGovernorID)
+	print("OnGovernorChanged")
+	print(iGovernorOwnerID, iGovernorID)
+	local pPlayer = Players[iGovernorOwnerID]
 	if pPlayer==nil then
 		return
 	end
@@ -248,24 +268,25 @@ function OnGovernorChanged(iPlayerID, iGovernorID)
 		return
 	end
 	local pPlayerGovernors = pPlayer:GetGovernors()
-	local pPlayerGovernor = GetAppointedGovernor(iPlayerID, iGovernorID)
+	local pPlayerGovernor = GetAppointedGovernor(iGovernorOwnerID, iGovernorID)
 	local kParameters = {}
 	kParameters.OnStart = "GameplaySetAmaniProperty"
-	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iGovernorOwnerID"] = iGovernorOwnerID
 	if pPlayerGovernor:IsEstablished(1) and tAmani~=nil then
+		print("Amani Established")
 		local pCity = CityManager.GetCity(tAmani.iMinorID, tAmani.iCityID)
 		if pPlayerGovernor:GetAssignedCity() == pCity then
-			--amani established -> recalculate amani yields and plot properties
+			print("amani established -> recalculate amani yields and plot properties")
 			tAmani.Status = 1
 			kParameters["tAmani"] = tAmani
-			UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+			UI.RequestPlayerOperation(iGovernorOwnerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 			--UIEvents.UISetAmaniProperty(iPlayerID, tAmani)
 		end
 	elseif pPlayerGovernor:IsEstablished(1) == false and tAmani.iCityID ~= nil then
-		--amani removed -> recalculate amani yields and plot properties, player properties as well
+		print("amani removed -> recalculate amani yields and plot properties, player properties as well")
 		tAmani.Status = -1
 		kParameters["tAmani"] = tAmani
-		UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+		UI.RequestPlayerOperation(iGovernorOwnerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 		--UIEvents.UISetAmaniProperty(iPlayerID, tAmani)
 	end
 end
@@ -489,6 +510,7 @@ function Initialize()
 	Events.UnitPromoted.Add(OnPromotionFixExp);
 	--Movement bugfix
 	Events.UnitAddedToMap.Add(OnUnitAddedToMap)
+	Events.UnitUpgraded.Add(OnUnitUpgraded)
 	--Communism
 	Events.CityWorkerChanged.Add(OnCityWorkerChanged)
 	Events.GovernmentChanged.Add(OnGovernmentChanged)
