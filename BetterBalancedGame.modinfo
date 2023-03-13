@@ -113,13 +113,16 @@
 		<Criteria id="RulersChina">
 			<ModInUse>7D27831B-BAA6-4A8B-A39C-94243BAD3F47</ModInUse>
 		</Criteria>
-		<!-- -->
+		<!-- Other Mods and Integrations -->
 		<Criteria id="BBS">
 			<ModInUse>c88cba8b-8311-4d35-90c3-51a4a5d66550</ModInUse>
 		</Criteria>
 		<Criteria id="NoConflictingUIMod">
 			<ModInUse inverse="1">1d44b5e7-753e-405b-af24-5ee634ec8a01</ModInUse>
 			<ModInUse inverse="1">8d4fa23a-ef43-440c-8422-2bec11f8f5d7</ModInUse>
+		</Criteria>
+		<Criteria id="NO_BBGTS"> <!--new beta environment-->
+			<ModInUse inverse="1">d6b111c4-be33-4878-b1fc-8741b1cd6af7</ModInUse>
 		</Criteria>
 		<!-- -->
 		<!--BBCC-->
@@ -301,6 +304,7 @@
 		</ImprotFiles>
 		-->
 		<AddGameplayScripts id="BBG_CoreScript">
+			<Criteria>NO_BBGTS</Criteria>
 			<File>scripts/bbg_script.lua</File>
 		</AddGameplayScripts>
 
@@ -308,6 +312,7 @@
 			<Properties>
 				<Context>InGame</Context>
 			</Properties>
+			<Criteria>NO_BBGTS</Criteria>
 			<File>scripts/bbg_uitogameplay.xml</File>
 		</AddUserInterfaces>
 		
@@ -320,6 +325,7 @@
 		</AddGameplayScripts>
 		-->
 		<ImportFiles id="bbg_uitogameplay_lua">
+			<Criteria>NO_BBGTS</Criteria>
 			<File>scripts/bbg_uitogameplay.lua</File>
 		</ImportFiles>
 
