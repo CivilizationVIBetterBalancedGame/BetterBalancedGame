@@ -1,3 +1,9 @@
+------------------------------------------------------------------------------
+--	FILE:	 bbg_uitogameplay.lua
+--	AUTHOR:  FlashyFeeds
+--	PURPOSE: UI to Gameplay script. Raises synchronized GameEvents from Events
+------------------------------------------------------------------------------
+
 UIEvents = ExposedMembers.LuaEvents
 print("BBG UI to Gameplay Script started")
 --- Inca Scrits
@@ -10,7 +16,29 @@ tRemoveIncaYieldsFromFeatures=DB.Query(qQuery)
 --end
 --Exp bug
 function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
-	UIEvents.UIPromotionFixExp(iUnitPlayerID, iUnitID)
+	kParameters.OnStart = "GameplayPromotionFixExp"
+	kParameters["iUnitPlayerID"] = iUnitPlayerID
+	kParameters["iUnitID"] = iUnitID
+	UI.RequestPlayerOperation(iUnitPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+	--UIEvents.UIPromotionFixExp(iUnitPlayerID, iUnitID)
+end
+
+function OnUnitAddedToMap(iPlayerID, iUnitID)
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
+	if pUnit == nil then
+		return
+	end
+	if pUnit:GetMovementMovesRemaining()>0 then
+		local kParameters = {}
+		kParameters.OnStart = "GameplayMovementBugFix"
+		kParameters["iPlayerID"] = iPlayerID
+		kParameters["iUnitID"] = iUnitID
+		UI.RequestPlayerOperation(iUnitPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+	end
 end
 --Inca bug
 function OnIncaPlotYieldChanged(iX, iY)
@@ -106,12 +134,23 @@ function OnCityWorkerChanged(iPlayerID, iCityID, iX, iY)
 	local pPlayerCulture = pPlayer:GetCulture()
 	local iGovID = pPlayerCulture:GetCurrentGovernment()
 	if iGovID == 8 or pPlayerCulture:IsPolicyActive(105) then
-		UIEvents.UIBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+		local kParameters = {}
+		kParameters.OnStart = "GameplayBBGWorkersChanged"
+		kParameters["iPlayerID"] = iPlayerID
+		kParameters["iCityID"] = iCityID
+		kParameters["iX"] = iX
+		kParameters["iY"] = iY
+		UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);	
+		--UIEvents.UIBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
 	end
 end
 
 function OnGovernmentChanged(iPlayerID, iGovID)
-	UIEvents.UIBBGGovChanged(iPlayerID, iGovID)
+	local kParameters = {}
+	local kParameters.OnStart = "GameplayBBGGovChanged"
+	local kParameters["iPlayerID"] = iPlayerID
+	local kParameters["iGovID"] = iGovID 
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 end
 
 --Amani
@@ -136,7 +175,12 @@ function OnGovernorAssigned(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorTy
 	tAmani["iMinorID"] = iCityOwnerID
 	tAmani["Status"] = 0 
 	--0: establishing, 1: established, -1 not assigned
-	UIEvents.UISetAmaniProperty(iGovernorOwnerID, tAmani)
+	local kParameters = {}
+	kParameters.OnStart = "GameplaySetAmaniProperty"
+	kParameters["iGovernorOwnerID"] = iGovernorOwnerID
+	kParameters["tAmani"] = tAmani
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+	--UIEvents.UISetAmaniProperty(iGovernorOwnerID, tAmani)
 end
 
 function OnTradeRouteActivityChanged(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
@@ -172,12 +216,20 @@ function OnTradeRouteActivityChanged(iPlayerID, iOriginPlayerID, iOriginCityID, 
 			end
 		end
 	end
+	local kParameters = {}
+	kParameters.OnStart = "GameplaySetCSTrader"
+	kParameters["iOriginPlayerID"] = iOriginPlayerID
+	kParameters["iOriginCityID"] = iOriginCityID
 	if bControl == true then
 		--print("Sending Add trader req")
-		UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+		kParameters["iTargetPlayerID"] = iTargetPlayerID
+		UI.RequestPlayerOperation(iOriginPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+		--UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
 	else
 		--print("Sending Remove trader req")
-		UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, 0-iTargetPlayerID)
+		kParameters["iTargetPlayerID"] = 0 - iTargetPlayerID
+		UI.RequestPlayerOperation(iOriginPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+		--UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, 0-iTargetPlayerID)
 	end
 end
 
@@ -197,17 +249,24 @@ function OnGovernorChanged(iPlayerID, iGovernorID)
 	end
 	local pPlayerGovernors = pPlayer:GetGovernors()
 	local pPlayerGovernor = GetAppointedGovernor(iPlayerID, iGovernorID)
+	local kParameters = {}
+	kParameters.OnStart = "GameplaySetAmaniProperty"
+	kParameters["iPlayerID"] = iPlayerID
 	if pPlayerGovernor:IsEstablished(1) and tAmani~=nil then
 		local pCity = CityManager.GetCity(tAmani.iMinorID, tAmani.iCityID)
 		if pPlayerGovernor:GetAssignedCity() == pCity then
 			--amani established -> recalculate amani yields and plot properties
 			tAmani.Status = 1
-			UIEvents.UISetAmaniProperty(iPlayerID, tAmani)
+			kParameters["tAmani"] = tAmani
+			UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+			--UIEvents.UISetAmaniProperty(iPlayerID, tAmani)
 		end
 	elseif pPlayerGovernor:IsEstablished(1) == false and tAmani.iCityID ~= nil then
 		--amani removed -> recalculate amani yields and plot properties, player properties as well
 		tAmani.Status = -1
-		UIEvents.UISetAmaniProperty(iPlayerID, tAmani)
+		kParameters["tAmani"] = tAmani
+		UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+		--UIEvents.UISetAmaniProperty(iPlayerID, tAmani)
 	end
 end
 
@@ -237,7 +296,14 @@ function OnUnitGreatPersonCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualI
 	if iGPIndividualID == 58 then
 		return
 	end
-	UIEvents.UIGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+	local kParameters = {}
+	kParameters.OnStart = "GameplayGPGeneralUnifierCreated"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iUnitID"] = iUnitID
+	kParameters["iGPClassID"] = iGPClassID
+	kParameters["iGPIndividualID"] = iGPIndividualID
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+	--UIEvents.UIGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 end
 
 function OnUnitGreatPersonActivatedQinUnifier(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
@@ -248,12 +314,22 @@ function OnUnitGreatPersonActivatedQinUnifier(iPlayerID, iUnitID, iGPClassID, iG
 	if iGPClassID ~= 0 then
 		return
 	end
+	local kParameters = {}
+	kParameters.OnStart = ""
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iUnitID"] = iUnitID
+	kParameters["iGPClassID"] = iGPClassID
+	kParameters["iGPIndividualID"] = iGPIndividualID
 	--print("Class ID", iGPClassID, "Individual ID", iGPIndividualID)
 	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
 		if iGPIndividualID == 176 or iGPIndividualID == 67 or iGPIndividualID == 74 then --timur, sudirman (177 bbg changed him), monash. vijaya
-			UIEvents.UIUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+			kParameters.OnStart = "GameplayUnifierSameUnitUniqueEffect"
+			UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+			--UIEvents.UIUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 		elseif iGPIndividualID == 71 then -- zhukov
-			UIEvents.UIUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+			kParameters.OnStart = "GameplayUnifierSamePlayerUniqueEffect"
+			UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+			--UIEvents.UIUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 		end
 	end
 end
@@ -268,7 +344,14 @@ function OnUnitGreatPersonActivatedNotQinUnifier(iPlayerID, iUnitID, iGPClassID,
 	end
 	--print("Track suntzu")
 	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_QIN_ALT" and iGPIndividualID == 58 then
-		UIEvents.UINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+		local kParameters = {}
+		kParameters.OnStart = "GameplayNotUnifierDeleteSunTzu"
+		kParameters["iPlayerID"] = iPlayerID
+		kParameters["iUnitID"] = iUnitID
+		kParameters["iGPClassID"] = iGPClassID
+		kParameters["iGPIndividualID"] = iGPIndividualID
+		UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+		--UIEvents.UINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 	end
 end
 
@@ -291,7 +374,14 @@ function OnUnitMoved(iPlayerID, iUnitID, iX, iY, bVis, bStateChange)
 	if iGPClassID~=0 and (iGPIndividualID~=176 or iGPIndividualID~=67 or iGPIndividualID~=74) then
 		return
 	end
-	UIEvents.UIUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
+	local kParameters = {}
+	kParameters.OnStart = "GameplayUnifierTrackRelevantGenerals"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iGPIndividualID"] = iGPIndividualID
+	kParameters["iX"] = iX
+	kParameters["iY"] = iY
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+	--UIEvents.UIUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
 end
 
 --Support
@@ -397,6 +487,8 @@ end
 function Initialize()
 	--Exp bug
 	Events.UnitPromoted.Add(OnPromotionFixExp);
+	--Movement bugfix
+	Events.UnitAddedToMap.Add(OnUnitAddedToMap)
 	--Communism
 	Events.CityWorkerChanged.Add(OnCityWorkerChanged)
 	Events.GovernmentChanged.Add(OnGovernmentChanged)

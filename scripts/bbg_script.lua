@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------
 --	FILE:	 bbg_script.lua
---	AUTHOR:  D. / Jack The Narrator
+--	AUTHORS:  FlashyFeeds, D. / Jack The Narrator
 --	PURPOSE: Gameplay script - Centralises all the calls for BBG
 ------------------------------------------------------------------------------
 
@@ -466,13 +466,17 @@ function OnGilgaPillage(iUnitPlayerID :number, iUnitID :number, eImprovement :nu
 end
 
 --exp bug fix for upgradable units that start with 1 free promotion (Nau Janissary Malon, in general MODIFIER_PLAYER_UNIT_ADJUST_GRANT_EXPERIENCE applied to units)
---Author: FlashyFeeds
-function OnUIPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
-	GameEvents.GameplayPromotionFixExp.Call(iUnitPlayerID, iUnitID)
-end
 
-function OnGameplayPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
+--function OnUIPromotionFixExp(iUnitPlayerID: number, kParameters)
+	--local iUnitPlayerID = kParameters["iUnitPlayerID"]
+	--local iUnitID = kParameters["iUnitID"]
+	--GameEvents.GameplayPromotionFixExp.Call(iUnitPlayerID, iUnitID)
+--end
+
+function OnGameplayPromotionFixExp(iUnitPlayerID: number, kParameters)
 	--print("OnPromoitionFixExp",iUnitPlayerID, iUnitID);
+	local iUnitPlayerID = kParameters["iUnitPlayerID"]
+	local iUnitID = kParameters["iUnitID"]
 	local pUnitPlayer :object = Players[iUnitPlayerID];
 	if(pUnitPlayer == nil) then
 		return;
@@ -556,22 +560,16 @@ function OnCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 	--print("Reconquest Property Set for"..tostring(CityManager.GetCityAt(iX, iY):GetName()))
 end
 
-function OnUnitInitialized(iPlayerId, iUnitId)
+function OnGameplayMovementBugFix(iPlayerID, kParameters)
 	--print("OnUnitInitialized started")
-	local pUnit = UnitManager.GetUnit(iPlayerId, iUnitId)
+	local iPlayerID = kParameters["iPlayerID"]
+	local iUnitID = kParameters["iUnitID"]
+	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
 	if pUnit == nil then
 		return
 	end
-	--print(iUnitId)
-	--print(pUnit:GetType())
-	--print("Unit", GameInfo.Units[pUnit:GetType()].UnitType)
-	--print("Check for 0 movement")
-	--print("Moves", pUnit:GetMovesRemaining())
-	if pUnit:GetMovesRemaining() ~= 0 then
-		UnitManager.RestoreMovement(pUnit)
-		UnitManager.RestoreUnitAttacks(pUnit)
-		--print("Moves Restored")
-	end
+	UnitManager.RestoreMovement(pUnit)
+	UnitManager.RestoreUnitAttacks(pUnit)
 end
 --Macedon (Reminder to Optimize those hooks)
 function OnMacedonConqueredACity(iNewOwnerID, iOldOwnerID, iCityID, iX, iY) -- refresh macedon trait as game property
@@ -1691,15 +1689,19 @@ function OnGameplayFixIncaBug(iPlayerID, tParameters)
 	end
 end
 -- Communism Specialists
-function OnUIBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+--function OnUIBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
 	--print("UIBBGWorkersChanged Triggered")
-	GameEvents.GameplayBBGWorkersChanged.Call(iPlayerID, iCityID, iX, iY)
-end
+	--GameEvents.GameplayBBGWorkersChanged.Call(iPlayerID, iCityID, iX, iY)
+--end
 
-LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
 
-function OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
+
+function OnGameplayBBGWorkersChanged(iPlayerID, kParameters)
 	--print("BBG - OnGameplayBBGWorkersChanged triggered")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iCityID = kParameters["iCityID"]
+	local iX = kParameters["iX"]
+	local iY = kParameters["iY"]
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
 		return
@@ -1712,12 +1714,10 @@ function OnGameplayBBGWorkersChanged(iPlayerID, iCityID, iX, iY)
 	CityRecalculateSpecialistBuildings(pCity)
 end
 
-function OnUIBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
+--function OnUIBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
 	--print("UIBBGDestroyDummyBuildings Triggered")
-	GameEvents.GameplayBBGDestroyDummyBuildings.Call(iPlayerID, iCityID, iX, iY)
-end
-
-LuaEvents.UIBBGDestroyDummyBuildings.Add(OnUIBBGDestroyDummyBuildings)
+	--GameEvents.GameplayBBGDestroyDummyBuildings.Call(iPlayerID, iCityID, iX, iY)
+--end
 
 function OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
 	--print("OnGameplayBBGDestroyDummyBuildings called")
@@ -1743,14 +1743,15 @@ function OnGameplayBBGDestroyDummyBuildings(iPlayerID, iCityID, iX, iY)
 	--print("Dummy buildings removed")
 end
 
-function OnUIBBGGovChanged(iPlayerID, iGovID)
+--function OnUIBBGGovChanged(iPlayerID, iGovID)
 	--print("OnUIBBGGovChanged triggered")
-	GameEvents.GameplayBBGGovChanged.Call(iPlayerID, iGovID)
-end
-LuaEvents.UIBBGGovChanged.Add(OnUIBBGGovChanged)
+	--GameEvents.GameplayBBGGovChanged.Call(iPlayerID, iGovID)
+--end
 
-function OnGameplayBBGGovChanged(iPlayerID, iGovID)
+function OnGameplayBBGGovChanged(iPlayerID, kParameters)
 	--print("OnGameplayBBGGovChanged called")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iGovID = kParameters["iGovID"]
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
 		return
@@ -1885,15 +1886,15 @@ function WorkerDictionary(index: number)
 end
 
 --Amani
-function OnUISetAmaniProperty(iGovernorOwnerID, tAmani)
+--function OnUISetAmaniProperty(iGovernorOwnerID, tAmani)
 	--print("OnUISetAmaniProperty called")
-	GameEvents.GameplaySetAmaniProperty.Call(iGovernorOwnerID, tAmani)
-end
+	--GameEvents.GameplaySetAmaniProperty.Call(iGovernorOwnerID, tAmani)
+--end
 
-LuaEvents.UISetAmaniProperty.Add(OnUISetAmaniProperty)
-
-function OnGameplaySetAmaniProperty(iGovernorOwnerID, tAmani)
+function OnGameplaySetAmaniProperty(iGovernorOwnerID, kParameters)
 	--print("OnGameplaySetAmaniProperty called")
+	local iGovernorOwnerID = kParameters["iGovernorOwnerID"]
+	local tAmani = kParameters["tAmani"]
 	local pPlayer = Players[iGovernorOwnerID]
 	if pPlayer == nil then
 		return
@@ -1907,10 +1908,11 @@ function OnUISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
 	GameEvents.GameplaySetCSTrader.Call(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
 end
 
-LuaEvents.UISetCSTrader.Add(OnUISetCSTrader)
-
-function OnGameplaySetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
+function OnGameplaySetCSTrader(iOriginPlayerID, kParameters)
 	--print("OnGameplaySetCSTrader called")
+	local iOriginPlayerID = kParameters["iOriginPlayerID"]
+	local iOriginCityID = kParameters["iOriginCityID"]
+	local iTargetPlayerID = kParameters["iTargetPlayerID"]
 	local pPlayer = Players[iOriginPlayerID]
 	if pPlayer == nil then
 		return
@@ -2004,13 +2006,17 @@ function Amani_RecalculatePlayer(pPlayer)
 end
 
 --Unifier
-function OnUIGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+--function OnUIGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 	--print("OnUIGPGeneralUnifierCreated called")
-	GameEvents.GameplayGPGeneralUnifierCreated.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-end
+	--GameEvents.GameplayGPGeneralUnifierCreated.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+--end
 
-function OnGameplayGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+function OnGameplayGPGeneralUnifierCreated(iPlayerID, kParameters)
 	--print("OnGameplayGPGeneralUnifierCreated called")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iUnitID = kParameters["iUnitID"] 
+	local iGPClassID = kParameters["iGPClassID"] 
+	local iGPIndividualID = kParameters["iGPIndividualID"]
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
 		return
@@ -2040,13 +2046,17 @@ function OnGameplayGPGeneralUnifierCreated(iPlayerID, iUnitID, iGPClassID, iGPIn
 	end
 end
 
-function OnUINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+--function OnUINotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 	--print("OnUINotUnifierDeleteSunTzu called")
-	GameEvents.GameplayNotUnifierDeleteSunTzu.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-end
+	--GameEvents.GameplayNotUnifierDeleteSunTzu.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+--end
 
-function OnGameplayNotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+function OnGameplayNotUnifierDeleteSunTzu(iPlayerID, kParameters)
 	--print("OnGameplayNotUnifierDeleteSunTzu called")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iUnitID = kParameters["iUnitID"] 
+	local iGPClassID = kParameters["iGPClassID"] 
+	local iGPIndividualID = kParameters["iGPIndividualID"]
 	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
 	if pUnit == nil then
 		return
@@ -2055,14 +2065,18 @@ function OnGameplayNotUnifierDeleteSunTzu(iPlayerID, iUnitID, iGPClassID, iGPInd
 	--print("SunTzu removed for generic civ")
 end
 
-function OnUIUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
+--function OnUIUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
 	--print("OnUIUnifierTrackRelevantGenerals called")
-	GameEvents.GameplayUnifierTrackRelevantGenerals.Call(iPlayerID, iGPIndividualID, iX, iY)
-end
+	--GameEvents.GameplayUnifierTrackRelevantGenerals.Call(iPlayerID, iGPIndividualID, iX, iY)
+--end
 
-function OnGameplayUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
+function OnGameplayUnifierTrackRelevantGenerals(iPlayerID, kParameters)
 	--print("OnGameplayUnifierTrackRelevantGenerals called")
 	--print("iGPIndividualID, iX, iY", iGPIndividualID, iX, iY)
+	local iPlayerID = kParameters["iPlayerID"]
+	local iGPIndividualID = kParameters["iGPIndividualID"]
+	local iX = kParameters["iX"]
+	local iY = kParameters["iY"]
 	local pPlayer = Players[iPlayerID]
 	local sPropertyStr = "GENERAL_"..tostring(iGPIndividualID).."_COORDS"
 	if iX ~=-9999 or iY ~= -9999 then
@@ -2078,13 +2092,17 @@ function OnGameplayUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, 
 	end
 end
 
-function OnUIUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+--function OnUIUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 	--print("OnUIUnifierSameUnitUniqueEffect called")
-	GameEvents.GameplayUnifierSameUnitUniqueEffect.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-end
+	--GameEvents.GameplayUnifierSameUnitUniqueEffect.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+--end
 
-function OnGameplayUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+function OnGameplayUnifierSameUnitUniqueEffect(iPlayerID, kParameters)
 	--print("OnGameplayUnifierSameUnitUniqueEffect called")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iUnitID = kParameters["iUnitID"]
+	local iGPClassID = kParameters["iGPClassID"]
+	local iGPIndividualID = kParameters["iGPIndividualID"]
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
 		return
@@ -2125,13 +2143,17 @@ function OnGameplayUnifierSameUnitUniqueEffect(iPlayerID, iUnitID, iGPClassID, i
 	end
 end
 
-function OnUIUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+--function OnUIUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
 	--print("OnUIUnifierSamePlayerUniqueEffect called")
-	GameEvents.GameplayUnifierSamePlayerUniqueEffect.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
-end
+	--GameEvents.GameplayUnifierSamePlayerUniqueEffect.Call(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+--end
 
-function OnGameplayUnifierSamePlayerUniqueEffect(iPlayerID, iUnitID, iGPClassID, iGPIndividualID)
+function OnGameplayUnifierSamePlayerUniqueEffect(iPlayerID, kParameters)
 	--print("OnGameplayUnifierSamePlayerUniqueEffect called")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iUnitID = kParameters["iUnitID"]
+	local iGPClassID = kParameters["iGPClassID"]
+	local iGPIndividualID = kParameters["iGPIndividualID"]
 	local pPlayer = Players[iPlayerID]
 	local nZhukovUsed = pPlayer:GetProperty("ZHUKOV_USED")
 	if nZhukovUsed == nil then
@@ -3484,29 +3506,34 @@ function Initialize()
 	GameEvents.OnCombatOccurred.Add(OnMonkCombatOccurred);
 	print("BBG Monk Hook Added")
 	-- upgradable uu exp bug fix
-	LuaEvents.UIPromotionFixExp.Add(OnUIPromotionFixExp)
+	--LuaEvents.UIPromotionFixExp.Add(OnUIPromotionFixExp)
 	GameEvents.GameplayPromotionFixExp.Add(OnGameplayPromotionFixExp)
 	print("BBG Promotion bugfix hook added")
 	-- tech boost effect:
 	-- Events.TechBoostTriggered.Add(OnTechBoost);
 	-- Extra Movement bugfix
-	GameEvents.UnitInitialized.Add(OnUnitInitialized)
+	GameEvents.GameplayMovementBugFix.Add(OnGameplayMovementBugFix)
 	print("BBG Movement bugfix hook added")
 	-- Yield Adjustment hook
 	GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
 	print("BBG Fix firaxis wonder yield hook added")
 	-- communism
+	--LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
 	GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
+	--LuaEvents.UIBBGDestroyDummyBuildings.Add(OnUIBBGDestroyDummyBuildings)
 	GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
 	GameEvents.PolicyChanged.Add(OnPolicyChanged)
+	--LuaEvents.UIBBGGovChanged.Add(OnUIBBGGovChanged)
 	GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
 	print("BBG Communism Hooks Added")
 	--Amani
+	--LuaEvents.UISetAmaniProperty.Add(OnUISetAmaniProperty)
 	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
+	--LuaEvents.UISetCSTrader.Add(OnUISetCSTrader)
 	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
 	print("BBG Amani Gameplay hooks added")
 	--Delete Suntzu for not-Unifier
-	LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
+	--LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
 	GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
 	print("BBG Suntzu Gameplay Deletion hooks added")
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
@@ -3539,10 +3566,10 @@ function Initialize()
 			print("BBG Macedon Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
 			--Qin Unifier general bugfix
-			LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
-			LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
-			LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
-			LuaEvents.UIUnifierSamePlayerUniqueEffect.Add(OnUIUnifierSamePlayerUniqueEffect)
+			--LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
+			--LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
+			--LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
+			--LuaEvents.UIUnifierSamePlayerUniqueEffect.Add(OnUIUnifierSamePlayerUniqueEffect)
 			GameEvents.GameplayGPGeneralUnifierCreated.Add(OnGameplayGPGeneralUnifierCreated)
 			GameEvents.GameplayUnifierSameUnitUniqueEffect.Add(OnGameplayUnifierSameUnitUniqueEffect)
 			GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
