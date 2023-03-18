@@ -9,8 +9,8 @@ print("BBG UI to Gameplay Script started")
 --- Inca Scrits
 -- Constants: populating the table of features from which we remove inca bug yields
 tRemoveIncaYieldsFromFeatures = {}
-local qQuery = "SELECT WonderType FROM WonderTerrainFeature_BBG WHERE TerrainClassType<>'TERRAIN_CLASS_MOUNTAIN' OR TerrainClassType IS NULL"
-tRemoveIncaYieldsFromFeatures=DB.Query(qQuery)
+--5.2. Disable: local qQuery = "SELECT WonderType FROM WonderTerrainFeature_BBG WHERE TerrainClassType<>'TERRAIN_CLASS_MOUNTAIN' OR TerrainClassType IS NULL"
+--5.2. Disable: tRemoveIncaYieldsFromFeatures=DB.Query(qQuery)
 --for i, row in ipairs(tRemoveIncaYieldsFromFeatures) do
 	--print(i, row.WonderType)
 --end
@@ -50,13 +50,13 @@ function OnUnitAddedToMap(iPlayerID, iUnitID)
 end
 
 function OnUnitUpgraded(iPlayerID, iUnitID)
-	print("OnUnitUpgraded called", iPlayerID, iUnitID)
+	--print("OnUnitUpgraded called", iPlayerID, iUnitID)
 	local kParameters = {}
 	kParameters.OnStart = "GameplayMovementBugFixUpgrade"
 	kParameters["iPlayerID"] = iPlayerID
 	kParameters["iUnitID"] = iUnitID
 	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
-	print(pUnit:GetMaxMoves())
+	--print(pUnit:GetMaxMoves())
 	kParameters["nBaseMoves"] = pUnit:GetMaxMoves() 
 	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 end
@@ -509,30 +509,30 @@ function Initialize()
 	--Exp bug
 	Events.UnitPromoted.Add(OnPromotionFixExp);
 	--Movement bugfix
-	Events.UnitAddedToMap.Add(OnUnitAddedToMap)
-	Events.UnitUpgraded.Add(OnUnitUpgraded)
+	--5.2. Disable: Events.UnitAddedToMap.Add(OnUnitAddedToMap)
+	--5.2. Disable: Events.UnitUpgraded.Add(OnUnitUpgraded)
 	--Communism
-	Events.CityWorkerChanged.Add(OnCityWorkerChanged)
-	Events.GovernmentChanged.Add(OnGovernmentChanged)
-	print("Delete Communism UI hooks added")
+	--5.2. Disable: Events.CityWorkerChanged.Add(OnCityWorkerChanged)
+	--5.2. Disable: Events.GovernmentChanged.Add(OnGovernmentChanged)
+	--5.2. Disable: print("Delete Communism UI hooks added")
 	--Amani
-	Events.GovernorAssigned.Add(OnGovernorAssigned)
-	Events.GovernorChanged.Add(OnGovernorChanged)
-	Events.TradeRouteActivityChanged.Add(OnTradeRouteActivityChanged)
-	print("Delete Amani UI hooks added")
+	--5.2. Disable: Events.GovernorAssigned.Add(OnGovernorAssigned)
+	--5.2. Disable: Events.GovernorChanged.Add(OnGovernorChanged)
+	--5.2. Disable: Events.TradeRouteActivityChanged.Add(OnTradeRouteActivityChanged)
+	--5.2. Disable: print("Delete Amani UI hooks added")
 	--delete suntzu after use for non-unifier
-	Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedNotQinUnifier)
-	print("Delete Suntzu UI Hook added")
+	--5.2. Disable: Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedNotQinUnifier)
+	--5.2. Disable: print("Delete Suntzu UI Hook added")
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
 		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
 			--Qin Unifier
-			Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
-			Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedQinUnifier)
-			Events.UnitMoved.Add(OnUnitMoved)
+			--5.2. Disable: Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
+			--5.2. Disable: Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedQinUnifier)
+			--5.2. Disable: Events.UnitMoved.Add(OnUnitMoved)
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			--inca dynamic yield cancelation
-			Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
+			--5.2. Disable: Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
 		end
 	end
 	--BCY no rng setting (param names are still called BBCC)

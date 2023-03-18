@@ -734,7 +734,7 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 				if nExtraYield > 0 then
 					--set plot property for req
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield)
-					print("BugWonder: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff))
+					print("BugWonder: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nExtraYield))
 					--attach modifiers to the city
 					for j=1, nExtraYield do
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
@@ -752,6 +752,7 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 				end
 				if bDoBCYCheck == true and nExtraYield>0 then
 					print("Wonder Bug-Fix BCY detected")
+					local iTerrain = pPlot:GetTerrainType()
 					local sControllString = ""
 					if iTerrain==0 or iTerrain==3 or iTerrain==6 or iTerrain==9 or iTerrain==12 then --flats
 						sControllString = "Flat_CutOffYieldValues"
@@ -766,8 +767,8 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield+nExtraBCYYield)
 					print("BugWonder: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nExtraYield+nExtraBCYYield))
 					--attaching modifiers
-					for j=1, nExtraBCYYield do
-						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(nExtraYield+j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
+					for j=nExtraYield+1, nExtraYield+nExtraBCYYield do
+						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 						pCity:AttachModifierByID(sModifierStringID)
 						print("Wonder Bug-Fix Modifier Attached", sModifierStringID)
 					end
@@ -2422,8 +2423,8 @@ function BCY_RecalculateMapYield(iX, iY)
 		if nYieldDiff > 0 then
 			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nYieldDiff + nExtraYield)
 			print("BCY no RNG: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff+nExtraYield))
-			if GameEvents.GameplayFixIncaBug == nil or GameEvents.GameplayFixIncaBug == {} then
-				print("Not Inca City")
+			if GameEvents.GameplayFixIncaBug.Count()==0 or PlayerConfiguration[pCity:GetOwner()]:GetCivilizationTypeName()~="CIVILIZATION_INCA" then
+				print("Not Inca City or No Inca Special Treatement")
 				for j=1, nYieldDiff do
 					local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(nExtraYield+j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 					pCity:AttachModifierByID(sModifierStringID)
@@ -3521,7 +3522,9 @@ function Initialize()
 	print("BBG - ressource yields populated")
 	PopulateFeatureYields()
 	print("BBG - relevant feature yields populated")
-	PopulateBugWonders()
+	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then --moved to BCY no RNG only
+		PopulateBugWonders()
+	end
 	print("BBG - relevant Bug wonders populated")
 	-- turn checked effects:
 	GameEvents.OnGameTurnStarted.Add(OnGameTurnStarted);
@@ -3537,31 +3540,33 @@ function Initialize()
 	-- tech boost effect:
 	-- Events.TechBoostTriggered.Add(OnTechBoost);
 	-- Extra Movement bugfix
-	GameEvents.GameplayMovementBugFix.Add(OnGameplayMovementBugFix)
-	GameEvents.GameplayMovementBugFixUpgrade.Add(OnGameplayMovementBugFixUpgrade)
-	print("BBG Movement bugfix hook added")
+	--5.2. Disable: GameEvents.GameplayMovementBugFix.Add(OnGameplayMovementBugFix)
+	--5.2. Disable: GameEvents.GameplayMovementBugFixUpgrade.Add(OnGameplayMovementBugFixUpgrade)
+	--5.2. Disable: print("BBG Movement bugfix hook added")
 	-- Yield Adjustment hook
-	GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
-	print("BBG Fix firaxis wonder yield hook added")
+	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then --moved to BCY no RNG only
+		GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
+		print("BBG Fix firaxis wonder yield hook added")
+	end
 	-- communism
 	--LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
-	GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
+	--5.2. Disable: GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
 	--LuaEvents.UIBBGDestroyDummyBuildings.Add(OnUIBBGDestroyDummyBuildings)
-	GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
-	GameEvents.PolicyChanged.Add(OnPolicyChanged)
+	--5.2. Disable: GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
+	--5.2. Disable: GameEvents.PolicyChanged.Add(OnPolicyChanged)
 	--LuaEvents.UIBBGGovChanged.Add(OnUIBBGGovChanged)
-	GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
-	print("BBG Communism Hooks Added")
+	--5.2. Disable: GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
+	--5.2. Disable: print("BBG Communism Hooks Added")
 	--Amani
 	--LuaEvents.UISetAmaniProperty.Add(OnUISetAmaniProperty)
-	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
+	--5.2. Disable: GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
 	--LuaEvents.UISetCSTrader.Add(OnUISetCSTrader)
-	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
-	print("BBG Amani Gameplay hooks added")
+	--5.2. Disable: GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
+	--5.2. Disable: print("BBG Amani Gameplay hooks added")
 	--Delete Suntzu for not-Unifier
 	--LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
-	GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
-	print("BBG Suntzu Gameplay Deletion hooks added")
+	--5.2. Disable: GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
+	--5.2. Disable: print("BBG Suntzu Gameplay Deletion hooks added")
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
 		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_BASIL" then
@@ -3573,7 +3578,16 @@ function Initialize()
 			GameEvents.OnPillage.Add(OnGilgaPillage)
 			GameEvents.OnCombatOccurred.Add(OnGilgaCombatOccurred)
 			print("BBG Gilga Hooks Added")
+			if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_SUMERIA" then
+				print("Sumeria Detected")
+				if currentTurn == startTurn then
+					ApplySumeriaTrait()
+					--InitBarbData()
+				end
+				print("Sumeria Warcart Added")
+			end
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_SUMERIA" then
+			print("Sumeria Detected")
 			if currentTurn == startTurn then
 				ApplySumeriaTrait()
 				--InitBarbData()
@@ -3582,9 +3596,9 @@ function Initialize()
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			-- Inca Yields on non-mountain impassibles bugfix
 			--LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
-			GameEvents.GameplayFixIncaBug.Add(OnGameplayFixIncaBug)
-			GameEvents.CityConquered.Add(OnIncaCityConquered)
-			print("BBG Inca Hooks Added")
+			--5.2. Disable: GameEvents.GameplayFixIncaBug.Add(OnGameplayFixIncaBug)
+			--5.2. Disable: GameEvents.CityConquered.Add(OnIncaCityConquered)
+			--5.2. Disable: print("BBG Inca Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_JULIUS_CAESAR" then
 			-- Caesar wildcard
 			GameEvents.CityBuilt.Add(OnCityBuilt);
@@ -3592,21 +3606,21 @@ function Initialize()
 			print("BBG Caesar Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_MACEDON" then
 			--Macedon 20%
-			GameEvents.CityConquered.Add(OnMacedonConqueredACity)
-			GameEvents.OnGameTurnStarted.Add(OnGameTurnStartedCheckMacedon)
-			GameEvents.CityBuilt.Add(OnMacedonCitySettled)
-			print("BBG Macedon Hooks Added")
+			--5.2. Disable: GameEvents.CityConquered.Add(OnMacedonConqueredACity)
+			--5.2. Disable: GameEvents.OnGameTurnStarted.Add(OnGameTurnStartedCheckMacedon)
+			--5.2. Disable: GameEvents.CityBuilt.Add(OnMacedonCitySettled)
+			--5.2. Disable: print("BBG Macedon Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
 			--Qin Unifier general bugfix
 			--LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
 			--LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
 			--LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
 			--LuaEvents.UIUnifierSamePlayerUniqueEffect.Add(OnUIUnifierSamePlayerUniqueEffect)
-			GameEvents.GameplayGPGeneralUnifierCreated.Add(OnGameplayGPGeneralUnifierCreated)
-			GameEvents.GameplayUnifierSameUnitUniqueEffect.Add(OnGameplayUnifierSameUnitUniqueEffect)
-			GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
-			GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
-			print("BBG Unifier Hooks Added")
+			--5.2. Disable: GameEvents.GameplayGPGeneralUnifierCreated.Add(OnGameplayGPGeneralUnifierCreated)
+			--5.2. Disable: GameEvents.GameplayUnifierSameUnitUniqueEffect.Add(OnGameplayUnifierSameUnitUniqueEffect)
+			--5.2. Disable: GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
+			--5.2. Disable: GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
+			--5.2. Disable: print("BBG Unifier Hooks Added")
 		end
 	end
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then

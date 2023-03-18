@@ -22,7 +22,10 @@ UPDATE RequirementArguments SET Value=13 WHERE RequirementId='REQUIRES_CITY_HAS_
 INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
     ('POLICY_GOV_AUTOCRACY', 'AUTOCRACY_PLAZA_DISTRICT'),
     ('POLICY_GOV_AUTOCRACY', 'AUTOCRACY_DIPLOMATIC_DISTRICT');
+
+/*--5.2. Disable:
 --5.2.5 Communism -- moved from base
 INSERT INTO PolicyModifiers(PolicyType, ModifierId)
     SELECT 'POLICY_GOV_COMMUNISM', Modifiers.ModifierId
     FROM Modifiers WHERE ModifierId LIKE 'COMMUNISM%MODIFIER_BBG';
+*/
