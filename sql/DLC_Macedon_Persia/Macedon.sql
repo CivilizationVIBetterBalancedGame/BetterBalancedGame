@@ -40,12 +40,13 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
 	VALUES
 		('SCIENCE_ON_KILLS_BBG', 'PercentDefeatedStrength', '50'),
 		('SCIENCE_ON_KILLS_BBG', 'YieldType', 'YIELD_SCIENCE');
-/* --5.2. Disable:
--- Macedon Prod Bugfix
--- +20% Production for 10 turns after conquering a city
+
 INSERT OR IGNORE INTO TraitModifiers (TraitType , ModifierId)
 	VALUES
 	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION' , 'TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER');
+/* --5.2. Disable:
+-- Macedon Prod Bugfix
+-- +20% Production for 10 turns after conquering a city
 INSERT INTo Requirements(RequirementId, RequirementType) VALUES
 	('MACEDON_RECENTLY_CONQUERED_BBG_REQ', 'REQUIREMENT_PLOT_PROPERTY_MATCHES');
 INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
