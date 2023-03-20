@@ -160,7 +160,7 @@ function PopulateSpecialistBuildingIDs()
 		for j=1,3 do
 			local sSearchString = "BUILDING_"..WorkerDictionary(i).."_"..tostring(j)
 			local iSearchID = IDToPos(tCachedBuildings, sSearchString, "BuildingType")
-			print("IDToPos found index", iSearchID)
+			--print("IDToPos found index", iSearchID)
 			if iSearchID ~= false then
 				row[j] = iSearchID-1
 			end
@@ -174,7 +174,7 @@ end
 -- ===========================================================================
 
 function OnGameTurnStarted( turn:number )
-	print ("BBG TURN STARTING: " .. turn);
+	--print ("BBG TURN STARTING: " .. turn);
 	Check_DominationVictory()
 	Check_Barbarians()
 end
@@ -540,7 +540,7 @@ function OnCityBuilt(iPlayerID, iCityID, iX, iY)
 	end
 	local pPlot = Map.GetPlot(iX, iY)
 	pPlot:SetProperty("CS_CAPITAL_BBG",1)
-	print("CS Property Set for "..tostring(pCity:GetName()))
+	--print("CS Property Set for "..tostring(pCity:GetName()))
 end
 
 function OnCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
@@ -561,14 +561,14 @@ function OnCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 end
 
 function OnGameplayMovementBugFix(iPlayerID, kParameters)
-	print("OnGameplayMovementBugFix started")
+	--print("OnGameplayMovementBugFix started")
 	local iPlayerID = kParameters["iPlayerID"]
 	local iUnitID = kParameters["iUnitID"]
 	local pUnit = UnitManager.GetUnit(iPlayerID, iUnitID)
 	if pUnit == nil then
 		return print("Nil Unit -> Exit")
 	end
-	print(pUnit, pUnit:GetID())
+	--print(pUnit, pUnit:GetID())
 	print("Get Extra Moves:", pUnit:GetExtraMoves())
 	if pUnit:GetExtraMoves() > 0 then
 		UnitManager.RestoreMovement(pUnit)
@@ -708,8 +708,8 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 		if pAdjPlot ~= nil then
 			local iFeatureType = pAdjPlot:GetFeatureType()
 			if iFeatureType~=-1 and iFeatureType ~= nil then
-				print("Evaluating: "..GameInfo.Features[iFeatureType].FeatureType.." With result")
-				print(RelevantBugWonders[iFeatureType])
+				--print("Evaluating: "..GameInfo.Features[iFeatureType].FeatureType.." With result")
+				--print(RelevantBugWonders[iFeatureType])
 			end
 			if RelevantBugWonders[iFeatureType] == true then
 				bControl = true
@@ -720,28 +720,28 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 	local tBasePlotYields = CalculateBaseYield(pPlot)
 	if bControl then
 		for i =0,1 do
-			print("Base bug: Evaluating Yield: "..tostring(GameInfo.Yields[i].YieldType))
+			--print("Base bug: Evaluating Yield: "..tostring(GameInfo.Yields[i].YieldType))
 			local nAddedYieldDiff = tBaseGuaranteedYields[i] - tBasePlotYields[i]
 			if nAddedYieldDiff>0 then
-				print("Base bug: Firaxis city center added diff "..tostring(nAddedYieldDiff))
+				--print("Base bug: Firaxis city center added diff "..tostring(nAddedYieldDiff))
 				local nBaseFullTileYield = pPlot:GetYield(i)+nAddedYieldDiff
-				print("Base bug: Firaxis city center nBaseFullTileYield"..tostring(nBaseFullTileYield))
+				--print("Base bug: Firaxis city center nBaseFullTileYield"..tostring(nBaseFullTileYield))
 				--sets the property
 				pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nBaseFullTileYield)
 				local nTrueYield = math.max(pPlot:GetYield(i), tBaseGuaranteedYields[i])
-				print("Base bug: Firaxis city center nTrueYield "..tostring(nTrueYield))
+				--print("Base bug: Firaxis city center nTrueYield "..tostring(nTrueYield))
 				local nExtraYield = nBaseFullTileYield - nTrueYield
 				if nExtraYield > 0 then
 					--set plot property for req
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield)
-					print("BugWonder: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nExtraYield))
+					--print("BugWonder: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nExtraYield))
 					--attach modifiers to the city
 					for j=1, nExtraYield do
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 						pCity:AttachModifierByID(sModifierStringID)
-						print("Wonder Bug-Fix Modifier Attached", sModifierStringID)
+						--print("Wonder Bug-Fix Modifier Attached", sModifierStringID)
 					end
-					print("Base bug: Firaxis city center nExtraYield"..tostring(nExtraYield))
+					--print("Base bug: Firaxis city center nExtraYield"..tostring(nExtraYield))
 				end
 				--BCY so this doesn't happen on any version
 				local bDoBCYCheck = false
@@ -751,7 +751,7 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 					bDoBCYCheck = true
 				end
 				if bDoBCYCheck == true and nExtraYield>0 then
-					print("Wonder Bug-Fix BCY detected")
+					--print("Wonder Bug-Fix BCY detected")
 					local iTerrain = pPlot:GetTerrainType()
 					local sControllString = ""
 					if iTerrain==0 or iTerrain==3 or iTerrain==6 or iTerrain==9 or iTerrain==12 then --flats
@@ -762,24 +762,24 @@ function OnCitySettledAdjustYields(iPlayerID, iCityID, iX, iY)
 						return
 					end
 					local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
-					print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
+					--print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
 					local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
 					pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nExtraYield+nExtraBCYYield)
-					print("BugWonder: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nExtraYield+nExtraBCYYield))
+					--print("BugWonder: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nExtraYield+nExtraBCYYield))
 					--attaching modifiers
 					for j=nExtraYield+1, nExtraYield+nExtraBCYYield do
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 						pCity:AttachModifierByID(sModifierStringID)
-						print("Wonder Bug-Fix Modifier Attached", sModifierStringID)
+						--print("Wonder Bug-Fix Modifier Attached", sModifierStringID)
 					end
-					print("Extra Yield set to "..tostring(nExtraYield+nExtraBCYYield))
+					--print("Extra Yield set to "..tostring(nExtraYield+nExtraBCYYield))
 				end
 			end
 		end
 	end
 	--BCY settled cities (inside this function to controll execution order)
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
-		print("OnCityBuiltBCY started")
+		--print("OnCityBuiltBCY started")
 		BCY_RecalculateMapYield(iX, iY)
 	end
 end
@@ -2370,17 +2370,17 @@ function GetShuffledCopyOfTable(incoming_table)
 end
 --BCY no rng subtractive recalculation support
 function BCY_RecalculateMapYield(iX, iY)
-	print("BCY: Recalculating for X,Y"..tostring(iX)..","..tostring(iY))
+	--print("BCY: Recalculating for X,Y"..tostring(iX)..","..tostring(iY))
 	local pCity = CityManager.GetCityAt(iX,iY)
-	print("Check 0")
+	--print("Check 0")
 	if pCity == nil then
 		return
 	end
-	print("Check 1")
+	--print("Check 1")
 	if GameConfiguration.GetValue("BBCC_SETTING") == 1 and Players[pCity:GetOwner()]:GetCities():GetCapitalCity()~=pCity then
 		return
 	end
-	print("BCY no RNG: Yield Recalculation Started")
+	--print("BCY no RNG: Yield Recalculation Started")
 	local pPlot = Map.GetPlot(iX, iY)
 	local pOwningCity = Cities.GetPlotPurchaseCity(pPlot)
 	--if pOriginCity ~= pCity then
@@ -2398,8 +2398,8 @@ function BCY_RecalculateMapYield(iX, iY)
 		return
 	end 
 	for i=0,5 do
-		print("Evaluated yield: "..GameInfo.Yields[i].YieldType)
-		print("Base Plot Yield ", tBasePlotYields[i])
+		--print("Evaluated yield: "..GameInfo.Yields[i].YieldType)
+		--print("Base Plot Yield ", tBasePlotYields[i])
 		local nYield = 0
 		local nFiraxisFullTileYield  = pPlot:GetProperty(FiraxisYieldPropertyDictionary(i))
 		local nExtraYield = pPlot:GetProperty(ExtraYieldPropertyDictionary(i))
@@ -2408,30 +2408,30 @@ function BCY_RecalculateMapYield(iX, iY)
 		else
 			nFiraxisFullTileYield = math.max(pPlot:GetYield(i), nFiraxisFullTileYield)
 		end
-		print("Firaxis yield "..tostring(nFiraxisFullTileYield))
+		--print("Firaxis yield "..tostring(nFiraxisFullTileYield))
 		pPlot:SetProperty(FiraxisYieldPropertyDictionary(i), nFiraxisFullTileYield)
 		if nExtraYield == nil then
 			nExtraYield = 0
 		end
 		local nPreWDFiraxisYield = math.max(tBasePlotYields[i], tBaseGuaranteedYields[i])
-		print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
+		--print("Pre Wonder/Disaster Firaxis CC yield"..tostring(nPreWDFiraxisYield))
 		local nExtraBCYYield = math.max(GameInfo[sControllString][i].Amount, nPreWDFiraxisYield) - nPreWDFiraxisYield
-		print("Extra BCY yield "..tostring(nExtraBCYYield))
+		--print("Extra BCY yield "..tostring(nExtraBCYYield))
 		nYield = nFiraxisFullTileYield-nExtraYield + nExtraBCYYield
 		local nYieldDiff = nYield - GameInfo[sControllString][i].Amount
-		print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
+		--print("yield: "..GameInfo.Yields[i].YieldType.." value: "..tostring(nYield).." difference: "..tostring(nYieldDiff))
 		if nYieldDiff > 0 then
 			pPlot:SetProperty(ExtraYieldPropertyDictionary(i), nYieldDiff + nExtraYield)
-			print("BCY no RNG: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff+nExtraYield))
+			--print("BCY no RNG: Plot with iX,iY: "..tostring(iX)..","..tostring(iY).." Property set: "..tostring(ExtraYieldPropertyDictionary(i)).." amount: "..tostring(nYieldDiff+nExtraYield))
 			if GameEvents.GameplayFixIncaBug.Count()==0 or PlayerConfiguration[pCity:GetOwner()]:GetCivilizationTypeName()~="CIVILIZATION_INCA" then
-				print("Not Inca City or No Inca Special Treatement")
+				--print("Not Inca City or No Inca Special Treatement")
 				for j=1, nYieldDiff do
 					local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(nExtraYield+j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 					pCity:AttachModifierByID(sModifierStringID)
-					print("BCY no RNG Modifier Attached", sModifierStringID)
+					--print("BCY no RNG Modifier Attached", sModifierStringID)
 				end
 			else
-				print("Inca City")
+				--print("Inca City")
 				local nIncaCCRemovedYield = pPlot:GetProperty("INCA_CC_"..ExtraYieldPropertyDictionary(i))
 				if nIncaCCRemovedYield == nil then
 					nIncaCCRemovedYield = 0
@@ -2440,7 +2440,7 @@ function BCY_RecalculateMapYield(iX, iY)
 					for j=nIncaCCRemovedYield+1, nExtraYield + nYieldDiff do
 						local sModifierStringID = "MODIFIER_CITY_REMOVE_"..tostring(j).."_"..ExtraYieldPropertyDictionary(i).."_BBG"
 						pCity:AttachModifierByID(sModifierStringID)
-						print("BCY no RNG Modifier Attached", sModifierStringID)
+						--print("BCY no RNG Modifier Attached", sModifierStringID)
 					end
 				end
 			end					
@@ -3513,30 +3513,30 @@ end
 -- ===========================================================================
 
 function Initialize()
-	print("BBG - Gameplay Script Launched")
+	--print("BBG - Gameplay Script Launched")
 	local currentTurn = Game.GetCurrentGameTurn()
 	local startTurn = GameConfiguration.GetStartTurn()
 	PopulateTerrainYields()
-	print("BBG - terrain yields populated")
+	--print("BBG - terrain yields populated")
 	PopulateResourceYields()
-	print("BBG - ressource yields populated")
+	--print("BBG - ressource yields populated")
 	PopulateFeatureYields()
-	print("BBG - relevant feature yields populated")
+	--print("BBG - relevant feature yields populated")
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then --moved to BCY no RNG only
 		PopulateBugWonders()
 	end
-	print("BBG - relevant Bug wonders populated")
+	--print("BBG - relevant Bug wonders populated")
 	-- turn checked effects:
 	GameEvents.OnGameTurnStarted.Add(OnGameTurnStarted);
-	print("BBG Barb Hooks Added")
-	print("BBG Domination Victory Hook Added")
+	--print("BBG Barb Hooks Added")
+	--print("BBG Domination Victory Hook Added")
 	-- monk spread
 	GameEvents.OnCombatOccurred.Add(OnMonkCombatOccurred);
-	print("BBG Monk Hook Added")
+	--print("BBG Monk Hook Added")
 	-- upgradable uu exp bug fix
 	--LuaEvents.UIPromotionFixExp.Add(OnUIPromotionFixExp)
 	GameEvents.GameplayPromotionFixExp.Add(OnGameplayPromotionFixExp)
-	print("BBG Promotion bugfix hook added")
+	--print("BBG Promotion bugfix hook added")
 	-- tech boost effect:
 	-- Events.TechBoostTriggered.Add(OnTechBoost);
 	-- Extra Movement bugfix
@@ -3546,7 +3546,7 @@ function Initialize()
 	-- Yield Adjustment hook
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then --moved to BCY no RNG only
 		GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
-		print("BBG Fix firaxis wonder yield hook added")
+		--print("BBG Fix firaxis wonder yield hook added")
 	end
 	-- communism
 	--LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
@@ -3572,27 +3572,27 @@ function Initialize()
 		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_BASIL" then
 			--basil spread
 			GameEvents.OnCombatOccurred.Add(OnBasilCombatOccurred)
-			print("BBG Basil Hook Added")
+			--print("BBG Basil Hook Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_GILGAMESH" then
 			--gilga pillage
 			GameEvents.OnPillage.Add(OnGilgaPillage)
 			GameEvents.OnCombatOccurred.Add(OnGilgaCombatOccurred)
-			print("BBG Gilga Hooks Added")
+			--print("BBG Gilga Hooks Added")
 			if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_SUMERIA" then
-				print("Sumeria Detected")
+				--print("Sumeria Detected")
 				if currentTurn == startTurn then
 					ApplySumeriaTrait()
 					--InitBarbData()
 				end
-				print("Sumeria Warcart Added")
+				--print("Sumeria Warcart Added")
 			end
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_SUMERIA" then
-			print("Sumeria Detected")
+			--print("Sumeria Detected")
 			if currentTurn == startTurn then
 				ApplySumeriaTrait()
 				--InitBarbData()
 			end
-			print("Sumeria Warcart Added")
+			--print("Sumeria Warcart Added")
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			-- Inca Yields on non-mountain impassibles bugfix
 			--LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
@@ -3603,7 +3603,7 @@ function Initialize()
 			-- Caesar wildcard
 			GameEvents.CityBuilt.Add(OnCityBuilt);
 			GameEvents.CityConquered.Add(OnCityConquered)
-			print("BBG Caesar Hooks Added")
+			--print("BBG Caesar Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_MACEDON" then
 			--Macedon 20%
 			--5.2. Disable: GameEvents.CityConquered.Add(OnMacedonConqueredACity)

@@ -25,7 +25,7 @@ function OnPromotionFixExp(iUnitPlayerID: number, iUnitID : number)
 end
 
 function OnUnitAddedToMap(iPlayerID, iUnitID)
-	print("OnUnitAddedToMap called", iPlayerID, iUnitID)
+	--print("OnUnitAddedToMap called", iPlayerID, iUnitID)
 	local pPlayer = Players[iPlayerID]
 	if pPlayer == nil then
 		return print("nil player")
@@ -34,11 +34,11 @@ function OnUnitAddedToMap(iPlayerID, iUnitID)
 	if pUnit == nil then
 		return print("nil unit")
 	end
-	print(pUnit)
-	print("Get Moves Remaining",  pUnit:GetMovesRemaining())
-	print("GetMovementMovesRemaining", pUnit:GetMovementMovesRemaining())
-	print("GetMaxMoves", pUnit:GetMaxMoves())
-	print("IsReadyToMove", pUnit:IsReadyToMove())
+	--print(pUnit)
+	--print("Get Moves Remaining",  pUnit:GetMovesRemaining())
+	--print("GetMovementMovesRemaining", pUnit:GetMovementMovesRemaining())
+	--print("GetMaxMoves", pUnit:GetMaxMoves())
+	--print("IsReadyToMove", pUnit:IsReadyToMove())
 	--if pUnit:GetMovesRemaining()>0 then
 		--print("has moves => restore if incomplete")
 		local kParameters = {}
