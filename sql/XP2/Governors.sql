@@ -43,33 +43,6 @@ INSERT OR IGNORE INTO GovernorPromotionModifiers VALUES
 INSERT OR IGNORE INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
         ('GOVERNOR_PROMOTION_LOCAL_INFORMANTS', 'GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE');
 UPDATE GovernorPromotions SET 'Column'=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_LOCAL_INFORMANTS';
---=========================Magnus=========================--
-UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST';
--- Magnus provision give 1 PM to Settler. -- moved from base, because settler tag didn't exist back then (idk if you can force it in bugfree)
-INSERT INTO Types(Type, Kind) VALUES
-    ('BBG_SETTLER_MOUVMENT_ABILITY', 'KIND_ABILITY');
-INSERT INTO TypeTags(Type, Tag) VALUES
-    ('BBG_SETTLER_MOUVMENT_ABILITY', 'CLASS_SETTLER');
-INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive) VALUES
-    ('BBG_SETTLER_MOUVMENT_ABILITY', 'BBG_SETTLER_MOUVMENT_ABILITY_NAME', 'BBG_SETTLER_MOUVMENT_ABILITY_DESC', 1);
-INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
-    ('BBG_SETTLER_MOUVMENT_ABILITY', 'BBG_SETTLER_MOUVMENT_ABILITY_MODIFIER');
-INSERT INTO Modifiers(ModifierId, ModifierType, Permanent) VALUES
-    ('BBG_GIVE_SETTLER_MOUVMENT_ABILITY', 'MODIFIER_SINGLE_CITY_GRANT_ABILITY_FOR_TRAINED_UNITS', 0),
-    ('BBG_SETTLER_MOUVMENT_ABILITY_MODIFIER', 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT', 1);
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_GIVE_SETTLER_MOUVMENT_ABILITY', 'AbilityType', 'BBG_SETTLER_MOUVMENT_ABILITY'),
-    ('BBG_SETTLER_MOUVMENT_ABILITY_MODIFIER', 'Amount', '1');
-INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION', 'BBG_GIVE_SETTLER_MOUVMENT_ABILITY');
---=========================Magnus/Victor==================--
--- Increase prod and power for Magnus Industrialist promo
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='INDUSTRIALIST_COAL_POWER_PLANT_PRODUCTION' AND Name='Amount';
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='INDUSTRIALIST_OIL_POWER_PLANT_PRODUCTION' AND Name='Amount';
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='INDUSTRIALIST_NUCLEAR_POWER_PLANT_PRODUCTION' AND Name='Amount';
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='INDUSTRIALIST_RESOURCE_POWER_PROVIDED' AND Name='Amount';
--- Strategics required reduced to zero for Black Marketeer and swapped with Victor's Arms Race
-UPDATE ModifierArguments SET Value='100' WHERE ModifierId='BLACK_MARKETEER_STRATEGIC_RESOURCE_COST_DISCOUNT' AND Name='Amount';
 --=========================Liang=====================--
 -- add prod to reinforced materials
 INSERT OR IGNORE INTO RequirementSets ( RequirementSetId, RequirementSetType ) VALUES
