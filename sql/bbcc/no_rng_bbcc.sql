@@ -314,7 +314,7 @@ INSERT INTO BBCC_DynamicYields(ModifierB, SubjectRequirementSetId, RequirementId
 	INNER JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
 	INNER JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId
 	WHERE ModifierType IN ('MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD')
-	AND ModifierId NOT LIKE '%BBCC' AND ModifierId NOT LIKE '%REMOVE_EXTRA%';
+	AND ModifierId NOT LIKE '%BBCC' AND ModifierId NOT LIKE '%REMOVE%EXTRA%';
 --run this query 3 times to ensure capturing up to 3 levels of nesting requirements with 'REQUIREMENT_REQUIREMENTSET_IS_MET'
 INSERT OR IGNORE INTO BBCC_DynamicYields(ModifierB, SubjectRequirementSetId, Level, RequirementId, RequirementType, Inverse, ReqName, ReqValue)
 	SELECT DISTINCT mod, srset, level, RequirementSetRequirements.RequirementId, Requirements.RequirementType, Requirements.Inverse, RequirementArguments.Name, RequirementArguments.Value
