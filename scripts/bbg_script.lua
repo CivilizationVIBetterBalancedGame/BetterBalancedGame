@@ -3559,10 +3559,10 @@ function Initialize()
 	--5.2. Disable: print("BBG Communism Hooks Added")
 	--Amani
 	--LuaEvents.UISetAmaniProperty.Add(OnUISetAmaniProperty)
-	--5.2. Disable: GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
+	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
 	--LuaEvents.UISetCSTrader.Add(OnUISetCSTrader)
-	--5.2. Disable: GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
-	--5.2. Disable: print("BBG Amani Gameplay hooks added")
+	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
+	print("BBG Amani Gameplay hooks added")
 	--Delete Suntzu for not-Unifier
 	--LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
 	--5.2. Disable: GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
