@@ -409,8 +409,6 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_HAGIA_SOPHIA', 'HAGIA_SOPHIA_GRANT_MISSIONARY_APOSTLE_MOVEMENT'),
 	('BUILDING_HAGIA_SOPHIA', 'HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT');
 
--- Kotoku-in - Increase strength of player warrior Monk.
-
 -- Mont St. Michel - Culture +1 for flood plains in the empire. (unless you wanna split this change amongst many dlc recreate the reqs and use abstract queries)
 CREATE TABLE Floodplains_tmp(
 	FloodplainType TEXT NOT NULL
@@ -457,7 +455,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId)
 INSERT INTO BuildingModifiers (BuildingType, ModifierId)
 	SELECT 'BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType
 	FROM Floodplains_tmp;
-DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MONT_ST_MICHEL' AND ModifierId='MONT_ST_MICHEL_GRANT_MARTYR';
+--DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MONT_ST_MICHEL' AND ModifierId='MONT_ST_MICHEL_GRANT_MARTYR'; (We weren't supposed to drop Martyr)
 DROP TABLE Floodplains_tmp;
 
 -- Great Zimbabwe - Give 2 trader capacity instead of 1
