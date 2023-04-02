@@ -134,11 +134,11 @@
 		<!-- == BRAZIL == -->
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_STREET_CARNIVAL_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Brazil that doesn't cost a district population slot. Replaces the Entertainment Complex district, and provides +2 [ICON_Amenities] Amenities. Also unlocks the Carnival project, which grants an additional +1 [ICON_Amenities] Amenity when underway and a variety of [ICON_GreatPerson] Great People points once completed. Cannot be built in a city with a Copacabana.</Text>
+			<Text>A district unique to Brazil that doesn't cost a district population slot and is not a specialty district. Replaces the Entertainment Complex district, and provides +2 [ICON_Amenities] Amenities. Also unlocks the Carnival project, which grants an additional +1 [ICON_Amenities] Amenity when underway and a variety of [ICON_GreatPerson] Great People points once completed. Cannot be built in a city with a Copacabana.</Text>
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_WATER_STREET_CARNIVAL_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Brazil that doesn't cost a district population slot. Replaces the Water Park district, and provides +2 [ICON_Amenities] Amenities. Also unlocks the Carnival project, which grants an additional +1 [ICON_Amenities] Amenity when underway and a variety of [ICON_GreatPerson] Great People points once completed. Cannot be built in a city with a Street Carnival. Cannot be built on Reef.</Text>
+			<Text>A district unique to Brazil that doesn't cost a district population slot and is not a specialty district. Replaces the Water Park district, and provides +2 [ICON_Amenities] Amenities. Also unlocks the Carnival project, which grants an additional +1 [ICON_Amenities] Amenity when underway and a variety of [ICON_GreatPerson] Great People points once completed. Cannot be built in a city with a Street Carnival. Cannot be built on Reef.</Text>
 		</Replace>
 
 		<!-- == BYZANTIUM == -->
@@ -195,10 +195,10 @@
 		</Replace>
 		<!-- = leader ability (Qin Shi Huang, Mandate of Heaven) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FIRST_EMPEROR_DESCRIPTION" Language="en_US">
-			<Text>When building Ancient and Classical wonders you may spend Builder [ICON_Charges] charge to complete 15% of the original wonder cost. Builder receive an additional [ICON_Charges] charge.</Text>
+			<Text>Builder receive an additional [ICON_Charges] charge. When building Ancient and Classical Wonders you may spend Builder [ICON_Charges] charge to complete 15% of the Wonder [ICON_PRODUCTION] Production cost.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_FIRST_EMPEROR_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>When building Ancient and Classical wonders you may spend Builder [ICON_Charges] charge to complete 15% of the original wonder cost. Builder receive an additional [ICON_Charges] charge. Canals are unlocked with the Masonry technology.</Text>
+			<Text>Builder receive an additional [ICON_Charges] charge. When building Ancient and Classical Wonders you may spend Builder [ICON_Charges] charge to complete 15% of the Wonder [ICON_PRODUCTION] Production cost. Canals are unlocked with the Masonry technology.</Text>
 		</Replace>
 		<!-- = leader ability (Qin Shi Huang, Unifier) = -->
 		<!-- 5.2.9 REVERTED
@@ -208,7 +208,7 @@
 		-->
 		<!-- = leader ability (Yongle) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_YONGLE_XP_DESCRIPTION" Language="en_US">
-			<Text>All Cities receive Projects where they can convert 50% of their [Icon_Production] Production into [Icon_Food] Food,  [Icon_Faith] Faith, or 100% if it is [Icon_GOLD] Gold. Cities with 10 or more [ICON_CITIZEN] Population receive +1 [Icon_Gold] Gold, +0.5 [Icon_Science] Science, and +0.3 [Icon_Culture] Culture per turn for each [ICON_CITIZEN] Population in the city.</Text>
+			<Text>All Cities receive Projects where they can convert 50% of their [Icon_Production] Production into [Icon_Food] Food,  [Icon_Faith] Faith, or 100% if it is [Icon_GOLD] Gold.[NEWLINE][NEWLINE]Cities with 10 or more [ICON_CITIZEN] Population receive +1 [Icon_Gold] Gold, +0.5 [Icon_Science] Science, and +0.3 [Icon_Culture] Culture per turn for each [ICON_CITIZEN] Population in the city.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_CHINESE_CROUCHING_TIGER_DESCRIPTION" Language="en_US">
@@ -655,7 +655,7 @@
 			<Text>+{1_num} [ICON_SCIENCE] Science base adjacency.</Text>
 		</Replace>
 		<Row Tag="LOC_DISTRICT_MINE_SCIENCE" Language="en_US">
-			<Text>+{1_num} [ICON_SCIENCE] Science adjacency from the adjacent {1_Num : plural 1?Mines; other?Mines;}.</Text>
+			<Text>+{1_num} [ICON_SCIENCE] Science from the adjacent {1_Num : plural 1?Mines; other?Mines;}.</Text>
 		</Row>
 		<Row Tag="LOC_DISTRICT_SEOWON_THEATER_BONUS" Language="en_US">
 			<Text>+{1_num} [ICON_Science] Science from the adjacent Theater Square.</Text>
@@ -708,7 +708,7 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="en_US">
-			<Text>City Centers gain +1 [ICON_FAITH] Faith and +1 [ICON_FOOD] Food for every adjacent Desert and Desert Hills tiles. Mines receive -1 [ICON_PRODUCTION] Production and +2 [ICON_GOLD] Gold, additional +1 [ICON_GOLD] Gold with Banking and Economy technologies. May purchase Commercial Hub district buildings with [ICON_Faith] Faith. -30% [ICON_PRODUCTION] Production toward constructing buildings or training units. -30% yields for harvesting a resource or removing a feature.</Text>
+			<Text>City Centers gain +1 [ICON_FAITH] Faith and +1 [ICON_FOOD] Food for every adjacent Desert and Desert Hills tiles. -30% [ICON_PRODUCTION] Production toward constructing buildings or training units. -30% yields for harvesting a resource or removing a feature.[NEWLINE][NEWLINE]Mines receive -1 [ICON_PRODUCTION] Production and +1 [ICON_GOLD] Gold, additional +1 [ICON_GOLD] Gold with Currency, Banking and Economy technologies. May purchase Commercial Hub district buildings with [ICON_Faith] Faith.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="en_US">
@@ -1608,7 +1608,7 @@
 			<Text>Three tile natural wonder. Units that enter it are teleported to an ocean far away, but naval units that do so earn the ability 'Mysterious Currents' (+1 [ICON_Movement] Movement).</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_PAITITI_DESCRIPTION" Language="en_US">
-			<Text>Three tile impassable natural wonder. Provides +1 [ICON_Gold] Gold and +1 [ICON_Culture] Culture to adjacent tiles. [ICON_TRADEROUTE] Trade routes sent from cities that own at least one tile of Paititi generate +4 [ICON_Gold] Gold.</Text>
+			<Text>Three tile impassable natural wonder. It provides +1 [ICON_Gold] Gold and +1 [ICON_Culture] Culture to adjacent tiles. [ICON_TRADEROUTE] Trade routes sent from cities that own at least one tile of Paititi generate +4 [ICON_Gold] Gold.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_GIANTS_CAUSEWAY_DESCRIPTION" Language="en_US">
 			<Text>Two tile impassable natural wonder. It provides +1 [ICON_CULTURE] Culture to adjacent tiles. Land combat units that enter adjacent tiles receive the ability 'Spear of Fionn' (+3 [ICON_STRENGTH] Combat Strength when attacking).</Text>
@@ -1662,22 +1662,25 @@
 			<Text>Four tile natural wonder. It provides +2 [ICON_SCIENCE] Science, +2 [ICON_Culture] Culture, and +6 [ICON_GOLD] Gold.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_CHOCOLATEHILLS_DESCRIPTION" Language="en_US">
-			<Text>Four tile natural wonder. Appears as a Hill and provides +3 [ICON_Food] Food, +3 [ICON_Production] Production, and +1 [ICON_Science] Science.</Text>
+			<Text>Four tile natural wonder. It appears as a Hill and provides +3 [ICON_Food] Food, +3 [ICON_Production] Production, and +1 [ICON_Science] Science.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_DEVILSTOWER_DESCRIPTION" Language="en_US">
-			<Text>One tile impassable natural wonder. Provides +2 [ICON_FAITH] Faith and +1 [ICON_Production] Production to adjacent tiles.</Text>
+			<Text>One tile impassable natural wonder. It provides +2 [ICON_FAITH] Faith and +1 [ICON_Production] Production to adjacent tiles.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_BARRIER_REEF_DESCRIPTION" Language="en_US">
-			<Text>Two tile natural wonder that can be found on coastal terrain. It appears as a Reef and provides +3 [ICON_Food] Food, +1 [ICON_PRODUCTION], and +2 [ICON_Science] Science.</Text>
+			<Text>Two tile natural wonder that can be found on coastal terrain. It appears as a Reef and provides +3 [ICON_Food] Food, +1 [ICON_PRODUCTION] Production, and +2 [ICON_Science] Science.</Text>
 		</Replace>
+		<Row Tag="LOC_REEF_WONDER_SCIENCE" Language="en_US">
+			<Text>+{1_num} [ICON_Science] Science from the adjacent natural wonder Great Barrier Reef.</Text>
+		</Row>
 		<Replace Tag="LOC_FEATURE_DELICATE_ARCH_DESCRIPTION" Language="en_US">
-			<Text>One tile impassable natural wonder. Provides +2 [ICON_FAITH] Faith and +3 [ICON_GOLD] Gold to adjacent tiles.</Text>
+			<Text>One tile impassable natural wonder. It provides +2 [ICON_FAITH] Faith and +3 [ICON_GOLD] Gold to adjacent tiles.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_EVEREST_DESCRIPTION" Language="en_US">
 			<Text>Three tile impassable natural wonder. It appears as a Mountain and provides +3 [ICON_Faith] Faith to adjacent tiles. Religious units who move next to Mount Everest ignore Hills for the rest of the game.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_TSINGY_DESCRIPTION" Language="en_US">
-			<Text>One tile impassable natural wonder. Provides +1 [ICON_FOOD] Food, +1 [ICON_Science] Science, and +1 [ICON_Culture] Culture to adjacent tiles.</Text>
+			<Text>One tile impassable natural wonder. It provides +1 [ICON_FOOD] Food, +1 [ICON_Science] Science, and +1 [ICON_Culture] Culture to adjacent tiles.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_KILIMANJARO_DESCRIPTION" Language="en_US">
 			<Text>One tile impassable natural wonder. It appears as a Mountain and provides +2 [ICON_Food] Food to adjacent tiles.</Text>
@@ -1695,7 +1698,7 @@
 			<Text>One tile natural wonder. It appears as an Oasis and provides +4 [ICON_Science] Science and +4 [ICON_Faith] Faith. Land combat units that enter it receive the ability 'Water of Life' (+10 HP healing in any territory).</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_LYSEFJORDEN_DESCRIPTION" Language="en_US">
-			<Text>Three tile impassable natural wonder. Provides +1 [ICON_PRODUCTION] Production to adjacent tiles. Naval combat units that enter adjacent tiles receive the ability 'Njord's Blessing' (+2 [ICON_Movement] Movement).</Text>
+			<Text>Three tile impassable natural wonder. It provides +1 [ICON_PRODUCTION] Production to adjacent tiles. Naval combat units that enter adjacent tiles receive the ability 'Njord's Blessing' (+2 [ICON_Movement] Movement).</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_LYSEFJORD_GRANT_MOVEMENT_ABILITY_NAME" Language="en_US">
 			<Text>Njord's Blessing</Text>
