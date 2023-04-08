@@ -122,47 +122,49 @@ CREATE TABLE Numbers(Number INT NOT NULL);
 INSERT INTO Numbers VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15);
 
 INSERT INTO Requirements(RequirementId, RequirementType)
-    SELECT 'REQ_PLOT_HAS_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'REQUIREMENT_PLOT_PROPERTY_MATCHES'
+    SELECT 'REQ_PLOT_HAS_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG', 'REQUIREMENT_PLOT_PROPERTY_MATCHES'
     FROM Numbers LEFT JOIN Yields;
 INSERT INTO RequirementArguments(RequirementId, Name, Value)
-    SELECT 'REQ_PLOT_HAS_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'PropertyName', 'EXTRA_'||Yields.YieldType
+    SELECT 'REQ_PLOT_HAS_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG', 'PropertyName', 'EXTRA_'||Yields.YieldType
     FROM Numbers LEFT JOIN Yields;
 INSERT INTO RequirementArguments(RequirementId, Name, Value)
-    SELECT 'REQ_PLOT_HAS_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'PropertyMinimum', Numbers.Number
+    SELECT 'REQ_PLOT_HAS_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG', 'PropertyMinimum', Numbers.Number
     FROM Numbers LEFT JOIN Yields;
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
-    SELECT 'REQSET_PLOT_HAS_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'REQUIREMENTSET_TEST_ALL'
+    SELECT 'REQSET_PLOT_HAS_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG', 'REQUIREMENTSET_TEST_ALL'
     FROM Numbers LEFT JOIN Yields;
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
-    SELECT 'REQSET_PLOT_HAS_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'REQ_PLOT_HAS_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG'
+    SELECT 'REQSET_PLOT_HAS_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG', 'REQ_PLOT_HAS_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG'
     FROM Numbers LEFT JOIN Yields;
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
-    SELECT 'MODIFIER_CITY_REMOVE_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'REQSET_PLOT_HAS_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG'
+    SELECT 'MODIFIER_CITY_REMOVE_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'REQSET_PLOT_HAS_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG'
     FROM Numbers LEFT JOIN Yields;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'MODIFIER_CITY_REMOVE_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'YieldType', Yields.YieldType
+    SELECT 'MODIFIER_CITY_REMOVE_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG', 'YieldType', Yields.YieldType
     FROM Numbers LEFT JOIN Yields;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'MODIFIER_CITY_REMOVE_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'Amount', -1
+    SELECT 'MODIFIER_CITY_REMOVE_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG', 'Amount', -1
     FROM Numbers LEFT JOIN Yields;
+/*
 INSERT INTO Modifiers(ModifierId, ModifierType)
     SELECT 'MODIFIER_CIV_CITIES_REMOVE_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER'
     FROM Numbers LEFT JOIN Yields;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
     SELECT 'MODIFIER_CIV_CITIES_REMOVE_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'ModifierId', 'MODIFIER_CITY_REMOVE_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG'
     FROM Numbers LEFT JOIN Yields;
+
 INSERT INTO TraitModifiers(TraitType, ModifierId)
     SELECT 'TRAIT_LEADER_MAJOR_CIV', 'MODIFIER_CIV_CITIES_REMOVE_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG'
     FROM Numbers LEFT JOIN Yields;
 INSERT INTO TraitModifiers(TraitType, ModifierId)
     SELECT 'MINOR_CIV_DEFAULT_TRAIT', 'MODIFIER_CIV_CITIES_REMOVE_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG'
     FROM Numbers LEFT JOIN Yields;
-
+*/
 DROP TABLE Numbers;
 
-
---==========Terrain==========--
---adding campus adjacency to mountain wonders
+--=======================================================================
+--******               Wonder+Terrain/Feature                      ******
+--=======================================================================
 
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, TilesRequired, AdjacentFeature)
 	SELECT 

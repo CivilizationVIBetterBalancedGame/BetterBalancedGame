@@ -1,11 +1,3 @@
-
-
---==================
--- Cree
---==================
-UPDATE UnitUpgrades SET UpgradeUnit='UNIT_SKIRMISHER' WHERE Unit='UNIT_CREE_OKIHTCITAW';
-
-
 --==================
 -- Mapuche
 --==================
@@ -20,3 +12,8 @@ DELETE FROM UnitAbilityModifiers WHERE ModifierId='MALON_RAIDER_TERRITORY_COMBAT
 INSERT OR IGNORE INTO Units_XP2 (UnitType , ResourceCost)
 	VALUES ('UNIT_MAPUCHE_MALON_RAIDER' , 20);
 UPDATE Units SET StrategicResource='RESOURCE_HORSES' WHERE UnitType='UNIT_MAPUCHE_MALON_RAIDER';
+--^^^moved from xp2_rf
+UPDATE UnitUpgrades SET UpgradeUnit='UNIT_CAVALRY' WHERE Unit='UNIT_MAPUCHE_MALON_RAIDER';
+-- 20/12/14 Chemamull's now allowed on volcanic soil
+INSERT OR IGNORE INTO Improvement_ValidFeatures (ImprovementType, FeatureType)
+	VALUES ('IMPROVEMENT_CHEMAMULL', 'FEATURE_VOLCANIC_SOIL');
