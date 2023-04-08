@@ -152,6 +152,16 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_BYZANTIUM_DESCRIPTION" Language="en_US">
 			<Text>Units receive +2 [ICON_Strength] Combat Strength or [ICON_Religion] Religious Strength for each Holy City converted to Byzantium's Religion (including Byzantium's Holy City). +1 [ICON_GreatProphet] Great Prophet point from cities with a Holy Site district.[NEWLINE][NEWLINE]When defeats a unit, spreads Byzantium's Religion pressure (based on melee [ICON_Strength] Combat Strength of the defeated unit) within 5 tiles.</Text>
 		</Replace>
+		<!-- = leader ability (Theodora) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_THEODORA_DESCRIPTION" Language="en_US">
+			<Text>Holy Sites and Hippodromes provide +1 [ICON_Culture] Culture bonus for each adjacent district.</Text>
+		</Replace>
+		<Row Tag="LOC_BBG_THEODORA_HOLYSITE_CULTURE" Language="en_US">
+			<Text>+{1_num} [ICON_CULTURE] Culture from the adjacent {1_Num : plural 1?district; other?districts;}.</Text>
+		</Row>
+		<Row Tag="LOC_BBG_THEODORA_HIPPODROME_CULTURE" Language="en_US">
+			<Text>+{1_num} [ICON_CULTURE] Culture from the adjacent {1_Num : plural 1?district; other?districts;}.</Text>
+		</Row>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_BYZANTINE_TAGMA_DESCRIPTION" Language="en_US">
 			<Text>Basil II's unique Medieval era unit that replaces the Knight. Land units within 1 tile of the Tagma receive +2 [ICON_Strength] Combat Strength or [ICON_RELIGION] Religious Strength.</Text>
@@ -326,12 +336,16 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION_DESCRIPTION" Language="en_US"> <!-- charges icon -->
 			<Text>[ICON_RESOURCE_IRON] Iron and [ICON_RESOURCE_COAL] Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10 (on Standard speed). +100% [ICON_PRODUCTION] Production towards Military Engineers. Military Engineers receive +2 [ICON_Charges] charges. Buildings that provide additional yields when [ICON_POWER] Powered receive +4 of that yield. +20% [ICON_PRODUCTION] Production towards Industrial Zone buildings.</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability (Victoria - Age of Empire) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PAX_BRITANNICA_DESCRIPTION" Language="en_US">
 			<Text>All cities founded on a continent other than your home continent receive a free melee unit. Constructing a Royal Navy Dockyard in that city will grant an additional free melee unit. Gain the Redcoat unique unit when the Military Science technology is researched.[NEWLINE]Lighthouse grants +1 [ICON_GREATADMIRAL] Great Admiral point per turn.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_PAX_BRITANNICA_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>Each time you found your first city on a continent other than your home continent receive a free melee unit and a [ICON_TradeRoute] Trade Route capacity. Constructing Royal Navy Dockyard grants you the strongest naval unit you can build. Gain the Redcoat unique unit when the Military Science technology is researched.[NEWLINE]Lighthouse grants +1 [ICON_GREATADMIRAL] Great Admiral point per turn.</Text>
+		</Replace>
+		<!-- = leader ability (Victoria - Age of Steam) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_VICTORIA_ALT_DESCRIPTION" Language="en_US">
+			<Text>+10% [ICON_PRODUCTION] Production in Cities for every Industrial Zone building in that city. +1 [ICON_PRODUCTION] Production to all Strategic Resources.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_ENGLISH_REDCOAT_DESCRIPTION" Language="en_US">
@@ -779,12 +793,12 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_EARLY_OCEAN_NAVIGATION_DESCRIPTION" Language="en_US">
 			<Text>Units gain the ability to enter Ocean tiles after researching the Shipbuilding technology. Naval melee units heal in neutral territory if they are on coast. Units ignore additional [ICON_Movement] Movement costs from embarking and disembarking.</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability (Konge) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_DESCRIPTION" Language="en_US">
 			<Text>+25% [ICON_PRODUCTION] Production to Naval Melee Units. Naval Melee units can perform coastal raids.[NEWLINE][NEWLINE]All Holy Site districts and their buildings get +50% [ICON_PRODUCTION] Production. Coast and Lake tiles provide a standard adjacency bonus to Holy Site district. Harbors next to a Holy Site get an additional +2 [ICON_GOLD] Gold adjacency bonus.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>+50% [ICON_PRODUCTION] Production to Naval Melee Units. Naval Melee units can perform coastal raids. Receive additional yields from pillaging or performing coastal raids: [ICON_SCIENCE] Science from Mines, [ICON_CULTURE] Culture from Quarries, Pastures, Plantations, and Camps.[NEWLINE][NEWLINE]+50% [ICON_PRODUCTION] Production toward Holy Site districts. Coast and Lake tiles provide a standard adjacency bonus to Holy Site district. Harbors receive a major adjacency bonus from Holy Sites.</Text>
+			<Text>+25% [ICON_PRODUCTION] Production to Naval Melee Units. Naval Melee units can perform coastal raids. Receive additional yields from pillaging or performing coastal raids: [ICON_SCIENCE] Science from Mines, [ICON_CULTURE] Culture from Quarries, Pastures, Plantations, and Camps.[NEWLINE][NEWLINE]+50% [ICON_PRODUCTION] Production toward Holy Site districts. Coast and Lake tiles provide a standard adjacency bonus to Holy Site district. Harbors receive a major adjacency bonus from Holy Sites.</Text>
 		</Replace>
 		<Row Tag="LOC_DISTRICT_HOLY_SITE_NORWAY_COAST_FAITH" Language="en_US">
 			<Text>+{1_num} [ICON_Faith] Faith from coast or lake tiles.</Text>
@@ -1194,6 +1208,9 @@
 		</Replace>
 
 		<!-- == Reyna == -->
+		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_NAME" Language="en_US">
+			<Text>Deal Maker</Text>
+		</Row>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_DESCRIPTION" Language="en_US">
 			<Text>50% [ICON_GOLD] Gold discount on purchasing buildings and [ICON_DISTRICT] districts (if able) in the city.</Text>
 		</Row>
@@ -1209,7 +1226,7 @@
 
 		<!-- == Liang == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_BUILDER_GUILDMASTER_DESCRIPTION" Language="en_US">
-			<Text>All Builders trained in city get +1 [ICON_Charges] charge. Established in 3 turns.</Text>
+			<Text>All Builders trained in city get +1 [ICON_Charges] charge. Establishes in 3 turns.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_ZONING_COMMISSIONER_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_Production] Production on the city's revealed resources.</Text>
@@ -1274,11 +1291,9 @@
 		</Replace>
 		
 		<!-- == Amani == -->
-		<!-- 5.2.9 REVERTED
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_MESSENGER_DESCRIPTION" Language="en_US">
-			<Text>Can be assigned to a City-state, where she acts as 2 [ICON_Envoy] Envoys. When established to a City-state, your cities that have Trade route to this city gain +2 [ICON_FOOD] Food and +2 [ICON_PRODUCTION] Production.</Text>
+			<Text>Can be assigned to a City-state, where she acts as 2 [ICON_Envoy] Envoys. When established in a City-state, your cities that have Trade route to this city gain +2 [ICON_FOOD] Food and +2 [ICON_PRODUCTION] Production.</Text>
 		</Replace>
-		-->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE_DESCRIPTION" Language="en_US">
 			<Text>Provides an additional Strategic Resource per turn of each one you have revealed.</Text>
 		</Replace>
@@ -1291,9 +1306,6 @@
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY_DESCRIPTION" Language="en_US">
 			<Text>All cities within 9 tiles gain +4 Loyalty per turn towards your civilization.</Text>
 		</Replace>
-		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_NAME" Language="en_US">
-			<Text>Deal Maker</Text>
-		</Row>
 
 		<!-- == Magnus == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST_DESCRIPTION" Language="en_US">
@@ -1803,7 +1815,7 @@
 			<Text>International [ICON_TradeRoute] Trade Routes receive +2 [ICON_GOLD] Gold for every Luxury Resource at the destination. When the Torre de Belém is constructed, all your cities receive the lowest [ICON_PRODUCTION] Production cost City Center building they can currently construct.[NEWLINE][NEWLINE]Must be built on a Coast tile that is adjacent to a Harbor district.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_HERMITAGE_DESCRIPTION" Language="en_US">
-			<Text>This Wonder become automatically themed when it has all its slots filled.[NEWLINE][NEWLINE]Must be built along a River.</Text>
+			<Text>Great works stored in this wonder become automatically themed when full.[NEWLINE][NEWLINE]Must be built along a River.</Text>
 		</Replace>
 
 
@@ -2142,7 +2154,7 @@
 			<Text>+1 [ICON_Production] Production per [ICON_Citizen] Citizen in cities with [ICON_Governor] Governors.</Text> <!-- 5.2.9 REVERTED +1 yield to specialists of the respective district yield. -->
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="en_US">
-			<Text>+1 to all yields for Palace, Government Plaza, Diplomatic Quarter and these districts' buildings.</Text>
+			<Text>+1 to all yields for each Palace, Government Plaza, Diplomatic Quarter and buildings within these districts.</Text>
 		</Replace>
 
 
