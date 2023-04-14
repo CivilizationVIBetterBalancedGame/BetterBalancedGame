@@ -15,7 +15,7 @@ INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
 INSERT INTO Requirements(RequirementId, RequirementType)
     SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'REQUIREMENT_PLAYER_HAS_CIVIC' FROM Civics;
 INSERT INTO RequirementArguments(RequirementId, Name, Value)
-    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'TechnologyType', CivicType FROM Civics;
+    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'CivicType', CivicType FROM Civics;
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQSET', 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT' FROM Civics;
 
