@@ -9,6 +9,16 @@ INSERT INTO RequirementArguments(RequirementId, Name, Value)
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     SELECT 'BBG_UTILS_PLAYER_HAS_' || TechnologyType, 'BBG_UTILS_PLAYER_HAS_' || TechnologyType || '_REQUIREMENT' FROM Technologies;
 
+-- Create requirements for each civic
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
+    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Civics;
+INSERT INTO Requirements(RequirementId, RequirementType)
+    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'REQUIREMENT_PLAYER_HAS_CIVIC' FROM Civics;
+INSERT INTO RequirementArguments(RequirementId, Name, Value)
+    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'TechnologyType', CivicType FROM Civics;
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQSET', 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT' FROM Civics;
+
 -- Create requirements for each ressources
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
 	('PLAYER_CAN_SEE_HORSES_CPLMOD', 	'REQUIREMENTSET_TEST_ALL'),
@@ -26,7 +36,6 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 	('PLAYER_CAN_SEE_ALUMINUM_CPLMOD', 'REQUIRES_PLAYER_CAN_SEE_ALUMINUM'),
 	('PLAYER_CAN_SEE_OIL_CPLMOD', 'REQUIRES_PLAYER_CAN_SEE_OIL'),
 	('PLAYER_CAN_SEE_URANIUM_CPLMOD', 'REQUIRES_PLAYER_CAN_SEE_URANIUM');
-
 
 -- requirements game era (for portugal)
 INSERT INTO Requirements(RequirementId, RequirementType)
