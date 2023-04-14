@@ -42,12 +42,8 @@ DELETE FROM RequirementSets WHERE RequirementSetId='LYSEFJORDEN_GRANT_EXPERIENCE
 --Causeway +3 down from +5
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH' AND Name='Amount';
 --ATTACKING_REQUIREMENT_SET depends on Persia Macedon, recreated
-INSERT OR IGNORE INTO RequirementSets
-	(RequirementSetId , RequirementSetType)
-	VALUES
+INSERT OR IGNORE INTO RequirementSets (RequirementSetId , RequirementSetType) VALUES
 	('ATTACKING_REQUIREMENT_SET', 'REQUIREMENTSET_TEST_ALL');
-INSERT OR IGNORE INTO RequirementSetRequirements
-	(RequirementSetId , RequirementId)
-	VALUES
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId) VALUES
 	('ATTACKING_REQUIREMENT_SET', 'PLAYER_IS_ATTACKER_REQUIREMENTS');
 UPDATE Modifiers SET SubjectRequirementSetId='ATTACKING_REQUIREMENT_SET' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH';

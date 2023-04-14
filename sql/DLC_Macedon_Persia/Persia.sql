@@ -14,7 +14,7 @@ INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
 -- Immortals to 36 to match swordsman up.
 UPDATE Units SET Combat=36 WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
 
---internal trades routes scale on gold
+--internal trades routes scale on gold 
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('TRAIT_SATRAPIES_INTERNAL_TRADE_GOLD_AT_BANKING', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_DOMESTIC', 'BBG_UTILS_PLAYER_HAS_TECH_BANKING'),
     ('TRAIT_SATRAPIES_INTERNAL_TRADE_GOLD_AT_ECONOMICS', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_DOMESTIC', 'BBG_UTILS_PLAYER_HAS_TECH_ECONOMICS');
@@ -31,6 +31,7 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 -- Cyrus
 --==================
 --internal trades routes scale on culture
+--14/04/23 moved to Cyrus only
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('TRAIT_CYRUS_INTERNAL_TRADE_CULTURE_AT_MEDIEVAL_FAIRES', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_DOMESTIC', 'BBG_PLAYER_HAS_CIVIC_MEDIEVAL_FAIRES_REQSET'),
     ('TRAIT_CYRUS_INTERNAL_TRADE_CULTURE_AT_URBANIZATION', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_DOMESTIC', 'BBG_PLAYER_HAS_CIVIC_URBANIZATION_REQSET');
@@ -51,9 +52,9 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('TRAIT_FALLBABYLON_COMBAT_BONUS', 'Amount', '3');
 INSERT INTO ModifierStrings (ModifierId, Context, Text) VALUES
     ('TRAIT_FALLBABYLON_COMBAT_BONUS', 'Preview', 'LOC_TRAIT_FALLBABYLON_COMBAT_BONUS_DESCRIPTION');
-INSERT INTO RequirementSets (RequirementSetId , RequirementSetType) VALUES
+INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('ATTACKING_REQUIREMENT_SET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId , RequirementId) VALUES
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('ATTACKING_REQUIREMENT_SET', 'PLAYER_IS_ATTACKER_REQUIREMENTS');
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_FALL_BABYLON', 'TRAIT_FALLBABYLON_COMBAT_BONUS');
