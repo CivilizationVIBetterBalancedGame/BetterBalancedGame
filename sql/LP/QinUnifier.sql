@@ -1,4 +1,14 @@
-
+--16/04/23 encampment gives writers point
+--15/12/22 Chandra holy sites now give general points
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_QIN_UNIFIER_WRITER_POINT_WITH_ENCAMPMENT', 'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER', null),
+    ('BBG_QIN_UNIFIER_WRITER_POINT_WITH_ENCAMPMENT_MODIFIER', 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', 'DISTRICT_IS_ENCAMPMENT');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_QIN_UNIFIER_WRITER_POINT_WITH_ENCAMPMENT', 'ModifierId', 'BBG_QIN_UNIFIER_WRITER_POINT_WITH_ENCAMPMENT_MODIFIER'),
+    ('BBG_QIN_UNIFIER_WRITER_POINT_WITH_ENCAMPMENT_MODIFIER', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_WRITER'),
+    ('BBG_QIN_UNIFIER_WRITER_POINT_WITH_ENCAMPMENT_MODIFIER', 'Amount', '1');
+INSERT INTO TraitModifiers (TraitType , ModifierId) VALUES
+    ('TRAIT_LEADER_QIN' , 'BBG_QIN_UNIFIER_WRITER_POINT_WITH_ENCAMPMENT');
 
 -- 5.2.5 Yongle nerf Pop require remain the same but reduce science/culture from 1 per pop to +0.5/+0.3 (double the inner science/culture per pop) and reduce gold from 2 to 1
 UPDATE ModifierArguments SET Value='0.5' WHERE ModifierId='YONGLE_SCIENCE_POPULATION' AND Name='Amount';
@@ -98,3 +108,4 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('GREATPERSON_JOHN_MONASH_ACTIVE_UNIT_BONUS_QIN_ALT', 'AbilityType', 'ABILITY_JOHN_MONASH_BONUS_EXPERIENCE_QIN_ALT'),
     ('GREATPERSON_VIJAYA_WIMALARATNE_ACTIVE_UNIT_BONUS_QIN_ALT', 'AbilityType', 'ABILITY_VIJAYA_WIMALARATNE_BONUS_EXPERIENCE_QIN_ALT');
 */
+
