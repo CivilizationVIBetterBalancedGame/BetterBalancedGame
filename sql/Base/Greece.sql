@@ -3,7 +3,8 @@
 --==============================================================================================
 
 --Wildcard delayed to Political Philosophy
-UPDATE Modifiers SET OwnerRequirementSetId='PLAYER_HAS_POLITICAL_PHILOSOPHY_CPLMOD' WHERE ModifierId='TRAIT_WILDCARD_GOVERNMENT_SLOT';
+-- 16/04/23 Reverted
+-- UPDATE Modifiers SET OwnerRequirementSetId='PLAYER_HAS_POLITICAL_PHILOSOPHY_CPLMOD' WHERE ModifierId='TRAIT_WILDCARD_GOVERNMENT_SLOT';
 INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType)
     VALUES ('REQUIRES_PLAYER_HAS_POLITICAL_PHILOSOPHY_CPLMOD', 'REQUIREMENT_PLAYER_HAS_CIVIC');
 INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value)
