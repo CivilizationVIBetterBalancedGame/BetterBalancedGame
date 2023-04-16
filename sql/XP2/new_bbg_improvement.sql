@@ -39,5 +39,6 @@ INSERT INTO ImprovementModifiers(ImprovementType, ModifierID) VALUES
     ('IMPROVEMENT_PLANTATION', 'BBG_PLANTATION_PROD_FLAT_TILE');
 
 -- 05/10/22 railroad from 1 coal 1 iron to 2 irons
+-- 16/04/23 from 2 irons to 1
 DELETE FROM Route_ResourceCosts WHERE RouteType='ROUTE_RAILROAD' and ResourceType='RESOURCE_COAL';
-UPDATE Route_ResourceCosts SET BuildwithUnitCost=2 WHERE RouteType='ROUTE_RAILROAD' and ResourceType='RESOURCE_IRON';
+-- UPDATE Route_ResourceCosts SET BuildwithUnitCost=2 WHERE RouteType='ROUTE_RAILROAD' and ResourceType='RESOURCE_IRON';
