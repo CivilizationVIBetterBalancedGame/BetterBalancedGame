@@ -12,7 +12,8 @@ INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
     ('IMPROVEMENT_PAIRIDAEZA', 'BBG_PAIRIDAEZA_HARBORADJACENCY');
 
 -- Immortals to 36 to match swordsman up.
-UPDATE Units SET Combat=36 WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
+-- 16/04/23 +3 to compensate loss of support bonus
+UPDATE Units SET Combat=39 WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
 
 --internal trades routes scale on gold 
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
