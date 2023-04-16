@@ -1,5 +1,7 @@
+--==================
+-- QinUnifier
+--==================
 --16/04/23 encampment gives writers point
---15/12/22 Chandra holy sites now give general points
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_QIN_UNIFIER_WRITER_POINT_WITH_ENCAMPMENT', 'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER', null),
     ('BBG_QIN_UNIFIER_WRITER_POINT_WITH_ENCAMPMENT_MODIFIER', 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', 'DISTRICT_IS_ENCAMPMENT');
@@ -10,10 +12,38 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers (TraitType , ModifierId) VALUES
     ('TRAIT_LEADER_QIN' , 'BBG_QIN_UNIFIER_WRITER_POINT_WITH_ENCAMPMENT');
 
+-- 16/04/23: +50% Production toward encampent buildings
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_QIN_UNIFIER_ENCAMPMENT_BUILDING_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_QIN_UNIFIER_ENCAMPMENT_BUILDING_PRODUCTION', 'DistrictType', 'DISTRICT_ENCAMPMENT'),
+    ('BBG_QIN_UNIFIER_ENCAMPMENT_BUILDING_PRODUCTION', 'Amount', '50');
+INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_QIN', 'BBG_QIN_UNIFIER_ENCAMPMENT_BUILDING_PRODUCTION');
+
+--16/04/23: great work slot per barrack
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_QIN_UNIFIER_BARRACK_GIVE_GREAT_WORK_SLOT', 'MODIFIER_PLAYER_CITIES_ADJUST_EXTRA_GREAT_WORK_SLOTS');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_QIN_UNIFIER_BARRACK_GIVE_GREAT_WORK_SLOT', 'BuildingType', 'BUILDING_BARRACKS'),
+    ('BBG_QIN_UNIFIER_BARRACK_GIVE_GREAT_WORK_SLOT', 'GreatWorkSlotType', 'GREATWORKSLOT_WRITING'),
+    ('BBG_QIN_UNIFIER_BARRACK_GIVE_GREAT_WORK_SLOT', 'Amount', '2');
+INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_QIN', 'BBG_QIN_UNIFIER_BARRACK_GIVE_GREAT_WORK_SLOT');
+
+
+--==================
+-- Yongle
+--==================
 -- 5.2.5 Yongle nerf Pop require remain the same but reduce science/culture from 1 per pop to +0.5/+0.3 (double the inner science/culture per pop) and reduce gold from 2 to 1
 UPDATE ModifierArguments SET Value='0.5' WHERE ModifierId='YONGLE_SCIENCE_POPULATION' AND Name='Amount';
 UPDATE ModifierArguments SET Value='0.3' WHERE ModifierId='YONGLE_CULTURE_POPULATION' AND Name='Amount';
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='YONGLE_GOLD_POPULATION' AND Name='Amount';
+
+
+
+
+
 /* --5.2. Disable:
 -- 5.2.5 Qin unifier general gains 1 charge
 INSERT INTO Types(Type, Kind) VALUES
