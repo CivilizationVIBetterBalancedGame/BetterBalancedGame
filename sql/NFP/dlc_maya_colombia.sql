@@ -61,7 +61,9 @@ INSERT INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
 -- Maya
 --==================
 -- reduce combat bonus to 3 from 5
-UPDATE ModifierArguments SET Value='3' WHERE ModifierId='MUTAL_NEAR_CAPITAL_COMBAT' AND Name='Amount';
+--16/04/23 Remove combat bonus
+-- UPDATE ModifierArguments SET Value='3' WHERE ModifierId='MUTAL_NEAR_CAPITAL_COMBAT' AND Name='Amount';
+DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_LEADER_NEARBY_CITIES_GAIN_ABILITY';
 -- set citizen yields to same as other campuses
 UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' AND DistrictType='DISTRICT_OBSERVATORY';
 --- start biases ---
