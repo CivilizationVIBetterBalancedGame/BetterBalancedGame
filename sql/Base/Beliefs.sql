@@ -20,7 +20,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value) VALUES
 INSERT OR IGNORE INTO BeliefModifiers VALUES
     ('BELIEF_RIVER_GODDESS', 'RIVER_GODDESS_HOLY_SITE_FAITH_BBG');
 -- city patron buff
-UPDATE ModifierArguments SET Value='50' WHERE ModifierId='CITY_PATRON_GODDESS_DISTRICT_PRODUCTION_MODIFIER' AND Name='Amount';
+UPDATE ModifierArguments SET Value='40' WHERE ModifierId='CITY_PATRON_GODDESS_DISTRICT_PRODUCTION_MODIFIER' AND Name='Amount';
 -- Dance of Aurora yields reduced... only work for flat tundra
 --UPDATE ModifierArguments SET Value='0' WHERE ModifierId='DANCE_OF_THE_AURORA_FAITHTUNDRAHILLSADJACENCY' AND Name='Amount';
 -- stone circles -1 faith and +1 prod
