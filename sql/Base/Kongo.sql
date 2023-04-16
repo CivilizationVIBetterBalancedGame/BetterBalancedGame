@@ -18,19 +18,18 @@ INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
 
 UPDATE RequirementSetRequirements SET RequirementId = 'BBG_REQUIRES_PLAYER_FOUNDED_RELIGION_OR_MVEMBA' WHERE RequirementId = 'REQUIRES_PLAYER_FOUNDED_RELIGION' AND RequirementSetId <> 'BBG_REQSET_FOUNDER_OR_MVEMBA';
 
--- Kongo Military Unit get forest and jungle free move. Ngao move on hill but don't get general move.
+-- Mvemba military unit get forest and jungle free move instead of Ngao
+DELETE FROM UnitAbilityModifiers WHERE ModifierId='NAGAO_FOREST_MOVEMENT';
+
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_MILITARY_UNITS_IGNORE_WOODS', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY');
-
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_MILITARY_UNITS_IGNORE_WOODS', 'AbilityType', 'BBG_IGNORE_WOODS_ABILITY');
-
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_RELIGIOUS_CONVERT', 'BBG_MILITARY_UNITS_IGNORE_WOODS');
 
 INSERT INTO Types(Type, Kind) VALUES
     ('BBG_IGNORE_WOODS_ABILITY', 'KIND_ABILITY');
-
 INSERT INTO TypeTags(Type, Tag) VALUES
     ('BBG_IGNORE_WOODS_ABILITY', 'CLASS_RECON'),
     ('BBG_IGNORE_WOODS_ABILITY', 'CLASS_MELEE'),
@@ -42,7 +41,6 @@ INSERT INTO TypeTags(Type, Tag) VALUES
 
 INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive, ShowFloatTextWhenEarned, Permanent)  VALUES
     ('BBG_IGNORE_WOODS_ABILITY', 'LOC_BBG_IGNORE_WOODS_ABILITY_NAME', 'LOC_BBG_IGNORE_WOODS_ABILITY_DESCRIPTION', 1, 0, 1);
-
 INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
     ('BBG_IGNORE_WOODS_ABILITY', 'RANGER_IGNORE_FOREST_MOVEMENT_PENALTY');
 
@@ -57,7 +55,8 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('TRAIT_ARCHAEOLOGIST_PROD_BBG', 'Amount', '100');
 
 -- NGao 3PM
-UPDATE Units SET BaseMoves=3 WHERE UnitType='UNIT_KONGO_SHIELD_BEARER';
+-- 16/04/23 Revert
+-- UPDATE Units SET BaseMoves=3 WHERE UnitType='UNIT_KONGO_SHIELD_BEARER';
 
 -- Put back writer point.
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
