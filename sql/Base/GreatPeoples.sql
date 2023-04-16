@@ -173,3 +173,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'Amount', '2');
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
     ('GREAT_PERSON_INDIVIDUAL_ALVAR_AALTO', 'GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
+
+--16/04/23 exchange Rajendra and Drake bonus
+UPDATE GreatPersonIndividualActionModifiers SET GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_RAJENDRA_CHOLA' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_FRANCIS_DRAKE';
+UPDATE GreatPersonIndividualActionModifiers SET GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_FRANCIS_DRAKE' WHERE ModifierId='GREATPERSON_RAJENDRA_CHOLA_ACTIVE';
