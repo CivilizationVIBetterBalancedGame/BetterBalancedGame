@@ -116,6 +116,9 @@
 		<Criteria id="Builders">
 			<ModInUse>249D9276-0832-48E4-B370-14531FA4E33C</ModInUse>
 		</Criteria>
+		<Criteria id="RulersSahara">
+			<ModInUse>82AE6F24-930F-4640-833C-FCDFD4845757</ModInUse>
+		</Criteria>
 		<Criteria id="RulersEngland">
 			<ModInUse>258EF3CA-890B-4863-8A52-982822EFF7BD</ModInUse>
 		</Criteria>
@@ -811,9 +814,16 @@
 			<Criteria>Builders</Criteria>
 			<File>sql/LP/Theodora.sql</File>
 		</UpdateDatabase>
+		<UpdateDatabase id="BBG_RulersSahara">
+			<Properties>
+				<LoadOrder>11661</LoadOrder>
+			</Properties>
+			<Criteria>RulersSahara</Criteria>
+			<File>sql/LP/Ptolemaic.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulersEngland">
 			<Properties>
-				<LoadOrder>11660</LoadOrder>
+				<LoadOrder>11662</LoadOrder>
 			</Properties>
 			<Criteria>RulersEngland</Criteria>
 			<File>sql/LP/VictoriaSteam.sql</File>
@@ -1243,6 +1253,7 @@
 		<File>sql/LP/Theodora.sql</File>
 		<File>sql/LP/lp_qin_unifier_xp2.sql</File>
 		<File>sql/LP/lp_qin_unifier_xp1.sql</File>
+		<File>sql/LP/Ptolemaic.sql</File>
 		<File>sql/LP/VictoriaSteam.sql</File>
 		<!-- -->
 		<File>sql/Secret_Societies.sql</File>

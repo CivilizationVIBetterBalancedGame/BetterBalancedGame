@@ -1,0 +1,9 @@
+--16/04/23 Cleopatra get bonus only on improved tiles
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+	('BBG_TILE_HAS_ANY_IMPROVEMENT', 'REQUIREMENT_PLOT_HAS_ANY_IMPROVEMENT');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+	('BBG_TILE_HAS_ANY_IMPROVEMENT_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+	('BBG_TILE_HAS_ANY_IMPROVEMENT_REQSET', 'BBG_TILE_HAS_ANY_IMPROVEMENT');
+
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_TILE_HAS_ANY_IMPROVEMENT_REQSET' WHERE ModifierId='CLEOPATRA_FLOODPLAINS_RESOURCE_YIELD';
