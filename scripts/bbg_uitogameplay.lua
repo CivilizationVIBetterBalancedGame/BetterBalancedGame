@@ -405,6 +405,82 @@ function OnUnitMoved(iPlayerID, iUnitID, iX, iY, bVis, bStateChange)
 	--UIEvents.UIUnifierTrackRelevantGenerals(iPlayerID, iGPIndividualID, iX, iY)
 end
 
+--Ludwig
+function OnLudwigWonderPlaced(iX, iY, iBuildingID, iPlayerID, iCityID, nPercentComplete, bPillaged)
+	print("OnLudwigWonderPlaced: Started")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()~="LEADER_LUDWIG" then
+		return print("OnLudwigWonderPlaced: Owner not Ludwig => Exit")
+	end
+	local pCity = CityManager.GetCity(iPlayerID, iCityID)
+	if pCity == nil then
+		return
+	end
+	if GameInfo.Buildings[iBuildingID].IsWonder == false then
+		return print("OnLudwigWonderPlaced: Not a Wonder")
+	end
+	local kParameters = {}
+	kParameters.OnStart = "GameplayLudwigWonderPlaced"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iBuildingID"] = iBuildingID
+	kParameters["iCityID"] = iCityID
+	kParameters["iX"] = iX
+	kParameters["iY"] = iY
+	kParameters["nPercentComplete"] = nPercentComplete
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+
+function OnLudwigWonderRemoved(iX, iY)
+	print("OnWonderRemoved: Started")
+	local pPlot = Map.GetPlot(iX, iY)
+	if pPlot == nil then
+		return
+	end
+	local iPlayerID = pPlot:GetOwner()
+	if iPlayerID == -1 then
+		return
+	end
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()~="LEADER_LUDWIG" then
+		return print("OnWonderRemoved: Owner not Ludwig => Exit")
+	end
+	local kParameters = {}
+	kParameters.OnStart = "GameplayLudwigWonderRemoved"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iX"] = iX
+	kParameters["iY"] = iY
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+
+function OnLudwigWonderCompleted(iX, iY, iBuildingID, iPlayerID, iCityID, nPercentComplete, unknown)
+	print("OnLudwigWonderCompleted: Started")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer == nil then
+		return
+	end
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()~="LEADER_LUDWIG" then
+		return print("GameplayLudwigWonderCompleted: Owner not Ludwig => Exit")
+	end
+	local pCity = CityManager.GetCity(iPlayerID, iCityID)
+	if pCity == nil then
+		return
+	end
+	if GameInfo.Buildings[iBuildingID].IsWonder == false then
+		return print("OnLudwigWonderPlaced: Not a Wonder")
+	end
+	local kParameters = {}
+	kParameters.OnStart = "GameplayLudwigWonderCompleted"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iBuildingID"] = iBuildingID
+	kParameters["iCityID"] = iCityID
+	kParameters["iX"] = iX
+	kParameters["iY"] = iY
+	kParameters["nPercentComplete"] = nPercentComplete
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+
 --Support
 function GetAppointedGovernor(playerID:number, governorTypeIndex:number)
 	-- Make sure we're looking for a valid governor
@@ -533,6 +609,10 @@ function Initialize()
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			--inca dynamic yield cancelation
 			--5.2. Disable: Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
+		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then
+			Events.BuildingAddedToMap.Add(OnLudwigWonderPlaced)
+			Events.BuildingRemovedFromMap.Add(OnLudwigWonderRemoved)
+			Events.WonderCompleted.Add(OnLudwigWonderCompleted)
 		end
 	end
 	--BCY no rng setting (param names are still called BBCC)
