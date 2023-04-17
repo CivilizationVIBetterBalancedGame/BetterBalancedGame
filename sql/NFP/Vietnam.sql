@@ -11,6 +11,8 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 -- Nerf UA
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='TRIEU_FRIENDLY_COMBAT' AND Name='Amount';
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='TRIEU_UNFRIENDLY_COMBAT' AND Name='Amount';
+--16/04/23 delete combat bonus outside own territory
+DELETE FROM UnitAbilityModifiers WHERE ModifierId='TRIEU_UNFRIENDLY_COMBAT';
 
 -- Nerf PM of UU
 UPDATE Units SET BaseMoves=2 WHERE UnitType='UNIT_VIETNAMESE_VOI_CHIEN';

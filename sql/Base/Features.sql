@@ -1,3 +1,7 @@
+UPDATE Features SET RemoveTech='TECH_MINING' WHERE FeatureType='FEATURE_JUNGLE';
+
+
+
 --==============================================================
 --******			W O N D E R S  (NATURAL)			  ******
 --==============================================================

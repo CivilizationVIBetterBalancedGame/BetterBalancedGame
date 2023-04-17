@@ -117,7 +117,7 @@ UPDATE ModifierArguments SET Value='3' WHERE ModifierId='GARRISON_COMMANDER_ADJU
 INSERT OR IGNORE INTO Modifiers(ModifierId, ModifierType) VALUES
     ('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
 INSERT OR IGNORE INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'Amount', '2'),
+    ('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'Amount', '1'),
     ('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'Domestic', '1'),
     ('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
 INSERT OR IGNORE INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
@@ -279,13 +279,13 @@ INSERT OR IGNORE INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGov
 UPDATE Improvement_YieldChanges SET YieldChange=3 WHERE ImprovementType='IMPROVEMENT_CITY_PARK' AND YieldType='YIELD_CULTURE';
 INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
     ('IMPROVEMENT_CITY_PARK', 'YIELD_SCIENCE', 3);
-INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
-    ('IMPROVEMENT_CITY_PARK', 'YIELD_GOLD', 3);
+--INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+--    ('IMPROVEMENT_CITY_PARK', 'YIELD_GOLD', 3);
 UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='CITY_PARK_WATER_AMENITY';
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType) VALUES
     ('CITY_PARK_HOUSING_BBG', 'MODIFIER_SINGLE_CITY_ADJUST_IMPROVEMENT_HOUSING');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
-    VALUES ('CITY_PARK_HOUSING_BBG', 'Amount', '1');
+    VALUES ('CITY_PARK_HOUSING_BBG', 'Amount', '2');
 INSERT OR IGNORE INTO ImprovementModifiers (ImprovementType, ModifierID) VALUES
     ('IMPROVEMENT_CITY_PARK', 'CITY_PARK_HOUSING_BBG');
 DELETE FROM ImprovementModifiers WHERE ModifierID='CITY_PARK_GOVERNOR_CULTURE';
@@ -307,7 +307,7 @@ DELETE FROM ModifierArguments WHERE ModifierId='AQUACULTURE_CAN_BUILD_FISHERY';
 UPDATE Improvements SET PrereqTech='TECH_CARTOGRAPHY' WHERE ImprovementType='IMPROVEMENT_FISHERY';
 
 -- 07/12 Liang 3 turns
-UPDATE Governors SET TransitionStrength=150 WHERE GovernorType='GOVERNOR_THE_BUILDER';
+UPDATE Governors SET TransitionStrength=125 WHERE GovernorType='GOVERNOR_THE_BUILDER';
 
 --=============================Reyna=================================
 -- Reyna's new 3rd level right ability

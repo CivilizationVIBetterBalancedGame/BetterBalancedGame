@@ -33,12 +33,6 @@ INSERT OR IGNORE INTO RequirementArguments
 --==============================================================
 --******				START BIASES					  ******
 --==============================================================
--- Add Ressource Bias
-INSERT INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
-    ('CIVILIZATION_CREE', 'RESOURCE_CATTLE', '4'),
-    ('CIVILIZATION_CREE', 'RESOURCE_HORSES', '4'),
-    ('CIVILIZATION_CREE', 'RESOURCE_SHEEP', '4'),
-    ('CIVILIZATION_CREE', 'RESOURCE_DEER', '4');
 -- UPDATE StartBiasTerrains SET Tier=2 WHERE CivilizationType='CIVILIZATION_NETHERLANDS' AND TerrainType='TERRAIN_COAST';
 UPDATE StartBiasResources SET Tier=4 WHERE CivilizationType='CIVILIZATION_MONGOLIA' AND ResourceType='RESOURCE_HORSES';
 -- UPDATE StartBiasRivers SET Tier=3 WHERE CivilizationType='CIVILIZATION_NETHERLANDS';

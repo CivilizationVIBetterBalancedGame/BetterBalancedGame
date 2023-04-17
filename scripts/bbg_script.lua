@@ -179,7 +179,7 @@ function OnGameTurnStarted( turn:number )
 	Check_Barbarians()
 end
 
-function OnBasilCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
+function OnByzantiumCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
 	if(attackerPlayerID == NO_PLAYER 
 		or defenderPlayerID == NO_PLAYER) then
 		return;
@@ -188,7 +188,7 @@ function OnBasilCombatOccurred(attackerPlayerID :number, attackerUnitID :number,
 	local pAttackerPlayer = Players[attackerPlayerID];
 	--print("AttackerID",attackerPlayerID);
 	local pAttackerReligion = pAttackerPlayer:GetReligion()
-	local pAttackerLeader = PlayerConfigurations[attackerPlayerID]:GetLeaderTypeName()
+	local pAttackerCivilization = PlayerConfigurations[attackerPlayerID]:GetCivilizationTypeName()
 	local pDefenderPlayer = Players[defenderPlayerID];
 	local pAttackingUnit :object = attackerUnitID ~= NO_UNIT and pAttackerPlayer:GetUnits():FindID(attackerUnitID) or nil;
 	local pDefendingUnit :object = defenderUnitID ~= NO_UNIT and pDefenderPlayer:GetUnits():FindID(defenderUnitID) or nil;
@@ -203,7 +203,7 @@ function OnBasilCombatOccurred(attackerPlayerID :number, attackerUnitID :number,
 			religionType = pAttackerReligion:GetReligionInMajorityOfCities()
 		end
 		--print("Religion",religionType)
-		if pAttackerLeader == "LEADER_BASIL" then
+		if pAttackerCivilization == "CIVILIZATION_BYZANTIUM" then
 			local x = pAttackingUnit:GetX()
 			local y = pAttackingUnit:GetY()
 			local power = pDefendingUnit:GetCombat()
@@ -3569,9 +3569,9 @@ function Initialize()
 	--5.2. Disable: print("BBG Suntzu Gameplay Deletion hooks added")
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
-		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_BASIL" then
+		if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()=="CIVILIZATION_BYZANTIUM" then
 			--basil spread
-			GameEvents.OnCombatOccurred.Add(OnBasilCombatOccurred)
+			GameEvents.OnCombatOccurred.Add(OnByzantiumCombatOccurred)
 			--print("BBG Basil Hook Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_GILGAMESH" then
 			--gilga pillage
