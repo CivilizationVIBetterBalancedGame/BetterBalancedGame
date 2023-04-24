@@ -142,6 +142,12 @@
 		<Replace Tag="LOC_TRAIT_LEADER_THEODORA_DESCRIPTION" Language="ru_RU">
       		<Text>Священные места и Ипподромы получают +1 [ICON_CULTURE] культуры за каждый соседний район.</Text>
     	</Replace>
+		<Row Tag="LOC_BBG_THEODORA_HOLYSITE_CULTURE" Language="ru_RU">
+			<Text>+{1_num} [ICON_CULTURE] культуры за {1_Num : plural 1?соседний район; other?соседние районы;}.</Text>
+		</Row>
+		<Row Tag="LOC_BBG_THEODORA_HIPPODROME_CULTURE" Language="ru_RU">
+			<Text>+{1_num} [ICON_CULTURE] культуры за {1_Num : plural 1?соседний район; other?соседние районы;}.</Text>
+		</Row>
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_ABILITY_BYZANTIUM_COMBAT_UNITS_DESCRIPTION" Language="ru_RU">
 			<Text>Юниты получают +2 [ICON_Strength] к боевой мощи за каждый священный город, обращенный в религию Византии. Византия распространяет свою религию на ближайшие города при убийстве вражеского юнита (Таксис).</Text>
@@ -765,12 +771,12 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_EARLY_OCEAN_NAVIGATION_DESCRIPTION" Language="ru_RU">
 			<Text>Юниты могут пересекать океан после изучения кораблестроения. Морские юниты ближнего боя могут восстанавливать здоровье на нейтральной прибрежной территории. Юниты не требуют затрат [ICON_Movement] очков передвижения на высадку на море и с моря.</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability (Konge) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_DESCRIPTION" Language="ru_RU">
 			<Text>+25% [ICON_PRODUCTION] производства морских юнитов ближнего боя. Морские юниты ближнего боя могут осуществлять прибрежные рейды.[NEWLINE][NEWLINE]+50% к [ICON_PRODUCTION] производству священных мест и зданий в них. Священные места получают стандартный бонус соседства от клеток озёр и побережья.[NEWLINE][NEWLINE]Гавани рядом со священными местами получают +2 к [ICON_GOLD] золоту (считается как бонус соседства).</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="ru_RU">
-			<Text>Все морские юниты ближнего боя получают способность осуществлять рейды на прибрежные территории. +50% [ICON_PRODUCTION] производства при создании всех морских юнитов ближнего боя. Мародерство и рейды на побережье против рудников приносят не только [ICON_GOLD] золото, но и [ICON_SCIENCE] науку. Мародерство и рейды на побережье против каменоломен, пастбищ, плантаций и лагерей приносят не только [ICON_FAITH] веру, но и [ICON_CULTURE] культуру.[NEWLINE][NEWLINE]+50% к [ICON_PRODUCTION] производству священных мест и зданий в них. Священные места получают стандартный бонус соседства от клеток озёр и побережья.[NEWLINE][NEWLINE]Гавани рядом со священными местами получают повышенный бонус соседства.</Text>
+			<Text>Все морские юниты ближнего боя получают способность осуществлять рейды на прибрежные территории. +25% [ICON_PRODUCTION] производства при создании всех морских юнитов ближнего боя. Мародерство и рейды на побережье против рудников приносят не только [ICON_GOLD] золото, но и [ICON_SCIENCE] науку. Мародерство и рейды на побережье против каменоломен, пастбищ, плантаций и лагерей приносят не только [ICON_FAITH] веру, но и [ICON_CULTURE] культуру.[NEWLINE][NEWLINE]+50% к [ICON_PRODUCTION] производству священных мест и зданий в них. Священные места получают стандартный бонус соседства от клеток озёр и побережья.[NEWLINE][NEWLINE]Гавани рядом со священными местами получают повышенный бонус соседства.</Text>
 		</Replace>
 		<Row Tag="LOC_DISTRICT_HOLY_SITE_NORWAY_COAST_FAITH" Language="ru_RU">
 			<Text>+{1_num} [ICON_Faith] веры от клеток побережья и озёр.</Text>
@@ -1155,6 +1161,9 @@
 		</Replace>
 
 		<!-- == Reyna == -->
+		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_NAME" Language="ru_RU">
+			<Text>Дилер</Text>
+		</Row>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_DESCRIPTION" Language="ru_RU">
 			<Text>50% скидка в [ICON_GOLD] золоте на покупку [ICON_DISTRICT] районов и зданий в городе.</Text>
 		</Row>
@@ -1250,9 +1259,7 @@
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY_DESCRIPTION" Language="ru_RU">
 			<Text>Все города, в радиусе 9 клеток, получают 4 лояльности в ход в пользу вашей цивилизации.</Text>
 		</Replace>
-		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_NAME" Language="ru_RU">
-			<Text>Дилер</Text>
-		</Row>
+
 
 		<!-- == Magnus == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST_DESCRIPTION" Language="ru_RU">
@@ -1735,7 +1742,7 @@
             <Text>Ваши международные [ICON_TradeRoute] торговые пути получают +2 [ICON_GOLD] золота за каждый редкий ресурс в пункте назначения. При строительстве Торри-ди-Белен города за пределами вашего родного континента получают самое дешевое в плане [ICON_PRODUCTION] производства здание в городском центре, которое в них можно построить.[NEWLINE][NEWLINE]Можно построить только на берегу рядом с гаванью.</Text>
         </Replace>
 		<Replace Tag="LOC_BUILDING_HERMITAGE_DESCRIPTION" Language="ru_RU">
-			<Text>Это чудо автоматически становится тематическим, когда все его ячейки шедевров заполнены.[NEWLINE][NEWLINE]Можно построить только у реки.</Text>
+			<Text>Шедевры, находящиеся внутри Эрмитажа автоматически становятся тематическими, когда все его ячейки шедевров заполнены.[NEWLINE][NEWLINE]Можно построить только у реки.</Text>
 		</Replace>
 
 
