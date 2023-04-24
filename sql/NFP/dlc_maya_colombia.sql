@@ -57,9 +57,6 @@ DELETE FROM Feature_AdjacentYields WHERE FeatureType='FEATURE_BERMUDA_TRIANGLE';
 --==============================================================
 --******                RELIGION                          ******
 --==============================================================
--- Monks: Maya CS
-INSERT INTO TypeTags(Type, Tag) Values
-    ('ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL', 'CLASS_WARRIOR_MONK');
 
 -- Monk: Comandante +4
 INSERT INTO TypeTags(Type, Tag) Values
