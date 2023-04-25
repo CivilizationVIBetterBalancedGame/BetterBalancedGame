@@ -29,3 +29,14 @@ INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, Tile
 INSERT INTO Improvement_Adjacencies(ImprovementType, YieldChangeId) VALUES
     ('IMPROVEMENT_POLDER', 'BBG_POLDER_PRODUCTION_POLDER'),
     ('IMPROVEMENT_POLDER', 'BBG_POLDER_PRODUCTION_HARBOR');
+
+--25/04/23 reduced to 1
+UPDATE Improvements SET ValidAdjacentTerrainAmount=1 WHERE ImprovementType='IMPROVEMENT_POLDER';
+UPDATE Units SET StrategicResource='RESOURCE_NITER' WHERE UnitType='UNIT_DE_ZEVEN_PROVINCIEN';
+
+-- DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_NETHERLANDS' AND TerrainType='TERRAIN_COAST';
+
+--25/04/23 Polder to feudalism
+UPDATE Improvements SET PrereqCivic='CIVIC_FEUDALISM' WHERE ImprovementType='IMPROVEMENT_POLDER';
+
+
