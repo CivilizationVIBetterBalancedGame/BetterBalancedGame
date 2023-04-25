@@ -1,4 +1,5 @@
-UPDATE Features SET RemoveTech='TECH_MINING' WHERE FeatureType='FEATURE_JUNGLE';
+-- 25/04/23 reverted
+-- UPDATE Features SET RemoveTech='TECH_MINING' WHERE FeatureType='FEATURE_JUNGLE';
 
 
 

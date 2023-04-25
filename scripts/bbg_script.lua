@@ -2196,6 +2196,54 @@ function OnGameplayUnifierSamePlayerUniqueEffect(iPlayerID, kParameters)
 	end
 end
 
+--//--------------------------------------------------------------------------
+--//Ludwig (Germany)-------------------------------------------------------------------------
+--//--------------------------------------------------------------------------
+function OnGameplayLudwigWonderPlaced(iPlayerID, kParameters)
+	print("OnGameplayLudwigWonderPlaced: Started")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iBuildingID = kParameters["iBuildingID"]
+	local iCityID = kParameters["iCityID"]
+	local iX = kParameters["iX"]
+	local iY = kParameters["iY"]
+	local nPercentComplete = kParameters["nPercentComplete"]
+	print("OnGameplayLudwigWonderPlaced: Vars: ", iPlayerID, iBuildingID, iCityID, iX, iY, nPercentComplete)
+	local pPlot = Map.GetPlot(iX, iY)
+	if pPlot == nil then
+		return
+	end
+	pPlot:SetProperty("DISTRICT_INCOMPLETE_WONDER", 1)
+	print("Plot Property Set for", iX,iY, "Wonder", iBuildingID)
+end
+
+function OnGameplayLudwigWonderRemoved(iPlayerID, kParameters)
+	local iPlayerID = kParameters["iPlayerID"]
+	local iX = kParameters["iX"]
+	local iY = kParameters["iY"]
+	local pPlot = Map.GetPlot(iX,iY)
+	if pPlot == nil then 
+		return
+	end
+	pPlot:SetProperty("DISTRICT_INCOMPLETE_WONDER", nil)
+end
+
+function OnGameplayLudwigWonderCompleted(iPlayerID, kParameters)
+	print("OnGameplayLudwigWonderCompleted: Started")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iBuildingID = kParameters["iBuildingID"]
+	local iCityID = kParameters["iCityID"]
+	local iX = kParameters["iX"]
+	local iY = kParameters["iY"]
+	local nPercentComplete = kParameters["nPercentComplete"]
+	print("OnGameplayLudwigWonderCompleted: Vars: ", iPlayerID, iBuildingID, iCityID, iX, iY, nPercentComplete)
+	local pPlot = Map.GetPlot(iX, iY)
+	if pPlot == nil then
+		return
+	end
+	pPlot:SetProperty("DISTRICT_INCOMPLETE_WONDER", nil)
+	print("Plot Property Set for", iX,iY, "Wonder", iBuildingID)
+end
+
 -- BCY
 --function OnUIBCYAdjustCityYield(playerID, kParameters)
 	--print("BCY script called from UI event")
@@ -3604,6 +3652,10 @@ function Initialize()
 			GameEvents.CityBuilt.Add(OnCityBuilt);
 			GameEvents.CityConquered.Add(OnCityConquered)
 			--print("BBG Caesar Hooks Added")
+		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then
+			GameEvents.GameplayLudwigWonderPlaced.Add(OnGameplayLudwigWonderPlaced)
+			GameEvents.GameplayLudwigWonderRemoved.Add(OnGameplayLudwigWonderRemoved)
+			GameEvents.GameplayLudwigWonderCompleted.Add(OnGameplayLudwigWonderCompleted)
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_MACEDON" then
 			--Macedon 20%
 			--5.2. Disable: GameEvents.CityConquered.Add(OnMacedonConqueredACity)
