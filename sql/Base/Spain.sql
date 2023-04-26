@@ -111,12 +111,12 @@ INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
 -- Leader is Phillipe Requirement.
 INSERT OR IGNORE INTO RequirementSets(RequirementSetId , RequirementSetType) VALUES
     ('BBG_PLAYER_IS_SPAIN', 'REQUIREMENTSET_TEST_ANY');
-
 INSERT OR IGNORE INTO RequirementSetRequirements(RequirementSetId , RequirementId) VALUES
     ('BBG_PLAYER_IS_SPAIN', 'BBG_PLAYER_IS_SPAIN_REQUIREMENT');
-
 INSERT OR IGNORE INTO Requirements(RequirementId , RequirementType) VALUES
     ('BBG_PLAYER_IS_SPAIN_REQUIREMENT' , 'REQUIREMENT_PLAYER_TYPE_MATCHES');
-
 INSERT OR IGNORE INTO RequirementArguments(RequirementId , Name, Value) VALUES
     ('BBG_PLAYER_IS_SPAIN_REQUIREMENT' , 'CivilizationType', 'CIVILIZATION_SPAIN');
+
+-- 16/04/23 Reduces bonus combat vs other religion from 5 to 3
+UPDATE ModifierArguments SET Value=3 WHERE ModifierId='PHILIP_II_COMBAT_BONUS_OTHER_RELIGION' AND Name='Amount'; 

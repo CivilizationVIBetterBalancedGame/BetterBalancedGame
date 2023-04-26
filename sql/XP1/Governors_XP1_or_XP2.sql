@@ -113,15 +113,34 @@ UPDATE ModifierArguments SET Value='3' WHERE ModifierId='GARRISON_COMMANDER_ADJU
 
 
 --==============================Magnus======================================
--- Magnus' Surplus Logistics gives +2 production in addition to the food
+-- 24/04/23 Magnus resource manager give 1 PM to Settler.
+INSERT INTO Types(Type, Kind) VALUES
+    ('BBG_SETTLER_MOVEMENT_ABILITY', 'KIND_ABILITY');
+INSERT INTO TypeTags(Type, Tag) VALUES
+    ('BBG_SETTLER_MOVEMENT_ABILITY', 'CLASS_SETTLER');
+INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive) VALUES
+    ('BBG_SETTLER_MOVEMENT_ABILITY', 'BBG_SETTLER_MOVEMENT_ABILITY_NAME', 'BBG_SETTLER_MOVEMENT_ABILITY_DESC', 1);
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+    ('BBG_SETTLER_MOVEMENT_ABILITY', 'BBG_SETTLER_MOVEMENT_ABILITY_MODIFIER');
+INSERT INTO Modifiers(ModifierId, ModifierType, Permanent) VALUES
+    ('BBG_GIVE_SETTLER_MOVEMENT_ABILITY', 'MODIFIER_SINGLE_CITY_GRANT_ABILITY_FOR_TRAINED_UNITS', 0),
+    ('BBG_SETTLER_MOVEMENT_ABILITY_MODIFIER', 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT', 1);
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_GIVE_SETTLER_MOVEMENT_ABILITY', 'AbilityType', 'BBG_SETTLER_MOVEMENT_ABILITY'),
+    ('BBG_SETTLER_MOVEMENT_ABILITY_MODIFIER', 'Amount', '1');
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_GIVE_SETTLER_MOVEMENT_ABILITY');
+
+-- 24/04/23 Magnus' expedition gives +2 production to domestic trade routes
 INSERT OR IGNORE INTO Modifiers(ModifierId, ModifierType) VALUES
-    ('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
 INSERT OR IGNORE INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'Amount', '2'),
-    ('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'Domestic', '1'),
-    ('SURPLUS_LOGISTICS_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Amount', '2'),
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Domestic', '1'),
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
 INSERT OR IGNORE INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'SURPLUS_LOGISTICS_TRADE_ROUTE_PROD');
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION', 'BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD');
+
 -- Magnus' Surplus Logistics gives only +1 food (reverted)
 --UPDATE ModifierArguments SET Value='1' WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD' AND Name='Amount';
 -- switch Magnus' level 2 promos
@@ -129,23 +148,6 @@ UPDATE GovernorPromotions SET 'Column'=2 WHERE GovernorPromotionType='GOVERNOR_P
 UPDATE GovernorPromotions SET 'Column'=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER';
 UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER';
 UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST';
--- Magnus provision give 1 PM to Settler. -- moved from base, because settler tag didn't exist back then (idk if you can force it in bugfree)
-INSERT INTO Types(Type, Kind) VALUES
-    ('BBG_SETTLER_MOUVMENT_ABILITY', 'KIND_ABILITY');
-INSERT INTO TypeTags(Type, Tag) VALUES
-    ('BBG_SETTLER_MOUVMENT_ABILITY', 'CLASS_SETTLER');
-INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive) VALUES
-    ('BBG_SETTLER_MOUVMENT_ABILITY', 'BBG_SETTLER_MOUVMENT_ABILITY_NAME', 'BBG_SETTLER_MOUVMENT_ABILITY_DESC', 1);
-INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
-    ('BBG_SETTLER_MOUVMENT_ABILITY', 'BBG_SETTLER_MOUVMENT_ABILITY_MODIFIER');
-INSERT INTO Modifiers(ModifierId, ModifierType, Permanent) VALUES
-    ('BBG_GIVE_SETTLER_MOUVMENT_ABILITY', 'MODIFIER_SINGLE_CITY_GRANT_ABILITY_FOR_TRAINED_UNITS', 0),
-    ('BBG_SETTLER_MOUVMENT_ABILITY_MODIFIER', 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT', 1);
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_GIVE_SETTLER_MOUVMENT_ABILITY', 'AbilityType', 'BBG_SETTLER_MOUVMENT_ABILITY'),
-    ('BBG_SETTLER_MOUVMENT_ABILITY_MODIFIER', 'Amount', '1');
-INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION', 'BBG_GIVE_SETTLER_MOUVMENT_ABILITY');
 -- Increase prod and power for Magnus Industrialist promo
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='INDUSTRIALIST_COAL_POWER_PLANT_PRODUCTION' AND Name='Amount';
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='INDUSTRIALIST_OIL_POWER_PLANT_PRODUCTION' AND Name='Amount';
@@ -279,13 +281,13 @@ INSERT OR IGNORE INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGov
 UPDATE Improvement_YieldChanges SET YieldChange=3 WHERE ImprovementType='IMPROVEMENT_CITY_PARK' AND YieldType='YIELD_CULTURE';
 INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
     ('IMPROVEMENT_CITY_PARK', 'YIELD_SCIENCE', 3);
-INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
-    ('IMPROVEMENT_CITY_PARK', 'YIELD_GOLD', 3);
+--INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+--    ('IMPROVEMENT_CITY_PARK', 'YIELD_GOLD', 3);
 UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='CITY_PARK_WATER_AMENITY';
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType) VALUES
     ('CITY_PARK_HOUSING_BBG', 'MODIFIER_SINGLE_CITY_ADJUST_IMPROVEMENT_HOUSING');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
-    VALUES ('CITY_PARK_HOUSING_BBG', 'Amount', '1');
+    VALUES ('CITY_PARK_HOUSING_BBG', 'Amount', '2');
 INSERT OR IGNORE INTO ImprovementModifiers (ImprovementType, ModifierID) VALUES
     ('IMPROVEMENT_CITY_PARK', 'CITY_PARK_HOUSING_BBG');
 DELETE FROM ImprovementModifiers WHERE ModifierID='CITY_PARK_GOVERNOR_CULTURE';
@@ -307,7 +309,7 @@ DELETE FROM ModifierArguments WHERE ModifierId='AQUACULTURE_CAN_BUILD_FISHERY';
 UPDATE Improvements SET PrereqTech='TECH_CARTOGRAPHY' WHERE ImprovementType='IMPROVEMENT_FISHERY';
 
 -- 07/12 Liang 3 turns
-UPDATE Governors SET TransitionStrength=150 WHERE GovernorType='GOVERNOR_THE_BUILDER';
+UPDATE Governors SET TransitionStrength=125 WHERE GovernorType='GOVERNOR_THE_BUILDER';
 
 --=============================Reyna=================================
 -- Reyna's new 3rd level right ability

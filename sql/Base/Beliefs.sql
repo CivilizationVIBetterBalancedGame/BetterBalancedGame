@@ -20,7 +20,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value) VALUES
 INSERT OR IGNORE INTO BeliefModifiers VALUES
     ('BELIEF_RIVER_GODDESS', 'RIVER_GODDESS_HOLY_SITE_FAITH_BBG');
 -- city patron buff
-UPDATE ModifierArguments SET Value='50' WHERE ModifierId='CITY_PATRON_GODDESS_DISTRICT_PRODUCTION_MODIFIER' AND Name='Amount';
+UPDATE ModifierArguments SET Value='40' WHERE ModifierId='CITY_PATRON_GODDESS_DISTRICT_PRODUCTION_MODIFIER' AND Name='Amount';
 -- Dance of Aurora yields reduced... only work for flat tundra
 --UPDATE ModifierArguments SET Value='0' WHERE ModifierId='DANCE_OF_THE_AURORA_FAITHTUNDRAHILLSADJACENCY' AND Name='Amount';
 -- stone circles -1 faith and +1 prod
@@ -444,22 +444,6 @@ INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
 
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
     ('BBG_UNIT_IS_MONK_REQUIREMENTS', 'BBG_REQUIRES_MONK');
-
-INSERT INTO Requirements(RequirementId, RequirementType)
-    SELECT 'BBG_PLAYER_HAS_' || Civics.CivicType || '_REQUIREMENT' , 'REQUIREMENT_PLAYER_HAS_CIVIC'
-    FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
-
-INSERT INTO RequirementArguments(RequirementId, Name, Value)
-    SELECT 'BBG_PLAYER_HAS_' || Civics.CivicType || '_REQUIREMENT', 'CivicType', Civics.CivicType
-    FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
-
-INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
-    SELECT 'BBG_PLAYER_HAS_' || Civics.CivicType || '_REQSET', 'REQUIREMENTSET_TEST_ALL'
-    FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
-
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
-    SELECT 'BBG_PLAYER_HAS_' || Civics.CivicType || '_REQSET', 'BBG_PLAYER_HAS_' || Civics.CivicType || '_REQUIREMENT'
-    FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
 
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
     SELECT 'BBG_MODIFIER_MONKS_CS_' || Civics.CivicType , 'MODIFIER_UNIT_ADJUST_BASE_COMBAT_STRENGTH', 'BBG_PLAYER_HAS_' || Civics.CivicType || '_REQSET'

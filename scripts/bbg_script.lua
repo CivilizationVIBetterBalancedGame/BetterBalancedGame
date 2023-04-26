@@ -179,7 +179,7 @@ function OnGameTurnStarted( turn:number )
 	Check_Barbarians()
 end
 
-function OnBasilCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
+function OnByzantiumCombatOccurred(attackerPlayerID :number, attackerUnitID :number, defenderPlayerID :number, defenderUnitID :number, attackerDistrictID :number, defenderDistrictID :number)
 	if(attackerPlayerID == NO_PLAYER 
 		or defenderPlayerID == NO_PLAYER) then
 		return;
@@ -188,7 +188,7 @@ function OnBasilCombatOccurred(attackerPlayerID :number, attackerUnitID :number,
 	local pAttackerPlayer = Players[attackerPlayerID];
 	--print("AttackerID",attackerPlayerID);
 	local pAttackerReligion = pAttackerPlayer:GetReligion()
-	local pAttackerLeader = PlayerConfigurations[attackerPlayerID]:GetLeaderTypeName()
+	local pAttackerCivilization = PlayerConfigurations[attackerPlayerID]:GetCivilizationTypeName()
 	local pDefenderPlayer = Players[defenderPlayerID];
 	local pAttackingUnit :object = attackerUnitID ~= NO_UNIT and pAttackerPlayer:GetUnits():FindID(attackerUnitID) or nil;
 	local pDefendingUnit :object = defenderUnitID ~= NO_UNIT and pDefenderPlayer:GetUnits():FindID(defenderUnitID) or nil;
@@ -203,7 +203,7 @@ function OnBasilCombatOccurred(attackerPlayerID :number, attackerUnitID :number,
 			religionType = pAttackerReligion:GetReligionInMajorityOfCities()
 		end
 		--print("Religion",religionType)
-		if pAttackerLeader == "LEADER_BASIL" then
+		if pAttackerCivilization == "CIVILIZATION_BYZANTIUM" then
 			local x = pAttackingUnit:GetX()
 			local y = pAttackingUnit:GetY()
 			local power = pDefendingUnit:GetCombat()
@@ -2196,6 +2196,54 @@ function OnGameplayUnifierSamePlayerUniqueEffect(iPlayerID, kParameters)
 	end
 end
 
+--//--------------------------------------------------------------------------
+--//Ludwig (Germany)-------------------------------------------------------------------------
+--//--------------------------------------------------------------------------
+function OnGameplayLudwigWonderPlaced(iPlayerID, kParameters)
+	print("OnGameplayLudwigWonderPlaced: Started")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iBuildingID = kParameters["iBuildingID"]
+	local iCityID = kParameters["iCityID"]
+	local iX = kParameters["iX"]
+	local iY = kParameters["iY"]
+	local nPercentComplete = kParameters["nPercentComplete"]
+	print("OnGameplayLudwigWonderPlaced: Vars: ", iPlayerID, iBuildingID, iCityID, iX, iY, nPercentComplete)
+	local pPlot = Map.GetPlot(iX, iY)
+	if pPlot == nil then
+		return
+	end
+	pPlot:SetProperty("DISTRICT_INCOMPLETE_WONDER", 1)
+	print("Plot Property Set for", iX,iY, "Wonder", iBuildingID)
+end
+
+function OnGameplayLudwigWonderRemoved(iPlayerID, kParameters)
+	local iPlayerID = kParameters["iPlayerID"]
+	local iX = kParameters["iX"]
+	local iY = kParameters["iY"]
+	local pPlot = Map.GetPlot(iX,iY)
+	if pPlot == nil then 
+		return
+	end
+	pPlot:SetProperty("DISTRICT_INCOMPLETE_WONDER", nil)
+end
+
+function OnGameplayLudwigWonderCompleted(iPlayerID, kParameters)
+	print("OnGameplayLudwigWonderCompleted: Started")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iBuildingID = kParameters["iBuildingID"]
+	local iCityID = kParameters["iCityID"]
+	local iX = kParameters["iX"]
+	local iY = kParameters["iY"]
+	local nPercentComplete = kParameters["nPercentComplete"]
+	print("OnGameplayLudwigWonderCompleted: Vars: ", iPlayerID, iBuildingID, iCityID, iX, iY, nPercentComplete)
+	local pPlot = Map.GetPlot(iX, iY)
+	if pPlot == nil then
+		return
+	end
+	pPlot:SetProperty("DISTRICT_INCOMPLETE_WONDER", nil)
+	print("Plot Property Set for", iX,iY, "Wonder", iBuildingID)
+end
+
 -- BCY
 --function OnUIBCYAdjustCityYield(playerID, kParameters)
 	--print("BCY script called from UI event")
@@ -3569,9 +3617,9 @@ function Initialize()
 	--5.2. Disable: print("BBG Suntzu Gameplay Deletion hooks added")
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
-		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_BASIL" then
+		if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()=="CIVILIZATION_BYZANTIUM" then
 			--basil spread
-			GameEvents.OnCombatOccurred.Add(OnBasilCombatOccurred)
+			GameEvents.OnCombatOccurred.Add(OnByzantiumCombatOccurred)
 			--print("BBG Basil Hook Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_GILGAMESH" then
 			--gilga pillage
@@ -3604,6 +3652,10 @@ function Initialize()
 			GameEvents.CityBuilt.Add(OnCityBuilt);
 			GameEvents.CityConquered.Add(OnCityConquered)
 			--print("BBG Caesar Hooks Added")
+		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then
+			GameEvents.GameplayLudwigWonderPlaced.Add(OnGameplayLudwigWonderPlaced)
+			GameEvents.GameplayLudwigWonderRemoved.Add(OnGameplayLudwigWonderRemoved)
+			GameEvents.GameplayLudwigWonderCompleted.Add(OnGameplayLudwigWonderCompleted)
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_MACEDON" then
 			--Macedon 20%
 			--5.2. Disable: GameEvents.CityConquered.Add(OnMacedonConqueredACity)

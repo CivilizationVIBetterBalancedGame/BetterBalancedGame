@@ -66,3 +66,28 @@ UPDATE ScoringLineItems SET Multiplier=0 WHERE LineItemType='LINE_ITEM_ERA_SCORE
 --==============================================================
 -- Offshore Oil can be improved at Plastics
 UPDATE Improvements SET PrereqTech='TECH_PLASTICS' WHERE ImprovementType='IMPROVEMENT_OFFSHORE_OIL_RIG';
+
+--==============================================================
+--******				    ALLIANCES					  ******
+--==============================================================
+--14/04/23 economic alliance from 4g to 6g/1p
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+	('ALLIANCE_ADD_PROD_TO_ORIGIN_TRADE_ROUTE', 'MODIFIER_ALLIANCE_TRADE_ROUTE_ADJUST_YIELD', 'ROUTE_BETWEEN_ALLIES_REQUIREMENTS'),
+	('ALLIANCE_ADD_PROD_TO_DESTINATION_TRADE_ROUTE', 'MODIFIER_ALLIANCE_TRADE_ROUTE_ADJUST_YIELD', 'ROUTE_BETWEEN_ALLIES_REQUIREMENTS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('ALLIANCE_ADD_PROD_TO_ORIGIN_TRADE_ROUTE', 'AffectDestination', 1),
+	('ALLIANCE_ADD_PROD_TO_DESTINATION_TRADE_ROUTE', 'AffectOrigin', 1),
+	('ALLIANCE_ADD_PROD_TO_ORIGIN_TRADE_ROUTE', 'Amount', 1),
+	('ALLIANCE_ADD_PROD_TO_DESTINATION_TRADE_ROUTE', 'Amount', 1),
+	('ALLIANCE_ADD_PROD_TO_ORIGIN_TRADE_ROUTE', 'YieldType', 'YIELD_PRODUCTION'),
+	('ALLIANCE_ADD_PROD_TO_DESTINATION_TRADE_ROUTE', 'YieldType', 'YIELD_PRODUCTION');
+INSERT INTO AllianceEffects (LevelRequirement, AllianceType, ModifierID) VALUES
+	('1', 'ALLIANCE_ECONOMIC', 'ALLIANCE_ADD_PROD_TO_ORIGIN_TRADE_ROUTE'),
+	('1', 'ALLIANCE_ECONOMIC', 'ALLIANCE_ADD_PROD_TO_DESTINATION_TRADE_ROUTE');
+
+UPDATE ModifierArguments SET Value=6 WHERE ModifierId='ALLIANCE_ADD_GOLD_TO_ORIGIN_TRADE_ROUTE' AND Name='Amount';
+UPDATE ModifierArguments SET Value=6 WHERE ModifierId='ALLIANCE_ADD_GOLD_TO_DESTINATION_TRADE_ROUTE' AND Name='Amount';
+
+--14/04/23 religious alliance from 2faith to 4faith
+UPDATE ModifierArguments SET Value=4 WHERE ModifierId='ALLIANCE_ADD_FAITH_TO_ORIGIN_TRADE_ROUTE' AND Name='Amount';
+UPDATE ModifierArguments SET Value=4 WHERE ModifierId='ALLIANCE_ADD_FAITH_TO_DESTINATION_TRADE_ROUTE' AND Name='Amount';
