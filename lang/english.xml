@@ -361,7 +361,7 @@
 		</Replace>
 		<!-- = leader ability (Elizabeth) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ELIZABETH_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_TradeRoute] Trade Route capacity with Shipbuilding technology, Exploration civic and Mercantilism civic. [ICON_TradeRoute] Trade Routes to City-states provide +3 [ICON_GOLD] Gold for every [ICON_DISTRICT] specialty district in the origin city.[NEWLINE][NEWLINE]+100% [ICON_GOLD] Gold from Plundering [ICON_TradeRoute] Trade Routes with Naval Units. All Naval Raiders units gain +1 [ICON_Movement] Movement and +1 Sight.</Text>
+			<Text>+1 [ICON_TradeRoute] Trade Route capacity with Shipbuilding technology, Exploration civic and Mercantilism civic. [ICON_TradeRoute] Trade Routes to City-states provide +3 [ICON_GOLD] Gold for every [ICON_DISTRICT] specialty district in the origin city.[NEWLINE][NEWLINE]+100% [ICON_GOLD] Gold from Plundering [ICON_TradeRoute] Trade Routes with Naval Units. All Naval Raider units gain +1 [ICON_Movement] Movement and +1 Sight.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_ENGLISH_REDCOAT_DESCRIPTION" Language="en_US">
@@ -1621,6 +1621,12 @@
 		<Replace Tag="LOC_BBG_BUILDING_STOCK_EXCHANGE_DESCRIPTION" Language="en_US">
 			<Text>+4 [ICON_GOLD] Gold for each [ICON_TRADEROUTE] trade routes from this city.[NEWLINE]+2 [ICON_GOLD] Gold for each [ICON_TRADEROUTE] trade routes to this city.</Text>
 		</Replace>
+		<Replace Tag="LOC_BUILDING_SHRINE_DESCRIPTION" Language="en_US">
+			<Text>Allows the purchasing of Missionaries, and with the proper belief, Warrior Monks. These units can only be purchased with [ICON_Faith] Faith.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_TEMPLE_DESCRIPTION" Language="en_US">
+			<Text>Allows the purchasing of Apostles, Gurus, Inquisitors. These units can only be purchased with [ICON_Faith] Faith.</Text>
+		</Replace>
 
 
 
@@ -1755,6 +1761,9 @@
 		<Replace Tag="LOC_FEATURE_PAMUKKALE_DESCRIPTION" Language="en_US">
 			<Text>Two tile impassable natural wonder. It provides +1 [ICON_AMENITIES] Amenity to the cities that own at least one tile of Pamukkale. Major adjacency bonus to Theater Square, Campus, and Commercial Hub districts. Additional standard adjacency bonus to the Holy Site district. Entertainment Complex provides +1 [ICON_AMENITIES] Amenity if adjacent to the Pamukkale. It provides Fresh Water.</Text>
 		</Replace>
+		<Row Tag="LOC_CAMPUS_MOUNTAIN_WONDER_ADJACENCY_BBG" Language="en_US">
+			<Text>+{1_num} [ICON_Science] Science from the adjacent mountain Natural wonder.</Text>
+		</Row>
 
 
 
