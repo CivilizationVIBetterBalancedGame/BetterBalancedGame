@@ -70,9 +70,6 @@ UPDATE UnitAbilityModifiers SET ModifierId = 'BBG_MALON_RAIDER_FREE_PROMOTION' W
 UPDATE Units SET Combat=36, Cost=90, Maintenance=2, BaseMoves=5, PrereqTech='TECH_HORSEBACK_RIDING', MandatoryObsoleteTech='TECH_SYNTHETIC_MATERIALS' WHERE UnitType='UNIT_MAPUCHE_MALON_RAIDER';
 INSERT OR IGNORE INTO UnitReplaces (CivUniqueUnitType, ReplacesUnitType)
 	VALUES ('UNIT_MAPUCHE_MALON_RAIDER', 'UNIT_HORSEMAN');
-UPDATE UnitUpgrades SET UpgradeUnit='UNIT_CAVALRY' WHERE Unit='UNIT_MAPUCHE_MALON_RAIDER';
-
-
 -- Chemamull Unique Improvement gets +1 Production (another at Civil Service Civic)
 --INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange)
 --	VALUES ('IMPROVEMENT_CHEMAMULL', 'YIELD_PRODUCTION', 1);
@@ -80,6 +77,3 @@ UPDATE UnitUpgrades SET UpgradeUnit='UNIT_CAVALRY' WHERE Unit='UNIT_MAPUCHE_MALO
 INSERT INTO Improvement_BonusYieldChanges (Id, ImprovementType, YieldType, BonusYieldChange, PrereqCivic)
 	VALUES ('203', 'IMPROVEMENT_CHEMAMULL', 'YIELD_PRODUCTION', '1', 'CIVIC_CIVIL_SERVICE');
 
--- 20/12/14 Chemamull's now allowed on volcanic soil
-INSERT OR IGNORE INTO Improvement_ValidFeatures (ImprovementType, FeatureType)
-	VALUES ('IMPROVEMENT_CHEMAMULL', 'FEATURE_VOLCANIC_SOIL');

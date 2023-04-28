@@ -1,0 +1,2 @@
+-- 16/04/23 Ramses wonder culture % from 30 to 25 (also reduces buildings per 5)
+UPDATE ModifierArguments SET Value=25 WHERE ModifierId='RAMSES_CULTURE_POSITIVE_WONDERS_BUILDINGS' AND Name='BuildingProductionPercent';

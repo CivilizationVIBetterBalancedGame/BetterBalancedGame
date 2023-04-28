@@ -25,7 +25,8 @@ UPDATE ModifierArguments SET Value='0' WHERE ModifierId='BARAYS_FAITH_POPULATION
 UPDATE ModifierArguments SET Value='0.3' WHERE ModifierId='PRASAT_CULTURE_POPULATION' AND Name='Amount';
 
 -- 12/07/22: no more culture bomb on holy site
-DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_MONASTERIES_KING' AND ModifierId='TRAIT_HOLY_SITE_CULTURE_BOMB';
+-- 17/04/23 Revert
+-- DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_MONASTERIES_KING' AND ModifierId='TRAIT_HOLY_SITE_CULTURE_BOMB';
 
 --==================
 -- Indonesia

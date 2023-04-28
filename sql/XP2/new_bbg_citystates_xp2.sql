@@ -1,7 +1,8 @@
 --==============================================================
 --******			       CITY STATES      			  ******
 --==============================================================
-
+--Fez (moved from xp2)
+UPDATE ModifierArguments SET Value='10' WHERE ModifierId='MINOR_CIV_FEZ_INITIATION_SCIENCE_POPULATION' AND Name='Amount';
 -- Ngazargamu give 10% reduction insead on 20% reduction
 UPDATE ModifierArguments SET Value='10' WHERE 
 	ModifierId='MINOR_CIV_NGAZARGAMU_BARRACKS_STABLE_PURCHASE_BONUS' AND
@@ -42,6 +43,3 @@ INSERT INTO ModifierArguments(ModifierId, Name , Value) VALUES
 
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 	('MINOR_CIV_AKKAD_TRAIT', 'MINOR_CIV_AKKAD_UNIQUE_INFLUENCE_BONUS_MONK_BBG');
-
--- Armagh
-UPDATE Improvement_YieldChanges SET YieldChange=3 WHERE ImprovementType='IMPROVEMENT_MONASTERY' AND YieldType='YIELD_FAITH';

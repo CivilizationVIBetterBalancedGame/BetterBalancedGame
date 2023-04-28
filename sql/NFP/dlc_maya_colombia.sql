@@ -1,99 +1,6 @@
 --==================
--- Colombia
---==================
--- sight instead of movement
---15/12/22 reverted to base game
--- UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_ADJUST_SIGHT' WHERE ModifierId='EJERCITO_PATRIOTA_EXTRA_MOVEMENT';
---18/12/22 PM only for military units
-INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
-    ('BBG_COLUMBIA_MOVEMENT_BONUS', 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER', null),
-    ('BBG_COLUMBIA_MOVEMENT_BONUS_MODIFIER', 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT', 'BBG_REQUIREMENT_UNIT_IS_NAVAL_OR_LAND');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_COLUMBIA_MOVEMENT_BONUS' , 'ModifierId', 'BBG_COLUMBIA_MOVEMENT_BONUS_MODIFIER'),
-    ('BBG_COLUMBIA_MOVEMENT_BONUS_MODIFIER', 'Amount', '1');
-
-INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-    ('BBG_REQUIREMENT_UNIT_IS_NAVAL_OR_LAND', 'REQUIREMENTSET_TEST_ANY');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_REQUIREMENT_UNIT_IS_NAVAL_OR_LAND', 'BBG_REQUIREMENT_UNIT_IS_NAVAL_REQUIREMENT'),
-    ('BBG_REQUIREMENT_UNIT_IS_NAVAL_OR_LAND', 'BBG_REQUIREMENT_UNIT_IS_LAND_REQUIREMENT');
-INSERT INTO Requirements (RequirementId, RequirementType) VALUES
-    ('BBG_REQUIREMENT_UNIT_IS_NAVAL_REQUIREMENT', 'REQUIREMENT_UNIT_FORMATION_CLASS_MATCHES'),
-    ('BBG_REQUIREMENT_UNIT_IS_LAND_REQUIREMENT', 'REQUIREMENT_UNIT_FORMATION_CLASS_MATCHES');
-INSERT INTO RequirementArguments (RequirementId , Name , Value) VALUES
-    ('BBG_REQUIREMENT_UNIT_IS_NAVAL_REQUIREMENT', 'UnitFormationClass', 'FORMATION_CLASS_NAVAL'),
-    ('BBG_REQUIREMENT_UNIT_IS_LAND_REQUIREMENT', 'UnitFormationClass', 'FORMATION_CLASS_LAND_COMBAT');
-
-DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_EJERCITO_PATRIOTA_EXTRA_MOVEMENT';
-INSERT INTO TraitModifiers VALUES
-    ('TRAIT_CIVILIZATION_EJERCITO_PATRIOTA', 'BBG_COLUMBIA_MOVEMENT_BONUS');
-
-
--- cannot produce great generals
-INSERT OR IGNORE INTO ExcludedGreatPersonClasses (GreatPersonClassType, TraitType) VALUES
-    ( 'GREAT_PERSON_CLASS_GENERAL', 'TRAIT_LEADER_CAMPANA_ADMIRABLE' );
--- llanero support nerf
-UPDATE ModifierArguments SET Value='2' WHERE ModifierId='LLANERO_ADJACENCY_STRENGTH' AND Name='Amount';
--- hacienda comes sooner, but can only be built on flat tiles
-UPDATE Improvements SET PrereqCivic='CIVIC_MEDIEVAL_FAIRES' WHERE ImprovementType='IMPROVEMENT_HACIENDA';
-DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_HACIENDA' AND TerrainType='TERRAIN_PLAINS_HILLS';
-DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_HACIENDA' AND TerrainType='TERRAIN_GRASS_HILLS';
-
---15/12/22 Plantation bias
-INSERT INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_CITRUS', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_COFFEE', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_COCOA', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_COTTON', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_DYES', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_SILK', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_SPICES', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_SUGAR', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_TEA', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_TOBACCO', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_WINE', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_INCENSE', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_OLIVES', 5),
-    ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_BANANAS', 5);
-
-
---==================
 -- Maya
 --==================
--- reduce combat bonus to 3 from 5
-UPDATE ModifierArguments SET Value='3' WHERE ModifierId='MUTAL_NEAR_CAPITAL_COMBAT' AND Name='Amount';
--- set citizen yields to same as other campuses
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' AND DistrictType='DISTRICT_OBSERVATORY';
---- start biases ---
--- after coastals and tundra and desert; delete non-plantation lux biases; add banana bias; make flat land bias last priority
-INSERT OR REPLACE INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
-    ('CIVILIZATION_MAYA', 'RESOURCE_CITRUS', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_COFFEE', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_COCOA', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_COTTON', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_DYES', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_SILK', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_SPICES', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_SUGAR', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_TEA', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_TOBACCO', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_WINE', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_INCENSE', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_OLIVES', 3),
-    ('CIVILIZATION_MAYA', 'RESOURCE_BANANAS', 4);
-
-DELETE FROM StartBiasResources WHERE CivilizationType='CIVILIZATION_MAYA' AND ResourceType='RESOURCE_GYPSUM';
-DELETE FROM StartBiasResources WHERE CivilizationType='CIVILIZATION_MAYA' AND ResourceType='RESOURCE_JADE';
-DELETE FROM StartBiasResources WHERE CivilizationType='CIVILIZATION_MAYA' AND ResourceType='RESOURCE_MARBLE';
-DELETE FROM StartBiasResources WHERE CivilizationType='CIVILIZATION_MAYA' AND ResourceType='RESOURCE_MERCURY';
-DELETE FROM StartBiasResources WHERE CivilizationType='CIVILIZATION_MAYA' AND ResourceType='RESOURCE_SALT';
-DELETE FROM StartBiasResources WHERE CivilizationType='CIVILIZATION_MAYA' AND ResourceType='RESOURCE_IVORY';
-
--- Delete StartBiasTerrain
-DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_MAYA';
-
--- 15/05/2021: Delete free builder
-DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_MUTAL' AND ModifierId='TRAIT_LEADER_NEARBY_CITIES_GAIN_BUILDER';
 
 --==================
 -- City-States
@@ -122,7 +29,13 @@ INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_ENABLE_WALL_ATTACK_NIHANG', 'PromotionClass', 'PROMOTION_CLASS_NIHANG'),
     ('BBG_BYPASS_WALLS_NIHANG', 'PromotionClass', 'PROMOTION_CLASS_NIHANG');
-
+--These abilities depend on XP2, recreate
+INSERT OR IGNORE INTO Types(Type, Kind) VALUES
+    ('ABILITY_BYPASS_WALLS_PROMOTION_CLASS', 'KIND_ABILITY'),
+    ('ABILITY_ENABLE_WALL_ATTACK_PROMOTION_CLASS', 'KIND_ABILITY'); 
+INSERT OR IGNORE INTO UnitAbilities(UnitAbilityType, Name, Description, Permanent) VALUES
+    ('ABILITY_BYPASS_WALLS_PROMOTION_CLASS', 'LOC_ABILITY_BYPASS_WALLS_NAME','LOC_ABILITY_BYPASS_WALLS_PROMOTION_CLASS_DESCRIPTION', 1),
+    ('ABILITY_ENABLE_WALL_ATTACK_PROMOTION_CLASS', 'LOC_ABILITY_ENABLE_WALL_ATTACK_NAME', 'LOC_ABILITY_ENABLE_WALL_PROMOTION_CLASS_ATTACK_DESCRIPTION', 1);
 INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
     ('ABILITY_ENABLE_WALL_ATTACK_PROMOTION_CLASS', 'BBG_ENABLE_WALL_ATTACK_NIHANG'),
     ('ABILITY_BYPASS_WALLS_PROMOTION_CLASS', 'BBG_BYPASS_WALLS_NIHANG');
@@ -144,9 +57,6 @@ DELETE FROM Feature_AdjacentYields WHERE FeatureType='FEATURE_BERMUDA_TRIANGLE';
 --==============================================================
 --******                RELIGION                          ******
 --==============================================================
--- Monks: Maya CS
-INSERT INTO TypeTags(Type, Tag) Values
-    ('ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL', 'CLASS_WARRIOR_MONK');
 
 -- Monk: Comandante +4
 INSERT INTO TypeTags(Type, Tag) Values

@@ -378,7 +378,7 @@ UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_ADJUST_PLOT_YIELD' WHERE Modi
 UPDATE Modifiers SET SubjectRequirementSetId='PLOT_HAS_JUNGLE_REQUIREMENTS' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_CULTURE';
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('CHICHEN_ITZA_JUNGLE_CULTURE', 'YieldType', 'YIELD_CULTURE'),
-    ('CHICHEN_ITZA_JUNGLE_CULTURE', 'Amount', '2');
+    ('CHICHEN_ITZA_JUNGLE_CULTURE', 'Amount', '1');
 
 UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_ADJUST_PLOT_YIELD' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_PRODUCTION';
 UPDATE Modifiers SET SubjectRequirementSetId='PLOT_HAS_JUNGLE_REQUIREMENTS' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_PRODUCTION';
@@ -409,91 +409,60 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_HAGIA_SOPHIA', 'HAGIA_SOPHIA_GRANT_MISSIONARY_APOSTLE_MOVEMENT'),
 	('BUILDING_HAGIA_SOPHIA', 'HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT');
 
--- Kotoku-in - Increase strength of player warrior Monk.
-
-
--- Meenakshi Temple - Grant 2 apostles instead of 2guru + Apostles/Guru cost 30% less
-DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MEENAKSHI_TEMPLE' AND ModifierId='MEENAKSHITEMPLE_FREE_GURU';
-INSERT INTO Modifiers (ModifierId , ModifierType) VALUES
-	('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES' , 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY'),
-	('MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT' , 'MODIFIER_PLAYER_CITIES_ADJUST_UNIT_PURCHASE_COST'),
-	('MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT' , 'MODIFIER_PLAYER_CITIES_ADJUST_UNIT_PURCHASE_COST');	
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES', 'UnitType', 'UNIT_APOSTLE'),
-    ('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES', 'Amount', '2'),
-    ('MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT', 'UnitType', 'UNIT_APOSTLE'),
-    ('MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT', 'Amount', '30'),
-    ('MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT', 'UnitType', 'UNIT_GURU'),
-    ('MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT', 'Amount', '30');
-INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-	('BUILDING_MEENAKSHI_TEMPLE', 'MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES'),
-	('BUILDING_MEENAKSHI_TEMPLE', 'MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT'),
-	('BUILDING_MEENAKSHI_TEMPLE', 'MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT');
-
-
--- Mont St. Michel - Culture +1 for flood plains in the empire.
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-	('MONT_ST_MICHEL_CULTURE_FLOODPLAINS', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_FLOODPLAINS_REQUIREMENTS'),
-	('MONT_ST_MICHEL_CULTURE_GRASS_FLOODPLAINS', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_GRASS_FLOODPLAINS_REQUIREMENTS'),
-	('MONT_ST_MICHEL_CULTURE_PLAINS_FLOODPLAINS', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_PLAINS_FLOODPLAINS_REQUIREMENTS'),
-	('MONT_ST_MICHEL_FOOD_FLOODPLAINS', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_FLOODPLAINS_REQUIREMENTS'),
-	('MONT_ST_MICHEL_FOOD_GRASS_FLOODPLAINS', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_GRASS_FLOODPLAINS_REQUIREMENTS'),
-	('MONT_ST_MICHEL_FOOD_PLAINS_FLOODPLAINS', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_PLAINS_FLOODPLAINS_REQUIREMENTS');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('MONT_ST_MICHEL_CULTURE_FLOODPLAINS', 'YieldType', 'YIELD_CULTURE'),
-    ('MONT_ST_MICHEL_CULTURE_FLOODPLAINS', 'Amount', '1'),
-    ('MONT_ST_MICHEL_CULTURE_GRASS_FLOODPLAINS', 'YieldType', 'YIELD_CULTURE'),
-    ('MONT_ST_MICHEL_CULTURE_GRASS_FLOODPLAINS', 'Amount', '1'),
-    ('MONT_ST_MICHEL_CULTURE_PLAINS_FLOODPLAINS', 'YieldType', 'YIELD_CULTURE'),
-    ('MONT_ST_MICHEL_CULTURE_PLAINS_FLOODPLAINS', 'Amount', '1'),
-    ('MONT_ST_MICHEL_FOOD_FLOODPLAINS', 'YieldType', 'YIELD_FOOD'),
-    ('MONT_ST_MICHEL_FOOD_FLOODPLAINS', 'Amount', '1'),
-    ('MONT_ST_MICHEL_FOOD_GRASS_FLOODPLAINS', 'YieldType', 'YIELD_FOOD'),
-    ('MONT_ST_MICHEL_FOOD_GRASS_FLOODPLAINS', 'Amount', '1'),
-    ('MONT_ST_MICHEL_FOOD_PLAINS_FLOODPLAINS', 'YieldType', 'YIELD_FOOD'),
-    ('MONT_ST_MICHEL_FOOD_PLAINS_FLOODPLAINS', 'Amount', '1');
-INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-	('BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_CULTURE_FLOODPLAINS'),
-	('BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_CULTURE_GRASS_FLOODPLAINS'),
-	('BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_CULTURE_PLAINS_FLOODPLAINS'),
-	('BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_FOOD_FLOODPLAINS'),
-	('BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_FOOD_GRASS_FLOODPLAINS'),
-	('BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_FOOD_PLAINS_FLOODPLAINS');
-DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MONT_ST_MICHEL' AND ModifierId='MONT_ST_MICHEL_GRANT_MARTYR';
-
--- University of Sankore - new bonus : Add +1 trader capacity AND add +1science +2gold for your all your traders (internal/external)
-DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_UNIVERSITY_SANKORE' AND ModifierId='SANKORE_TRADE_OFFER_SCIENCE';
-INSERT INTO Modifiers (ModifierId , ModifierType) VALUES
-	('UNIVERSITY_SANKORE_ADD_SCIENCE_TO_TRADEROUTE', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD'),
-	('UNIVERSITY_SANKORE_ADD_GOLD_TO_TRADEROUTE', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD'),
-	('UNIVERSITY_SANKORE_ADD_TRADER_CAPACITY', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_CAPACITY');	
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('UNIVERSITY_SANKORE_ADD_SCIENCE_TO_TRADEROUTE', 'YieldType', 'YIELD_SCIENCE'),
-    ('UNIVERSITY_SANKORE_ADD_SCIENCE_TO_TRADEROUTE', 'Amount', '1'),
-    ('UNIVERSITY_SANKORE_ADD_GOLD_TO_TRADEROUTE', 'YieldType', 'YIELD_GOLD'),
-    ('UNIVERSITY_SANKORE_ADD_GOLD_TO_TRADEROUTE', 'Amount', '2'),
-    ('UNIVERSITY_SANKORE_ADD_TRADER_CAPACITY', 'Amount', '1');
-INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-	('BUILDING_UNIVERSITY_SANKORE', 'UNIVERSITY_SANKORE_ADD_SCIENCE_TO_TRADEROUTE'),
-	('BUILDING_UNIVERSITY_SANKORE', 'UNIVERSITY_SANKORE_ADD_GOLD_TO_TRADEROUTE'),
-	('BUILDING_UNIVERSITY_SANKORE', 'UNIVERSITY_SANKORE_ADD_TRADER_CAPACITY');
-
+-- Mont St. Michel - Culture +1 for flood plains in the empire. (unless you wanna split this change amongst many dlc recreate the reqs and use abstract queries)
+CREATE TABLE Floodplains_tmp(
+	FloodplainType TEXT NOT NULL
+	);
+--populate
+INSERT INTO Floodplains_tmp(FloodplainType)
+	SELECT Features.FeatureType 
+	FROM Features WHERE FeatureType LIKE '%FLOODPLAINS%';
+--Create Reqs and Reqsets, use INSERT OR IGNORE to not clash with similar code
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
+	SELECT 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQ_BBG', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
+	FROM Floodplains_tmp;
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value)
+	SELECT 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQ_BBG', 'FeatureType', Floodplains_tmp.FloodplainType
+	FROM Floodplains_tmp;
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
+	SELECT 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQSET_BBG', 'REQUIREMENTSET_TEST_ALL'
+	FROM Floodplains_tmp;
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+	SELECT 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQSET_BBG', 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQ_BBG'
+	FROM Floodplains_tmp;
+--Modifiers
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+	SELECT 'MONT_ST_MICHEL_CULTURE_'||Floodplains_tmp.FloodplainType, 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQSET_BBG'
+	FROM Floodplains_tmp;
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+	SELECT 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType, 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_'||Floodplains_tmp.FloodplainType||'_REQSET_BBG'
+	FROM Floodplains_tmp;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+	SELECT 'MONT_ST_MICHEL_CULTURE_'||Floodplains_tmp.FloodplainType, 'YieldType', 'YIELD_CULTURE'
+	FROM Floodplains_tmp;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+	SELECT 'MONT_ST_MICHEL_CULTURE_'||Floodplains_tmp.FloodplainType, 'Amount', '1'
+	FROM Floodplains_tmp;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+	SELECT 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType, 'YieldType', 'YIELD_FOOD'
+	FROM Floodplains_tmp;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+	SELECT 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType, 'Amount', '1'
+	FROM Floodplains_tmp;
+INSERT INTO BuildingModifiers (BuildingType, ModifierId)
+	SELECT 'BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_CULTURE_'||Floodplains_tmp.FloodplainType
+	FROM Floodplains_tmp;
+INSERT INTO BuildingModifiers (BuildingType, ModifierId)
+	SELECT 'BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType
+	FROM Floodplains_tmp;
+--DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MONT_ST_MICHEL' AND ModifierId='MONT_ST_MICHEL_GRANT_MARTYR'; (We weren't supposed to drop Martyr)
+DROP TABLE Floodplains_tmp;
 
 -- Great Zimbabwe - Give 2 trader capacity instead of 1
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREAT_ZIMBABWE_ADDTRADEROUTE';
 
 -- Orszaghaz +300% diplomatic favor for each turn starting as the suz of a city state (from +100%)
 UPDATE ModifierArguments SET Value='300' WHERE ModifierId='ORSZAGHAZ_DOUBLE_FAVOR_SUZERAIN';
-
--- Taj Mahal +10% gold for all your cities if you are in golden age
-INSERT INTO Modifiers (ModifierId , ModifierType, SubjectRequirementSetId) VALUES
-	('TAJ_MAHAL_GOLD_MODIFIER_IN_ALL_CITIES', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER', 'PLAYER_HAS_GOLDEN_AGE');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('TAJ_MAHAL_GOLD_MODIFIER_IN_ALL_CITIES', 'YieldType', 'YIELD_GOLD'),
-    ('TAJ_MAHAL_GOLD_MODIFIER_IN_ALL_CITIES', 'Amount', '10');
-INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-	('BUILDING_TAJ_MAHAL', 'TAJ_MAHAL_GOLD_MODIFIER_IN_ALL_CITIES');
-
 
 -- Torre de Belem - International trade routes from any city recieve +2 gold for every luxury at the destination (from this city only).
 UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_CITIES_ADJUST_TRADE_ROUTE_YIELD_PER_DESTINATION_LUXURY_FOR_INTERNATIONAL' WHERE ModifierId='TORREDEBELEM_TRADE_GOLD_LUXURIES';
@@ -509,6 +478,12 @@ UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_CITIES_ADJUST_TRADE_ROUTE_YIE
 --    ('HERMITAGE_DOUBLE_TOURISM_GREAT_WORK', 'Amount', '100');
 --INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 --	('BUILDING_HERMITAGE', 'HERMITAGE_DOUBLE_TOURISM_GREAT_WORK');
+INSERT OR IGNORE INTO Modifiers(ModifierId, ModifierType) VALUES
+	('THEMED_YIELD_MODIFIER', 'MODIFIER_PLAYER_ADJUST_THEMED_ALL_YIELDS'),
+	('THEMED_TOURISM_MODIFIER', 'MODIFIER_PLAYER_ADJUST_THEMED_TOURISM');
+INSERT OR IGNORE INTO ModifierArguments(ModifierId, Name, Value) VALUES
+	('THEMED_YIELD_MODIFIER', 'Amount', 100),
+	('THEMED_TOURISM_MODIFIER', 'Amount', 100);
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
 	('HERMITAGE_AUTOTHEMING_BBG', 'MODIFIER_PLAYER_ADJUST_AUTO_THEMED_BUILDING');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES

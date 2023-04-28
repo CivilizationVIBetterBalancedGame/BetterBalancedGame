@@ -3,12 +3,7 @@
 --==============================================================================================
 -- Delete old Trait as they are moved and reworked to Gilgamesh
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_FIRST_CIVILIZATION';
-
--- Start Bias
-INSERT INTO StartBiasFeatures(CivilizationType, FeatureType, Tier) VALUES
-    ('CIVILIZATION_SUMERIA', 'FEATURE_FLOODPLAINS_PLAINS', '4'),
-    ('CIVILIZATION_SUMERIA', 'FEATURE_FLOODPLAINS_GRASSLAND', '4');
-
+--Start bias moved to xp2 (because plains and grass floodplains didn't exist before gs)
 -- Farms adjacent to a River yield +1 food, Farms adjacent to a River get + 1 prop if next to Zigurat
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'FIRST_CIVILIZATION_FARM_FOOD'),
@@ -80,6 +75,16 @@ UPDATE Units SET Combat=20 WHERE UnitType='UNIT_SUMERIAN_WAR_CART';
 -- Beta Buff: Revert to 45 cost
 -- 05/10/22 reduce cost to 40
 UPDATE Units SET Cost=40 WHERE UnitType='UNIT_SUMERIAN_WAR_CART';
+--16/04/23 Warcart share movement with civilian
+INSERT INTO Types (Type, Kind) VALUES
+    ('BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS', 'KIND_ABILITY');
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS', 'CLASS_WAR_CART');
+INSERT INTO UnitAbilities (UnitAbilityType, Name, Description) VALUES
+    ('BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS', 'LOC_BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS', 'LOC_BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS_DESCRIPTION');
+INSERT INTO UnitAbilityModifiers (UnitAbilityType, ModifierId) VALUES
+    ('BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS', 'ESCORT_MOBILITY_SHARED_MOVEMENT');
+
 
 -- 20-12-07 Hotfix: Increase war-cart strength vs. barbs
 INSERT OR IGNORE INTO Types (Type, Kind) VALUES
@@ -108,46 +113,6 @@ VALUES  ('WAR_CART_COMBAT_STRENGTH_VS_BARBS_BBG', 'Amount', 4);
 -- 23/04/2021: Delete +5 when war common foe
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_ADVENTURES_ENKIDU' AND ModifierId='TRAIT_ATTACH_ALLIANCE_COMBAT_ADJUSTMENT';
 
--- 16/05/2021: +1 military power per alliance level (on better alliance)
-INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) VALUES
-    ('BBG_SUMMER_COMBAT_ALLY_1', 'MODIFIER_PLAYER_UNITS_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', NULL),
-    ('BBG_SUMMER_COMBAT_ALLY_2', 'MODIFIER_PLAYER_UNITS_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', NULL),
-    ('BBG_SUMMER_COMBAT_ALLY_3', 'MODIFIER_PLAYER_UNITS_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_3', NULL);
-
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_SUMMER_COMBAT_ALLY_1', 'Amount', 1),
-    ('BBG_SUMMER_COMBAT_ALLY_2', 'Amount', 2),
-    ('BBG_SUMMER_COMBAT_ALLY_3', 'Amount', 3);
-
-INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
-    ('BBG_SUMMER_COMBAT_ALLY_1', 'Preview', 'LOC_BBG_SUMMER_COMBAT_ALLY_1'),
-    ('BBG_SUMMER_COMBAT_ALLY_2', 'Preview', 'LOC_BBG_SUMMER_COMBAT_ALLY_2'),
-    ('BBG_SUMMER_COMBAT_ALLY_3', 'Preview', 'LOC_BBG_SUMMER_COMBAT_ALLY_3');
-
-INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('TRAIT_LEADER_ADVENTURES_ENKIDU', 'BBG_SUMMER_COMBAT_ALLY_1'),
-    ('TRAIT_LEADER_ADVENTURES_ENKIDU', 'BBG_SUMMER_COMBAT_ALLY_2'),
-    ('TRAIT_LEADER_ADVENTURES_ENKIDU', 'BBG_SUMMER_COMBAT_ALLY_3');
-
-INSERT INTO RequirementSets(RequirementSetId , RequirementSetType) VALUES
-    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', 'REQUIREMENTSET_TEST_ALL'),
-    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', 'REQUIREMENTSET_TEST_ALL'),
-    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_3', 'REQUIREMENTSET_TEST_ALL');
-
-INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId) VALUES
-  ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', 'REQUIRES_PLAYER_IS_ALLY_LEVEL_1'),
-  ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', 'BBG_PLAYER_IS_NOT_ALLY_LEVEL_2'),
-  ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', 'REQUIRES_PLAYER_IS_ALLY_LEVEL_2'),
-  ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', 'BBG_PLAYER_IS_NOT_ALLY_LEVEL_3'),
-  ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_3', 'REQUIRES_PLAYER_IS_ALLY_LEVEL_3');
-
-INSERT INTO Requirements(RequirementId , RequirementType, Inverse) VALUES
-  ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_2', 'REQUIREMENT_PLAYER_HAS_ACTIVE_ALLIANCE_OF_AT_LEAST_LEVEL', 1),
-  ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_3', 'REQUIREMENT_PLAYER_HAS_ACTIVE_ALLIANCE_OF_AT_LEAST_LEVEL', 1);
-
-INSERT INTO RequirementArguments(RequirementId , Name, Value) VALUES
-  ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_2', 'Level', '2'),
-  ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_3', 'Level', '3');
 
 --==============================================================================================
 --******            GILGAMESH                         ******

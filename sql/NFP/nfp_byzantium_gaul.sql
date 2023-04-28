@@ -57,6 +57,17 @@ INSERT OR IGNORE INTO Requirements(RequirementId , RequirementType) VALUES
 INSERT OR IGNORE INTO RequirementArguments(RequirementId , Name, Value) VALUES
 	('BBG_PLAYER_HAS_BRONZE_WORKING_REQUIREMENT' , 'TechnologyType', 'TECH_BRONZE_WORKING');
 
+-- 16/04/23 move culture bomb from mine to oppidum
+DELETE FROM TraitModifiers WHERE ModifierId='GAUL_MINE_CULTURE_BOMB';
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_OPPIDUM_CULTURE_BOMB', 'MODIFIER_PLAYER_ADD_CULTURE_BOMB_TRIGGER');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_OPPIDUM_CULTURE_BOMB', 'DistrictType', 'DISTRICT_OPPIDUM'),
+	('BBG_OPPIDUM_CULTURE_BOMB', 'CaptureOwnedTerritory', 0);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+	('TRAIT_CIVILIZATION_GAUL', 'BBG_OPPIDUM_CULTURE_BOMB');
+
+
 --==============================================================
 --******                RELIGION                          ******
 --==============================================================
