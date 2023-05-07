@@ -286,7 +286,7 @@
 		<!-- == DUTCH == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_RADIO_ORANJE_DESCRIPTION" Language="ko_KR">
-			<Text>국내 도시 간 연결된 [ICON_TradeRoute] 교역로에서 출발 도시에 턴마다 충성심 +2를 제공합니다. 외국 도시와 연결된 모든 [ICON_TradeRoute] 교역로에서 네덜란드에 [ICON_Culture] 문화 +2, 상대방 문명에 [ICON_Culture] 문화 +1을 제공합니다. 해군 유닛이 간척지 시설에서 방어시 [ICON_STRENGTH] +3 전투력을 얻습니다.</Text>
+			<Text>국내 도시 간 연결된 [ICON_TradeRoute] 교역로에서 출발 도시에 턴마다 충성심 +2를 제공합니다. 외국 도시와 연결된 모든 [ICON_TradeRoute] 교역로에서 네덜란드에 [ICON_Culture] 문화 +2, 상대방 문명에 [ICON_Culture] 문화 +1을 제공합니다. 해군 유닛이 간척지 시설에서 방어시 [ICON_STRENGTH] 전투력 +3을 얻습니다.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_POLDER_DEFENSIVE_CS" Language="ko_KR">
 			<Text>간척지 시설에서 방어 시 [ICON_Strength] 전투력 +3. (라디오 오라녜)</Text>
@@ -296,7 +296,7 @@
 		</Row>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_POLDER_DESCRIPTION" Language="ko_KR">
-			<Text>네덜란드 특유 시설물인 간척지를 건설할 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_FOOD] 식량 +1, [ICON_Production] 생산력 +1, [ICON_Housing] 주거공간 +0.5를 제공합니다. 인접한 간척지 시설마다 [ICON_FOOD] 식량 +1을, 인접한 간척지 시설 2개마다 [ICON_Production] 생산력 +1을 추가 제공합니다. 인접한 항만 특수지구마다 [ICON_Production] 생산력 +1을 추가 제공합니다. 기술 발전표와 사회 제도 진보에 따라 [ICON_PRODUCTION] 생산력과 [ICON_GOLD] 금, [ICON_FOOD] 식량이 추가됩니다. 2개 이상의 지나갈 수 있는 지상 타일에 인접한 해안이나 호수에 배치해야 합니다. 타일의 [ICON_Movement] 이동 비용이 3으로 증가합니다.</Text>
+			<Text>네덜란드 특유 시설물인 간척지를 건설할 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_FOOD] 식량 +1, [ICON_Production] 생산력 +1, [ICON_Housing] 주거공간 +0.5를 제공합니다. 인접한 간척지 시설마다 [ICON_FOOD] 식량 +1을, 인접한 간척지 시설 2개마다 [ICON_Production] 생산력 +1을 추가 제공합니다. 인접한 항만 특수지구마다 [ICON_Production] 생산력 +1을 추가 제공합니다. 기술 발전표와 사회 제도 진보에 따라 [ICON_PRODUCTION] 생산력과 [ICON_GOLD] 금, [ICON_FOOD] 식량이 추가됩니다. 1개 이상의 지나갈 수 있는 지상 타일에 인접한 해안이나 호수에 배치해야 합니다. 타일의 [ICON_Movement] 이동 비용이 3으로 증가합니다.</Text>
 		</Replace>
 
 		<!-- == EGYPT == -->
@@ -578,14 +578,23 @@
 		<Row Tag="LOC_BBG_CHANDRA_SIGHT_ABILITY_DESC" Language="ko_KR">
 			<Text>사원에서 시야 +1. (아트라사스트라)</Text>
 		</Row>
-		<Row Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_DESC" Language="ko_KR">
+		<Row Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_NAME" Language="ko_KR">
 			<Text>성소에서 [ICON_STRENGTH] 전투력 +1. (아트라사스트라)</Text>
 		</Row>
-		<Row Tag="LOC_BBG_CHANDRA_CS_T2_ABILITY_DESC" Language="ko_KR">
+		<Row Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_DESC" Language="ko_KR">
+			<Text>성소에서 +1. (아트라사스트라)</Text>
+		</Row>
+		<Row Tag="LOC_BBG_CHANDRA_CS_T2_ABILITY_NAME" Language="ko_KR">
 			<Text>사원에서 [ICON_STRENGTH] 전투력 +1. (아트라사스트라)</Text>
 		</Row>
-		<Row Tag="LOC_BBG_CHANDRA_CS_T3_ABILITY_DESC" Language="ko_KR">
+		<Row Tag="LOC_BBG_CHANDRA_CS_T2_ABILITY_DESC" Language="ko_KR">
+			<Text>사원에서 +1. (아트라사스트라)</Text>
+		</Row>
+		<Row Tag="LOC_BBG_CHANDRA_CS_T3_ABILITY_NAME" Language="ko_KR">
 			<Text>예배 건물에서 [ICON_STRENGTH] 전투력 +1. (아트라사스트라)</Text>
+		</Row>
+		<Row Tag="LOC_BBG_CHANDRA_CS_T3_ABILITY_DESC" Language="ko_KR">
+			<Text>예배 건물에서 +1. (아트라사스트라)</Text>
 		</Row>
 		<!-- = leader ability (Gandhi) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SATYAGRAHA_DESCRIPTION" Language="ko_KR">
@@ -824,7 +833,7 @@
 			<Text>모든 해상 근접 유닛이 해안 강습을 감행할 수 있게 되며, [ICON_PRODUCTION] 생산력 +25%를 제공합니다.[NEWLINE][NEWLINE]성지 특수지구를 건설할 때 [ICON_PRODUCTION] 생산력 +50%를 제공합니다. 성지는 인접한 해안 및 호수 타일에서 일반적인 신앙 인접 보너스를 획득합니다. 성지 특수지구와 인접한 항만 특수지구에서 [ICON_GOLD] 금 +2의 인접 보너스를 획득합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>모든 해상 근접 유닛이 해안 강습을 감행할 수 있게 되며, 이 유닛 생성에 대한 [ICON_PRODUCTION] 생산력 +25%를 제공합니다. 광산을 약탈 또는 해안 강습하면 [ICON_GOLD] 금뿐만 아니라 [ICON_SCIENCE] 과학도 얻습니다. 채석장, 목장, 재배지, 야영지를 약탈 또는 해안 강습하면 [ICON_FAITH] 신앙뿐만 아니라 [ICON_CULTURE] 문화도 얻습니다. 항해를 통해 특유 유닛인 바이킹 롱십을 훈련할 수 있습니다.[NEWLINE][NEWLINE]성지 특수지구와 성지 특수지구 내 건물을 생산할 때 [ICON_PRODUCTION] 생산력 +50%를 제공합니다. 성지는 인접한 해안 및 호수 타일에서 일반적인 신앙 인접 보너스를 획득합니다.[NEWLINE][NEWLINE]성지 특수지구와 인접한 항만 특수지구에서 [ICON_GOLD] 금 +2의 인접 보너스를 획득합니다.</Text>
+			<Text>모든 해상 근접 유닛이 해안 강습을 감행할 수 있게 되며, 이 유닛 생성에 대한 [ICON_PRODUCTION] 생산력 +25%를 제공합니다. 광산을 약탈 또는 해안 강습하면 [ICON_GOLD] 금뿐만 아니라 [ICON_SCIENCE] 과학도 얻습니다. 채석장, 목장, 재배지, 야영지를 약탈 또는 해안 강습하면 [ICON_FAITH] 신앙뿐만 아니라 [ICON_CULTURE] 문화도 얻습니다. 항해를 통해 특유 유닛인 바이킹 롱십을 훈련할 수 있습니다.[NEWLINE][NEWLINE]성지 특수지구를 건설할 때 [ICON_PRODUCTION] 생산력 +50%를 제공합니다. 성지는 인접한 해안 및 호수 타일에서 일반적인 신앙 인접 보너스를 획득합니다.[NEWLINE][NEWLINE]성지 특수지구와 인접한 항만 특수지구에서 [ICON_GOLD] 금 +2의 인접 보너스를 획득합니다.</Text>
 		</Replace>
 		<Row Tag="LOC_DISTRICT_HOLY_SITE_NORWAY_COAST_FAITH" Language="ko_KR">
 			<Text>성지 특수지구는 인접한 해안 및 호수 타일에서 [ICON_Faith] 신앙 +{1_num}을 획득합니다.</Text>
@@ -2261,14 +2270,11 @@
 			<Text>컴퓨터 기술 및 현대 시대의 무작위 기술 1개와 관련하여 [ICON_TechBoosted] 유레카를 촉발합니다. 컴퓨터 기술의 유레카가 이미 촉발되었다면, 대신에 기술을 완성시킵니다.</Text>
 		</Replace>
 		
-		<Replace Tag="LOC_GREATPERSON_RAJENDRA_CHOLA_EXPANSION2_ACTIVE" Language="ko_KR">
-			<Text>진급 레벨 1인 사략선 유닛을 즉시 생산합니다. 군사 유닛이 해상 [ICON_TradeRoute] 교역로 약탈 시 보상 +60%를 획득합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_GREATPERSON_FRANCIS_DRAKE_EXPANSION2_ACTIVE" Language="ko_KR">
-			<Text>모든 해상 유닛의 [ICON_Strength] 전투력 +3.</Text>
-		</Replace>
 		<Replace Tag="LOC_ABILITY_CHOLA_NAVAL_UNITS_COMBAT_STRENGTH_DESCRIPTION" Language="ko_KR">
-			<Text>프랜시스 드레이크에서 [ICON_Strength] 전투력 +{1_Amount}.</Text>
+			<Text>프란시스 드레이크에서 [ICON_Strength] 전투력 +{1_Amount}.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_FRANCIS_DRAKE_PLUNDER_BONUS_DESCRIPTION" Language="ko_KR">
+			<Text>교역로 약탈 보상 증가. (라젠드라 촐라)</Text>
 		</Replace>
 
 
