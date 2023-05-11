@@ -21,6 +21,7 @@
 	</Properties>
 	<!--
 	<Dependencies>
+		<Mod id="1B28771A-C749-434B-9053-D1380C553DE9" title="Expansion: Rise and Fall"/>
 		<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Expansion: Gathering Storm" />
 	</Dependencies>
 	-->
@@ -119,6 +120,11 @@
 			<LeaderPlayable>Players:StandardPlayers::LEADER_THEODORA,Players:Expansion1_Players::LEADER_THEODORA,Players:Expansion2_Players::LEADER_THEODORA</LeaderPlayable>
 			<LeaderPlayable>Players:StandardPlayers::LEADER_LUDWIG,Players:Expansion1_Players::LEADER_LUDWIG,Players:Expansion2_Players::LEADER_LUDWIG</LeaderPlayable>
 			<LeaderPlayable>Players:Expansion1_Players::LEADER_SEJONG, Players:Expansion2_Players::LEADER_SEJONG</LeaderPlayable>
+		</Criteria>
+		<Criteria id="RulersSahara" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_RAMSES,Players:Expansion1_Players::LEADER_RAMSES,Players:Expansion2_Players::LEADER_RAMSES</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_CLEOPATRA_ALT,Players:Expansion1_Players::LEADER_CLEOPATRA_ALT,Players:Expansion2_Players::LEADER_CLEOPATRA_ALT</LeaderPlayable>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_SUNDIATA_KEITA</LeaderPlayable>
 		</Criteria>
 		<Criteria id="RulersEngland" any="1">
 			<LeaderPlayable>Players:StandardPlayers::LEADER_ELIZABETH,Players:Expansion1_Players::LEADER_ELIZABETH,Players:Expansion2_Players::LEADER_ELIZABETH</LeaderPlayable>
@@ -719,7 +725,7 @@
 			<File>sql/NFP/Babylon.sql</File>
 			<File>sql/NFP/GreatPeoples.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="BBG_Babylon">
+		<UpdateDatabase id="BBG_Babylon_XP2">
 			<Properties>
 				<LoadOrder>11649</LoadOrder>
 			</Properties>
@@ -787,8 +793,15 @@
 			</Properties>
 			<Criteria>Warlords</Criteria>
 			<File>sql/LP/lp_japan_tokugawa.sql</File>
-			<File>sql/LP/NaderShah.sql</File>
 			<File>sql/LP/lp_ottoman_suleiman_magnificent.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Warlords_Persia">
+			<Properties>
+				<LoadOrder>11655</LoadOrder>
+			</Properties>
+			<Criteria>Warlords</Criteria>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<File>sql/LP/NaderShah.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulesChina">
 			<Properties>
@@ -818,14 +831,21 @@
 				<LoadOrder>11659</LoadOrder>
 			</Properties>
 			<Criteria>Builders</Criteria>
-			<File>sql/LP/Theodora.sql</File>
 			<File>sql/LP/lp_ludwig.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Builders_Byzantium">
+			<Properties>
+				<LoadOrder>11659</LoadOrder>
+			</Properties>
+			<Criteria>Builders</Criteria>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<File>sql/LP/Theodora.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulersSahara">
 			<Properties>
 				<LoadOrder>11660</LoadOrder>
 			</Properties>
-			<Criteria>RulersEngland</Criteria>
+			<Criteria>RulersSahara</Criteria>
 			<File>sql/LP/Ptolemaic.sql</File>
 			<File>sql/LP/Ramses.sql</File>
 		</UpdateDatabase>
