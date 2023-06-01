@@ -143,7 +143,7 @@
 		</Criteria>
 		<!-- -->
 		<!--BBCC-->
-	    <Criteria id="core_bbcc">
+		<Criteria id="core_bbcc">
 	      <ConfigurationValueMatches inverse = "1">
 	        <Group>Game</Group>
 	        <ConfigurationId>BBCC_SETTING</ConfigurationId>
@@ -177,8 +177,8 @@
 	        <ConfigurationId>BBCC_SETTING_YIELD</ConfigurationId>
 	        <Value>2</Value>
 	      </ConfigurationValueMatches>
-	    </Criteria>    		
-		<!-- -->
+	    </Criteria>
+		<!-- -->    		
 		<Criteria id="CVSetting_2">
 			<ConfigurationValueMatches>
 				<ConfigurationId>VictoryCulturalSetting</ConfigurationId>
@@ -870,45 +870,29 @@
 		<!--BBCC-->
 		<UpdateDatabase id="bbcc_configvalues_db">
 	      <Properties>
-	          <LoadOrder>11671</LoadOrder>
+	          <LoadOrder>11661</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <File>sql/bbcc/bbcc_configvalues.sql</File>
 	    </UpdateDatabase>
 		<UpdateDatabase id="core_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11672</LoadOrder>
+	          <LoadOrder>11662</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <File>sql/bbcc/core_bbcc.sql</File>
 	    </UpdateDatabase>	    
-	    <UpdateDatabase id="standard_bbcc_db">
-	      <Properties>
-	          <LoadOrder>11673</LoadOrder>
-	      </Properties>
-	      <Criteria>core_bbcc</Criteria>
-	      <Criteria>standard_bbcc</Criteria>
-	      <File>sql/bbcc/standard_bbcc.sql</File>
-	    </UpdateDatabase>
 	    <UpdateDatabase id="no_rng_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11673</LoadOrder>
+	          <LoadOrder>11663</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <Criteria>no_rng_bbcc</Criteria>
 	      <File>sql/bbcc/no_rng_bbcc.sql</File>
 	    </UpdateDatabase>
-	    <UpdateDatabase id="legacy_bbcc_db">
-	      <Properties>
-	          <LoadOrder>11673</LoadOrder>
-	      </Properties>
-	      <Criteria>core_bbcc</Criteria>
-	      <Criteria>legacy_bbcc</Criteria>
-	      <File>sql/bbcc/legacy_bbcc.sql</File>
-	    </UpdateDatabase>
 	    <UpdateDatabase id="cap_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11680</LoadOrder>
+	          <LoadOrder>11670</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <Criteria>bbcc_cap</Criteria>
@@ -1324,9 +1308,7 @@
 
 		<File>sql/bbcc/bbcc_configvalues.sql</File>
 	    <File>sql/bbcc/core_bbcc.sql</File>
-	    <File>sql/bbcc/standard_bbcc.sql</File>
 	    <File>sql/bbcc/no_rng_bbcc.sql</File>
-	    <File>sql/bbcc/legacy_bbcc.sql</File>
 	    <File>sql/bbcc/cap_only_bbcc.sql</File>
 
 		<File>sql/april_fool.sql</File>
