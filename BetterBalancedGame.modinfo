@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Release ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5031"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5033"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5031"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5033"> -->
 
 <!-- WIP ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5031">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5033">
 	<Properties>
-		<Name>Better Balanced Game 5.3.1 WIP</Name>
+		<Name>Better Balanced Game 5.3.3</Name>
 		<Description>
-			WIP build of Better Balanced Game
+			Dev build of Better Balanced Game
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>5031</Version>
+		<Version>5033</Version>
 		<SpecialThanks>abstr, Apeul, codenaugh, coloo, D. / Jack The Narrator, FlashyFeeds, fl0r3k, iElden, Ignasiuz, keride, Klas, MarsLife(puj), priz, seed.of.apricot, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
 	<!--
 	<Dependencies>
+		<Mod id="1B28771A-C749-434B-9053-D1380C553DE9" title="Expansion: Rise and Fall"/>
 		<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Expansion: Gathering Storm" />
 	</Dependencies>
 	-->
@@ -38,7 +39,7 @@
 		</Criteria>-->
 		<Criteria id="XP2" any="1">
 			<GameCoreInUse>Expansion2</GameCoreInUse>
-			<LeaderPlayable>Players:Expansion2_Players::LEADER_DIDO,Players:Expansion2_Players::LEADER_ELEANOR_ENGLAND,Players:Expansion2_Players::LEADER_ELEANOR_FRANCE,Players:Expansion2_Players::LEADER_KRISTINA,Players:Expansion2_Players::LEADER_KUPE,Players:Expansion2_Players::LEDER_LAURIER,Players:Expansion2_Players::LEADER_MANSA_MUSA,Players:Expansion2_Players::LEADER_MATTHIAS_CORVINUS,Players:Expansion2_Players::LEADER_PACHACUTI,Players:Expansion2_Players::LEADER_SULEIMAN</LeaderPlayable>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_DIDO,Players:Expansion2_Players::LEADER_ELEANOR_ENGLAND,Players:Expansion2_Players::LEADER_ELEANOR_FRANCE,Players:Expansion2_Players::LEADER_KRISTINA,Players:Expansion2_Players::LEADER_KUPE,Players:Expansion2_Players::LEADER_LAURIER,Players:Expansion2_Players::LEADER_MANSA_MUSA,Players:Expansion2_Players::LEADER_MATTHIAS_CORVINUS,Players:Expansion2_Players::LEADER_PACHACUTI,Players:Expansion2_Players::LEADER_SULEIMAN</LeaderPlayable>
 		</Criteria>
 		<Criteria id="XP1_AND_XP2" any="1">
 			<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
@@ -76,11 +77,10 @@
 			<LeaderPlayable>Players:StandardPlayers::LEADER_MENELIK,StandardPlayers::LEADER_MENELIK,Players:Expansion1_Players::LEADER_MENELIK,Players:Expansion2_Players::LEADER_MENELIK</LeaderPlayable>
 		</Criteria>
 		<Criteria id="CatherinePersona" any="1">
-			<LeaderPlayable>Players:StandardPlayers::LEADER_CATHERINE_DE_MEDICI,StandardPlayers::LEADER_CATHERINE_DE_MEDICI,Players:Expansion1_Players::LEADER_CATHERINE_DE_MEDICI,Players:Expansion2_Players::LEADER_CATHERINE_DE_MEDICI</LeaderPlayable>
 			<LeaderPlayable>Players:StandardPlayers::LEADER_CATHERINE_DE_MEDICI_ALT,StandardPlayers::LEADER_CATHERINE_DE_MEDICI_ALT,Players:Expansion1_Players::LEADER_CATHERINE_DE_MEDICI_ALT,Players:Expansion2_Players::LEADER_CATHERINE_DE_MEDICI_ALT</LeaderPlayable>
 		</Criteria>
 		<Criteria id="TeddyPersona" any="1">
-			<LeaderPlayable>Players:StandardPlayers::LEADER_T_ROOSEVELT,Players:StandardPlayers::LEADER_T_ROOSEVELT_ROUGHRIDER,StandardPlayers::LEADER_T_ROOSEVELT,StandardPlayers::LEADER_T_ROOSEVELT_ROUGHRIDER,Players:Expansion1_Players::LEADER_T_ROOSEVELT,Players:Expansion1_Players::LEADER_T_ROOSEVELT_ROUGHRIDER,Players:Expansion2_Players::LEADER_T_ROOSEVELT,Players:Expansion2_Players::LEADER_T_ROOSEVELT_ROUGHRIDER</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_T_ROOSEVELT_ROUGHRIDER,StandardPlayers::LEADER_T_ROOSEVELT_ROUGHRIDER,Players:Expansion1_Players::LEADER_T_ROOSEVELT_ROUGHRIDER,Players:Expansion2_Players::LEADER_T_ROOSEVELT_ROUGHRIDER</LeaderPlayable>
 		</Criteria>
 		<Criteria id="Byzantium_Gaul" any="1">
 			<LeaderPlayable>Players:StandardPlayers::LEADER_BASIL,Players:StandardPlayers::LEADER_AMBIORIX,StandardPlayers::LEADER_BASIL,StandardPlayers::LEADER_AMBIORIX,Players:Expansion1_Players::LEADER_BASIL,Players:Expansion1_Players::LEADER_AMBIORIX,Players:Expansion2_Players::LEADER_BASIL,Players:Expansion2_Players::LEADER_AMBIORIX</LeaderPlayable>
@@ -120,6 +120,11 @@
 			<LeaderPlayable>Players:StandardPlayers::LEADER_LUDWIG,Players:Expansion1_Players::LEADER_LUDWIG,Players:Expansion2_Players::LEADER_LUDWIG</LeaderPlayable>
 			<LeaderPlayable>Players:Expansion1_Players::LEADER_SEJONG, Players:Expansion2_Players::LEADER_SEJONG</LeaderPlayable>
 		</Criteria>
+		<Criteria id="RulersSahara" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_RAMSES,Players:Expansion1_Players::LEADER_RAMSES,Players:Expansion2_Players::LEADER_RAMSES</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_CLEOPATRA_ALT,Players:Expansion1_Players::LEADER_CLEOPATRA_ALT,Players:Expansion2_Players::LEADER_CLEOPATRA_ALT</LeaderPlayable>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_SUNDIATA_KEITA</LeaderPlayable>
+		</Criteria>
 		<Criteria id="RulersEngland" any="1">
 			<LeaderPlayable>Players:StandardPlayers::LEADER_ELIZABETH,Players:Expansion1_Players::LEADER_ELIZABETH,Players:Expansion2_Players::LEADER_ELIZABETH</LeaderPlayable>
 			<LeaderPlayable>Players:StandardPlayers::LEADER_HARALD_ALT,Players:Expansion1_Players::LEADER_HARALD_ALT,Players:Expansion2_Players::LEADER_HARALD_ALT</LeaderPlayable>
@@ -138,7 +143,7 @@
 		</Criteria>
 		<!-- -->
 		<!--BBCC-->
-	    <Criteria id="core_bbcc">
+		<Criteria id="core_bbcc">
 	      <ConfigurationValueMatches inverse = "1">
 	        <Group>Game</Group>
 	        <ConfigurationId>BBCC_SETTING</ConfigurationId>
@@ -165,14 +170,14 @@
 	        <ConfigurationId>BBCC_SETTING_YIELD</ConfigurationId>
 	        <Value>1</Value>
 	      </ConfigurationValueMatches>
-	    </Criteria>   
+	    </Criteria>
 	    <Criteria id="legacy_bbcc">
 	      <ConfigurationValueMatches>
 	        <Group>Game</Group>
 	        <ConfigurationId>BBCC_SETTING_YIELD</ConfigurationId>
 	        <Value>2</Value>
 	      </ConfigurationValueMatches>
-	    </Criteria>    		
+	    </Criteria>
 		<!-- -->
 		<Criteria id="CVSetting_2">
 			<ConfigurationValueMatches>
@@ -719,7 +724,7 @@
 			<File>sql/NFP/Babylon.sql</File>
 			<File>sql/NFP/GreatPeoples.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="BBG_Babylon">
+		<UpdateDatabase id="BBG_Babylon_XP2">
 			<Properties>
 				<LoadOrder>11649</LoadOrder>
 			</Properties>
@@ -787,8 +792,15 @@
 			</Properties>
 			<Criteria>Warlords</Criteria>
 			<File>sql/LP/lp_japan_tokugawa.sql</File>
-			<File>sql/LP/NaderShah.sql</File>
 			<File>sql/LP/lp_ottoman_suleiman_magnificent.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Warlords_Persia">
+			<Properties>
+				<LoadOrder>11655</LoadOrder>
+			</Properties>
+			<Criteria>Warlords</Criteria>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<File>sql/LP/NaderShah.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulesChina">
 			<Properties>
@@ -818,14 +830,21 @@
 				<LoadOrder>11659</LoadOrder>
 			</Properties>
 			<Criteria>Builders</Criteria>
-			<File>sql/LP/Theodora.sql</File>
 			<File>sql/LP/lp_ludwig.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Builders_Byzantium">
+			<Properties>
+				<LoadOrder>11659</LoadOrder>
+			</Properties>
+			<Criteria>Builders</Criteria>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<File>sql/LP/Theodora.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulersSahara">
 			<Properties>
 				<LoadOrder>11660</LoadOrder>
 			</Properties>
-			<Criteria>RulersEngland</Criteria>
+			<Criteria>RulersSahara</Criteria>
 			<File>sql/LP/Ptolemaic.sql</File>
 			<File>sql/LP/Ramses.sql</File>
 		</UpdateDatabase>
@@ -851,45 +870,29 @@
 		<!--BBCC-->
 		<UpdateDatabase id="bbcc_configvalues_db">
 	      <Properties>
-	          <LoadOrder>11671</LoadOrder>
+	          <LoadOrder>11661</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <File>sql/bbcc/bbcc_configvalues.sql</File>
 	    </UpdateDatabase>
 		<UpdateDatabase id="core_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11672</LoadOrder>
+	          <LoadOrder>11662</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <File>sql/bbcc/core_bbcc.sql</File>
 	    </UpdateDatabase>	    
-	    <UpdateDatabase id="standard_bbcc_db">
-	      <Properties>
-	          <LoadOrder>11673</LoadOrder>
-	      </Properties>
-	      <Criteria>core_bbcc</Criteria>
-	      <Criteria>standard_bbcc</Criteria>
-	      <File>sql/bbcc/standard_bbcc.sql</File>
-	    </UpdateDatabase>
 	    <UpdateDatabase id="no_rng_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11673</LoadOrder>
+	          <LoadOrder>11663</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <Criteria>no_rng_bbcc</Criteria>
 	      <File>sql/bbcc/no_rng_bbcc.sql</File>
 	    </UpdateDatabase>
-	    <UpdateDatabase id="legacy_bbcc_db">
-	      <Properties>
-	          <LoadOrder>11673</LoadOrder>
-	      </Properties>
-	      <Criteria>core_bbcc</Criteria>
-	      <Criteria>legacy_bbcc</Criteria>
-	      <File>sql/bbcc/legacy_bbcc.sql</File>
-	    </UpdateDatabase>
 	    <UpdateDatabase id="cap_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11680</LoadOrder>
+	          <LoadOrder>11670</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <Criteria>bbcc_cap</Criteria>
@@ -1305,9 +1308,7 @@
 
 		<File>sql/bbcc/bbcc_configvalues.sql</File>
 	    <File>sql/bbcc/core_bbcc.sql</File>
-	    <File>sql/bbcc/standard_bbcc.sql</File>
 	    <File>sql/bbcc/no_rng_bbcc.sql</File>
-	    <File>sql/bbcc/legacy_bbcc.sql</File>
 	    <File>sql/bbcc/cap_only_bbcc.sql</File>
 
 		<File>sql/april_fool.sql</File>
