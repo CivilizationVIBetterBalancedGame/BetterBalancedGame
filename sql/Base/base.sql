@@ -66,7 +66,9 @@ INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType)
 INSERT OR IGNORE INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange) VALUES
 	('RESOURCE_INCENSE', 'YIELD_FOOD', 1),
 	('RESOURCE_MERCURY', 'YIELD_FOOD', 1),
-	('RESOURCE_SPICES', 'YIELD_GOLD', 1);
+	('RESOURCE_SPICES', 'YIELD_GOLD', 1),
+    ('RESOURCE_TEA', 'YIELD_FOOD', 1),
+    ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1);
 UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPICES' AND YieldType='YIELD_FOOD';
 
 -- add 1 production to fishing boat improvement
