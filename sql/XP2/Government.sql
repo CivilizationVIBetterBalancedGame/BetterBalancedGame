@@ -17,3 +17,11 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('MONARCHY_STARFORT_FAVOR', 'Amount', '2');
 
 
+-- 07/06/23 digital democracy gives 2 tourism per district 
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+    SELECT 'BBG_DIGITAL_DEMOCRACY_TOURISM_' || DistrictType || '_MODIFIER', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_TOURISM_CHANGE', 'BBG_DISTRICT_IS_' || DistrictType || '_REQSET' FROM Districts WHERE DistrictType NOT IN ('DISTRICT_CITY_CENTER', 'DISTRICT_WONDER');
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_DIGITAL_DEMOCRACY_TOURISM_' || DistrictType || '_MODIFIER', 'Amount', 1 FROM Districts WHERE DistrictType NOT IN ('DISTRICT_CITY_CENTER', 'DISTRICT_WONDER');
+
+INSERT INTO GovernmentModifiers (GovernmentType, ModifierId)
+    SELECT 'GOVERNMENT_DIGITAL_DEMOCRACY', 'BBG_DIGITAL_DEMOCRACY_TOURISM_' || DistrictType || '_MODIFIER' FROM Districts WHERE DistrictType NOT IN ('DISTRICT_CITY_CENTER', 'DISTRICT_WONDER');

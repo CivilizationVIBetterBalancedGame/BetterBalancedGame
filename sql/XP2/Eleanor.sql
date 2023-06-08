@@ -27,19 +27,19 @@ INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId, Permane
     SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_GREATWORK_YIELD', 'BBG_CITY_HAS_' || DistrictType, 1
     FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
 
--- Create District Requirements
-INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
-    SELECT 'BBG_CITY_HAS_' || DistrictType, 'REQUIREMENTSET_TEST_ALL'
-    FROM TmpEldenEleonore;
-INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
-    SELECT 'BBG_CITY_HAS_' || DistrictType, 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT'
-    FROM TmpEldenEleonore;
-INSERT INTO Requirements(RequirementId , RequirementType)
-    SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'REQUIREMENT_CITY_HAS_DISTRICT'
-    FROM TmpEldenEleonore;
-INSERT INTO RequirementArguments(RequirementId , Name, Value)
-    SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType
-    FROM TmpEldenEleonore;
+-- Create District Requirements (moved to _utils.sql)
+-- INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
+--     SELECT 'BBG_CITY_HAS_' || DistrictType, 'REQUIREMENTSET_TEST_ALL'
+--     FROM TmpEldenEleonore;
+-- INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
+--     SELECT 'BBG_CITY_HAS_' || DistrictType, 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT'
+--     FROM TmpEldenEleonore;
+-- INSERT INTO Requirements(RequirementId , RequirementType)
+--     SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'REQUIREMENT_CITY_HAS_DISTRICT'
+--     FROM TmpEldenEleonore;
+-- INSERT INTO RequirementArguments(RequirementId , Name, Value)
+--     SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType
+--     FROM TmpEldenEleonore;
 
 -- Set Modifiers Arguments to correct value
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
@@ -70,3 +70,33 @@ UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLAYER_IS_NOT_ELEANOR' WHERE M
     ('MINOR_CIV_BABYLON_GREAT_WORK_WRITING_SCIENCE', 'MINOR_CIV_BABYLON_GREAT_WORK_RELIC_SCIENCE', 'MINOR_CIV_BABYLON_GREAT_WORK_ARTIFACT_SCIENCE');
 
 DROP TABLE TmpEldenEleonore;
+
+--07/06/23 scale to 2 after Humanism
+-- Create and attach modifier to Eleanor
+-- INSERT INTO TraitModifiers(TraitType, ModifierId)
+--     SELECT 'TRAIT_LEADER_ELEANOR_LOYALTY', 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_HUMANISM_MODIFIER'
+--     FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
+-- INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId, Permanent)
+--     SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_HUMANISM_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_GREATWORK_YIELD', 'BBG_PLAYER_HAS_CIVIC_HUMANISM_REQSET', 'BBG_CITY_HAS_' || DistrictType, 1
+--     FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
+
+-- -- Set Modifiers Arguments to correct value
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value)
+--     SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_HUMANISM_MODIFIER', 'GreatWorkObjectType', GreatWorkObjectType
+--     FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value)
+--     SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_HUMANISM_MODIFIER', 'YieldType', YieldType
+--     FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
+-- --4/10/22 Eleanor bonus reduced to 1
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value)
+--     SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_HUMANISM_MODIFIER', 'YieldChange', '2'
+--     FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
+
+-- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+--     ('BBG_PLAYER_DOES_NOT_HAVE_HUMANISM_REQSET', 'REQUIREMENTSET_TEST_ALL');
+-- INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
+--     ('BBG_PLAYER_DOES_NOT_HAVE_HUMANISM_REQUIREMENT', 'REQUIREMENT_PLAYER_HAS_CIVIC', 1);
+-- INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+--     ('BBG_PLAYER_DOES_NOT_HAVE_HUMANISM_REQUIREMENT', 'CivicType', 'CIVIC_HUMANISM');
+-- INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+--     ('BBG_PLAYER_DOES_NOT_HAVE_HUMANISM_REQSET', 'BBG_PLAYER_DOES_NOT_HAVE_HUMANISM_REQUIREMENT');

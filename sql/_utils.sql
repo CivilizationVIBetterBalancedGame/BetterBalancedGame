@@ -1,4 +1,25 @@
 
+-- -- Create requirements for each district (needed partially for Eleanor)
+INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
+    SELECT 'BBG_CITY_HAS_' || DistrictType, 'REQUIREMENTSET_TEST_ALL' FROM Districts;
+INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
+    SELECT 'BBG_CITY_HAS_' || DistrictType, 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT' FROM Districts;
+INSERT INTO Requirements(RequirementId , RequirementType)
+    SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'REQUIREMENT_CITY_HAS_DISTRICT' FROM Districts;
+INSERT INTO RequirementArguments(RequirementId , Name, Value)
+    SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType FROM Districts;
+
+-- -- Create requirements for each district (needed for digital democracy)
+INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
+    SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Districts;
+INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
+    SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQSET', 'BBG_DISTRICT_IS_' || DistrictType || '_REQUIREMENT' FROM Districts;
+INSERT INTO Requirements(RequirementId , RequirementType)
+    SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQUIREMENT', 'REQUIREMENT_DISTRICT_TYPE_MATCHES' FROM Districts;
+INSERT INTO RequirementArguments(RequirementId , Name, Value)
+    SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType FROM Districts;
+
+
 -- Create requirements for each technology
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
     SELECT 'BBG_UTILS_PLAYER_HAS_' || TechnologyType, 'REQUIREMENTSET_TEST_ALL' FROM Technologies;
