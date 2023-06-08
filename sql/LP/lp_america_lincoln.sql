@@ -18,7 +18,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_LINCOLN', 'BBG_LINCOLN_UNITMAINTENANCEDISCOUNT');
 
--- 16/04/23 +50% toward aqueducs
+-- 16/04/23 +100% toward aqueducs
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_LINCOLN', 'BBG_LINCOLN_AQUEDUCT_BONUS_PRODUCTION');
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES

@@ -28,8 +28,44 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_GOV_CORPORATE_LIBERALISM_URANIUM_ACCUMULATION_MODIFIER', 'Amount', 5),
     ('BBG_GOV_CORPORATE_LIBERALISM_ALUMINUM_ACCUMULATION_MODIFIER', 'Amount', 5),
     ('BBG_GOV_CORPORATE_LIBERALISM_OIL_ACCUMULATION_MODIFIER', 'Amount', 5);
---Attaching Modifiers to Warlor's Throne
+--Attaching Modifiers to Gov
 INSERT INTO GovernmentModifiers(GovernmentType, ModifierId) VALUES
     ('GOVERNMENT_CORPORATE_LIBERTARIANISM', 'BBG_GOV_CORPORATE_LIBERALISM_URANIUM_ACCUMULATION_MODIFIER'),
     ('GOVERNMENT_CORPORATE_LIBERTARIANISM', 'BBG_GOV_CORPORATE_LIBERALISM_ALUMINUM_ACCUMULATION_MODIFIER'),
     ('GOVERNMENT_CORPORATE_LIBERTARIANISM', 'BBG_GOV_CORPORATE_LIBERALISM_OIL_ACCUMULATION_MODIFIER');
+
+
+-- 16/04/23 synthetic technocracy +50% toward many districts/buildings (list in the created table)
+CREATE TABLE TmpSyntheticTechnocracyDistricts(DistrictType PRIMARY KEY NOT NULL);
+INSERT INTO TmpSyntheticTechnocracyDistricts(DistrictType) VALUES
+    ('DISTRICT_SPACEPORT'),
+    ('DISTRICT_INDUSTRIAL_ZONE'),
+    ('DISTRICT_HANSA'),
+    ('DISTRICT_OPPIDUM'),
+    ('DISTRICT_CAMPUS'),
+    ('DISTRICT_OBSERVATORY'),
+    ('DISTRICT_SEOWON'),
+    ('DISTRICT_HARBOR'),
+    ('DISTRICT_COTHON'),
+    ('DISTRICT_ROYAL_NAVY_DOCKYARD');
+-- Districts
+INSERT INTO Modifiers (ModifierId, ModifierType)
+    SELECT 'BBG_TECHNOCRACY_SYNTHETIC_' || TmpSyntheticTechnocracyDistricts.DistrictType || '_BONUS_PRODUCTION_DISTRICT', 'MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION' FROM TmpSyntheticTechnocracyDistricts;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_TECHNOCRACY_SYNTHETIC_' || TmpSyntheticTechnocracyDistricts.DistrictType || '_BONUS_PRODUCTION_DISTRICT', 'DistrictType', TmpSyntheticTechnocracyDistricts.DistrictType FROM TmpSyntheticTechnocracyDistricts;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_TECHNOCRACY_SYNTHETIC_' || TmpSyntheticTechnocracyDistricts.DistrictType || '_BONUS_PRODUCTION_DISTRICT', 'Amount', '50' FROM TmpSyntheticTechnocracyDistricts;
+-- Buildings
+INSERT INTO Modifiers (ModifierId, ModifierType)
+    SELECT 'BBG_TECHNOCRACY_SYNTHETIC_' || TmpSyntheticTechnocracyDistricts.DistrictType || '_BONUS_PRODUCTION_BUILDING', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION' FROM TmpSyntheticTechnocracyDistricts;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_TECHNOCRACY_SYNTHETIC_' || TmpSyntheticTechnocracyDistricts.DistrictType || '_BONUS_PRODUCTION_BUILDING', 'DistrictType', TmpSyntheticTechnocracyDistricts.DistrictType FROM TmpSyntheticTechnocracyDistricts;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_TECHNOCRACY_SYNTHETIC_' || TmpSyntheticTechnocracyDistricts.DistrictType || '_BONUS_PRODUCTION_BUILDING', 'Amount', '50' FROM TmpSyntheticTechnocracyDistricts;
+--Attaching Modifiers to Gov
+INSERT INTO GovernmentModifiers (GovernmentType, ModifierId)
+    SELECT 'GOVERNMENT_SYNTHETIC_TECHNOCRACY', 'BBG_TECHNOCRACY_SYNTHETIC_' || TmpSyntheticTechnocracyDistricts.DistrictType || '_BONUS_PRODUCTION_DISTRICT' FROM TmpSyntheticTechnocracyDistricts;
+INSERT INTO GovernmentModifiers (GovernmentType, ModifierId)
+    SELECT 'GOVERNMENT_SYNTHETIC_TECHNOCRACY', 'BBG_TECHNOCRACY_SYNTHETIC_' || TmpSyntheticTechnocracyDistricts.DistrictType || '_BONUS_PRODUCTION_BUILDING' FROM TmpSyntheticTechnocracyDistricts;
+
+DROP TABLE TmpSyntheticTechnocracyDistricts;
