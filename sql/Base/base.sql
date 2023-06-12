@@ -96,6 +96,8 @@ INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType) VALUES
     ('IMPROVEMENT_BEACH_RESORT', 'TERRAIN_GRASS_HILLS'),
     ('IMPROVEMENT_BEACH_RESORT', 'TERRAIN_PLAINS_HILLS'),
     ('IMPROVEMENT_BEACH_RESORT', 'TERRAIN_DESERT_HILLS');
+-- 12/06/23 Beach Resort can be built on appealling tiles
+UPDATE Improvements SET MinimumAppeal=2 WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
 
 --****		REQUIREMENTS		****--
 INSERT OR IGNORE INTO Requirements
