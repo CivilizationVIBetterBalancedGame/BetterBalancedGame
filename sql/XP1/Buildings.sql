@@ -37,3 +37,10 @@ UPDATE RequirementArguments SET Value='TERRAIN_TUNDRA' WHERE RequirementId='REQU
 -- St. Basil gives 1 relic
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_ST_BASILS_CATHEDRAL', 'WONDER_GRANT_RELIC_BBG');
+
+
+--12/06/23 Water Park building buff
+-- Ferris wheel tourism from 2 to 6
+UPDATE ModifierArguments SET Value=6 WHERE Name='FERRIS_WHEEL_TOURISM';
+-- Aquatics Center: +6 Tourism for each wonder built in this city on or adjacent to coast (from +2)
+UPDATE ModifierArguments SET Value=6 WHERE Name='AQUATICS_CENTER_WONDER_TOURISM';
