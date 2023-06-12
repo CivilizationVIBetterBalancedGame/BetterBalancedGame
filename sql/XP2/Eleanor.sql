@@ -51,7 +51,13 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 --4/10/22 Eleanor bonus reduced to 1
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
     SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'YieldChange', '1'
-    FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
+    FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes WHERE GreatWorkObjectTypes.GreatWorkObjectType IN ('GREATWORKOBJECT_WRITING', 'GREATWORKOBJECT_RELIC');
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+    SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'YieldChange', '2'
+    FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes WHERE GreatWorkObjectTypes.GreatWorkObjectType IN ('GREATWORKOBJECT_ARTIFACT', 'GREATWORKOBJECT_PORTRAIT', 'GREATWORKOBJECT_LANDSCAPE', 'GREATWORKOBJECT_RELIGIOUS', 'GREATWORKOBJECT_SCULPTURE');
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+    SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'YieldChange', '4'
+    FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes WHERE GreatWorkObjectTypes.GreatWorkObjectType IN ('GREATWORKOBJECT_MUSIC');
 
 -- Fix Anshan bug with Eleanor
 INSERT INTO RequirementSets(RequirementSetId , RequirementSetType) VALUES
