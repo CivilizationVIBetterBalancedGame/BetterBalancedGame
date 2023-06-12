@@ -99,6 +99,13 @@ INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType) VALUES
 -- 12/06/23 Beach Resort can be built on appealling tiles
 UPDATE Improvements SET MinimumAppeal=2 WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
 
+-- 12/06/23 Fix tourism at flight on some improvement
+INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, PrereqTech)
+    SELECT Improvements.ImprovementType, 'TOURISMSOURCE_CULTURE', 'TECH_FLIGHT' From Improvements WHERE ImprovementType IN ('IMPROVEMENT_FARM', 'IMPROVEMENT_QUARRY', 'IMPROVEMENT_CAMP', 'IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_LUMBER_MILL', 'IMPROVEMENT_OIL_WELL', 'IMPROVEMENT_OFFSHORE_OIL_RIG');
+INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, PrereqTech) VALUES
+    ('IMPROVEMENT_MONASTERY', 'TOURISMSOURCE_FAITH', 'TECH_FLIGHT');
+
+
 --****		REQUIREMENTS		****--
 INSERT OR IGNORE INTO Requirements
 	(RequirementId , RequirementType)
