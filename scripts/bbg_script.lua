@@ -2492,6 +2492,22 @@ end
 	--LuaEvents.UIBCYAdjustCityYield.Add(OnUIBCYAdjustCityYield)
 --end
 -- ===========================================================================
+-- Spy
+-- ===========================================================================
+function OnGameplaySpyMissionCompleted(iPlayerID, kParameters)
+	--Debug("Called", "OnGameplaySpyMissionCompleted")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iMinorID = kParameters["iMinorID"]
+	--Debug("iPlayerID, iMissionID "..tostring(iPlayerID).." , "..tostring(iMissionID),"OnGameplaySpyMissionCompleted")
+	if kParameters.Captured then
+		local pPlayer = Players[iPlayerID]
+		pPlayer:AttachModifierByID("MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG")
+		--Debug("Spy Capacity added to iPlayerID "..tostring(iPlayerID), "OnGameplaySpyMissionCompleted")
+	end
+end
+
+
+-- ===========================================================================
 --	Tools
 -- ===========================================================================
 function CalculateBaseYield(pPlot: object, tYieldList: table, bResource)
@@ -3864,6 +3880,8 @@ function Initialize()
 	--LuaEvents.UISetCSTrader.Add(OnUISetCSTrader)
 	GameEvents.GameplaySetCSTrader.Add(OnGameplaySetCSTrader)
 	print("BBG Amani Gameplay hooks added")
+	GameEvents.GameplaySpyMissionCompleted.Add(OnGameplaySpyMissionCompleted)
+	print("BBG Spy Capture Capacity Gameplay Hook Added")
 	--Delete Suntzu for not-Unifier
 	--LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
 	--5.2. Disable: GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
