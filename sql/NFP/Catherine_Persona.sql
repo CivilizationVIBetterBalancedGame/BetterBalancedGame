@@ -10,7 +10,6 @@
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLAYER_HAS_CIVIC_MEDIEVAL_FAIRES_REQSET' WHERE ModifierType='MODIFIER_PLAYER_ALLOW_PROJECT_CATHERINE';
 -- UPDATE ModifierArguments SET Value='40' WHERE ModifierId='PROJECT_COMPLETION_GRANT_CULTURE_BASED_ON_EXCESS_LUXURIES' AND Name='Amount';
 -- UPDATE ModifierArguments SET Value='40' WHERE ModifierId='PROJECT_COMPLETION_GRANT_TOURISM_BASED_ON_EXCESS_LUXURIES' AND Name='Amount';
-
 -- 15/06/23 All improved resources get +1 culture Ressources next to chateaux get +1 (don't stack if next to 2 chateaux) Ressources next to theatre get +1
 -- 15/07/2022: Magnificence castel/theater gives culture to improved strategic adjacent
 --REQUIRES_PLOT_HAS_IMPROVED_STRATEGIC exists only in GS, recreate
@@ -31,7 +30,6 @@ UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLAYER_HAS_CIVIC_MEDIEVAL_FAIR
 --     ('BBG_MAGNIFICENCES_CULTURE_STRATEGIC_ADJACENT_TO_THEATER_SQUARE_OR_CHATEAU', 'Amount', '2');
 -- INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 --     ('TRAIT_LEADER_MAGNIFICENCES', 'BBG_MAGNIFICENCES_CULTURE_STRATEGIC_ADJACENT_TO_THEATER_SQUARE_OR_CHATEAU');
-
 -- -- 15/07/2022: Magnificence castel/theater gives culture to improved bonus adjacent
 -- INSERT INTO Requirements (RequirementId, RequirementType) VALUES
 --     ('BBG_REQUIRES_PLOT_HAS_IMPROVED_BONUS', 'REQUIREMENT_PLOT_IMPROVED_RESOURCE_CLASS_TYPE_MATCHES');
@@ -50,7 +48,6 @@ UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLAYER_HAS_CIVIC_MEDIEVAL_FAIR
 --     ('BBG_MAGNIFICENCES_CULTURE_BONUS_ADJACENT_TO_THEATER_SQUARE_OR_CHATEAU', 'Amount', '2');
 -- INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 --     ('TRAIT_LEADER_MAGNIFICENCES', 'BBG_MAGNIFICENCES_CULTURE_BONUS_ADJACENT_TO_THEATER_SQUARE_OR_CHATEAU');
-
 -- Culture for every improvement on resource
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_TILE_HAS_ANY_IMPROVEMENT_ON_RESOURCE_REQSET', 'REQUIREMENTSET_TEST_ALL');
