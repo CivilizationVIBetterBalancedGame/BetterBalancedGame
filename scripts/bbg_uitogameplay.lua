@@ -480,7 +480,34 @@ function OnLudwigWonderCompleted(iX, iY, iBuildingID, iPlayerID, iCityID, nPerce
 	kParameters["nPercentComplete"] = nPercentComplete
 	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 end
-
+--Spy Capture gives Capacity 5.4
+function OnSpyMissionCompleted(iPlayerID, iMissionID)
+	--Debug("Called  "..tostring(iPlayerID), "OnSpyMissionCompleted")
+	local tMission:table = nil;
+	if iPlayerID ~= Game.GetLocalPlayer() then
+		return --print("Mission Completed Raised not on Owner")
+	end
+	local pPlayer:table = Players[iPlayerID];
+	if pPlayer then
+		local pPlayerDiplomacy:table = pPlayer:GetDiplomacy();
+		if pPlayerDiplomacy then
+			tMission = pPlayerDiplomacy:GetMission(iPlayerID, iMissionID);
+			if tMission == nil then
+				UI.DataError("Unable to show misison completed popup for mission ID: " .. tostring(iMissionID));
+				return
+			end
+		end
+	end
+	local kParameters = {}
+	if tMission.InitialResult ~= EspionageResultTypes.CAPTURED and tMission.EscapeResult ~= EspionageResultTypes.CAPTURED then
+		return --print("Spy not Captured")
+	end
+	kParameters.Captured = true
+	kParameters.OnStart = "GameplaySpyMissionCompleted"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iMissionID"] = iMissionID
+	UI.RequestPlayerOperation(Game.GetLocalPlayer(), PlayerOperations.EXECUTE_SCRIPT, kParameters)
+end
 --Support
 function GetAppointedGovernor(playerID:number, governorTypeIndex:number)
 	-- Make sure we're looking for a valid governor
@@ -599,6 +626,8 @@ function Initialize()
 	--delete suntzu after use for non-unifier
 	--5.2. Disable: Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedNotQinUnifier)
 	--5.2. Disable: print("Delete Suntzu UI Hook added")
+	Events.SpyMissionCompleted.Add(OnSpyMissionCompleted)
+	print("Spy Capture Capacity UI hook added")
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
 		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
