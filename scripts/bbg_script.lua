@@ -907,17 +907,17 @@ function OnBCYCityBuiltLegacy(iPlayerID, iCityID, iX, iY)
 end
 --standard
 function OnBCYCityBuiltStandard(iPlayerID, iCityID, iX, iY)
-	print("OnBCYCityBuiltStandard started")
+	--print("OnBCYCityBuiltStandard started")
 	local pCity = CityManager.GetCity(iPlayerID, iCityID)
 	if pCity == nil then
-		return print("Error: pCity is nil")
+		return --print("Error: pCity is nil")
 	end
 	if BBCC_MODE == 1 and (Players[iPlayerID]:GetCities():GetCount() > 1) then
 		return --print("BCY Capital Only: This City isn't a Capital => Exit")
 	end
 	local pPlot = Map.GetPlot(iX, iY)
 	if pPlot == nil then
-		return print("Error: pPlot is nil")
+		return --print("Error: pPlot is nil")
 	end
 	local sCivTypeName = PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()
 	--if (sCivTypeName == "CIVILIZATION_RUSSIA") or (sCivTypeName == "CIVILIZATION_MALI") or (sCivTypeName == "CIVILIZATION_CANADA") then
@@ -935,12 +935,14 @@ function OnBCYCityBuiltStandard(iPlayerID, iCityID, iX, iY)
 		return
 	end
 	local bStratControl = false
+	--print("iResource", iResource)
 	if iResource~= -1 and iResource ~=nil then 
 		bStratControl = (GameInfo.Resources[iResource].ResourceClassType == "RESOURCECLASS_STRATEGIC")
 	end
 	--print("BCY Std: bStratControl", bStratControl)
 	local bPreRevealRebalance = true
-	local bPostRevealRebalance = false
+	local bPostRevealRebalance = true
+	local token = 0
 	for i = 0,5 do
 		local nBCYGuaranteedYield = GameInfo[sControllString][i].Amount	
 		tBasePlotYields_Fin[i] = tBasePlotYields_Init[i] + GetYield("RESOURCE", iResource, i)
@@ -948,12 +950,15 @@ function OnBCYCityBuiltStandard(iPlayerID, iCityID, iX, iY)
 			bPreRevealRebalance = false
 			bPostRevealRebalance = false
 			break
-		elseif nBCYGuaranteedYield >= tBasePlotYields_Fin[i] then
-			bPostRevealRebalance = true
 		elseif nBCYGuaranteedYield < tBasePlotYields_Fin[i] then
 			bPostRevealRebalance = false
 			break
+		elseif nBCYGuaranteedYield == tBasePlotYields_Fin[i] then
+			token = token+1
 		end
+	end
+	if token == 6 then 
+		bPostRevealRebalance = false
 	end
 	--print("BCY Std: bPreRevealRebalance", bPreRevealRebalance)
 	--print("BCY Std: bPostRevealRebalance", bPostRevealRebalance)
@@ -1009,7 +1014,7 @@ function OnBCYCityBuiltStandard(iPlayerID, iCityID, iX, iY)
 			end
 		end 			
 	else
-		if bPostRevealRebalance == false then
+		if bPreRevealRebalance == false then
 			return --print("No Rebalance")
 		end
 		--print("BCY Std: Rebalance of non-strategic and non resource settles")
