@@ -18,7 +18,8 @@ UPDATE Improvements SET TilesRequired=2 WHERE ImprovementType='IMPROVEMENT_PAIRI
 
 -- Immortals to 36 to match swordsman up.
 -- 16/04/23 +3 to compensate loss of support bonus
-UPDATE Units SET Combat=39 WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
+-- 15/06/23 Reverted
+UPDATE Units SET Combat=36 WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
 
 --internal trades routes scale on gold 
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
