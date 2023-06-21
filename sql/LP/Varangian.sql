@@ -8,3 +8,21 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_VARANGIAN_HOLY_SITE_BONUS_PRODUCTION_BUILDING', 'Amount', '50');
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_HARALD_ALT', 'BBG_VARANGIAN_HOLY_SITE_BONUS_PRODUCTION_BUILDING');
+
+--21/06/23 Varangian stave church gives +1 influence point per turn
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+	('BBG_VARANGIAN_STAVE_CHURCH_INFLUENCE', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN', 'BBG_PLAYER_IS_VARANGIAN');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_VARANGIAN_STAVE_CHURCH_INFLUENCE', 'Amount', 1);
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+	('BUILDING_STAVE_CHURCH', 'BBG_VARANGIAN_STAVE_CHURCH_INFLUENCE');
+
+-- Create IS_VARANGIAN requirement
+INSERT INTO RequirementSets(RequirementSetId , RequirementSetType) VALUES
+	('BBG_PLAYER_IS_VARANGIAN', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId) VALUES
+	('BBG_PLAYER_IS_VARANGIAN', 'BBG_PLAYER_IS_VARANGIAN_REQUIREMENT');
+INSERT INTO Requirements(RequirementId , RequirementType) VALUES
+	('BBG_PLAYER_IS_VARANGIAN_REQUIREMENT' , 'REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES');
+INSERT INTO RequirementArguments(RequirementId , Name, Value) VALUES
+	('BBG_PLAYER_IS_VARANGIAN_REQUIREMENT' , 'LeaderType', 'LEADER_HARALD_ALT');
