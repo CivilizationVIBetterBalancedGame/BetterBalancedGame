@@ -610,3 +610,8 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 --18/12/22 Mosque 2 charges per missionary
 UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MOSQUE_ADJUST_SPREAD_CHARGES' AND Name='Amount';
 
+
+-- 21/06/23 Condemn a unit doesn't reduce religious pressure around.
+UPDATE GlobalParameters SET Value=0 WHERE Name='RELIGION_SPREAD_UNIT_CAPTURE';
+--21/06/23 Buff passive spread distance from 10 to 12
+UPDATE GlobalParameters SET Value=12 WHERE Name='RELIGION_SPREAD_ADJACENT_CITY_DISTANCE';
