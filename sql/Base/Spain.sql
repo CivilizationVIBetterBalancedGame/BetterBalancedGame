@@ -4,8 +4,8 @@
 -- Early Fleets moved to Mercenaries
 UPDATE ModifierArguments SET Value='CIVIC_MERCENARIES' WHERE Name='CivicType' AND ModifierId='TRAIT_NAVAL_CORPS_EARLY';
 -- 30% discount on missionaries
-INSERT OR IGNORE INTO TraitModifiers ( TraitType , ModifierId )
-    VALUES ('TRAIT_LEADER_EL_ESCORIAL' , 'HOLY_ORDER_MISSIONARY_DISCOUNT_MODIFIER');
+INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_EL_ESCORIAL', 'HOLY_ORDER_MISSIONARY_DISCOUNT_MODIFIER');
 -- 15/05/2021: Delete free builder on foreign continent
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_TREASURE_FLEET' AND ModifierId='TRAIT_INTERCONTINENTAL_BUILDER';
 -- 15/05/2021: Conquistador to +5 (from +10)
