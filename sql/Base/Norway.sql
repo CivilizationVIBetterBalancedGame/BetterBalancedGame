@@ -72,7 +72,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 -- +50% production towards Holy Sites and associated Buildings
 -- INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId) VALUES
 -- 	('TRAIT_LEADER_MELEE_COASTAL_RAIDS', 'THUNDERBOLT_HOLY_SITE_DISTRICT_BOOST');
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType) VALUES
 	('THUNDERBOLT_HOLY_SITE_DISTRICT_BOOST', 'MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('THUNDERBOLT_HOLY_SITE_DISTRICT_BOOST', 'DistrictType', 'DISTRICT_HOLY_SITE'),
@@ -83,7 +83,6 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_CIVILIZATION_EARLY_OCEAN_NAVIGATION', 'THUNDERBOLT_HOLY_SITE_DISTRICT_BOOST'),
 	('TRAIT_CIVILIZATION_EARLY_OCEAN_NAVIGATION', 'BBG_HOLY_SITE_COASTAL_ADJACENCY');
 
---21/06/23 Varangian also gets 50% toward holy site building
 
 -- Naval Melee Production from 50% to 25%
 UPDATE ModifierArguments SET Value = '25' WHERE ModifierId IN (

@@ -26,3 +26,12 @@ INSERT INTO Requirements(RequirementId , RequirementType) VALUES
 	('BBG_PLAYER_IS_VARANGIAN_REQUIREMENT' , 'REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES');
 INSERT INTO RequirementArguments(RequirementId , Name, Value) VALUES
 	('BBG_PLAYER_IS_VARANGIAN_REQUIREMENT' , 'LeaderType', 'LEADER_HARALD_ALT');
+
+-- Varangian levied unit gets +1 movement point
+-- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+-- 	('BBG_VARANGIAN_LEVIED_MOVEMENT', 'MODIFIER_PLAYER_UNITS_ADJUST_MOVEMENT');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+-- 	('BBG_VARANGIAN_LEVIED_MOVEMENT', 'Amount', 1);
+-- INSERT INTO UnitAbilityModifiers (UnitAbilityType, ModifierId) VALUES
+-- 	('ABILITY_LEVIED_HARALD', 'BBG_VARANGIAN_LEVIED_MOVEMENT');
+-- UPDATE Modifiers SET SubjectRequirementSetId='UNIT_IS_LEVIED_REQUIREMENTS_XP2' WHERE ModifierId='HARALD_LEVY_UNITS_GRANT_ABILITY';
