@@ -71,3 +71,12 @@ INSERT INTO GovernmentModifiers (GovernmentType, ModifierId)
 DROP TABLE TmpSyntheticTechnocracyDistricts;
 
 DELETE FROM GovernmentModifiers WHERE ModifierId IN ('CORPORATE_LIBERTARIANISM_SCIENCE_PENALTY', 'SYNTHETIC_TECHNOCRACY_TOURISM_PENALTY', 'DIGITAL_DEMOCRACY_COMBAT_STRENGTH_PENALTY');
+
+-- 07/06/23 digital democracy gives 2 tourism per district 
+-- Districts.TraitType IS NULL remove the creation of modifier for unique district (they work with the original one)
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+    SELECT 'BBG_DIGITAL_DEMOCRACY_TOURISM_' || DistrictType || '_MODIFIER', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_TOURISM_CHANGE', 'BBG_DISTRICT_IS_' || DistrictType || '_REQSET' FROM Districts WHERE DistrictType NOT IN ('DISTRICT_CITY_CENTER', 'DISTRICT_WONDER') AND Districts.TraitType IS NULL;
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_DIGITAL_DEMOCRACY_TOURISM_' || DistrictType || '_MODIFIER', 'Amount', 2 FROM Districts WHERE DistrictType NOT IN ('DISTRICT_CITY_CENTER', 'DISTRICT_WONDER') AND Districts.TraitType IS NULL;
+INSERT INTO GovernmentModifiers (GovernmentType, ModifierId)
+    SELECT 'GOVERNMENT_DIGITAL_DEMOCRACY', 'BBG_DIGITAL_DEMOCRACY_TOURISM_' || DistrictType || '_MODIFIER' FROM Districts WHERE DistrictType NOT IN ('DISTRICT_CITY_CENTER', 'DISTRICT_WONDER') AND Districts.TraitType IS NULL;
