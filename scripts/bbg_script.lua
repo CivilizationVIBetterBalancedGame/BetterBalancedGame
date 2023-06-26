@@ -151,6 +151,21 @@ function PopulateBugWonders()
 		end
 	end
 end
+
+function InitCapitals()
+	print("InitCapitals: Called")
+	local nMajCount = PlayerManager.GetAliveMajorsCount()
+	print("nMajCount", nMajCount)
+	local tCapitals = {}
+	for i=1, nMajCount do
+		local row = {}
+		row["iCityID"] = -1
+		row["iX"] = -9999
+		row["iY"] = -9999
+		tCapitals[i-1] = row
+	end
+	Game.SetProperty("P_CAPITALS", tCapitals)
+end
 -- ==========================================================================
 -- Setting Up data to easily deal with communism(legacy) workers
 -- ==========================================================================
@@ -2515,7 +2530,390 @@ function OnGameplaySpyMissionCompleted(iPlayerID, kParameters)
 		pPlayer:AttachModifierByID("WU_ZETIAN_FREE_SPY")
 	end
 end
+-- ===========================================================================
+-- Religion
+-- ===========================================================================
+local c_BeliefClass = {"Pantheon", "Founder", "Follower", "Enhancer", "Worship"}
+--Property Legend:
+--Game:SetProperty("FOUNDED_RELIGIONS", tReligion)
+--tReligion[i] = row, 
+--row["iReligionID"] = iReligionID
+--row.Founders = {Founder1, ..., FounderN}
+--Game:SetProperty("P_BELIEFS", tBeliefs)
+--tBeliefs[i] =  row
+--row["iPlayerID"] = iPlayerID
+--row.Pantheon = iPanthBeliefID
+--row.Founder = iFounderBeliefID
+--row.Follower = iFollowerBeliefID
+--row.Enhancer = iEnhancerBeliefID
+--row.Worship = iWorshipBeliefID
+--Game:SetProperty("P_CAPITALS", tCapitals)
+--tCapitals[iPlayerID] = row
+--row["iCityID"] = iCityID
+--row["iX"] = iX
+--row["iY"] = iY
+function OnGameplayReligionFounded(iPlayerID, kParameters)
+	print("OnGameplayReligionFounded: Called")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iReligionID = kParameters["iReligionID"]
+	print("OnGameplayReligionFounded with iPlayerID, kParameters ",iPlayerID, iReligionID)
+	local tReigion = Game:GetProperty("FOUNDED_RELIGIONS")
+	local mPos = false
+	if tReigion == nil then
+		tReigion = {}
+	else
+		mPos = IDToPos(tReigion, iReligionID, "iReligionID")
+		print("OnGameplayReligionFounded: mPos", mPos)
+	end
+	if mPos == false then
+		--creates table entry for new religion
+		local row = {}
+		row["iReligionID"] = iReligionID
+		row.Founders = {}
+		table.insert(row.Founders, iPlayerID)
+		table.insert(tReigion, row)
+	else
+		--handles exceptional case when several people found religion with the same id on the same turn
+		--e.g. 2x islam. Hoping to fix this bug along the way for Founder and Reformer
+		local row = tReigion[mPos]
+		if IDToPos(row.Founders, iPlayerID)~=false then
+			return print("Error: Same FounderID added several times")
+		end
+		local tFounders = row.Founders
+		table.insert(tFounders, iPlayerID)
+		row.Founders = tFounders
+		tReigion[mPos] = row
+	end
+	Game:SetProperty("FOUNDED_RELIGIONS", tReigion)
+end
 
+function OnGameplayBeliefAdded(iPlayerID, kParameters)
+	print("OnGameplayBeliefAdded: Called")
+	local iPlayerID = kParameters["iPlayerID"]
+	local iBeliefID = kParameters["iBeliefID"]
+	local tBeliefs = Game:GetProperty("P_BELIEFS")
+	local mPos = false
+	local row = {}
+	if tBeliefs == nil then
+		tBeliefs = {}
+	else
+		mPos = IDToPos(tBeliefs, iPlayerID, "iPlayerID")
+	end
+	if mPos == false then
+		--creates an instance of beliefs for a given player
+		row["iPlayerID"] = iPlayerID
+		row.Pantheon = -1
+		row.Founder = -1
+		row.Follower = -1
+		row.Enhancer = -1
+		row.Worship = -1
+		row = UpdateBeliefRow(row, iBeliefID)
+		table.insert(tBeliefs, row)
+	else
+		row = tBeliefs[mPos]
+		row = UpdateBeliefRow(row, iBeliefID)
+		tBeliefs[mPos] = row
+	end
+	Game:SetProperty("P_BELIEFS", tBeliefs)
+	if GetBeliefClassID(iBeliefID) ~= 2 and GetBeliefClassID(iBeliefID) ~= 4 then
+		return print("Not Founder or Enhancer Belief => No need to set property => Exit")
+	end
+	UpdatePlayerReligiousProperty(iPlayerID, iBeliefID, true)
+	local iMvembaPlayerID = Game:GetProperty("MVEMVBA_ID")
+	if iMvembaPlayerID ~= nil then
+		RecalculateMvemba(iMvembaPlayerID)
+	end
+end
+
+function OnGameplayCapitalCityChanged(iPlayerID, kParameters)
+	print("OnGameplayCapitalCityChanged: Called for iPlayerID", iPlayerID)
+	local iPlayerID = kParameters["iPlayerID"]
+	local iCityID = kParameters["iCityID"]
+	local tCapitals = Game:GetProperty("P_CAPITALS")
+	local iOldCap = -1
+	local iOldX = -9999
+	local iOldY = -9999
+	local pNewCap: object
+	local iNewX: number
+	local iNewY: number
+	if tCapitals[iPlayerID] == nil then
+		return
+	end
+	if tCapitals[iPlayerID]["iCityID"] ~= iCityID then
+		iOldCap = tCapitals[iPlayerID]["iCityID"]
+		iOldX = tCapitals[iPlayerID]["iX"]
+		iOldY = tCapitals[iPlayerID]["iY"]
+		tCapitals[iPlayerID]["iCityID"]  = iCityID
+		pNewCap = CityManager.GetCity(iPlayerID, iCityID)
+		iNewX = pNewCap:GetX()
+		iNewY = pNewCap:GetY()
+		tCapitals[iPlayerID]["iX"]  = iNewX
+		tCapitals[iPlayerID]["iY"]  = iNewY
+	end
+	Game:SetProperty("P_CAPITALS", tCapitals)
+	print("OnGameplayCapitalCityChanged: P_CAPITALS Updated for iPlayerID with Capital iCityID", iPlayerID, iCityID)
+	if iOldCap == -1 then
+		return print("Original Capital Founded for iPlayerID", iPlayerID, "=> No need to move Properties => Exit")
+	end
+	print("Capital Moved for iPlayerID", iPlayerID, "=> Investigate Moving Properties")
+	local tBeliefs = Game.GetProperty("P_BELIEFS")
+	if tBeliefs  == nil then
+		return print("P_BELIEFS doesn't exist => Exit")
+	end
+	local mPos = IDToPos(tBeliefs, iPlayerID, "iPlayerID")
+	if mPos == false then
+		return print("P_BELIEFS has no data for iPlayerID", iPlayerID, "=> Exit")
+	end
+	local tBeliefData = tBeliefs[mPos]
+
+	if tBeliefData[c_BeliefClass[2]] ~= -1 then
+		local pOldCapPlot = Map.GetPlot(iOldX, iOldY)
+		local pNewCapPlot = Map.GetPlot(iNewX, iNewY)
+		pOldCapPlot:SetProperty("FOUNDER_OF_"..tostring(GameInfo.Beliefs[tBeliefData[c_BeliefClass[2]]].BeliefType), nil)
+		pNewCapPlot:SetProperty("FOUNDER_OF_"..tostring(GameInfo.Beliefs[tBeliefData[c_BeliefClass[2]]].BeliefType), 1)
+		print("Founder Property Transfered on iPlayerID from iOldCap to iCityID ", iPlayerID, iOldCap, iCityID,"plot from iX, iY", iOldX, iOldY, "to iX, iY", iNewX, iNewY, "for Belief", tostring(GameInfo.Beliefs[tBeliefData[c_BeliefClass[2]]].BeliefType))
+	end
+	if tBeliefData[c_BeliefClass[4]] ~= -1 then
+		local pOldCapPlot = Map.GetPlot(iOldX, iOldY)
+		local pNewCapPlot = Map.GetPlot(iNewX, iNewY)
+		pOldCapPlot:SetProperty("FOUNDER_OF_"..tostring(GameInfo.Beliefs[tBeliefData[c_BeliefClass[4]]].BeliefType), nil)
+		pNewCapPlot:SetProperty("FOUNDER_OF_"..tostring(GameInfo.Beliefs[tBeliefData[c_BeliefClass[4]]].BeliefType), 1)
+		print("Enhancer Property Transfered on iPlayerID from iOldCap to iCityID", iPlayerID, iOldCap, iCityID,"plot from iX, iY", iOldX, iOldY, "to iX, iY", iNewX, iNewY, "for Belief", tostring(GameInfo.Beliefs[tBeliefData[c_BeliefClass[4]]].BeliefType))
+	end
+	local pOldCapPlot = Map.GetPlot(iOldX, iOldY)
+	if pOldCapPlot:GetProperty("EXODUS_ON") == 1 then
+		pOldCapPlot:SetProperty("EXODUS_ON", nil)
+		local pNewCapPlot = Map.GetPlot(iNewX, iNewY)
+		pNewCapPlot:SetProperty("EXODUS_ON", 1)
+		print("Exodus transfered to the new cap")
+	end
+end
+
+function OnGameplayPlayerDefeat(iPlayerID, kParameters)
+	print("OnGameplayPlayerDefeat: Called for iPlayerID", iPlayerID)
+	local tCapitals = Game.GetProperty("P_CAPITALS")
+	local iPlayerID = kParameters["iPlayerID"]
+	if tCapitals[iPlayerID] == nil then
+		return print("Was a CS or already defeated")
+	end
+	if tCapitals[iPlayerID]["iCityID"] == -1 then
+		return print("Was a CS or already defeated")
+	end	
+	local pPlayer = Players[iPlayerID]
+	local bRemove = false
+	if pPlayer == nil then
+		bRemove = true
+	end
+	local pPlayerCities = pPlayer:GetCities()
+	if pPlayerCities == nil then
+		bRemove = true
+	end
+	if pPlayerCities:GetCount() == 0 then
+		bRemove = true
+	end
+	if not bRemove then
+		return print("Too Early to Remove the Properties")
+	end
+	local iOldCap = tCapitals[iPlayerID]["iCityID"]
+	local iOldX = tCapitals[iPlayerID]["iX"]
+	local iOldY = tCapitals[iPlayerID]["iY"]
+	tCapitals[iPlayerID]["iCityID"] = -1
+	tCapitals[iPlayerID]["iX"] = -9999
+	tCapitals[iPlayerID]["iY"] = -9999
+	Game:SetProperty("P_CAPITALS", tCapitals)
+	print("Remaining Cap ID is removed from the defeated player with it iPlayerID", iPlayerID)
+	local tBeliefs = Game.GetProperty("P_BELIEFS")
+	if tBeliefs  == nil then
+		return print("P_BELIEFS doesn't exist => Exit")
+	end
+	local mPos = IDToPos(tBeliefs, iPlayerID, "iPlayerID")
+	if mPos == false then
+		return print("P_BELIEFS has no data for iPlayerID", iPlayerID, "=> Exit")
+	end
+	local tBeliefData = tBeliefs[mPos]
+
+	if tBeliefData[c_BeliefClass[2]] ~= -1 then
+		local pPlotOldCap = Map.GetPlot(iOldX, iOldY)
+		pPlotOldCap:SetProperty("FOUNDER_OF_"..tostring(GameInfo.Beliefs[tBeliefData[c_BeliefClass[2]]].BeliefType), nil)
+		print("Founder Property Transferred on iPlayerID from iOldCap to iCityID", iPlayerID, iOldCap, iCityID, "for Belief", tostring(GameInfo.Beliefs[tBeliefData[c_BeliefClass[2]]].BeliefType))
+	end
+	if tBeliefData[c_BeliefClass[4]] ~= -1 then
+		local pPlotOldCap = Map.GetPlot(iOldX, iOldY)
+		pPlotOldCap:SetProperty("FOUNDER_OF_"..tostring(GameInfo.Beliefs[tBeliefData[c_BeliefClass[4]]].BeliefType), nil)
+		print("Enhancer Property Transfered on iPlayerID from iOldCap to iCityID", iPlayerID, iOldCap, iCityID, "for Belief", tostring(GameInfo.Beliefs[tBeliefData[c_BeliefClass[4]]].BeliefType))
+	end
+	--nil exodus if player died
+	local pPlotOldCap = Map.GetPlot(iOldX, iOldY)
+	pPlotOldCap("EXODUS_ON", nil)
+end
+function UpdateBeliefRow(tRow, iBeliefID)
+	print("UpdateBeliefRow: Called change")
+	local iBeliefClassID = GetBeliefClassID(iBeliefID)
+	local tNewRow = tRow
+	print("tNewRow", tNewRow)
+	tNewRow[c_BeliefClass[iBeliefClassID]] = iBeliefID
+	return tNewRow
+end
+
+function GetBeliefClassID(iBeliefID: number)
+	print("GetBeliefClassID: Called for iBeliefID", iBeliefID)
+	if iBeliefID == -1 then
+		return print("Error iBeliefID invalid")
+	end
+	local sBeliefClassType = GameInfo.Beliefs[iBeliefID].BeliefClassType
+	if sBeliefClassType == "BELIEF_CLASS_PANTHEON" then return 1
+	elseif sBeliefClassType == "BELIEF_CLASS_FOUNDER" then return 2
+	elseif sBeliefClassType == "BELIEF_CLASS_FOLLOWER" then return 3
+	elseif sBeliefClassType == "BELIEF_CLASS_ENHANCER" then return 4
+	elseif sBeliefClassType == "BELIEF_CLASS_WORSHIP" then return 5
+	end
+end
+
+function UpdatePlayerReligiousProperty(iPlayerID, iBeliefID, bEnable)
+	print("UpdatePlayerReligiousProperty: Called for iPlayerID,  iBeliefID, bEnable", iPlayerID, iBeliefID, bEnable)
+	local pPlayer = Players[iPlayerID]
+	local pCapitalCity = pPlayer:GetCities():GetCapitalCity()
+	local mVal = nil
+	if bEnable == true then
+		mVal = 1
+	end
+	print("UpdatePlayerReligiousProperty: mVal", mVal)
+	local iX = pCapitalCity:GetX()
+	local iY = pCapitalCity:GetY()
+	local pCapitalPlot = Map.GetPlot(iX, iY)
+	pCapitalPlot:SetProperty("FOUNDER_OF_"..tostring(GameInfo.Beliefs[iBeliefID].BeliefType), mVal)
+	print("UpdatePlayerReligiousProperty: Founder Property Attached to iPlayerID for Belief", iPlayerID, tostring(GameInfo.Beliefs[iBeliefID].BeliefType), "plot with iX, iY", iX, iY)
+end
+-- ===========================================================================
+-- Mvemba
+-- ===========================================================================
+--Legend:
+--Game:SetProperty("MVEMBA_RELIGION", iReligionID) 
+function OnGameplayMvembaCityReligionChanged(iPlayerID, kParameters)
+	local iPlayerID = kParameters["iPlayerID"]
+	RecalculateMvemba(iPlayerID)
+end
+function OnGameplayMvembaCityAddedToMap(iPlayerID, kParameters)
+	local iPlayerID = kParameters["iPlayerID"]
+	RecalculateMvemba(iPlayerID)
+end
+function OnGameplayMvembaCityRemovedFromMap(iPlayerID, kParameters)
+	local iPlayerID = kParameters["iPlayerID"]
+	RecalculateMvemba(iPlayerID)
+end
+function OnGameplayMvembaGiftCity(iPlayerID, kParameters)
+	local iPlayerID = kParameters["iPlayerID"]
+	RecalculateMvemba(iPlayerID)
+end
+
+function RecalculateMvemba(iPlayerID)
+	print("RecalculateMvemba: Called")
+	local pPlayer = Players[iPlayerID]
+	if iPlayerID == nil then
+		return  print("Error: nil player")
+	end
+	local iOldReligion = Game:GetProperty("MVEMBA_RELIGION")
+	if iOldReligion == nil then 
+		iOldReligion = -1
+		Game:SetProperty("MVEMBA_RELIGION", iOldReligion) 
+	end 
+	local pPlayerReligion = pPlayer:GetReligion()
+	local iCurrReligion = pPlayerReligion:GetReligionInMajorityOfCities()
+	if iCurrReligion ~= iOldReligion then
+		if iOldReligion~= -1 then
+			local tOldBeliefs = CalculeBeliefs(iOldReligion)
+			for i, iBeliefID in ipairs(tOldBeliefs[2]) do
+				UpdatePlayerReligiousProperty(iPlayerID, iBeliefID, false)
+			end
+			print("Old Founder Beliefs Removed")
+			print("Size of Enhancer", #tOldBeliefs[4])
+			if #tOldBeliefs[4] ~= 0 and tOldBeliefs[4] ~= {} and tOldBeliefs[4]~=nil then
+				for i, iBeliefID in ipairs(tOldBeliefs[4]) do
+					UpdatePlayerReligiousProperty(iPlayerID, iBeliefID, false)
+				end
+				print("Old Enhancer Beliefs Removed")
+			end
+		end
+	end
+	if iCurrReligion~= -1 then
+		local tCurrBeliefs = CalculeBeliefs(iCurrReligion)
+		for i, iBeliefID in ipairs(tCurrBeliefs[2]) do
+			UpdatePlayerReligiousProperty(iPlayerID, iBeliefID, true)
+		end
+		print("Current Founder Beliefs Added")
+		print("Size of Enhancer", #tCurrBeliefs[4])
+		if #tCurrBeliefs[4] ~= 0 and tCurrBeliefs[4] ~= {} and tCurrBeliefs[4]~=nil then
+			for i, iBeliefID in ipairs(tCurrBeliefs[4]) do
+				UpdatePlayerReligiousProperty(iPlayerID, iBeliefID, true)
+			end
+			print("Current Enhancer Beliefs Added")
+		end
+	end
+	Game:SetProperty("MVEMBA_RELIGION", iCurrReligion)
+end
+
+function CalculeBeliefs(iReligionID)
+	print("CalculateBeliefs: Called for iReligionID", iReligionID)
+	local tBeliefs = {}
+	for i=2,5 do
+		tBeliefs[i] = {}
+	end
+	local tReligion = Game:GetProperty("FOUNDED_RELIGIONS")
+	if tReligion == nil then return end
+	local iPos = IDToPos(tReligion, iReligionID, "iReligionID")
+	local tReligionOwners = tReligion[iPos].Founders
+	local tPlayerBeliefs = Game:GetProperty("P_BELIEFS")
+	if tPlayerBeliefs == nil then return end
+	for i, iOwnerID in ipairs(tReligionOwners) do
+		print("CalculateBeliefs: Parsing Beliefs of iOwnerID", iOwnerID)
+		local iFounderPos = IDToPos(tPlayerBeliefs, iOwnerID, "iPlayerID")
+		for i = 2, 5 do
+			local iCachedBeliefID = tPlayerBeliefs[iFounderPos][c_BeliefClass[i]]
+			if iCachedBeliefID ~= -1 then
+				table.insert(tBeliefs[i], iCachedBeliefID)
+				print("CalculateBeliefs: Detected and added belief", c_BeliefClass[i], GameInfo.Beliefs[iCachedBeliefID].BeliefType)
+			end
+		end
+	end
+	print("CalculeBeliefs: Calculation Finished")
+	return tBeliefs
+end
+
+-- ===========================================================================
+-- Exodus
+-- ===========================================================================
+function OnGameplayExodusSetProperty(iPlayerID, kParameters)
+	print("OnGameplayExodusSetProperty: Called")
+	local iPlayerID = kParameters["iPlayerID"]
+	local tCapitals = Game:GetProperty("P_CAPITALS")
+	if tCapitals[iPlayerID] == nil then
+		return
+	end
+	local iX = tCapitals[iPlayerID]["iX"]
+	local iY = tCapitals[iPlayerID]["iY"]
+	if iX ~= -9999 and iY ~= -9999 then
+		local pCapCityPlot = Map.GetPlot(iX, iY)
+		pCapCityPlot:SetProperty("EXODUS_ON", 1)
+		print("OnGameplayExodusSetProperty: Exodus Property Set for iX, iY", iX, iY)
+	end
+end
+
+function OnGameplayRemoveExodus(iPlayerID, kParameters)
+	print("OnGameplayRemoveExodus: started by iPlayerID")
+	local tCapitals = Game:GetProperty("P_CAPITALS")
+	if tCapitals==nil then
+		return print("Returns")
+	end
+	for i, tRow in ipairs(tCapitals) do
+		local iX = tRow["iX"]
+		local iY = tRow["iY"]
+		if iX ~= -9999 and iY ~= -9999 then
+			local pCapCityPlot = Map.GetPlot(iX, iY)
+			pCapCityPlot:SetProperty("EXODUS_ON", nil)
+			print("Exodus nilled for iPlayerID", i)
+		end
+	end
+end
 -- ===========================================================================
 --	Tools
 -- ===========================================================================
@@ -3848,6 +4246,8 @@ function Initialize()
 	--print("BBG - ressource yields populated")
 	PopulateFeatureYields()
 	--print("BBG - relevant feature yields populated")
+	InitCapitals()
+	print("BBG - capital data initialized")
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then --moved to BCY no RNG only
 		PopulateBugWonders()
 	end
@@ -3891,6 +4291,15 @@ function Initialize()
 	print("BBG Amani Gameplay hooks added")
 	GameEvents.GameplaySpyMissionCompleted.Add(OnGameplaySpyMissionCompleted)
 	print("BBG Spy Capture Capacity Gameplay Hook Added")
+	--Religion
+	GameEvents.GameplayReligionFounded.Add(OnGameplayReligionFounded)
+	GameEvents.GameplayBeliefAdded.Add(OnGameplayBeliefAdded)
+	GameEvents.GameplayCapitalCityChanged.Add(OnGameplayCapitalCityChanged)
+	GameEvents.GameplayPlayerDefeat.Add(OnGameplayPlayerDefeat)
+	--5.6. Disable: GameEvents.GameplayExodusSetProperty.Add(OnGameplayExodusSetProperty)
+	--5.6. Disable: print("Adding Remove Exodus")
+	--5.6. Disable: GameEvents.GameplayRemoveExodus.Add(OnGameplayRemoveExodus)
+	--5.6. Disable: print(OnGameplayRemoveExodus)
 	--Delete Suntzu for not-Unifier
 	--LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
 	--5.2. Disable: GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
@@ -3953,6 +4362,13 @@ function Initialize()
 			--5.2. Disable: GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
 			--5.2. Disable: GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
 			--5.2. Disable: print("BBG Unifier Hooks Added")
+		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_MVEMBA" then
+			Game:SetProperty("MVEMVBA_ID", iPlayerID)
+			GameEvents.GameplayMvembaCityReligionChanged.Add(OnGameplayMvembaCityReligionChanged)
+			GameEvents.GameplayMvembaCityAddedToMap.Add(OnGameplayMvembaCityAddedToMap)
+			GameEvents.GameplayMvembaCityRemovedFromMap.Add(OnGameplayMvembaCityRemovedFromMap)
+			GameEvents.GameplayMvembaGiftCity.Add(OnGameplayMvembaGiftCity)
+			print("Mvemba religious hooks added")
 		end
 	end
 	if BBCC_MODE ~= -1 then
