@@ -28,3 +28,6 @@ INSERT INTO ModifierArguments (ModifierId , Name , Value) VALUES
 --15/06/23 Tsikhe gives 1 culture
 INSERT INTO Building_YieldChanges (BuildingType, YieldType, YieldChange) VALUES
 	('BUILDING_TSIKHE', 'YIELD_CULTURE', 1);
+
+--12/07/23 Tsikhe gives only 3 faith in golde
+UPDATE ModifierArguments SET Value=3 WHERE ModifierId='TSIKHE_FAITH_GOLDEN_AGE' AND Name='Amount';
