@@ -1,5 +1,6 @@
 -- 15/06/23 Nader Shah combat bonus to +7 (from +5)
-UPDATE ModifierArguments SET Value=7 WHERE ModifierId='NADER_SHAH_COMBAT_BUFF';
+-- 12/07/23 en fait non
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='NADER_SHAH_COMBAT_BUFF';
 DELETE FROM RequirementSetRequirements WHERE RequirementId='COMBAT_IS_NOT_DISTRICT_WARLORDS';
 
 
