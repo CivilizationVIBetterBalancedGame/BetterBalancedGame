@@ -613,3 +613,4 @@ UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MOSQUE_ADJUST_SPREAD_CHAR
 
 -- 21/06/23 Condemn a unit doesn't reduce religious pressure around.
 UPDATE GlobalParameters SET Value=0 WHERE Name='RELIGION_SPREAD_UNIT_CAPTURE';
+UPDATE GlobalParameters SET Value=1.5 WHERE Name='RELIGION_SPREAD_ADJACENT_PER_TURN_PRESSURE';
