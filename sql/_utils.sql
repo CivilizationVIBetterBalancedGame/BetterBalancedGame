@@ -30,13 +30,13 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
 
 -- Create requirements for each civic
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
-    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Civics;
+    SELECT 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Civics;
 INSERT INTO Requirements(RequirementId, RequirementType)
-    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'REQUIREMENT_PLAYER_HAS_CIVIC' FROM Civics;
+    SELECT 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'REQUIREMENT_PLAYER_HAS_CIVIC' FROM Civics;
 INSERT INTO RequirementArguments(RequirementId, Name, Value)
-    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'CivicType', CivicType FROM Civics;
+    SELECT 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'CivicType', CivicType FROM Civics;
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
-    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQSET', 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT' FROM Civics;
+    SELECT 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQSET', 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQUIREMENT' FROM Civics;
 
 -- Create requirements for each ressources
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
