@@ -22,13 +22,3 @@ INSERT INTO Hill_CutOffYieldValues(YieldType, Amount) VALUES
 	('YIELD_CULTURE', 0),
 	('YIELD_FAITH', 0)
 	;
-CREATE TABLE Flat_SpecialTerrain(
-	SubjectRequirementSetId TEXT,
-	YieldType TEXT NOT NULL,
-	TerrainType TEXT NOT NULL
-);
-CREATE TABLE Hill_SpecialTerrain(
-	SubjectRequirementSetId TEXT,
-	YieldType TEXT NOT NULL,
-	TerrainType TEXT NOT NULL
-);
