@@ -20,26 +20,13 @@ INSERT INTO TmpEldenEleonore(DistrictType, YieldType) VALUES
     ('DISTRICT_HOLY_SITE', 'YIELD_FAITH');
 
 -- Create and attach modifier to Eleanor
+-- Requirements are in _utils.sql
 INSERT INTO TraitModifiers(TraitType, ModifierId)
     SELECT 'TRAIT_LEADER_ELEANOR_LOYALTY', 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER'
     FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId, Permanent)
     SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_GREATWORK_YIELD', 'BBG_CITY_HAS_' || DistrictType, 1
     FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
-
--- Create District Requirements
-INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
-    SELECT 'BBG_CITY_HAS_' || DistrictType, 'REQUIREMENTSET_TEST_ALL'
-    FROM TmpEldenEleonore;
-INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
-    SELECT 'BBG_CITY_HAS_' || DistrictType, 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT'
-    FROM TmpEldenEleonore;
-INSERT INTO Requirements(RequirementId , RequirementType)
-    SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'REQUIREMENT_CITY_HAS_DISTRICT'
-    FROM TmpEldenEleonore;
-INSERT INTO RequirementArguments(RequirementId , Name, Value)
-    SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType
-    FROM TmpEldenEleonore;
 
 -- Set Modifiers Arguments to correct value
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
@@ -51,7 +38,13 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 --4/10/22 Eleanor bonus reduced to 1
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
     SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'YieldChange', '1'
-    FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes;
+    FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes WHERE GreatWorkObjectTypes.GreatWorkObjectType IN ('GREATWORKOBJECT_WRITING', 'GREATWORKOBJECT_RELIC');
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+    SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'YieldChange', '2'
+    FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes WHERE GreatWorkObjectTypes.GreatWorkObjectType IN ('GREATWORKOBJECT_ARTIFACT', 'GREATWORKOBJECT_PORTRAIT', 'GREATWORKOBJECT_LANDSCAPE', 'GREATWORKOBJECT_RELIGIOUS', 'GREATWORKOBJECT_SCULPTURE');
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+    SELECT 'BBG_ELEONORE_' || GreatWorkObjectTypes.GreatWorkObjectType || '_' || DistrictType || '_MODIFIER', 'YieldChange', '4'
+    FROM TmpEldenEleonore CROSS JOIN GreatWorkObjectTypes WHERE GreatWorkObjectTypes.GreatWorkObjectType IN ('GREATWORKOBJECT_MUSIC');
 
 -- Fix Anshan bug with Eleanor
 INSERT INTO RequirementSets(RequirementSetId , RequirementSetType) VALUES

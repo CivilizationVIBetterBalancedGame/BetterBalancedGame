@@ -446,7 +446,7 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
     ('BBG_UNIT_IS_MONK_REQUIREMENTS', 'BBG_REQUIRES_MONK');
 
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
-    SELECT 'BBG_MODIFIER_MONKS_CS_' || Civics.CivicType , 'MODIFIER_UNIT_ADJUST_BASE_COMBAT_STRENGTH', 'BBG_PLAYER_HAS_' || Civics.CivicType || '_REQSET'
+    SELECT 'BBG_MODIFIER_MONKS_CS_' || Civics.CivicType , 'MODIFIER_UNIT_ADJUST_BASE_COMBAT_STRENGTH', 'BBG_UTILS_PLAYER_HAS_' || Civics.CivicType || '_REQSET'
     FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
 
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
@@ -610,3 +610,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 --18/12/22 Mosque 2 charges per missionary
 UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MOSQUE_ADJUST_SPREAD_CHARGES' AND Name='Amount';
 
+
+-- 21/06/23 Condemn a unit doesn't reduce religious pressure around.
+UPDATE GlobalParameters SET Value=0 WHERE Name='RELIGION_SPREAD_UNIT_CAPTURE';
+UPDATE GlobalParameters SET Value=12 WHERE Name='RELIGION_SPREAD_ADJACENT_CITY_DISTANCE';

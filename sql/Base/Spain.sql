@@ -4,8 +4,8 @@
 -- Early Fleets moved to Mercenaries
 UPDATE ModifierArguments SET Value='CIVIC_MERCENARIES' WHERE Name='CivicType' AND ModifierId='TRAIT_NAVAL_CORPS_EARLY';
 -- 30% discount on missionaries
-INSERT OR IGNORE INTO TraitModifiers ( TraitType , ModifierId )
-    VALUES ('TRAIT_LEADER_EL_ESCORIAL' , 'HOLY_ORDER_MISSIONARY_DISCOUNT_MODIFIER');
+INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_EL_ESCORIAL', 'HOLY_ORDER_MISSIONARY_DISCOUNT_MODIFIER');
 -- 15/05/2021: Delete free builder on foreign continent
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_TREASURE_FLEET' AND ModifierId='TRAIT_INTERCONTINENTAL_BUILDER';
 -- 15/05/2021: Conquistador to +5 (from +10)
@@ -19,9 +19,11 @@ INSERT INTO StartBiasTerrains(CivilizationType, TerrainType, Tier) VALUES
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='TRAIT_INTERCONTINENTAL_INTERNATIONAL_FAITH' AND Name='Amount';
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='TRAIT_INTERCONTINENTAL_INTERNATIONAL_GOLD' AND Name='Amount';
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='TRAIT_INTERCONTINENTAL_INTERNATIONAL_PRODUCTION' AND Name='Amount';
-UPDATE ModifierArguments SET Value='2' WHERE ModifierId='TRAIT_INTERCONTINENTAL_DOMESTIC_FAITH' AND Name='Amount';
-UPDATE ModifierArguments SET Value='3' WHERE ModifierId='TRAIT_INTERCONTINENTAL_DOMESTIC_GOLD' AND Name='Amount';
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='TRAIT_INTERCONTINENTAL_DOMESTIC_PRODUCTION' AND Name='Amount';
+--15/06/23 Remove double yields for internal
+-- UPDATE ModifierArguments SET Value='2' WHERE ModifierId='TRAIT_INTERCONTINENTAL_DOMESTIC_FAITH' AND Name='Amount';
+-- UPDATE ModifierArguments SET Value='3' WHERE ModifierId='TRAIT_INTERCONTINENTAL_DOMESTIC_GOLD' AND Name='Amount';
+-- UPDATE ModifierArguments SET Value='1' WHERE ModifierId='TRAIT_INTERCONTINENTAL_DOMESTIC_PRODUCTION' AND Name='Amount';
+DELETE FROM Modifiers WHERE ModifierId IN ('TRAIT_INTERCONTINENTAL_DOMESTIC_FAITH', 'TRAIT_INTERCONTINENTAL_DOMESTIC_GOLD', 'TRAIT_INTERCONTINENTAL_DOMESTIC_PRODUCTION');
 
 -- ==== MISSIONS ====
 -- missions get +1 housing on home continent
@@ -119,4 +121,5 @@ INSERT OR IGNORE INTO RequirementArguments(RequirementId , Name, Value) VALUES
     ('BBG_PLAYER_IS_SPAIN_REQUIREMENT' , 'CivilizationType', 'CIVILIZATION_SPAIN');
 
 -- 16/04/23 Reduces bonus combat vs other religion from 5 to 3
-UPDATE ModifierArguments SET Value=3 WHERE ModifierId='PHILIP_II_COMBAT_BONUS_OTHER_RELIGION' AND Name='Amount'; 
+-- 15/06/23 Reverted
+-- UPDATE ModifierArguments SET Value=3 WHERE ModifierId='PHILIP_II_COMBAT_BONUS_OTHER_RELIGION' AND Name='Amount'; 
