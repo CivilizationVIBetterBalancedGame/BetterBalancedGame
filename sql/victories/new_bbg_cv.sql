@@ -33,8 +33,7 @@ UPDATE GreatWork_YieldChanges SET YieldChange=4 WHERE YieldType='YIELD_FAITH' AN
          GreatWorks.GreatWorkType = GreatWork_YieldChanges.GreatWorkType);
 
 -- Writing
--- 12/06/23 tourism to 4 (from 2)
-UPDATE GreatWorks SET Tourism=4 WHERE GreatWorkObjectType='GREATWORKOBJECT_WRITING';
+UPDATE GreatWorks SET Tourism=2 WHERE GreatWorkObjectType='GREATWORKOBJECT_WRITING';
 UPDATE GreatWork_YieldChanges SET YieldChange=4 WHERE YieldType='YIELD_CULTURE' AND
   EXISTS(SELECT * FROM GreatWorks WHERE GreatWorkObjectType='GREATWORKOBJECT_WRITING' AND
          GreatWorks.GreatWorkType = GreatWork_YieldChanges.GreatWorkType);
@@ -52,10 +51,32 @@ UPDATE GreatWork_YieldChanges SET YieldChange=6 WHERE YieldType='YIELD_CULTURE' 
          GreatWorks.GreatWorkType = GreatWork_YieldChanges.GreatWorkType);
 
 -- Artist
-UPDATE GreatWorks SET Tourism=6 WHERE GreatWorkObjectType IN
+UPDATE GreatWorks SET Tourism=4 WHERE GreatWorkObjectType IN
     ('GREATWORKOBJECT_PORTRAIT', 'GREATWORKOBJECT_LANDSCAPE', 'GREATWORKOBJECT_RELIGIOUS', 'GREATWORKOBJECT_SCULPTURE');
 UPDATE GreatWork_YieldChanges SET YieldChange=4 WHERE YieldType='YIELD_CULTURE' AND
   EXISTS(SELECT * FROM GreatWorks WHERE GreatWorkObjectType IN
     ('GREATWORKOBJECT_PORTRAIT', 'GREATWORKOBJECT_LANDSCAPE', 'GREATWORKOBJECT_RELIGIOUS', 'GREATWORKOBJECT_SCULPTURE')
   AND GreatWorks.GreatWorkType = GreatWork_YieldChanges.GreatWorkType
   );
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('OPERA_BALLET_BOOST_WRITING_TOURISM', 'MODIFIER_PLAYER_CITIES_ADJUST_TOURISM');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('OPERA_BALLET_BOOST_WRITING_TOURISM', 'GreatWorkObjectType', 'GREATWORKOBJECT_WRITING'),
+    ('OPERA_BALLET_BOOST_WRITING_TOURISM', 'ScalingFactor', 200);
+INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES
+    ('CIVIC_OPERA_BALLET', 'OPERA_BALLET_BOOST_WRITING_TOURISM');
+
+INSERT INTO Modifiers (ModifierId, ModifierType) 
+    SELECT 'STEAMPOWER_BOOST_ART_TOURISM_' || GreatWorkObjectTypes.GreatWorkObjectType, 'MODIFIER_PLAYER_CITIES_ADJUST_TOURISM' FROM GreatWorkObjectTypes WHERE GreatWorkObjectType
+    IN ('GREATWORKOBJECT_PORTRAIT', 'GREATWORKOBJECT_LANDSCAPE', 'GREATWORKOBJECT_RELIGIOUS', 'GREATWORKOBJECT_SCULPTURE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'STEAMPOWER_BOOST_ART_TOURISM_' || GreatWorkObjectTypes.GreatWorkObjectType, 'GreatWorkObjectType', GreatWorkObjectTypes.GreatWorkObjectType FROM GreatWorkObjectTypes WHERE GreatWorkObjectType
+    IN ('GREATWORKOBJECT_PORTRAIT', 'GREATWORKOBJECT_LANDSCAPE', 'GREATWORKOBJECT_RELIGIOUS', 'GREATWORKOBJECT_SCULPTURE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'STEAMPOWER_BOOST_ART_TOURISM_' || GreatWorkObjectTypes.GreatWorkObjectType, 'ScalingFactor', 150 FROM GreatWorkObjectTypes WHERE GreatWorkObjectType
+    IN ('GREATWORKOBJECT_PORTRAIT', 'GREATWORKOBJECT_LANDSCAPE', 'GREATWORKOBJECT_RELIGIOUS', 'GREATWORKOBJECT_SCULPTURE');
+
+INSERT INTO TechnologyModifiers (TechnologyType, ModifierId)
+    SELECT 'TECH_STEAM_POWER', 'STEAMPOWER_BOOST_ART_TOURISM_' || GreatWorkObjectTypes.GreatWorkObjectType FROM GreatWorkObjectTypes WHERE GreatWorkObjectType
+    IN ('GREATWORKOBJECT_PORTRAIT', 'GREATWORKOBJECT_LANDSCAPE', 'GREATWORKOBJECT_RELIGIOUS', 'GREATWORKOBJECT_SCULPTURE');
