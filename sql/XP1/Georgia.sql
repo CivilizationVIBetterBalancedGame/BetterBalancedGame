@@ -24,3 +24,10 @@ INSERT INTO ModifierArguments (ModifierId , Name , Value) VALUES
 	('BBG_GEORGIA_FAITH_PER_ENVOY' , 'YieldType', 'YIELD_FAITH');
 INSERT INTO ModifierArguments (ModifierId , Name , Value) VALUES
 	('BBG_GEORGIA_FAITH_PER_ENVOY' , 'Amount', '1');
+
+--15/06/23 Tsikhe gives 1 culture
+INSERT INTO Building_YieldChanges (BuildingType, YieldType, YieldChange) VALUES
+	('BUILDING_TSIKHE', 'YIELD_CULTURE', 1);
+
+--12/07/23 Tsikhe gives only 3 faith in golde
+UPDATE ModifierArguments SET Value=3 WHERE ModifierId='TSIKHE_FAITH_GOLDEN_AGE' AND Name='Amount';

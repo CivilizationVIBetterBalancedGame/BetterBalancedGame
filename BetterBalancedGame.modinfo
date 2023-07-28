@@ -1,54 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Release ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5030"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5041"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5030"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5041"> -->
 
 <!-- WIP ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5030">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5041">
 	<Properties>
-		<Name>Better Balanced Game 5.3.0 WIP</Name>
+		<Name>Better Balanced Game 5.4.1 WIP</Name>
 		<Description>
 			WIP build of Better Balanced Game
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>5030</Version>
-		<SpecialThanks>abstr, Apeul, codenaugh, coloo, D. / Jack The Narrator, FlashyFeeds, fl0r3k, iElden, Ignasiuz, keride, Klas, MarsLife(puj), priz, seed.of.apricot, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
+		<Version>5041</Version>
+		<SpecialThanks>abstr, Apeul, codenaugh, coloo, D. / Jack The Narrator, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Klas, MarsLife(puj), priz, seed.of.apricot, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
 	<!--
 	<Dependencies>
+		<Mod id="1B28771A-C749-434B-9053-D1380C553DE9" title="Expansion: Rise and Fall"/>
 		<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Expansion: Gathering Storm" />
 	</Dependencies>
 	-->
 	<!-- can load only select files based on these requirements, if applied -->
 	<ActionCriteria>
-		<!--
 		<Criteria id="XP1" any="1">
 			<GameCoreInUse>Expansion1</GameCoreInUse>
-			<RuleSetInUse>RULESET_EXPANSION_1</RuleSetInUse> <-RULESET_EXPANSION_2
+			<RuleSetInUse>RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
 			<LeaderPlayable>Players:Expansion1_Players::LEADER_CHANDRAGUPTA,Players:Expansion1_Players::LEADER_GENGHIS_KHAN,Players:Expansion1_Players::LEADER_LAUTARO,Players:Expansion1_Players::LEADER_POUNDMAKER,Players:Expansion1_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion1_Players::LEADER_SEONDEOK,Players:Expansion1_Players::LEADER_SHAKA,Players:Expansion1_Players::LEADER_TAMAR,Players:Expansion1_Players::LEADER_WILHELMINA</LeaderPlayable>
 			<LeaderPlayable>Players:Expansion2_Players::LEADER_CHANDRAGUPTA,Players:Expansion2_Players::LEADER_GENGHIS_KHAN,Players:Expansion2_Players::LEADER_LAUTARO,Players:Expansion2_Players::LEADER_POUNDMAKER,Players:Expansion2_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion2_Players::LEADER_SEONDEOK,Players:Expansion2_Players::LEADER_SHAKA,Players:Expansion2_Players::LEADER_TAMAR,Players:Expansion2_Players::LEADER_WILHELMINA</LeaderPlayable>
-		</Criteria>-->
+		</Criteria>
+		<!--
 		<Criteria id="XP1">
 			<ModInUse>1B28771A-C749-434B-9053-D1380C553DE9</ModInUse>
-		</Criteria>
-		<Criteria id="XP2">
+		</Criteria>-->
+		<Criteria id="XP2" any="1">
 			<GameCoreInUse>Expansion2</GameCoreInUse>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_DIDO,Players:Expansion2_Players::LEADER_ELEANOR_ENGLAND,Players:Expansion2_Players::LEADER_ELEANOR_FRANCE,Players:Expansion2_Players::LEADER_KRISTINA,Players:Expansion2_Players::LEADER_KUPE,Players:Expansion2_Players::LEADER_LAURIER,Players:Expansion2_Players::LEADER_MANSA_MUSA,Players:Expansion2_Players::LEADER_MATTHIAS_CORVINUS,Players:Expansion2_Players::LEADER_PACHACUTI,Players:Expansion2_Players::LEADER_SULEIMAN</LeaderPlayable>
 		</Criteria>
 		<Criteria id="XP1_AND_XP2" any="1">
-			<!--<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>-->
+			<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
 			<LeaderPlayable>Players:Expansion2_Players::LEADER_CHANDRAGUPTA,Players:Expansion2_Players::LEADER_GENGHIS_KHAN,Players:Expansion2_Players::LEADER_LAUTARO,Players:Expansion2_Players::LEADER_POUNDMAKER,Players:Expansion2_Players::LEADER_ROBERT_THE_BRUCE,Players:Expansion2_Players::LEADER_SEONDEOK,Players:Expansion2_Players::LEADER_SHAKA,Players:Expansion2_Players::LEADER_TAMAR,Players:Expansion2_Players::LEADER_WILHELMINA</LeaderPlayable>
 		</Criteria>
 		<Criteria id="XP1_OR_XP2" any="1">
 			<GameCoreInUse>Expansion1</GameCoreInUse>
 			<GameCoreInUse>Expansion2</GameCoreInUse>
 		</Criteria>
-		<Criteria id="DLC_Aztec">
-			<ModInUse>02A8BDDE-67EA-4D38-9540-26E685E3156E</ModInUse>
+		<Criteria id="DLC_Aztec" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_MONTEZUMA,StandardPlayers::LEADER_MONTEZUMA,Players:Expansion1_Players::LEADER_MONTEZUMA,Players:Expansion2_Players::LEADER_MONTEZUMA</LeaderPlayable>
 		</Criteria>
 		<Criteria id="DLC_Vikings">
 			<ModInUse>2F6E858A-28EF-46B3-BEAC-B985E52E9BC1</ModInUse>
@@ -60,67 +62,73 @@
 			<LeaderPlayable>Players:StandardPlayers::LEADER_JOHN_CURTIN,StandardPlayers::LEADER_JOHN_CURTIN,Players:Expansion1_Players::LEADER_JOHN_CURTIN,Players:Expansion2_Players::LEADER_JOHN_CURTIN</LeaderPlayable>
 		</Criteria>
 		<Criteria id="DLC_Macedon_Persia" any="1">
-			<LeaderPlayable>Players:StandardPlayers::LEADER_ALEXANDER,Players:StandardPlayers::LEADER_CYRUS,StandardPlayers::LEADER_ALEXANDER,StandardPlayers::LEADER_CYRUS,Players:Expansion1_Players::LEADER_ALEXANDER,Players:Expansion2_Players::LEADER_CYRUS,Players:Expansion2_Players::LEADER_ALEXANDER,Players:Expansion2_Players::LEADER_CYRUS</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_ALEXANDER,Players:StandardPlayers::LEADER_CYRUS,StandardPlayers::LEADER_ALEXANDER,StandardPlayers::LEADER_CYRUS,Players:Expansion1_Players::LEADER_ALEXANDER,Players:Expansion1_Players::LEADER_CYRUS,Players:Expansion2_Players::LEADER_ALEXANDER,Players:Expansion2_Players::LEADER_CYRUS</LeaderPlayable>
 		</Criteria>
 		<Criteria id="DLC_Nubia" any="1">
 			<LeaderPlayable>Players:StandardPlayers::LEADER_AMANITORE,StandardPlayers::LEADER_AMANITORE,Players:Expansion1_Players::LEADER_AMANITORE,Players:Expansion2_Players::LEADER_AMANITORE</LeaderPlayable>
 		</Criteria>
 		<Criteria id="DLC_Indonesia_Khmer" any="1">
-			<LeaderPlayable>Players:StandardPlayers::LEADER_GITARJA,Players:StandardPlayers::LEADER_JAYAVARMAN,StandardPlayers::LEADER_GITARJA,StandardPlayers::LEADER_JAYAVARMAN,Players:Expansion1_Players::LEADER_GITARJA,Players:Expansion2_Players::LEADER_JAYAVARMAN,Players:Expansion2_Players::LEADER_GITARJA,Players:Expansion2_Players::LEADER_JAYAVARMAN</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_GITARJA,Players:StandardPlayers::LEADER_JAYAVARMAN,StandardPlayers::LEADER_GITARJA,StandardPlayers::LEADER_JAYAVARMAN,Players:Expansion1_Players::LEADER_GITARJA,Players:Expansion1_Players::LEADER_JAYAVARMAN,Players:Expansion2_Players::LEADER_GITARJA,Players:Expansion2_Players::LEADER_JAYAVARMAN</LeaderPlayable>
 		</Criteria>
 		<Criteria id="GranColombia_Maya" any="1">
-			<LeaderPlayable>Players:StandardPlayers::LEADER_SIMON_BOLIVAR,Players:StandardPlayers::LEADER_LADY_SIX_SKY,StandardPlayers::LEADER_SIMON_BOLIVAR,StandardPlayers::LEADER_LADY_SIX_SKY,Players:Expansion1_Players::LEADER_SIMON_BOLIVAR,Players:Expansion2_Players::LEADER_LADY_SIX_SKY,Players:Expansion2_Players::LEADER_SIMON_BOLIVAR,Players:Expansion2_Players::LEADER_LADY_SIX_SKY</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_SIMON_BOLIVAR,Players:StandardPlayers::LEADER_LADY_SIX_SKY,StandardPlayers::LEADER_SIMON_BOLIVAR,StandardPlayers::LEADER_LADY_SIX_SKY,Players:Expansion1_Players::LEADER_SIMON_BOLIVAR,Players:Expansion1_Players::LEADER_LADY_SIX_SKY,Players:Expansion2_Players::LEADER_SIMON_BOLIVAR,Players:Expansion2_Players::LEADER_LADY_SIX_SKY</LeaderPlayable>
 		</Criteria>
-		<Criteria id="Ethiopia">
-			<ModInUse>1B394FE9-23DC-4868-8F0A-5220CB8FB427</ModInUse>
+		<Criteria id="Ethiopia" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_MENELIK,StandardPlayers::LEADER_MENELIK,Players:Expansion1_Players::LEADER_MENELIK,Players:Expansion2_Players::LEADER_MENELIK</LeaderPlayable>
 		</Criteria>
-		<Criteria id="CatherinePersona">
-			<ModInUse>CE5876CD-6900-46D1-9C9C-8DBA1F28872E</ModInUse>
+		<Criteria id="CatherinePersona" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_CATHERINE_DE_MEDICI_ALT,StandardPlayers::LEADER_CATHERINE_DE_MEDICI_ALT,Players:Expansion1_Players::LEADER_CATHERINE_DE_MEDICI_ALT,Players:Expansion2_Players::LEADER_CATHERINE_DE_MEDICI_ALT</LeaderPlayable>
 		</Criteria>
-		<Criteria id="No_CatherinePersona">
-			<ModInUse inverse="1">CE5876CD-6900-46D1-9C9C-8DBA1F28872E</ModInUse>
+		<Criteria id="TeddyPersona" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_T_ROOSEVELT_ROUGHRIDER,StandardPlayers::LEADER_T_ROOSEVELT_ROUGHRIDER,Players:Expansion1_Players::LEADER_T_ROOSEVELT_ROUGHRIDER,Players:Expansion2_Players::LEADER_T_ROOSEVELT_ROUGHRIDER</LeaderPlayable>
 		</Criteria>
-		<Criteria id="TeddyPersona">
-			<ModInUse>113D9459-0A3B-4FCB-A49C-483F40303575</ModInUse>
+		<Criteria id="Byzantium_Gaul" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_BASIL,Players:StandardPlayers::LEADER_AMBIORIX,StandardPlayers::LEADER_BASIL,StandardPlayers::LEADER_AMBIORIX,Players:Expansion1_Players::LEADER_BASIL,Players:Expansion1_Players::LEADER_AMBIORIX,Players:Expansion2_Players::LEADER_BASIL,Players:Expansion2_Players::LEADER_AMBIORIX</LeaderPlayable>
 		</Criteria>
-		<Criteria id="No_TeddyPersona">
-			<ModInUse inverse="1">113D9459-0A3B-4FCB-A49C-483F40303575</ModInUse>
+		<Criteria id="Babylon" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_HAMMURABI,Players:Expansion1_Players::LEADER_HAMMURABI,Players:Expansion2_Players::LEADER_HAMMURABI</LeaderPlayable>
 		</Criteria>
-		<Criteria id="Byzantium_Gaul">
-			<ModInUse>A1100FC4-70F2-4129-AC27-2A65A685ED08</ModInUse>
+		<Criteria id="KublaiKhan_Vietnam" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_LADY_TRIEU,Players:Expansion1_Players::LEADER_LADY_TRIEU,Players:Expansion2_Players::LEADER_LADY_TRIEU</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_KUBLAI_KHAN_CHINA,Players:Expansion1_Players::LEADER_KUBLAI_KHAN_CHINA,Players:Expansion2_Players::LEADER_KUBLAI_KHAN_CHINA</LeaderPlayable>
+			<LeaderPlayable>Players:Expansion1_Players::LEADER_KUBLAI_KHAN_MONGOLIA,Players:Expansion2_Players::LEADER_KUBLAI_KHAN_MONGOLIA</LeaderPlayable>
 		</Criteria>
-		<Criteria id="Babylon">
-			<ModInUse>8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
+		<Criteria id="Portugal" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_JOAO_III,StandardPlayers::LEADER_JOAO_III,Players:Expansion1_Players::LEADER_JOAO_III,Players:Expansion2_Players::LEADER_JOAO_III</LeaderPlayable>
 		</Criteria>
-		<Criteria id="No_Babylon">
-			<ModInUse inverse="1">8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
+		<Criteria id="Caesar" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_JULIUS_CAESAR,StandardPlayers::LEADER_JULIUS_CAESAR,Players:Expansion1_Players::LEADER_JULIUS_CAESAR,Players:Expansion2_Players::LEADER_JULIUS_CAESAR</LeaderPlayable>
 		</Criteria>
-		<Criteria id="KublaiKhan_Vietnam">
-			<ModInUse>A3F42CD4-6C3E-4F5A-BC81-BE29E0C0B87C</ModInUse>
+		<Criteria id="Negotiators" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_ABRAHAM_LINCOLN,StandardPlayers::LEADER_ABRAHAM_LINCOLN,Players:Expansion1_Players::LEADER_ABRAHAM_LINCOLN,Players:Expansion2_Players::LEADER_ABRAHAM_LINCOLN</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_NZINGA_MBANDE,StandardPlayers::LEADER_NZINGA_MBANDE,Players:Expansion1_Players::LEADER_NZINGA_MBANDE,Players:Expansion2_Players::LEADER_NZINGA_MBANDE</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_SALADIN_ALT,StandardPlayers::LEADER_SALADIN_ALT,Players:Expansion1_Players::LEADER_SALADIN_ALT,Players:Expansion2_Players::LEADER_SALADIN_ALT</LeaderPlayable>
 		</Criteria>
-		<Criteria id="Portugal">
-			<ModInUse>FFDF4E79-DEE2-47BB-919B-F5739106627A</ModInUse>
+		<Criteria id="Warlords" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_TOKUGAWA,Players:Expansion1_Players::LEADER_TOKUGAWA,Players:Expansion2_Players::LEADER_TOKUGAWA</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_NADER_SHAH,Players:Expansion1_Players::LEADER_NADER_SHAH,Players:Expansion2_Players::LEADER_NADER_SHAH</LeaderPlayable>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_SULEIMAN_ALT</LeaderPlayable>
 		</Criteria>
-		<Criteria id="Caesar">
-			<ModInUse>9ED63236-617C-45A6-BB70-8CB6B0BE8ED2</ModInUse>
+		<Criteria id="RulersChina" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_YONGLE,Players:Expansion1_Players::LEADER_YONGLE,Players:Expansion2_Players::LEADER_YONGLE</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_WU_ZETIAN,Players:Expansion1_Players::LEADER_WU_ZETIAN,Players:Expansion2_Players::LEADER_WU_ZETIAN</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_QIN_ALT,Players:Expansion1_Players::LEADER_QIN_ALT,Players:Expansion2_Players::LEADER_QIN_ALT</LeaderPlayable>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_SUNDIATA_KEITA</LeaderPlayable>
 		</Criteria>
-		<Criteria id="Negotiators">
-			<ModInUse>7A66DB58-B354-4061-8C80-95B638DD6F6C</ModInUse>
+		<Criteria id="Builders" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_THEODORA,Players:Expansion1_Players::LEADER_THEODORA,Players:Expansion2_Players::LEADER_THEODORA</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_LUDWIG,Players:Expansion1_Players::LEADER_LUDWIG,Players:Expansion2_Players::LEADER_LUDWIG</LeaderPlayable>
+			<LeaderPlayable>Players:Expansion1_Players::LEADER_SEJONG, Players:Expansion2_Players::LEADER_SEJONG</LeaderPlayable>
 		</Criteria>
-		<Criteria id="Warlords">
-			<ModInUse>F48213B4-56F5-45DD-92F7-AC78E49BDA49</ModInUse>
+		<Criteria id="RulersSahara" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_RAMSES,Players:Expansion1_Players::LEADER_RAMSES,Players:Expansion2_Players::LEADER_RAMSES</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_CLEOPATRA_ALT,Players:Expansion1_Players::LEADER_CLEOPATRA_ALT,Players:Expansion2_Players::LEADER_CLEOPATRA_ALT</LeaderPlayable>
+			<LeaderPlayable>Players:Expansion2_Players::LEADER_SUNDIATA_KEITA</LeaderPlayable>
 		</Criteria>
-		<Criteria id="RulersChina">
-			<ModInUse>7D27831B-BAA6-4A8B-A39C-94243BAD3F47</ModInUse>
-		</Criteria>
-		<Criteria id="Builders">
-			<ModInUse>249D9276-0832-48E4-B370-14531FA4E33C</ModInUse>
-		</Criteria>
-		<Criteria id="Builders">
-			<ModInUse>82AE6F24-930F-4640-833C-FCDFD4845757</ModInUse>
-		</Criteria>
-		<Criteria id="RulersEngland">
-			<ModInUse>258EF3CA-890B-4863-8A52-982822EFF7BD</ModInUse>
+		<Criteria id="RulersEngland" any="1">
+			<LeaderPlayable>Players:StandardPlayers::LEADER_ELIZABETH,Players:Expansion1_Players::LEADER_ELIZABETH,Players:Expansion2_Players::LEADER_ELIZABETH</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_HARALD_ALT,Players:Expansion1_Players::LEADER_HARALD_ALT,Players:Expansion2_Players::LEADER_HARALD_ALT</LeaderPlayable>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_VICTORIA_ALT,Players:Expansion1_Players::LEADER_VICTORIA_ALT,Players:Expansion2_Players::LEADER_VICTORIA_ALT</LeaderPlayable>
 		</Criteria>
 		<!-- Other Mods and Integrations -->
 		<Criteria id="BBS">
@@ -135,7 +143,7 @@
 		</Criteria>
 		<!-- -->
 		<!--BBCC-->
-	    <Criteria id="core_bbcc">
+		<Criteria id="core_bbcc">
 	      <ConfigurationValueMatches inverse = "1">
 	        <Group>Game</Group>
 	        <ConfigurationId>BBCC_SETTING</ConfigurationId>
@@ -162,14 +170,14 @@
 	        <ConfigurationId>BBCC_SETTING_YIELD</ConfigurationId>
 	        <Value>1</Value>
 	      </ConfigurationValueMatches>
-	    </Criteria>   
+	    </Criteria>
 	    <Criteria id="legacy_bbcc">
 	      <ConfigurationValueMatches>
 	        <Group>Game</Group>
 	        <ConfigurationId>BBCC_SETTING_YIELD</ConfigurationId>
 	        <Value>2</Value>
 	      </ConfigurationValueMatches>
-	    </Criteria>    		
+	    </Criteria>
 		<!-- -->
 		<Criteria id="CVSetting_2">
 			<ConfigurationValueMatches>
@@ -665,7 +673,7 @@
 			<Criteria>XP1</Criteria>
 			<File>sql/NFP/nfp_xp1_maya_colombia.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="NFP_XP2_GranColombia_Maya">
+		<UpdateDatabase id="BBG_NFP_XP2_GranColombia_Maya">
 			<Properties>
 				<LoadOrder>11642</LoadOrder>
 			</Properties>
@@ -716,7 +724,7 @@
 			<File>sql/NFP/Babylon.sql</File>
 			<File>sql/NFP/GreatPeoples.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="BBG_Babylon">
+		<UpdateDatabase id="BBG_Babylon_XP2">
 			<Properties>
 				<LoadOrder>11649</LoadOrder>
 			</Properties>
@@ -784,8 +792,15 @@
 			</Properties>
 			<Criteria>Warlords</Criteria>
 			<File>sql/LP/lp_japan_tokugawa.sql</File>
-			<File>sql/LP/NaderShah.sql</File>
 			<File>sql/LP/lp_ottoman_suleiman_magnificent.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Warlords_Persia">
+			<Properties>
+				<LoadOrder>11655</LoadOrder>
+			</Properties>
+			<Criteria>Warlords</Criteria>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<File>sql/LP/NaderShah.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulesChina">
 			<Properties>
@@ -815,14 +830,21 @@
 				<LoadOrder>11659</LoadOrder>
 			</Properties>
 			<Criteria>Builders</Criteria>
-			<File>sql/LP/Theodora.sql</File>
 			<File>sql/LP/lp_ludwig.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Builders_Byzantium">
+			<Properties>
+				<LoadOrder>11659</LoadOrder>
+			</Properties>
+			<Criteria>Builders</Criteria>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<File>sql/LP/Theodora.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulersSahara">
 			<Properties>
 				<LoadOrder>11660</LoadOrder>
 			</Properties>
-			<Criteria>RulersEngland</Criteria>
+			<Criteria>RulersSahara</Criteria>
 			<File>sql/LP/Ptolemaic.sql</File>
 			<File>sql/LP/Ramses.sql</File>
 		</UpdateDatabase>
@@ -833,6 +855,7 @@
 			<Criteria>RulersEngland</Criteria>
 			<File>sql/LP/VictoriaSteam.sql</File>
 			<File>sql/LP/Elizabeth.sql</File>
+			<File>sql/LP/Varangian.sql</File>
 		</UpdateDatabase>
 		<!-- -->
 
@@ -848,45 +871,29 @@
 		<!--BBCC-->
 		<UpdateDatabase id="bbcc_configvalues_db">
 	      <Properties>
-	          <LoadOrder>11671</LoadOrder>
+	          <LoadOrder>11661</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <File>sql/bbcc/bbcc_configvalues.sql</File>
 	    </UpdateDatabase>
 		<UpdateDatabase id="core_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11672</LoadOrder>
+	          <LoadOrder>11662</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <File>sql/bbcc/core_bbcc.sql</File>
 	    </UpdateDatabase>	    
-	    <UpdateDatabase id="standard_bbcc_db">
-	      <Properties>
-	          <LoadOrder>11673</LoadOrder>
-	      </Properties>
-	      <Criteria>core_bbcc</Criteria>
-	      <Criteria>standard_bbcc</Criteria>
-	      <File>sql/bbcc/standard_bbcc.sql</File>
-	    </UpdateDatabase>
 	    <UpdateDatabase id="no_rng_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11673</LoadOrder>
+	          <LoadOrder>11663</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <Criteria>no_rng_bbcc</Criteria>
 	      <File>sql/bbcc/no_rng_bbcc.sql</File>
 	    </UpdateDatabase>
-	    <UpdateDatabase id="legacy_bbcc_db">
-	      <Properties>
-	          <LoadOrder>11673</LoadOrder>
-	      </Properties>
-	      <Criteria>core_bbcc</Criteria>
-	      <Criteria>legacy_bbcc</Criteria>
-	      <File>sql/bbcc/legacy_bbcc.sql</File>
-	    </UpdateDatabase>
 	    <UpdateDatabase id="cap_bbcc_db">
 	      <Properties>
-	          <LoadOrder>11680</LoadOrder>
+	          <LoadOrder>11670</LoadOrder>
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <Criteria>bbcc_cap</Criteria>
@@ -1267,6 +1274,7 @@
 		<File>sql/LP/Ramses.sql</File>
 		<File>sql/LP/Elizabeth.sql</File>
 		<File>sql/LP/VictoriaSteam.sql</File>
+		<File>sql/LP/Varangian.sql</File>
 		<!-- -->
 		<File>sql/Secret_Societies.sql</File>
 		<!-- -->
@@ -1302,9 +1310,7 @@
 
 		<File>sql/bbcc/bbcc_configvalues.sql</File>
 	    <File>sql/bbcc/core_bbcc.sql</File>
-	    <File>sql/bbcc/standard_bbcc.sql</File>
 	    <File>sql/bbcc/no_rng_bbcc.sql</File>
-	    <File>sql/bbcc/legacy_bbcc.sql</File>
 	    <File>sql/bbcc/cap_only_bbcc.sql</File>
 
 		<File>sql/april_fool.sql</File>

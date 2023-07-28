@@ -83,3 +83,13 @@ INSERT INTO TypeTags(Type, Tag) VALUES
 --UPDATE Units_XP2 SET ResourceMaintenanceAmount='0' WHERE  UnitType='UNIT_GERMAN_UBOAT';
 --UPDATE Units SET StrategicResource=NULL WHERE UnitType='UNIT_GERMAN_UBOAT';
 --UPDATE Units_XP2 SET ResourceMaintenanceType=NULL WHERE  UnitType='UNIT_GERMAN_UBOAT';
+
+-- 02/07/23: Strange that it does not exist in Types table
+INSERT INTO Types(Type, Kind) VALUES
+    ('RESULT_OPENING_ACT', 'KIND_ROCKBAND_RESULT');
+
+-- 02/07/23: Nerfed scaling of rockbands
+UPDATE Unit_RockbandResults_XP2 SET AlbumSales=40 WHERE ResultType='RESULT_OPENING_ACT';
+UPDATE Unit_RockbandResults_XP2 SET AlbumSales=80 WHERE ResultType='RESULT_RISING_STARS';
+UPDATE Unit_RockbandResults_XP2 SET AlbumSales=120 WHERE ResultType='RESULT_HEADLINERS';
+UPDATE Unit_RockbandResults_XP2 SET AlbumSales=160 WHERE ResultType='RESULT_LEGENDS_OF_ROCK';

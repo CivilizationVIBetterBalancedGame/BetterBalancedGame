@@ -47,3 +47,7 @@ INSERT OR IGNORE INTO RequirementSets (RequirementSetId , RequirementSetType) VA
 INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId) VALUES
 	('ATTACKING_REQUIREMENT_SET', 'PLAYER_IS_ATTACKER_REQUIREMENTS');
 UPDATE Modifiers SET SubjectRequirementSetId='ATTACKING_REQUIREMENT_SET' WHERE ModifierId='SPEAR_OF_FIONN_ADJUST_COMBAT_STRENGTH';
+
+-- 12/06/23 Fix tourism at flight on some improvement
+INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, PrereqTech) VALUES
+    ('IMPROVEMENT_MONASTERY', 'TOURISMSOURCE_FAITH', 'TECH_FLIGHT');
