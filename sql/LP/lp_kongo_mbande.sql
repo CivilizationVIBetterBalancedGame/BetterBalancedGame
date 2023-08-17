@@ -22,8 +22,8 @@ INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, Adj
     ('BBG_MBANDE_COMMERCIAL_HUB_MBANZA', 'BBG_LOC_MBANDE_COMMERCIAL_MBANZA', 'YIELD_GOLD', 2, 'DISTRICT_MBANZA');
 INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
     ('DISTRICT_COMMERCIAL_HUB', 'BBG_MBANDE_COMMERCIAL_HUB_MBANZA');
---INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
---    SELECT TraitType, 'BBG_MBANDE_COMMERCIAL_HUB_MBANZA' FROM LeaderTraits WHERE LeaderType != 'TRAIT_LEADER_NZINGA_MBANDE' GROUP BY LeaderType;
+INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
+   SELECT TraitType, 'BBG_MBANDE_COMMERCIAL_HUB_MBANZA' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_KONGO' GROUP BY CivilizationType;
 INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
 	('TRAIT_LEADER_RELIGIOUS_CONVERT', 'BBG_MBANDE_COMMERCIAL_HUB_MBANZA');
 
@@ -32,11 +32,11 @@ INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, Adj
     ('BBG_MBANDE_THEATRE_MBANZA', 'BBG_LOC_MBANDE_THEATRE_MBANZA', 'YIELD_CULTURE', 2, 'DISTRICT_MBANZA');
 INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
     ('DISTRICT_THEATER', 'BBG_MBANDE_THEATRE_MBANZA');
---INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
---    SELECT TraitType, 'BBG_MBANDE_THEATRE_MBANZA' FROM LeaderTraits WHERE LeaderType != 'TRAIT_LEADER_NZINGA_MBANDE' GROUP BY LeaderType;
+INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
+   SELECT TraitType, 'BBG_MBANDE_THEATRE_MBANZA' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_KONGO' GROUP BY CivilizationType;
 INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
 	('TRAIT_LEADER_RELIGIOUS_CONVERT', 'BBG_MBANDE_THEATRE_MBANZA');
-
+    
 -- 18/06/23 Mbande gets +10% culture & gold in cities with Mbanza
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
     ('BBG_REQUIREMENT_CITY_HAS_MBANZA', 'REQUIREMENT_CITY_HAS_DISTRICT');
