@@ -1,5 +1,5 @@
 --==============================================================================================
---******                PANTHEON                        ******
+--******    PANTHEON    ******
 --==============================================================================================
 
 -- religious settlements more border growth since settler removed
@@ -7,16 +7,16 @@ UPDATE ModifierArguments SET Value='50' WHERE ModifierId='RELIGIOUS_SETTLEMENTS_
 -- river goddess +2 HS adj on rivers, -1 housing and -1 amentiy tho
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='RIVER_GODDESS_HOLY_SITE_HOUSING_MODIFIER' AND Name='Amount';
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='RIVER_GODDESS_HOLY_SITE_AMENITIES_MODIFIER' AND Name='Amount';
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType, SubjectRequirementSetId)
-    VALUES ('RIVER_GODDESS_HOLY_SITE_FAITH_BBG' , 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_HAS_PANTHEON_REQUIREMENTS');
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType)
-    VALUES ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG' , 'MODIFIER_PLAYER_CITIES_RIVER_ADJACENCY');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value) VALUES
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+    VALUES ('RIVER_GODDESS_HOLY_SITE_FAITH_BBG', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_HAS_PANTHEON_REQUIREMENTS');
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
+    VALUES ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG', 'MODIFIER_PLAYER_CITIES_RIVER_ADJACENCY');
+INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('RIVER_GODDESS_HOLY_SITE_FAITH_BBG', 'ModifierId', 'RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG'),
-    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG' , 'Amount' , '1'),
-    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG' , 'DistrictType' , 'DISTRICT_HOLY_SITE'),
-    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG' , 'YieldType' , 'YIELD_FAITH'),
-    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG' , 'Description' , 'LOC_DISTRICT_HOLY_SITE_RIVER_FAITH');
+    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG', 'Amount', '1'),
+    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG', 'DistrictType', 'DISTRICT_HOLY_SITE'),
+    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG', 'YieldType', 'YIELD_FAITH'),
+    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG', 'Description', 'LOC_DISTRICT_HOLY_SITE_RIVER_FAITH');
 INSERT OR IGNORE INTO BeliefModifiers VALUES
     ('BELIEF_RIVER_GODDESS', 'RIVER_GODDESS_HOLY_SITE_FAITH_BBG');
 -- city patron buff
@@ -59,132 +59,118 @@ UPDATE ModifierArguments SET Value='ERA_INFORMATION' WHERE ModifierId='MONUMENT_
 UPDATE ModifierArguments SET Value='20' WHERE ModifierId='MONUMENT_TO_THE_GODS_ANCIENTCLASSICALWONDER_MODIFIER' AND Name='Amount';
 -- God of War now God of War and Plunder (similar to divine spark)
 DELETE FROM BeliefModifiers WHERE BeliefType='BELIEF_GOD_OF_WAR';
-INSERT OR IGNORE INTO Modifiers  ( ModifierId , ModifierType , SubjectRequirementSetId )
+INSERT OR IGNORE INTO Modifiers  ( ModifierId, ModifierType, SubjectRequirementSetId )
     VALUES
-    ( 'GOD_OF_WAR_AND_PLUNDER_COMHUB' , 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER' , 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS' ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_HARBOR' , 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER' , 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS' ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_ENCAMP' , 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER' , 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS' ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_COMHUB_MODIFIER' , 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS' , 'DISTRICT_IS_COMMERCIAL_HUB' ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_HARBOR_MODIFIER' , 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS' , 'DISTRICT_IS_HARBOR'         ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_ENCAMP_MODIFIER' , 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS' , 'DISTRICT_IS_ENCAMPMENT'     );
-INSERT OR IGNORE INTO ModifierArguments ( ModifierId , Name , Type , Value )
+    ( 'GOD_OF_WAR_AND_PLUNDER_COMHUB', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_HARBOR', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_ENCAMP', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_COMHUB_MODIFIER', 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', 'DISTRICT_IS_COMMERCIAL_HUB' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_HARBOR_MODIFIER', 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', 'DISTRICT_IS_HARBOR' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_ENCAMP_MODIFIER', 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', 'DISTRICT_IS_ENCAMPMENT' );
+INSERT OR IGNORE INTO ModifierArguments ( ModifierId, Name, Type, Value )
     VALUES
-    ( 'GOD_OF_WAR_AND_PLUNDER_COMHUB' , 'ModifierId' , 'ARGTYPE_IDENTITY' , 'GOD_OF_WAR_AND_PLUNDER_COMHUB_MODIFIER' ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_HARBOR' , 'ModifierId' , 'ARGTYPE_IDENTITY' , 'GOD_OF_WAR_AND_PLUNDER_HARBOR_MODIFIER' ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_ENCAMP' , 'ModifierId' , 'ARGTYPE_IDENTITY' , 'GOD_OF_WAR_AND_PLUNDER_ENCAMP_MODIFIER' ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_COMHUB_MODIFIER' , 'GreatPersonClassType' , 'ARGTYPE_IDENTITY' , 'GREAT_PERSON_CLASS_MERCHANT' ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_HARBOR_MODIFIER' , 'GreatPersonClassType' , 'ARGTYPE_IDENTITY' , 'GREAT_PERSON_CLASS_ADMIRAL'  ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_ENCAMP_MODIFIER' , 'GreatPersonClassType' , 'ARGTYPE_IDENTITY' , 'GREAT_PERSON_CLASS_GENERAL'  ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_COMHUB_MODIFIER' , 'Amount' , 'ARGTYPE_IDENTITY' , '1' ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_HARBOR_MODIFIER' , 'Amount' , 'ARGTYPE_IDENTITY' , '1' ),
-    ( 'GOD_OF_WAR_AND_PLUNDER_ENCAMP_MODIFIER' , 'Amount' , 'ARGTYPE_IDENTITY' , '1' );
-INSERT OR IGNORE INTO BeliefModifiers ( BeliefType , ModifierId )
+    ( 'GOD_OF_WAR_AND_PLUNDER_COMHUB', 'ModifierId', 'ARGTYPE_IDENTITY', 'GOD_OF_WAR_AND_PLUNDER_COMHUB_MODIFIER' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_HARBOR', 'ModifierId', 'ARGTYPE_IDENTITY', 'GOD_OF_WAR_AND_PLUNDER_HARBOR_MODIFIER' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_ENCAMP', 'ModifierId', 'ARGTYPE_IDENTITY', 'GOD_OF_WAR_AND_PLUNDER_ENCAMP_MODIFIER' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_COMHUB_MODIFIER', 'GreatPersonClassType', 'ARGTYPE_IDENTITY', 'GREAT_PERSON_CLASS_MERCHANT' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_HARBOR_MODIFIER', 'GreatPersonClassType', 'ARGTYPE_IDENTITY', 'GREAT_PERSON_CLASS_ADMIRAL'  ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_ENCAMP_MODIFIER', 'GreatPersonClassType', 'ARGTYPE_IDENTITY', 'GREAT_PERSON_CLASS_GENERAL'  ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_COMHUB_MODIFIER', 'Amount', 'ARGTYPE_IDENTITY', '1' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_HARBOR_MODIFIER', 'Amount', 'ARGTYPE_IDENTITY', '1' ),
+    ( 'GOD_OF_WAR_AND_PLUNDER_ENCAMP_MODIFIER', 'Amount', 'ARGTYPE_IDENTITY', '1' );
+INSERT OR IGNORE INTO BeliefModifiers ( BeliefType, ModifierId )
     VALUES
-    ( 'BELIEF_GOD_OF_WAR' , 'GOD_OF_WAR_AND_PLUNDER_COMHUB' ),
-    ( 'BELIEF_GOD_OF_WAR' , 'GOD_OF_WAR_AND_PLUNDER_HARBOR' ),
-    ( 'BELIEF_GOD_OF_WAR' , 'GOD_OF_WAR_AND_PLUNDER_ENCAMP' );
+    ( 'BELIEF_GOD_OF_WAR', 'GOD_OF_WAR_AND_PLUNDER_COMHUB' ),
+    ( 'BELIEF_GOD_OF_WAR', 'GOD_OF_WAR_AND_PLUNDER_HARBOR' ),
+    ( 'BELIEF_GOD_OF_WAR', 'GOD_OF_WAR_AND_PLUNDER_ENCAMP' );
 -- Fertility Rites gives +1 food for rice and wheat and cattle
-INSERT OR IGNORE INTO Tags
-    (Tag                                , Vocabulary)
-    VALUES 
-    ('CLASS_FERTILITY_RITES_FOOD'       , 'RESOURCE_CLASS');
-INSERT OR IGNORE INTO TypeTags 
-    (Type              , Tag)
-    VALUES
-    ('RESOURCE_WHEAT'  , 'CLASS_FERTILITY_RITES_FOOD'),
-    ('RESOURCE_CATTLE' , 'CLASS_FERTILITY_RITES_FOOD'),
-    ('RESOURCE_RICE'   , 'CLASS_FERTILITY_RITES_FOOD');
-INSERT OR IGNORE INTO Modifiers 
-    (ModifierId                                         , ModifierType                                                , SubjectRequirementSetId)
-    VALUES
-    ('FERTILITY_RITES_TAG_FOOD'                         , 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER'                       , 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'      ),
-    ('FERTILITY_RITES_TAG_FOOD_MODIFIER'                , 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD'               , 'PLOT_HAS_FERTILITY_TAG_FOOD_REQUIREMENTS');
-INSERT OR IGNORE INTO ModifierArguments 
-    (ModifierId                                         , Name                       , Value)
-    VALUES
-    ('FERTILITY_RITES_TAG_FOOD'                         , 'ModifierId'                , 'FERTILITY_RITES_TAG_FOOD_MODIFIER'             ),
-    ('FERTILITY_RITES_TAG_FOOD_MODIFIER'                , 'YieldType'                 , 'YIELD_FOOD'                                    ),
-    ('FERTILITY_RITES_TAG_FOOD_MODIFIER'                , 'Amount'                    , '1'                                             );
-INSERT OR IGNORE INTO Requirements 
-    (RequirementId                                , RequirementType)
-    VALUES 
-    ('REQUIRES_PLOT_HAS_TAG_FERTILITY_FOOD'       , 'REQUIREMENT_PLOT_RESOURCE_TAG_MATCHES');
-INSERT OR IGNORE INTO RequirementArguments 
-    (RequirementId                                , Name  , Value)
-    VALUES 
-    ('REQUIRES_PLOT_HAS_TAG_FERTILITY_FOOD'       , 'Tag'         , 'CLASS_FERTILITY_RITES_FOOD');
-INSERT OR IGNORE INTO RequirementSets 
-    (RequirementSetId                                 , RequirementSetType)
-    VALUES 
-    ('PLOT_HAS_FERTILITY_TAG_FOOD_REQUIREMENTS'       , 'REQUIREMENTSET_TEST_ALL');
-INSERT OR IGNORE INTO RequirementSetRequirements 
-    (RequirementSetId                                 , RequirementId)
-    VALUES 
-    ('PLOT_HAS_FERTILITY_TAG_FOOD_REQUIREMENTS'       , 'REQUIRES_PLOT_HAS_TAG_FERTILITY_FOOD');
+INSERT OR IGNORE INTO Tags (Tag, Vocabulary) VALUES 
+    ('CLASS_FERTILITY_RITES_FOOD', 'RESOURCE_CLASS');
+INSERT OR IGNORE INTO TypeTags (Type, Tag) VALUES
+    ('RESOURCE_WHEAT', 'CLASS_FERTILITY_RITES_FOOD'),
+    ('RESOURCE_CATTLE', 'CLASS_FERTILITY_RITES_FOOD'),
+    ('RESOURCE_RICE', 'CLASS_FERTILITY_RITES_FOOD');
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('FERTILITY_RITES_TAG_FOOD', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
+    ('FERTILITY_RITES_TAG_FOOD_MODIFIER', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'PLOT_HAS_FERTILITY_TAG_FOOD_REQUIREMENTS');
+INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('FERTILITY_RITES_TAG_FOOD', 'ModifierId', 'FERTILITY_RITES_TAG_FOOD_MODIFIER'),
+    ('FERTILITY_RITES_TAG_FOOD_MODIFIER', 'YieldType', 'YIELD_FOOD'),
+    ('FERTILITY_RITES_TAG_FOOD_MODIFIER', 'Amount', '1');
+INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) VALUES 
+    ('REQUIRES_PLOT_HAS_TAG_FERTILITY_FOOD', 'REQUIREMENT_PLOT_RESOURCE_TAG_MATCHES');
+INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) VALUES 
+    ('REQUIRES_PLOT_HAS_TAG_FERTILITY_FOOD', 'Tag', 'CLASS_FERTILITY_RITES_FOOD');
+INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES 
+    ('PLOT_HAS_FERTILITY_TAG_FOOD_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES 
+    ('PLOT_HAS_FERTILITY_TAG_FOOD_REQUIREMENTS', 'REQUIRES_PLOT_HAS_TAG_FERTILITY_FOOD');
 UPDATE BeliefModifiers SET ModifierID='FERTILITY_RITES_TAG_FOOD' WHERE BeliefType='BELIEF_FERTILITY_RITES' AND ModifierID='FERTILITY_RITES_GROWTH';
+-- 11/09/23 Fertility remove builder
+DELETE FROM BeliefModifiers WHERE ModifierID='FERTILITY_RITES_BUILDER';
 -- Sacred Path +1 Faith Holy Site adjacency now applies to both Woods and Rainforest
 INSERT OR IGNORE INTO BeliefModifiers 
-    (BeliefType                   , ModifierId)
+    (BeliefType, ModifierId)
     VALUES
-    ('BELIEF_SACRED_PATH'         , 'SACRED_PATH_WOODS_FAITH_ADJACENCY');
+    ('BELIEF_SACRED_PATH', 'SACRED_PATH_WOODS_FAITH_ADJACENCY');
 INSERT OR IGNORE INTO Modifiers 
-    (ModifierId                                         , ModifierType                                                , SubjectRequirementSetId)
+    (ModifierId, ModifierType, SubjectRequirementSetId)
     VALUES
-    ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'MODIFIER_ALL_CITIES_FEATURE_ADJACENCY'                     , 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS');
+    ('SACRED_PATH_WOODS_FAITH_ADJACENCY', 'MODIFIER_ALL_CITIES_FEATURE_ADJACENCY', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS');
 INSERT OR IGNORE INTO ModifierArguments 
-    (ModifierId                                         , Name                       , Value)
+    (ModifierId, Name, Value)
     VALUES
-    ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'DistrictType'              , 'DISTRICT_HOLY_SITE'                            ),
-    ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'FeatureType'               , 'FEATURE_FOREST'                                ),
-    ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'YieldType'                 , 'YIELD_FAITH'                                   ),
-    ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'Amount'                    , '1'                                             ),
-    ('SACRED_PATH_WOODS_FAITH_ADJACENCY'                , 'Description'               , 'LOC_DISTRICT_SACREDPATH_WOODS_FAITH'           );
+    ('SACRED_PATH_WOODS_FAITH_ADJACENCY', 'DistrictType', 'DISTRICT_HOLY_SITE'    ),
+    ('SACRED_PATH_WOODS_FAITH_ADJACENCY', 'FeatureType', 'FEATURE_FOREST'    ),
+    ('SACRED_PATH_WOODS_FAITH_ADJACENCY', 'YieldType', 'YIELD_FAITH'   ),
+    ('SACRED_PATH_WOODS_FAITH_ADJACENCY', 'Amount', '1'     ),
+    ('SACRED_PATH_WOODS_FAITH_ADJACENCY', 'Description', 'LOC_DISTRICT_SACREDPATH_WOODS_FAITH'   );
 -- Lady of the Reeds and Marshes now applies to all respective wonders labeled as floodplains, oasis, marsh in utilities
 -- FireGodess works on all volcanic soil and geothermal wonders
 INSERT INTO AbstractModifiers(ParentObjectID, ModifierAId, ModifierAType, ModifierAName, ModifierAValue, SubjectRequirementSetId, RequirementSetType, RequirementId, RequirementType, Inverse, Name, Value)
     SELECT
-        BeliefModifiers.BeliefType, 
-        BeliefModifiers.ModifierID,
-        Modifiers.ModifierType,
-        ModifierArguments.Name,
-        ModifierArguments.Value,
-        Modifiers.SubjectRequirementSetId, 
-        RequirementSets.RequirementSetType, 
-        RequirementSetRequirements.RequirementId, 
-        Requirements.RequirementType, 
-        Requirements.Inverse,
-        RequirementArguments.Name,
-        RequirementArguments.Value
+    BeliefModifiers.BeliefType, 
+    BeliefModifiers.ModifierID,
+    Modifiers.ModifierType,
+    ModifierArguments.Name,
+    ModifierArguments.Value,
+    Modifiers.SubjectRequirementSetId, 
+    RequirementSets.RequirementSetType, 
+    RequirementSetRequirements.RequirementId, 
+    Requirements.RequirementType, 
+    Requirements.Inverse,
+    RequirementArguments.Name,
+    RequirementArguments.Value
     FROM BeliefModifiers
-        LEFT JOIN Modifiers ON BeliefModifiers.ModifierID = Modifiers.ModifierId
-        LEFT JOIN ModifierArguments ON Modifiers.ModifierID = ModifierArguments.ModifierId
-        LEFT JOIN RequirementSets ON Modifiers.SubjectRequirementSetId = RequirementSets.RequirementSetId
-        LEFT JOIN RequirementSetRequirements ON RequirementSets.RequirementSetId = RequirementSetRequirements.RequirementSetId
-        LEFT JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
-        LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId
+    LEFT JOIN Modifiers ON BeliefModifiers.ModifierID = Modifiers.ModifierId
+    LEFT JOIN ModifierArguments ON Modifiers.ModifierID = ModifierArguments.ModifierId
+    LEFT JOIN RequirementSets ON Modifiers.SubjectRequirementSetId = RequirementSets.RequirementSetId
+    LEFT JOIN RequirementSetRequirements ON RequirementSets.RequirementSetId = RequirementSetRequirements.RequirementSetId
+    LEFT JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
+    LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId
     WHERE
-        BeliefModifiers.BeliefType IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'BELIEF_GODDESS_OF_FIRE');
+    BeliefModifiers.BeliefType IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'BELIEF_GODDESS_OF_FIRE');
 INSERT OR IGNORE INTO AbstractModifiers(ParentObjectID, ModifierBId, SubjectRequirementSetId, RequirementSetType, RequirementId, RequirementType, Inverse, Name, Value)
     SELECT CASE
-        WHEN AbstractModifiers.ModifierAType LIKE '%ATTACH_MODIFIER%' 
-        THEN
-            AbstractModifiers.ParentObjectID 
-        ELSE NULL
+    WHEN AbstractModifiers.ModifierAType LIKE '%ATTACH_MODIFIER%' 
+    THEN
+    AbstractModifiers.ParentObjectID 
+    ELSE NULL
     END,
-        AbstractModifiers.ModifierAValue, 
-        Modifiers.SubjectRequirementSetId, 
-        RequirementSets.RequirementSetType, 
-        RequirementSetRequirements.RequirementId, 
-        Requirements.RequirementType, 
-        Requirements.Inverse,
-        RequirementArguments.Name,
-        RequirementArguments.Value
+    AbstractModifiers.ModifierAValue, 
+    Modifiers.SubjectRequirementSetId, 
+    RequirementSets.RequirementSetType, 
+    RequirementSetRequirements.RequirementId, 
+    Requirements.RequirementType, 
+    Requirements.Inverse,
+    RequirementArguments.Name,
+    RequirementArguments.Value
     FROM AbstractModifiers
-        LEFT JOIN Modifiers ON AbstractModifiers.ModifierAValue = Modifiers.ModifierId
-        LEFT JOIN RequirementSets ON Modifiers.SubjectRequirementSetId = RequirementSets.RequirementSetId
-        LEFT JOIN RequirementSetRequirements ON RequirementSets.RequirementSetId = RequirementSetRequirements.RequirementSetId
-        LEFT JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
-        LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId;
+    LEFT JOIN Modifiers ON AbstractModifiers.ModifierAValue = Modifiers.ModifierId
+    LEFT JOIN RequirementSets ON Modifiers.SubjectRequirementSetId = RequirementSets.RequirementSetId
+    LEFT JOIN RequirementSetRequirements ON RequirementSets.RequirementSetId = RequirementSetRequirements.RequirementSetId
+    LEFT JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
+    LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId;
 --updating reqs for reeds and marshes
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
     SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
@@ -198,9 +184,9 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     FROM AbstractModifiers
     LEFT JOIN WonderTerrainFeature_BBG
     WHERE WonderTerrainFeature_BBG.FeatureType IN ('FEATURE_OASIS', 'FEATURE_MARSH', 'FEATURE_FLOODPLAINS', 'FEATURE_FLOODPLAINS_GRASSLAND', 'FEATURE_FLOODPLAINS_PLAINS')
-        AND AbstractModifiers.Name = 'FeatureType'
-        AND AbstractModifiers.ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES'
-        AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType' AND ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
+    AND AbstractModifiers.Name = 'FeatureType'
+    AND AbstractModifiers.ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES'
+    AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType' AND ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
 --updating reqs for fire godess
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
     SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
@@ -213,9 +199,9 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     FROM AbstractModifiers
     LEFT JOIN WonderTerrainFeature_BBG
     WHERE WonderTerrainFeature_BBG.FeatureType IN ('FEATURE_GEOTHERMAL_FISSURE', 'FEATURE_VOLCANIC_SOIL')
-        AND AbstractModifiers.Name = 'FeatureType'
-        AND AbstractModifiers.ParentObjectID = 'BELIEF_GODDESS_OF_FIRE'
-        AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType' AND ParentObjectID = 'BELIEF_GODDESS_OF_FIRE');
+    AND AbstractModifiers.Name = 'FeatureType'
+    AND AbstractModifiers.ParentObjectID = 'BELIEF_GODDESS_OF_FIRE'
+    AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType' AND ParentObjectID = 'BELIEF_GODDESS_OF_FIRE');
 DELETE FROM AbstractModifiers WHERE ParentObjectID IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'BELIEF_GODDESS_OF_FIRE');
 
 --04/10/22 goddess of the hunt nerf from 1p/1f to 1p/2g
@@ -289,7 +275,7 @@ INSERT INTO Modifiers(ModifierId, ModifierType, RunOnce, Permanent, SubjectRequi
     ('BBG_INITIATION_RITES_FREE_WARRIOR', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 0, 0, 'PLAYER_HAS_PANTHEON_REQUIREMENTS'),
     ('BBG_INITIATION_RITES_FREE_WARRIOR_MODIFIER', 'MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL', 1, 1, 'PLAYER_HAS_AT_LEAST_ONE_CITY_REQUIREMENTS');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('INITIATION_RITES_FAITH_YIELD_CPL_MOD' , 'ModifierId', 'INITIATION_RITES_FAITH_YIELD_MODIFIER_CPL_MOD'),
+    ('INITIATION_RITES_FAITH_YIELD_CPL_MOD', 'ModifierId', 'INITIATION_RITES_FAITH_YIELD_MODIFIER_CPL_MOD'),
     ('INITIATION_RITES_FAITH_YIELD_MODIFIER_CPL_MOD', 'YieldType', 'YIELD_FAITH'),
     ('INITIATION_RITES_FAITH_YIELD_MODIFIER_CPL_MOD', 'UnitProductionPercent', '35'),
     ('BBG_INITIATION_RITES_FREE_WARRIOR', 'ModifierId', 'BBG_INITIATION_RITES_FREE_WARRIOR_MODIFIER'),
@@ -324,7 +310,7 @@ UPDATE BeliefModifiers SET ModifierID='OPEN_SEA_FISHINGBOATS_CULTURE' WHERE Beli
 
 
 --==============================================================================================
---******                RELIGION                        ******
+--******    RELIGION    ******
 --==============================================================================================
 
 -- DOF nerf
@@ -383,7 +369,7 @@ INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES
     ('BBG_REQUIRES_MONK', 'REQUIREMENT_UNIT_TAG_MATCHES');
 
-INSERT INTO RequirementArguments(RequirementId, Name , Value) VALUES
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
     ('BBG_REQUIRES_MONK', 'Tag', 'CLASS_WARRIOR_MONK');
 
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
@@ -446,11 +432,11 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
     ('BBG_UNIT_IS_MONK_REQUIREMENTS', 'BBG_REQUIRES_MONK');
 
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
-    SELECT 'BBG_MODIFIER_MONKS_CS_' || Civics.CivicType , 'MODIFIER_UNIT_ADJUST_BASE_COMBAT_STRENGTH', 'BBG_UTILS_PLAYER_HAS_' || Civics.CivicType || '_REQSET'
+    SELECT 'BBG_MODIFIER_MONKS_CS_' || Civics.CivicType, 'MODIFIER_UNIT_ADJUST_BASE_COMBAT_STRENGTH', 'BBG_UTILS_PLAYER_HAS_' || Civics.CivicType || '_REQSET'
     FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
 
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'BBG_MODIFIER_MONKS_CS_'|| Civics.CivicType , 'Amount', '1'
+    SELECT 'BBG_MODIFIER_MONKS_CS_'|| Civics.CivicType, 'Amount', '1'
     FROM Civics WHERE EraType IN ('ERA_ANCIENT','ERA_CLASSICAL', 'ERA_MEDIEVAL', 'ERA_RENAISSANCE', 'ERA_INDUSTRIAL');
 
 --DELETE UNIQUE TEMPLES requirements
@@ -500,7 +486,7 @@ INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId)
 -- UPDATE Units SET ReligionEvictPercent=50, SpreadCharges=2 WHERE UnitType='UNIT_INQUISITOR';
 -- Religious spread from trade routes increased
 UPDATE GlobalParameters SET Value='2.0' WHERE Name='RELIGION_SPREAD_TRADE_ROUTE_PRESSURE_FOR_DESTINATION';
-UPDATE GlobalParameters SET Value='1.0' WHERE Name='RELIGION_SPREAD_TRADE_ROUTE_PRESSURE_FOR_ORIGIN'     ;
+UPDATE GlobalParameters SET Value='1.0' WHERE Name='RELIGION_SPREAD_TRADE_ROUTE_PRESSURE_FOR_ORIGIN' ;
 -- Divine Inspiration yield increased
 UPDATE ModifierArguments SET Value='6' WHERE ModifierId='DIVINE_INSPIRATION_WONDER_FAITH_MODIFIER' AND Name='Amount';
 -- Lay Ministry now +2 Culture and +2 Faith per Theater and Holy Site
@@ -518,22 +504,22 @@ UPDATE ModifierArguments SET Value='3' WHERE ModifierId='WORLD_CHURCH_CULTURE_FO
 UPDATE RequirementArguments SET Value='1' WHERE RequirementId='REQUIRES_CITY_HAS_2_SPECIALTY_DISTRICTS' AND Name='Amount';
 
 -- Religious Communities now gives +1 Housing to Holy Sites, like it does for Shines and Temples
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , SubjectRequirementSetId)
-    VALUES ('RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING' , 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER' , 'CITY_FOLLOWS_RELIGION_HAS_HOLY_SITE');
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType)
-    VALUES ('RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING_MODIFIER' , 'MODIFIER_SINGLE_CITY_ADJUST_BUILDING_HOUSING');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-    VALUES ('RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING' , 'ModifierId' , 'RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING_MODIFIER');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-    VALUES ('RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING_MODIFIER' , 'Amount' , '1');
-INSERT OR IGNORE INTO BeliefModifiers (BeliefType , ModifierId)
-    VALUES ('BELIEF_RELIGIOUS_COMMUNITY' , 'RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING');
-INSERT OR IGNORE INTO RequirementSets (RequirementSetId , RequirementSetType)
-    VALUES ('CITY_FOLLOWS_RELIGION_HAS_HOLY_SITE' , 'REQUIREMENTSET_TEST_ALL');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId)
-    VALUES ('CITY_FOLLOWS_RELIGION_HAS_HOLY_SITE' , 'REQUIRES_CITY_FOLLOWS_RELIGION');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId)
-    VALUES ('CITY_FOLLOWS_RELIGION_HAS_HOLY_SITE' , 'REQUIRES_CITY_HAS_HOLY_SITE');
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+    VALUES ('RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_RELIGION_HAS_HOLY_SITE');
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
+    VALUES ('RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING_MODIFIER', 'MODIFIER_SINGLE_CITY_ADJUST_BUILDING_HOUSING');
+INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
+    VALUES ('RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING', 'ModifierId', 'RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING_MODIFIER');
+INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
+    VALUES ('RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING_MODIFIER', 'Amount', '1');
+INSERT OR IGNORE INTO BeliefModifiers (BeliefType, ModifierId)
+    VALUES ('BELIEF_RELIGIOUS_COMMUNITY', 'RELIGIOUS_COMMUNITY_HOLY_SITE_HOUSING');
+INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType)
+    VALUES ('CITY_FOLLOWS_RELIGION_HAS_HOLY_SITE', 'REQUIREMENTSET_TEST_ALL');
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+    VALUES ('CITY_FOLLOWS_RELIGION_HAS_HOLY_SITE', 'REQUIRES_CITY_FOLLOWS_RELIGION');
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+    VALUES ('CITY_FOLLOWS_RELIGION_HAS_HOLY_SITE', 'REQUIRES_CITY_HAS_HOLY_SITE');
 
 -- Warrior Monks +5 Combat Strength
 -- 23/04/2021: Implemented by Firaxis
@@ -541,38 +527,38 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , Requirement
 -- Work Ethic now provides production equal to base yield for Shrine and Temple
 DELETE From BeliefModifiers WHERE ModifierId='WORK_ETHIC_FOLLOWER_PRODUCTION';
 INSERT OR IGNORE INTO Modifiers 
-    (ModifierId                              , ModifierType                          , SubjectRequirementSetId)
+    (ModifierId, ModifierType, SubjectRequirementSetId)
     VALUES 
-    ('WORK_ETHIC_SHRINE_PRODUCTION'          , 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER' , 'CITY_FOLLOWS_RELIGION_HAS_SHRINE'),
-    ('WORK_ETHIC_TEMPLE_PRODUCTION'          , 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER' , 'CITY_FOLLOWS_RELIGION_HAS_TEMPLE'),
-    ('WORK_ETHIC_SHRINE_PRODUCTION_MODIFIER' , 'MODIFIER_BUILDING_YIELD_CHANGE'      , null                              ),
-    ('WORK_ETHIC_TEMPLE_PRODUCTION_MODIFIER' , 'MODIFIER_BUILDING_YIELD_CHANGE'      , null                              );
+    ('WORK_ETHIC_SHRINE_PRODUCTION', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_RELIGION_HAS_SHRINE'),
+    ('WORK_ETHIC_TEMPLE_PRODUCTION', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_RELIGION_HAS_TEMPLE'),
+    ('WORK_ETHIC_SHRINE_PRODUCTION_MODIFIER', 'MODIFIER_BUILDING_YIELD_CHANGE', null  ),
+    ('WORK_ETHIC_TEMPLE_PRODUCTION_MODIFIER', 'MODIFIER_BUILDING_YIELD_CHANGE', null  );
 INSERT OR IGNORE INTO ModifierArguments 
-    (ModifierId                              , Name           , Value)
+    (ModifierId, Name, Value)
     VALUES 
-    ('WORK_ETHIC_SHRINE_PRODUCTION'          , 'ModifierId'   , 'WORK_ETHIC_SHRINE_PRODUCTION_MODIFIER'),
-    ('WORK_ETHIC_TEMPLE_PRODUCTION'          , 'ModifierId'   , 'WORK_ETHIC_TEMPLE_PRODUCTION_MODIFIER'),
-    ('WORK_ETHIC_SHRINE_PRODUCTION_MODIFIER' , 'BuildingType' , 'BUILDING_SHRINE'                      ),
-    ('WORK_ETHIC_SHRINE_PRODUCTION_MODIFIER' , 'YieldType'    , 'YIELD_PRODUCTION'                     ),
-    ('WORK_ETHIC_SHRINE_PRODUCTION_MODIFIER' , 'Amount'       , '2'                                    ),
-    ('WORK_ETHIC_TEMPLE_PRODUCTION_MODIFIER' , 'BuildingType' , 'BUILDING_TEMPLE'                      ),
-    ('WORK_ETHIC_TEMPLE_PRODUCTION_MODIFIER' , 'YieldType'    , 'YIELD_PRODUCTION'                     ),
-    ('WORK_ETHIC_TEMPLE_PRODUCTION_MODIFIER' , 'Amount'       , '4'                                    );
+    ('WORK_ETHIC_SHRINE_PRODUCTION', 'ModifierId', 'WORK_ETHIC_SHRINE_PRODUCTION_MODIFIER'),
+    ('WORK_ETHIC_TEMPLE_PRODUCTION', 'ModifierId', 'WORK_ETHIC_TEMPLE_PRODUCTION_MODIFIER'),
+    ('WORK_ETHIC_SHRINE_PRODUCTION_MODIFIER', 'BuildingType', 'BUILDING_SHRINE'  ),
+    ('WORK_ETHIC_SHRINE_PRODUCTION_MODIFIER', 'YieldType', 'YIELD_PRODUCTION' ),
+    ('WORK_ETHIC_SHRINE_PRODUCTION_MODIFIER', 'Amount', '2'    ),
+    ('WORK_ETHIC_TEMPLE_PRODUCTION_MODIFIER', 'BuildingType', 'BUILDING_TEMPLE'  ),
+    ('WORK_ETHIC_TEMPLE_PRODUCTION_MODIFIER', 'YieldType', 'YIELD_PRODUCTION' ),
+    ('WORK_ETHIC_TEMPLE_PRODUCTION_MODIFIER', 'Amount', '4'    );
 INSERT OR IGNORE INTO BeliefModifiers 
-    (BeliefType          , ModifierId)
+    (BeliefType, ModifierId)
     VALUES 
-    ('BELIEF_WORK_ETHIC' , 'WORK_ETHIC_TEMPLE_PRODUCTION'),
-    ('BELIEF_WORK_ETHIC' , 'WORK_ETHIC_SHRINE_PRODUCTION');
+    ('BELIEF_WORK_ETHIC', 'WORK_ETHIC_TEMPLE_PRODUCTION'),
+    ('BELIEF_WORK_ETHIC', 'WORK_ETHIC_SHRINE_PRODUCTION');
 
 -- All worship building production costs reduced    
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_CATHEDRAL'    ;
---UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_GURDWARA'     ;
+--UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_GURDWARA' ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_MEETING_HOUSE';
---UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_MOSQUE'       ;
---UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_PAGODA'       ;
+--UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_MOSQUE'   ;
+--UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_PAGODA'   ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_SYNAGOGUE'    ;
---UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_WAT'          ;
---UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_STUPA'        ;
+--UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_WAT'  ;
+--UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_STUPA'    ;
 --UPDATE Buildings SET Cost='120' WHERE BuildingType='BUILDING_DAR_E_MEHR'   ;
 
 -- Pagoda: 1 Influance instead of 1 diplo favour
