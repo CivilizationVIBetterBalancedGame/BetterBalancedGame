@@ -66,7 +66,9 @@ INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType)
 INSERT OR IGNORE INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange) VALUES
 	('RESOURCE_INCENSE', 'YIELD_FOOD', 1),
 	('RESOURCE_MERCURY', 'YIELD_FOOD', 1),
-	('RESOURCE_SPICES', 'YIELD_GOLD', 1);
+	('RESOURCE_SPICES', 'YIELD_GOLD', 1),
+    ('RESOURCE_TEA', 'YIELD_FOOD', 1),
+    ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1);
 UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPICES' AND YieldType='YIELD_FOOD';
 
 -- add 1 production to fishing boat improvement
@@ -94,6 +96,17 @@ INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType) VALUES
     ('IMPROVEMENT_BEACH_RESORT', 'TERRAIN_GRASS_HILLS'),
     ('IMPROVEMENT_BEACH_RESORT', 'TERRAIN_PLAINS_HILLS'),
     ('IMPROVEMENT_BEACH_RESORT', 'TERRAIN_DESERT_HILLS');
+-- 12/06/23 Beach Resort can be built on appealling tiles
+UPDATE Improvements SET MinimumAppeal=2 WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
+--15/06/23 Beach resort get gold double the appeal and tourism based on that
+UPDATE Improvement_Tourism SET TourismSource='TOURISMSOURCE_GOLD' WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
+UPDATE Improvements SET YieldFromAppealPercent=200 WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
+
+
+-- 12/06/23 Fix tourism at flight on some improvement
+INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, PrereqTech)
+    SELECT Improvements.ImprovementType, 'TOURISMSOURCE_CULTURE', 'TECH_FLIGHT' From Improvements WHERE ImprovementType IN ('IMPROVEMENT_FARM', 'IMPROVEMENT_QUARRY', 'IMPROVEMENT_CAMP', 'IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_LUMBER_MILL', 'IMPROVEMENT_OIL_WELL', 'IMPROVEMENT_OFFSHORE_OIL_RIG');
+
 
 --****		REQUIREMENTS		****--
 INSERT OR IGNORE INTO Requirements
@@ -120,6 +133,7 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech)
 
 
 --Removing any Extra Yields Mechanism
+/*
 CREATE TABLE Numbers(Number INT NOT NULL);
 INSERT INTO Numbers VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15);
 
@@ -147,7 +161,6 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
     SELECT 'MODIFIER_CITY_REMOVE_'||Numbers.Number||'_EXTRA_'||Yields.YieldType||'_BBG', 'Amount', -1
     FROM Numbers LEFT JOIN Yields;
-/*
 INSERT INTO Modifiers(ModifierId, ModifierType)
     SELECT 'MODIFIER_CIV_CITIES_REMOVE_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG', 'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER'
     FROM Numbers LEFT JOIN Yields;
@@ -161,8 +174,17 @@ INSERT INTO TraitModifiers(TraitType, ModifierId)
 INSERT INTO TraitModifiers(TraitType, ModifierId)
     SELECT 'MINOR_CIV_DEFAULT_TRAIT', 'MODIFIER_CIV_CITIES_REMOVE_EXTRA_'||Numbers.Number||'_'||Yields.YieldType||'_BBG'
     FROM Numbers LEFT JOIN Yields;
-*/
 DROP TABLE Numbers;
+*/
+
+--=======================================================================
+--******                        Spy                                ******
+--=======================================================================
+--Creating Spy Capacity Modifier (lua attaches it)
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'MODIFIER_PLAYER_GRANT_SPY');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'Amount', '1');
 
 --=======================================================================
 --******               Wonder+Terrain/Feature                      ******

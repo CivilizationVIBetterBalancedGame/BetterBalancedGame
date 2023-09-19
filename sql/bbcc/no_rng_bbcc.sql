@@ -1,5 +1,11 @@
 --============Adding Missing Yields:=============-----
+
+--===================================================================
+--in live
+--===================================================================
 --food
+
+/*
 INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetId, TerrainType, ResourceType, ResourceClassType, FeatureType)
 	SELECT DISTINCT 'MODIFIER_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount-2) AS varchar)||'_FOOD_BBCC', 'YIELD_FOOD', Flat_CutOffYieldValues.Amount-2, 'REQSET_ADD_'||CAST(ABS(Flat_CutOffYieldValues.Amount-2) AS varchar)||'_FOOD_BBCC', BBCC.TerrainType, BBCC.ResourceType, BBCC.ResourceClassType, BBCC.FeatureType
 	FROM BBCC INNER JOIN Flat_CutOffYieldValues ON 'YIELD_FOOD' = Flat_CutOffYieldValues.YieldType
@@ -77,6 +83,7 @@ INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetI
 	WHERE Sci<Hill_CutOffYieldValues.Amount
 		AND TerrainType LIKE '%HILLS'
 		AND Hill_CutOffYieldValues.Amount > 0;
+*/
 --removing excess yields (went over to lua side completely, because it is conflicting)
 /*
 --flat food
@@ -147,6 +154,10 @@ INSERT INTO BBCC_Modifiers(ModifierId, YieldType, Amount, SubjectRequirementSetI
 		AND TerrainType LIKE '%HILLS';
 */
 --excluded terrains that already provide the correct values
+--===================================================================
+--in live
+--===================================================================
+/*
 INSERT INTO Flat_SpecialTerrain
 SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, yt, tt
 	FROM BBCC_Modifiers
@@ -190,6 +201,7 @@ WHERE NOT EXISTS
 		WHERE tmp.SubjectRequirementSetId = BBCC_Modifiers.SubjectRequirementSetId 
 			AND tmp.TerrainType=BBCC_Modifiers.TerrainType)
 	AND ModifierId NOT LIKE '%REMOVE%';
+*/
 /*
 UPDATE BBCC_Modifiers SET InnerReqSet = REPLACE(ModifierId, 'MODIFIER_','REQSET_VALID_TFR_'), ReqSet_TFR = 'REQSET_TFR_'||TerrainType||'_'||
 CASE
@@ -202,6 +214,10 @@ END
 WHERE ModifierId NOT LIKE '%ADD%';
 */
 
+--===================================================================
+--in live
+--===================================================================
+/*
 UPDATE BBCC_Modifiers SET InnerReqSet = REPLACE(ModifierId, 'MODIFIER_','REQSET_VALID_TFR_');
 --Building Reqsets
 INSERT INTO RequirementSets
@@ -263,11 +279,16 @@ INSERT INTO RequirementSetRequirements
 INSERT INTO RequirementSetRequirements
 	SELECT DISTINCT BBCC_Modifiers.SubjectRequirementSetId, REPLACE(BBCC_Modifiers.InnerReqSet,'REQSET_','REQ_')
 	FROM BBCC_Modifiers;
+*/
 /*
 INSERT INTO RequirementSetRequirements
 	SELECT SubjectRequirementSetId, 'REQ_PLOT_HAS_NO_'||TerrainType||'_BBCC' 
 	FROM (SELECT * FROM Hill_SpecialTerrain UNION SELECT * FROM Flat_SpecialTerrain);
 */
+--===================================================================
+--in live
+--===================================================================
+/*
 --Finalizing the modifiers after the requirements are done
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
 	SELECT DISTINCT BBCC_Modifiers.ModifierId, 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', BBCC_Modifiers.SubjectRequirementSetId
@@ -290,7 +311,7 @@ DROP TABLE BBCC;
 DROP TABLE BBCC_Modifiers;
 DROP TABLE Hill_SpecialTerrain;
 DROP TABLE Flat_SpecialTerrain;
-
+*/
 --=====================Removing any extra yields (outside wonder settles and disaster, for that only lua)================--------
 CREATE TABLE BBCC_DynamicYields(
 	ModifierB TEXT NOT NULL,

@@ -34,6 +34,10 @@ UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVE
 -- 05/09/2021 Pyramid moved to craftsmanship
 UPDATE Improvements SET PrereqTech=NULL, PrereqCivic='CIVIC_CRAFTSMANSHIP' WHERE ImprovementType='IMPROVEMENT_PYRAMID';
 
+--15/06/23 Nubia also gets xp bonus for naval ranged units
+INSERT INTO TypeTags (Type, Tag) VALUES
+	('ABILITY_NUBIA_RANGED_EXPERIENCE_MODIFIER', 'CLASS_NAVAL_RANGED');
+
 --==============================================================
 --******				START BIASES					  ******
 --==============================================================
@@ -46,3 +50,4 @@ INSERT OR IGNORE INTO StartBiasTerrains (CivilizationType , TerrainType , Tier)
 	VALUES
 	('CIVILIZATION_NUBIA', 'TERRAIN_PLAINS', 2),
 	('CIVILIZATION_NUBIA', 'TERRAIN_PLAINS_HILLS', 2);
+

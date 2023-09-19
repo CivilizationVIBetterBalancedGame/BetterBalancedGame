@@ -154,3 +154,8 @@ UPDATE Units SET MandatoryObsoleteTech='TECH_MILITARY_TACTICS' WHERE UnitType='U
 --5.2.5 Musketman/Line infantry buff
 UPDATE Units SET Cost=220 WHERE UnitType='UNIT_MUSKETMAN';
 UPDATE Units SET Cost=330 WHERE UnitType='UNIT_LINE_INFANTRY';
+
+--08/06/23 Pikemen cost from 180 to 200
+UPDATE Units SET Cost=200 WHERE UnitType='UNIT_PIKEMAN';
+--08/06/23 Pike & Shot cost from 250 to 290
+UPDATE Units SET Cost=290 WHERE UnitType='UNIT_PIKE_AND_SHOT';

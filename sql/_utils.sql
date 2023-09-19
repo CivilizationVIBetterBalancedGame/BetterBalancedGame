@@ -1,4 +1,23 @@
+-- -- Create requirements for each district (needed partially for Eleanor)
+INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
+    SELECT 'BBG_CITY_HAS_' || DistrictType, 'REQUIREMENTSET_TEST_ALL' FROM Districts;
+INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
+    SELECT 'BBG_CITY_HAS_' || DistrictType, 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT' FROM Districts;
+INSERT INTO Requirements(RequirementId , RequirementType)
+    SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'REQUIREMENT_CITY_HAS_DISTRICT' FROM Districts;
+INSERT INTO RequirementArguments(RequirementId , Name, Value)
+    SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType FROM Districts;
 
+-- -- Create requirements for each district (needed for digital democracy)
+INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
+    SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Districts;
+INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
+    SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQSET', 'BBG_DISTRICT_IS_' || DistrictType || '_REQUIREMENT' FROM Districts;
+INSERT INTO Requirements(RequirementId , RequirementType)
+    SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQUIREMENT', 'REQUIREMENT_DISTRICT_TYPE_MATCHES' FROM Districts;
+INSERT INTO RequirementArguments(RequirementId , Name, Value)
+    SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType FROM Districts;
+    
 -- Create requirements for each technology
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
     SELECT 'BBG_UTILS_PLAYER_HAS_' || TechnologyType, 'REQUIREMENTSET_TEST_ALL' FROM Technologies;
@@ -11,13 +30,13 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
 
 -- Create requirements for each civic
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
-    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Civics;
+    SELECT 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Civics;
 INSERT INTO Requirements(RequirementId, RequirementType)
-    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'REQUIREMENT_PLAYER_HAS_CIVIC' FROM Civics;
+    SELECT 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'REQUIREMENT_PLAYER_HAS_CIVIC' FROM Civics;
 INSERT INTO RequirementArguments(RequirementId, Name, Value)
-    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'CivicType', CivicType FROM Civics;
+    SELECT 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQUIREMENT', 'CivicType', CivicType FROM Civics;
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
-    SELECT 'BBG_PLAYER_HAS_' || CivicType || '_REQSET', 'BBG_PLAYER_HAS_' || CivicType || '_REQUIREMENT' FROM Civics;
+    SELECT 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQSET', 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQUIREMENT' FROM Civics;
 
 -- Create requirements for each ressources
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
@@ -78,6 +97,16 @@ INSERT OR IGNORE INTO RequirementSets VALUES
     ('BBG_UNIT_ON_HILL_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
 INSERT OR IGNORE INTO RequirementSetRequirements VALUES
     ('BBG_UNIT_ON_HILL_REQUIREMENTS', 'PLOT_IS_HILLS_REQUIREMENT');
+
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_REQUIRES_PLOT_HAS_IMPROVED_BONUS', 'REQUIREMENT_PLOT_IMPROVED_RESOURCE_CLASS_TYPE_MATCHES');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_PLOT_HAS_IMPROVED_BONUS', 'ResourceClassType', 'RESOURCECLASS_BONUS');
+
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_REQUIRES_PLOT_HAS_IMPROVED_LUXURY', 'REQUIREMENT_PLOT_IMPROVED_RESOURCE_CLASS_TYPE_MATCHES');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_PLOT_HAS_IMPROVED_LUXURY', 'ResourceClassType', 'RESOURCECLASS_LUXURY');
 
 CREATE TABLE WonderTerrainFeature_BBG(
     WonderType TEXT NOT NULL,
