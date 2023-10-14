@@ -223,3 +223,9 @@ UPDATE OR IGNORE Features SET MovementChange=1, SightThroughModifier=1, DefenseM
 INSERT INTO CustomPlacement(ObjectType, Hash, PlacementFunction)
     SELECT Types.Type, Types.Hash, 'BBG_AQUEDUCT_CUSTOM_PLACEMENT'
     FROM Types WHERE Type IN ('DISTRICT_AQUEDUCT', 'DISTRICT_BATH');
+
+--=======================================================================
+--******                       GOODY HUTS                          ******
+--=======================================================================
+
+UPDATE GoodyHutSubTypes SET Turn=15 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RELIC';
