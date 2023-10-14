@@ -19,6 +19,9 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_MONASTERIES_KING', 'BBG_HOLY_SITE_RIVER_FOOD_ADJACENCY');
 
+-- 14/10/23 Holy site faith adjacency nerfed to +1
+UPDATE ModifierArguments SET Value='1' WHERE ModifierId='TRAIT_MONASTERIES_KING_HOLY_SITE_RIVER_ADJACENCY' AND Name='Amount';
+
 -- 15/05/2021: Khmer get 0.5 Faith per pop in cities with Aqueduc
 -- 14/07/2022: No more faith per pop // deleting the modifier seems to also delete amenitie
 UPDATE ModifierArguments SET Value='0' WHERE ModifierId='BARAYS_FAITH_POPULATION' AND Name='Amount';
