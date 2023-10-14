@@ -40,6 +40,10 @@ UPDATE Building_YieldChanges SET YieldChange=8 WHERE BuildingType='BUILDING_POWE
 UPDATE Building_YieldChanges SET YieldChange=6 WHERE BuildingType='BUILDING_POWER_PLANT' AND YieldType='YIELD_SCIENCE';
 --moved from buildings, because it's GS
 UPDATE Building_YieldChangesBonusWithPower SET YieldChange=12 WHERE BuildingType='BUILDING_STOCK_EXCHANGE' AND YieldType='YIELD_GOLD';
+
+UPDATE Buildings SET Cost=320 WHERE BuildingType='BUILDING_HANGAR';
+UPDATE Buildings SET Cost=400 WHERE BuildingType='BUILDING_AIRPORT';
+
 --==============================================================
 --*****                  WONDERS(Built)                   ******
 --==============================================================
