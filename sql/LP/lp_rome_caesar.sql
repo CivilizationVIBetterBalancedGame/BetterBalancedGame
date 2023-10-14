@@ -95,6 +95,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_CAESAR', 'BBG_CAESAR_FREE_WILDCARD_SLOT');
 
+-- Caesar bonus xp
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_CAESAR', 'BBG_CAESAR_DOUBLE_XP_TRAIT');
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
