@@ -600,3 +600,7 @@ UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MOSQUE_ADJUST_SPREAD_CHAR
 -- 21/06/23 Condemn a unit doesn't reduce religious pressure around.
 UPDATE GlobalParameters SET Value=0 WHERE Name='RELIGION_SPREAD_UNIT_CAPTURE';
 UPDATE GlobalParameters SET Value=12 WHERE Name='RELIGION_SPREAD_ADJACENT_CITY_DISTANCE';
+
+-- 14/10/23 Holy Order from 30 to 25%
+UPDATE ModifierArguments SET Value=25 WHERE ModifierId='HOLY_ORDER_MISSIONARY_DISCOUNT_MODIFIER' AND Name='Amount';
+UPDATE ModifierArguments SET Value=25 WHERE ModifierId='HOLY_ORDER_APOSTLE_DISCOUNT_MODIFIER' AND Name='Amount';
