@@ -236,3 +236,17 @@ INSERT INTO CustomPlacement(ObjectType, Hash, PlacementFunction)
 --=======================================================================
 
 UPDATE GoodyHutSubTypes SET Turn=15 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RELIC';
+
+--=======================================================================
+--******                       DISTRICTS                          ******
+--=======================================================================
+
+-- 14/10 discount reduced to 35% (20 for diplo quarter/gov) and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=20 WHERE DistrictType='DISTRICT_DIPLOMATIC_QUARTER';
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_THEATER', 'DISTRICT_INDUSTRIAL_ZONE', 'DISTRICT_ENTERTAINMENT_COMPLEX', 'DISTRICT_HOLY_SITE', 'DISTRICT_CAMPUS', 'DISTRICT_ENCAMPMENT', 'DISTRICT_HARBOR', 'DISTRICT_AERODROME', 'DISTRICT_COMMERCIAL_HUB');
+
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_ACROPOLIS', 'DISTRICT_BATH', 'DISTRICT_STREET_CARNIVAL', 'DISTRICT_ROYAL_NAVY_DOCKYARD', 'DISTRICT_LAVRA', 'DISTRICT_HANSA');
+UPDATE Districts SET Cost=20 WHERE DistrictType='DISTRICT_BATH';
+UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_MBANZA', 'DISTRICT_ACROPOLIS', 'DISTRICT_STREET_CARNIVAL', 'DISTRICT_ROYAL_NAVY_DOCKYARD', 'DISTRICT_LAVRA', 'DISTRICT_HANSA');
+
+

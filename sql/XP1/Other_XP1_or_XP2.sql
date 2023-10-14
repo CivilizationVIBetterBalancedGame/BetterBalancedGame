@@ -137,3 +137,14 @@ UPDATE ModifierArguments SET Value=6 WHERE ModifierId='ALLIANCE_ADD_GOLD_TO_DEST
 --14/04/23 religious alliance from 2faith to 4faith
 UPDATE ModifierArguments SET Value=4 WHERE ModifierId='ALLIANCE_ADD_FAITH_TO_ORIGIN_TRADE_ROUTE' AND Name='Amount';
 UPDATE ModifierArguments SET Value=4 WHERE ModifierId='ALLIANCE_ADD_FAITH_TO_DESTINATION_TRADE_ROUTE' AND Name='Amount';
+
+--=======================================================================
+--******                       DISTRICTS                          ******
+--=======================================================================
+
+UPDATE Districts SET CostProgressionParam1=20 WHERE DistrictType='DISTRICT_GOVERNMENT';
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_WATER_ENTERTAINMENT_COMPLEX';
+
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_IKANDA', 'DISTRICT_SEOWON', 'DISTRICT_WATER_STREET_CARNIVAL');
+UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_IKANDA', 'DISTRICT_SEOWON', 'DISTRICT_WATER_STREET_CARNIVAL');
+

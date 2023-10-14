@@ -49,3 +49,7 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 -- Monks: Maya CS
 INSERT INTO TypeTags(Type, Tag) Values
     ('ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL', 'CLASS_WARRIOR_MONK');
+
+-- 14/10 discount reduced to 35% (20 for diplo quarter) and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_OBSERVATORY';
+UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_OBSERVATORY';

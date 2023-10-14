@@ -311,3 +311,11 @@ ORDER BY WonderType;
 UPDATE OR IGNORE Features SET DefenseModifier = 3
     WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE FeatureType = 'FEATURE_REEF');
 
+
+--=======================================================================
+--******                       DISTRICTS                          ******
+--=======================================================================
+
+-- 14/10 discount reduced to 35% and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_COTHON', 'DISTRICT_SUGUBA');
+UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_COTHON', 'DISTRICT_SUGUBA');
