@@ -460,6 +460,14 @@ DROP TABLE Floodplains_tmp;
 
 -- Great Zimbabwe - Give 2 trader capacity instead of 1
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREAT_ZIMBABWE_ADDTRADEROUTE';
+-- 14/10/23 also gives the trader
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
+	('BBG_GREAT_ZIMBABWE_GRANT_TRADER', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY', 1, 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_GREAT_ZIMBABWE_GRANT_TRADER', 'Amount', 2),
+	('BBG_GREAT_ZIMBABWE_GRANT_TRADER', 'UnitType', 'UNIT_TRADER');
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+	('BUILDING_GREAT_ZIMBABWE', 'BBG_GREAT_ZIMBABWE_GRANT_TRADER');
 
 -- Orszaghaz +300% diplomatic favor for each turn starting as the suz of a city state (from +100%)
 UPDATE ModifierArguments SET Value='300' WHERE ModifierId='ORSZAGHAZ_DOUBLE_FAVOR_SUZERAIN';
