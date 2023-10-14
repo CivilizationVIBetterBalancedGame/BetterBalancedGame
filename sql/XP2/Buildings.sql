@@ -41,6 +41,7 @@ UPDATE Building_YieldChanges SET YieldChange=6 WHERE BuildingType='BUILDING_POWE
 --moved from buildings, because it's GS
 UPDATE Building_YieldChangesBonusWithPower SET YieldChange=12 WHERE BuildingType='BUILDING_STOCK_EXCHANGE' AND YieldType='YIELD_GOLD';
 
+-- 14/10/23 Reduced by 15% from base game
 UPDATE Buildings SET Cost=320 WHERE BuildingType='BUILDING_HANGAR';
 UPDATE Buildings SET Cost=400 WHERE BuildingType='BUILDING_AIRPORT';
 
