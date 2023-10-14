@@ -308,8 +308,7 @@ DELETE FROM Modifiers WHERE ModifierId='AQUACULTURE_CAN_BUILD_FISHERY';
 DELETE FROM ModifierArguments WHERE ModifierId='AQUACULTURE_CAN_BUILD_FISHERY';
 UPDATE Improvements SET PrereqTech='TECH_CARTOGRAPHY' WHERE ImprovementType='IMPROVEMENT_FISHERY';
 
--- 07/12 Liang 3 turns
-UPDATE Governors SET TransitionStrength=125 WHERE GovernorType='GOVERNOR_THE_BUILDER';
+
 
 --=============================Reyna=================================
 -- Reyna's new 3rd level right ability
@@ -357,3 +356,8 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('TAX_COLLECTOR_ADJUST_TRADE_CAPACITY_BBG', 'Amount', '1');
 INSERT OR IGNORE INTO GovernorPromotionModifiers VALUES
     ('GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR', 'TAX_COLLECTOR_ADJUST_TRADE_CAPACITY_BBG');
+
+-- 07/12 Liang 3 turns
+-- 4 turns
+-- Moksha, Reyna and Pingala also to 4 turns
+UPDATE Governors SET TransitionStrength=125 WHERE GovernorType IN ('GOVERNOR_THE_BUILDER', 'GOVERNOR_THE_EDUCATOR', 'GOVERNOR_THE_CARDINAL', 'GOVERNOR_THE_MERCHANT');
