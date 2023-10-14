@@ -75,17 +75,17 @@ UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPIC
 UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_FISHING_BOATS' AND YieldType='YIELD_PRODUCTION';
 
 -- Citizen specialists give +1 main yield
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' 		AND DistrictType='DISTRICT_ACROPOLIS';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' 		AND DistrictType='DISTRICT_CAMPUS';
-UPDATE District_CitizenYieldChanges SET YieldChange=4 WHERE YieldType='YIELD_GOLD' 			AND DistrictType='DISTRICT_COMMERCIAL_HUB';
-UPDATE District_CitizenYieldChanges SET YieldChange=2 WHERE YieldType='YIELD_PRODUCTION' 	AND DistrictType='DISTRICT_ENCAMPMENT';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' 	AND DistrictType='DISTRICT_HANSA';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_GOLD' 			AND DistrictType='DISTRICT_HARBOR';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_FAITH' 		AND DistrictType='DISTRICT_HOLY_SITE';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' 	AND DistrictType='DISTRICT_INDUSTRIAL_ZONE';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_FAITH' 		AND DistrictType='DISTRICT_LAVRA';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_GOLD' 			AND DistrictType='DISTRICT_ROYAL_NAVY_DOCKYARD';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' 		AND DistrictType='DISTRICT_THEATER';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' AND DistrictType='DISTRICT_ACROPOLIS';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' AND DistrictType='DISTRICT_CAMPUS';
+UPDATE District_CitizenYieldChanges SET YieldChange=4 WHERE YieldType='YIELD_GOLD' AND DistrictType='DISTRICT_COMMERCIAL_HUB';
+UPDATE District_CitizenYieldChanges SET YieldChange=2 WHERE YieldType='YIELD_PRODUCTION' AND DistrictType='DISTRICT_ENCAMPMENT';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' AND DistrictType='DISTRICT_HANSA';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_GOLD' AND DistrictType='DISTRICT_HARBOR';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_FAITH' AND DistrictType='DISTRICT_HOLY_SITE';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' AND DistrictType='DISTRICT_INDUSTRIAL_ZONE';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_FAITH' AND DistrictType='DISTRICT_LAVRA';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_GOLD' AND DistrictType='DISTRICT_ROYAL_NAVY_DOCKYARD';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' AND DistrictType='DISTRICT_THEATER';
 
 -- Free amenity on new city
 UPDATE GlobalParameters SET Value=1 WHERE Name='CITY_AMENITIES_FOR_FREE';
@@ -119,17 +119,17 @@ DELETE FROM Improvement_BonusYieldChanges WHERE Id=231;
 INSERT OR IGNORE INTO Requirements
 	(RequirementId , RequirementType)
 	VALUES
-	('PLAYER_HAS_MEDIEVAL_FAIRES_CPLMOD', 	'REQUIREMENT_PLAYER_HAS_CIVIC'),
-	('PLAYER_HAS_URBANIZATION_CPLMOD', 		'REQUIREMENT_PLAYER_HAS_CIVIC'),
-	('PLAYER_HAS_BANKING_CPLMOD'   , 		'REQUIREMENT_PLAYER_HAS_TECHNOLOGY'),
-	('PLAYER_HAS_ECONOMICS_CPLMOD' , 		'REQUIREMENT_PLAYER_HAS_TECHNOLOGY');
+	('PLAYER_HAS_MEDIEVAL_FAIRES_CPLMOD', 'REQUIREMENT_PLAYER_HAS_CIVIC'),
+	('PLAYER_HAS_URBANIZATION_CPLMOD', 'REQUIREMENT_PLAYER_HAS_CIVIC'),
+	('PLAYER_HAS_BANKING_CPLMOD', 'REQUIREMENT_PLAYER_HAS_TECHNOLOGY'),
+	('PLAYER_HAS_ECONOMICS_CPLMOD', 'REQUIREMENT_PLAYER_HAS_TECHNOLOGY');
 INSERT OR IGNORE INTO RequirementArguments
 	(RequirementId , Name , Value)
 	VALUES
-	('PLAYER_HAS_MEDIEVAL_FAIRES_CPLMOD',	'CivicType', 		'CIVIC_MEDIEVAL_FAIRES'  ),
-	('PLAYER_HAS_URBANIZATION_CPLMOD', 	 	'CivicType', 		'CIVIC_URBANIZATION'),
-	('PLAYER_HAS_BANKING_CPLMOD'   , 		'TechnologyType', 	'TECH_BANKING'  ),
-	('PLAYER_HAS_ECONOMICS_CPLMOD' , 		'TechnologyType', 	'TECH_ECONOMICS');
+	('PLAYER_HAS_MEDIEVAL_FAIRES_CPLMOD', 'CivicType', 'CIVIC_MEDIEVAL_FAIRES'  ),
+	('PLAYER_HAS_URBANIZATION_CPLMOD', 'CivicType', 'CIVIC_URBANIZATION'),
+	('PLAYER_HAS_BANKING_CPLMOD', 'TechnologyType', 'TECH_BANKING'  ),
+	('PLAYER_HAS_ECONOMICS_CPLMOD', 'TechnologyType', 'TECH_ECONOMICS');
 
 -- 2022-06-04 -- Add Scientific Theory as Prereq for Steam Power
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech)
