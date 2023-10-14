@@ -107,6 +107,13 @@ UPDATE Improvements SET YieldFromAppealPercent=200 WHERE ImprovementType='IMPROV
 INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, PrereqTech)
     SELECT Improvements.ImprovementType, 'TOURISMSOURCE_CULTURE', 'TECH_FLIGHT' From Improvements WHERE ImprovementType IN ('IMPROVEMENT_FARM', 'IMPROVEMENT_QUARRY', 'IMPROVEMENT_CAMP', 'IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_LUMBER_MILL', 'IMPROVEMENT_OIL_WELL', 'IMPROVEMENT_OFFSHORE_OIL_RIG');
 
+-- 14/10/23 Lumber mill yield changes come earlier (steel to balistics and cybernetics to synthetics material)
+UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_BALLISTICS' WHERE Id=5;
+UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_SYNTHETIC_MATERIALS' WHERE Id=227;
+-- 14/10/23 Quarry yield changes come earlier (predictive systems to rocketry, so +2 rocketery, and gunpowder to military engineering)
+UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_MILITARY_ENGINEERING' WHERE Id=230;
+UPDATE Improvement_BonusYieldChanges SET BonusYieldChange=2 WHERE Id=13;
+DELETE FROM Improvement_BonusYieldChanges WHERE Id=231;
 
 --****		REQUIREMENTS		****--
 INSERT OR IGNORE INTO Requirements
