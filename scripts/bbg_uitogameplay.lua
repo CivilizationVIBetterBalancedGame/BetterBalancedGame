@@ -642,10 +642,10 @@ function Initialize()
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			--inca dynamic yield cancelation
 			--5.2. Disable: Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
-		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then
-			Events.BuildingAddedToMap.Add(OnLudwigWonderPlaced)
-			Events.BuildingRemovedFromMap.Add(OnLudwigWonderRemoved)
-			Events.WonderCompleted.Add(OnLudwigWonderCompleted)
+		--5.6. Disable: elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then
+			--5.6. Disable: Events.BuildingAddedToMap.Add(OnLudwigWonderPlaced)
+			--5.6. Disable: Events.BuildingRemovedFromMap.Add(OnLudwigWonderRemoved)
+			--5.6. Disable: Events.WonderCompleted.Add(OnLudwigWonderCompleted)
 		end
 	end
 	--BCY no rng setting (param names are still called BBCC)
