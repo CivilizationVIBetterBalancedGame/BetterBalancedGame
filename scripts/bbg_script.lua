@@ -2504,13 +2504,17 @@ function OnGameplaySpyMissionCompleted(iPlayerID, kParameters)
 	local iPlayerID = kParameters["iPlayerID"]
 	local iMinorID = kParameters["iMinorID"]
 	--Debug("iPlayerID, iMissionID "..tostring(iPlayerID).." , "..tostring(iMissionID),"OnGameplaySpyMissionCompleted")
-	if kParameters.Captured then
+	if kParameters.State == 0 then
 		local pPlayer = Players[iPlayerID]
 		pPlayer:AttachModifierByID("MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG")
 		--Debug("Spy Capacity added to iPlayerID "..tostring(iPlayerID), "OnGameplaySpyMissionCompleted")
 	end
+	--5.6 Wu Zeitan: Gain Spy
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_WU_ZETIAN" then
+		local pPlayer = Players[iPlayerID]
+		pPlayer:AttachModifierByID("WU_ZETIAN_FREE_SPY")
+	end
 end
-
 
 -- ===========================================================================
 --	Tools
