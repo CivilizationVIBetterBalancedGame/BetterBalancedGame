@@ -175,8 +175,8 @@ end
 
 --Amani
 function OnGovernorAssigned(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
-	print("OnGovernorAssigned")
-	print(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
+	--print("OnGovernorAssigned")
+	--print(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
 	if iGovernorType ~= 1 then -- not amani
 		return
 	end
@@ -499,10 +499,14 @@ function OnSpyMissionCompleted(iPlayerID, iMissionID)
 		end
 	end
 	local kParameters = {}
-	if tMission.InitialResult ~= EspionageResultTypes.CAPTURED and tMission.EscapeResult ~= EspionageResultTypes.CAPTURED then
-		return --print("Spy not Captured")
+	--5.6: Added 2 states to allow for Wu Zeitan's Spy Interraction.
+	if tMission.InitialResult == EspionageResultTypes.CAPTURED or tMission.EscapeResult == EspionageResultTypes.CAPTURED then
+		kParameters.State = 0
+	elseif tMission.InitialResult == EspionageResultTypes.KILLED or tMission.EscapeResult == EspionageResultTypes.KILLED then
+		kParameters.State = 1
+	else
+		return 
 	end
-	kParameters.Captured = true
 	kParameters.OnStart = "GameplaySpyMissionCompleted"
 	kParameters["iPlayerID"] = iPlayerID
 	kParameters["iMissionID"] = iMissionID
