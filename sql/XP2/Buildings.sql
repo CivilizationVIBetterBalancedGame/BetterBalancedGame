@@ -3,6 +3,8 @@
 --==============================================================
 -- flood barriers unlocked at steam power
 UPDATE Buildings SET PrereqTech='TECH_STEAM_POWER' WHERE BuildingType='BUILDING_FLOOD_BARRIER';
+-- 15/10/23 oil power plant unlocked at refining
+UPDATE Buildings SET PrereqTech='TECH_REFINING' WHERE BuildingType='BUILDING_FOSSIL_FUEL_POWER_PLANT';
 -- +1 niter from armories
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_ARMORY', 'NITER_FROM_ARMORY_BBG');
