@@ -109,9 +109,12 @@ INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, Prereq
 
 -- 14/10/23 Lumber mill yield changes come earlier (steel to balistics and cybernetics to synthetics material)
 UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_BALLISTICS' WHERE Id=5;
+UPDATE Technologies SET Description='BBG_LOC_TECH_BALLISTICS_DESCRIPTION' WHERE TechnologyType='TECH_BALLISTICS';
 UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_SYNTHETIC_MATERIALS' WHERE Id=227;
+
 -- 14/10/23 Quarry yield changes come earlier (predictive systems to rocketry, so +2 rocketery, and gunpowder to military engineering)
 UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_MILITARY_ENGINEERING' WHERE Id=230;
+UPDATE Technologies SET Description='BBG_LOC_TECH_MILITARY_ENGINEERING_DESCRIPTION' WHERE TechnologyType='TECH_MILITARY_ENGINEERING';
 UPDATE Improvement_BonusYieldChanges SET BonusYieldChange=2 WHERE Id=13;
 DELETE FROM Improvement_BonusYieldChanges WHERE Id=231;
 
