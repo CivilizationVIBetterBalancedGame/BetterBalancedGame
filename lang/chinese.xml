@@ -218,6 +218,15 @@
 		<Replace Tag="LOC_TRAIT_LEADER_YONGLE_XP_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>所有城市都可进行“里甲”项目，专注于以每回合的城市生产力来转换为 [Icon_Food] 食物（75%）、[Icon_Faith] 信仰值（75%）或者 [Icon_GOLD] 金币（150%）。10个人口或以上的大型城市，每一个人口便提供+1 [Icon_Gold] 金币、+0.7 [Icon_Science] 科技值以及+0.5 [Icon_Culture] 文化值。</Text>
 		</Replace>
+		<Replace Tag="LOC_PROJECT_LIJIA_FAITH_DESCRIPTION" Language="zh_Hans_CN">
+      		<Text>此项目每回合提供等同于此城市生产力75%的 [ICON_Faith] 信仰值。</Text>
+    	</Replace>
+    	<Replace Tag="LOC_PROJECT_LIJIA_FOOD_DESCRIPTION" Language="zh_Hans_CN">
+      		<Text>此项目每回合提供等同于此城市生产力75%的 [ICON_Food] 食物。</Text>
+    	</Replace>
+    	<Replace Tag="LOC_PROJECT_LIJIA_GOLD_DESCRIPTION" Language="zh_Hans_CN">
+      		<Text>此项目每回合提供等同于此城市生产力150%的 [ICON_Gold] 金币。</Text>
+    	</Replace>
 		<!-- = leader ability (Wu Zetian) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_WU_ZETIAN_DESCRIPTION" Language="zh_Hans_CN">
       		<Text>进攻性间谍的行动效果提升1级。进攻性间谍任务成功时，获得目标城市该回合[ICON_Faith] 信仰值、[ICON_Culture] 文化值和 [ICON_SCIENCE] 科技值的100%。解锁“防御战术”后获得1名免费间谍（和一个额外的间谍容量）。可以使用[ICON_Faith] 信仰值购买间谍。[NEWLINE][NEWLINE]间谍被击杀或俘获时，获得1名新的免费间谍。</Text>
@@ -297,11 +306,11 @@
 		<!-- == DUTCH == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GROTE_RIVIEREN_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-      		<Text>与河流相邻时，学院、剧院广场和工业区将获得大量加成。建成港口后可对相邻单元格施放文化炸弹。建造堤坝区域和拦洪坝建筑时 [ICON_Production] 生产力+50%。[NEWLINE][NEWLINE]学院每回合提供+1 [ICON_GREATADMIRAL] 海军统帅点数。</Text>
+      		<Text>与河流相邻时，学院、剧院广场和工业区将获得大量加成。建成港口后可对相邻单元格施放文化炸弹。建造堤坝区域和拦洪坝建筑时 [ICON_Production] 生产力+50%。</Text>
     	</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_RADIO_ORANJE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>通向本方城市的本方 [ICON_TradeRoute] 贸易路线每回合可为起源城市+2忠诚度。通往外国城市的 [ICON_TradeRoute] 贸易路线+2 [ICON_Culture] 文化值；起源于外国城市的 [ICON_TradeRoute] 贸易路线为你提供+2 [ICON_Culture] 文化值，为起源城市+1 [ICON_Culture] 文化值。荷兰海军单位位于圩田单元格时获得+3 [ICON_Strength] 战斗力。</Text>
+			<Text>通向本方城市的本方 [ICON_TradeRoute] 贸易路线每回合可为起源城市+2忠诚度。通往外国城市的 [ICON_TradeRoute] 贸易路线+2 [ICON_Culture] 文化值；起源于外国城市的 [ICON_TradeRoute] 贸易路线为你提供+2 [ICON_Culture] 文化值，为起源城市+1 [ICON_Culture] 文化值。荷兰海军单位位于圩田单元格时获得+3 [ICON_Strength] 战斗力。[NEWLINE][NEWLINE]学院每回合提供+1 [ICON_GREATADMIRAL] 海军统帅点数。</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_POLDER_DEFENSIVE_CS" Language="zh_Hans_CN">
 			<Text>+3 [ICON_Strength] 战斗力位于圩田（橙色电台）</Text>
@@ -311,7 +320,7 @@
 		</Row>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_POLDER_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>“封建主义”市政解锁建造者建造荷兰特色改良设施“圩田”的能力。[NEWLINE][NEWLINE]+1 [ICON_FOOD] 食物、+1 [ICON_Production] 生产力、+0.5 [ICON_Housing] 住房。单元格的 [ICON_Movement] 移动力消耗增至3点。荷兰海军单位位于圩田单元格时获得+3 [ICON_Strength] 战斗力。[NEWLINE][NEWLINE]每与一个圩田相邻，则+1 [ICON_FOOD] 食物，“零件规格化”科技后提升至+2 [ICON_FOOD] 食物。每与1个港口相邻+1 [ICON_Production] 生产力。每与2个圩田相邻+1 [ICON_Production] 生产力。“零件规格化”科技后提升至每与1个圩田相邻+1 [ICON_Production] 生产力。“土木工程”市政后+4 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]必须建造于与1个或更多可通行陆地单元格相邻的海岸或湖泊单元格上。</Text>
+			<Text>“封建主义”市政解锁建造者建造荷兰特色改良设施“圩田”的能力。[NEWLINE][NEWLINE]+1 [ICON_FOOD] 食物、+1 [ICON_Production] 生产力、+0.5 [ICON_Housing] 住房。荷兰海军单位位于圩田单元格时获得+3 [ICON_Strength] 战斗力。[NEWLINE][NEWLINE]每与一个圩田相邻，则+1 [ICON_FOOD] 食物，“零件规格化”科技后提升至+2 [ICON_FOOD] 食物。每与1个港口相邻+1 [ICON_Production] 生产力。每与2个圩田相邻+1 [ICON_Production] 生产力。“零件规格化”科技后提升至每与1个圩田相邻+1 [ICON_Production] 生产力。“土木工程”市政后+4 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]必须建造于与1个或更多可通行陆地单元格相邻的海岸或湖泊单元格上。</Text>
 		</Replace>
 
 		<!-- == EGYPT == -->
@@ -2068,7 +2077,7 @@
 			<Text>可以额外招募一个间谍。在帝国全境内+50% [ICON_Tourism] 旅游业绩。</Text>
 		</Replace>
 		<Replace Tag="LOC_TECH_STEEL_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>所有伐木场改良设施+1 [ICON_Production] 生产力（[COLOR_RED]已提前至“弹道学” - BBG[ENDCOLOR]）。解锁城市防御，为所有城市提供300点自动防御力和发起远程攻击的能力。之前的城墙改良设施将全部过时，攻城辅助单位进攻时不再拥有特殊效果。</Text>
+			<Text>解锁城市防御，为所有城市提供300点自动防御力和发起远程攻击的能力。之前的城墙改良设施将全部过时，攻城辅助单位进攻时不再拥有特殊效果。</Text>
 		</Replace>
 		<Replace Tag="LOC_PROJECT_LAUNCH_MOON_LANDING_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>太空竞赛之载人登月。奖励相当于当前 [ICON_Science] 科技值5倍的 [ICON_Culture] 文化值。完成科技胜利过程的第二阶段。</Text>
@@ -2083,13 +2092,19 @@
       		<Text>营地产出的 [ICON_Gold] 金币+2。所有伐木场改良设施+1 [ICON_Production] 生产力。</Text>
     	</Replace>
 		<Replace Tag="LOC_TECH_GUNPOWDER_DESCRIPTION" Language="zh_Hans_CN">
-      		<Text>采石场改良设施+1 [ICON_Production] 生产力（[COLOR_RED]已提前至“军事工程学” - BBG[ENDCOLOR]）。为苏莱曼一世（立法者）解锁1个 [ICON_GOVERNOR] 总督头衔。</Text>
+      		<Text>为苏莱曼一世（立法者）解锁1个 [ICON_GOVERNOR] 总督头衔。</Text>
     	</Replace>
 		<Replace Tag="LOC_TECH_ROCKETRY_DESCRIPTION" Language="zh_Hans_CN">
       		<Text>采石场改良设施+2 [ICON_Production] 生产力。</Text>
     	</Replace>
 		<Replace Tag="LOC_TECH_PREDICTIVE_SYSTEMS_DESCRIPTION" Language="zh_Hans_CN">
       		<Text>油井和石油钻机改良设施提供的 [ICON_Production] 生产力+1。</Text>
+    	</Replace>
+		<Replace Tag="BBG_LOC_TECH_MILITARY_ENGINEERING_DESCRIPTION" Language="zh_Hans_CN">
+      		<Text>采石场改良设施+1 [ICON_Production] 生产力。</Text>
+    	</Replace>
+		<Replace Tag="BBG_LOC_TECH_BALLISTICS_DESCRIPTION" Language="zh_Hans_CN">
+      		<Text>伐木场改良设施+1 [ICON_Production] 生产力。</Text>
     	</Replace>
 
 
