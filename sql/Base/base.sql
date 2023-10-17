@@ -238,7 +238,7 @@ INSERT INTO CustomPlacement(ObjectType, Hash, PlacementFunction)
 --******                       GOODY HUTS                          ******
 --=======================================================================
 
-UPDATE GoodyHutSubTypes SET Turn=15 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RELIC';
+UPDATE GoodyHutSubTypes SET Turn=30 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RELIC';
 
 --=======================================================================
 --******                       DISTRICTS                          ******
