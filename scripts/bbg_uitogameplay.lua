@@ -808,7 +808,7 @@ function Initialize()
 			--5.6. Disable: Events.BuildingAddedToMap.Add(OnLudwigWonderPlaced)
 			--5.6. Disable: Events.BuildingRemovedFromMap.Add(OnLudwigWonderRemoved)
 			--5.6. Disable: Events.WonderCompleted.Add(OnLudwigWonderCompleted)
-		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName ~= "LEADER_MVEMBA" then
+		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_MVEMBA" then
 			Events.CityReligionChanged.Add(OnMvembaCityReligionChanged)
 			Events.CityAddedToMap.Add(OnMvembaCityAddedToMap)
 			Events.CityRemovedFromMap.Add(OnMvembaCityRemovedFromMap)
