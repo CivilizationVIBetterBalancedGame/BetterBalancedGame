@@ -19,6 +19,10 @@ DELETE FROM TypeTags WHERE Type='ABILITY_BYZANTIUM_COMBAT_UNITSABILITY_BYZANTIUM
 INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
 	('ABILITY_BYZANTIUM_COMBAT_UNITS' ,'CLASS_ALL_COMBAT_UNITS');
 
+-- 14/10 discount reduced to 35% (20 for diplo quarter) and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_HIPPODROME';
+UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_HIPPODROME';
+
 --==================
 -- Gaul
 --==================
@@ -55,6 +59,9 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_CIVILIZATION_GAUL', 'BBG_OPPIDUM_CULTURE_BOMB');
 
+-- 14/10 discount reduced to 35% (20 for diplo quarter) and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_OPPIDUM';
+UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_OPPIDUM';
 
 --==============================================================
 --******                RELIGION                          ******

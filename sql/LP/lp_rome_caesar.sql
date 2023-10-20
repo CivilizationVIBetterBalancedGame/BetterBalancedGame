@@ -24,6 +24,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 
 --Free Melee Unit on Settle--
 -- 22/12/22 not giving a warrior on capital
+-- 14/10/23 warrior on capital at code of laws
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
 	('REQUIRES_OBJECT_1_OR_MORE_TILES_FROM_CAPITAL','REQUIREMENT_PLOT_NEAR_CAPITAL');
 INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
@@ -36,11 +37,13 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_CITY_FOUNDER_NOT_CAPITAL_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_CITY_FOUNDER_NOT_CAPITAL_REQUIREMENTS', 'CITY_FOUNDED_BY_SETTLER_REQUIREMENT'),
--- inversing "is_capital" is not working
-    ('BBG_CITY_FOUNDER_NOT_CAPITAL_REQUIREMENTS', 'REQUIRES_OBJECT_1_OR_MORE_TILES_FROM_CAPITAL');
+    ('BBG_CITY_FOUNDER_NOT_CAPITAL_REQUIREMENTS', 'BBG_UTILS_PLAYER_HAS_CIVIC_CODE_OF_LAWS_REQUIREMENT'),
+    ('BBG_CITY_FOUNDER_NOT_CAPITAL_REQUIREMENTS', 'CITY_FOUNDED_BY_SETTLER_REQUIREMENT');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_TRAIT_GRANT_FREE_MELEE_UNIT_ON_NEW_CITY', 'UnitPromotionClassType', 'PROMOTION_CLASS_MELEE');
+
+
+
 
 
 --Wildcard--
@@ -92,6 +95,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_CAESAR', 'BBG_CAESAR_FREE_WILDCARD_SLOT');
 
+-- Caesar bonus xp
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_CAESAR', 'BBG_CAESAR_DOUBLE_XP_TRAIT');
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES

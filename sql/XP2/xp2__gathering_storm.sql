@@ -67,15 +67,16 @@ UPDATE Beliefs SET Description='LOC_BELIEF_LAY_MINISTRY_DESCRIPTION' WHERE Belie
 -- 2020-12-03 was previously affecting all districts
 
 --5.1 Changed holly waters inconsistency so it follows the same logic as Defender/Crusade
-UPDATE Modifiers SET ModifierType='MODIFIER_ALL_UNITS_ATTACH_MODIFIER' WHERE ModifierId='HOLY_WATERS_HEALING';
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER' WHERE ModifierId='HOLY_WATERS_HEALING';
 UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_ADJUST_HEAL_PER_TURN' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER';
 --Cleaning UP Firaxis code
 DELETE FROM RequirementSetRequirements WHERE RequirementSetId='HOLY_WATERS_HEALING_REQUIREMENTS';
 DELETE FROM RequirementSetRequirements WHERE RequirementSetId='HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS';
+DELETE FROM RequirementSetRequirements WHERE RequirementSetId='BBG_ACTIVATE_BELIEF_HOLY_WATERS_REQSET';
 UPDATE RequirementSets SET RequirementSetType='REQUIREMENTSET_TEST_ANY' WHERE RequirementSetId='HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS';
 INSERT OR IGNORE INTO RequirementSetRequirements VALUES
-    ('HOLY_WATERS_HEALING_REQUIREMENTS', 'BBG_REQUIRES_PLAYER_FOUNDED_RELIGION_OR_MVEMBA'),
-    ('HOLY_WATERS_HEALING_REQUIREMENTS', 'BBG_REQUIRES_ANY_CITY_FOLLOWS_RELIGION'),
+    ('BBG_ACTIVATE_BELIEF_HOLY_WATERS_REQSET', 'BBG_ACTIVATE_BELIEF_HOLY_WATERS_REQ'),
+    ('BBG_ACTIVATE_BELIEF_HOLY_WATERS_REQSET', 'BBG_REQUIRES_ANY_CITY_FOLLOWS_RELIGION'),
     ('HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS', 'REQUIRES_UNIT_NEAR_FRIENDLY_RELIGIOUS_CITY'),
     ('HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS', 'REQUIRES_UNIT_NEAR_ENEMY_RELIGIOUS_CITY');
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES
@@ -311,3 +312,11 @@ ORDER BY WonderType;
 UPDATE OR IGNORE Features SET DefenseModifier = 3
     WHERE FeatureType IN (SELECT WonderType FROM WonderTerrainFeature_BBG WHERE FeatureType = 'FEATURE_REEF');
 
+
+--=======================================================================
+--******                       DISTRICTS                          ******
+--=======================================================================
+
+-- 14/10 discount reduced to 35% and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_COTHON', 'DISTRICT_SUGUBA');
+UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_COTHON', 'DISTRICT_SUGUBA');
