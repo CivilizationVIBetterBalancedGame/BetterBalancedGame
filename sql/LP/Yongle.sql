@@ -8,6 +8,7 @@ UPDATE ModifierArguments SET Value='0.5' WHERE ModifierId='YONGLE_CULTURE_POPULA
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='YONGLE_GOLD_POPULATION' AND Name='Amount';
 
 -- 14/10/23 doubled project yield
+-- 25/10/23 nerf project yield to 60%
 UPDATE Project_YieldConversions SET PercentOfProductionRate=60 WHERE ProjectType='PROJECT_LIJIA_FOOD';
 UPDATE Project_YieldConversions SET PercentOfProductionRate=60 WHERE ProjectType='PROJECT_LIJIA_FAITH';
 UPDATE Project_YieldConversions SET PercentOfProductionRate=120 WHERE ProjectType='PROJECT_LIJIA_GOLD';
