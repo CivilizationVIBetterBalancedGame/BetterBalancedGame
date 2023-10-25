@@ -48,6 +48,10 @@ INSERT INTO StartBiasTerrains (CivilizationType, TerrainType, Tier) VALUES
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='POPULATION_PRESETTLEMENT';
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='BUILDER_PRESETTLEMENT';
 
+-- 25/10/23 no science/culture before settling
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='SCIENCE_PRESETTLEMENT';
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='CULTURE_PRESETTLEMENT';
+
 -- 15/10/23 no more embark earlier, free sailing/shipbuilding
 DELETE FROM TraitModifiers WHERE ModifierId IN ('TRAIT_MAORI_MANA_OCEAN', 'TRAIT_MAORI_MANA_SAILING', 'TRAIT_MAORI_MANA_SHIPBUILDING');
 
