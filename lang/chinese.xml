@@ -175,6 +175,9 @@
 		<Replace Tag="LOC_ABILITY_TAGMA_RELIGIOUS_COMBAT_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>位于甲胄骑兵周围1单元格内时+2 [ICON_RELIGION] 宗教战斗力。</Text>
 		</Replace>
+		<Replace Tag="LOC_UNIT_BYZANTINE_DROMON_DESCRIPTION" Language="zh_Hans_CN">
+      		<Text>拜占庭特色古典时代单位，替代四段帆船。拥有更高射程。</Text>
+    	</Replace>
 
 		<!-- == CANADA == -->
 		<!-- = leader ability = -->
@@ -216,13 +219,13 @@
 		</Replace>
 		<!-- = leader ability (Yongle) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_YONGLE_XP_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>所有城市都可进行“里甲”项目，专注于以每回合的城市生产力来转换为 [Icon_Food] 食物（75%）、[Icon_Faith] 信仰值（75%）或者 [Icon_GOLD] 金币（150%）。10个人口或以上的大型城市，每一个人口便提供+1 [Icon_Gold] 金币、+0.7 [Icon_Science] 科技值以及+0.5 [Icon_Culture] 文化值。</Text>
+			<Text>所有城市都可进行“里甲”项目，专注于以每回合的城市生产力来转换为 [Icon_Food] 食物（60%）、[Icon_Faith] 信仰值（60%）或者 [Icon_GOLD] 金币（150%）。10个人口或以上的大型城市，每一个人口便提供+1 [Icon_Gold] 金币、+0.7 [Icon_Science] 科技值以及+0.5 [Icon_Culture] 文化值。</Text>
 		</Replace>
 		<Replace Tag="LOC_PROJECT_LIJIA_FAITH_DESCRIPTION" Language="zh_Hans_CN">
-      		<Text>此项目每回合提供等同于此城市生产力75%的 [ICON_Faith] 信仰值。</Text>
+      		<Text>此项目每回合提供等同于此城市生产力60%的 [ICON_Faith] 信仰值。</Text>
     	</Replace>
     	<Replace Tag="LOC_PROJECT_LIJIA_FOOD_DESCRIPTION" Language="zh_Hans_CN">
-      		<Text>此项目每回合提供等同于此城市生产力75%的 [ICON_Food] 食物。</Text>
+      		<Text>此项目每回合提供等同于此城市生产力60%的 [ICON_Food] 食物。</Text>
     	</Replace>
     	<Replace Tag="LOC_PROJECT_LIJIA_GOLD_DESCRIPTION" Language="zh_Hans_CN">
       		<Text>此项目每回合提供等同于此城市生产力150%的 [ICON_Gold] 金币。</Text>
@@ -789,7 +792,7 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>每个相邻沙漠或沙漠丘陵单元格为市中心提供+1 [ICON_FOOD] 食物。若城市拥有至少2个沙漠单元格则+2 [ICON_FAITH] 信仰值。矿山-1 [ICON_PRODUCTION] 生产力，但+4 [ICON_GOLD] 金币。可用 [ICON_Faith] 信仰值购买商业中心区域建筑。建造建筑或生产单位时-30% [ICON_PRODUCTION] 生产力。购买沙漠单元格的价格只需要原来的50%。</Text>
+			<Text>每个相邻沙漠或沙漠丘陵单元格为市中心提供+1 [ICON_FAITH] 信仰值。若市中心位于或相邻沙漠单元格则+2 [ICON_FOOD] 食物。矿山-1 [ICON_PRODUCTION] 生产力，但+2 [ICON_GOLD] 金币，“银行业”后额外+2 [ICON_GOLD] 金币。可用 [ICON_Faith] 信仰值购买商业中心区域建筑。所有城市-10% [ICON_PRODUCTION] 生产力。购买沙漠单元格的价格只需要原来的50%。[NEWLINE][NEWLINE]沙漠单元格+1 [ICON_FOOD] 食物。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="zh_Hans_CN">
@@ -803,17 +806,17 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SUGUBA_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>马里特色区域，专精于经济与贸易，取代商业中心。使用 [ICON_GOLD] 金币和 [ICON_FAITH] 信仰值在此城中购买单位、建筑和区域时，费用减少5%。[NEWLINE][NEWLINE]每个相邻圣地获得+2 [ICON_Gold] 金币加成。每个包含河岸的单元格获得+2 [ICON_Gold] 金币加成。每两个相邻区域单元格获得+1 [ICON_Gold] 金币加成。</Text>
+			<Text>马里特色区域，专精于经济与贸易，取代商业中心。使用 [ICON_GOLD] 金币和 [ICON_FAITH] 信仰值在此城中购买单位、建筑和区域时，费用减少10%。[NEWLINE][NEWLINE]每个相邻圣地获得+2 [ICON_Gold] 金币加成。每个相邻河流、绿洲获得+1 [ICON_Gold] 金币加成。每两个相邻区域单元格获得+1 [ICON_Gold] 金币加成。</Text>
 		</Replace>
 
 		<!-- == MAORI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAORI_MANA_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>“航海术”科技后，允许开拓者上船。“造船术”科技后，水运单位+2 [ICON_Movement] 移动力。“帝国初期”后未改良的树林与雨林提供+1 [ICON_PRODUCTION] 生产力。“重商主义”额外提供+1 [ICON_PRODUCTION] 生产力、“保护地球”额外+2 [ICON_PRODUCTION] 生产力。渔船提供+1 [ICON_FOOD] 食物，并向相邻单元格投放文化炸弹。无法收获资源；无法获得 [ICON_GreatWriter] 大作家。</Text>
+			<Text>“造船术”科技后，水运单位+2 [ICON_Movement] 移动力。“帝国初期”后未改良的树林与雨林提供+1 [ICON_PRODUCTION] 生产力。“重商主义”额外提供+1 [ICON_PRODUCTION] 生产力、“保护地球”额外+2 [ICON_PRODUCTION] 生产力。渔船提供+1 [ICON_FOOD] 食物，并向相邻单元格投放文化炸弹。无法收获资源；无法获得 [ICON_GreatWriter] 大作家。</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KUPES_VOYAGE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>建立首座城市之前每回合获得+2 [ICON_SCIENCE] 科技和+2 [ICON_CULTURE] 文化值。宫殿获得+3 [ICON_HOUSING] 住房和+1 [ICON_AMENITIES] 宜居度。</Text>
+			<Text>“航海术”科技后，允许开拓者上船。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MAORI_TOA_DESCRIPTION" Language="zh_Hans_CN"> <!-- = charge icon = -->
@@ -1006,7 +1009,7 @@
 		</Replace>
 		<!-- = leader ability (Julius Caesar) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>首次征服一座城市时+200 [ICON_GOLD] 金币，或从蛮族哨站获得 [ICON_GOLD] 金币时+100 [ICON_GOLD] 金币。研究完“钢铁”之后，两者提供的 [ICON_GOLD] 金币数量变为+500 [ICON_GOLD] 金币（标准速度下）。[NEWLINE][NEWLINE]“法典”市政后，首都获得一个免费的勇士。除首都外，建立新城市时获得一个免费的近战单位。占领并保留至少一个城市时（该城市必须由任意主要文明建立，且被占领时属于主要文明），每种 [ICON_Government] 政体获得一个额外的通配符槽位。[NEWLINE][NEWLINE]所有单位获得+100%战斗经验值。</Text>
+			<Text>首次征服一座城市或从蛮族哨站获得[ICON_GOLD] 金币时 +300 [ICON_GOLD] 金币。研究完“金属铸造”之后，两者提供的 [ICON_GOLD] 金币数量变为500，研究完“钢铁”之后，变为700（标准速度下）。当目标为蛮族时，获得+5 [ICON_Strength] 战斗力且总是获得正常经验值。[NEWLINE][NEWLINE]“法典”市政后，首都获得一个免费的勇士。除首都外，建立新城市时获得一个免费的近战单位。占领并保留至少一个城市时（该城市必须由任意主要文明建立，且被占领时属于主要文明），每种 [ICON_Government] 政体获得一个额外的通配符槽位。[NEWLINE][NEWLINE]所有单位获得+100%战斗经验值。</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_DOUBLE_XP_BONUS_MODIFIER_NAME" Language="zh_Hans_CN">
 			<Text>+100%战斗经验值（我来，我见，我征服）</Text>
@@ -1044,6 +1047,9 @@
 		<Row Tag="TRAIT_BANNOCKBURN_EXTRA_MOVEMENT_DESC" Language="zh_Hans_CN">
 			<Text>+1 [ICON_Movement] 移动力，从丘陵单元格上开始回合时（班诺克本）。</Text>
 		</Row>
+		<Replace Tag="LOC_BBG_SCOTLAND_XP_RECON_MODIFIER_DESC" Language="zh_Hans_CN">
+			<Text>侦察单位获得+50%经验值。</Text>
+		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_GOLF_COURSE_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>“游戏与娱乐”市政解锁建造者建造苏格兰特色改良设施高尔夫球场的能力。[NEWLINE][NEWLINE]+2 [ICON_GOLD] 金币、+1 [ICON_CULTURE] 文化值、+1 [ICON_AMENITIES] 宜居度、为相邻单元格+1魅力。[NEWLINE][NEWLINE]与市中心相邻额外+1 [ICON_GOLD] 金币、+1 [ICON_CULTURE] 文化值。与娱乐中心相邻额外+1 [ICON_CULTURE] 文化值、+1 [ICON_AMENITIES] 宜居度。“公会”市政后额外+1 [ICON_AMENITIES] 宜居度，“启蒙运动”市政后额外+1 [ICON_GOLD] 金币、+1 [ICON_CULTURE] 文化值。“全球化”市政后+1 [ICON_HOUSING] 住房。“飞行”科技后提供 [ICON_TOURISM] 旅游业绩。[NEWLINE][NEWLINE]无法建在沙漠、沙漠丘陵、泛滥平原或火山土地貌上。每座城市仅限建造一座。拥有高尔夫球场的单元格无法切换。</Text>
@@ -1160,10 +1166,10 @@
 		<!-- == VIETNAM == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRIEU_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>单位在境内树林，雨林或沼泽上获得+4 [ICON_Strength] 战斗力。如果在树林，雨林或沼泽开始回合则+1 [ICON_Movement] 移动力，在境内移动力加成翻倍。</Text>
+			<Text>在雨林、沼泽或树林单元格中战斗的单位+2 [ICON_Strength] 战斗力。如果单位在回合开始时处于这些地貌中，则+1 [ICON_Movement] 移动力。而如果这些地貌单元格是您的领土，则以上加成均加倍。</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_TRIEU_FEATURES_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>单位在境内树林，雨林或沼泽上获得+4 [ICON_Strength] 战斗力。如果在树林，雨林或沼泽开始回合则+1 [ICON_Movement] 移动力，在境内移动力加成翻倍。</Text>
+			<Text>在雨林、沼泽或树林单元格中战斗的单位+2 [ICON_Strength] 战斗力。如果单位在回合开始时处于这些地貌中，则+1 [ICON_Movement] 移动力。而如果这些地貌单元格是您的领土，则以上加成均加倍。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_VIETNAMESE_VOI_CHIEN_DESCRIPTION" Language="zh_Hans_CN">
@@ -1177,7 +1183,7 @@
 		<!-- == ZULU == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ZULU_ISIBONGO_DESCRIPTION" Language="zh_Hans_CN"> <!-- icons -->
-			<Text>拥有驻军单位的城市每回合忠诚度+3；如驻扎有 [ICON_Corps] 军团或 [ICON_Army] 军队，则+5。如已解锁相关市政，用单位占领城市则可将其升级为 [ICON_Corps] 军团或 [ICON_Army] 军队。</Text>
+			<Text>拥有驻军单位的城市每回合忠诚度+3；如驻扎有 [ICON_Corps] 军团或 [ICON_Army] 军队，则+5。如已解锁相关市政，用单位占领城市则可将其升级为 [ICON_Corps] 军团/舰队或 [ICON_Army] 军队/无敌舰队。</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMABUTHO_DESCRIPTION" Language="zh_Hans_CN">
