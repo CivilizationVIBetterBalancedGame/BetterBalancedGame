@@ -163,6 +163,9 @@
 			<Text>+{1_num} [ICON_CULTURE] Culture from the adjacent {1_Num : plural 1?district; other?districts;}.</Text>
 		</Row>
 		<!-- = unique unit = -->
+		<Replace Tag="LOC_UNIT_BYZANTINE_DROMON_DESCRIPTION" Language="en_US">
+			<Text>Byzantine unique Classical era unit that replaces the Quadrireme and has additional range.</Text>
+		</Replace>
 		<Replace Tag="LOC_UNIT_BYZANTINE_TAGMA_DESCRIPTION" Language="en_US">
 			<Text>Basil II's unique Medieval era unit that replaces the Knight. Land units within 1 tile of the Tagma receive +2 [ICON_Strength] Combat Strength or [ICON_RELIGION] Religious Strength.</Text>
 		</Replace>
@@ -216,7 +219,7 @@
 		</Replace>
 		<!-- = leader ability (Yongle) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_YONGLE_XP_DESCRIPTION" Language="en_US">
-			<Text>All Cities receive Projects where they can convert 75% of their [Icon_Production] Production into [Icon_Food] Food or [Icon_Faith] Faith, or 150% if it is [Icon_GOLD] Gold.[NEWLINE][NEWLINE]Cities with 10 or more [ICON_CITIZEN] Population receive +1 [Icon_Gold] Gold, +0.7 [Icon_Science] Science, and +0.5 [Icon_Culture] Culture per turn for each [ICON_CITIZEN] Population in the city.</Text>
+			<Text>All Cities receive Projects where they can convert 60% of their [Icon_Production] Production into [Icon_Food] Food or [Icon_Faith] Faith, or 150% if it is [Icon_GOLD] Gold.[NEWLINE][NEWLINE]Cities with 10 or more [ICON_CITIZEN] Population receive +1 [Icon_Gold] Gold, +0.7 [Icon_Science] Science, and +0.5 [Icon_Culture] Culture per turn for each [ICON_CITIZEN] Population in the city.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROJECT_LIJIA_FOOD_DESCRIPTION" Language="en_US">
 			<Text>Project which provides [ICON_Food] Food every turn equal to 75% of this city's production.</Text>
@@ -774,7 +777,7 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="en_US">
-			<Text>City Centers gain +2 [ICON_FAITH] Faith if adjacent to at least 2 Desert tiles and +1 [ICON_FOOD] Food for every adjacent Desert tile. -30% [ICON_PRODUCTION] Production toward constructing buildings or training units.[NEWLINE][NEWLINE]Mines receive -1 [ICON_PRODUCTION] Production and +4 [ICON_GOLD] Gold. May purchase Commercial Hub district buildings with [ICON_Faith] Faith. -50% of the normal cost to purchase Desert tiles.</Text>
+			<Text>City Centers gain +2 [ICON_FOOD] Food if adjacent to at least 2 Desert tiles and +1 [ICON_FAITH] Faith for every adjacent Desert tile. Desert Tiles recieve +1 [ICON_FOOD] Food. -10% [ICON_PRODUCTION] Production toward all production.[NEWLINE][NEWLINE]Mines receive -1 [ICON_PRODUCTION] Production and +2 [ICON_GOLD] Gold and an additional +2 [ICON_GOLD] Gold after researching Banking. May purchase Commercial Hub district buildings with [ICON_Faith] Faith. -50% of the normal cost to purchase Desert tiles.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="en_US">
@@ -788,7 +791,7 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SUGUBA_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Mali specializing in finance and trade that replaces the Commercial Hub. Units, Buildings, and Districts are 5% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith in this City.[NEWLINE][NEWLINE]+2 [ICON_Gold] Gold bonus for each adjacent Holy Site. +2 [ICON_Gold] Gold bonus from a tile containing a River edge. +1 [ICON_Gold] Gold bonus for every two adjacent district tiles.</Text>
+			<Text>A district unique to Mali specializing in finance and trade that replaces the Commercial Hub. Units, Buildings, and Districts are 10% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith in this City.[NEWLINE][NEWLINE]+2 [ICON_Gold] Gold bonus for each adjacent Holy Site. +1 [ICON_Gold] Gold bonus from a tile containing a River edge or an Oasis. +1 [ICON_Gold] Gold bonus for every two adjacent district tiles.</Text>
 		</Replace>
 
 		<!-- == MAORI == -->
@@ -798,7 +801,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KUPES_VOYAGE_DESCRIPTION" Language="en_US">
-			<Text>Settlers can embark after researching the Sailing technology. +2 [ICON_SCIENCE] Science and +2 [ICON_CULTURE] Culture per turn before you settle your first city. The Palace receives +3 [ICON_HOUSING] Housing and +1 [ICON_AMENITIES] Amenity.</Text>
+			<Text>Settlers can embark after researching the Sailing technology.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MAORI_TOA_DESCRIPTION" Language="en_US"> <!-- = charge icon = -->
@@ -1149,10 +1152,10 @@
 		<!-- == VIETNAM == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRIEU_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_Movement] Movement for all units beginning their turn in Rainforest, Marsh, or Woods tiles, doubled if the tile is your territory. +4 [ICON_Strength] Combat Strength for units fighting in these tiles in your territory.</Text>
+			<Text>+1 [ICON_Movement] Movement for all units beginning their turn in Rainforest, Marsh, or Woods tiles, doubled if the tile is your territory. +2 [ICON_Strength] Combat Strength for units fighting in these tiles, doubled in your own territory.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_TRIEU_FEATURES_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_Movement] Movement for all units beginning their turn in Rainforest, Marsh, or Woods tiles, doubled if the tile is your territory. +4 [ICON_Strength] Combat Strength for units fighting in these tiles in your territory.</Text>
+			<Text>All units gain +2 [ICON_Strength] Combat Strength when fighting in Rainforest, Marsh, and Woods tiles, and +1 [ICON_Movement] Movement if they start their turn there.  Both of these bonuses are doubled on tiles inside Vietnamese territory.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_VIETNAMESE_VOI_CHIEN_DESCRIPTION" Language="en_US">
@@ -1166,7 +1169,7 @@
 		<!-- == ZULU == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ZULU_ISIBONGO_DESCRIPTION" Language="en_US"> <!-- icons -->
-			<Text>Cities with a garrisoned unit get +3 Loyalty per turn, or +5 if it is a [ICON_Corps] Corps or [ICON_Army] Army. Conquering a city with a unit will upgrade it into a [ICON_Corps] Corps or [ICON_Army] Army, if the proper Civics are unlocked.</Text>
+			<Text>Cities with a garrisoned unit get +3 Loyalty per turn, or +5 if it is a [ICON_Corps] Corps or [ICON_Army] Army. Conquering a city with a unit will upgrade it into a [ICON_Corps] Corps/Fleet or [ICON_Army] Army/Armada if that unit was already a Corp/Fleet, if the proper Civics are unlocked.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMABUTHO_DESCRIPTION" Language="en_US">
