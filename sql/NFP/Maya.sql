@@ -39,6 +39,17 @@ DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_MUTAL' AND ModifierId='
 UPDATE ModifierArguments SET Value='5, 5, 5, 5, 5, 5' WHERE ModifierId='TRAIT_LEADER_NEARBY_CITIES_GAIN_YIELDS' AND Name='Amount';
 UPDATE ModifierArguments SET Value='-10, -10, -10, -10, -10, -10' WHERE ModifierId='TRAIT_LEADER_NEARBY_CITIES_LOSE_YIELDS' AND Name='Amount';
 
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_MAYA_CAPITAL_HOUSING', 'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_BUILDING_HOUSING');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MAYA_CAPITAL_HOUSING', 'Amount', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_CIVILIZATION_MAYAB', 'BBG_MAYA_CAPITAL_HOUSING');
+
 -- Monks: Maya CS
 INSERT INTO TypeTags(Type, Tag) Values
     ('ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL', 'CLASS_WARRIOR_MONK');
+
+-- 14/10 discount reduced to 35% (20 for diplo quarter) and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_OBSERVATORY';
+UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_OBSERVATORY';

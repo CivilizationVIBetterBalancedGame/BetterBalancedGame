@@ -24,6 +24,8 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 UPDATE ModifierArguments SET Value='0' WHERE ModifierId='BARAYS_FAITH_POPULATION' AND Name='Amount';
 -- 15/05/2021: Khmer get 0.3 Culture per pop in cities with Prasat
 UPDATE ModifierArguments SET Value='0.3' WHERE ModifierId='PRASAT_CULTURE_POPULATION' AND Name='Amount';
+-- 15/10/2023: Nerfed holy site faith adjacency from river to +1
+UPDATE ModifierArguments SET Value='1' WHERE ModifierId='TRAIT_MONASTERIES_KING_HOLY_SITE_RIVER_ADJACENCY' AND Name='Amount';
 
 -- 12/07/22: no more culture bomb on holy site
 -- 17/04/23 Revert
