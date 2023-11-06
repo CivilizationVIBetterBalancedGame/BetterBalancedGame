@@ -12,7 +12,8 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='TRIEU_FRIENDLY_COMBAT' AND Name='Amount';
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='TRIEU_UNFRIENDLY_COMBAT' AND Name='Amount';
 --16/04/23 delete combat bonus outside own territory
-DELETE FROM UnitAbilityModifiers WHERE ModifierId='TRIEU_UNFRIENDLY_COMBAT';
+--25/10/23 cancel nerf on combat bonus outside own territory
+--DELETE FROM UnitAbilityModifiers WHERE ModifierId='TRIEU_UNFRIENDLY_COMBAT';
 
 -- Nerf PM of UU
 UPDATE Units SET BaseMoves=2 WHERE UnitType='UNIT_VIETNAMESE_VOI_CHIEN';
@@ -22,3 +23,7 @@ UPDATE District_CitizenYieldChanges SET YieldChange=2 WHERE YieldType='YIELD_PRO
 
 -- Start Bias
 UPDATE StartBiasFeatures SET Tier=3 WHERE CivilizationType='CIVILIZATION_VIETNAM' AND FeatureType IN ('FEATURE_JUNGLE', 'FEATURE_FOREST', 'FEATURE_MARSH');
+
+-- 14/10 discount reduced to 35% (20 for diplo quarter) and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_THANH';
+UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_THANH';
