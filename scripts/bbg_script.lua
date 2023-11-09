@@ -2527,7 +2527,8 @@ function OnGameplaySpyMissionCompleted(iPlayerID, kParameters)
 	--5.6 Wu Zeitan: Gain Spy
 	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_WU_ZETIAN" then
 		local pPlayer = Players[iPlayerID]
-		pPlayer:AttachModifierByID("WU_ZETIAN_FREE_SPY")
+		local pCapital = pPlayer:GetCities():GetCapitalCity()
+		pCapital:AttachModifierByID("GOV_ADD_SPY_UNIT")
 	end
 end
 -- ===========================================================================
@@ -4362,13 +4363,14 @@ function Initialize()
 			--5.2. Disable: GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
 			--5.2. Disable: GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
 			--5.2. Disable: print("BBG Unifier Hooks Added")
+		--Mvemba religion 
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_MVEMBA" then
-			Game:SetProperty("MVEMVBA_ID", iPlayerID)
-			GameEvents.GameplayMvembaCityReligionChanged.Add(OnGameplayMvembaCityReligionChanged)
-			GameEvents.GameplayMvembaCityAddedToMap.Add(OnGameplayMvembaCityAddedToMap)
-			GameEvents.GameplayMvembaCityRemovedFromMap.Add(OnGameplayMvembaCityRemovedFromMap)
-			GameEvents.GameplayMvembaGiftCity.Add(OnGameplayMvembaGiftCity)
-			print("Mvemba religious hooks added")
+			--5.6. Disable: Game:SetProperty("MVEMVBA_ID", iPlayerID)
+			--5.6. Disable: GameEvents.GameplayMvembaCityReligionChanged.Add(OnGameplayMvembaCityReligionChanged)
+			--5.6. Disable: GameEvents.GameplayMvembaCityAddedToMap.Add(OnGameplayMvembaCityAddedToMap)
+			--5.6. Disable: GameEvents.GameplayMvembaCityRemovedFromMap.Add(OnGameplayMvembaCityRemovedFromMap)
+			--5.6. Disable: GameEvents.GameplayMvembaGiftCity.Add(OnGameplayMvembaGiftCity)
+			--5.6. Disable: print("Mvemba religious hooks added")
 		end
 	end
 	if BBCC_MODE ~= -1 then

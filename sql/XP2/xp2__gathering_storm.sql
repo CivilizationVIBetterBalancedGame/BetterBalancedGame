@@ -39,6 +39,9 @@ UPDATE ModifierArguments SET Value='2' WHERE ModifierId='TITHE_GOLD_CITY_MODIFIE
 -- feed the world housing reduced
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='FEED_THE_WORLD_SHRINE_HOUSING_MODIFIER' AND Name='Amount';
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='FEED_THE_WORLD_TEMPLE_HOUSING_MODIFIER' AND Name='Amount';
+-- 02/11/23 feed the world from 3/3 to 2/4
+UPDATE ModifierArguments SET Value='2' WHERE ModifierId='FEED_THE_WORLD_SHRINE_FOOD3_MODIFIER' AND Name='Amount';
+UPDATE ModifierArguments SET Value='4' WHERE ModifierId='FEED_THE_WORLD_TEMPLE_FOOD3_MODIFIER' AND Name='Amount';
 /*
 --revert feed the world to pre-GS version
 DELETE FROM BeliefModifiers WHERE BeliefType='BELIEF_FEED_THE_WORLD' AND ModifierID='FEED_THE_WORLD_SHRINE_HOUSING';
@@ -67,6 +70,27 @@ UPDATE Beliefs SET Description='LOC_BELIEF_LAY_MINISTRY_DESCRIPTION' WHERE Belie
 -- 2020-12-03 was previously affecting all districts
 
 --5.1 Changed holly waters inconsistency so it follows the same logic as Defender/Crusade
+
+UPDATE Modifiers SET ModifierType='MODIFIER_ALL_UNITS_ATTACH_MODIFIER' WHERE ModifierId='HOLY_WATERS_HEALING';
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_ADJUST_HEAL_PER_TURN' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER';
+--Cleaning UP Firaxis code
+DELETE FROM RequirementSetRequirements WHERE RequirementSetId='HOLY_WATERS_HEALING_REQUIREMENTS';
+DELETE FROM RequirementSetRequirements WHERE RequirementSetId='HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS';
+UPDATE RequirementSets SET RequirementSetType='REQUIREMENTSET_TEST_ANY' WHERE RequirementSetId='HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS';
+INSERT OR IGNORE INTO RequirementSetRequirements VALUES
+    ('HOLY_WATERS_HEALING_REQUIREMENTS', 'REQUIRES_PLAYER_FOUNDED_RELIGION'),
+    ('HOLY_WATERS_HEALING_REQUIREMENTS', 'BBG_REQUIRES_ANY_CITY_FOLLOWS_RELIGION'),
+    ('HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS', 'REQUIRES_UNIT_NEAR_FRIENDLY_RELIGIOUS_CITY'),
+    ('HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS', 'REQUIRES_UNIT_NEAR_ENEMY_RELIGIOUS_CITY');
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+    ('BBG_REQUIRES_ANY_CITY_FOLLOWS_RELIGION', 'REQUIREMENT_REQUIREMENTSET_IS_MET');
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_ANY_CITY_FOLLOWS_RELIGION', 'RequirementSetId', 'HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS');
+UPDATE ModifierArguments SET Value='20' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER' AND Name='Amount';
+UPDATE Modifiers Set SubjectRequirementSetId = NULL WHERE ModifierId = 'HOLY_WATERS_HEALING_MODIFIER';
+
+--Holy waters mvemba version
+/*
 UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER' WHERE ModifierId='HOLY_WATERS_HEALING';
 UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_ADJUST_HEAL_PER_TURN' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER';
 --Cleaning UP Firaxis code
@@ -85,7 +109,7 @@ INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
     ('BBG_REQUIRES_ANY_CITY_FOLLOWS_RELIGION', 'RequirementSetId', 'HOLY_WATERS_HEALING_MODIFIER_REQUIREMENTS');
 UPDATE ModifierArguments SET Value='20' WHERE ModifierId='HOLY_WATERS_HEALING_MODIFIER' AND Name='Amount';
 UPDATE Modifiers Set SubjectRequirementSetId = NULL WHERE ModifierId = 'HOLY_WATERS_HEALING_MODIFIER';
-
+*/
 --==============================================================
 --******                START BIASES                      ******
 --==============================================================

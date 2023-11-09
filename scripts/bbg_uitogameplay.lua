@@ -808,11 +808,12 @@ function Initialize()
 			--5.6. Disable: Events.BuildingAddedToMap.Add(OnLudwigWonderPlaced)
 			--5.6. Disable: Events.BuildingRemovedFromMap.Add(OnLudwigWonderRemoved)
 			--5.6. Disable: Events.WonderCompleted.Add(OnLudwigWonderCompleted)
-		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_MVEMBA" then
-			Events.CityReligionChanged.Add(OnMvembaCityReligionChanged)
-			Events.CityAddedToMap.Add(OnMvembaCityAddedToMap)
-			Events.CityRemovedFromMap.Add(OnMvembaCityRemovedFromMap)
-			Events.CityTransfered.Add(OnMvembaCityTransfered)
+		-- Mvemba Religion
+		--5.6. Disable: elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_MVEMBA" then
+			--5.6. Disable: Events.CityReligionChanged.Add(OnMvembaCityReligionChanged)
+			--5.6. Disable: Events.CityAddedToMap.Add(OnMvembaCityAddedToMap)
+			--5.6. Disable: Events.CityRemovedFromMap.Add(OnMvembaCityRemovedFromMap)
+			--5.6. Disable: Events.CityTransfered.Add(OnMvembaCityTransfered)
 		end
 	end
 	--BCY no rng setting (param names are still called BBCC)

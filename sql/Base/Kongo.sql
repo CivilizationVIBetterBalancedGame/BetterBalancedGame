@@ -18,7 +18,7 @@ INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
 	('BBG_REQUIRES_PLAYER_FOUNDED_RELIGION_OR_MVEMBA', 'RequirementSetId', 'BBG_REQSET_FOUNDER_OR_MVEMBA');
 
 UPDATE RequirementSetRequirements SET RequirementId = 'BBG_REQUIRES_PLAYER_FOUNDED_RELIGION_OR_MVEMBA' WHERE RequirementId = 'REQUIRES_PLAYER_FOUNDED_RELIGION' AND RequirementSetId <> 'BBG_REQSET_FOUNDER_OR_MVEMBA';
-*/
+
 --5.4 Founder / Reformer Belief Bug Fix (5.1 version allows for DOF and CRUSADE on Kongo if he was converted to one of them)
 --Change the religion mechanism works to accomodate for Mvemba
 --Creating Reqs for attachment extra step
@@ -139,7 +139,7 @@ WHERE
 
 DROP TABLE KongoTemp;
 DROP TABLE KongoReqsTemp;
-
+*/
 -- Mvemba military unit get forest and jungle free move instead of Ngao
 DELETE FROM UnitAbilityModifiers WHERE ModifierId='NAGAO_FOREST_MOVEMENT';
 
