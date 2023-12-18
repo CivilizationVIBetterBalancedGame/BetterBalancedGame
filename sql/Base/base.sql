@@ -252,4 +252,9 @@ UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_A
 UPDATE Districts SET Cost=20 WHERE DistrictType='DISTRICT_BATH';
 UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_MBANZA', 'DISTRICT_ACROPOLIS', 'DISTRICT_STREET_CARNIVAL', 'DISTRICT_ROYAL_NAVY_DOCKYARD', 'DISTRICT_LAVRA', 'DISTRICT_HANSA');
 
+--=======================================================================
+--******                       TECHS                               ******
+--=======================================================================
 
+UPDATE Technologies SET EraType="ERA_MODERN" WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
+UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
