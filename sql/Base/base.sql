@@ -256,5 +256,6 @@ UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_MBANZA', 'DISTRICT
 --******                       TECHS                               ******
 --=======================================================================
 
+--18/12/23 advanced ballistics advanced one era
 UPDATE Technologies SET EraType="ERA_MODERN" WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
