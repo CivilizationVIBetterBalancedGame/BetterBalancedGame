@@ -54,14 +54,11 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value) VALUES
 	('GOV_CONQUEST_REDUCED_MAINTENANCE' , 'Amount'   , '1'              );
 -- Warlord's Throne extra resource stockpile
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType , ModifierId)
-	VALUES
-	('BUILDING_GOV_CONQUEST' , 'BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE');
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , SubjectRequirementSetId , OwnerRequirementSetId)
-	VALUES
-	('BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE' , 'MODIFIER_PLAYER_ADJUST_RESOURCE_STOCKPILE_CAP' , NULL , NULL);
+	VALUES ('BUILDING_GOV_CONQUEST', 'BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE');
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
+	VALUES ('BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE', 'MODIFIER_PLAYER_ADJUST_RESOURCE_STOCKPILE_CAP');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-	VALUES
-	('BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE' , 'Amount' , '30');
+	VALUES ('BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE', 'Amount', '30');
 --Warlord's Throne +2 revealed strategics/turn (abstract, robust to reveal tech change in Resources Table)
 --Creating Modifiers
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
