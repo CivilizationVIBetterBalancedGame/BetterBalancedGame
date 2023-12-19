@@ -120,3 +120,5 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
     'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
     'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UTILS_PLAYER_HAS_CIVIC_MILITARY_TRADITION_REQUIREMENT' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    
+DROP TABLE TmpNavalUnit;
