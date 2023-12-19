@@ -50,6 +50,10 @@ UPDATE Improvements SET PrereqCivic='CIVIC_MEDIEVAL_FAIRES' WHERE ImprovementTyp
 DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_HACIENDA' AND TerrainType='TERRAIN_PLAINS_HILLS';
 DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_HACIENDA' AND TerrainType='TERRAIN_GRASS_HILLS';
 
+--19/12/23 Hacienda buff from rapid deploiment to mercantilism
+UPDATE Adjacency_YieldChanges SET PrereqCivic='CIVIC_MERCANTILISM' WHERE ID IN ('Plantation_AdvancedHaciendaAdjacency', 'Hacienda_AdvancedHaciendaAdjacency');
+UPDATE Adjacency_YieldChanges SET ObsoleteCivic='CIVIC_MERCANTILISM' WHERE ID IN ('Plantation_HaciendaAdjacency', 'Hacienda_HaciendaAdjacency');
+
 --15/12/22 Plantation bias
 INSERT INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
     ('CIVILIZATION_GRAN_COLOMBIA', 'RESOURCE_CITRUS', 5),
