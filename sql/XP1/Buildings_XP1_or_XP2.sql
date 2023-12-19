@@ -32,10 +32,9 @@ INSERT OR IGNORE INTO BuildingModifiers (BuildingType , ModifierId)
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='GOV_TALL_HOUSING_BUFF';
 INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , SubjectRequirementSetId)
 	VALUES ('GOV_TALL_FOOD_BUFF' , 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE' , 'CITY_HAS_GOVERNOR_REQUIREMENTS');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-	VALUES ('GOV_TALL_FOOD_BUFF' , 'YieldType' , 'YIELD_FOOD');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-	VALUES ('GOV_TALL_FOOD_BUFF' , 'Amount' , '2');
+INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value) VALUES
+	('GOV_TALL_FOOD_BUFF' , 'YieldType' , 'YIELD_FOOD'),
+	('GOV_TALL_FOOD_BUFF' , 'Amount' , '3');
 
 --Warlord's Throne gives +25% production to naval and land military units... also reduces unit maintenance by 1
 DELETE FROM BuildingModifiers WHERE ModifierId='GOV_PRODUCTION_BOOST_FROM_CAPTURE';
