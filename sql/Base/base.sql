@@ -252,6 +252,9 @@ UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_A
 UPDATE Districts SET Cost=20 WHERE DistrictType='DISTRICT_BATH';
 UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_MBANZA', 'DISTRICT_ACROPOLIS', 'DISTRICT_STREET_CARNIVAL', 'DISTRICT_ROYAL_NAVY_DOCKYARD', 'DISTRICT_LAVRA', 'DISTRICT_HANSA');
 
+--19/12/23 entertainment complex to 2 amenities (from 1)
+UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_ENTERTAINMENT_COMPLEX';
+
 --=======================================================================
 --******                       TECHS                               ******
 --=======================================================================
