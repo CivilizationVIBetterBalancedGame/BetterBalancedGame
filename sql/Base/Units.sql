@@ -206,32 +206,55 @@ UPDATE Units SET MandatoryObsoleteTech='TECH_MILITARY_SCIENCE' WHERE UnitType IN
 UPDATE Units SET ObsoleteCivic=NULL WHERE UnitType IN ('UNIT_BATTERING_RAM', 'UNIT_SIEGE_TOWER');
 
 
--- INSERT INTO Types(Type, Kind) VALUES
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'KIND_ABILITY');
--- INSERT INTO TypeTags(Type, Tag) VALUES
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'CLASS_NAVAL_MELEE');
+--19/12/23 Naval support only from naval units
+INSERT INTO Types(Type, Kind) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'KIND_ABILITY');
+INSERT INTO TypeTags(Type, Tag) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'CLASS_NAVAL_MELEE'),
+    ('BBG_ABILITY_NO_SUPPORT_BONUS', 'CLASS_NAVAL_MELEE');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_UNIT_IS_DEFENDER', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_IS_DEFENDER', 'PLAYER_IS_DEFENDER_REQUIREMENTS');
+INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_NAME', 'LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_DESC');
 
--- INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_NAME', 'LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_DESC');
--- INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'BBG_ABILITY_SUPPORT_NAVAL_MELEE_GALLEY_MODIFIER'),
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'BBG_ABILITY_SUPPORT_NAVAL_MELEE_CARAVEL_MODIFIER');
--- INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_GALLEY_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_UNIT_IS_DEFENDER');
--- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_GALLEY_MODIFIER', 'Amount', '2'),
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_GALLEY_MODIFIER', 'UnitType', 'UNIT_GALLEY');
--- INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_GALLEY_MODIFIER', 'Preview', 'LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_GALLEY_DESC');
--- INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_CARAVEL_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_UNIT_IS_DEFENDER');
--- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_CARAVEL_MODIFIER', 'Amount', '2'),
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_CARAVEL_MODIFIER', 'UnitType', 'UNIT_CARAVEL');
--- INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
---     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_CARAVEL_MODIFIER', 'Preview', 'LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_CARAVEL_DESC');
+CREATE TABLE TmpNavalUnit(UnitType PRIMARY KEY NOT NULL);
+INSERT INTO TmpNavalUnit(UnitType) VALUES
+    ('UNIT_GALLEY'),
+    ('UNIT_NORWEGIAN_LONGSHIP'),
+    ('UNIT_QUADRIREME'),
+    ('UNIT_CARAVEL'),
+    ('UNIT_FRIGATE'),
+    ('UNIT_PRIVATEER'),
+    ('UNIT_ENGLISH_SEADOG'),
+    ('UNIT_IRONCLAD'),
+    ('UNIT_BATTLESHIP'),
+    ('UNIT_BRAZILIAN_MINAS_GERAES'),
+    ('UNIT_SUBMARINE'),
+    ('UNIT_GERMAN_UBOAT'),
+    ('UNIT_AIRCRAFT_CARRIER'),
+    ('UNIT_DESTROYER'),
+    ('UNIT_NUCLEAR_SUBMARINE'),
+    ('UNIT_MISSILE_CRUISER');
 
--- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
---     ('BBG_UNIT_IS_DEFENDER', 'REQUIREMENTSET_TEST_ALL');
--- INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
---     ('BBG_UNIT_IS_DEFENDER', 'PLAYER_IS_DEFENDER_REQUIREMENTS');
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) SELECT
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) SELECT
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_IS_DEFENDER' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+INSERT INTO ModifierArguments(ModifierId, Name, Value) SELECT
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'Amount', '2' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+INSERT INTO ModifierArguments(ModifierId, Name, Value) SELECT
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'UnitType', Units.UnitType FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+INSERT INTO ModifierStrings(ModifierId, Context, Text) SELECT
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'Preview', '{'||Units.Name||'} : +{CalculatedAmount}' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+INSERT INTO Requirements (RequirementId, RequirementType) SELECT
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ', 'REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TYPE_MATCHES' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+INSERT INTO RequirementArguments (RequirementId, Name, Value) SELECT
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ', 'UnitType', Units.UnitType FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) SELECT
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UTILS_PLAYER_HAS_CIVIC_MILITARY_TRADITION_REQUIREMENT' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
