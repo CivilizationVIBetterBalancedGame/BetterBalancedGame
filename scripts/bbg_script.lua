@@ -2524,12 +2524,12 @@ function OnGameplaySpyMissionCompleted(iPlayerID, kParameters)
 		pPlayer:AttachModifierByID("MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG")
 		--Debug("Spy Capacity added to iPlayerID "..tostring(iPlayerID), "OnGameplaySpyMissionCompleted")
 	end
-	--5.6 Wu Zeitan: Gain Spy 
-	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_WU_ZETIAN" then
-		local pPlayer = Players[iPlayerID]
-		local pCapital = pPlayer:GetCities():GetCapitalCity()
-		pCapital:AttachModifierByID("GOV_ADD_SPY_UNIT")
-	end
+	--5.6 Wu Zeitan: Gain Spy (5.7 remove)
+	--if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_WU_ZETIAN" then
+		--local pPlayer = Players[iPlayerID]
+		--local pCapital = pPlayer:GetCities():GetCapitalCity()
+		--pCapital:AttachModifierByID("GOV_ADD_SPY_UNIT")
+	--end
 end
 -- ===========================================================================
 -- Religion
