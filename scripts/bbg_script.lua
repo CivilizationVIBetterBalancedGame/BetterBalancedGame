@@ -942,9 +942,9 @@ function OnBCYCityBuiltStandard(iPlayerID, iCityID, iX, iY)
 	local tBasePlotYields_Fin = {}
 	local iTerrain = pPlot:GetTerrainType()
 	local sControllString = ""
-	if iTerrain==0 or iTerrain==3 then --flats
+	if iTerrain==0 or iTerrain==3 or iTerrain==6 or iTerrain==9 or iTerrain==12  then --flats
 		sControllString = "Hill_CutOffYieldValues"
-	elseif iTerrain==1 or iTerrain==4 then --hills
+	elseif iTerrain==1 or iTerrain==4 or iTerrain==7 or iTerrain==10 or iTerrain==13 then --hills
 		sControllString = "Hill_CutOffYieldValues"
 	else
 		return
