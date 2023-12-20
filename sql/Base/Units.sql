@@ -41,7 +41,9 @@ UPDATE Units SET Combat=80, BaseMoves=3 WHERE UnitType='UNIT_INFANTRY';
 UPDATE Units SET Combat=65, RangedCombat=75 WHERE UnitType='UNIT_BATTLESHIP';
 --03/10/22: movement from 6 to 5
 UPDATE Units SET BaseMoves=5 WHERE UnitType='UNIT_HELICOPTER';
--- UPDATE Units SET Combat=75, RangedCombat=95 WHERE UnitType='UNIT_MACHINE_GUN';
+-- 20/12/23 movement from 2 to 3 machine gun
+UPDATE Units SET BaseMoves=3 WHERE UnitType='UNIT_MACHINE_GUN';
+
 UPDATE Units SET Combat=70 WHERE UnitType='UNIT_AIRCRAFT_CARRIER';
 UPDATE Units SET Combat=90 WHERE UnitType='UNIT_DESTROYER';
 -- UPDATE Units SET Combat=75 WHERE UnitType='UNIT_ROCKET_ARTILLERY';
