@@ -215,9 +215,10 @@ INSERT INTO TypeTags(Type, Tag) VALUES
     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'CLASS_NAVAL_MELEE'),
     ('BBG_ABILITY_NO_SUPPORT_BONUS', 'CLASS_NAVAL_MELEE');
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-    ('BBG_UNIT_IS_DEFENDER', 'REQUIREMENTSET_TEST_ALL');
+    ('BBG_UNIT_IS_DEFENDER_IN_MELEE', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_UNIT_IS_DEFENDER', 'PLAYER_IS_DEFENDER_REQUIREMENTS');
+    ('BBG_UNIT_IS_DEFENDER_IN_MELEE', 'PLAYER_IS_DEFENDER_REQUIREMENTS'),
+    ('BBG_UNIT_IS_DEFENDER_IN_MELEE', 'MELEE_COMBAT_REQUIREMENTS');
 INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_NAME', 'LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_DESC');
 
@@ -239,11 +240,12 @@ INSERT INTO TmpNavalUnit(UnitType) VALUES
     ('UNIT_DESTROYER'),
     ('UNIT_NUCLEAR_SUBMARINE'),
     ('UNIT_MISSILE_CRUISER');
+    --also see portugal, indo, dutch, byzantium and xp2/units.sql
 
 INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) SELECT
     'BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
 INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) SELECT
-    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_IS_DEFENDER' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_IS_DEFENDER_IN_MELEE' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
 INSERT INTO ModifierArguments(ModifierId, Name, Value) SELECT
     'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'Amount', '2' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
 INSERT INTO ModifierArguments(ModifierId, Name, Value) SELECT
