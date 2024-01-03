@@ -702,7 +702,7 @@
 		</Replace>
 		<!-- = leader ability (Mvemba a Nzinga) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RELIGIOUS_CONVERT_DESCRIPTION" Language="en_US">
-			<Text>May not build Holy Site districts, gain [ICON_GreatProphet] Great Prophets, or found Religions. Gains all Beliefs of any Religion that has established itself in a majority of his cities. Receives an Apostle (of that city's majority Religion) each time he finishes a M'banza or Theater Square district.[NEWLINE][NEWLINE][ICON_GreatWork_Relic] Relics grant additional +2 [ICON_Food] Food, +2 [ICON_Production] Production, +4 [ICON_Gold] Gold and +1 [ICON_Faith] Faith.  Receive a [ICON_GreatWork_Relic] Relic for each Government Plaza building.[NEWLINE][NEWLINE]All land combat units ignore Rainforest and Woods [ICON_Movement] Movement penalty.</Text>
+			<Text>May not build Holy Site districts, gain [ICON_GreatProphet] Great Prophets, or found Religions. Receives an Apostle (of that city's majority Religion) each time he finishes a M'banza or Theater Square district.[NEWLINE][NEWLINE][ICON_GreatWork_Relic] Relics grant additional +2 [ICON_Food] Food, +2 [ICON_Production] Production, +4 [ICON_Gold] Gold and +1 [ICON_Faith] Faith.  Receive a [ICON_GreatWork_Relic] Relic for each Government Plaza building.[NEWLINE][NEWLINE]All land combat units ignore Rainforest and Woods [ICON_Movement] Movement penalty.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_IGNORE_WOODS_ABILITY_DESCRIPTION" Language="en_US">
 			<Text>Ignores Rainforest and Woods [ICON_Movement] Movement penalty (Mvemba a Nzinga).</Text>
@@ -803,6 +803,13 @@
 		<Replace Tag="LOC_DISTRICT_SUGUBA_DESCRIPTION" Language="en_US">
 			<Text>A district unique to Mali specializing in finance and trade that replaces the Commercial Hub. Units, Buildings, and Districts are 10% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith in this City.[NEWLINE][NEWLINE]+2 [ICON_Gold] Gold bonus for each adjacent Holy Site. +1 [ICON_Gold] Gold bonus from a tile containing a River edge or an Oasis. +1 [ICON_Gold] Gold bonus for every two adjacent district tiles.</Text>
 		</Replace>
+		<Replace Tag="LOC_SUGUBA_RIVER_GOLD" Language="en_US">
+			<Text>+1 [ICON_GOLD] Gold River adjacency.</Text>
+		</Replace>
+		<Replace Tag="LOC_SUGUBA_OASIS_GOLD" Language="en_US">
+			<Text>+1 [ICON_GOLD] Gold Oasis adjacency.</Text>
+		</Replace>
+		
 
 		<!-- == MAORI == -->
 		<!-- = civilization ability = -->
@@ -1148,6 +1155,12 @@
 		<Row Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_COMBAT_DESCRIPTION_BBG" Language="en_US">
 			<Text>+4 vs. Barbarians</Text>
 		</Row>
+
+		<Row Tag="LOC_BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS_DESCRIPTION" Language="en_US">
+			<Text>Can escort civilian and support units at their higher [ICON_Movement] movement speed.</Text>
+		</Row>
+
+		
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_ZIGGURAT_DESCRIPTION" Language="en_US">
 			<Text>Unlocks the Builder ability to construct a Ziggurat, unique to Sumeria.[NEWLINE][NEWLINE]+1 [ICON_Housing] Housing and +2 [ICON_Science] Science.[NEWLINE][NEWLINE]+1 [ICON_Culture] Culture if built next to River. +1 [ICON_Faith] Faith for each adjacent district or for every 2 adjacent Farms.[NEWLINE][NEWLINE]Cannot be built on Hills or adjacent to another Ziggurat.</Text>
@@ -2030,6 +2043,9 @@
 		<Replace Tag="LOC_LEADER_TRAIT_VILNIUS_DESCRIPTION" Language="en_US">
 			<Text>All your Theater Square districts receive +50%/+100%/+150% adjacency bonus if you have at least one active Alliance of Level 1/2/3.</Text>
 		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_ZANZIBAR_BONUS" Language="en_US">
+			<Text>Receive the [ICON_RESOURCE_CINNAMON] Cinnamon and [ICON_RESOURCE_CLOVES] Cloves Luxury resources. These cannot be earned any other way in the game, and provide 4 [ICON_Amenities] Amenities each.</Text>
+		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_ZANZIBAR_DESCRIPTION" Language="en_US">
 			<Text>Receive the [ICON_RESOURCE_CINNAMON] Cinnamon and [ICON_RESOURCE_CLOVES] Cloves Luxury resources. These cannot be earned any other way in the game, and provide 4 [ICON_Amenities] Amenities each.</Text>
 		</Replace>
@@ -2475,6 +2491,16 @@
 		</Replace>
 		<Replace Tag="LOC_ABILITY_HEAVY_CHARIOT_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_Movement] Movement if starting in open terrain.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_DESC" Language="en_US">
+			<Text>+2 Support Bonus per adjacent naval unit</Text>
+		</Replace>
+
+		<Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="en_US">
+			<Text>Battlefield Medicine</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="en_US">
+			<Text>+1 Movement from adjacent Medic</Text>
 		</Replace>
 
 
