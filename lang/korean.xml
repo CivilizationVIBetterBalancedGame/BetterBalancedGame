@@ -114,7 +114,6 @@
 			<Text>아즈텍 특유의 건물입니다. 6타일 내 도심부에 [ICON_Amenities] 쾌적도 +1, [ICON_Culture] 문화 +1을 제공합니다. 이 보너스는 한 도시에 1회만 적용되며, 도심부 6타일 이내에 이 건물 여러 개가 건설되어도 추가 보너스를 제공하지 않습니다. [ICON_GreatGeneral] 위대한 장군 점수 +1, [ICON_TOURISM] 관광 +3을 제공합니다.</Text>
 		</Replace>
 
-
 		<!-- == BABYLON == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_BABYLON_DESCRIPTION" Language="ko_KR">
@@ -131,7 +130,12 @@
 		<Replace Tag="LOC_BUILDING_PALGUM_DESCRIPTION" Language="ko_KR">
 			<Text>바빌론 특유의 건물입니다. [ICON_HOUSING] 주거공간 +1과 [ICON_PRODUCTION] 생산력 +2를 얻습니다. 농장 시설에 [ICON_PRODUCTION] 생산력 +1을 제공합니다. 농장을 제외한 개발된 담수 타일이 [ICON_FOOD] 식량 +1을 얻습니다. 도시는 반드시 강과 인접해야 합니다.</Text>
 		</Replace>
+		
 		<!-- == BRAZIL == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_AMAZON_DESCRIPTION" Language="ko_KR">
+			<Text>열대우림 타일은 캠퍼스, 상업 중심지, 성지 및 극장가 특수지구에 인접 보너스 +1을 제공하고, 인접 타일에 일반적인 경우의 -1이 아닌 매력도 +1을 제공합니다. 건축 기술을 연구하면 개발되지 않은 열대우림 타일에 [ICON_PRODUCTION] 생산력 +1을 제공합니다.</Text>
+		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_STREET_CARNIVAL_EXPANSION2_DESCRIPTION" Language="ko_KR">
 			<Text>브라질 특유의 특수지구입니다. 이 특수지구는 인구 조건이 없으며 전문 특수지구가 아닙니다. 유흥단지 특수지구를 대체하고, [ICON_Amenities] 쾌적도 +2를 제공합니다. 또한, 카니발 프로젝트를 잠금 해제합니다. 카니발 프로젝트는 진행 중에 [ICON_Amenities] 쾌적도 +1을 제공하고, 완료 시 다양한 [ICON_GreatPerson] 위인 점수를 제공합니다. 코파카바나가 있는 도시에는 지을 수 없습니다.</Text>
@@ -151,6 +155,15 @@
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_BYZANTIUM_DESCRIPTION" Language="ko_KR">
 			<Text>유닛이 비잔티움 종교로 개종한 성도(비잔티움 성도 포함)마다 [ICON_Strength] 전투력 또는 [ICON_Religion] 신앙력 +2를 얻습니다. 적 문명 또는 도시 국가 유닛을 처치하면 처치한 유닛의 [ICON_Strength] 근접 전투력에 비례해 비잔티움 종교가 5타일 범위 내 도시로 전파됩니다. 성지 특수지구가 있는 도시에서 [ICON_GreatProphet] 위대한 선지자 점수 +1을 얻습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_HIPPODROME_DESCRIPTION" Language="ko_KR">
+			<Text>비잔티움 특유의 특수지구입니다. 유흥단지 특수지구를 대체하고, [ICON_Amenities] 쾌적도 +2를 제공하고, 건설 비용이 더 낮습니다. 이 특수지구에 히포드롬과 건물을 건설하면 중기병 유닛을 얻습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_HIPPODROME_EXPANSION1_DESCRIPTION" Language="ko_KR"> <!-- kr add -->
+			<Text>비잔티움 특유의 특수지구입니다. 유흥단지 특수지구를 대체하고, [ICON_Amenities] 쾌적도 +2를 제공하며, 건설 비용이 더 낮습니다. 이 특수지구에 히포드롬과 건물을 건설하면 중기병 유닛을 얻습니다. 워터 파크가 있는 도시에는 지을 수 없습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_HIPPODROME_EXPANSION2_DESCRIPTION" Language="ko_KR">
+			<Text>비잔티움 특유의 특수지구입니다. 유흥단지 특수지구를 대체하고, [ICON_Amenities] 쾌적도 +2를 제공하며, 건설 비용이 더 낮습니다. 이 특수지구에 히포드롬과 건물을 건설하면 중기병 유닛을 얻습니다. 이 특수지구에서 얻은 유닛은 자원 유지 비용이 없습니다. 워터 파크가 있는 도시에는 지을 수 없습니다.</Text>
 		</Replace>
 		<!-- = leader ability (Theodora) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THEODORA_DESCRIPTION" Language="ko_KR">
@@ -232,7 +245,7 @@
 		</Replace>
 		<!-- = leader ability (Wu Zetian) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_WU_ZETIAN_DESCRIPTION" Language="ko_KR">
-			<Text>모든 공격 스파이 작전이 1레벨 상승한 상태로 진행됩니다. 공격 스파이 임무가 성공할 때마다 목표 도시가 턴마다 획득하는 [ICON_Faith] 신앙과 [ICON_Culture] 문화, [ICON_SCIENCE] 과학의 100%를 얻습니다. 방어술 연구 후 무료 스파이와 추가 스파이 최대치를 받습니다. [ICON_Faith] 신앙으로 스파이를 구매할 수 있습니다. 스파이가 임무 도중 사망하거나 생포될 경우, 무료 스파이를 받습니다.</Text>
+			<Text>모든 공격 스파이 작전이 1레벨 상승한 상태로 진행됩니다. 공격 스파이 임무가 성공할 때마다 목표 도시가 턴마다 획득하는 [ICON_Faith] 신앙과 [ICON_Culture] 문화, [ICON_SCIENCE] 과학의 100%를 얻습니다. 방어술 연구 후 무료 스파이와 추가 스파이 최대치를 받습니다. [ICON_Faith] 신앙으로 스파이를 구매할 수 있습니다.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_CHINESE_CROUCHING_TIGER_DESCRIPTION" Language="ko_KR">
@@ -277,7 +290,7 @@
 		<!-- = unique improvement = -->
 		<!-- WIP BBG v5.2 Beta build 1 - Can be built on Hill Plains and Hill Grassland next to a Plantation improvement. -->
 		<Replace Tag="LOC_IMPROVEMENT_HACIENDA_DESCRIPTION" Language="ko_KR">
-			<Text>그란 콜롬비아 특유 건물인 하시엔다를 건설할 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_GOLD] 금 +2, [ICON_PRODUCTION] 생산력 +1, [Icon_Housing] 주거공간 +0.5를 부여합니다. 2개의 인접한 재배지마다 [ICON_Food] 식량 +1을 얻습니다(교환부품 연구 이후 모든 재배지마다 획득). 재배지와 하시엔다가 인접한 2개의 하시엔다마다 [ICON_Production] 생산력 +1을 얻습니다(신속한 배치 연구 이후 모든 하시엔다마다 획득). 언덕이 아닌, 평원과 초원에만 건설할 수 있습니다.</Text>
+			<Text>그란 콜롬비아 특유 건물인 하시엔다를 건설할 수 있는 건설자 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_GOLD] 금 +2, [ICON_PRODUCTION] 생산력 +1, [Icon_Housing] 주거공간 +0.5를 부여합니다. 2개의 인접한 재배지마다 [ICON_Food] 식량 +1을 얻습니다(교환부품 연구 이후 모든 재배지마다 획득). 재배지와 하시엔다가 인접한 2개의 하시엔다마다 [ICON_Production] 생산력 +1을 얻습니다(중상주의 연구 이후 모든 하시엔다마다 획득). 언덕이 아닌, 평원과 초원에만 건설할 수 있습니다.</Text>
 		</Replace>
 
 		<!-- == CREE == -->
@@ -510,7 +523,7 @@
 		</Replace>
 		<!-- = leader ability (Ludwig II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LUDWIG_DESCRIPTION" Language="ko_KR"> <!-- add icon -->
-			<Text>불가사의가 인접 특수지구마다 [ICON_CULTURE] 문화 +1을 얻습니다(완성되지 않은 경우 포함). 이 [ICON_CULTURE] 문화는 도시 생산량에 표시됩니다. 모든 [ICON_CULTURE] 문화 인접 지역은 성 기술을 완료하면 [ICON_TOURISM] 관광을 제공합니다.</Text>
+			<Text>불가사의(완성되지 않은 경우 포함)가 인접 특수지구마다 [ICON_CULTURE] 문화 +1을 얻으며, 정치 철학 사회제도 보유 시 [ICON_CULTURE] 문화 +1을 추가로 얻습니다. 이 [ICON_CULTURE] 문화는 도시 생산량에 표시됩니다. 모든 [ICON_CULTURE] 문화 인접 지역은 성 기술을 완료하면 [ICON_TOURISM] 관광을 제공합니다.</Text>
 		</Replace>
 
 		<!-- == GREECE == -->
@@ -591,7 +604,7 @@
 		<!-- == INDIA == -->
 		<!-- = leader ability (Chandragupta) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ARTHASHASTRA_DESCRIPTION" Language="ko_KR">
-			<Text>성소, 사원 및 예배 건물이 지어진 도시에서 새로 훈련된 모든 군사 유닛에 각각 [ICON_STRENGTH] 전투력 +1과 추가 보너스를 제공합니다:[NEWLINE][ICON_BULLET]성소가 지어진 도시에서 [ICON_Movement] 이동력 +1.[NEWLINE][ICON_BULLET]사원이 지어진 도시에서 시야 +1.[NEWLINE][ICON_BULLET]예배 건물이 지어진 도시에서 사회 제도 전제 조건이 충족되면 [ICON_Corps] 군단 및 [ICON_Army] 군대를 직접 훈련시킬 수 있으며 군단 및 군대 훈련 비용 25% 감소.</Text>
+			<Text>성소 건물이 [ICON_GreatGeneral] 위대한 장군 점수 +1을 재공합니다. [NEWLINE]성소, 사원 및 예배 건물이 지어진 도시에서 새로 훈련된 모든 군사 유닛에 각각 [ICON_STRENGTH] 전투력 +1과 추가 보너스를 제공합니다:[NEWLINE][ICON_BULLET]성소가 지어진 도시에서 [ICON_Movement] 이동력 +1.[NEWLINE][ICON_BULLET]사원이 지어진 도시에서 시야 +1.[NEWLINE][ICON_BULLET]예배 건물이 지어진 도시에서 사회 제도 전제 조건이 충족되면 [ICON_Corps] 군단 및 [ICON_Army] 군대를 직접 훈련시킬 수 있으며 군단 및 군대 훈련 비용 25% 감소.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_CHANDRA_MOVEMENT_ABILITY_DESC" Language="ko_KR">
 			<Text>성소에서 [ICON_Movement] 이동력 +1. (아트라사스트라)</Text>
@@ -692,7 +705,7 @@
 		</Replace>
 		<!-- = leader ability (Mvemba a Nzinga) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RELIGIOUS_CONVERT_DESCRIPTION" Language="ko_KR">
-			<Text>성지 특수지구를 건설할 수 없고 위대한 선지자를 영입할 수 없으며 종교를 창시할 수 없습니다. 대부분의 도시에서 자체적으로 자리 잡은 모든 종교의 모든 교리를 얻습니다. 음반자 또는 극장가 특수지구를 완료할 때마다 도시 내 대중 종교의 사도 유닛 1개를 얻습니다.[NEWLINE][NEWLINE][ICON_GreatWork_Relic] 성유물에서 일반적으로 받는 [ICON_FAITH] 신앙 외에 추가로 [ICON_Food] 식량 +2, [ICON_Production] 생산력 +2, [ICON_Gold] 금 +4, [ICON_FAITH] 신앙 +1을 추가로 제공합니다. 각 정부 청사 특수지구 내 건물을 지을 때 마다 [ICON_GreatWork_Relic] 성유물을 제공합니다. [NEWLINE]모든 지상 전투 유닛이 숲 및 열대우림 지형에서 [ICON_Movement] 이동력 페널티를 무시합니다.</Text>
+			<Text>성지 특수지구를 건설할 수 없고 위대한 선지자를 영입할 수 없으며 종교를 창시할 수 없습니다. 음반자 또는 극장가 특수지구를 완료할 때마다 도시 내 대중 종교의 사도 유닛 1개를 얻습니다.[NEWLINE][NEWLINE][ICON_GreatWork_Relic] 성유물에서 일반적으로 받는 [ICON_FAITH] 신앙 외에 추가로 [ICON_Food] 식량 +2, [ICON_Production] 생산력 +2, [ICON_Gold] 금 +4, [ICON_FAITH] 신앙 +1을 추가로 제공합니다. 각 정부 청사 특수지구 내 건물을 지을 때 마다 [ICON_GreatWork_Relic] 성유물을 제공합니다. [NEWLINE]모든 지상 전투 유닛이 숲 및 열대우림 지형에서 [ICON_Movement] 이동력 페널티를 무시합니다.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_IGNORE_WOODS_ABILITY_DESCRIPTION" Language="ko_KR">
 			<Text>숲 및 열대우림 지형에서 [ICON_Movement] 이동력 페널티를 무시합니다.</Text>
@@ -712,7 +725,7 @@
 		<!-- == KOREA == -->
 		<!-- = leader ability (Sejong) -->
 		<Replace Tag="LOC_TRAIT_LEADER_SEJONG_DESCRIPTION" Language="ko_KR">
-		  <Text>새로운 시대의 첫 번째 기술을 완료하면 턴당 [ICON_SCIENCE] 과학 생산량만큼의 [ICON_CULTURE] 문화 보너스를 받습니다.</Text>
+		  <Text>새로운 시대의 첫 번째 기술을 완료할 때마다 턴당 [ICON_SCIENCE] 과학 생산량만큼의 [ICON_CULTURE] 문화 보너스를 일회성으로 받습니다.</Text>
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION" Language="ko_KR">
@@ -793,12 +806,13 @@
 		<Replace Tag="LOC_DISTRICT_SUGUBA_DESCRIPTION" Language="ko_KR">
 			<Text>금융 및 교역에 특화된 말리 특유의 특수지구로, 상업 중심지를 대체합니다. 이 도시에서 [ICON_GOLD] 금과 [ICON_FAITH] 신앙으로 유닛, 건물, 특수지구를 구매하는 비용이 10% 저렴합니다.[NEWLINE][NEWLINE]각 인접 성지마다 [ICON_Gold] 금 보너스 +2를 제공합니다. 인접 오아시스 타일마다 [ICON_Gold] 금 보너스 +1을 제공합니다. 강 가장자리가 있는 타일에서 [ICON_Gold] 금 보너스 +1을 제공합니다. 2개의 인접 특수지구 타일마다 [ICON_Gold] 금 보너스 +1을 제공합니다.</Text>
 		</Replace>
-		<Row Tag="LOC_SUGUBA_OASIS_GOLD" Language="ko_KR">
-			<Text>인접한 {1_Num : plural 1?오아시스; other?오아시스;}에서 [ICON_Gold] 금 +{1_num}.</Text>
-		</Row>
 		<Row Tag="LOC_SUGUBA_RIVER_GOLD" Language="ko_KR">
 			<Text>인접한 강에서 [ICON_Gold] 금 +{1_num}.</Text>
 		</Row>
+		<Row Tag="LOC_SUGUBA_OASIS_GOLD" Language="ko_KR">
+			<Text>인접한 {1_Num : plural 1?오아시스; other?오아시스;}에서 [ICON_Gold] 금 +{1_num}.</Text>
+		</Row>
+	
 	
 		<!-- == MAORI == -->
 		<!-- = civilization ability = -->
@@ -841,7 +855,14 @@
 		<!-- == MAYA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAYAB_DESCRIPTION" Language="ko_KR">
-			<Text>담수와 해안 근처에 정착해도 추가 [ICON_HOUSING] 주거공간을 제공하지 않습니다. 대신에 각 농장이 추가로 [ICON_HOUSING] 주거공간 +1, 인접한 천문대마다 [ICON_PRODuction] 생산력 +1, [ICON_GOLD] 금 +1을 제공합니다. 도심부에 인접한 사치 자원마다 [ICON_AMENITIES] 쾌적도 +1을 얻습니다. 궁전이 [ICON_HOUSING] 주거공간 +1을 얻습니다.</Text>
+			<Text>담수와 해안 근처에 정착해도 추가 [ICON_HOUSING] 주거공간을 제공하지 않습니다. 대신에 각 농장이 추가로 [ICON_HOUSING] 주거공간 +1, 인접한 천문대마다 [ICON_PRODuction] 생산력 +1, [ICON_GOLD] 금 +1을 제공합니다. 교육 기술을 연구하면 인접한 천문대마다 대농장이 [ICON_Science] 과학 +2를 제공합니다. 도심부에 인접한 사치 자원마다 [ICON_AMENITIES] 쾌적도 +1을 얻습니다. 궁전이 [ICON_HOUSING] 주거공간 +1을 얻습니다.</Text>
+		</Replace>
+		<!-- = unique district = -->
+		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="ko_KR">
+			<Text>과학 활동을 위한 마야 특유의 특수지구입니다. 캠퍼스 특수지구를 대체하고 건설 비용이 더 낮습니다.[NEWLINE][NEWLINE]인접한 재배지에서 [ICON_Science] 과학 보너스 +1을 얻습니다. 인접한 농장 또는 특수지구 타일 2개마다 [ICON_Science] 과학 보너스 +1을 얻습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION_ADJACENCY" Language="ko_KR"> <!-- kr add -->
+			<Text>인접: 인접한 각 재배지로부터 일반적인 [ICON_Science] 과학 보너스를 얻습니다. 인접한 농장 또는 특수지구 타일로부터 약간의 [ICON_Science] 과학 보너스를 얻습니다.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="ko_KR">
@@ -850,7 +871,7 @@
 		<Replace Tag="LOC_ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL_DESCRIPTION" Language="ko_KR">
 			<Text>[ICON_Capital] 수도 6타일 이내의 유닛에 [ICON_Strength] 전투력 +3을 부여합니다(익스 무탈 아조).</Text>
 		</Replace>
-
+		
 		<!-- == MONGOLIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MONGOLIAN_ORTOO_DESCRIPTION" Language="ko_KR">
@@ -1000,7 +1021,7 @@
 		</Replace>
 		<!-- = leader ability (Julius Caesar) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="ko_KR">
-			<Text>도시를 처음 점령할 때마다, 또는 [ICON_BARBARIAN] 야만인 전초기지에서 [ICON_GOLD] 금을 얻을 때마다 [ICON_GOLD] 금 +300을 추가로 얻습니다. 주조 연구 완료 후에는 추가로 얻는 [ICON_GOLD] 금이 +500이 되며, 강철 연구 완료 후에는 +700이 됩니다(일반 속도 기준). 야만인을 대상으로 전투할 때 [ICON_Strength] 전투력 +5를 받으며 항상 일반 경험치를 얻습니다. [NEWLINE][NEWLINE]법전 사회 제도 보유 시, 직접 건설한 도시에서 무료 근접 유닛을 제공합니다. 주요 문명이 직접 건설하였고, 점령 시점에서 주요 문명이 소유중이던 도시를 한개라도 점령 후 유지하고 있으면 모든 [ICON_Government] 정부에 와일드카드 정책 슬롯이 1개 더 추가됩니다. [NEWLINE][NEWLINE]모든 유닛이 얻는 전투 경험치가 +100% 증가합니다.</Text>
+			<Text>도시를 처음 점령할 때마다, 또는 [ICON_BARBARIAN] 야만인 전초기지에서 [ICON_GOLD] 금을 얻을 때마다 [ICON_GOLD] 금 +75를 추가로 얻습니다. 주조 연구 완료 후에는 추가로 얻는 [ICON_GOLD] 금이 +125가 되며, 강철 연구 완료 후에는 +175가 됩니다(온라인 속도 기준). 야만인을 대상으로 전투할 때 [ICON_Strength] 전투력 +5를 받으며 항상 일반 경험치를 얻습니다. [NEWLINE][NEWLINE]법전 사회 제도 보유 시, 직접 건설한 도시에서 무료 근접 유닛을 제공합니다. 주요 문명이 직접 건설하였고, 점령 시점에서 주요 문명이 소유중이던 도시를 한개라도 점령 후 유지하고 있으면 모든 [ICON_Government] 정부에 와일드카드 정책 슬롯이 1개 더 추가됩니다. [NEWLINE][NEWLINE]모든 유닛이 얻는 전투 경험치가 +100% 증가합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_DOUBLE_XP_BONUS_MODIFIER_NAME" Language="ko_KR">
 			<Text>전투 경험치 +100%. (왔노라, 보았노라, 이겼노라)</Text>
@@ -1134,12 +1155,18 @@
 		<Replace Tag="LOC_UNIT_SUMERIAN_WAR_CART_DESCRIPTION" Language="ko_KR">
 			<Text>수메르 특유의 고대 시대 유닛입니다. 민간 유닛과 지원 유닛을 호위할 때 이 유닛의 [ICON_Movement] 이동 속도를 상속받습니다. 대기병 유닛과 전투할 때 페널티가 없습니다. [ICON_BARBARIAN] 야만인과 전투 시 [ICON_Strength] 전투력 +4가 적용됩니다. 개방 지형에서 턴을 시작하는 경우 [ICON_Movement] 이동력이 4가 됩니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_DESCRIPTION_BBG" Language="ko_KR">
+		<Row Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_DESCRIPTION_BBG" Language="ko_KR">
 			<Text>야만인과 전투 시 [ICON_Strength] 유닛 전투력 +4.[NEWLINE][ICON_Bullet]대기병 유닛과 전투할 때 페널티 없음.</Text>
-		</Replace>
+		</Row>
 		<Row Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_COMBAT_DESCRIPTION_BBG" Language="ko_KR">
 			<Text>야만인과 전투 시 [ICON_Strength] 유닛 전투력 +4.</Text>
 		</Row>
+		
+		<Row Tag="LOC_BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS_DESCRIPTION" Language="ko_KR">
+			<Text>대형을 이룬 민간 및 지원 유닛이 호위 유닛의 [ICON_Movement] 이동 속도를 상속받습니다.</Text>
+		</Row>
+		
+		
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_ZIGGURAT_DESCRIPTION" Language="ko_KR">
 			<Text>수메르 특유의 지구라트를 지을 수 있는 건설자의 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Science] 과학 +2를 제공합니다. 강 옆에 지으면 [ICON_Culture] 문화 +1을 제공합니다. 인접한 특수지구마다 [ICON_Faith] 신앙 +1, 인접한 농장 2개마다 [ICON_Faith] 신앙 +1을 제공합니다. 외교부 사회 제도를 획득하면 [ICON_CULTURE] 문화 +1을 추가 제공하며, 계몽주의 사회 제도를 획득하면 [ICON_CULTURE] 문화 +1과 [ICON_Science] 과학 +1을 추가 제공합니다. 언덕에 지을 수 없습니다.</Text>
@@ -1220,7 +1247,9 @@
 		<Replace Tag="LOC_UNIT_MISSILE_CRUISER_DESCRIPTION" Language="ko_KR">
 			<Text>[ICON_Range] 사거리가 4인 정보 시대의 해상 원거리 유닛입니다. 1타일 이내의 공중 및 핵 공격에 대한 방어를 제공합니다.</Text>
 		</Replace>
-
+		<Replace Tag="LOC_UNIT_MEDIC_DESCRIPTION" Language="ko_KR">
+			<Text>산업 시대 지원 유닛입니다. 인접한 유닛의 치료 효과가 증가합니다. 근접, 원거리, 대기병 유닛은 의무병에 인접해 있을 때 이동을 시작하면 [ICON_Movement] 이동력이 1 증가합니다.</Text>
+		</Replace>
 
 
 		<!-- === UNIT PROMOTIONS === -->
@@ -1282,38 +1311,32 @@
 
 
 		<!-- === GOVERNORS === -->
-		<!-- == Victor == -->
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_REDOUBT_DESCRIPTION" Language="ko_KR">
-			<Text>도시 주둔군의 [ICON_Strength] 전투력이 +5 증가합니다. 3턴 이후에 정착합니다.</Text>
+		<!-- == Amani == -->
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_MESSENGER_DESCRIPTION" Language="ko_KR">
+			<Text>도시 국가에 배치할 수 있으며 [ICON_Envoy] 사절 2명 몫을 합니다. 도시 국가에 배치되었을 때, 당신의 도시에서 해당 도시국가로 보내는 교역로에 [ICON_FOOD] +2 식량과 [ICON_PRODUCTION] +2 생산력을 제공합니다. 5턴 이후에 정착합니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_GARRISON_COMMANDER_DESCRIPTION" Language="ko_KR">
-			<Text>도시 영토 내의 유닛은 [ICON_Strength] 전투력 +3을 획득합니다. 9타일 이내의 플레이어 타 도시는 턴당 플레이어 문명을 향한 충성심 +4를 획득합니다.</Text>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE_DESCRIPTION" Language="ko_KR">
+			<Text>발견된 모든 전략자원을 턴당 +2씩 추가로 제공합니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER_DESCRIPTION" Language="ko_KR">
-			<Text>도시에서 전략 자원이 없어도 전략 자원을 요구하는 유닛을 생산할 수 있습니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_EMBRASURE_DESCRIPTION" Language="ko_KR">
-			<Text>도시가 턴마다 추가 [ICON_Ranged] 원거리 공격을 획득합니다. 이 도시에서 훈련된 군사 유닛이 이미 [ICON_Promotion] 무료 진급을 갖추고 시작하지 않은 경우, [ICON_Promotion] 무료 진급을 갖추고 시작합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE_DESCRIPTION" Language="ko_KR">
-			<Text>항공기와 ICBM을 방어할 때 도시 영토 내의 대공 지원 유닛은 [ICON_ANTIAIR_LARGE] 대공 전투력 +25를 획득합니다.</Text>
-		</Replace>
-
-		<!-- == Reyna == -->
-		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_NAME" Language="ko_KR">
-			<Text>딜메이커</Text>
+		<Row Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_NAME" Language="ko_KR">
+			<Text>협상가</Text>
 		</Row>
-		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_DESCRIPTION" Language="ko_KR">
-			<Text>이 도시에서 [ICON_GOLD] 금으로 건물 및 [ICON_DISTRICT] 특수지구(구매가 가능할 시)를 구매하는 비용이 50% 저렴합니다.</Text>
+		<Row Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_DESCRIPTION" Language="ko_KR">
+			<Text>도시를 포위할 수 없습니다. 도시 주둔군의 [ICON_Strength] 전투력이 +5 증가합니다.</Text>
 		</Row>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_LAND_ACQUISITION_DESCRIPTION" Language="ko_KR">
-			<Text>도시의 새 타일을 더 빠르게 확보합니다. 도시를 지나는 모든 다른 문명 [ICON_TradeRoute] 교역로에서 턴당 [ICON_Gold] 금 +4를 획득합니다. 4턴 이후에 정착합니다.</Text>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY_DESCRIPTION" Language="ko_KR">
+			<Text>9타일 이내의 플레이어 타 도시는 턴당 플레이어 문명을 향한 충성심 +4를 획득합니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT_DESCRIPTION" Language="ko_KR">
-			<Text>이 도시는 각 미개발 지형 또는 놀라운 매력도 지형 타일마다 [ICON_Gold] 금 +2를 획득합니다. 이 도시에서 미개발 지형에 인접한 타일은 매력도 +1을 획득합니다.</Text>
+		
+		<!-- == Ibrahim == -->
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_PASHA_DESCRIPTION" Language="ko_KR">
+			<Text>내가 소유한 도시에 배치된 경우 도시의 모든 군사 유닛 생성에 대한 [ICON_Production] 생산력 +20%를 제공합니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR_DESCRIPTION" Language="ko_KR">
-			<Text>도시의 [ICON_Citizen] 시민 한 명당 턴당 [ICON_Gold] 금 +2를 획득합니다. 도시에 배치된 동안 [ICON_TradeRoute] 교역로 1개를 추가로 얻습니다.</Text>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_SERASKER_DESCRIPTION" Language="ko_KR">
+			<Text>도심부 10타일 이내의 내 유닛에 방어 가능한 특수지구 공격 시 [ICON_Strength] 전투력 +10을 부여합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_CAPOU_AGHA_DESCRIPTION" Language="ko_KR">
+			<Text>도심부 10타일 이내의 내 유닛에 [ICON_Movement] 이동력 +1을 부여합니다.</Text>
 		</Replace>
 
 		<!-- == Liang == -->
@@ -1345,6 +1368,20 @@
 			<Text>[ICON_Governor] 총독 특유 시설로 공원 및 휴가 진급을 보유한 측량사 총독이 있는 도시 안에 건설할 수 있습니다. 도시당 하나만 건설 가능합니다. [ICON_SCIENCE] 과학 +3, [ICON_Culture] 문화 +3, [ICON_HOUSING] 주거 +2, [ICON_Amenities] 쾌적도 +1과 매력도 +2를 제공합니다.</Text>
 		</Replace>
 
+		<!-- == Magnus == -->
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_GROUNDBREAKER_DESCRIPTION" Language="ko_KR">
+			<Text>도시의 작물 수확량과 지형 특성 제거로 얻는 생산량이 50% 증가합니다. 5턴 이후에 정착합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS_DESCRIPTION" Language="ko_KR">
+			<Text>도시에 [ICON_Food] 성장 +20%를 제공합니다. 이 도시에서 생산된 개척자는 [ICON_Movement] 이동력이 +1 증가합니다. 이 도시가 목적지인 국내 [ICON_TradeRoute] 교역로에서 출발 도시에 [ICON_Food] 식량 +2를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION_DESCRIPTION" Language="ko_KR">
+			<Text>이 도시에서 생산된 개척자는 생산시 [ICON_Citizen] 인구를 소모하지 않습니다. 이 도시가 목적지인 국내 [ICON_TradeRoute] 교역로에서 출발 도시에 [ICON_Production] 생산력 +2를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST_DESCRIPTION" Language="ko_KR">
+			<Text>석탄 발전소, 석유 발전소, 원자력 발전소에서 얻는 각 자원 당 [ICON_POWER] 전력이 +4 증가하며, [ICON_Production] 생산력이 +4 증가합니다.</Text>
+		</Replace>
+
 		<!-- == Moksha == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_BISHOP_DESCRIPTION" Language="ko_KR">
 			<Text>도시가 생성하는 [ICON_Culture] 문화가 15% 증가하고 인근 도시에 미치는 종교 영향력이 100% 증가합니다. 이 도시의 각 전문 특수지구마다 [ICON_Faith] 신앙 +2를 얻습니다. 4턴 이후에 정착합니다.</Text>
@@ -1373,7 +1410,7 @@
 			<Text>유레카</Text>
 		</Row>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_EUREKA_DESCRIPTION" Language="ko_KR">
-			<Text>도시의 캠퍼스에서 얻는 인접 보너스가 +200% 증가합니다.</Text>
+			<Text>도시의 캠퍼스 특수지구 내부 건물의 [ICON_SCIENCE] 과학 생산량이 증가합니다: 도서관에서 [ICON_SCIENCE] 과학 +3, 대학교에서 [ICON_SCIENCE] 과학 +5, 연구소에서 [ICON_SCIENCE] 과학 +7.</Text>
 		</Row>
 		<Replace Tag="LOC_GOVERNOR_THE_EDUCATOR_DESCRIPTION" Language="ko_KR">
 			<Text>{LOC_GOVERNOR_THE_EDUCATOR_NAME} 총독은 도시의 [ICON_SCIENCE] 과학 육성에 중점을 둡니다. 또한, 자신의 배정된 도시로 [ICON_GreatPerson] 위인을 영입하는 데 능숙합니다.</Text>
@@ -1381,63 +1418,102 @@
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_GRANTS_DESCRIPTION" Language="ko_KR">
 			<Text>도시의 특수지구, 건물, 종교관, 불가사의에 의해 생성되는 [ICON_GreatPerson] 위인 점수 +100%.</Text>
 		</Replace>
-		
-		<!-- == Amani == -->
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_MESSENGER_DESCRIPTION" Language="ko_KR">
-			<Text>도시 국가에 배치할 수 있으며 [ICON_Envoy] 사절 2명 몫을 합니다. 도시 국가에 배치되었을 때, 당신의 도시에서 해당 도시국가로 보내는 교역로에 [ICON_FOOD] +2 식량과 [ICON_PRODUCTION] +2 생산력을 제공합니다. 5턴 이후에 정착합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE_DESCRIPTION" Language="ko_KR">
-			<Text>발견된 모든 전략자원을 턴당 +1씩 추가로 제공합니다.</Text>
-		</Replace>
-		<Row Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_NAME" Language="ko_KR">
-			<Text>협상가</Text>
+	
+		<!-- == Reyna == -->
+		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_NAME" Language="ko_KR">
+			<Text>딜메이커</Text>
 		</Row>
-		<Row Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_DESCRIPTION" Language="ko_KR">
-			<Text>도시를 포위할 수 없습니다. 도시 주둔군의 [ICON_Strength] 전투력이 +5 증가합니다.</Text>
+		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_DESCRIPTION" Language="ko_KR">
+			<Text>이 도시에서 [ICON_GOLD] 금으로 건물 및 [ICON_DISTRICT] 특수지구(구매가 가능할 시)를 구매하는 비용이 50% 저렴합니다.</Text>
 		</Row>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY_DESCRIPTION" Language="ko_KR">
-			<Text>9타일 이내의 플레이어 타 도시는 턴당 플레이어 문명을 향한 충성심 +4를 획득합니다.</Text>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_LAND_ACQUISITION_DESCRIPTION" Language="ko_KR">
+			<Text>도시의 새 타일을 더 빠르게 확보합니다. 도시를 지나는 모든 다른 문명 [ICON_TradeRoute] 교역로에서 턴당 [ICON_Gold] 금 +4를 획득합니다. 4턴 이후에 정착합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT_DESCRIPTION" Language="ko_KR">
+			<Text>이 도시는 각 미개발 지형 또는 놀라운 매력도 지형 타일마다 [ICON_Gold] 금 +2를 획득합니다. 이 도시에서 미개발 지형에 인접한 타일은 매력도 +1을 획득합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR_DESCRIPTION" Language="ko_KR">
+			<Text>도시의 [ICON_Citizen] 시민 한 명당 턴당 [ICON_Gold] 금 +2를 획득합니다. 도시에 배치된 동안 [ICON_TradeRoute] 교역로 1개를 추가로 얻습니다.</Text>
 		</Replace>
 
-		<!-- == Magnus == -->
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_GROUNDBREAKER_DESCRIPTION" Language="ko_KR">
-			<Text>도시의 작물 수확량과 지형 특성 제거로 얻는 생산량이 50% 증가합니다. 5턴 이후에 정착합니다.</Text>
+		<!-- == Victor == -->
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_REDOUBT_DESCRIPTION" Language="ko_KR">
+			<Text>도시 주둔군의 [ICON_Strength] 전투력이 +5 증가합니다. 3턴 이후에 정착합니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS_DESCRIPTION" Language="ko_KR">
-			<Text>도시에 [ICON_Food] 성장 +20%를 제공합니다. 이 도시에서 생산된 개척자는 [ICON_Movement] 이동력이 +1 증가합니다. 이 도시가 목적지인 국내 [ICON_TradeRoute] 교역로에서 출발 도시에 [ICON_Food] 식량 +2를 제공합니다.</Text>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_GARRISON_COMMANDER_DESCRIPTION" Language="ko_KR">
+			<Text>도시 영토 내의 유닛은 [ICON_Strength] 전투력 +3을 획득합니다. 9타일 이내의 플레이어 타 도시는 턴당 플레이어 문명을 향한 충성심 +4를 획득합니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION_DESCRIPTION" Language="ko_KR">
-			<Text>이 도시에서 생산된 개척자는 생산시 [ICON_Citizen] 인구를 소모하지 않습니다. 이 도시가 목적지인 국내 [ICON_TradeRoute] 교역로에서 출발 도시에 [ICON_Production] 생산력 +2를 제공합니다.</Text>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER_DESCRIPTION" Language="ko_KR">
+			<Text>도시에서 전략 자원이 없어도 전략 자원을 요구하는 유닛을 생산할 수 있습니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST_DESCRIPTION" Language="ko_KR">
-			<Text>석탄 발전소, 석유 발전소, 원자력 발전소에서 얻는 각 자원 당 [ICON_POWER] 전력이 +4 증가하며, [ICON_Production] 생산력이 +4 증가합니다.</Text>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_EMBRASURE_DESCRIPTION" Language="ko_KR">
+			<Text>도시가 턴마다 추가 [ICON_Ranged] 원거리 공격을 획득합니다. 이 도시에서 훈련된 군사 유닛이 이미 [ICON_Promotion] 무료 진급을 갖추고 시작하지 않은 경우, [ICON_Promotion] 무료 진급을 갖추고 시작합니다.</Text>
 		</Replace>
-
-		<!-- == Ibrahim == -->
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_PASHA_DESCRIPTION" Language="ko_KR">
-			<Text>내가 소유한 도시에 배치된 경우 도시의 모든 군사 유닛 생성에 대한 [ICON_Production] 생산력 +20%를 제공합니다.</Text>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE_DESCRIPTION" Language="ko_KR">
+			<Text>항공기와 ICBM을 방어할 때 도시 영토 내의 대공 지원 유닛은 [ICON_ANTIAIR_LARGE] 대공 전투력 +25를 획득합니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_SERASKER_DESCRIPTION" Language="ko_KR">
-			<Text>도심부 10타일 이내의 내 유닛에 방어 가능한 특수지구 공격 시 [ICON_Strength] 전투력 +10을 부여합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_CAPOU_AGHA_DESCRIPTION" Language="ko_KR">
-			<Text>도심부 10타일 이내의 내 유닛에 [ICON_Movement] 이동력 +1을 부여합니다.</Text>
-		</Replace>
-
 
 
 		<!-- === PANTHEONS === -->
-		<Replace Tag="LOC_BELIEF_RELIGIOUS_IDOLS_DESCRIPTION" Language="ko_KR">
-			<Text>사치 자원과 보너스 자원 위에 건설된 광산에서 [ICON_Faith] 신앙 +3, [ICON_GOLD] 금 +3을 획득합니다.</Text>
+		<Replace Tag="LOC_BELIEF_CITY_PATRON_GODDESS_DESCRIPTION" Language="ko_KR">
+			<Text>전문 [ICON_DISTRICT] 특수지구가 없는 도시의 [ICON_DISTRICT] 특수지구 건설에 대한 [ICON_Production] 생산력 +40%를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_DANCE_OF_THE_AURORA_DESCRIPTION" Language="ko_KR">
+			<Text>성지 특수지구는 인접한 툰드라 평지 타일에서 [ICON_Faith] 신앙 +1을 획득합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_TUNDRA_FAITH" Language="ko_KR">
+			<Text>인접한 툰드라 평지 {1_Num : plural 1?타일; other?타일;}에서 [ICON_Faith] 신앙 +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_DIVINE_SPARK_EXPANSION2_DESCRIPTION" Language="ko_KR">
 			<Text>성지([ICON_GreatProphet] 선지자), 캠퍼스([ICON_GreatScientist] 과학자), 원형 극장이 있는 극장가([ICON_GreatWriter] 작가) 및 산업 단지([ICON_GreatEngineer] 기술자)에서 해당 [ICON_GreatPerson] 위인 점수 +1을 획득합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_EARTH_GODDESS_EXPANSION2_DESCRIPTION" Language="ko_KR">
+			<Text>멋진 혹은 놀라운 매력도의 타일에서 [ICON_Faith] 신앙 +1을 획득합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_FERTILITY_RITES_DESCRIPTION" Language="ko_KR">
 			<Text>[ICON_RESOURCE_CATTLE] 소, [ICON_RESOURCE_RICE] 쌀 및 [ICON_RESOURCE_WHEAT] 밀 자원에서 [ICON_FOOD] 식량 +1을 제공합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_FERTILITY_RITES_EXPANSION2_DESCRIPTION" Language="ko_KR">
 			<Text>[ICON_RESOURCE_CATTLE] 소, [ICON_RESOURCE_RICE] 쌀, [ICON_RESOURCE_WHEAT] 밀 및 [ICON_RESOURCE_MAIZE] 옥수수 자원에서 [ICON_FOOD] 식량 +1을 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_GOD_OF_THE_FORGE_DESCRIPTION" Language="ko_KR">
+			<Text>고대 및 고전 시대 군사 유닛 생성에 대한 [ICON_Production] 생산력 +30%를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_GOD_OF_HEALING_NAME" Language="ko_KR">	<!-- replacement BBG - God of Healing  -->
+			<Text>파도의 여신</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_GOD_OF_HEALING_DESCRIPTION" Language="ko_KR">
+			<Text>어선에서 [ICON_Culture] 문화 +1을 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_GOD_OF_WAR_NAME" Language="ko_KR">
+			<Text>전쟁과 약탈의 신</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_GOD_OF_WAR_DESCRIPTION" Language="ko_KR">
+			<Text>주둔지([ICON_GreatGeneral] 장군), 항만([ICON_GREATADMIRAL] 제독) 및 상업 중심지([ICON_GreatMerchant] 상인) 특수지구로부터 해당 [ICON_GreatPerson] 위인 점수 +1을 획득합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_GODDESS_OF_FIRE_DESCRIPTION" Language="ko_KR">
+			<Text>지열 열하 및 화산토에서 [ICON_Faith] 신앙 +3을 획득합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_GODDESS_OF_THE_HUNT_DESCRIPTION" Language="ko_KR">
+			<Text>야영지에서 [ICON_FOOD] 식량 +1, [ICON_Gold] 금 +2를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_GODDESS_OF_THE_HUNT_EXPANSION2_DESCRIPTION" Language="ko_KR">
+			<Text>야영지에서 [ICON_FOOD] 식량 +1, [ICON_Gold] 금 +2를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_INITIATION_RITES_DESCRIPTION" Language="ko_KR">
+			<Text>군사 유닛이 생산되면 해당 유닛 비용의 30%에 준하는 [ICON_FAITH] 신앙이 제공됩니다. 이 교리를 채택하면 수도에 전사 유닛 1기를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_INITIATION_RITES_EXPANSION2_DESCRIPTION" Language="ko_KR">
+			<Text>군사 유닛이 생산되면 해당 유닛 비용의 30%에 준하는 [ICON_FAITH] 신앙이 제공됩니다. 이 교리를 채택하면 수도에 전사 유닛 1기를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_LADY_OF_THE_REEDS_AND_MARSHES_EXPANSION2_DESCRIPTION" Language="ko_KR">
+			<Text>습지, 오아시스 및 범람원에서 [ICON_Production] 생산력 +1.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_MONUMENT_TO_THE_GODS_DESCRIPTION" Language="ko_KR">
+			<Text>불가사의 건설에 대한 [ICON_Production] 생산력 +20%를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_RELIGIOUS_IDOLS_DESCRIPTION" Language="ko_KR">
+			<Text>사치 자원과 보너스 자원 위에 건설된 광산에서 [ICON_Faith] 신앙 +3, [ICON_GOLD] 금 +3을 획득합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_RELIGIOUS_SETTLEMENTS_DESCRIPTION" Language="ko_KR">
 			<Text>개척자 생산 시 [ICON_PRODUCTION] 생산력 +20%를 부여합니다. 영토 확장 속도가 50% 증가하며, 도시를 세울 때 추가 영토를 2타일 얻습니다.</Text>
@@ -1451,65 +1527,16 @@
 		<Replace Tag="LOC_BELIEF_RIVER_GODDESS_DESCRIPTION" Language="ko_KR">
 			<Text>강에 인접한 성지 특수지구에서 +1의 [ICON_FAITH] 신앙 인접 보너스를 제공합니다. 강에 인접한 성지 특수지구가 있는 도시에 [ICON_Amenities] 쾌적도 +1을 제공합니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_BELIEF_STONE_CIRCLES_DESCRIPTION" Language="ko_KR">
-			<Text>채석장에서 [ICON_Production] 생산력 +1, [ICON_Faith] 신앙 +1을 획득합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_CITY_PATRON_GODDESS_DESCRIPTION" Language="ko_KR">
-			<Text>전문 [ICON_DISTRICT] 특수지구가 없는 도시의 [ICON_DISTRICT] 특수지구 건설에 대한 [ICON_Production] 생산력 +40%를 제공합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_DANCE_OF_THE_AURORA_DESCRIPTION" Language="ko_KR">
-			<Text>성지 특수지구는 인접한 툰드라 평지 타일에서 [ICON_Faith] 신앙 +1을 획득합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_DISTRICT_TUNDRA_FAITH" Language="ko_KR">
-			<Text>인접한 툰드라 평지 {1_Num : plural 1?타일; other?타일;}에서 [ICON_Faith] 신앙 +{1_num}.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_GODDESS_OF_FIRE_DESCRIPTION" Language="ko_KR">
-			<Text>지열 열하 및 화산토에서 [ICON_Faith] 신앙 +3을 획득합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_INITIATION_RITES_DESCRIPTION" Language="ko_KR">
-			<Text>군사 유닛이 생산되면 해당 유닛 비용의 30%에 준하는 [ICON_FAITH] 신앙이 제공됩니다. 이 교리를 채택하면 수도에 전사 유닛 1기를 제공합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_INITIATION_RITES_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>군사 유닛이 생산되면 해당 유닛 비용의 30%에 준하는 [ICON_FAITH] 신앙이 제공됩니다. 이 교리를 채택하면 수도에 전사 유닛 1기를 제공합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_LADY_OF_THE_REEDS_AND_MARSHES_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>습지, 오아시스 및 범람원에서 [ICON_Production] 생산력 +1.</Text>
-		</Replace>
 		<Replace Tag="LOC_BELIEF_SACRED_PATH_DESCRIPTION" Language="ko_KR">
 			<Text>성지 특수지구는 인접한 숲 및 열대우림 타일에서 [ICON_Faith] 신앙 +1을 획득합니다.</Text>
 		</Replace>
 		<Row Tag="LOC_DISTRICT_SACREDPATH_WOODS_FAITH" Language="ko_KR">
 			<Text>인접한 숲 {1_Num : plural 1?타일; other?타일;}에서 [ICON_Faith] 신앙 +{1_num}.</Text>
 		</Row>
-		<Replace Tag="LOC_BELIEF_GOD_OF_WAR_NAME" Language="ko_KR">
-			<Text>전쟁과 약탈의 신</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_GOD_OF_WAR_DESCRIPTION" Language="ko_KR">
-			<Text>주둔지([ICON_GreatGeneral] 장군), 항만([ICON_GREATADMIRAL] 제독) 및 상업 중심지([ICON_GreatMerchant] 상인) 특수지구로부터 해당 [ICON_GreatPerson] 위인 점수 +1을 획득합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_GOD_OF_THE_FORGE_DESCRIPTION" Language="ko_KR">
-			<Text>고대 및 고전 시대 군사 유닛 생성에 대한 [ICON_Production] 생산력 +30%를 제공합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_MONUMENT_TO_THE_GODS_DESCRIPTION" Language="ko_KR">
-			<Text>불가사의 건설에 대한 [ICON_Production] 생산력 +20%를 제공합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_EARTH_GODDESS_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>멋진 혹은 놀라운 매력도의 타일에서 [ICON_Faith] 신앙 +1을 획득합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_GODDESS_OF_THE_HUNT_DESCRIPTION" Language="ko_KR">
-			<Text>야영지에서 [ICON_FOOD] 식량 +1, [ICON_Gold] 금 +2를 제공합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_GODDESS_OF_THE_HUNT_EXPANSION2_DESCRIPTION" Language="ko_KR">
-			<Text>야영지에서 [ICON_FOOD] 식량 +1, [ICON_Gold] 금 +2를 제공합니다.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_GOD_OF_HEALING_NAME" Language="ko_KR">	<!-- replacement BBG - God of Healing  -->
-			<Text>파도의 여신</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_GOD_OF_HEALING_DESCRIPTION" Language="ko_KR">
-			<Text>어선에서 [ICON_Culture] 문화 +1을 제공합니다.</Text>
+		<Replace Tag="LOC_BELIEF_STONE_CIRCLES_DESCRIPTION" Language="ko_KR">
+			<Text>채석장에서 [ICON_Production] 생산력 +1, [ICON_Faith] 신앙 +1을 획득합니다.</Text>
 		</Replace>
 
-		
 		
 		<!-- === BELIEFS === -->
 		<Replace Tag="LOC_BELIEF_FEED_THE_WORLD_EXPANSION2_DESCRIPTION" Language="ko_KR">
@@ -1654,7 +1681,7 @@
 			<Text>턴마다 [ICON_InfluencePerTurn] 우호도 점수 +2를 얻습니다. 이 도시 및 주둔지가 있는 도시를 목표로 하는 적 스파이의 레벨이 1 감소합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_GOV_TALL_DESCRIPTION" Language="ko_KR">
-			<Text>[ICON_Governor] 총독이 있는 도시에 [ICON_Amenities] 쾌적도 +1, [ICON_Food] 식량 +2 및 [ICON_Housing] 주거공간 +3을 제공합니다.[NEWLINE][ICON_Governor] 총독이 없는 도시는 충성심 -2가 적용됩니다.[NEWLINE]보상으로 [Icon_Governor] 총독 타이틀 +1.</Text>
+			<Text>[ICON_Governor] 총독이 있는 도시에 [ICON_Amenities] 쾌적도 +1, [ICON_Food] 식량 +3 및 [ICON_Housing] 주거공간 +3을 제공합니다.[NEWLINE][ICON_Governor] 총독이 없는 도시는 충성심 -2가 적용됩니다.[NEWLINE]보상으로 [Icon_Governor] 총독 타이틀 +1.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_GOV_CONQUEST_DESCRIPTION" Language="ko_KR">
 			<Text>모든 해군 유닛 및 지상 군사 유닛 생산 시 [ICON_Production] 생산력 25%를 제공합니다. 유닛별로 매 턴당 소모되는 관리 비용의 [ICON_Gold] 금 -1. 전략 자원 비축력이 +15 증가합니다(온라인 속도 기준). 발견한 전략 자원을 종류별로 매턴 2개씩 제공합니다.[NEWLINE]보상으로 [Icon_Governor] 총독 타이틀 +1.</Text>
@@ -1887,7 +1914,7 @@
 			<Text>콜로세움은 [ICON_Culture] 문화 +1, 턴당 충성심 및 [ICON_Amenities] 쾌적도를 각 2씩, 6타일 내의 당신의 도심부에 제공합니다. [NEWLINE][NEWLINE]원형 경기장이 있는 유흥단지 옆 평지에 지어야 합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_ETEMENANKI_DESCRIPTION" Language="ko_KR">
-			<Text>제국의 모든 습지 타일 및 이 도시의 모든 범람원에 [ICON_SCIENCE] 과학 +1 및 [ICON_PRODUCTION] 생산력 +1을 부여합니다.[NEWLINE][NEWLINE]범람원 또는 습지 위에 건설해야 합니다.</Text>
+			<Text>제국의 모든 습지 타일 및 이 도시의 농장이 지어진 범람원에 [ICON_SCIENCE] 과학 +1 및 [ICON_PRODUCTION] 생산력 +1을 부여합니다.[NEWLINE][NEWLINE]범람원 또는 습지 위에 건설해야 합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_HUEY_TEOCALLI_DESCRIPTION" Language="ko_KR">
 			<Text>우에이 테오칼리의 1타일 범위 내에 있는 각 호수 타일마다 유흥에 의한 [ICON_Amenities] 쾌적도 +1을 제공합니다. 플레이어 제국에 있는 각 호수 타일은 [ICON_Food] 식량 +1, [ICON_Production] 생산력 +1, [ICON_CULTURE] 문화 +2를 제공합니다. [NEWLINE][NEWLINE]육지 옆 호수 타일에 지어야 합니다.</Text>
@@ -2016,7 +2043,12 @@
 		<Replace Tag="LOC_IMPROVEMENT_MONASTERY_EXPANSION2_DESCRIPTION" Language="ko_KR">
 			<Text>건설자의 수도원 건설 능력을 잠금 해제합니다.[NEWLINE][NEWLINE][ICON_Faith] 신앙 +3, [ICON_HOUSING] 주거공간 +1. 이 타일에 위치하고 이번 턴에 공격하지 않은 우호적인 종교 유닛 체력이 +15 회복합니다. 인접한 특수지구 2개마다 [ICON_FAITH] 신앙 +1을 제공합니다. 식민주의를 발견하면 추가 [ICON_HOUSING] 주거공간을 제공합니다. 다른 수도원 옆에 지을 수 없습니다.</Text>
 		</Replace>
-
+		<Replace Tag="LOC_CIVILIZATION_ZANZIBAR_BONUS" Language="ko_KR">
+			<Text>다른 방식으로 획득할 수 없는 사치 자원인 [ICON_RESOURCE_CINNAMON] 계피와 [ICON_RESOURCE_CLOVES] 정향을 받습니다. 각 사치 자원은 [ICON_Amenities] 쾌적도 4를 제공합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_LEADER_TRAIT_ZANZIBAR_DESCRIPTION" Language="ko_KR">
+			<Text>다른 방식으로 획득할 수 없는 사치 자원인 [ICON_RESOURCE_CINNAMON] 계피와 [ICON_RESOURCE_CLOVES] 정향을 받습니다. 각 사치 자원은 [ICON_Amenities] 쾌적도 4를 제공합니다.</Text>
+		</Replace>
 
 
 		<!-- === AGES === -->
@@ -2050,11 +2082,11 @@
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_3" Language="ko_KR">
 			<Text>펜, 붓과 목소리: [ICON_CivicBoosted] 영감을 발동할 때마다 시대 점수 +1을 얻습니다. 걸작 슬롯이 있는 건물을 건설하면 시대 점수 +1을 얻습니다. 황금기 시작 시점에서 선택하면 [ICON_CivicBoosted] 영감이 사회 제도 비용의 10%를 추가로 제공합니다. 각 도시는 전문 특수지구마다 [ICON_Culture] 문화 +2와 [ICON_Gold] 금 +1을 얻습니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_8" Language="ko_KR">
-			<Text>전도사의 대탈출: 처음으로 도시를 자신이 창시한 종교로 개종할 때마다 시대 점수 +2를 얻습니다. 황금기 시작 시점에서 선택하면 모든 선교사와 사도, 이단심문관에게 [ICON_Movement] 이동력 +2가 제공되고 새로 훈련하면 전파 횟수 +2를 얻습니다. 종교 유닛의 구매 가격이 20% 감소합니다. 턴마다 [ICON_GreatProphet] 위대한 선지자 점수 +4를 획득합니다.</Text>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_8" Language="ko_KR"> <!-- kr add -->
+			<Text>전쟁도사의 대탈출: 처음으로 도시를 자신이 창시한 종교로 개종할 때마다 시대 점수 +2를 얻습니다. 황금기 시작 시점에서 선택하면 [ICON_RESOURCE_HORSES] 말과 [ICON_RESOURCE_IRON] 철 자원을 매턴 2개씩 제공합니다. 군사 유닛 생산 시 [ICON_PRODUCTION] 생산력 +15%를 제공합니다. 모든 유닛의 [ICON_GOLD] 금 유지 비용이 1 감소합니다. 주둔지 및 주둔지 내부 건물에서 [ICON_PRODUCTION] 생산력 +1, [ICON_CULTURE] 문화 +1을 획득합니다.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="ko_KR">
-			<Text>전도사의 대탈출 황금기:[NEWLINE]모든 선교사와 사도, 이단심문관에게 [ICON_Movement] 이동력 +2를 제공하고, 새로 훈련된 경우 전파 횟수 +2를 제공합니다. 종교 유닛의 구매 가격이 20% 감소합니다. 턴마다 [ICON_GreatProphet] 위대한 선지자 점수 +4를 획득합니다.</Text>
+			<Text>전쟁도사의 대탈출 황금기:[NEWLINE][ICON_RESOURCE_HORSES] 말과 [ICON_RESOURCE_IRON] 철 자원을 매턴 2개씩 제공합니다. 군사 유닛 생산 시 [ICON_PRODUCTION] 생산력 +15%를 제공합니다. 모든 유닛의 [ICON_GOLD] 금 유지 비용이 1 감소합니다. 주둔지 및 주둔지 내부 건물에서 [ICON_PRODUCTION] 생산력 +1, [ICON_CULTURE] 문화 +1을 획득합니다.</Text>
 		</Replace>
 
 
@@ -2328,8 +2360,6 @@
 		</Replace>
 
 
-
-
 		<!-- === GREAT PEOPLE === -->
 		<Replace Tag="LOC_GREATPERSON_BOUDICA_ACTIVE" Language="ko_KR">
 			<Text>당신의 [ICON_CAPITAL] 수도에 공병 유닛을 즉시 생산합니다.</Text>
@@ -2410,10 +2440,10 @@
 			<Text>동맹국의 도시가 출발지인 [ICON_TradeRoute] 교역로에서 [ICON_Culture] 문화 +2</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_ECONOMIC_EFFECT_1" Language="ko_KR">
-			<Text>동맹국의 도시가 목적지인 [ICON_TradeRoute] 교역로에서 [ICON_GOLD] 금 +6, [ICON_Production] 생산력 +1</Text>
+			<Text>동맹국의 도시가 목적지인 [ICON_TradeRoute] 교역로에서 [ICON_GOLD] 금 +6</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_ECONOMIC_EFFECT_2" Language="ko_KR">
-			<Text>동맹국의 도시가 출발지인 [ICON_TradeRoute] 교역로에서 [ICON_GOLD] 금 +6, [ICON_Production] 생산력 +1</Text>
+			<Text>동맹국의 도시가 출발지인 [ICON_TradeRoute] 교역로에서 [ICON_GOLD] 금 +6</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV2_ECONOMIC_EFFECT_1" Language="ko_KR">
 			<Text>동맹국을 종주국으로 섬기는 도시 국가당 사절을 위한 턴당 [ICON_InfluencePerTurn] 우호도 점수 +1</Text>
@@ -2465,7 +2495,23 @@
 		<Replace Tag="LOC_ABILITY_HEAVY_CHARIOT_DESCRIPTION" Language="ko_KR">
 			<Text>개방 지형에서 턴을 시작하는 경우 [ICON_Movement] 이동력 +1.</Text>
 		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_DESC" Language="ko_KR">
+			<Text>해군 지원 보너스 +{1_Value}</Text>
+		</Replace>
 
+		<Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="ko_KR">
+			<Text>전투 약물</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="ko_KR">
+			<Text>인접한 근접, 원거리, 대기병 유닛에 [ICON_Movement] 이동력 +1.</Text>
+		</Replace>
+
+
+		<!-- === CIVILOPEDIA === -->
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CITIES_16_CHAPTER_CONTENT_PARA_1" Language="ko_KR">
+			<Text>만족도는 단일 도시에 거주하는 시민의 만족을 나타내며 도시의 [ICON_Citizen] 인구가 기대하는 만큼의 [ICON_Amenities] 쾌적도를 보유했는지 확인하는 방식으로 측정됩니다. 2명의 [ICON_Citizen] 인구당 [ICON_Amenities] 쾌적도 1이 요구되며 이는 3명의 [ICON_Citizen] 인구에서부터 시작됩니다. 만족하는 도시에는 보정치가 적용되지 않지만, 행복한 도시에는 8%의 산출량 증가 효과가 부여됩니다. 더 나아가 황홀한 도시에는 16%의 산출량 증가 효과가 부여됩니다. 마찬가지로 [ICON_Amenities] 쾌적도가 너무 낮으면 [ICON_Citizen] 시민들이 불만족을 느끼고 성장률 및 생산률에 마이너스 보정치가 적용됩니다. 사회불안 수준에서는 성장이 중단되고 도시에 반란군 지지자가 출현할 수 있습니다.</Text>
+		</Replace>
+		
 
 
 		<!-- === SPLASH TEXT === -->
@@ -2635,9 +2681,6 @@
 		<Replace Tag="BBG_FRONT_VICTORY_CONQUEST_SETTING_3_NAME" Language="ko_KR">
 			<Text>지배승리 없음</Text>
 		</Replace>
-
-
-
 		<Replace Tag="BBG_FRONT_VICTORY_CULTURAL_SETTING_0_DESC" Language="ko_KR">
 			<Text>모드로 변경하지 않은 기본 설정</Text>
 		</Replace>
@@ -2716,9 +2759,6 @@
 		<Replace Tag="BBG_FRONT_VICTORY_CONQUEST_SETTING_3_DESC" Language="ko_KR">
 			<Text>지배승리 없음</Text>
 		</Replace>
-
-
-
 		<Replace Tag="LOC_VICTORY_TRADITIONAL_DOMINATION_TT" Language="ko_KR">
 			<Text>군대와 제국 성장을 활용하여 육지를 지배하십시오. 당신 제국을 확장하고 적들을 점령하여 가장 넓은 영토를 차지하여야 합니다.</Text>
 		</Replace>
