@@ -252,4 +252,27 @@ UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_A
 UPDATE Districts SET Cost=20 WHERE DistrictType='DISTRICT_BATH';
 UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_MBANZA', 'DISTRICT_ACROPOLIS', 'DISTRICT_STREET_CARNIVAL', 'DISTRICT_ROYAL_NAVY_DOCKYARD', 'DISTRICT_LAVRA', 'DISTRICT_HANSA');
 
+--19/12/23 entertainment complex to 2 amenities (from 1)
+UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_ENTERTAINMENT_COMPLEX';
 
+--=======================================================================
+--******                       TECHS                               ******
+--=======================================================================
+
+--18/12/23 advanced ballistics advanced one era
+UPDATE Technologies SET EraType="ERA_MODERN" WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
+UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
+
+--=======================================================================
+--******                       CITY STATE                          ******
+--=======================================================================
+
+UPDATE Resources SET Happiness=4 WHERE ResourceType IN ('RESOURCE_CINNAMON', 'RESOURCE_CLOVES');
+
+
+--=======================================================================
+--******                       AMENITIES                           ******
+--=======================================================================
+
+UPDATE Happinesses SET GrowthModifier=8, NonFoodYieldModifier=8 WHERE HappinessType='HAPPINESS_HAPPY';
+UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_ECSTATIC';
