@@ -520,7 +520,7 @@
 		</Replace>
 		<!-- = leader ability (Ludwig II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LUDWIG_DESCRIPTION" Language="en_US"> <!-- add icon -->
-			<Text>Complete and incomplete Wonders receive +1 [ICON_CULTURE] Culture for every adjacent District as adjacency bonus, increasing to +2 after Policical Philosophy. All [ICON_CULTURE] Culture adjacencies provide [ICON_TOURISM] Tourism after discovering Castles.</Text>
+			<Text>Wonders (complete and incomplete) receive +1 [ICON_CULTURE] Culture for every adjacent District as adjacency bonus, increasing to +2 after Policical Philosophy. All [ICON_CULTURE] Culture adjacencies provide [ICON_TOURISM] Tourism after discovering Castles.</Text
 		</Replace>
 
 		<!-- == GREECE == -->
@@ -1911,7 +1911,7 @@
 			<Text>+1 [ICON_Culture] Culture, +2 Loyalty, +2 [ICON_Amenities] Amenities to each your City Center within 6 tiles.[NEWLINE][NEWLINE]Must be built on flat land adjacent to an Entertainment Complex with an Arena.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_ETEMENANKI_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_SCIENCE] Science and +1 [ICON_PRODUCTION] Production to all Marsh tiles in your empire and on all Floodplains tiles for this city.[NEWLINE][NEWLINE]Must be built on Floodplains or Marsh.</Text>
+			<Text>+1 [ICON_SCIENCE] Science and +1 [ICON_PRODUCTION] Production to all Marsh tiles in your empire. +1 [ICON_PRODUCTION] Production on all Floodplains in this city.  +1 [ICON_SCIENCE] Science on Floodplains improved with a Farm for this city.[NEWLINE][NEWLINE]Must be built on Floodplains or Marsh.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_HUEY_TEOCALLI_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_Amenities] Amenity from entertainment for each Lake tile within one tile of Huey Teocalli. +1 [ICON_Food] Food, +1 [ICON_Production] Production, +2 [ICON_CULTURE] Culture for each Lake tile in your empire.[NEWLINE][NEWLINE]Must be built on a Lake tile adjacent to land.</Text>
@@ -1964,9 +1964,6 @@
 		<Replace Tag="LOC_BUILDING_HERMITAGE_DESCRIPTION" Language="en_US">
 			<Text>Great works stored in this wonder become automatically themed when full.[NEWLINE][NEWLINE]Must be built along a River.</Text>
 		</Replace>
-		<Replace Tag="LOC_BUILDING_ETEMENANKI_DESCRIPTION" Language="en_US">
-			<Text>+2 [ICON_SCIENCE] Science and +1 [ICON_PRODUCTION] Production to all Marsh tiles in your empire. +1 [ICON_SCIENCE] Science and +1 [ICON_PRODUCTION] Production on all Floodplains tiles improved with a Farm for this city.[NEWLINE][NEWLINE]Must be built on Floodplains or Marsh.</Text>
-		</Replace>
 
 
 		<!-- === CITY-STATES === -->
@@ -1994,6 +1991,12 @@
 		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_AYUTTHAYA_DESCRIPTION" Language="en_US">
 			<Text>Gain [ICON_CULTURE] Culture equal to 20% of the [ICON_Production] Production cost when finishing buildings.</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_CHINGUETTI_BONUS" Language="en_US">
+		  <Text>International and Domestic [ICON_TRADEROUTE] Trade Routes receive +1 [ICON_FAITH] Faith for every follower of your founded or majority [ICON_RELIGION] religion in the origin city.</Text>
+		</Replace>
+		<Replace Tag="LOC_LEADER_TRAIT_CHINGUETTI_DESCRIPTION" Language="en_US">
+		  <Text>International and Domestic [ICON_TRADEROUTE] Trade Routes receive +1 [ICON_FAITH] Faith for every follower of your founded or majority [ICON_RELIGION] religion in the origin city.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVILIZATION_FEZ_BONUS" Language="en_US">
 			<Text>When you use a religious unit to convert a city for the first time earn 10 [ICON_SCIENCE] Science per [ICON_Citizen] Population of that city.</Text>
@@ -2052,6 +2055,7 @@
 
 
 		<!-- === AGES === -->
+		<!-- == To Arms! == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_MILITARY_BONUS_GOLDEN_AGE" Language="en_US">
 			<Text>To Arms! Golden Age:[NEWLINE]Unlock a special Casus Belli which gives 75% less warmonger penalties than Formal War and can be used immediately after Denouncing the target. +15% [ICON_Production] Production towards military units. All military units gain +10 [ICON_Strength] against cities.</Text>
 		</Replace>
@@ -2064,27 +2068,44 @@
 		<Row Tag="LOC_ABILITY_MILITARY_GA_BUFF_DESCRIPTION" Language="en_US">
 			<Text>+10 [ICON_STRENGTH] against defensible districts (To Arms! Golden Age dedication).</Text>
 		</Row>
+		<!-- == Monumentality == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_INFRASTRUCTURE_BONUS_GOLDEN_AGE" Language="en_US">
 			<Text>Monumentality Golden Age:[NEWLINE]+2 [ICON_Movement] Movement for all Builders. May purchase civilian units with [ICON_Faith] Faith. Builders and Settlers are 10% cheaper to purchase with [ICON_FAITH] Faith and [ICON_GOLD] Gold.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_5" Language="en_US">
 			<Text>Monumentality: Gain +1 Era Score each time you construct a new specialty District. If chosen at the start of a Golden Age, +2 [ICON_Movement] Movement for all Builders. May purchase civilian units with [ICON_Faith] Faith. Classical through Renaissance Era. Builders and Settlers are 10% cheaper to purchase with [ICON_FAITH] Faith and [ICON_GOLD] Gold.</Text>
 		</Replace>
+		<!-- == Hic Sunt Dracones == -->		
 		<Replace Tag="LOC_MOMENT_CATEGORY_EXPLORATION_BONUS_GOLDEN_AGE" Language="en_US">
 			<Text>Hic Sunt Dracones Golden Age:[NEWLINE]+3 starting [ICON_Citizen] Population for newly settled cities. +2 [ICON_Movement] Movement for naval and embarked units. +2 Loyalty per turn for cities not on your original [ICON_Capital] Capital's continent.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_6" Language="en_US">
 			<Text>Hic Sunt Dracones: Gain +3 Era Score each time you discover a new Continent or natural wonder. Gain +1 Era Score each time you kill a non-barbarian naval unit in combat. If chosen at the start of a Golden Age, +3 starting [ICON_Citizen] Population for newly settled cities. +2 [ICON_Movement] Movement for naval and embarked units. +2 Loyalty per turn for cities not on your original [ICON_Capital] Capital's continent. Renaissance through Modern Era.</Text>
 		</Replace>
+		<!-- ==Pen, Brush, and Voice == -->		
 		<Replace Tag="LOC_MOMENT_CATEGORY_CULTURAL_BONUS_GOLDEN_AGE" Language="en_US">
 			<Text>Pen, Brush, and Voice Golden Age:[NEWLINE][ICON_CivicBoosted] Inspirations provide an additional 10% of civic costs. Each city receives +2 [ICON_Culture] Culture and +1 [ICON_Gold] Gold for each specialty district.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_3" Language="en_US">
-			<Text>Pen, Brush, and Voice: Gain +1 Era Score each time you trigger an [ICON_CivicBoosted] Inspiration. +1 Era Score for constructing a building with a Great Work Slot. If chosen at the start of a Golden Age, [ICON_CivicBoosted] Inspirations provide an additional 10% of civic costs. Each city receives +2 [ICON_Culture] Culture and +1 [ICON_Gold] Gold for each specialty district.</Text>
+			<Text>Pen, Brush, and Voice: Gain +1 Era Score each time you trigger an [ICON_CivicBoosted] Inspiration. +1 Era Score for constructing a building with a Great Work Slot. If chosen at the start of a Golden Age, [ICON_CivicBoosted] Inspirations provide an additional 10% of civic costs. Each city receives +2 [ICON_Culture] Culture and +1 [ICON_Gold] Gold for each specialty district. Classical and Medieval Eras.</Text>
+		</Replace>
+		<!-- == Exodus of the Evangelists (Drums of War) == -->
+		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS" Language="en_US">
+			<Text>Drums of War</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="en_US">
-			<Text>Exodus of the Evangelists Golden Age:[NEWLINE]+2 Horse and +2 Iron resources per turn. +15% production toward military units. Unit maintenance reduced by 1 [ICON_GOLD] Gold per turn. +1 [ICON_PRODUCTION] Production and +1 [ICON_Culture] Culture for Encampments and their Buildings.</Text>
+			<Text>Exodus of the Evangelists Golden Age:[NEWLINE]+2 [ICON_RESOURCE_HORSES] Horse and +2 [ICON_RESOURCE_IRON] Iron resources per turn. +15% [ICON_PRODUCTION] Production toward military units. Unit maintenance reduced by 1 [ICON_GOLD] Gold per turn. +1 [ICON_PRODUCTION] Production and +1 [ICON_Culture] Culture for Encampments and their Buildings.</Text>
 		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="en_US">
+			<Text>Exodus of the Evangelists Normal Age:[NEWLINE]Gain +1 Era Score each time you construct a new specialty [ICON_DISTRICT] District.</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_DARK_AGE" Language="en_US">
+			<Text>Exodus of the Evangelists Dark Age:[NEWLINE]Gain +1 Era Score each time you construct a new specialty [ICON_DISTRICT] District.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="en_US">
+			<Text>Drums of War: Gain +1 Era Score each time you construct a new specialty [ICON_DISTRICT] District. If chosen at the start of a Golden Age, +2 [ICON_RESOURCE_HORSES] Horse and +2 [ICON_RESOURCE_IRON] Iron resources per turn. +15% [ICON_PRODUCTION] Production toward military units. Unit maintenance reduced by 1 [ICON_GOLD] Gold per turn. +1 [ICON_PRODUCTION] Production and +1 [ICON_Culture] Culture for Encampments and their Buildings. Classical through Renaissance Eras.</Text>
+		</Replace>
+	
 
 
 		<!-- === SCIENCE TREE DESCRIPTIONS === -->
