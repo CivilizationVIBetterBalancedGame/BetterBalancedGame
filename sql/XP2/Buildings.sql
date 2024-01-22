@@ -3,11 +3,14 @@
 --==============================================================
 -- flood barriers unlocked at steam power
 UPDATE Buildings SET PrereqTech='TECH_STEAM_POWER' WHERE BuildingType='BUILDING_FLOOD_BARRIER';
+-- 15/10/23 oil power plant unlocked at refining
+UPDATE Buildings SET PrereqTech='TECH_REFINING' WHERE BuildingType='BUILDING_FOSSIL_FUEL_POWER_PLANT';
+UPDATE Projects SET PrereqTech='TECH_REFINING' WHERE ProjectType='PROJECT_CONVERT_REACTOR_TO_OIL';
 -- +1 niter from armories
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_ARMORY', 'NITER_FROM_ARMORY_BBG');
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('NITER_FROM_ARMORY_BBG', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'PLAYER_CAN_SEE_NITER_CPLMOD');
+    ('NITER_FROM_ARMORY_BBG', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_NITER');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('NITER_FROM_ARMORY_BBG', 'ResourceType', 'RESOURCE_NITER'),
     ('NITER_FROM_ARMORY_BBG', 'Amount', '1');
@@ -15,7 +18,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_MILITARY_ACADEMY', 'OIL_FROM_MIL_ACAD_BBG');
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('OIL_FROM_MIL_ACAD_BBG', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'PLAYER_CAN_SEE_OIL_CPLMOD');
+    ('OIL_FROM_MIL_ACAD_BBG', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_OIL');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('OIL_FROM_MIL_ACAD_BBG', 'ResourceType', 'RESOURCE_OIL'),
     ('OIL_FROM_MIL_ACAD_BBG', 'Amount', '2');
@@ -23,7 +26,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_SHIPYARD', 'COAL_FROM_SHIPYARD_BBG');
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('COAL_FROM_SHIPYARD_BBG', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'PLAYER_CAN_SEE_COAL_CPLMOD');
+    ('COAL_FROM_SHIPYARD_BBG', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_COAL');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('COAL_FROM_SHIPYARD_BBG', 'ResourceType', 'RESOURCE_COAL'),
     ('COAL_FROM_SHIPYARD_BBG', 'Amount', '1');
@@ -31,7 +34,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_AIRPORT', 'ALUM_FROM_AIRPORT_BBG');
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('ALUM_FROM_AIRPORT_BBG', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'PLAYER_CAN_SEE_ALUMINUM_CPLMOD');
+    ('ALUM_FROM_AIRPORT_BBG', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_ALUMINUM');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('ALUM_FROM_AIRPORT_BBG', 'ResourceType', 'RESOURCE_ALUMINUM'),
     ('ALUM_FROM_AIRPORT_BBG', 'Amount', '2');
@@ -40,6 +43,11 @@ UPDATE Building_YieldChanges SET YieldChange=8 WHERE BuildingType='BUILDING_POWE
 UPDATE Building_YieldChanges SET YieldChange=6 WHERE BuildingType='BUILDING_POWER_PLANT' AND YieldType='YIELD_SCIENCE';
 --moved from buildings, because it's GS
 UPDATE Building_YieldChangesBonusWithPower SET YieldChange=12 WHERE BuildingType='BUILDING_STOCK_EXCHANGE' AND YieldType='YIELD_GOLD';
+
+-- 14/10/23 Reduced by 15% from base game
+UPDATE Buildings SET Cost=320 WHERE BuildingType='BUILDING_HANGAR';
+UPDATE Buildings SET Cost=400 WHERE BuildingType='BUILDING_AIRPORT';
+
 --==============================================================
 --*****                  WONDERS(Built)                   ******
 --==============================================================
@@ -82,7 +90,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_UNIVERSITY_SANKORE', 'UNIVERSITY_SANKORE_ADD_GOLD_TO_TRADEROUTE'),
     ('BUILDING_UNIVERSITY_SANKORE', 'UNIVERSITY_SANKORE_ADD_TRADER_CAPACITY');
 
--- Meenakshi Temple - Grant 2 apostles instead of 2guru + Apostles/Guru cost 30% less
+-- Meenakshi Temple - Grant 2 apostles instead of 2guru + Apostles/Guru cost 25% less
 DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MEENAKSHI_TEMPLE' AND ModifierId='MEENAKSHITEMPLE_FREE_GURU';
 INSERT INTO Modifiers (ModifierId , ModifierType) VALUES
     ('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES' , 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY'),
@@ -92,9 +100,9 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES', 'UnitType', 'UNIT_APOSTLE'),
     ('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES', 'Amount', '2'),
     ('MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT', 'UnitType', 'UNIT_APOSTLE'),
-    ('MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT', 'Amount', '30'),
+    ('MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT', 'Amount', '25'),
     ('MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT', 'UnitType', 'UNIT_GURU'),
-    ('MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT', 'Amount', '30');
+    ('MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT', 'Amount', '25');
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_MEENAKSHI_TEMPLE', 'MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES'),
     ('BUILDING_MEENAKSHI_TEMPLE', 'MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT'),

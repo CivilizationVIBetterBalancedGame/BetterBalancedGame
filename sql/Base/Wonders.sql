@@ -404,7 +404,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('HAGIA_SOPHIA_GRANT_MISSIONARY_APOSTLE_MOVEMENT', 'AbilityType', 'ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT'),
     ('HAGIA_SOPHIA_ADJUST_MISSIONARY_APOSTLE_MOVEMENT', 'Amount', '2'),
     ('HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT', 'UnitType', 'UNIT_MISSIONARY'),
-    ('HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT', 'Amount', '30');
+    ('HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT', 'Amount', '25');
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_HAGIA_SOPHIA', 'HAGIA_SOPHIA_GRANT_MISSIONARY_APOSTLE_MOVEMENT'),
 	('BUILDING_HAGIA_SOPHIA', 'HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT');
@@ -460,6 +460,14 @@ DROP TABLE Floodplains_tmp;
 
 -- Great Zimbabwe - Give 2 trader capacity instead of 1
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREAT_ZIMBABWE_ADDTRADEROUTE';
+-- 14/10/23 also gives the trader
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
+	('BBG_GREAT_ZIMBABWE_GRANT_TRADER', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY', 1, 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_GREAT_ZIMBABWE_GRANT_TRADER', 'Amount', 2),
+	('BBG_GREAT_ZIMBABWE_GRANT_TRADER', 'UnitType', 'UNIT_TRADER');
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+	('BUILDING_GREAT_ZIMBABWE', 'BBG_GREAT_ZIMBABWE_GRANT_TRADER');
 
 -- Orszaghaz +300% diplomatic favor for each turn starting as the suz of a city state (from +100%)
 UPDATE ModifierArguments SET Value='300' WHERE ModifierId='ORSZAGHAZ_DOUBLE_FAVOR_SUZERAIN';

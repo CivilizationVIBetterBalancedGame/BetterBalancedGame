@@ -6,7 +6,7 @@
 -- UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_ADJUST_SIGHT' WHERE ModifierId='EJERCITO_PATRIOTA_EXTRA_MOVEMENT';
 --18/12/22 PM only for military units
 INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
-    ('BBG_COLUMBIA_MOVEMENT_BONUS', 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER', null),
+    ('BBG_COLUMBIA_MOVEMENT_BONUS', 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER', 'BBG_UTILS_PLAYER_HAS_CIVIC_POLITICAL_PHILOSOPHY_REQSET'),
     ('BBG_COLUMBIA_MOVEMENT_BONUS_MODIFIER', 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT', 'BBG_REQUIREMENT_UNIT_IS_NAVAL_OR_LAND');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_COLUMBIA_MOVEMENT_BONUS' , 'ModifierId', 'BBG_COLUMBIA_MOVEMENT_BONUS_MODIFIER'),
@@ -49,6 +49,10 @@ UPDATE ModifierArguments SET Value='2' WHERE ModifierId='LLANERO_ADJACENCY_STREN
 UPDATE Improvements SET PrereqCivic='CIVIC_MEDIEVAL_FAIRES' WHERE ImprovementType='IMPROVEMENT_HACIENDA';
 DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_HACIENDA' AND TerrainType='TERRAIN_PLAINS_HILLS';
 DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_HACIENDA' AND TerrainType='TERRAIN_GRASS_HILLS';
+
+--19/12/23 Hacienda buff from rapid deploiment to mercantilism
+UPDATE Adjacency_YieldChanges SET PrereqCivic='CIVIC_MERCANTILISM' WHERE ID IN ('Plantation_AdvancedHaciendaAdjacency', 'Hacienda_AdvancedHaciendaAdjacency');
+UPDATE Adjacency_YieldChanges SET ObsoleteCivic='CIVIC_MERCANTILISM' WHERE ID IN ('Plantation_HaciendaAdjacency', 'Hacienda_HaciendaAdjacency');
 
 --15/12/22 Plantation bias
 INSERT INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES

@@ -175,8 +175,8 @@ end
 
 --Amani
 function OnGovernorAssigned(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
-	print("OnGovernorAssigned")
-	print(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
+	--print("OnGovernorAssigned")
+	--print(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorType)
 	if iGovernorType ~= 1 then -- not amani
 		return
 	end
@@ -499,15 +499,173 @@ function OnSpyMissionCompleted(iPlayerID, iMissionID)
 		end
 	end
 	local kParameters = {}
-	if tMission.InitialResult ~= EspionageResultTypes.CAPTURED and tMission.EscapeResult ~= EspionageResultTypes.CAPTURED then
-		return --print("Spy not Captured")
+	--5.6: Added 2 states to allow for Wu Zeitan's Spy Interraction.
+	if tMission.InitialResult == EspionageResultTypes.CAPTURED or tMission.EscapeResult == EspionageResultTypes.CAPTURED then
+		kParameters.State = 0
+	elseif tMission.InitialResult == EspionageResultTypes.KILLED or tMission.EscapeResult == EspionageResultTypes.KILLED then
+		kParameters.State = 1
+	else
+		return 
 	end
-	kParameters.Captured = true
 	kParameters.OnStart = "GameplaySpyMissionCompleted"
 	kParameters["iPlayerID"] = iPlayerID
 	kParameters["iMissionID"] = iMissionID
 	UI.RequestPlayerOperation(Game.GetLocalPlayer(), PlayerOperations.EXECUTE_SCRIPT, kParameters)
 end
+--Religion (and Mvemba) 5.4
+--religion hooks
+function OnReligionFounded(iPlayerID, iReligionID)
+	print("OnReligionFounded: Called")
+	local kParameters = {}
+	kParameters.OnStart = "GameplayReligionFounded"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iReligionID"] = iReligionID
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+
+function OnBeliefAdded(iPlayerID, iBeliefID)
+	print("OnBeliefAdded: Called")
+	local kParameters = {}
+	kParameters.OnStart = "GameplayBeliefAdded"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iBeliefID"] = iBeliefID
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+
+function OnCapitalCityChanged(iPlayerID, iCityID)
+	print("OnCapitalCityChanged: Called")
+	local pPlayer = Players[iPlayerID]
+	if pPlayer==nil then
+		return
+	end
+	local pCity = CityManager.GetCity(iPlayerID, iCityID)
+	if pCity == nil then
+		return
+	end
+	local kParameters = {}
+	kParameters.OnStart = "GameplayCapitalCityChanged"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iCityID"] = iCityID
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+
+function OnPlayerDefeat(iPlayerID, iDefeatID, iEventID)
+	print("OnPlayerDefeat: Called for iPlayerID", iPlayerID)
+	local kParameters = {}
+	kParameters.OnStart = "GameplayPlayerDefeat"
+	kParameters["iPlayerID"] = iPlayerID
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+--mvemba exclusive hooks
+function OnMvembaCityReligionChanged(iPlayerID, iCityID, iUnknown1, iUnknown2)
+	print("OnMvembaCityReligionChanged: Called")
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_MVEMBA" then
+		return
+	end
+	local kParameters = {}
+	kParameters.OnStart = "GameplayMvembaCityReligionChanged"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iCityID"] = iCityID
+	kParameters["iUnknown1"] = iUnknown1
+	kParameters["iUnknown2"] = iUnknown2
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+
+function OnMvembaCityAddedToMap(iPlayerID, iCityID, iX, iY)
+	print("OnMvembaCityAddedToMap: Called")
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName()~= "LEADER_MVEMBA" then
+		return
+	end
+	local kParameters = {}
+	kParameters.OnStart = "GameplayMvembaCityAddedToMap"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iCityID"] = iCityID
+	kParameters["iX"] = iX
+	kParameters["iY"] = iY
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+
+function OnMvembaCityRemovedFromMap(iPlayerID, iCityID)
+	print("OnMvembaCityRemovedFromMap: Called")
+	if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_MVEMBA" then
+		return
+	end
+	local kParameters = {}
+	kParameters.OnStart = "GameplayMvembaCityRemovedFromMap"
+	kParameters["iPlayerID"] = iPlayerID
+	kParameters["iCityID"] = iCityID
+	UI.RequestPlayerOperation(iPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+
+function OnMvembaCityTransfered(iNewOwnerID, iCityID, iOldOwnerID, nTransferType)
+	print("OnMvembaCityRemovedFromMap: Called")
+	if PlayerConfigurations[iNewOwnerID]:GetLeaderTypeName() ~= "LEADER_MVEMBA" and PlayerConfigurations[iOldOwnerID]:GetLeaderTypeName() == "LEADER_MVEMBA" then
+		return
+	end
+	local kParameters = {}
+	kParameters.OnStart = "GameplayMvembaGiftCity"
+	kParameters["iNewOwnerID"] = iNewOwnerID
+	kParameters["iOldOwnerID"] = iOldOwnerID
+	kParameters["iCityID"] = iCityID
+	UI.RequestPlayerOperation(iNewOwnerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+end
+
+--exodus
+function OnDedicationChosen(iPlayerID : number, iOperationID : number)
+	print("OnDedicationChosen: Called")
+	if iOperationID ~= PlayerOperations.COMMEMORATE then
+		return
+	end
+	local iLocPlayerID = Game.GetLocalPlayer()
+	local iHostPlayerID = 0
+	if GameConfiguration.IsAnyMultiplayer() then
+		iHostPlayerID = Network.GetGameHostPlayerID()
+	end
+	if iPlayerID ~= iLocPlayerID and Players[iPlayerID]:IsHuman() then
+		return
+	end
+	if Players[iPlayerID]:IsHuman() == false and iLocPlayerID ~= iHostPlayerID then
+		return
+	end
+	local pGameEras = Game.GetEras()
+	local tCommemorations =  pGameEras:GetPlayerActiveCommemorations(iPlayerID)
+	if #tCommemorations == 0 or tCommemorations == {} or tCommemorations == nil then
+		return
+	end
+	print("OnDedicationChosen: Dedications Detected")
+	for i, iCommemorationID in ipairs(tCommemorations) do
+		if iCommemorationID == 3 then
+			if pGameEras:HasHeroicGoldenAge(iPlayerID) or pGameEras:HasGoldenAge(iPlayerID) then
+				print("OnDedicationChosen: Golden Exodus Detected")
+				local kParameters = {}
+				kParameters.OnStart = "GameplayExodusSetProperty"
+				kParameters["iPlayerID"] = iPlayerID
+				UI.RequestPlayerOperation(iLocPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+			end
+		end
+	end
+end
+
+function OnGameEraChanged(iPrevEraID, iNewEraID)
+	print("OnGameEraChanged: Called some blah blah")
+	local iHostPlayerID = 0
+	local iLocPlayerID = Game.GetLocalPlayer()
+	if GameConfiguration.IsAnyMultiplayer() then
+		iHostPlayerID = Network.GetGameHostPlayerID()
+	end
+	if iLocPlayerID ~= iHostPlayerID then
+		return print("OnGameEraChanged: Returns")
+	end
+	print("Sending Raise Event")
+	local kParameters = {}
+	kParameters.OnStart = "GameplayRemoveExodus"
+	kParameters["iPlayerID"] = iLocPlayerID
+	print("kParameters calculated = > sending")
+	print(kParameters["iPlayerID"], kParameters.OnStart)
+	UI.RequestPlayerOperation(iLocPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+	print("Removed?")
+end
+
 --Support
 function GetAppointedGovernor(playerID:number, governorTypeIndex:number)
 	-- Make sure we're looking for a valid governor
@@ -628,6 +786,14 @@ function Initialize()
 	--5.2. Disable: print("Delete Suntzu UI Hook added")
 	Events.SpyMissionCompleted.Add(OnSpyMissionCompleted)
 	print("Spy Capture Capacity UI hook added")
+	--5.4 Change Religion Mechanism
+	Events.ReligionFounded.Add(OnReligionFounded)
+	Events.BeliefAdded.Add(OnBeliefAdded)
+	Events.CapitalCityChanged.Add(OnCapitalCityChanged)
+	Events.PlayerDefeat.Add(OnPlayerDefeat)
+	--5.4 Exodus
+	--5.6. Disable: Events.PlayerOperationComplete.Add(OnDedicationChosen)
+	--5.6. Disable: Events.GameEraChanged.Add(OnGameEraChanged)
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
 		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
@@ -638,10 +804,16 @@ function Initialize()
 		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
 			--inca dynamic yield cancelation
 			--5.2. Disable: Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
-		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then
-			Events.BuildingAddedToMap.Add(OnLudwigWonderPlaced)
-			Events.BuildingRemovedFromMap.Add(OnLudwigWonderRemoved)
-			Events.WonderCompleted.Add(OnLudwigWonderCompleted)
+		--5.6. Disable: elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then
+			--5.6. Disable: Events.BuildingAddedToMap.Add(OnLudwigWonderPlaced)
+			--5.6. Disable: Events.BuildingRemovedFromMap.Add(OnLudwigWonderRemoved)
+			--5.6. Disable: Events.WonderCompleted.Add(OnLudwigWonderCompleted)
+		-- Mvemba Religion
+		--5.6. Disable: elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_MVEMBA" then
+			--5.6. Disable: Events.CityReligionChanged.Add(OnMvembaCityReligionChanged)
+			--5.6. Disable: Events.CityAddedToMap.Add(OnMvembaCityAddedToMap)
+			--5.6. Disable: Events.CityRemovedFromMap.Add(OnMvembaCityRemovedFromMap)
+			--5.6. Disable: Events.CityTransfered.Add(OnMvembaCityTransfered)
 		end
 	end
 	--BCY no rng setting (param names are still called BBCC)

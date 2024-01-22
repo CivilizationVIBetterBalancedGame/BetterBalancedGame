@@ -28,6 +28,10 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
     ('POLICY_COLLECTIVIZATION', 'BBG_COLLECTIVIZATION_TRADE_GOLD');
 
+-- 15/10/23 Theocracy discount from 15 to 10%
+UPDATE ModifierArguments SET Value=10 WHERE ModifierId='THEOCRACY_FAITH_PURCHASE' and Name='Amount';
+
+
 /* --5.2. Disable:
 -- Communism Specialists
 -- Creating Related Reqs and Reqsets

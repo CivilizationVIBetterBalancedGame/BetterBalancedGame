@@ -75,17 +75,17 @@ UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPIC
 UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_FISHING_BOATS' AND YieldType='YIELD_PRODUCTION';
 
 -- Citizen specialists give +1 main yield
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' 		AND DistrictType='DISTRICT_ACROPOLIS';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' 		AND DistrictType='DISTRICT_CAMPUS';
-UPDATE District_CitizenYieldChanges SET YieldChange=4 WHERE YieldType='YIELD_GOLD' 			AND DistrictType='DISTRICT_COMMERCIAL_HUB';
-UPDATE District_CitizenYieldChanges SET YieldChange=2 WHERE YieldType='YIELD_PRODUCTION' 	AND DistrictType='DISTRICT_ENCAMPMENT';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' 	AND DistrictType='DISTRICT_HANSA';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_GOLD' 			AND DistrictType='DISTRICT_HARBOR';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_FAITH' 		AND DistrictType='DISTRICT_HOLY_SITE';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' 	AND DistrictType='DISTRICT_INDUSTRIAL_ZONE';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_FAITH' 		AND DistrictType='DISTRICT_LAVRA';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_GOLD' 			AND DistrictType='DISTRICT_ROYAL_NAVY_DOCKYARD';
-UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' 		AND DistrictType='DISTRICT_THEATER';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' AND DistrictType='DISTRICT_ACROPOLIS';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' AND DistrictType='DISTRICT_CAMPUS';
+UPDATE District_CitizenYieldChanges SET YieldChange=4 WHERE YieldType='YIELD_GOLD' AND DistrictType='DISTRICT_COMMERCIAL_HUB';
+UPDATE District_CitizenYieldChanges SET YieldChange=2 WHERE YieldType='YIELD_PRODUCTION' AND DistrictType='DISTRICT_ENCAMPMENT';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' AND DistrictType='DISTRICT_HANSA';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_GOLD' AND DistrictType='DISTRICT_HARBOR';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_FAITH' AND DistrictType='DISTRICT_HOLY_SITE';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' AND DistrictType='DISTRICT_INDUSTRIAL_ZONE';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_FAITH' AND DistrictType='DISTRICT_LAVRA';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_GOLD' AND DistrictType='DISTRICT_ROYAL_NAVY_DOCKYARD';
+UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' AND DistrictType='DISTRICT_THEATER';
 
 -- Free amenity on new city
 UPDATE GlobalParameters SET Value=1 WHERE Name='CITY_AMENITIES_FOR_FREE';
@@ -107,22 +107,32 @@ UPDATE Improvements SET YieldFromAppealPercent=200 WHERE ImprovementType='IMPROV
 INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, PrereqTech)
     SELECT Improvements.ImprovementType, 'TOURISMSOURCE_CULTURE', 'TECH_FLIGHT' From Improvements WHERE ImprovementType IN ('IMPROVEMENT_FARM', 'IMPROVEMENT_QUARRY', 'IMPROVEMENT_CAMP', 'IMPROVEMENT_FISHING_BOATS', 'IMPROVEMENT_LUMBER_MILL', 'IMPROVEMENT_OIL_WELL', 'IMPROVEMENT_OFFSHORE_OIL_RIG');
 
+-- 14/10/23 Lumber mill yield changes come earlier (steel to balistics and cybernetics to synthetics material)
+UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_BALLISTICS' WHERE Id=5;
+UPDATE Technologies SET Description='BBG_LOC_TECH_BALLISTICS_DESCRIPTION' WHERE TechnologyType='TECH_BALLISTICS';
+UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_SYNTHETIC_MATERIALS' WHERE Id=227;
+
+-- 14/10/23 Quarry yield changes come earlier (predictive systems to rocketry, so +2 rocketery, and gunpowder to military engineering)
+UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_MILITARY_ENGINEERING' WHERE Id=230;
+UPDATE Technologies SET Description='BBG_LOC_TECH_MILITARY_ENGINEERING_DESCRIPTION' WHERE TechnologyType='TECH_MILITARY_ENGINEERING';
+UPDATE Improvement_BonusYieldChanges SET BonusYieldChange=2 WHERE Id=13;
+DELETE FROM Improvement_BonusYieldChanges WHERE Id=231;
 
 --****		REQUIREMENTS		****--
 INSERT OR IGNORE INTO Requirements
 	(RequirementId , RequirementType)
 	VALUES
-	('PLAYER_HAS_MEDIEVAL_FAIRES_CPLMOD', 	'REQUIREMENT_PLAYER_HAS_CIVIC'),
-	('PLAYER_HAS_URBANIZATION_CPLMOD', 		'REQUIREMENT_PLAYER_HAS_CIVIC'),
-	('PLAYER_HAS_BANKING_CPLMOD'   , 		'REQUIREMENT_PLAYER_HAS_TECHNOLOGY'),
-	('PLAYER_HAS_ECONOMICS_CPLMOD' , 		'REQUIREMENT_PLAYER_HAS_TECHNOLOGY');
+	('PLAYER_HAS_MEDIEVAL_FAIRES_CPLMOD', 'REQUIREMENT_PLAYER_HAS_CIVIC'),
+	('PLAYER_HAS_URBANIZATION_CPLMOD', 'REQUIREMENT_PLAYER_HAS_CIVIC'),
+	('PLAYER_HAS_BANKING_CPLMOD', 'REQUIREMENT_PLAYER_HAS_TECHNOLOGY'),
+	('PLAYER_HAS_ECONOMICS_CPLMOD', 'REQUIREMENT_PLAYER_HAS_TECHNOLOGY');
 INSERT OR IGNORE INTO RequirementArguments
 	(RequirementId , Name , Value)
 	VALUES
-	('PLAYER_HAS_MEDIEVAL_FAIRES_CPLMOD',	'CivicType', 		'CIVIC_MEDIEVAL_FAIRES'  ),
-	('PLAYER_HAS_URBANIZATION_CPLMOD', 	 	'CivicType', 		'CIVIC_URBANIZATION'),
-	('PLAYER_HAS_BANKING_CPLMOD'   , 		'TechnologyType', 	'TECH_BANKING'  ),
-	('PLAYER_HAS_ECONOMICS_CPLMOD' , 		'TechnologyType', 	'TECH_ECONOMICS');
+	('PLAYER_HAS_MEDIEVAL_FAIRES_CPLMOD', 'CivicType', 'CIVIC_MEDIEVAL_FAIRES'  ),
+	('PLAYER_HAS_URBANIZATION_CPLMOD', 'CivicType', 'CIVIC_URBANIZATION'),
+	('PLAYER_HAS_BANKING_CPLMOD', 'TechnologyType', 'TECH_BANKING'  ),
+	('PLAYER_HAS_ECONOMICS_CPLMOD', 'TechnologyType', 'TECH_ECONOMICS');
 
 -- 2022-06-04 -- Add Scientific Theory as Prereq for Steam Power
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech)
@@ -223,3 +233,46 @@ UPDATE OR IGNORE Features SET MovementChange=1, SightThroughModifier=1, DefenseM
 INSERT INTO CustomPlacement(ObjectType, Hash, PlacementFunction)
     SELECT Types.Type, Types.Hash, 'BBG_AQUEDUCT_CUSTOM_PLACEMENT'
     FROM Types WHERE Type IN ('DISTRICT_AQUEDUCT', 'DISTRICT_BATH');
+
+--=======================================================================
+--******                       GOODY HUTS                          ******
+--=======================================================================
+
+UPDATE GoodyHutSubTypes SET Turn=30 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RELIC';
+
+--=======================================================================
+--******                       DISTRICTS                          ******
+--=======================================================================
+
+-- 14/10 discount reduced to 35% (20 for diplo quarter/gov) and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=20 WHERE DistrictType='DISTRICT_DIPLOMATIC_QUARTER';
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_THEATER', 'DISTRICT_INDUSTRIAL_ZONE', 'DISTRICT_ENTERTAINMENT_COMPLEX', 'DISTRICT_HOLY_SITE', 'DISTRICT_CAMPUS', 'DISTRICT_ENCAMPMENT', 'DISTRICT_HARBOR', 'DISTRICT_AERODROME', 'DISTRICT_COMMERCIAL_HUB');
+
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_ACROPOLIS', 'DISTRICT_STREET_CARNIVAL', 'DISTRICT_ROYAL_NAVY_DOCKYARD', 'DISTRICT_LAVRA', 'DISTRICT_HANSA');
+UPDATE Districts SET Cost=20 WHERE DistrictType='DISTRICT_BATH';
+UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_MBANZA', 'DISTRICT_ACROPOLIS', 'DISTRICT_STREET_CARNIVAL', 'DISTRICT_ROYAL_NAVY_DOCKYARD', 'DISTRICT_LAVRA', 'DISTRICT_HANSA');
+
+--19/12/23 entertainment complex to 2 amenities (from 1)
+UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_ENTERTAINMENT_COMPLEX';
+
+--=======================================================================
+--******                       TECHS                               ******
+--=======================================================================
+
+--18/12/23 advanced ballistics advanced one era
+UPDATE Technologies SET EraType="ERA_MODERN" WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
+UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
+
+--=======================================================================
+--******                       CITY STATE                          ******
+--=======================================================================
+
+UPDATE Resources SET Happiness=4 WHERE ResourceType IN ('RESOURCE_CINNAMON', 'RESOURCE_CLOVES');
+
+
+--=======================================================================
+--******                       AMENITIES                           ******
+--=======================================================================
+
+UPDATE Happinesses SET GrowthModifier=8, NonFoodYieldModifier=8 WHERE HappinessType='HAPPINESS_HAPPY';
+UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_ECSTATIC';

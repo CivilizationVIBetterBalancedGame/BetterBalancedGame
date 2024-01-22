@@ -24,6 +24,8 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 UPDATE ModifierArguments SET Value='0' WHERE ModifierId='BARAYS_FAITH_POPULATION' AND Name='Amount';
 -- 15/05/2021: Khmer get 0.3 Culture per pop in cities with Prasat
 UPDATE ModifierArguments SET Value='0.3' WHERE ModifierId='PRASAT_CULTURE_POPULATION' AND Name='Amount';
+-- 15/10/2023: Nerfed holy site faith adjacency from river to +1
+UPDATE ModifierArguments SET Value='1' WHERE ModifierId='TRAIT_MONASTERIES_KING_HOLY_SITE_RIVER_ADJACENCY' AND Name='Amount';
 
 -- 12/07/22: no more culture bomb on holy site
 -- 17/04/23 Revert
@@ -52,3 +54,25 @@ UPDATE StartBiasRivers SET Tier=3 WHERE CivilizationType='CIVILIZATION_KHMER';
 -- Monks: Relax Requirement to Shrine
 DELETE FROM Unit_BuildingPrereqs
     WHERE Unit = 'UNIT_WARRIOR_MONK' AND PrereqBuilding = 'BUILDING_PRASAT';
+
+--19/12/23 Naval support only from naval units (see Base/Units.sql)
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_INDONESIAN_JONG_MODIFIER');
+INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_INDONESIAN_JONG_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_UNIT_INDONESIAN_JONG_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_IS_DEFENDER_IN_MELEE');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_INDONESIAN_JONG_MODIFIER', 'Amount', '2');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_INDONESIAN_JONG_MODIFIER', 'UnitType', 'UNIT_INDONESIAN_JONG');
+INSERT INTO ModifierStrings(ModifierId, Context, Text) SELECT
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_INDONESIAN_JONG_MODIFIER', 'Preview', '{'||Units.Name||'} : +{CalculatedAmount}' From Units WHERE UnitType='UNIT_INDONESIAN_JONG';
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_UNIT_INDONESIAN_JONG_IS_ADJACENT_REQ', 'REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TYPE_MATCHES');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_UNIT_INDONESIAN_JONG_IS_ADJACENT_REQ', 'UnitType', 'UNIT_INDONESIAN_JONG');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_UNIT_INDONESIAN_JONG_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_INDONESIAN_JONG_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_INDONESIAN_JONG_IS_ADJACENT_REQ');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_INDONESIAN_JONG_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UTILS_PLAYER_HAS_CIVIC_MILITARY_TRADITION_REQUIREMENT');

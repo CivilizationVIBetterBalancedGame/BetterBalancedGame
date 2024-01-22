@@ -3,8 +3,9 @@
 --==================
 -- reduce combat bonus for holy cities
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='BYZANTIUM_COMBAT_HOLY_CITIES' AND Name='Amount';
--- remove dromon combat bonus
---DELETE FROM UnitAbilityModifiers WHERE ModifierId='DROMON_COMBAT_STRENGTH_AGAINST_UNITS';
+--remove dromon combat bonus
+--25/10/23 remove dromon combat bonus again
+DELETE FROM UnitAbilityModifiers WHERE ModifierId='DROMON_COMBAT_STRENGTH_AGAINST_UNITS';
 
 -- Delete Byzantium religious spread (script will do it)
 DELETE FROM Modifiers WHERE ModifierId='BYZANTIUM_PRESSURE_KILLS';
@@ -18,6 +19,35 @@ DELETE FROM TypeTags WHERE Type='ABILITY_BYZANTIUM_COMBAT_UNITSABILITY_BYZANTIUM
 
 INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
 	('ABILITY_BYZANTIUM_COMBAT_UNITS' ,'CLASS_ALL_COMBAT_UNITS');
+
+-- 14/10 discount reduced to 35% (20 for diplo quarter) and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_HIPPODROME';
+UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_HIPPODROME';
+
+--19/12/23 hippodromes to 2 amenities (from 3)
+UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_HIPPODROME';
+
+--19/12/23 Naval support only from naval units (see Base/Units.sql)
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_BYZANTINE_DROMON_MODIFIER');
+INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_BYZANTINE_DROMON_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_IS_DEFENDER_IN_MELEE');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_BYZANTINE_DROMON_MODIFIER', 'Amount', '2');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_BYZANTINE_DROMON_MODIFIER', 'UnitType', 'UNIT_BYZANTINE_DROMON');
+INSERT INTO ModifierStrings(ModifierId, Context, Text) SELECT
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_BYZANTINE_DROMON_MODIFIER', 'Preview', '{'||Units.Name||'} : +{CalculatedAmount}' From Units WHERE UnitType='UNIT_BYZANTINE_DROMON';
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_REQ', 'REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TYPE_MATCHES');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_REQ', 'UnitType', 'UNIT_BYZANTINE_DROMON');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_REQ');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UTILS_PLAYER_HAS_CIVIC_MILITARY_TRADITION_REQUIREMENT');
 
 --==================
 -- Gaul
@@ -55,6 +85,9 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_CIVILIZATION_GAUL', 'BBG_OPPIDUM_CULTURE_BOMB');
 
+-- 14/10 discount reduced to 35% (20 for diplo quarter) and unique district to 55%
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_OPPIDUM';
+UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_OPPIDUM';
 
 --==============================================================
 --******                RELIGION                          ******
