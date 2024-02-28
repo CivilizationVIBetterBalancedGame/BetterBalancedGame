@@ -912,7 +912,6 @@
 
 		<!-- == NUBIA == -->
 		<!-- = civilization ability = -->
-
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TA_SETI_DESCRIPTION" Language="en_US">
 			<Text>+30% [ICON_Production] Production toward Ranged and Naval Ranged units.  All Ranged and Naval Ranged units gain +50% combat experience.  Mines over strategic resources provide +1 [ICON_Production].  Mines over bonus and luxury resources provide +2 [ICON_GOLD] Gold.</Text>
 		</Replace>
@@ -930,7 +929,6 @@
 		<Replace Tag="LOC_TRAIT_LEADER_SULEIMAN_ALT_DESCRIPTION" Language="en_US">
 			<Text>+10% [Icon_Science] Science and [Icon_CUlture] Culture when in a [ICON_GLORY_GOLDEN_AGE] Golden Age or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age. +4 [ICON_Strength] Combat Strength when not in a [ICON_GLORY_GOLDEN_AGE] Golden Age or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age against Civilizations who are also not in a [ICON_GLORY_GOLDEN_AGE] Golden Age or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age.</Text>
 		</Replace>
-
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SULEIMAN_JANISSARY_DESCRIPTION" Language="en_US">
 			<Text>Ottoman unique Renaissance Era unit that replaces the Musketman. Starts with a [ICON_Promotion] free promotion. Stronger and cheaper than the Musketman. To train a Janissary a city must have a population of at least 2. If a city is founded by the Ottomans and trains a Janissary it loses a population.</Text>
@@ -1159,12 +1157,10 @@
 		<Row Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_COMBAT_DESCRIPTION_BBG" Language="en_US">
 			<Text>+4 vs. Barbarians</Text>
 		</Row>
-
 		<Row Tag="LOC_BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS_DESCRIPTION" Language="en_US">
 			<Text>Can escort civilian and support units at their higher [ICON_Movement] movement speed.</Text>
 		</Row>
 
-		
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_ZIGGURAT_DESCRIPTION" Language="en_US">
 			<Text>Unlocks the Builder ability to construct a Ziggurat, unique to Sumeria.[NEWLINE][NEWLINE]+1 [ICON_Housing] Housing and +2 [ICON_Science] Science.[NEWLINE][NEWLINE]+1 [ICON_Culture] Culture if built next to River. +1 [ICON_Faith] Faith for each adjacent district or for every 2 adjacent Farms.[NEWLINE][NEWLINE]Cannot be built on Hills or adjacent to another Ziggurat.</Text>
@@ -1214,10 +1210,11 @@
 		
 
 		<!-- === UNITS === -->
-		<!-- No nuclear defense -->
-		<Replace Tag="LOC_UNIT_ANTIAIR_GUN_DESCRIPTION" Language="en_US">
-			<Text>Modern era anti-air support unit. Provides cover from air attacks up to 1 hex away from the weapon.</Text>
+		<!-- == Civilian Units == -->
+		<Replace Tag="LOC_UNIT_TRADER_DESCRIPTION" Language="en_US"> <!-- embarkation tip -->
+			<Text>May make and maintain a single [ICON_TradeRoute] Trade Route. Automatically creates Roads as it travels. Can embark once either Celestial Navigation or Shipbuilding are researched.</Text>
 		</Replace>
+		<!-- == Melee Units == -->
 		<Replace Tag="LOC_UNIT_WARRIOR_MONK_DESCRIPTION" Language="en_US">
 			<Text>Fast-moving land combat unit with a unique promotion tree.[NEWLINE][NEWLINE]Receives all combat bonuses of melee units except bonus vs. anti-cavalry. Receives bonuses from [ICON_GREATGENERAL] Great General from any era. Has scaling cost that depends on advancement through Tech and Civics tree.[NEWLINE][NEWLINE]Has unique ability Battle Meditation: +1 [ICON_Strength] Combat Strength for every researched civic (up to and including Industrial Era).</Text>
 		</Replace>
@@ -1230,9 +1227,7 @@
 		<Replace Tag="LOC_UNIT_LAHORE_NIHANG_DESCRIPTION" Language="en_US">
 			<Text>Lahore City-state unique unit with a unique Promotion tree. Purchasable with [ICON_Faith] Faith. +15 [ICON_Strength] Combat Strength when Barracks, Armory, and Military Academy buildings are first constructed. Receives bonuses from [ICON_GREATGENERAL] Great General from any era.</Text>
 		</Replace>
-		<Replace Tag="LOC_UNIT_TRADER_DESCRIPTION" Language="en_US"> <!-- embarkation tip -->
-			<Text>May make and maintain a single [ICON_TradeRoute] Trade Route. Automatically creates Roads as it travels. Can embark since Celestial Navigation or Shipbuilding technology is researched.</Text>
-		</Replace>
+		<!-- == Naval Units == -->
 		<Replace Tag="LOC_UNIT_QUADRIREME_DESCRIPTION" Language="en_US">
 			<Text>Classical era ranged naval unit with [ICON_Range] Range of 1. Can only operate on Coastal waters until Cartography is researched.</Text>
 		</Replace>
@@ -1245,12 +1240,42 @@
 		<Replace Tag="LOC_UNIT_MISSILE_CRUISER_DESCRIPTION" Language="en_US">
 			<Text>Information era ranged naval unit with [ICON_Range] Range of 4. Provides cover from air and nuclear attacks up to 1 tile away.</Text>
 		</Replace>
+		<!-- == Support Units == -->
 		<Replace Tag="LOC_UNIT_MEDIC_DESCRIPTION" Language="en_US">
 			<Text>Industrial era support unit. Can heal adjacent units. Grants +1 Movement to Melee, Anti-Cav, and Ranged Units.</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_ANTIAIR_GUN_DESCRIPTION" Language="en_US">
+			<Text>Modern era anti-air support unit. Provides cover from air attacks up to 1 hex away from the weapon.</Text>
 		</Replace>
 
 
 		<!-- === UNIT PROMOTIONS === -->
+		<!-- == AntiCav Units == -->
+		<Replace Tag="LOC_PROMOTION_THRUST_DESCRIPTION" Language="en_US">
+			<Text>+10 [ICON_Strength] Combat Strength vs. melee units.</Text>
+		</Replace>
+		<!-- == Melee Units == -->
+		<Replace Tag="LOC_PROMOTION_BATTLECRY_DESCRIPTION" Language="en_US">
+			<Text>+7 [ICON_Strength] Combat Strength when attacking units except Cavalry and Siege units.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_ANTI_SPEAR_DESCRIPTION" Language="en_US">
+			<Text>+10 [ICON_Strength] Combat Strength against anti-cavalry units.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_ANIT_SPEAR_MODIFIER_DESCRIPTION" Language="en_US">
+			<Text>+10 [ICON_Strength] Combat Strength vs. anti-cavalry units.</Text>
+		</Replace>
+		<!-- == Ranged Units == -->
+		<Replace Tag="LOC_PROMOTION_ARROW_STORM_DESCRIPTION" Language="en_US">
+			<Text>+7 [ICON_Ranged] Ranged Strength when attacking.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_GARRISON_DESCRIPTION" Language="en_US">
+			<Text>+10 [ICON_Strength] Combat Strength when occupying any district or Fort.</Text>
+		</Replace>
+		<!-- == Heavy Cavalry Units == -->
+		<Row Tag="LOC_PROMOTION_TOP_COVER_NAME" Language="en_US">
+			<Text>Barding</Text>
+		</Row>
+		<!-- == Recon Units == -->
 		<Replace Tag="LOC_PROMOTION_SENTRY_DESCRIPTION" Language="en_US">
 			<Text>+1 Sight. Can see through Woods and Jungle.</Text>
 		</Replace>
@@ -1263,15 +1288,7 @@
 		<Replace Tag="LOC_PROMOTION_AMBUSH_DESCRIPTION" Language="en_US">
 			<Text>+15 [ICON_Strength] Combat Strength in all situations.</Text>
 		</Replace>
-		<Replace Tag="LOC_ABILITY_ANTI_SPEAR_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_Strength] Combat Strength against anti-cavalry units.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_ANIT_SPEAR_MODIFIER_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_Strength] Combat Strength vs. anti-cavalry units.</Text>
-		</Replace>
-		<Replace Tag="LOC_PROMOTION_THRUST_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_Strength] Combat Strength vs. melee units.</Text>
-		</Replace>
+		<!-- == Siege Units == -->
 		<Replace Tag="LOC_PROMOTION_GRAPE_SHOT_DESCRIPTION" Language="en_US">
 			<Text>+7 [ICON_Bombard] Bombard Strength when attacking land units.</Text>
 		</Replace>
@@ -1281,30 +1298,21 @@
 		<Replace Tag="LOC_PROMOTION_ADVANCED_RANGEFINDING_DESCRIPTION" Language="en_US">
 			<Text>+10 [ICON_Bombard] Bombard Strength when attacking naval units.</Text>
 		</Replace>
-		<Replace Tag="LOC_PROMOTION_BATTLECRY_DESCRIPTION" Language="en_US">
-			<Text>+7 [ICON_Strength] Combat Strength when attacking units except Cavalry and Siege units.</Text>
-		</Replace>
+		<!-- == Warrior Monks == -->
 		<Replace Tag="LOC_PROMOTION_MONK_EXPLODING_PALMS_DESCRIPTION" Language="en_US">
 			<Text>+5 [ICON_Strength] Combat Strength in all situations.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_MONK_COBRA_STRIKE_DESCRIPTION" Language="en_US">
 			<Text>+7 [ICON_Strength] Combat Strength in all situations.</Text>
 		</Replace>
-		<Replace Tag="LOC_PROMOTION_BOARDING_DESCRIPTION" Language="en_US">
-			<Text>Obtain [ICON_Gold] Gold equal to 50% of the [ICON_Strength] Combat Strength of the defeated naval unit (on Online speed).</Text>
-		</Replace>
-		<Replace Tag="LOC_PROMOTION_ARROW_STORM_DESCRIPTION" Language="en_US">
-			<Text>+7 [ICON_Ranged] Ranged Strength when attacking.</Text>
-		</Replace>
 		<Replace Tag="LOC_PROMOTION_MONK_DISCIPLES_DESCRIPTION" Language="en_US">
 			<Text>When defeats a unit, spreads Religious pressure within 5 tiles.</Text>
 		</Replace>
-		<Replace Tag="LOC_PROMOTION_GARRISON_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_Strength] Combat Strength when occupying any district or Fort.</Text>
+		<!-- == Naval Raider Units == -->
+		<Replace Tag="LOC_PROMOTION_BOARDING_DESCRIPTION" Language="en_US">
+			<Text>Obtain [ICON_Gold] Gold equal to 50% of the [ICON_Strength] Combat Strength of the defeated naval unit (on Online speed).</Text>
 		</Replace>
-		<Row Tag="LOC_PROMOTION_TOP_COVER_NAME" Language="en_US">
-			<Text>Barding</Text>
-		</Row>
+
 
 
 
@@ -1540,6 +1548,7 @@
 
 		
 		<!-- === BELIEFS === -->
+		<!-- == Follower Beliefs == -->
 		<Replace Tag="LOC_BELIEF_FEED_THE_WORLD_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>Shrines provide +2 [ICON_FOOD] Food and +1 [ICON_HOUSING] Housing.  Temples provide +4 [ICON_FOOD] Food and +1 [ICON_HOUSING] Housing.</Text>
 		</Replace>
@@ -1567,14 +1576,9 @@
 		<Replace Tag="LOC_BELIEF_RELIGIOUS_COMMUNITY_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>International [ICON_TradeRoute] Trade Routes provide +2 [ICON_GOLD] Gold if the origin city has a Holy Site and an additional +2 [ICON_GOLD] Gold for every building in the Holy Site district.</Text>
 		</Replace>
+		<!-- == Founder Beliefs == -->
 		<Replace Tag="LOC_BELIEF_TITHE_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+2 [ICON_GOLD] Gold for each city following the Religion.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_TITHE_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_Gold] Gold for every 3 followers of this Religion.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_PILGRIMAGE_DESCRIPTION" Language="en_US">
-			<Text>+3 [ICON_Faith] Faith for every foreign city following this Religion.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_STEWARDSHIP_DESCRIPTION" Language="en_US">
 			<Text>Each Campus or Commercial Hub district in a city following this Religion provides +2 [ICON_Science] Science or +2 [ICON_Gold] Gold respectively.</Text>
@@ -1591,6 +1595,7 @@
 		<Replace Tag="LOC_BELIEF_WORLD_CHURCH_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_Culture] Culture for every 3 followers of this Religion in other civilizations.</Text>
 		</Replace>
+		<!-- == Enhancer Beliefs == -->
 		<Replace Tag="LOC_BELIEF_DEFENDER_OF_FAITH_DESCRIPTION" Language="en_US">
 			<Text>Combat units gain +3 [ICON_Strength] Combat Strength when within the borders of friendly cities that follow this Religion.</Text>
 		</Replace>
@@ -1602,6 +1607,10 @@
 		</Replace>
 		<Replace Tag="LOC_BELIEF_HOLY_ORDER_DESCRIPTION" Language="en_US">
 			<Text>Missionaries and Apostles are 25% cheaper to produce</Text>
+		</Replace>
+		<!-- == Worship Buildings == -->
+		<Replace Tag="LOC_BELIEF_CATHEDRAL_DESCRIPTION" Language="en_US">
+			<Text>Allows construction of Cathedrals (+3 [ICON_Faith] Faith, 1 slot for Great Work of any type).</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_DAR_E_MEHR_DESCRIPTION" Language="en_US">
 			<Text>+2 [ICON_CULTURE] Culture.</Text>
@@ -1615,14 +1624,14 @@
 		<Replace Tag="LOC_BELIEF_DAR_E_MEHR_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>Allows construction of Dar-e Mehrs (+3 [ICON_Faith] Faith, +3 [ICON_CULTURE] Culture. Cannot be pillaged by natural disasters).</Text>
 		</Replace>
+		<Replace Tag="LOC_BELIEF_GURDWARA_DESCRIPTION" Language="en_US">
+			<Text>Allows construction of Gurdwaras (+3 [ICON_Faith] Faith, +3 [ICON_Food] Food).</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_GURDWARA_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>Allows construction of Gurdwaras (+3 [ICON_Faith] Faith, +3 [ICON_Food] Food, +1 [ICON_Housing] Housing).</Text>
+		</Replace>
 		<Replace Tag="LOC_BELIEF_MEETING_HOUSE_DESCRIPTION" Language="en_US">
 			<Text>Allows construction of Meeting Houses (+3 [ICON_Faith] Faith, +3 [ICON_Production] Production).</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_WAT_DESCRIPTION" Language="en_US">
-			<Text>Allows construction of Wats (+3 [ICON_Faith] Faith, +3 [ICON_Science] Science).</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_CATHEDRAL_DESCRIPTION" Language="en_US">
-			<Text>Allows construction of Cathedrals (+3 [ICON_Faith] Faith, 1 slot for Great Work of any type).</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_MOSQUE_DESCRIPTION" Language="en_US">
 			<Text>Allows construction of Mosques (+3 [ICON_Faith] Faith, grants 1 free Missionary of that city's majority Religion when constructed, Missionaries and Apostles created here have +2 spreads).</Text>
@@ -1639,11 +1648,8 @@
 		<Replace Tag="LOC_BELIEF_SYNAGOGUE_DESCRIPTION" Language="en_US">
 			<Text>Allows construction of Synagogues (+9 [ICON_Faith] Faith).</Text>
 		</Replace>
-		<Replace Tag="LOC_BELIEF_GURDWARA_DESCRIPTION" Language="en_US">
-			<Text>Allows construction of Gurdwaras (+3 [ICON_Faith] Faith, +3 [ICON_Food] Food).</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_GURDWARA_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Allows construction of Gurdwaras (+3 [ICON_Faith] Faith, +3 [ICON_Food] Food, +1 [ICON_Housing] Housing).</Text>
+		<Replace Tag="LOC_BELIEF_WAT_DESCRIPTION" Language="en_US">
+			<Text>Allows construction of Wats (+3 [ICON_Faith] Faith, +3 [ICON_Science] Science).</Text>
 		</Replace>
 
 
@@ -1675,12 +1681,46 @@
 
 
 		<!-- === BUILDINGS === -->
+		<!-- == Aerodrome Buildings == -->
+		<Replace Tag="LOC_BUILDING_AIRPORT_DESCRIPTION" Language="en_US">
+			<Text>+50% combat experience for air units trained in this city. +2 air unit slots in Aerodrome district. Allows the ability to airlift land units between Aerodrome districts with Airports after the Rapid Deployment civic is unlocked. +2 [ICON_RESOURCE_ALUMINUM] Aluminum per turn once discovered.</Text>
+		</Replace>
+		<!-- == City Center Buildings == -->
+		<Replace Tag="LOC_BUILDING_WATER_MILL_DESCRIPTION" Language="en_US">
+			<Text>Farms gain +1 [ICON_PRODUCTION] Production. City must be adjacent to a River.</Text>
+		</Replace>
+		<!-- == Commercial Hub Buildings == -->
+		<Replace Tag="LOC_BBG_BUILDING_BANK_DESCRIPTION" Language="en_US">
+			<Text>+2 [ICON_GOLD] Gold for each [ICON_TRADEROUTE] trade routes from this city.[NEWLINE]+1 [ICON_GOLD] Gold for each [ICON_TRADEROUTE] trade routes to this city.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_BUILDING_STOCK_EXCHANGE_DESCRIPTION" Language="en_US">
+			<Text>+4 [ICON_GOLD] Gold for each [ICON_TRADEROUTE] trade routes from this city.[NEWLINE]+2 [ICON_GOLD] Gold for each [ICON_TRADEROUTE] trade routes to this city.</Text>
+		</Replace>
+		<!-- == Diplomatic Quarter Buildings == -->
 		<Replace Tag="LOC_BUILDING_CHANCERY_DESCRIPTION" Language="en_US">
 			<Text>+3 [ICON_InfluencePerTurn] Influence Points per turn. When this civilization captures or kills an enemy Spy, receive 200 [ICON_Science] Science (on Standard speed) for every level of the enemy Spy.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_CONSULATE_DESCRIPTION" Language="en_US">
 			<Text>+2 [ICON_InfluencePerTurn] Influence Points per turn. Enemy Spy's level is reduced by 1 when targeting this city or cities with Encampments.</Text>
 		</Replace>
+		<!-- == Encampment Buildings == -->
+		<Replace Tag="LOC_BUILDING_ARMORY_DESCRIPTION" Language="en_US">
+			<Text>+25% combat experience for all land units trained in this city. +1 [ICON_RESOURCE_NITER] Niter per turn once discovered.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_ARMORY_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>+25% combat experience for all land units trained in this city.[NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed). +1 [ICON_RESOURCE_NITER] Niter per turn once discovered.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_MILITARY_ACADEMY_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>+25% combat experience for all land units trained in this city.[NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed). +2 [ICON_RESOURCE_OIL] Oil per turn once discovered.[NEWLINE]Once required Civics are unlocked, allows [ICON_Corps] Corps or [ICON_Army] Armies to be trained directly and their costs reduced by 25%.</Text>
+		</Replace>
+		<!-- == Entertainment Complex Buildings == -->
+		<Replace Tag="LOC_BUILDING_ARENA_EXPANSION1_DESCRIPTION" Language="en_US">
+			<Text>Provides +3 [ICON_TOURISM] Tourism.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_STADIUM_EXPANSION1_DESCRIPTION" Language="en_US">
+			<Text>Bonus [ICON_Amenities] Amenities extend to each city center within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses. +6 [ICON_Tourism] Tourism if the city [ICON_CITIZEN] population is 10 or higher and +15 [ICON_Tourism] Tourism if the city [ICON_CITIZEN] population is 20 or higher.</Text>
+		</Replace>
+		<!-- == Government Plaza Buildings == -->
 		<Replace Tag="LOC_BUILDING_GOV_TALL_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_Amenities] Amenity, +3 [ICON_FOOD] Food, and +3 [ICON_Housing] Housing in Cities with a [ICON_Governor] Governor. -2 Loyalty in Cities without a [ICON_Governor] Governor.[NEWLINE]Awards +1 [Icon_Governor] Governor Title.</Text>
 		</Replace>
@@ -1702,48 +1742,25 @@
 		<Replace Tag="LOC_BUILDING_GOV_SCIENCE_DESCRIPTION" Language="en_US">
 			<Text>Builders and Military Engineers gain the ability to use all of their [ICON_Charges] charges to provide bonus [ICON_Production] Production to a District Project. Each [ICON_Charges] charge grants 2% of project [ICON_Production] Production. Once per city per turn.[NEWLINE]Awards +1 [Icon_Governor] Governor Title.</Text>
 		</Replace>
+		<!-- == Harbor Buildings == -->
 		<Replace Tag="LOC_BUILDING_SEAPORT_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for all naval units trained in this city. Once required Civics are unlocked, allows [ICON_Corps] Fleets or [ICON_Army] Armadas to be trained directly and their costs reduced by 25%. +2 [ICON_GOLD] Gold on all Coast tiles for this city.</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_ARMORY_DESCRIPTION" Language="en_US">
-			<Text>+25% combat experience for all land units trained in this city. +1 [ICON_RESOURCE_NITER] Niter per turn once discovered.</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_ARMORY_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>+25% combat experience for all land units trained in this city.[NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed). +1 [ICON_RESOURCE_NITER] Niter per turn once discovered.</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_SHOPPING_MALL_DESCRIPTION" Language="en_US">
-			<Text>+20 [ICON_Tourism] Tourism. Can only be built once in a city, even if the city has multiple Neighborhoods.</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_AIRPORT_DESCRIPTION" Language="en_US">
-			<Text>+50% combat experience for air units trained in this city. +2 air unit slots in Aerodrome district. Allows the ability to airlift land units between Aerodrome districts with Airports after the Rapid Deployment civic is unlocked. +2 [ICON_RESOURCE_ALUMINUM] Aluminum per turn once discovered.</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_MILITARY_ACADEMY_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>+25% combat experience for all land units trained in this city.[NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed). +2 [ICON_RESOURCE_OIL] Oil per turn once discovered.[NEWLINE]Once required Civics are unlocked, allows [ICON_Corps] Corps or [ICON_Army] Armies to be trained directly and their costs reduced by 25%.</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_WATER_MILL_DESCRIPTION" Language="en_US">
-			<Text>Farms gain +1 [ICON_PRODUCTION] Production. City must be adjacent to a River.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SHIPYARD_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for all naval units trained in this city. Bonus [ICON_Production] Production equal to the adjacency bonus of the Harbor district. +1 [ICON_PRODUCTION] Production on all unimproved Coast and Lake tiles for this city. +1 [ICON_RESOURCE_COAL] Coal per turn once discovered.</Text>
 		</Replace>
-		<Replace Tag="LOC_BBG_BUILDING_BANK_DESCRIPTION" Language="en_US">
-			<Text>+2 [ICON_GOLD] Gold for each [ICON_TRADEROUTE] trade routes from this city.[NEWLINE]+1 [ICON_GOLD] Gold for each [ICON_TRADEROUTE] trade routes to this city.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_BUILDING_STOCK_EXCHANGE_DESCRIPTION" Language="en_US">
-			<Text>+4 [ICON_GOLD] Gold for each [ICON_TRADEROUTE] trade routes from this city.[NEWLINE]+2 [ICON_GOLD] Gold for each [ICON_TRADEROUTE] trade routes to this city.</Text>
-		</Replace>
+		<!-- == Holy Site Buildings == -->
 		<Replace Tag="LOC_BUILDING_SHRINE_DESCRIPTION" Language="en_US">
 			<Text>Allows the purchasing of Missionaries, and with the proper belief, Warrior Monks. These units can only be purchased with [ICON_Faith] Faith.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_TEMPLE_DESCRIPTION" Language="en_US">
 			<Text>Allows the purchasing of Apostles, Gurus, Inquisitors. These units can only be purchased with [ICON_Faith] Faith.</Text>
 		</Replace>
-		<Replace Tag="LOC_BUILDING_ARENA_EXPANSION1_DESCRIPTION" Language="en_US">
-			<Text>Provides +3 [ICON_TOURISM] Tourism.</Text>
+		<!-- == Neighborhood Buildings == -->
+		<Replace Tag="LOC_BUILDING_SHOPPING_MALL_DESCRIPTION" Language="en_US">
+			<Text>+20 [ICON_Tourism] Tourism. Can only be built once in a city, even if the city has multiple Neighborhoods.</Text>
 		</Replace>
-		<Replace Tag="LOC_BUILDING_STADIUM_EXPANSION1_DESCRIPTION" Language="en_US">
-			<Text>Bonus [ICON_Amenities] Amenities extend to each city center within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses. +6 [ICON_Tourism] Tourism if the city [ICON_CITIZEN] population is 10 or higher and +15 [ICON_Tourism] Tourism if the city [ICON_CITIZEN] population is 20 or higher.</Text>
-		</Replace>
+		<!-- == Water Park Buildings == -->
 		<Replace Tag="LOC_BUILDING_FERRIS_WHEEL_DESCRIPTION" Language="en_US">
 			<Text>+6 [ICON_Tourism] Tourism.</Text>
 		</Replace>
@@ -2098,13 +2115,13 @@
 			<Text>Drums of War</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="en_US">
-			<Text>Exodus of the Evangelists Golden Age:[NEWLINE]+2 [ICON_RESOURCE_HORSES] Horse and +2 [ICON_RESOURCE_IRON] Iron resources per turn. +15% [ICON_PRODUCTION] Production toward military units. Unit maintenance reduced by 1 [ICON_GOLD] Gold per turn. +1 [ICON_PRODUCTION] Production and +1 [ICON_Culture] Culture for Encampments and their Buildings.</Text>
+			<Text>Drums of War Golden Age:[NEWLINE]+2 [ICON_RESOURCE_HORSES] Horse and +2 [ICON_RESOURCE_IRON] Iron resources per turn. +15% [ICON_PRODUCTION] Production toward military units. Unit maintenance reduced by 1 [ICON_GOLD] Gold per turn. +1 [ICON_PRODUCTION] Production and +1 [ICON_Culture] Culture for Encampments and their Buildings.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="en_US">
-			<Text>Exodus of the Evangelists Normal Age:[NEWLINE]Gain +1 Era Score each time you construct a new specialty [ICON_DISTRICT] District.</Text>
+			<Text>Drums of War Normal Age:[NEWLINE]Gain +1 Era Score each time you construct a new specialty [ICON_DISTRICT] District.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_DARK_AGE" Language="en_US">
-			<Text>Exodus of the Evangelists Dark Age:[NEWLINE]Gain +1 Era Score each time you construct a new specialty [ICON_DISTRICT] District.</Text>
+			<Text>Drums of War Dark Age:[NEWLINE]Gain +1 Era Score each time you construct a new specialty [ICON_DISTRICT] District.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="en_US">
 			<Text>Drums of War: Gain +1 Era Score each time you construct a new specialty [ICON_DISTRICT] District. If chosen at the start of a Golden Age, +2 [ICON_RESOURCE_HORSES] Horse and +2 [ICON_RESOURCE_IRON] Iron resources per turn. +15% [ICON_PRODUCTION] Production toward military units. Unit maintenance reduced by 1 [ICON_GOLD] Gold per turn. +1 [ICON_PRODUCTION] Production and +1 [ICON_Culture] Culture for Encampments and their Buildings. Classical through Renaissance Eras.</Text>
@@ -2176,8 +2193,12 @@
 		<Replace Tag="LOC_GOVERNMENT_ACCUMULATED_BONUS" Language="en_US">
 			<Text>Government bonus</Text>
 		</Replace>
+		<!-- == Tier 1 Governments == -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_AUTOCRACY_XP1" Language="en_US">
 			<Text>+10% [ICON_Production] Production toward Wonders.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="en_US">
+			<Text>+1 to all yields for each Palace, Government Plaza, Diplomatic Quarter and buildings within these districts.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CLASSREP_XP1" Language="en_US">
 			<Text>+15% [ICON_GreatPerson] Great Person points.</Text>
@@ -2185,27 +2206,27 @@
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CLASSREP_XP1" Language="en_US">
 			<Text>+1 [ICON_Housing] Housing and +1 [ICON_Amenities] Amenity in all cities with at least 1 [ICON_DISTRICT] specialty district.</Text>
 		</Replace>
+		<!-- == Tier 2 Governments == -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_MONARCHY_XP1" Language="en_US">
 			<Text>+50% [ICON_InfluencePerTurn] Influence Points.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_MONARCHY_XP1" Language="en_US">
-			<Text>[ICON_HOUSING] Housing per level of Walls. +2 [ICON_CULTURE] Culture for every Renaissance Walls.</Text>
+			<Text>+1 [ICON_HOUSING] Housing per level of Walls. +2 [ICON_CULTURE] Culture for every Renaissance Walls.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_MERCHREP_XP1" Language="en_US">
 			<Text>+15% [ICON_Production] Production toward [ICON_DISTRICT] Districts.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_THEOCRACY_XP1" Language="en_US">
 			<Text>10% Discount on purchases with [ICON_Faith] Faith.</Text>
-		</Replace>		
+		</Replace>
+		<!-- == Tier 3 Governments == -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_FASCISM_XP1" Language="en_US">
 			<Text>+50% [ICON_Production] Production toward Units.</Text>
 		</Replace>		
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
 			<Text>+1 [ICON_Production] Production per [ICON_Citizen] Citizen in cities with [ICON_Governor] Governors.</Text> <!-- 5.2.9 REVERTED +1 yield to specialists of the respective district yield. -->
 		</Replace>
-		<Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="en_US">
-			<Text>+1 to all yields for each Palace, Government Plaza, Diplomatic Quarter and buildings within these districts.</Text>
-		</Replace>
+		<!-- == Tier 4 Governments == -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="en_US">
 			<Text>Commercial Hubs and Encampments provide cities with +10% [ICON_Production] Production, and accumulating resources with improvements provide +1 per turn.</Text>
 		</Replace>
@@ -2415,10 +2436,27 @@
 		</Replace>
 
 
-		
-
-
 		<!-- === GREAT PEOPLE === -->
+		<!-- == Admirals == -->
+		<Replace Tag="LOC_ABILITY_CHOLA_NAVAL_UNITS_COMBAT_STRENGTH_DESCRIPTION" Language="en_US">
+			<Text>+{1_Amount} Combat Strength from Magellan</Text>
+		</Replace>
+		<Replace Tag="LOC_GREATPERSON_FRANCIS_DRAKE_EXPANSION2_ACTIVE" Language="en_US">
+			<Text>Instantly creates a Privateer unit with 1 promotion level. Military units get +50% rewards for plundering sea [ICON_TradeRoute] Trade Routes. +25% [ICON_Production] toward Naval Ranged and Naval Raider Units</Text>
+		</Replace>
+		
+		<!-- == Engineers == -->
+		<Replace Tag="LOC_GREATPERSON_CULTURE_BOMB_TRIGGER_INDUSTRIAL_ZONE" Language="en_US">
+			<Text>Gain +1 [ICON_HOUSING] Housing and +1 [ICON_AMENITIES] Amenities in this city.</Text>
+		</Replace>
+		<Replace Tag="LOC_GREATPERSON_CITY_APPEAL_SMALL" Language="en_US">
+			<Text>This city provides +{Amount} Appeal to any tiles it owns. This city receives +2 [ICON_Gold] Gold from each breathtaking tile.</Text>
+		</Replace>
+		<Replace Tag="LOC_GREATPERSON_WONDER_PURCHASE" Language="en_US">
+			<Text>Purchase [ICON_Production] Production towards wonder construction at the rate of 2 [ICON_GOLD] Gold per 1 [ICON_Production] Production.</Text>
+		</Replace>
+		
+		<!-- == Generals == -->
 		<Replace Tag="LOC_GREATPERSON_BOUDICA_ACTIVE" Language="en_US">
 			<Text>Creates a Military Engineer in your [ICON_Capital] Capital.</Text>
 		</Replace>
@@ -2452,24 +2490,16 @@
 		<Replace Tag="LOC_GREATPERSON_SUDIRMAN_ACTIVE" Language="en_US">
 			<Text>Creates a Fighter unit with one promotion level. Grants 2 [ICON_RESOURCE_ALUMINUM] Aluminum per turn.</Text>
 		</Replace>
-
-		<Replace Tag="LOC_GREATPERSON_CULTURE_BOMB_TRIGGER_INDUSTRIAL_ZONE" Language="en_US">
-			<Text>Gain +1 [ICON_HOUSING] Housing and +1 [ICON_AMENITIES] Amenities in this city.</Text>
-		</Replace>
-		<Replace Tag="LOC_GREATPERSON_CITY_APPEAL_SMALL" Language="en_US">
-			<Text>This city provides +{Amount} Appeal to any tiles it owns. This city receives +2 [ICON_Gold] Gold from each breathtaking tile.</Text>
-		</Replace>
-		<Replace Tag="LOC_GREATPERSON_WONDER_PURCHASE" Language="en_US">
-			<Text>Purchase [ICON_Production] Production towards wonder construction at the rate of 2 [ICON_GOLD] Gold per 1 [ICON_Production] Production.</Text>
-		</Replace>
-
+		
+		<!-- == Merchants == -->
 		<Replace Tag="LOC_GREATPERSON_CITY_STATE_ABSORB_EXPANSIONS" Language="en_US">
 			<Text>Absorbs this City-state into your empire. Grants you +10 Loyalty per turn in the city. Can be an enemy City-state.</Text>
 		</Replace>
 		<Replace Tag="LOC_GREATPERSON_TRADE_ROUTE_TOURISM_MODIFIER" Language="en_US">
 			<Text>+{Amount}% [ICON_Tourism] Tourism rate towards other civilizations you have a [ICON_TradeRoute] Trade Route to.</Text>
 		</Replace>
-
+		
+		<!-- == Scientists == -->
 		<Replace Tag="LOC_GREATPERSON_DMITRI_MENDELEEV_ACTIVE" Language="en_US">
 			<Text>Triggers the [ICON_TechBoosted] Eureka for Chemistry and 1 random technology from the Industrial era. +50% [ICON_Production] Production towards Research Lab buildings.</Text>
 		</Replace>
@@ -2481,12 +2511,6 @@
 		</Replace>
 		<Replace Tag="LOC_GREATPERSON_ALAN_TURING_ACTIVE" Language="en_US">
 			<Text>Triggers the [ICON_TechBoosted] Eureka for Computers and 1 random technology from the Modern era. If Computers technology is already triggered, instead completes Computers technology.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_CHOLA_NAVAL_UNITS_COMBAT_STRENGTH_DESCRIPTION" Language="en_US">
-			<Text>+{1_Amount} Combat Strength from Magellan</Text>
-		</Replace>
-		<Replace Tag="LOC_GREATPERSON_FRANCIS_DRAKE_EXPANSION2_ACTIVE" Language="en_US">
-			<Text>Instantly creates a Privateer unit with 1 promotion level. Military units get +50% rewards for plundering sea [ICON_TradeRoute] Trade Routes. +25% [ICON_Production] toward Naval Ranged and Naval Raider Units</Text>
 		</Replace>
 
 
@@ -2556,7 +2580,6 @@
 		<Replace Tag="LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_DESC" Language="en_US">
 			<Text>+2 Support Bonus per adjacent naval unit</Text>
 		</Replace>
-
 		<Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="en_US">
 			<Text>Battlefield Medicine</Text>
 		</Replace>
