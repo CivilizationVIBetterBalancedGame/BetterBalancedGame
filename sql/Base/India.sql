@@ -58,3 +58,8 @@ INSERT OR IGNORE INTO RequirementArguments (RequirementId , Name , Value)
 -- 	('BBG_TRAIT_FAITH_PER_CITY_FOLLOWING_RELIGION', 'PerXItems', '1');
 -- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 -- 	('TRAIT_LEADER_SATYAGRAHA', 'BBG_TRAIT_FAITH_PER_CITY_FOLLOWING_RELIGION');
+
+--19/12/23 Varus cost 5 horse
+UPDATE Units SET StrategicResource='RESOURCE_HORSES' WHERE UnitType='UNIT_INDIAN_VARU';
+INSERT INTO Units_XP2 (UnitType, ResourceCost) VALUES
+	('UNIT_INDIAN_VARU', 10);

@@ -19,7 +19,7 @@ INSERT OR REPLACE INTO StartBiasResources(CivilizationType, ResourceType, Tier) 
     ('CIVILIZATION_MAYA', 'RESOURCE_TOBACCO', 3),
     ('CIVILIZATION_MAYA', 'RESOURCE_WINE', 3),
     ('CIVILIZATION_MAYA', 'RESOURCE_INCENSE', 3),
-    --('CIVILIZATION_MAYA', 'RESOURCE_OLIVES', 3),
+    -- ('CIVILIZATION_MAYA', 'RESOURCE_OLIVES', 3), other dlc
     ('CIVILIZATION_MAYA', 'RESOURCE_BANANAS', 4);
 
 DELETE FROM StartBiasResources WHERE CivilizationType='CIVILIZATION_MAYA' AND ResourceType='RESOURCE_GYPSUM';
@@ -53,3 +53,26 @@ INSERT INTO TypeTags(Type, Tag) Values
 -- 14/10 discount reduced to 35% (20 for diplo quarter) and unique district to 55%
 UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_OBSERVATORY';
 UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_OBSERVATORY';
+
+--19/12/23 Observatory adjacency from plantations reduced to +1 but plantations gain 2 science at education
+INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
+    ('IMPROVEMENT_PLANTATION', 'BBG_Plantation_Science_Observatory');
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict, PrereqTech) VALUES
+    ('BBG_Plantation_Science_Observatory', 'Placeholder', 'YIELD_SCIENCE', 2, 1, 'DISTRICT_OBSERVATORY', 'TECH_EDUCATION');
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+    ('IMPROVEMENT_PLANTATION', 'YIELD_SCIENCE', '0');
+UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='Plantation_Science';
+
+-- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+--     ('BBG_TRAIT_PLANTATIONS_SCIENCE_OBSERVATORY', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_PLOT_ADJACENT_TO_OBSERVATORIES_PLANTATIONS_AT_EDUCATION_REQSET');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+--     ('BBG_TRAIT_PLANTATIONS_SCIENCE_OBSERVATORY', 'YieldType', 'YIELD_SCIENCE'),
+--     ('BBG_TRAIT_PLANTATIONS_SCIENCE_OBSERVATORY', 'Amount', 2);
+-- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+--     ('BBG_PLOT_ADJACENT_TO_OBSERVATORIES_PLANTATIONS_AT_EDUCATION_REQSET', 'REQUIREMENTSET_TEST_ALL');
+-- INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+--     ('BBG_PLOT_ADJACENT_TO_OBSERVATORIES_PLANTATIONS_AT_EDUCATION_REQSET', 'REQUIRES_PLOT_HAS_PLANTATION'),
+--     ('BBG_PLOT_ADJACENT_TO_OBSERVATORIES_PLANTATIONS_AT_EDUCATION_REQSET', 'REQUIRES_PLOT_ADJACENT_TO_OBSERVATORY'),
+--     ('BBG_PLOT_ADJACENT_TO_OBSERVATORIES_PLANTATIONS_AT_EDUCATION_REQSET', 'BBG_UTILS_PLAYER_HAS_TECH_EDUCATION_REQUIREMENT');
+-- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+--     ('TRAIT_LEADER_MUTAL', 'BBG_TRAIT_PLANTATIONS_SCIENCE_OBSERVATORY');
