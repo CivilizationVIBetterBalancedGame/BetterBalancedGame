@@ -42,7 +42,7 @@ UPDATE ModifierArguments SET Value='-10, -10, -10, -10, -10, -10' WHERE Modifier
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_MAYA_CAPITAL_HOUSING', 'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_BUILDING_HOUSING');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_MAYA_CAPITAL_HOUSING', 'Amount', 3);
+    ('BBG_MAYA_CAPITAL_HOUSING', 'Amount', 1);
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_MAYAB', 'BBG_MAYA_CAPITAL_HOUSING');
 
