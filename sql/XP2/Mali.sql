@@ -111,7 +111,7 @@ INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
-    ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'Amount', '-20');
+    ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'Amount', '-15');
 
 -- --15/12/22 Mali mines from 4 base gold to 1 getting +1 at currency, banks and economics
 -- UPDATE ModifierArguments SET Value=1 WHERE ModifierId='TRAIT_MALI_MINES_GOLD' AND Name='Amount';
