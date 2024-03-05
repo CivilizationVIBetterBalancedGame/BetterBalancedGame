@@ -193,6 +193,21 @@ UPDATE ModifierArguments SET Value=6 WHERE ModifierId='ALLIANCE_ADD_GOLD_TO_DEST
 UPDATE ModifierArguments SET Value=4 WHERE ModifierId='ALLIANCE_ADD_FAITH_TO_ORIGIN_TRADE_ROUTE' AND Name='Amount';
 UPDATE ModifierArguments SET Value=4 WHERE ModifierId='ALLIANCE_ADD_FAITH_TO_DESTINATION_TRADE_ROUTE' AND Name='Amount';
 
+--05/03/2024 Religious alliance get +1food yield
+NSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+ 	('ALLIANCE_ADD_FOOD_TO_ORIGIN_TRADE_ROUTE', 'MODIFIER_ALLIANCE_TRADE_ROUTE_ADJUST_YIELD', 'ROUTE_BETWEEN_ALLIES_REQUIREMENTS'),
+ 	('ALLIANCE_ADD_FOOD_TO_DESTINATION_TRADE_ROUTE', 'MODIFIER_ALLIANCE_TRADE_ROUTE_ADJUST_YIELD', 'ROUTE_BETWEEN_ALLIES_REQUIREMENTS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+ 	('ALLIANCE_ADD_FOOD_TO_ORIGIN_TRADE_ROUTE', 'AffectDestination', 1),
+ 	('ALLIANCE_ADD_FOOD_TO_DESTINATION_TRADE_ROUTE', 'AffectOrigin', 1),
+	('ALLIANCE_ADD_FOOD_TO_ORIGIN_TRADE_ROUTE', 'Amount', 1),
+ 	('ALLIANCE_ADD_FOOD_TO_DESTINATION_TRADE_ROUTE', 'Amount', 1),
+ 	('ALLIANCE_ADD_FOOD_TO_ORIGIN_TRADE_ROUTE', 'YieldType', 'YIELD_FOOD'),
+	('ALLIANCE_ADD_FOOD_TO_DESTINATION_TRADE_ROUTE', 'YieldType', 'YIELD_FOOD');
+ INSERT INTO AllianceEffects (LevelRequirement, AllianceType, ModifierID) VALUES
+ 	('1', 'ALLIANCE_RELIGIOUS', 'ALLIANCE_ADD_FOOD_TO_ORIGIN_TRADE_ROUTE'),
+ 	('1', 'ALLIANCE_RELIGIOUS', 'ALLIANCE_ADD_FOOD_TO_DESTINATION_TRADE_ROUTE');
+
 --=======================================================================
 --******                       DISTRICTS                          ******
 --=======================================================================
