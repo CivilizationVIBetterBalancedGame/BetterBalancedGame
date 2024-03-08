@@ -35,7 +35,7 @@ INSERT OR IGNORE INTO RequirementSetRequirements
 --delete their new work ethic
 DELETE From BeliefModifiers WHERE ModifierId='WORK_ETHIC_ADJACENCY_PRODUCTION_2';
 -- nerf tithe
-UPDATE ModifierArguments SET Value='2' WHERE ModifierId='TITHE_GOLD_CITY_MODIFIER' AND Name='Amount';
+UPDATE ModifierArguments SET Value='3' WHERE ModifierId='TITHE_GOLD_CITY_MODIFIER' AND Name='Amount';
 -- feed the world housing reduced
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='FEED_THE_WORLD_SHRINE_HOUSING_MODIFIER' AND Name='Amount';
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='FEED_THE_WORLD_TEMPLE_HOUSING_MODIFIER' AND Name='Amount';

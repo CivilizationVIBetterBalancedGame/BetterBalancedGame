@@ -108,6 +108,10 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_RECON'),
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_NIHANG');
 
+-- 05/23 Buff Nihang +3 (25->28)
+UPDATE Units SET Combat=28 WHERE UnitType='UNIT_LAHORE_NIHANG';
+
+
 -- 16/12 Mobile SAM buff 110 anti air
 -- Start of the -5 vs planes but didn't find an adapted modifier
 -- INSERT INTO Tags VALUES
