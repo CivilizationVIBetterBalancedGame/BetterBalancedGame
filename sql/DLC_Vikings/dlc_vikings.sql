@@ -51,3 +51,13 @@ UPDATE Modifiers SET SubjectRequirementSetId='ATTACKING_REQUIREMENT_SET' WHERE M
 -- 12/06/23 Fix tourism at flight on some improvement
 INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, PrereqTech) VALUES
     ('IMPROVEMENT_MONASTERY', 'TOURISMSOURCE_FAITH', 'TECH_FLIGHT');
+
+-- 08/03/24 Granada's Alcazar buff
+-- +1 base prod
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+    ('IMPROVEMENT_ALCAZAR', 'YIELD_PRODUCTION', 1);
+-- +1 culture per adjacent encampment
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict) VALUES
+    ('BBG_ALCAZAR_CULTURE_ENCAMPMENT', 'LOC_BBG_ALCAZAR_CULTURE_ENCAMPMENT', 'YIELD_CULTURE', 1, 1, 'DISTRICT_ENCAMPMENT');
+INSERT INTO Improvement_Adjacencies(ImprovementType, YieldChangeId) VALUES
+    ('IMPROVEMENT_ALCAZAR', 'BBG_ALCAZAR_CULTURE_ENCAMPMENT');
