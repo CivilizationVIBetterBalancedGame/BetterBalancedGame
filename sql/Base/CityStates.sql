@@ -92,3 +92,6 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('MINOR_CIV_LISBON_TRAIT', 'BBG_MINOR_CIV_LISBON_UNIQUE_INFLUENCE_BONUS_GOLD');
 
+--09/03/2024 moai buildable next rainforest and forest
+DELETE FROM Improvement_InvalidAdjacentFeatures WHERE ImprovementType = 'IMPROVEMENT_MOAI';
+
