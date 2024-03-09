@@ -74,6 +74,9 @@ UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPIC
 -- add 1 production to fishing boat improvement
 UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_FISHING_BOATS' AND YieldType='YIELD_PRODUCTION';
 
+--09/03/2024 +1 housing to fishery
+UPDATE Improvements SET Housing=2 WHERE ImprovementType='IMPROVEMENT_FISHERY';
+
 -- Citizen specialists give +1 main yield
 UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' AND DistrictType='DISTRICT_ACROPOLIS';
 UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' AND DistrictType='DISTRICT_CAMPUS';
