@@ -95,3 +95,17 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 --09/03/2024 moai buildable next rainforest and forest
 DELETE FROM Improvement_InvalidAdjacentFeatures WHERE ImprovementType = 'IMPROVEMENT_MOAI';
 
+--09/03/24 Batey buff 
+--+1 prod for each strat
+--+1 food for each luxe
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+	('IMPROVEMENT_BATEY', 'YIELD_PRODUCTION', 0),
+    ('IMPROVEMENT_BATEY', 'YIELD_FOOD', 0);
+
+INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
+	('IMPROVEMENT_BATEY', 'BBG_Batey_Food_Luxe'),
+    ('IMPROVEMENT_BATEY', 'BBG_Batey_Prod_Strat');
+
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentResourceClass) VALUES
+	('BBG_Batey_Food_Luxe', 'Placeholder', 'YIELD_FOOD', 1, 1, 'RESOURCECLASS_LUXURY'),
+    ('BBG_Batey_Prod_Strat', 'Placeholder', 'YIELD_PRODUCTION', 1, 1,'RESOURCECLASS_STRATEGIC');
