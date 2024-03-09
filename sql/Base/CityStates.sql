@@ -117,3 +117,12 @@ INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType) VALUES
     ('IMPROVEMENT_BATEY', 'TERRAIN_DESERT_HILLS'),
     ('IMPROVEMENT_BATEY', 'TERRAIN_TUNDRA_HILLS'),
     ('IMPROVEMENT_BATEY', 'TERRAIN_SNOW_HILLS');
+
+
+-- 09/03/2024 colossal heads +1 food, +1 housing
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES ('IMPROVEMENT_COLOSSAL_HEAD', 'YIELD_FOOD', 1);
+UPDATE Improvements SET Housing=1 WHERE ImprovementType='IMPROVEMENT_COLOSSAL_HEAD';
+
+-- 09/03/2024 Monastery +1 food, +1faith per adjacent district at reformed church (instead of 2)
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES ('IMPROVEMENT_MONASTERY', 'YIELD_FOOD', 1);
+UPDATE Adjacency_YieldChanges SET TilesRequired='1' WHERE ID='Monastery_DistrictAdjacency';
