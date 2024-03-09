@@ -100,12 +100,20 @@ DELETE FROM Improvement_InvalidAdjacentFeatures WHERE ImprovementType = 'IMPROVE
 --+1 food for each luxe
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
 	('IMPROVEMENT_BATEY', 'YIELD_PRODUCTION', 0),
-    ('IMPROVEMENT_BATEY', 'YIELD_FOOD', 0);
+    ('IMPROVEMENT_BATEY', 'YIELD_GOLD', 0);
 
 INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
-	('IMPROVEMENT_BATEY', 'BBG_Batey_Food_Luxe'),
+	('IMPROVEMENT_BATEY', 'BBG_Batey_gold_Luxe'),
     ('IMPROVEMENT_BATEY', 'BBG_Batey_Prod_Strat');
 
 INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentResourceClass) VALUES
-	('BBG_Batey_Food_Luxe', 'Placeholder', 'YIELD_FOOD', 1, 1, 'RESOURCECLASS_LUXURY'),
+	('BBG_Batey_gold_Luxe', 'Placeholder', 'YIELD_GOLD', 1, 1, 'RESOURCECLASS_LUXURY'),
     ('BBG_Batey_Prod_Strat', 'Placeholder', 'YIELD_PRODUCTION', 1, 1,'RESOURCECLASS_STRATEGIC');
+
+-- Batey buildable on hills
+INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType) VALUES
+    ('IMPROVEMENT_BATEY', 'TERRAIN_GRASS_HILLS'),
+    ('IMPROVEMENT_BATEY', 'TERRAIN_PLAINS_HILLS'),
+    ('IMPROVEMENT_BATEY', 'TERRAIN_DESERT_HILLS'),
+    ('IMPROVEMENT_BATEY', 'TERRAIN_TUNDRA_HILLS'),
+    ('IMPROVEMENT_BATEY', 'TERRAIN_SNOW_HILLS');
