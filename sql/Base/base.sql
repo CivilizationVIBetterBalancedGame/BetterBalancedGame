@@ -58,8 +58,11 @@ DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_GREECE' AND T
 --******				    O T H E R					  ******
 --==============================================================
 -- oil can be found on flat plains
-INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType)
-	VALUES ('RESOURCE_OIL', 'TERRAIN_PLAINS');
+INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType) VALUES
+    ('RESOURCE_OIL', 'TERRAIN_PLAINS');
+-- 10/03/24 Jade can be found on forest
+INSERT INTO Resource_ValidFeatures (ResourceType, FeatureType) VALUES
+    ('RESOURCE_JADE', 'FEATURE_FOREST');
 -- incense +1 food
 -- mercury +1 food
 -- spice -1 food +1 gold
@@ -120,6 +123,7 @@ UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_MILITARY_ENGINEERING' 
 UPDATE Technologies SET Description='BBG_LOC_TECH_MILITARY_ENGINEERING_DESCRIPTION' WHERE TechnologyType='TECH_MILITARY_ENGINEERING';
 UPDATE Improvement_BonusYieldChanges SET BonusYieldChange=2 WHERE Id=13;
 DELETE FROM Improvement_BonusYieldChanges WHERE Id=231;
+UPDATE Technologies SET Description=NULL WHERE TechnologyType='TECH_PREDICTIVE_SYSTEMS';
 
 --****		REQUIREMENTS		****--
 INSERT OR IGNORE INTO Requirements
@@ -285,6 +289,18 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('REQSET_CITY_HAS_AQUEDUCT', 'REQUIRES_CITY_HAS_AQUEDUCT');
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('MINOR_CIV_MEXICO_CITY_TRAIT', 'BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT');
+
+--10/03/24 Jerusalem gives +1 gold per holy site
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'BBG_CITY_HAS_DISTRICT_HOLY_SITE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS', 'ModifierId', 'BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER'),
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'YieldType', 'YIELD_GOLD'),
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'Amount', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('MINOR_CIV_JERUSALEM_TRAIT', 'BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS');
+
 
 --=======================================================================
 --******                       AMENITIES                           ******

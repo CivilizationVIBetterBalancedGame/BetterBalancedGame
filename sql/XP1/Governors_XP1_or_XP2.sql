@@ -146,6 +146,7 @@ INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
     ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_GIVE_SETTLER_MOVEMENT_ABILITY');
 
 -- 24/04/23 Magnus' expedition gives +2 production to domestic trade routes
+-- 10/03/24 Swapped with +2 food promotion
 INSERT OR IGNORE INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
 INSERT OR IGNORE INTO ModifierArguments(ModifierId, Name, Value) VALUES
@@ -153,7 +154,8 @@ INSERT OR IGNORE INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Domestic', '1'),
     ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
 INSERT OR IGNORE INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION', 'BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD');
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD');
+UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION' WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD';
 
 -- Magnus' Surplus Logistics gives only +1 food (reverted)
 --UPDATE ModifierArguments SET Value='1' WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD' AND Name='Amount';

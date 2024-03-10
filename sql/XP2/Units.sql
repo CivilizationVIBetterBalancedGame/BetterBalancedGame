@@ -99,6 +99,7 @@ INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
 		('TCS_REQUIRES_TCS_UNIT_IS_MILITARY_ENGINEER', 'UnitType', 'UNIT_MILITARY_ENGINEER'),
 		('REQUIRES_IMPROVEMENT_IS_DEFENSIVE', 'RequirementSetId', 'IMPROVEMENT_IS_DEFENSIVE');
 
+
 -- Military Engineers can build roads without using charges
 UPDATE Routes_XP2 SET BuildWithUnitChargeCost=0 WHERE RouteType='ROUTE_ANCIENT_ROAD';
 UPDATE Routes_XP2 SET BuildWithUnitChargeCost=0 WHERE RouteType='ROUTE_INDUSTRIAL_ROAD';

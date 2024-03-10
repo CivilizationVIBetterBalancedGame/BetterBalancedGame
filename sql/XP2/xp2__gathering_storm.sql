@@ -350,7 +350,7 @@ UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_COTHON', 'DISTRICT
 --******                       CITY STATE                          ******
 --=======================================================================
 
---08/03/24 Mexico aqueduct amenities
+--08/03/24 Cardiff gives harbor building prod/gold
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_MINOR_CIV_CARDIFF_UNIQUE_INFLUENCE_BONUS_LIGHTHOUSE_PRODUCTION', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
     ('BBG_MINOR_CIV_CARDIFF_PRODUCTION_LIGHTHOUSE', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_YIELD_CHANGE', NULL),
