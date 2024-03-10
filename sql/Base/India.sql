@@ -60,7 +60,7 @@ INSERT OR IGNORE INTO RequirementArguments (RequirementId , Name , Value)
 -- 	('TRAIT_LEADER_SATYAGRAHA', 'BBG_TRAIT_FAITH_PER_CITY_FOLLOWING_RELIGION');
 
 -- 10/03/2024 nerf gandhi war weariness to 50%
-UPDATE ModifierArguments SET Amount=50 WHERE ModifierId='TRAIT_INCREASE_ENEMY_WAR_WEARINESS'; 
+UPDATE ModifierArguments SET Value=50 WHERE ModifierId='TRAIT_INCREASE_ENEMY_WAR_WEARINESS' AND Name='Amount'; 
 
 --19/12/23 Varus cost 5 horse
 UPDATE Units SET StrategicResource='RESOURCE_HORSES' WHERE UnitType='UNIT_INDIAN_VARU';
