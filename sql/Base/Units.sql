@@ -15,6 +15,9 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementI
 	('GRAPE_SHOT_REQUIREMENTS',	'PLAYER_IS_ATTACKER_REQUIREMENTS'),
 	('SHRAPNEL_REQUIREMENTS', 'PLAYER_IS_ATTACKER_REQUIREMENTS');
 
+-- 09/03/24 Buff military engineers +1 charge
+UPDATE Units SET BuildCharges=3 WHERE UnitType='UNIT_MILITARY_ENGINEER';
+
 -- Melee changes
 UPDATE Units SET Combat=46, PrereqTech='TECH_MILITARY_TACTICS' WHERE UnitType='UNIT_MAN_AT_ARMS';
 UPDATE Units SET Combat=36 WHERE UnitType='UNIT_SWORDSMAN';
@@ -110,7 +113,6 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
 
 -- 05/23 Buff Nihang +3 (25->28)
 UPDATE Units SET Combat=28 WHERE UnitType='UNIT_LAHORE_NIHANG';
-
 
 -- 16/12 Mobile SAM buff 110 anti air
 -- Start of the -5 vs planes but didn't find an adapted modifier

@@ -161,7 +161,8 @@ UPDATE RandomEvent_Damages Set Percentage=0 WHERE DamageType='UNIT_KILLED_CIVILI
 --==============================================================
 --******                    O T H E R                     ******
 --==============================================================
-UPDATE GlobalParameters SET Value='-2' WHERE Name='FAVOR_PER_OWNED_ORIGINAL_CAPITAL';
+--10/03/2024 capturing capital  means +2 instead of -2
+UPDATE GlobalParameters SET Value='2' WHERE Name='FAVOR_PER_OWNED_ORIGINAL_CAPITAL';
 -- oil available on all floodplains
 INSERT OR IGNORE INTO Resource_ValidFeatures (ResourceType, FeatureType)
     VALUES
