@@ -45,3 +45,14 @@ INSERT OR IGNORE INTO ModifierStrings (ModifierId , Context , Text)
 --	('FIRST_EMPEROR_TRAIT', 'TRAIT_TECHNOLOGY_BOOST');
 
 -- UPDATE 10/01/2023 Give back eureka to all China and move back builder to Qin-Shin only
+
+-- 10/03/24 QinShi +1 food per wonder
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_TRAIT_WONDER_FOOD', 'MODIFIER_SINGLE_CITY_ADJUST_WONDER_YIELD_CHANGE'),
+    ('BBG_TRAIT_ATTACH_WONDER_FOOD', 'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_TRAIT_ATTACH_WONDER_FOOD', 'ModifierId', 'BBG_TRAIT_WONDER_FOOD'),
+    ('BBG_TRAIT_WONDER_FOOD', 'Amount', '1'),
+    ('BBG_TRAIT_WONDER_FOOD', 'YieldType', 'YIELD_FOOD');
+INSERT INTO TraitModifiers VALUES
+    ('FIRST_EMPEROR_TRAIT', 'BBG_TRAIT_ATTACH_WONDER_FOOD');
