@@ -14,27 +14,19 @@ DELETE FROM Modifiers WHERE ModifierId='MINOR_CIV_NALANDA_FREE_TECHNOLOGY_MODIFI
 DELETE FROM Modifiers WHERE ModifierId='MINOR_CIV_NALANDA_FREE_TECHNOLOGY';
 
 -- Attach the modifier to check for improvement to each player
-INSERT INTO Modifiers 
-    (ModifierId, ModifierType)
-    VALUES
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('MINOR_CIV_NALANDA_MAHAVIHARA', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER');
 
 -- Modifier to actually check if the improvement is built, only done once
-INSERT INTO Modifiers 
-    (ModifierId, ModifierType, OwnerRequirementSetId, RunOnce, Permanent)
-    VALUES
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId, RunOnce, Permanent) VALUES
     ('MINOR_CIV_NALANDA_MAHAVIHARA_TECH_ON_FIRST_BUILD', 'MODIFIER_PLAYER_GRANT_RANDOM_TECHNOLOGY', 'PLAYER_HAS_MAHAVIHARA', 1, 1);
 
-INSERT INTO ModifierArguments
-    (ModifierId, Name, Type, Value)
-    VALUES
+INSERT INTO ModifierArguments (ModifierId, Name, Type, Value) VALUES
     ('MINOR_CIV_NALANDA_MAHAVIHARA', 'ModifierId', 'ARGTYPE_IDENTITY', 'MINOR_CIV_NALANDA_MAHAVIHARA_TECH_ON_FIRST_BUILD'),
     ('MINOR_CIV_NALANDA_MAHAVIHARA_TECH_ON_FIRST_BUILD', 'Amount', 'ARGTYPE_IDENTITY', 1);
 
 -- Modifier which triggers and attaches to all players when game is created 
-INSERT INTO GameModifiers
-    (ModifierId)
-    VALUES
+INSERT INTO GameModifiers (ModifierId) VALUES
     ('MINOR_CIV_NALANDA_MAHAVIHARA');
 
 
@@ -72,3 +64,6 @@ INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, Til
 
 INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId)
     VALUES ('IMPROVEMENT_MAHAVIHARA','BBG_Mahavihara_Lavra_Faith');
+
+
+-- 08/03/24 Samarkand dome also gives production
