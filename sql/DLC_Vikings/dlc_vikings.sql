@@ -51,3 +51,24 @@ UPDATE Modifiers SET SubjectRequirementSetId='ATTACKING_REQUIREMENT_SET' WHERE M
 -- 12/06/23 Fix tourism at flight on some improvement
 INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, PrereqTech) VALUES
     ('IMPROVEMENT_MONASTERY', 'TOURISMSOURCE_FAITH', 'TECH_FLIGHT');
+
+    
+--10/03/2024 Alcazar Improvement grants +1 sigth
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+SELECT 'IMPROVEMENT_IS_DEFENSIVE', 'REQUIRES_ALCAZAR_IN_PLOT'
+WHERE EXISTS (SELECT * FROM Improvements WHERE ImprovementType = 'IMPROVEMENT_ALCAZAR');
+
+/*INSERT INTO Requirements (RequirementId, RequirementType)
+SELECT 'REQUIRES_ALCAZAR_IN_PLOT', 'REQUIREMENT_PLOT_IMPROVEMENT_TYPE_MATCHES'
+WHERE EXISTS (SELECT * FROM Improvements WHERE ImprovementType = 'IMPROVEMENT_ALCAZAR');
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value)
+SELECT 'REQUIRES_ALCAZAR_IN_PLOT', 'ImprovementType', 'IMPROVEMENT_ALCAZAR'
+WHERE EXISTS (SELECT * FROM Improvements WHERE ImprovementType = 'IMPROVEMENT_ALCAZAR');*/
+
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES 
+    ('REQUIRES_ALCAZAR_IN_PLOT', 'REQUIREMENT_PLOT_IMPROVEMENT_TYPE_MATCHES');
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('REQUIRES_ALCAZAR_IN_PLOT', 'ImprovementType', 'IMPROVEMENT_ALCAZAR');
+
