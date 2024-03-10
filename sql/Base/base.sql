@@ -58,8 +58,11 @@ DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_GREECE' AND T
 --******				    O T H E R					  ******
 --==============================================================
 -- oil can be found on flat plains
-INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType)
-	VALUES ('RESOURCE_OIL', 'TERRAIN_PLAINS');
+INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType) VALUES
+    ('RESOURCE_OIL', 'TERRAIN_PLAINS');
+-- 10/03/24 Jade can be found on forest
+INSERT INTO Resource_ValidFeatures (ResourceType, FeatureType) VALUES
+    ('RESOURCE_JADE', 'FEATURE_FOREST');
 -- incense +1 food
 -- mercury +1 food
 -- spice -1 food +1 gold
