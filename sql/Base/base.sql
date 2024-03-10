@@ -123,6 +123,7 @@ UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_MILITARY_ENGINEERING' 
 UPDATE Technologies SET Description='BBG_LOC_TECH_MILITARY_ENGINEERING_DESCRIPTION' WHERE TechnologyType='TECH_MILITARY_ENGINEERING';
 UPDATE Improvement_BonusYieldChanges SET BonusYieldChange=2 WHERE Id=13;
 DELETE FROM Improvement_BonusYieldChanges WHERE Id=231;
+UPDATE Technologies SET Description=NULL WHERE TechnologyType='TECH_PREDICTIVE_SYSTEMS';
 
 --****		REQUIREMENTS		****--
 INSERT OR IGNORE INTO Requirements
