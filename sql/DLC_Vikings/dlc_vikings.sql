@@ -52,6 +52,18 @@ UPDATE Modifiers SET SubjectRequirementSetId='ATTACKING_REQUIREMENT_SET' WHERE M
 INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, PrereqTech) VALUES
     ('IMPROVEMENT_MONASTERY', 'TOURISMSOURCE_FAITH', 'TECH_FLIGHT');
 
+
+--10/03/2024 Alcazar Improvement grants +1 sigth
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+SELECT 'IMPROVEMENT_IS_DEFENSIVE', 'REQUIRES_ALCAZAR_IN_PLOT'
+WHERE EXISTS (SELECT * FROM Improvements WHERE ImprovementType = 'IMPROVEMENT_ALCAZAR');
+
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES 
+    ('REQUIRES_ALCAZAR_IN_PLOT', 'REQUIREMENT_PLOT_IMPROVEMENT_TYPE_MATCHES');
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('REQUIRES_ALCAZAR_IN_PLOT', 'ImprovementType', 'IMPROVEMENT_ALCAZAR');
+
 -- 08/03/24 Granada's Alcazar buff
 -- +1 base prod
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
