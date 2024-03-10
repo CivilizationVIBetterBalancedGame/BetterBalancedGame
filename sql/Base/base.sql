@@ -286,6 +286,18 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('MINOR_CIV_MEXICO_CITY_TRAIT', 'BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT');
 
+--10/03/24 Jerusalem gives +1 gold per holy site
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'BBG_CITY_HAS_DISTRICT_HOLY_SITE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS', 'ModifierId', 'BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER'),
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'YieldType', 'YIELD_GOLD'),
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'Amount', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('MINOR_CIV_JERUSALEM_TRAIT', 'BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS');
+
+
 --=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================
