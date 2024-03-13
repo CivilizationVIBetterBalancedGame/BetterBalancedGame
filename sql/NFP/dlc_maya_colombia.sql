@@ -8,10 +8,8 @@
 -- Nihang: General
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES
     ('BBG_REQUIRES_NIHANG', 'REQUIREMENT_UNIT_TAG_MATCHES');
-
 INSERT INTO RequirementArguments(RequirementId, Name , Value) VALUES
     ('BBG_REQUIRES_NIHANG', 'Tag', 'CLASS_LAHORE_NIHANG');
-
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
     ('AOE_CLASSICAL_REQUIREMENTS', 'BBG_REQUIRES_NIHANG'),
     ('AOE_MEDIEVAL_REQUIREMENTS', 'BBG_REQUIRES_NIHANG'),
@@ -39,6 +37,9 @@ INSERT OR IGNORE INTO UnitAbilities(UnitAbilityType, Name, Description, Permanen
 INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
     ('ABILITY_ENABLE_WALL_ATTACK_PROMOTION_CLASS', 'BBG_ENABLE_WALL_ATTACK_NIHANG'),
     ('ABILITY_BYPASS_WALLS_PROMOTION_CLASS', 'BBG_BYPASS_WALLS_NIHANG');
+
+-- 13/03/24 Buff Nihang +3 (25->28)
+UPDATE Units SET Combat=28 WHERE UnitType='UNIT_LAHORE_NIHANG';
 
 --13/03/24 Medic movement also work on Nihang
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
