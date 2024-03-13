@@ -1,6 +1,3 @@
--- Armagh
-UPDATE Improvement_YieldChanges SET YieldChange=3 WHERE ImprovementType='IMPROVEMENT_MONASTERY' AND YieldType='YIELD_FAITH';
-
 -- 15/12/22 Lysjefjord +2MP
 
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
@@ -94,5 +91,11 @@ UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_IS_IMPROVED_IN_SHALLOW_WA
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_IS_IMPROVED_IN_SHALLOW_WATER_AND_INDUSTRIAL' WHERE ModifierId='MINOR_CIV_AUCKLAND_SHALLOW_WATER_PRODUCTION_BONUS_INDUSTRIAL';
     
 -- 09/03/2024 Monastery +1 food, +1faith per adjacent district at reformed church (instead of 2)
-INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES ('IMPROVEMENT_MONASTERY', 'YIELD_FOOD', 1);
-UPDATE Adjacency_YieldChanges SET TilesRequired='1' WHERE ID='Monastery_DistrictAdjacency';
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+    ('IMPROVEMENT_MONASTERY', 'YIELD_FOOD', 1);
+UPDATE Improvement_YieldChanges SET YieldChange=3 WHERE ImprovementType='IMPROVEMENT_MONASTERY' AND YieldType='YIELD_FAITH';
+UPDATE Adjacency_YieldChanges SET ObsoleteCivic='CIVIC_REFORMED_CHURCH' WHERE ID='Monastery_DistrictAdjacency';
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, OtherDistrictAdjacent, PrereqCivic) VALUES
+    ('Monastery_DistrictAdjacency_ReformedChurch', 'Placeholder', 'YIELD_FAITH', 1, 1, 1, 'CIVIC_REFORMED_CHURCH');
+INSERT INTO Improvement_Adjacencies VALUES
+    ('IMPROVEMENT_MONASTERY', 'Monastery_DistrictAdjacency_ReformedChurch');
