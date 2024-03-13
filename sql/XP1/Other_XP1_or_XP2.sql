@@ -57,6 +57,7 @@ UPDATE ModifierArguments SET Value='2' WHERE ModifierId='COMMEMORATION_CULTURAL_
 
 -- 21/06/23 Exodus change to military golden
 -- +2 horse / iron / turn, 15% prod for military units, -1 gold for military units, +1 prod +1 culture for campement & building
+-- 13/03/24 prod/cult removed for encampment
 DELETE FROM CommemorationModifiers WHERE CommemorationType='COMMEMORATION_RELIGIOUS';
 
 -- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES

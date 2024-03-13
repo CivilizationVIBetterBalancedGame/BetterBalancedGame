@@ -60,7 +60,6 @@ WHERE EXISTS (SELECT * FROM Improvements WHERE ImprovementType = 'IMPROVEMENT_AL
 
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES 
     ('REQUIRES_ALCAZAR_IN_PLOT', 'REQUIREMENT_PLOT_IMPROVEMENT_TYPE_MATCHES');
-
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
     ('REQUIRES_ALCAZAR_IN_PLOT', 'ImprovementType', 'IMPROVEMENT_ALCAZAR');
 
@@ -68,10 +67,14 @@ INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
 -- +1 base prod
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
     ('IMPROVEMENT_ALCAZAR', 'YIELD_PRODUCTION', 1);
--- +1 culture per adjacent encampment
+-- +1 culture per adjacent encampment/Ikanda/Than
 INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict) VALUES
+    ('BBG_ALCAZAR_CULTURE_IKANDA', 'LOC_BBG_ALCAZAR_CULTURE_ENCAMPMENT', 'YIELD_CULTURE', 1, 1, 'DISTRICT_IKANDA'),
+    ('BBG_ALCAZAR_CULTURE_THANH', 'LOC_BBG_ALCAZAR_CULTURE_ENCAMPMENT', 'YIELD_CULTURE', 1, 1, 'DISTRICT_THANH'),
     ('BBG_ALCAZAR_CULTURE_ENCAMPMENT', 'LOC_BBG_ALCAZAR_CULTURE_ENCAMPMENT', 'YIELD_CULTURE', 1, 1, 'DISTRICT_ENCAMPMENT');
 INSERT INTO Improvement_Adjacencies(ImprovementType, YieldChangeId) VALUES
+    ('IMPROVEMENT_ALCAZAR', 'BBG_ALCAZAR_CULTURE_IKANDA'),
+    ('IMPROVEMENT_ALCAZAR', 'BBG_ALCAZAR_CULTURE_THANH'),
     ('IMPROVEMENT_ALCAZAR', 'BBG_ALCAZAR_CULTURE_ENCAMPMENT');
 
 -- 08/03/24 Auckland nerf : only work on improved tiles
