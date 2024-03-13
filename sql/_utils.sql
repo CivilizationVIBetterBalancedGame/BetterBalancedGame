@@ -8,6 +8,11 @@ INSERT INTO Requirements(RequirementId , RequirementType)
 INSERT INTO RequirementArguments(RequirementId , Name, Value)
     SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType FROM Districts;
 
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_IS_SPECIALTY_DISTRICT', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+    SELECT 'BBG_IS_SPECIALTY_DISTRICT', 'BBG_DISTRICT_IS_' || DistrictType || '_REQUIREMENT' FROM Districts WHERE RequiresPopulation=1;
+
 -- -- Create requirements for each district (needed for digital democracy)
 INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
     SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Districts;
