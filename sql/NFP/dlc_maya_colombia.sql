@@ -60,6 +60,29 @@ INSERT INTO UnitAbilityModifiers (UnitAbilityType, ModifierId) VALUES
 --08/03/24 Singapour works on every trader
 UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_INTERNATIONAL' WHERE ModifierId='MINOR_CIV_SINGAPORE_PRODUCTION_PER_MAJOR_TRADE_PARTNER';
 
+--09/03/24 Batey buff 
+--+1 prod for each strat
+--+1 food for each luxe
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+    ('IMPROVEMENT_BATEY', 'YIELD_PRODUCTION', 0),
+    ('IMPROVEMENT_BATEY', 'YIELD_GOLD', 0);
+
+INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
+    ('IMPROVEMENT_BATEY', 'BBG_Batey_gold_Luxe'),
+    ('IMPROVEMENT_BATEY', 'BBG_Batey_Prod_Strat');
+
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentResourceClass) VALUES
+    ('BBG_Batey_gold_Luxe', 'Placeholder', 'YIELD_GOLD', 1, 1, 'RESOURCECLASS_LUXURY'),
+    ('BBG_Batey_Prod_Strat', 'Placeholder', 'YIELD_PRODUCTION', 1, 1,'RESOURCECLASS_STRATEGIC');
+
+-- Batey buildable on hills
+INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType) VALUES
+    ('IMPROVEMENT_BATEY', 'TERRAIN_GRASS_HILLS'),
+    ('IMPROVEMENT_BATEY', 'TERRAIN_PLAINS_HILLS'),
+    ('IMPROVEMENT_BATEY', 'TERRAIN_DESERT_HILLS'),
+    ('IMPROVEMENT_BATEY', 'TERRAIN_TUNDRA_HILLS'),
+    ('IMPROVEMENT_BATEY', 'TERRAIN_SNOW_HILLS');
+    
 --==================
 -- Other
 --==================

@@ -268,40 +268,11 @@ UPDATE Technologies SET EraType="ERA_MODERN" WHERE TechnologyType='TECH_ADVANCED
 UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 
 --=======================================================================
---******                       CITY STATE                          ******
---=======================================================================
-
-UPDATE Resources SET Happiness=4 WHERE ResourceType IN ('RESOURCE_CINNAMON', 'RESOURCE_CLOVES');
-
---08/03/24 Mexico aqueduct amenities
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
-    ('BBG_MINOR_CIV_MEXICO_CITY_AMENITY_PER_AQUEDUCT', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_AMENITIES_FROM_CITY_STATES', 'REQSET_CITY_HAS_AQUEDUCT');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT', 'ModifierId', 'BBG_MINOR_CIV_MEXICO_CITY_AMENITY_PER_AQUEDUCT'),
-    ('BBG_MINOR_CIV_MEXICO_CITY_AMENITY_PER_AQUEDUCT', 'Amount', 1);
-INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-    ('REQSET_CITY_HAS_AQUEDUCT', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('REQSET_CITY_HAS_AQUEDUCT', 'REQUIRES_CITY_HAS_AQUEDUCT');
-INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
-    ('MINOR_CIV_MEXICO_CITY_TRAIT', 'BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT');
-
---10/03/24 Jerusalem gives +1 gold per holy site
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
-    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'BBG_CITY_HAS_DISTRICT_HOLY_SITE');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS', 'ModifierId', 'BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER'),
-    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'YieldType', 'YIELD_GOLD'),
-    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'Amount', 1);
-INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
-    ('MINOR_CIV_JERUSALEM_TRAIT', 'BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS');
-
-
---=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================
 
 UPDATE Happinesses SET GrowthModifier=8, NonFoodYieldModifier=8 WHERE HappinessType='HAPPINESS_HAPPY';
 UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_ECSTATIC';
+
+
+-- UPDATE Boosts SET BoostClass='BOOST_TRIGGER_LAND_UNIT_LEVEL', NumItems=3 WHERE CivicType='CIVIC_NATIONALISM';

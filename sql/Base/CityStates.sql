@@ -2,6 +2,33 @@
 --******			       CITY STATES      			  ******
 --==============================================================
 
+UPDATE Resources SET Happiness=4 WHERE ResourceType IN ('RESOURCE_CINNAMON', 'RESOURCE_CLOVES');
+
+--08/03/24 Mexico aqueduct amenities
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
+    ('BBG_MINOR_CIV_MEXICO_CITY_AMENITY_PER_AQUEDUCT', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_AMENITIES_FROM_CITY_STATES', 'REQSET_CITY_HAS_AQUEDUCT');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT', 'ModifierId', 'BBG_MINOR_CIV_MEXICO_CITY_AMENITY_PER_AQUEDUCT'),
+    ('BBG_MINOR_CIV_MEXICO_CITY_AMENITY_PER_AQUEDUCT', 'Amount', 1);
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('REQSET_CITY_HAS_AQUEDUCT', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('REQSET_CITY_HAS_AQUEDUCT', 'REQUIRES_CITY_HAS_AQUEDUCT');
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('MINOR_CIV_MEXICO_CITY_TRAIT', 'BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT');
+
+--10/03/24 Jerusalem gives +1 gold per holy site
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'BBG_CITY_HAS_DISTRICT_HOLY_SITE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS', 'ModifierId', 'BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER'),
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'YieldType', 'YIELD_GOLD'),
+    ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS_MODIFIER', 'Amount', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('MINOR_CIV_JERUSALEM_TRAIT', 'BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS');
+
 -- nan-modal culture per district no longer applies to city center or wonders
 INSERT OR IGNORE INTO Requirements ( RequirementId, RequirementType, Inverse ) VALUES
     ( 'REQUIRES_DISTRICT_IS_NOT_CITY_CENTER_BBG', 'REQUIREMENT_PLOT_DISTRICT_TYPE_MATCHES', 1 ),
@@ -70,62 +97,9 @@ UPDATE ModifierArguments SET Value='10' WHERE ModifierId='MINOR_CIV_CARTHAGE_MIL
 -- 09/03/24 Lisbon pillage apply on land too
 UPDATE ModifierArguments SET Value='ABILITY_ECONOMIC_GOLDEN_AGE_PLUNDER_IMMUNITY' WHERE ModifierId='MINOR_CIV_LISBON_SEA_TRADE_ROUTE_PLUNDER_IMMUNITY_BONUS' AND Name='AbilityType';
 
--- Bandar Brunei +2 golds flat for external
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_MINOR_CIV_JAKARTA_UNIQUE_INFLUENCE_BONUS_GOLD', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
-    ('BBG_MINOR_CIV_JAKARTA_GOLD_BONUS', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_INTERNATIONAL', NULL);
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_MINOR_CIV_JAKARTA_UNIQUE_INFLUENCE_BONUS_GOLD', 'ModifierId', 'BBG_MINOR_CIV_JAKARTA_GOLD_BONUS'),
-    ('BBG_MINOR_CIV_JAKARTA_GOLD_BONUS', 'YieldType', 'YIELD_GOLD'),
-    ('BBG_MINOR_CIV_JAKARTA_GOLD_BONUS', 'Amount', '2');
-INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('MINOR_CIV_JAKARTA_TRAIT', 'BBG_MINOR_CIV_JAKARTA_UNIQUE_INFLUENCE_BONUS_GOLD');
-
--- 09/03/24 Mogadiscio +2 golds flat for external
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_MINOR_CIV_LISBON_UNIQUE_INFLUENCE_BONUS_GOLD', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
-    ('BBG_MINOR_CIV_LISBON_GOLD_BONUS', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_INTERNATIONAL', NULL);
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_MINOR_CIV_LISBON_UNIQUE_INFLUENCE_BONUS_GOLD', 'ModifierId', 'BBG_MINOR_CIV_LISBON_GOLD_BONUS'),
-    ('BBG_MINOR_CIV_LISBON_GOLD_BONUS', 'YieldType', 'YIELD_GOLD'),
-    ('BBG_MINOR_CIV_LISBON_GOLD_BONUS', 'Amount', '2');
-INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('MINOR_CIV_LISBON_TRAIT', 'BBG_MINOR_CIV_LISBON_UNIQUE_INFLUENCE_BONUS_GOLD');
-
---09/03/2024 moai buildable next rainforest and forest
-DELETE FROM Improvement_InvalidAdjacentFeatures WHERE ImprovementType = 'IMPROVEMENT_MOAI';
-
---09/03/24 Batey buff 
---+1 prod for each strat
---+1 food for each luxe
-INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
-	('IMPROVEMENT_BATEY', 'YIELD_PRODUCTION', 0),
-    ('IMPROVEMENT_BATEY', 'YIELD_GOLD', 0);
-
-INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
-	('IMPROVEMENT_BATEY', 'BBG_Batey_gold_Luxe'),
-    ('IMPROVEMENT_BATEY', 'BBG_Batey_Prod_Strat');
-
-INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentResourceClass) VALUES
-	('BBG_Batey_gold_Luxe', 'Placeholder', 'YIELD_GOLD', 1, 1, 'RESOURCECLASS_LUXURY'),
-    ('BBG_Batey_Prod_Strat', 'Placeholder', 'YIELD_PRODUCTION', 1, 1,'RESOURCECLASS_STRATEGIC');
-
--- Batey buildable on hills
-INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType) VALUES
-    ('IMPROVEMENT_BATEY', 'TERRAIN_GRASS_HILLS'),
-    ('IMPROVEMENT_BATEY', 'TERRAIN_PLAINS_HILLS'),
-    ('IMPROVEMENT_BATEY', 'TERRAIN_DESERT_HILLS'),
-    ('IMPROVEMENT_BATEY', 'TERRAIN_TUNDRA_HILLS'),
-    ('IMPROVEMENT_BATEY', 'TERRAIN_SNOW_HILLS');
-
-
 -- 09/03/2024 colossal heads +1 food, +1 housing
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES ('IMPROVEMENT_COLOSSAL_HEAD', 'YIELD_FOOD', 1);
 UPDATE Improvements SET Housing=1 WHERE ImprovementType='IMPROVEMENT_COLOSSAL_HEAD';
-
--- 09/03/2024 Monastery +1 food, +1faith per adjacent district at reformed church (instead of 2)
-INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES ('IMPROVEMENT_MONASTERY', 'YIELD_FOOD', 1);
-UPDATE Adjacency_YieldChanges SET TilesRequired='1' WHERE ID='Monastery_DistrictAdjacency';
 
 --09/03/2024 Hattusa gives 2 Strategic that you discovered even if improved
 /*UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLAYER_CAN_SEE_HORSES' WHERE ModifierId='MINOR_CIV_HATTUSA_HORSES_RESOURCE_BONUS';

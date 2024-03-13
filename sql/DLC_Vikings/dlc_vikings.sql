@@ -52,6 +52,9 @@ UPDATE Modifiers SET SubjectRequirementSetId='ATTACKING_REQUIREMENT_SET' WHERE M
 INSERT OR IGNORE INTO Improvement_Tourism(ImprovementType, TourismSource, PrereqTech) VALUES
     ('IMPROVEMENT_MONASTERY', 'TOURISMSOURCE_FAITH', 'TECH_FLIGHT');
 
+--=======================================================================
+--******                       CITY STATE                          ******
+--=======================================================================
 
 --10/03/2024 Alcazar Improvement grants +1 sigth
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
@@ -90,3 +93,6 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_IS_IMPROVED_IN_SHALLOW_WATER' WHERE ModifierId='MINOR_CIV_AUCKLAND_SHALLOW_WATER_PRODUCTION_BONUS_BASE';
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_IS_IMPROVED_IN_SHALLOW_WATER_AND_INDUSTRIAL' WHERE ModifierId='MINOR_CIV_AUCKLAND_SHALLOW_WATER_PRODUCTION_BONUS_INDUSTRIAL';
     
+-- 09/03/2024 Monastery +1 food, +1faith per adjacent district at reformed church (instead of 2)
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES ('IMPROVEMENT_MONASTERY', 'YIELD_FOOD', 1);
+UPDATE Adjacency_YieldChanges SET TilesRequired='1' WHERE ID='Monastery_DistrictAdjacency';
