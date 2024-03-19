@@ -294,7 +294,8 @@ INSERT OR IGNORE INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGov
     VALUES ('AGRICULTURE_PROMOTION_BBG', 'GOVERNOR_PROMOTION_BUILDER_GUILDMASTER');
 
 -- better parks
-UPDATE Improvement_YieldChanges SET YieldChange=3 WHERE ImprovementType='IMPROVEMENT_CITY_PARK' AND YieldType='YIELD_CULTURE';
+--19/03/2024 city park nerf (3 -> 2 cultures)
+UPDATE Improvement_YieldChanges SET YieldChange=2 WHERE ImprovementType='IMPROVEMENT_CITY_PARK' AND YieldType='YIELD_CULTURE';
 INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
     ('IMPROVEMENT_CITY_PARK', 'YIELD_SCIENCE', 3);
 --INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
