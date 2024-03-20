@@ -237,3 +237,15 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 -- --Filippo Brunelleschi  - 315
 -- --Eiffel 480
 -- --Korolev 1500
+
+-- 19/03/24 Remove free trader per golden Mansa
+DELETE FROM TraitModifiers WHERE ModifierId='GOLDEN_AGE_TRADE_ROUTE';
+DELETE FROM Modifiers WHERE ModifierId='GOLDEN_AGE_TRADE_ROUTE';
+DELETE FROM ModifierArguments WHERE ModifierId='GOLDEN_AGE_TRADE_ROUTE';
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('TRAIT_BBG_MANSA_FREE_TRADER_BANKS', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_CAPACITY', 'BBG_UTILS_PLAYER_HAS_TECH_BANKING');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('TRAIT_BBG_MANSA_FREE_TRADER_BANKS', 'Amount', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_SAHEL_MERCHANTS', 'TRAIT_BBG_MANSA_FREE_TRADER_BANKS');

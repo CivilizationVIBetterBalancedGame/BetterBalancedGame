@@ -156,6 +156,9 @@ INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
 --     VALUES ('COMMEMORATION_CULTURAL_DISTRICTGOLD' , 'Amount' , '1');
 -- INSERT OR IGNORE INTO CommemorationModifiers (CommemorationType, ModifierId)
 
+-- 19/03/2024 free inquiry boost nerf (10% -> 5%)
+UPDATE ModifierArguments SET Value='5' WHERE ModifierId='COMMEMORATION_SCIENTIFIC_GA_BOOSTS' AND Name='Amount';
+
 --==============================================================
 --******				S  C  O  R  E				  	  ******
 --==============================================================
