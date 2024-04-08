@@ -29,7 +29,7 @@
 		</Row>
 		<!-- = leader ability (Bull Moose)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_ANTIQUES_AND_PARKS_DESCRIPTION" Language="ru_RU">
-			<Text>Клетки с потрясающим престижем, находящиеся рядом с чудом природы или горой, получают +1 к [ICON_SCIENCE] науке. Бонус удваивается после изучения технологии "Астрономия". Клетки с потрясающим престижем, находящиеся рядом с чудом или лесом, получают +1 к [ICON_CULTURE] культуре. Бонус удваивается после открытия социального института "Просвещение". Все клетки в городе с национальным парком имеют +1 к престижу. Можно сажать леса после открытия Средневековых ярмарок.</Text>
+			<Text>Клетки с потрясающим престижем, находящиеся рядом с чудом природы или горой, получают +1 к [ICON_SCIENCE] науке после открытия "Свода законов". Бонус удваивается после изучения технологии "Астрономия". Клетки с потрясающим престижем, находящиеся рядом с чудом или лесом, получают +1 к [ICON_CULTURE] культуре после открытия "Свода законов". Бонус удваивается после открытия социального института "Просвещение". Все клетки в городе с национальным парком имеют +1 к престижу. Можно сажать леса после открытия Средневековых ярмарок.</Text>
 		</Replace>
 		<!-- = leader ability (Rough Rider)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_ROOSEVELT_COROLLARY_ROUGH_RIDER_DESCRIPTION" Language="ru_RU">
@@ -365,7 +365,7 @@
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="ru_RU">
-			<Text>Обработанные или находящиеся под центром города ресурсы вдоль пойм дают +1 [ICON_FOOD] пищи и +1 [ICON_CULTURE] культуры после изучения Свода Законов. Принадлежащие вам клетки поймы дают +1 престижа соседним клеткам вместо обычного -1.</Text>
+			<Text>Обработанные или находящиеся под центром города ресурсы вдоль пойм дают +1 [ICON_FOOD] пищи. Принадлежащие вам клетки поймы дают +1 престижа соседним клеткам вместо обычного -1.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="ru_RU">
@@ -898,8 +898,15 @@
 		</Replace>
 		<!-- = leader ability (Varengian) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HARALD_ALT_XP_DESCRIPTION" Language="ru_RU">
-			<Text>Скидка 75% на мобилизацию юнитов, мобилизованные юниты получают +1 [ICON_Movement] очко перемещения и приносят [ICON_CULTURE] культуру, [ICON_FAITH] веру и [ICON_SCIENCE] науку за убийства в размере 50% от [ICON_STRENGTH] боевой мощи противника.[NEWLINE][NEWLINE]+25% [ICON_Production] производства при строительстве зданий в священных местах. Ставкирка приносит +1 [ICON_InfluencePerTurn] очко влияния в ход.[NEWLINE][NEWLINE]При первом обращении города в религию с помощью религиозного юнита вы получаете 10 [Icon_Science] науки и 10 [Icon_Culture] культуры за каждую [Icon_Citizen] единицу населения в этом городе </Text>
+			<Text>+1 [ICON_STRENGTH] боевой мощи морским юнитам в атаке за каждый Город-государство, сюзереном которого вы являетесь. Скидка 75% на мобилизацию юнитов, мобилизованные юниты получают +1 [ICON_Movement] очко перемещения и приносят [ICON_CULTURE] культуру, [ICON_FAITH] веру и [ICON_SCIENCE] науку за убийства в размере 50% от [ICON_STRENGTH] боевой мощи противника.[NEWLINE][NEWLINE]+25% [ICON_Production] производства при строительстве зданий в священных местах. Ставкирка приносит +1 [ICON_InfluencePerTurn] очко влияния в ход.[NEWLINE][NEWLINE]При первом обращении города в религию с помощью религиозного юнита вы получаете 10 [Icon_Science] науки и 10 [Icon_Culture] культуры за каждую [Icon_Citizen] единицу населения в этом городе </Text>
 		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_HARALD_ALT_XP_DESCRIPTION" Language="ru_RU">
+			<Text>+1 [ICON_STRENGTH] боевой мощи морским юнитам в атаке за каждый Город-государство, сюзереном которого вы являетесь.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_VARANGIAN_BOAT_CS_PER_SUZ_ABILITY_DESC" Language="ru_RU">
+			<Text>+1 [ICON_STRENGTH] боевой мощи морским юнитам в атаке за каждый Город-государство, сюзереном которого вы являетесь.</Text>
+		</Replace>
+		
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_NORWEGIAN_BERSERKER_DESCRIPTION" Language="ru_RU">
 			<Text>Уникальный норвежский юнит ближнего боя Средневековья. +2 [ICON_Movement] ОП, если движение начато на вражеской территории или на воде. +10 [ICON_Strength] к боевой мощи при атаке. Можно покупать за веру.</Text>
@@ -929,7 +936,7 @@
 		<!-- == OTTOMANS == -->
         <!-- = leader ability (Magnificence) = -->
         <Replace Tag="LOC_TRAIT_LEADER_SULEIMAN_ALT_DESCRIPTION" Language="ru_RU">
-             <Text>+10% [Icon_Science] науки и [Icon_Culture] культуры в [ICON_GLORY_GOLDEN_AGE] золотом или героическом веке. +4 [ICON_Strength] к боевой мощи не в [ICON_GLORY_GOLDEN_AGE] золотом или героическом веке против цивилизаций не в [ICON_GLORY_GOLDEN_AGE] золотом или героическом веке.</Text>
+             <Text>+10% [Icon_Science] науки и [Icon_Culture] культуры в [ICON_GLORY_GOLDEN_AGE] золотом или героическом веке. +2 [ICON_Strength] к боевой мощи не в [ICON_GLORY_GOLDEN_AGE] золотом или героическом веке, дополнительные +2 [ICON_STRENGTH] боевой мощи против цивилизаций не в [ICON_GLORY_GOLDEN_AGE] золотом или героическом веке.</Text>
         </Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SULEIMAN_JANISSARY_DESCRIPTION" Language="ru_RU">
@@ -1348,10 +1355,10 @@
 			<Text>Первоклассное жилье</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_PARKS_RECREATION_DESCRIPTION" Language="ru_RU">
-			<Text>Позволяет построить городской парк после изучения социального института «Игры и развлечения». Одна постройка на город. +3 [ICON_SCIENCE] Науки, +3 [ICON_Culture] Культуры, +2 [ICON_HOUSING] Жилья, +1 [ICON_Amenities] Довольства и +2 Престижа соседним клеткам.</Text>
+			<Text>Позволяет построить городской парк после изучения социального института «Игры и развлечения». Одна постройка на город. +3 [ICON_SCIENCE] Науки, +2 [ICON_Culture] Культуры, +2 [ICON_HOUSING] Жилья, +1 [ICON_Amenities] Довольства и +2 Престижа соседним клеткам.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_CITY_PARK_DESCRIPTION" Language="ru_RU">
-			<Text>Уникальное [ICON_Governor] губернаторское улучшение, которое можно построить только в городе с губернатором Лян и повышением "Парки и развлечения". Одна постройка на город. +3 [ICON_SCIENCE] Науки, +3 [ICON_Culture] Культуры, +2 [ICON_HOUSING] Жилья, +1 [ICON_Amenities] Довольства и +2 Престижа соседним клеткам.</Text>
+			<Text>Уникальное [ICON_Governor] губернаторское улучшение, которое можно построить только в городе с губернатором Лян и повышением "Парки и развлечения". Одна постройка на город. +3 [ICON_SCIENCE] Науки, +2 [ICON_Culture] Культуры, +2 [ICON_HOUSING] Жилья, +1 [ICON_Amenities] Довольства и +2 Престижа соседним клеткам.</Text>
 		</Replace>
 
 		<!-- == Moksha == -->
@@ -2957,7 +2964,7 @@
 			<Text>Standard</Text>
 		</Row>
 		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_0_DESC" Language="ru_RU">
-			<Text>Гарантирует +2 [ICON_FOOD] и +2 [ICON_PRODUCTION], если центр города не находится на ресурсе (Кроме [ICON_RESOURCE_WHEAT] пшеницы).</Text>
+			<Text>Гарантирует +2 [ICON_FOOD] и +2 [ICON_PRODUCTION], если центр города не находится на ресурсе (Кроме [ICON_RESOURCE_WHEAT] пшеницы и [ICON_RESOURCE_STONE] камня на плоской клетке).</Text>
 		</Row>
 		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_1_NAME" Language="ru_RU">
 			<Text>No RNG</Text>
