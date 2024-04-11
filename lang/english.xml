@@ -840,7 +840,7 @@
 		<!-- == MAORI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAORI_MANA_DESCRIPTION" Language="en_US">
-			<Text>Embarked units gain +2 [ICON_Movement] Movement after researching the Ship Building technology. Unimproved Woods and Rainforest gain +1 [ICON_PRODUCTION] Production once Early Empire is researched. Additional +1 [ICON_PRODUCTION] Production from Mercantilism and +2 [ICON_PRODUCTION] Production from Conservation. Fishing Boats provide +1 [ICON_FOOD] Food and a Culture Bomb to adjacent tiles. Resources cannot be harvested. [ICON_GreatWriter] Great Writers cannot be earned.</Text>
+			<Text>Embarked units gain +2 [ICON_Movement] Movement after researching the Ship Building technology. Unimproved Woods and Rainforest gain +1 [ICON_PRODUCTION] Production once Early Empire is researched. Additional +1 [ICON_PRODUCTION] Production from Mercantilism and +2 [ICON_PRODUCTION] Production from Conservation. Fishing Boats Culture Bomb adjacent tiles and provide +1 [ICON_FOOD] Food after Celestial Navigation. Resources cannot be harvested. [ICON_GreatWriter] Great Writers cannot be earned.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KUPES_VOYAGE_DESCRIPTION" Language="en_US">
@@ -956,6 +956,18 @@
 		<!-- = leader ability (Suleiman Muhtesem, Magnificent) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SULEIMAN_ALT_DESCRIPTION" Language="en_US">
 			<Text>+10% [Icon_Science] Science and [Icon_CUlture] Culture when in a [ICON_GLORY_GOLDEN_AGE] Golden Age or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age. +2 [ICON_Strength] Combat Strength when not in a [ICON_GLORY_GOLDEN_AGE] Golden Age or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age, doubled against Civilizations who are also not in a [ICON_GLORY_GOLDEN_AGE] Golden Age or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_SULEIMAN_ALT_COMBAT_PREVIEW" Language="en_US">
+			<Text>+2 [ICON_Strength] Combat Strength while in a Normal or Dark Age.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_SULEIMAN_ALT_COMBAT_DESC" Language="en_US">
+			<Text>+2 [ICON_Strength] Combat Strength while in a Normal or Dark Age.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SULEIMAN_COMBAT_DESCRIPTION" Language="en_US">
+			<Text>+4 [ICON_Strength] Combat Strength while in a Normal or Dark Age if opponent is also in a Normal or Dark Age.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_SULEIMAN_ALT_COMBAT_NAME" Language="en_US">
+			<Text>The Magnificent</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SULEIMAN_JANISSARY_DESCRIPTION" Language="en_US">
@@ -1825,7 +1837,7 @@
 			<Text>Three tile natural wonder. Units that enter it are teleported to an ocean far away, but naval units that do so earn the ability 'Mysterious Currents' (+1 [ICON_Movement] Movement).</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_PAITITI_DESCRIPTION" Language="en_US">
-			<Text>Three tile impassable natural wonder. It provides +1 [ICON_Gold] Gold and +1 [ICON_Culture] Culture to adjacent tiles. [ICON_TRADEROUTE] Trade routes sent from cities that own at least one tile of Paititi generate +4 [ICON_Gold] Gold.</Text>
+			<Text>Three tile impassable natural wonder. It provides +1 [ICON_Gold] Gold and +1 [ICON_Culture] Culture to adjacent tiles. International [ICON_TRADEROUTE] Trade Routes sent from cities that own at least one tile of Paititi generate +4 [ICON_Gold] Gold.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_GIANTS_CAUSEWAY_DESCRIPTION" Language="en_US">
 			<Text>Two tile impassable natural wonder. It provides +1 [ICON_CULTURE] Culture to adjacent tiles. Land combat units that enter adjacent tiles receive the ability 'Spear of Fionn' (+3 [ICON_STRENGTH] Combat Strength when attacking).</Text>
@@ -2684,6 +2696,9 @@
 		<Replace Tag="LOC_ABILITY_CHOLA_NAVAL_UNITS_COMBAT_STRENGTH_DESCRIPTION" Language="en_US">
 			<Text>+{1_Amount} Combat Strength from Magellan</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_CHOLA_NAVAL_COMBAT_DESCRIPTION" Language="en_US">
+			<Text>+3 [ICON_Strength] Combat Strength to all naval units (Ferdinand Magellan).</Text>
+		</Replace>
 		<Replace Tag="LOC_GREATPERSON_FRANCIS_DRAKE_EXPANSION2_ACTIVE" Language="en_US">
 			<Text>Instantly creates a Privateer unit with 1 promotion level. Military units get +50% rewards for plundering sea [ICON_TradeRoute] Trade Routes. +25% [ICON_Production] toward Naval Ranged and Naval Raider Units</Text>
 		</Replace>
@@ -3122,8 +3137,6 @@
 		<Replace Tag="LOC_VICTORY_TRADITIONAL_DOMINATION_TEXT" Language="en_US">
 			<Text>The world recognizes your absolute domination, for you built an empire on which the sun never sets.</Text>
 		</Replace>
-
-		
 		<Replace Tag="LOC_WORLD_RANKINGS_DOMINATION_TAB" Language="en_US">
 			<Text>Conquest</Text>
 		</Replace>
