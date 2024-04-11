@@ -495,12 +495,12 @@ UPDATE ModifierArguments SET Value='2' WHERE ModifierId='LAY_MINISTRY_CULTURE_DI
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='LAY_MINISTRY_FAITH_DISTRICTS_MODIFIER' AND Name='Amount';
 -- Itinerant Preachers now causes a Religion to spread 40% father away instead of only 30%
 -- UPDATE ModifierArguments SET Value='4' WHERE ModifierId='ITINERANT_PREACHERS_SPREAD_DISTANCE';
--- Cross-Cultural Dialogue is now +1 Science for every 3 foreign followers
-UPDATE ModifierArguments SET Value='3' WHERE ModifierId='CROSS_CULTURAL_DIALOGUE_SCIENCE_FOREIGN_FOLLOWER_MODIFIER' AND Name='PerXItems';
+-- Cross-Cultural Dialogue is now +1 Science for every 4 foreign followers
+UPDATE ModifierArguments SET Value='4' WHERE ModifierId='CROSS_CULTURAL_DIALOGUE_SCIENCE_FOREIGN_FOLLOWER_MODIFIER' AND Name='PerXItems';
 -- Tithe is now +1 Gold for every 3 followers
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='TITHE_GOLD_FOLLOWER_MODIFIER' AND Name='PerXItems';
--- World Church is now +1 Culture for every 3 foreign followers
-UPDATE ModifierArguments SET Value='3' WHERE ModifierId='WORLD_CHURCH_CULTURE_FOREIGN_FOLLOWER_MODIFIER' AND Name='PerXItems';
+-- World Church is now +1 Culture for every 4 foreign followers
+UPDATE ModifierArguments SET Value='4' WHERE ModifierId='WORLD_CHURCH_CULTURE_FOREIGN_FOLLOWER_MODIFIER' AND Name='PerXItems';
 -- Zen Meditation now only requires 1 District to get the +1 Amentity
 UPDATE RequirementArguments SET Value='1' WHERE RequirementId='REQUIRES_CITY_HAS_2_SPECIALTY_DISTRICTS' AND Name='Amount';
 

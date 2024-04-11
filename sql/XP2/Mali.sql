@@ -27,11 +27,14 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MALI_FOOD_IF_2_DESERT_TILES', 'Amount', '2');
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_REQUIRES_CITY_CENTER_REQSET', 'REQUIREMENTSET_TEST_ALL');
+
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_REQUIRES_CITY_CENTER_REQSET', 'REQUIRES_DISTRICT_IS_CITY_CENTER'),
     ('BBG_REQUIRES_CITY_CENTER_REQSET', 'BBG_REQUIRES_CITY_HAS_2_DESERT');
+
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
     ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'REQUIREMENT_CITY_HAS_X_TERRAIN_TYPE');
+
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
     ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'TerrainType', 'TERRAIN_DESERT'),
     ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'Hills', '1'),
@@ -42,21 +45,25 @@ DELETE FROM TraitModifiers WHERE TraitType = 'TRAIT_CIVILIZATION_MALI_GOLD_DESER
 DELETE FROM TraitModifiers WHERE TraitType = 'TRAIT_CIVILIZATION_MALI_GOLD_DESERT' AND ModifierId = 'TRAIT_DESERT_HILLS_CITY_CENTER_FOOD';
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_MALI_GOLD_DESERT', 'BBG_MALI_FOOD_IF_2_DESERT_TILES');
+--27/03/24 Remove faith for city centers next to desert tiles
+DELETE FROM TraitModifiers WHERE TraitType = 'TRAIT_CIVILIZATION_MALI_GOLD_DESERT' AND ModifierId = 'TRAIT_DESERT_CITY_CENTER_FAITH';
+DELETE FROM TraitModifiers WHERE TraitType = 'TRAIT_CIVILIZATION_MALI_GOLD_DESERT' AND ModifierId = 'TRAIT_DESERT_HILLS_CITY_CENTER_FAITH';
+
 
 --17/04/23 Reduce purchase discount from Suguba
 --25/10/23 Up purchase discount to 10%
 UPDATE ModifierArguments SET Value=10 WHERE ModifierId IN ('SUGUBA_CHEAPER_BUILDING_PURCHASE', 'SUGUBA_CHEAPER_DISTRICT_PURCHASE');
 UPDATE ModifierArguments SET Value=10 WHERE ModifierId='SUGUBA_CHEAPER_UNIT_PURCHASE' AND Name='Amount';
 
--- 25/10/23 +1 adjacency per oasis and +1 from being adjacent to river
+-- 25/10/23 Suguba +1 adjacency per oasis and +1 from being adjacent to river
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentFeature) VALUES
     ('BBG_SUGUBA_OASIS', 'LOC_SUGUBA_OASIS_GOLD', 'YIELD_GOLD', 1, 'FEATURE_OASIS');
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentRiver) VALUES
     ('BBG_SUGUBA_RIVER', 'LOC_SUGUBA_RIVER_GOLD', 'YIELD_GOLD', 1, 1);
 INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
-('DISTRICT_SUGUBA', 'BBG_SUGUBA_OASIS'),
+    ('DISTRICT_SUGUBA', 'BBG_SUGUBA_OASIS'),
     ('DISTRICT_SUGUBA', 'BBG_SUGUBA_RIVER');
-DELETE FROM District_Adjacencies WHERE DistrictType = "DISTRICT_SUGUBA" AND YieldChangeId = "River_Gold";
+DELETE FROM District_Adjacencies WHERE DistrictType = 'DISTRICT_SUGUBA' AND YieldChangeId = 'River_Gold';
 
 --17/04/23 Reduction to buy desert tiles
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
@@ -70,6 +77,37 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_MALI_GOLD_DESERT', 'BBG_DESERT_PLOT_COST'),
     ('TRAIT_CIVILIZATION_MALI_GOLD_DESERT', 'BBG_DESERT_HILLS_PLOT_COST');
+
+
+-- 31/03/24 HS gets +1 faith per adjacent oasis
+INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentFeature) VALUES
+    ('BBG_MALI_HS_OASIS', 'LOC_BBG_MALI_HS_OASIS', 'YIELD_FAITH', 1, 'FEATURE_OASIS');
+INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
+    ('DISTRICT_HOLY_SITE', 'BBG_MALI_HS_OASIS');
+INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
+   SELECT TraitType, 'BBG_MALI_HS_OASIS' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_MALI' GROUP BY CivilizationType;
+
+--27/03/24 Grant holy site +1 adjacent bonus if on a desert tile
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_PLAYER_IS_MALI', 'REQUIREMENT_PLAYER_TYPE_MATCHES'),
+    ('BBG_REQUIRES_PLOT_IS_DESERT_CLASS', 'REQUIREMENT_PLOT_TERRAIN_CLASS_MATCHES');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_PLAYER_IS_MALI', 'CivilizationType', 'CIVILIZATION_MALI'),
+    ('BBG_REQUIRES_PLOT_IS_DESERT_CLASS', 'TerrainClass', 'TERRAIN_CLASS_DESERT');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_PLAYER_IS_MALI_AND_PLOT_IS_DESERT_CLASS', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_PLAYER_IS_MALI_AND_PLOT_IS_DESERT_CLASS', 'BBG_PLAYER_IS_MALI'),
+    ('BBG_PLAYER_IS_MALI_AND_PLOT_IS_DESERT_CLASS', 'BBG_REQUIRES_PLOT_IS_DESERT_CLASS');
+
+INSERT INTO DistrictModifiers(DistrictType, ModifierId) VALUES
+    ('DISTRICT_HOLY_SITE', 'BBG_MALI_HS_ADJACENT_BONUS_ON_DESERT');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MALI_HS_ADJACENT_BONUS_ON_DESERT', 'Amount',   '1'),
+    ('BBG_MALI_HS_ADJACENT_BONUS_ON_DESERT', 'YieldType',   'YIELD_FAITH');
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_MALI_HS_ADJACENT_BONUS_ON_DESERT', 'MODIFIER_PLAYER_DISTRICT_ADJUST_BASE_YIELD_CHANGE', 'BBG_PLAYER_IS_MALI_AND_PLOT_IS_DESERT_CLASS');
+
 
 -- 17/04/23 Rework Mali so no need anymore
 -- DELETE FROM TraitModifiers WHERE TraitType = 'TRAIT_CIVILIZATION_MALI_GOLD_DESERT' AND ModifierId = 'TRAIT_LESS_UNIT_PRODUCTION';
@@ -111,7 +149,7 @@ INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
-    ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'Amount', '-20');
+    ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'Amount', '-15');
 
 -- --15/12/22 Mali mines from 4 base gold to 1 getting +1 at currency, banks and economics
 -- UPDATE ModifierArguments SET Value=1 WHERE ModifierId='TRAIT_MALI_MINES_GOLD' AND Name='Amount';
@@ -237,3 +275,15 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 -- --Filippo Brunelleschi  - 315
 -- --Eiffel 480
 -- --Korolev 1500
+
+-- 19/03/24 Remove free trader per golden Mansa
+DELETE FROM TraitModifiers WHERE ModifierId='GOLDEN_AGE_TRADE_ROUTE';
+DELETE FROM Modifiers WHERE ModifierId='GOLDEN_AGE_TRADE_ROUTE';
+DELETE FROM ModifierArguments WHERE ModifierId='GOLDEN_AGE_TRADE_ROUTE';
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('TRAIT_BBG_MANSA_FREE_TRADER_BANKS', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_CAPACITY', 'BBG_UTILS_PLAYER_HAS_TECH_BANKING');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('TRAIT_BBG_MANSA_FREE_TRADER_BANKS', 'Amount', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_SAHEL_MERCHANTS', 'TRAIT_BBG_MANSA_FREE_TRADER_BANKS');

@@ -56,3 +56,7 @@ INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUE
 --05/10/22 river bias
 INSERT INTO StartBiasRivers (CivilizationType, Tier) VALUES
     ('CIVILIZATION_OTTOMAN', 3);
+
+--19/03/24 +3 for all siege units instead of +5 against city center
+UPDATE ModifierArguments SET Value=3 WHERE ModifierId='GREAT_TURKISH_BOMBARD_STRENGTH';
+UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='GREAT_TURKISH_BOMBARD_STRENGTH';
