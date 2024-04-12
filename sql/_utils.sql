@@ -8,6 +8,11 @@ INSERT INTO Requirements(RequirementId , RequirementType)
 INSERT INTO RequirementArguments(RequirementId , Name, Value)
     SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType FROM Districts;
 
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_IS_SPECIALTY_DISTRICT', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+    SELECT 'BBG_IS_SPECIALTY_DISTRICT', 'BBG_DISTRICT_IS_' || DistrictType || '_REQUIREMENT' FROM Districts WHERE RequiresPopulation=1;
+
 -- -- Create requirements for each district (needed for digital democracy)
 INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
     SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Districts;
@@ -108,6 +113,9 @@ INSERT INTO Requirements (RequirementId, RequirementType) VALUES
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
     ('BBG_REQUIRES_PLOT_HAS_IMPROVED_LUXURY', 'ResourceClassType', 'RESOURCECLASS_LUXURY');
 
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_TILE_HAS_ANY_IMPROVEMENT', 'REQUIREMENT_PLOT_HAS_ANY_IMPROVEMENT');
+
 --modifier types
 INSERT INTO Types(Type, Kind) VALUES
     ('MODIFIER_SINGLE_PLAYER_ATTACH_MODIFIER', 'KIND_MODIFIER'),
@@ -149,3 +157,33 @@ CREATE TABLE CustomPlacement(
     PRIMARY KEY(ObjectType),
     FOREIGN KEY(Hash) REFERENCES Types(Hash) ON DELETE CASCADE ON UPDATE CASCADE
     );
+
+
+-- For Hungary and Varangian
+INSERT INTO Requirements(RequirementId, RequirementType)
+    SELECT 'BBG_PLAYER_IS_SUZERAIN_OF_' || LeaderType, 'REQUIREMENT_PLAYER_IS_SUZERAIN_OF_X'
+    FROM Leaders
+    WHERE InheritFrom IN
+        ('LEADER_MINOR_CIV_CULTURAL', 'LEADER_MINOR_CIV_INDUSTRIAL', 'LEADER_MINOR_CIV_MILITARISTIC',
+        'LEADER_MINOR_CIV_RELIGIOUS', 'LEADER_MINOR_CIV_SCIENTIFIC', 'LEADER_MINOR_CIV_TRADE');
+
+INSERT INTO RequirementArguments(RequirementId, Name, Type, Value)
+    SELECT 'BBG_PLAYER_IS_SUZERAIN_OF_' || LeaderType, 'LeaderType', 'ARGTYPE_IDENTITY', LeaderType
+    FROM Leaders
+    WHERE InheritFrom IN
+        ('LEADER_MINOR_CIV_CULTURAL', 'LEADER_MINOR_CIV_INDUSTRIAL', 'LEADER_MINOR_CIV_MILITARISTIC',
+        'LEADER_MINOR_CIV_RELIGIOUS', 'LEADER_MINOR_CIV_SCIENTIFIC', 'LEADER_MINOR_CIV_TRADE');
+
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
+    SELECT 'BBG_PLAYER_IS_SUZERAIN_OF_' || LeaderType || '_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL'
+    FROM Leaders
+    WHERE InheritFrom IN
+        ('LEADER_MINOR_CIV_CULTURAL', 'LEADER_MINOR_CIV_INDUSTRIAL', 'LEADER_MINOR_CIV_MILITARISTIC',
+        'LEADER_MINOR_CIV_RELIGIOUS', 'LEADER_MINOR_CIV_SCIENTIFIC', 'LEADER_MINOR_CIV_TRADE');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+    SELECT 'BBG_PLAYER_IS_SUZERAIN_OF_' || LeaderType || '_REQUIREMENTS', 'BBG_PLAYER_IS_SUZERAIN_OF_' || LeaderType
+    FROM Leaders
+    WHERE InheritFrom IN
+        ('LEADER_MINOR_CIV_CULTURAL', 'LEADER_MINOR_CIV_INDUSTRIAL', 'LEADER_MINOR_CIV_MILITARISTIC',
+        'LEADER_MINOR_CIV_RELIGIOUS', 'LEADER_MINOR_CIV_SCIENTIFIC', 'LEADER_MINOR_CIV_TRADE');

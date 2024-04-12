@@ -77,9 +77,10 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 DELETE FROM UnitReplaces WHERE CivUniqueUnitType='UNIT_MACEDONIAN_HETAIROI';
 
 -- 14/10/23 Add Military Card at political
-INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+-- 05/03/24 remove red card at political
+/*INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
     ('BBG_ADDITIONAL_MILITARY_CARD', 'MODIFIER_PLAYER_CULTURE_ADJUST_GOVERNMENT_SLOTS_MODIFIER', 'BBG_UTILS_PLAYER_HAS_CIVIC_POLITICAL_PHILOSOPHY_REQSET');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_ADDITIONAL_MILITARY_CARD', 'GovernmentSlotType', 'SLOT_MILITARY');
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('TRAIT_CIVILIZATION_HELLENISTIC_FUSION', 'BBG_ADDITIONAL_MILITARY_CARD');
+    ('TRAIT_CIVILIZATION_HELLENISTIC_FUSION', 'BBG_ADDITIONAL_MILITARY_CARD');*/

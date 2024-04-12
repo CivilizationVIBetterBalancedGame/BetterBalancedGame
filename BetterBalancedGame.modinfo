@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Release ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5070"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5080"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5070"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5080"> -->
 
 <!-- WIP ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5070">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5080">
 	<Properties>
 		<Name>Better Balanced Game WIP</Name>
 		<Description>
@@ -15,8 +15,8 @@
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>5070</Version>
-		<SpecialThanks>abstr, Apeul, codenaugh, coloo, D. / Jack The Narrator, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Klas, MarsLife(puj), priz, seed.of.apricot, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
+		<Version>5080</Version>
+		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, codenaugh, coloo, D. / Jack The Narrator, Kid, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Klas, MarsLife(puj), OSCAR., priz, seed.of.apricot, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
 	<!--
@@ -383,44 +383,60 @@
 			<Criteria>DLC_Vikings</Criteria>
 			<File>sql/DLC_Vikings/_dlc_vikings_utils.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="bbg_preload_db_aust_updated">
+		<UpdateDatabase id="BBG_Vikings_Vietnam">
 			<Properties>
 				<LoadOrder>11603</LoadOrder>
+			</Properties>
+			<Criteria>DLC_Vikings</Criteria>
+			<Criteria>XP1</Criteria>
+			<File>sql/DLC_Vikings/dlc_vikings_xp1.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Vikings_xp1">
+			<Properties>
+				<LoadOrder>11603</LoadOrder>
+			</Properties>
+			<Criteria>DLC_Vikings</Criteria>
+			<Criteria>KublaiKhan_Vietnam</Criteria>
+			<File>sql/DLC_Vikings/dlc_vikings_nfp.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="bbg_preload_db_aust_updated">
+			<Properties>
+				<LoadOrder>11604</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Australia</Criteria>
 			<File>sql/DLC_Australia/_dlc_australia_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_indokhmer_updated">
 			<Properties>
-				<LoadOrder>11604</LoadOrder>
+				<LoadOrder>11605</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Indonesia_Khmer</Criteria>
 			<File>sql/DLC_Indonesia_Khmer/_dlc_indo_khmer_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_xp1_updated">
 			<Properties>
-				<LoadOrder>11605</LoadOrder>
+				<LoadOrder>11606</LoadOrder>
 			</Properties>
 			<Criteria>XP1</Criteria>
 			<File>sql/XP1/_xp1_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_xp2_updated">
 			<Properties>
-				<LoadOrder>11606</LoadOrder>
+				<LoadOrder>11607</LoadOrder>
 			</Properties>
 			<Criteria>XP2</Criteria>
 			<File>sql/XP2/_xp2_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_mayacolombia_updated">
 			<Properties>
-				<LoadOrder>11607</LoadOrder>
+				<LoadOrder>11608</LoadOrder>
 			</Properties>
 			<Criteria>GranColombia_Maya</Criteria>
 			<File>sql/NFP/_nfp_maya_colombia_utils.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="bbg_preload_db_bbs_updated">
 			<Properties>
-				<LoadOrder>11608</LoadOrder>
+				<LoadOrder>11609</LoadOrder>
 			</Properties>
 			<Criteria>BBS</Criteria>
 			<File>sql/mod_associations/bbs/_bbs_utils.sql</File>
@@ -1217,6 +1233,8 @@
 		<!-- -->
 		<File>sql/DLC_Vikings/_dlc_vikings_utils.sql</File>
 		<File>sql/DLC_Vikings/dlc_vikings.sql</File>
+		<File>sql/DLC_Vikings/dlc_vikings_nfp.sql</File>
+		<File>sql/DLC_Vikings/dlc_vikings_xp1.sql</File>
 		<!-- -->
 		<File>sql/DLC_Poland/dlc_poland.sql</File>
 		<File>sql/DLC_Poland/xp2_poland.sql</File>

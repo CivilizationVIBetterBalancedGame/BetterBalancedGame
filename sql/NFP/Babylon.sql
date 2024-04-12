@@ -63,8 +63,7 @@ INSERT INTO TraitModifiers VALUES
     ('TRAIT_CIVILIZATION_BABYLON', 'BBG_BABYLON_FREE_EUREKA_LIBRARY');
 
 -- 17/04/23 Palgum requires freshwater and improved tiles but...
-INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
-    ('BBG_TILE_HAS_ANY_IMPROVEMENT', 'REQUIREMENT_PLOT_HAS_ANY_IMPROVEMENT', 0),
+INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
     ('BBG_REQUIRES_TILE_IS_NOT_FARM', 'REQUIREMENT_PLOT_IMPROVEMENT_TYPE_MATCHES', 1);
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
     ('BBG_REQUIRES_TILE_IS_NOT_FARM', 'ImprovementType', 'IMPROVEMENT_FARM');
