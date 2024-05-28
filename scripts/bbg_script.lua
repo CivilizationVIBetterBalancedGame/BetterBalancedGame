@@ -609,83 +609,7 @@ function OnGameplayMovementBugFixUpgrade(iPlayerID, kParameters)
 	UnitManager.ChangeMovesRemaining(pUnit, -nBaseMoves - nExtraMoves)
 	print("Post Upgrade Movement Readjusted")
 end
---Macedon (Reminder to Optimize those hooks)
-function OnMacedonConqueredACity(iNewOwnerID, iOldOwnerID, iCityID, iX, iY) -- refresh macedon trait as game property
-	--print("OnMacedonConqueredACity started")
-	local pNewOwner = Players[iNewOwnerID]
-	local pOldOwner = Players[iOldOwnerID]
-	--print("New "..tostring(iNewOwnerID).." Old: "..tostring(iOldOwnerID))
-	if PlayerConfigurations[iNewOwnerID]:GetCivilizationTypeName() ~= "CIVILIZATION_MACEDON" then
-		--print("Not Macedon CityConquered -> return")
-		return
-	end
-	if iOldOwnerID >= 60 then -- barbs and free cities
-		return
-	end
-	local nGameTurn = Game.GetCurrentGameTurn()
-	local tMacedon = {}
-	tMacedon.MacedonID = iNewOwnerID
-	tMacedon.nExpireTurn = nGameTurn+5
-	--print("MacedonID, nExpireTurn", tMacedon.MacedonID, tMacedon.nExpireTurn)
-	Game:SetProperty("MACEDON_CONQUEST", tMacedon)
-	--print("Game Property Set")
-	local pMacedonCities = pNewOwner:GetCities()
-	for i, pCity in pMacedonCities:Members() do
-		if pCity ~= nil then 
-			local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
-			if pPlot~=nil then
-				pPlot:SetProperty("GETS_MACEDON_20", 1)
-				--print("Macedon Plot Property Set for pCity", pCity)
-			end
-		end
-	end
-end
 
-function OnGameTurnStartedCheckMacedon(iPlayerID) --nil macedon property when time's up
-	--print("OnGameTurnStartedCheckMacedon started")
-	local nCurrentTurn = Game.GetCurrentGameTurn()
-	local tMacedon = Game:GetProperty("MACEDON_CONQUEST")
-	if tMacedon == nil then
-		--print("No Macedon Game Prop")
-		return
-	end
-	local pPlayer = Players[tMacedon.MacedonID]
-	local pPlayerCities = pPlayer:GetCities()
-	if nCurrentTurn>=tMacedon.nExpireTurn then
-		--print("Macedon End loop")
-		for i, pCity in pPlayerCities:Members() do
-			if pCity~=nil then
-				local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
-				if pPlot~=nil then 
-					pPlot:SetProperty("GETS_MACEDON_20", nil)
-					--print("Macedon plot Property removed for pCity", pCity)
-				end
-			end
-		end
-		Game:SetProperty("MACEDON_CONQUEST", nil)
-		--print("Macedon Game Property Removed")
-	else
-		--print("Macedon Properties Stay")
-	end
-end
-
-function OnMacedonCitySettled(iPlayerID, iCityID, iX, iY)
-	--print("OnMacedonCitySettled called")
-	if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()~= "CIVILIZATION_MACEDON" then
-		return
-	end
-	local tMacedon = Game:GetProperty("MACEDON_CONQUEST")
-	if tMacedon==nil then
-		--print("No Macedon Game prop -> exit")
-		return
-	end
-	local pPlot = Map.GetPlot(iX, iY)
-	if pPlot == nil then
-		return
-	end
-	pPlot:SetProperty("GETS_MACEDON_20", 1)
-	--print("New City Macedon plot property set", pCity)
-end
 
 --nulling out those inca plot properties
 function OnIncaCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
@@ -4230,7 +4154,51 @@ local count = 0
 end
 
 
+-- =======================================================================================
+-- 2024/5/23 by OSCAR. 
+-- The implementation of Macedon's trait: grants bonus production after conquering cities
+-- =======================================================================================
+local MacedonTraitTurnTracker = {}
 
+function InitializeMacedonTraitTurnTracker()
+	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
+	for i, iPlayerID in ipairs(tMajorIDs) do
+		if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()=="CIVILIZATION_MACEDON" then
+			local pPlayer = Players[iPlayerID]
+			-- Set a property to handle the case of loading game
+			MacedonTraitTurnTracker[iPlayerID] = pPlayer:GetProperty("TraitExpirationTurn") or -1
+		end
+	end
+end	
+
+function MacedonDummyResourceChange(playerID, resourceID, Amount)
+    local pPlayer = Players[playerID]
+    pPlayer:GetResources():ChangeResourceAmount(resourceID, Amount);
+end
+
+function OnMacedonConqueredCity(newPlayerID, oldPlayerID, newCityID, iCityX, iCityY) -- refresh macedon trait as game property
+	if MacedonTraitTurnTracker[newPlayerID] then
+		local currentPlayer = Players[newPlayerID]
+		local MacedonDummyResourceID = GameInfo.Resources["BBG_DUMMY_RESOURCE_MACEDON"].Index
+		local expirationTurn = Game.GetCurrentGameTurn() + 9
+        currentPlayer:SetProperty("TraitExpirationTurn", expirationTurn)
+		MacedonTraitTurnTracker[newPlayerID] = expirationTurn
+		MacedonDummyResourceChange(newPlayerID, MacedonDummyResourceID, 100)
+	end
+end
+
+function MacedonUpdateRemainingTurns(turn:number)
+    for playerID, expirationTurn in pairs(MacedonTraitTurnTracker) do
+        if turn > expirationTurn and expirationTurn ~= -1 then
+            local player = Players[playerID]
+            player:SetProperty("TraitExpirationTurn", -1)
+            MacedonTraitTurnTracker[playerID] = -1
+			local pRes = player:GetResources()
+			local MacedonDummyResourceID = GameInfo.Resources["BBG_DUMMY_RESOURCE_MACEDON"].Index
+			MacedonDummyResourceChange(playerID, MacedonDummyResourceID, -pRes:GetResourceAmount(MacedonDummyResourceID))
+        end
+    end
+end
 
 
 -- ===========================================================================
@@ -4254,36 +4222,30 @@ function Initialize()
 	end
 	--print("BBG - relevant Bug wonders populated")
 	-- turn checked effects:
+
+	Events.LoadGameViewStateDone.Add(InitializeMacedonTraitTurnTracker);
+	
 	GameEvents.OnGameTurnStarted.Add(OnGameTurnStarted);
 	--print("BBG Barb Hooks Added")
 	--print("BBG Domination Victory Hook Added")
 	-- monk spread
+	GameEvents.OnGameTurnStarted.Add(MacedonUpdateRemainingTurns);
+
 	GameEvents.OnCombatOccurred.Add(OnMonkCombatOccurred);
+
+	GameEvents.CityConquered.Add(OnMacedonConqueredCity);
+
 	--print("BBG Monk Hook Added")
 	-- upgradable uu exp bug fix
 	--LuaEvents.UIPromotionFixExp.Add(OnUIPromotionFixExp)
 	GameEvents.GameplayPromotionFixExp.Add(OnGameplayPromotionFixExp)
-	--print("BBG Promotion bugfix hook added")
-	-- tech boost effect:
-	-- Events.TechBoostTriggered.Add(OnTechBoost);
-	-- Extra Movement bugfix
-	--5.2. Disable: GameEvents.GameplayMovementBugFix.Add(OnGameplayMovementBugFix)
-	--5.2. Disable: GameEvents.GameplayMovementBugFixUpgrade.Add(OnGameplayMovementBugFixUpgrade)
-	--5.2. Disable: print("BBG Movement bugfix hook added")
+
 	-- Yield Adjustment hook
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then --moved to BCY no RNG only
 		GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
 		--print("BBG Fix firaxis wonder yield hook added")
 	end
-	-- communism
-	--LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
-	--5.2. Disable: GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
-	--LuaEvents.UIBBGDestroyDummyBuildings.Add(OnUIBBGDestroyDummyBuildings)
-	--5.2. Disable: GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
-	--5.2. Disable: GameEvents.PolicyChanged.Add(OnPolicyChanged)
-	--LuaEvents.UIBBGGovChanged.Add(OnUIBBGGovChanged)
-	--5.2. Disable: GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
-	--5.2. Disable: print("BBG Communism Hooks Added")
+
 	--Amani
 	--LuaEvents.UISetAmaniProperty.Add(OnUISetAmaniProperty)
 	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
@@ -4292,19 +4254,7 @@ function Initialize()
 	print("BBG Amani Gameplay hooks added")
 	GameEvents.GameplaySpyMissionCompleted.Add(OnGameplaySpyMissionCompleted)
 	print("BBG Spy Capture Capacity Gameplay Hook Added")
-	--Religion
-	GameEvents.GameplayReligionFounded.Add(OnGameplayReligionFounded)
-	GameEvents.GameplayBeliefAdded.Add(OnGameplayBeliefAdded)
-	GameEvents.GameplayCapitalCityChanged.Add(OnGameplayCapitalCityChanged)
-	GameEvents.GameplayPlayerDefeat.Add(OnGameplayPlayerDefeat)
-	--5.6. Disable: GameEvents.GameplayExodusSetProperty.Add(OnGameplayExodusSetProperty)
-	--5.6. Disable: print("Adding Remove Exodus")
-	--5.6. Disable: GameEvents.GameplayRemoveExodus.Add(OnGameplayRemoveExodus)
-	--5.6. Disable: print(OnGameplayRemoveExodus)
-	--Delete Suntzu for not-Unifier
-	--LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
-	--5.2. Disable: GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
-	--5.2. Disable: print("BBG Suntzu Gameplay Deletion hooks added")
+
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
 		if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()=="CIVILIZATION_BYZANTIUM" then
@@ -4331,46 +4281,10 @@ function Initialize()
 				--InitBarbData()
 			end
 			--print("Sumeria Warcart Added")
-		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
-			-- Inca Yields on non-mountain impassibles bugfix
-			--LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
-			--5.2. Disable: GameEvents.GameplayFixIncaBug.Add(OnGameplayFixIncaBug)
-			--5.2. Disable: GameEvents.CityConquered.Add(OnIncaCityConquered)
-			--5.2. Disable: print("BBG Inca Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_JULIUS_CAESAR" then
 			-- Caesar wildcard
 			GameEvents.CityBuilt.Add(OnCityBuilt);
 			GameEvents.CityConquered.Add(OnCityConquered)
-			--print("BBG Caesar Hooks Added")
-		--5.6. Disable: elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then
-			--5.6. Disable: GameEvents.GameplayLudwigWonderPlaced.Add(OnGameplayLudwigWonderPlaced)
-			--5.6. Disable: GameEvents.GameplayLudwigWonderRemoved.Add(OnGameplayLudwigWonderRemoved)
-			--5.6. Disable: GameEvents.GameplayLudwigWonderCompleted.Add(OnGameplayLudwigWonderCompleted)
-		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_MACEDON" then
-			--Macedon 20%
-			--5.2. Disable: GameEvents.CityConquered.Add(OnMacedonConqueredACity)
-			--5.2. Disable: GameEvents.OnGameTurnStarted.Add(OnGameTurnStartedCheckMacedon)
-			--5.2. Disable: GameEvents.CityBuilt.Add(OnMacedonCitySettled)
-			--5.2. Disable: print("BBG Macedon Hooks Added")
-		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
-			--Qin Unifier general bugfix
-			--LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
-			--LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
-			--LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
-			--LuaEvents.UIUnifierSamePlayerUniqueEffect.Add(OnUIUnifierSamePlayerUniqueEffect)
-			--5.2. Disable: GameEvents.GameplayGPGeneralUnifierCreated.Add(OnGameplayGPGeneralUnifierCreated)
-			--5.2. Disable: GameEvents.GameplayUnifierSameUnitUniqueEffect.Add(OnGameplayUnifierSameUnitUniqueEffect)
-			--5.2. Disable: GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
-			--5.2. Disable: GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
-			--5.2. Disable: print("BBG Unifier Hooks Added")
-		--Mvemba religion 
-		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_MVEMBA" then
-			--5.6. Disable: Game:SetProperty("MVEMVBA_ID", iPlayerID)
-			--5.6. Disable: GameEvents.GameplayMvembaCityReligionChanged.Add(OnGameplayMvembaCityReligionChanged)
-			--5.6. Disable: GameEvents.GameplayMvembaCityAddedToMap.Add(OnGameplayMvembaCityAddedToMap)
-			--5.6. Disable: GameEvents.GameplayMvembaCityRemovedFromMap.Add(OnGameplayMvembaCityRemovedFromMap)
-			--5.6. Disable: GameEvents.GameplayMvembaGiftCity.Add(OnGameplayMvembaGiftCity)
-			--5.6. Disable: print("Mvemba religious hooks added")
 		end
 	end
 	if BBCC_MODE ~= -1 then
