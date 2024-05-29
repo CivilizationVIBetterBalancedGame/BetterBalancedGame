@@ -609,83 +609,6 @@ function OnGameplayMovementBugFixUpgrade(iPlayerID, kParameters)
 	UnitManager.ChangeMovesRemaining(pUnit, -nBaseMoves - nExtraMoves)
 	print("Post Upgrade Movement Readjusted")
 end
---Macedon (Reminder to Optimize those hooks)
-function OnMacedonConqueredACity(iNewOwnerID, iOldOwnerID, iCityID, iX, iY) -- refresh macedon trait as game property
-	--print("OnMacedonConqueredACity started")
-	local pNewOwner = Players[iNewOwnerID]
-	local pOldOwner = Players[iOldOwnerID]
-	--print("New "..tostring(iNewOwnerID).." Old: "..tostring(iOldOwnerID))
-	if PlayerConfigurations[iNewOwnerID]:GetCivilizationTypeName() ~= "CIVILIZATION_MACEDON" then
-		--print("Not Macedon CityConquered -> return")
-		return
-	end
-	if iOldOwnerID >= 60 then -- barbs and free cities
-		return
-	end
-	local nGameTurn = Game.GetCurrentGameTurn()
-	local tMacedon = {}
-	tMacedon.MacedonID = iNewOwnerID
-	tMacedon.nExpireTurn = nGameTurn+5
-	--print("MacedonID, nExpireTurn", tMacedon.MacedonID, tMacedon.nExpireTurn)
-	Game:SetProperty("MACEDON_CONQUEST", tMacedon)
-	--print("Game Property Set")
-	local pMacedonCities = pNewOwner:GetCities()
-	for i, pCity in pMacedonCities:Members() do
-		if pCity ~= nil then 
-			local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
-			if pPlot~=nil then
-				pPlot:SetProperty("GETS_MACEDON_20", 1)
-				--print("Macedon Plot Property Set for pCity", pCity)
-			end
-		end
-	end
-end
-
-function OnGameTurnStartedCheckMacedon(iPlayerID) --nil macedon property when time's up
-	--print("OnGameTurnStartedCheckMacedon started")
-	local nCurrentTurn = Game.GetCurrentGameTurn()
-	local tMacedon = Game:GetProperty("MACEDON_CONQUEST")
-	if tMacedon == nil then
-		--print("No Macedon Game Prop")
-		return
-	end
-	local pPlayer = Players[tMacedon.MacedonID]
-	local pPlayerCities = pPlayer:GetCities()
-	if nCurrentTurn>=tMacedon.nExpireTurn then
-		--print("Macedon End loop")
-		for i, pCity in pPlayerCities:Members() do
-			if pCity~=nil then
-				local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY())
-				if pPlot~=nil then 
-					pPlot:SetProperty("GETS_MACEDON_20", nil)
-					--print("Macedon plot Property removed for pCity", pCity)
-				end
-			end
-		end
-		Game:SetProperty("MACEDON_CONQUEST", nil)
-		--print("Macedon Game Property Removed")
-	else
-		--print("Macedon Properties Stay")
-	end
-end
-
-function OnMacedonCitySettled(iPlayerID, iCityID, iX, iY)
-	--print("OnMacedonCitySettled called")
-	if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()~= "CIVILIZATION_MACEDON" then
-		return
-	end
-	local tMacedon = Game:GetProperty("MACEDON_CONQUEST")
-	if tMacedon==nil then
-		--print("No Macedon Game prop -> exit")
-		return
-	end
-	local pPlot = Map.GetPlot(iX, iY)
-	if pPlot == nil then
-		return
-	end
-	pPlot:SetProperty("GETS_MACEDON_20", 1)
-	--print("New City Macedon plot property set", pCity)
-end
 
 --nulling out those inca plot properties
 function OnIncaCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
@@ -4230,7 +4153,51 @@ local count = 0
 end
 
 
+-- =======================================================================================
+-- 2024/5/23 by OSCAR. 
+-- The implementation of Macedon's trait: grants bonus production after conquering cities
+-- =======================================================================================
+local MacedonTraitTurnTracker = {}
 
+function InitializeMacedonTraitTurnTracker()
+	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
+	for i, iPlayerID in ipairs(tMajorIDs) do
+		if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()=="CIVILIZATION_MACEDON" then
+			local pPlayer = Players[iPlayerID]
+			-- Set a property to handle the case of loading game
+			MacedonTraitTurnTracker[iPlayerID] = pPlayer:GetProperty("TraitExpirationTurn") or -1
+		end
+	end
+end	
+
+function MacedonDummyResourceChange(playerID, resourceID, Amount)
+    local pPlayer = Players[playerID]
+    pPlayer:GetResources():ChangeResourceAmount(resourceID, Amount);
+end
+
+function OnMacedonConqueredCity(newPlayerID, oldPlayerID, newCityID, iCityX, iCityY) -- refresh macedon trait as game property
+	if MacedonTraitTurnTracker[newPlayerID] then
+		local currentPlayer = Players[newPlayerID]
+		local MacedonDummyResourceID = GameInfo.Resources["BBG_DUMMY_RESOURCE_MACEDON"].Index
+		local expirationTurn = Game.GetCurrentGameTurn() + 9
+        currentPlayer:SetProperty("TraitExpirationTurn", expirationTurn)
+		MacedonTraitTurnTracker[newPlayerID] = expirationTurn
+		MacedonDummyResourceChange(newPlayerID, MacedonDummyResourceID, 100)
+	end
+end
+
+function MacedonUpdateRemainingTurns(turn:number)
+    for playerID, expirationTurn in pairs(MacedonTraitTurnTracker) do
+        if turn > expirationTurn and expirationTurn ~= -1 then
+            local player = Players[playerID]
+            player:SetProperty("TraitExpirationTurn", -1)
+            MacedonTraitTurnTracker[playerID] = -1
+			local pRes = player:GetResources()
+			local MacedonDummyResourceID = GameInfo.Resources["BBG_DUMMY_RESOURCE_MACEDON"].Index
+			MacedonDummyResourceChange(playerID, MacedonDummyResourceID, -pRes:GetResourceAmount(MacedonDummyResourceID))
+        end
+    end
+end
 
 
 -- ===========================================================================
@@ -4254,11 +4221,20 @@ function Initialize()
 	end
 	--print("BBG - relevant Bug wonders populated")
 	-- turn checked effects:
+
+	Events.LoadGameViewStateDone.Add(InitializeMacedonTraitTurnTracker);
+
 	GameEvents.OnGameTurnStarted.Add(OnGameTurnStarted);
 	--print("BBG Barb Hooks Added")
 	--print("BBG Domination Victory Hook Added")
 	-- monk spread
+
+	GameEvents.OnGameTurnStarted.Add(MacedonUpdateRemainingTurns);
+
 	GameEvents.OnCombatOccurred.Add(OnMonkCombatOccurred);
+
+	GameEvents.CityConquered.Add(OnMacedonConqueredCity);
+
 	--print("BBG Monk Hook Added")
 	-- upgradable uu exp bug fix
 	--LuaEvents.UIPromotionFixExp.Add(OnUIPromotionFixExp)
