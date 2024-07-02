@@ -1,6 +1,9 @@
 
 UPDATE GlobalParameters SET Value=2 WHERE Name='FORTIFY_BONUS_PER_TURN';
 
+-- 02/07/24 Cost of tech ahead of actual game era are now +30% instead of +20%
+UPDATE GlobalParameters SET Value=30 WHERE Name='TECH_COST_PERCENT_CHANGE_AFTER_GAME_ERA';
+
 --==============================================================
 --******				S  C  O  R  E				  	  ******
 --==============================================================
