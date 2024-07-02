@@ -1,8 +1,6 @@
 
 UPDATE GlobalParameters SET Value=2 WHERE Name='FORTIFY_BONUS_PER_TURN';
 
--- 02/07/24 Cost of tech ahead of actual game era are now +30% instead of +20%
-UPDATE GlobalParameters SET Value=30 WHERE Name='TECH_COST_PERCENT_CHANGE_AFTER_GAME_ERA';
 
 --==============================================================
 --******				S  C  O  R  E				  	  ******
@@ -269,6 +267,11 @@ UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_ENTERTAINMENT_
 --18/12/23 advanced ballistics advanced one era
 UPDATE Technologies SET EraType="ERA_MODERN" WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
+
+-- 02/07/24 Cost of tech ahead of actual game era are now +30% instead of +20%
+UPDATE GlobalParameters SET Value=30 WHERE Name='TECH_COST_PERCENT_CHANGE_AFTER_GAME_ERA';
+
+UPDATE Technologies SET Cost=Cost*1.05 WHERE EraType NOT IN ('ERA_ANCIENT', 'ERA_CLASSICAL');
 
 --=======================================================================
 --******                       AMENITIES                           ******
