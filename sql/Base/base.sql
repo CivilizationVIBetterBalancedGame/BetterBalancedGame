@@ -64,13 +64,16 @@ INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType) VALUES
 -- incense +1 food
 -- mercury +1 food
 -- spice -1 food +1 gold
+-- 02/07/24 Jade +1 prod (can no longer spawn on plains)
 INSERT OR IGNORE INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange) VALUES
 	('RESOURCE_INCENSE', 'YIELD_FOOD', 1),
 	('RESOURCE_MERCURY', 'YIELD_FOOD', 1),
+    ('RESOURCE_JADE', 'YIELD_PRODUCTION', 1),
 	('RESOURCE_SPICES', 'YIELD_GOLD', 1),
     ('RESOURCE_TEA', 'YIELD_FOOD', 1),
     ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1);
 UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPICES' AND YieldType='YIELD_FOOD';
+DELETE FROM Resource_ValidTerrains WHERE ResourceType='RESOURCE_JADE' AND TerrainType='TERRAIN_PLAINS';
 
 -- add 1 production to fishing boat improvement
 UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_FISHING_BOATS' AND YieldType='YIELD_PRODUCTION';
