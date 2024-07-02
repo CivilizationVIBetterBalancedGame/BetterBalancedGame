@@ -276,6 +276,9 @@ UPDATE GlobalParameters SET Value=30 WHERE Name='TECH_COST_PERCENT_CHANGE_AFTER_
 
 UPDATE Technologies SET Cost=Cost*1.05 WHERE EraType NOT IN ('ERA_ANCIENT', 'ERA_CLASSICAL');
 
+-- 02/07/24 Steel eureka is now "have 1 renaissance wall"
+UPDATE Boosts SET Unit1Type=NULL, BoostClass='BOOST_TRIGGER_HAVE_X_BUILDINGS', BuildingType='BUILDING_STAR_FORT', ImprovementType=NULL, ResourceType=NULL WHERE TechnologyType='TECH_STEEL';
+
 --=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================
