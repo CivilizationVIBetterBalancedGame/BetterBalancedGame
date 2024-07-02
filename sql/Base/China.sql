@@ -68,3 +68,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_TRAIT_WONDER_FOOD', 'YieldType', 'YIELD_FOOD');
 INSERT INTO TraitModifiers VALUES
     ('FIRST_EMPEROR_TRAIT', 'BBG_TRAIT_ATTACH_WONDER_FOOD');
+
+
+-- 02/07/24 Qin Shi builder charge for wonder upgraded to +20% (from +15%)
+UPDATE ModifierArguments SET Value=20 WHERE ModifierId='TRAIT_BUILDER_WONDER_PERCENT' AND Name='Amount';
