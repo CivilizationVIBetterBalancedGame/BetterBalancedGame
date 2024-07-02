@@ -5,7 +5,9 @@
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='BYZANTIUM_COMBAT_HOLY_CITIES' AND Name='Amount';
 --remove dromon combat bonus
 --25/10/23 remove dromon combat bonus again
-DELETE FROM UnitAbilityModifiers WHERE ModifierId='DROMON_COMBAT_STRENGTH_AGAINST_UNITS';
+-- nerf dromon cs bonus to +5
+-- DELETE FROM UnitAbilityModifiers WHERE ModifierId='DROMON_COMBAT_STRENGTH_AGAINST_UNITS';
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='DROMON_COMBAT_STRENGTH_AGAINST_UNITS' AND Name='Amount';
 
 -- Delete Byzantium religious spread (script will do it)
 DELETE FROM Modifiers WHERE ModifierId='BYZANTIUM_PRESSURE_KILLS';
