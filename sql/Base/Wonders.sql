@@ -504,3 +504,5 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 -- BioSphere - reduce cost
 UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_BIOSPHERE';
 
+-- 02/07/24 Oxford moved to Urbanization from Scientific Theory
+UPDATE Buildings SET PrereqTech=NULL, PrereqCivic='CIVIC_URBANIZATION' WHERE BuildingType='BUILDING_OXFORD_UNIVERSITY';
