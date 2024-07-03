@@ -121,6 +121,18 @@ INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromo
     ('BBG_GOVERNOR_PROMOTION_EDUCATOR_CAMPUS_BUILDING_YIELDS', 'GOVERNOR_PROMOTION_EDUCATOR_GRANTS'),
     ('GOVERNOR_PROMOTION_EDUCATOR_SPACE_INITIATIVE', 'BBG_GOVERNOR_PROMOTION_EDUCATOR_CAMPUS_BUILDING_YIELDS');
 
+-- 03/07/24 Pingala internal routes now give +1 food
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
+    VALUES
+        ('EDUCATOR_FOOD_FROM_DOMESTIC_TRADE_BBG', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
+INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
+    VALUES
+        ('EDUCATOR_FOOD_FROM_DOMESTIC_TRADE_BBG', 'Domestic', '1'),
+        ('EDUCATOR_FOOD_FROM_DOMESTIC_TRADE_BBG', 'Amount', '1'),
+        ('EDUCATOR_FOOD_FROM_DOMESTIC_TRADE_BBG', 'YieldType', 'YIELD_FOOD');
+INSERT OR IGNORE INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId)
+    VALUES
+        ('GOVERNOR_PROMOTION_EDUCATOR_TRADE_BBG', 'EDUCATOR_FOOD_FROM_DOMESTIC_TRADE_BBG');
 --===============================Victor
 -- Victor combat bonus reduced to +3
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='GARRISON_COMMANDER_ADJUST_CITY_COMBAT_BONUS' AND Name='Amount';
