@@ -19,7 +19,8 @@ INSERT OR IGNORE INTO Improvement_ValidTerrains (ImprovementType, TerrainType) V
 	('IMPROVEMENT_KURGAN', 'TERRAIN_SNOW_HILLS'),
 	('IMPROVEMENT_KURGAN', 'TERRAIN_TUNDRA_HILLS');
 --15/06/23 Kurgan +2 faith base (from +1)
-UPDATE Improvement_YieldChanges SET YieldChange=2 WHERE ImprovementType='IMPROVEMENT_KURGAN' AND YieldType='YIELD_FAITH';
+-- 03/07/24 to +1 again
+UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_KURGAN' AND YieldType='YIELD_FAITH';
 
 -- Can now purchase cavalry units with faith
 INSERT OR IGNORE INTO TraitModifiers (TraitType , ModifierId)
