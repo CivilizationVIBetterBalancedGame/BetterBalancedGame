@@ -35,7 +35,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 
 -- 04/07/24 England rework
 -- Production towards IZ building deleted from England (moved to Victoria AoS)
-DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_ADJUST_INDUSTRIAL_ZONE_BUILDINGS_PRODUCTION';
+DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_ADJUST_INDUSTRIAL_ZONE_BUILDINGS_PRODUCTION' AND TraitModifiers='TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION';
 
 -- 04/07/24 Seadogs nerfed to 53CS (from 55)
 UPDATE Units SET RangedCombat=53 WHERE UnitType='UNIT_ENGLISH_SEADOG';
