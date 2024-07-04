@@ -31,3 +31,13 @@ INSERT INTO ModifierArguments (ModifierId , Name , Value) VALUES
 
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_PAX_BRITANNICA', 'BBG_ADMIRAL_LIGHTHOUSE_DOCKYARD_GIVER');
+
+
+-- 04/07/24 England rework
+-- Production towards IZ building deleted from England (moved to Victoria AoS)
+DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_ADJUST_INDUSTRIAL_ZONE_BUILDINGS_PRODUCTION';
+
+-- 04/07/24 Seadogs nerfed to 53CS (from 55)
+UPDATE Units SET RangedCombat=53 WHERE UnitType='UNIT_ENGLISH_SEADOG';
+
+
