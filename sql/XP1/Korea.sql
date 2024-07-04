@@ -153,3 +153,4 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_SEONDEOK_MINUS_AFTER_FEUDALISM_NO_GOV', 'Amount', '-10, -10, -10, -10, -10, -10');
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_HWARANG', 'BBG_SEONDEOK_MINUS_AFTER_FEUDALISM_NO_GOV');
+    
