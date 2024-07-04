@@ -35,7 +35,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 
 -- 04/07/24 England rework
 -- Production towards IZ building deleted from England (moved to Victoria AoS)
-DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_ADJUST_INDUSTRIAL_ZONE_BUILDINGS_PRODUCTION' AND TraitModifiers='TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION';
+DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_ADJUST_INDUSTRIAL_ZONE_BUILDINGS_PRODUCTION' AND TraitType='TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION';
 
 -- 04/07/24 Seadogs nerfed to 53CS (from 55)
 UPDATE Units SET RangedCombat=53 WHERE UnitType='UNIT_ENGLISH_SEADOG';
@@ -45,16 +45,7 @@ UPDATE Units SET RangedCombat=53 WHERE UnitType='UNIT_ENGLISH_SEADOG';
 -- trader/melee unit removed on settle on new continent
 DELETE FROM TraitModifiers WHERE ModifierId IN ('TRAIT_FOREIGN_CONTINENT_TRADE_ROUTE', 'TRAIT_FOREIGN_CONTINENT_MELEE_UNIT');
 
--- now gets 1 melee unit when settling 10+tiles from capital
-INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-    ('BBG_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL_REQSET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL_REQSET', 'BBG_REQUIRES_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL');
-INSERT INTO Requirements(RequirementId, RequirementType) VALUES
-    ('BBG_REQUIRES_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL','REQUIREMENT_PLOT_NEAR_CAPITAL');
-INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
-    ('BBG_REQUIRES_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL', 'MinDistance', '10');
-    
+-- now gets 1 melee unit when settling 10+tiles from capital    
 INSERT INTO Modifiers (ModifierId, ModifierType, Permanent, SubjectRequirementSetId) VALUES
     ('BBG_TRAIT_GRANT_FREE_MELEE_UNIT_ON_10_OR_TILES_NEW_CITY', 'MODIFIER_PLAYER_CITIES_GRANT_UNIT_BY_CLASS', 1, 'BBG_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
