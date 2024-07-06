@@ -15,15 +15,15 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 
 -- 04/07/24 AoS RND give +2 adjency to IZ
 INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, AdjacentDistrict) VALUES
-    ('BBG_AOE_ADJENCY_IZ_RND', 'BBG_LOC_BBG_AOE_ADJENCY_IZ_RND', 'YIELD_PRODUCTION', 2, 'DISTRICT_ROYAL_NAVY_DOCKYARD');
+    ('BBG_AOS_ADJENCY_IZ_RND', 'LOC_BBG_AOS_ADJENCY_IZ_RND_DESC', 'YIELD_PRODUCTION', 2, 'DISTRICT_ROYAL_NAVY_DOCKYARD');
 INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
-    ('DISTRICT_INDUSTRIAL_ZONE', 'BBG_AOE_ADJENCY_IZ_RND');
+    ('DISTRICT_INDUSTRIAL_ZONE', 'BBG_AOS_ADJENCY_IZ_RND');
 INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
-   SELECT TraitType, 'BBG_AOE_ADJENCY_IZ_RND' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_ENGLAND' GROUP BY CivilizationType;
+   SELECT TraitType, 'BBG_AOS_ADJENCY_IZ_RND' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_ENGLAND' GROUP BY CivilizationType;
 INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
-	('TRAIT_LEADER_PAX_BRITANNICA', 'BBG_AOE_ADJENCY_IZ_RND'),
-	('TRAIT_LEADER_ELIZABETH', 'BBG_AOE_ADJENCY_IZ_RND'),
-	('TRAIT_LEADER_ELEANOR_LOYALTY', 'BBG_AOE_ADJENCY_IZ_RND');
+	('TRAIT_LEADER_PAX_BRITANNICA', 'BBG_AOS_ADJENCY_IZ_RND'),
+	('TRAIT_LEADER_ELIZABETH', 'BBG_AOS_ADJENCY_IZ_RND'),
+	('TRAIT_LEADER_ELEANOR_LOYALTY', 'BBG_AOS_ADJENCY_IZ_RND');
 
 -- 04/07/24 Lighthouse give +1 great engineer point (requirement is coded in England.sql)
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
