@@ -227,6 +227,12 @@ INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromo
     ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_VERTICAL_INTEGRATION', 'GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS');
 UPDATE GovernorPromotions SET Level=3, Column=1 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_VERTICAL_INTEGRATION';
 
+--=============================================================================================
+--=                                        LIANG                                              =
+--=============================================================================================
+
+-- Liang changes are in XP2/Governors.sql cause of some stuff interacting with natural disasters
+ 
 
 
 
@@ -306,80 +312,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_MAJOR_CIV', 'CS_AMANI_GIVES_2_FOOD_MODIFIER_BBG'),
     ('TRAIT_LEADER_MAJOR_CIV', 'CS_AMANI_GIVES_2_PROD_MODIFIER_BBG');
 
--- ====================================Liang=======================================
--- +1 prod on every resource
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('ZONING_COMMISH_PROD_CITIZEN_BBG', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'ZONING_COMMISH_PROD_BBG_REQUIREMENTS');
-INSERT OR IGNORE INTO ModifierArguments ( ModifierId, Name, Value ) VALUES
-    ( 'ZONING_COMMISH_PROD_CITIZEN_BBG', 'Amount', '1' ),
-    ( 'ZONING_COMMISH_PROD_CITIZEN_BBG', 'YieldType', 'YIELD_PRODUCTION' );
-INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType)
-    VALUES ('ZONING_COMMISH_PROD_BBG_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
-    VALUES ('ZONING_COMMISH_PROD_BBG_REQUIREMENTS', 'REQUIRES_PLOT_HAS_VISIBLE_RESOURCE');
-UPDATE GovernorPromotionModifiers SET ModifierId='ZONING_COMMISH_PROD_CITIZEN_BBG' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_ZONING_COMMISSIONER' AND ModifierId='ZONING_COMMISSIONER_FASTER_DISTRICT_CONSTRUCTION';
-DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_ZONING_COMMISSIONER';
-INSERT OR IGNORE INTO GovernorPromotionPrereqs ( GovernorPromotionType, PrereqGovernorPromotion ) VALUES
-    ( 'GOVERNOR_PROMOTION_ZONING_COMMISSIONER', 'GOVERNOR_PROMOTION_PARKS_RECREATION' );
-    --( 'GOVERNOR_PROMOTION_ZONING_COMMISSIONER', 'GOVERNOR_PROMOTION_WATER_WORKS' );
-UPDATE GovernorPromotions SET Level=3, 'Column'=1 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_ZONING_COMMISSIONER';
 
--- +1 food on every resource
-DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AQUACULTURE';
-DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AQUACULTURE';
-DELETE FROM GovernorPromotions WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AQUACULTURE';
-DELETE FROM GovernorPromotionSets WHERE GovernorPromotion='GOVERNOR_PROMOTION_AQUACULTURE';
-DELETE FROM Types WHERE Type='GOVERNOR_PROMOTION_AQUACULTURE';
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('AGRICULTURE_FOOD_BBG', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'AGRICULTURE_FOOD_BBG_REQUIREMENTS');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
-    VALUES ('AGRICULTURE_FOOD_BBG', 'YieldType', 'YIELD_FOOD');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
-    VALUES ('AGRICULTURE_FOOD_BBG', 'Amount', '1');
-INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType)
-    VALUES ('AGRICULTURE_FOOD_BBG_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
-    VALUES ('AGRICULTURE_FOOD_BBG_REQUIREMENTS', 'REQUIRES_PLOT_HAS_VISIBLE_RESOURCE');
-INSERT OR IGNORE INTO Types (Type, Kind) VALUES ('AGRICULTURE_PROMOTION_BBG', 'KIND_GOVERNOR_PROMOTION');
-INSERT OR IGNORE INTO GovernorPromotionSets (GovernorType, GovernorPromotion) VALUES ('GOVERNOR_THE_BUILDER', 'AGRICULTURE_PROMOTION_BBG');
-INSERT OR IGNORE INTO GovernorPromotions (GovernorPromotionType, Name, Description, Level, 'Column')
-    VALUES ('AGRICULTURE_PROMOTION_BBG', 'LOC_GOVERNOR_PROMOTION_AGRICULTURE_NAME', 'LOC_GOVERNOR_PROMOTION_AGRICULTURE_DESCRIPTION', 1, 2);
-INSERT OR IGNORE INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId)
-    VALUES ('AGRICULTURE_PROMOTION_BBG', 'AGRICULTURE_FOOD_BBG');
-INSERT OR IGNORE INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion)
-    VALUES ('AGRICULTURE_PROMOTION_BBG', 'GOVERNOR_PROMOTION_BUILDER_GUILDMASTER');
-
--- better parks
---19/03/2024 city park nerf (3 -> 2 cultures)
-UPDATE Improvement_YieldChanges SET YieldChange=2 WHERE ImprovementType='IMPROVEMENT_CITY_PARK' AND YieldType='YIELD_CULTURE';
-INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
-    ('IMPROVEMENT_CITY_PARK', 'YIELD_SCIENCE', 3);
---INSERT OR IGNORE INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
---    ('IMPROVEMENT_CITY_PARK', 'YIELD_GOLD', 3);
-UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='CITY_PARK_WATER_AMENITY';
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('CITY_PARK_HOUSING_BBG', 'MODIFIER_SINGLE_CITY_ADJUST_IMPROVEMENT_HOUSING');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
-    VALUES ('CITY_PARK_HOUSING_BBG', 'Amount', '2');
-INSERT OR IGNORE INTO ImprovementModifiers (ImprovementType, ModifierID) VALUES
-    ('IMPROVEMENT_CITY_PARK', 'CITY_PARK_HOUSING_BBG');
-DELETE FROM ImprovementModifiers WHERE ModifierID='CITY_PARK_GOVERNOR_CULTURE';
-DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_CITY_PARK' AND TerrainType='TERRAIN_DESERT_HILLS';
-DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_CITY_PARK' AND TerrainType='TERRAIN_GRASS_HILLS';
-DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_CITY_PARK' AND TerrainType='TERRAIN_PLAINS_HILLS';
-DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_CITY_PARK' AND TerrainType='TERRAIN_SNOW_HILLS';
-DELETE FROM Improvement_ValidTerrains WHERE ImprovementType='IMPROVEMENT_CITY_PARK' AND TerrainType='TERRAIN_TUNDRA_HILLS';
-UPDATE Improvements SET OnePerCity=1 WHERE ImprovementType='IMPROVEMENT_CITY_PARK';
--- move parks
-UPDATE GovernorPromotions SET Level=2, 'Column'=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_PARKS_RECREATION';
-DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_PARKS_RECREATION';
-
--- add fishery to tech tree
-UPDATE Improvements SET TraitType=NULL WHERE ImprovementType='IMPROVEMENT_FISHERY';
-DELETE FROM ImprovementModifiers WHERE ImprovementType='IMPROVEMENT_FISHERY';
-DELETE FROM Modifiers WHERE ModifierId='AQUACULTURE_CAN_BUILD_FISHERY';
-DELETE FROM ModifierArguments WHERE ModifierId='AQUACULTURE_CAN_BUILD_FISHERY';
-UPDATE Improvements SET PrereqTech='TECH_CARTOGRAPHY' WHERE ImprovementType='IMPROVEMENT_FISHERY';
 
 
 
@@ -430,7 +363,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT OR IGNORE INTO GovernorPromotionModifiers VALUES
     ('GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR', 'TAX_COLLECTOR_ADJUST_TRADE_CAPACITY_BBG');
 
--- 07/12 Liang 3 turns
+
 -- 4 turns
 -- Moksha, Reyna and Pingala also to 4 turns
-UPDATE Governors SET TransitionStrength=125 WHERE GovernorType IN ('GOVERNOR_THE_BUILDER', 'GOVERNOR_THE_EDUCATOR', 'GOVERNOR_THE_CARDINAL', 'GOVERNOR_THE_MERCHANT');
+UPDATE Governors SET TransitionStrength=125 WHERE GovernorType IN ('GOVERNOR_THE_EDUCATOR', 'GOVERNOR_THE_CARDINAL', 'GOVERNOR_THE_MERCHANT');
