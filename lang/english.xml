@@ -369,9 +369,17 @@
 		</Replace>
 
 		<!-- == ELEANOR (LEADER) == -->
-		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_ELEANOR_LOYALTY_DESCRIPTION" Language="en_US">
-			<Text>+100% [ICON_PRODUCTION] Production to Theater Square Buildings. Great Works in Eleanor's cities each cause -1 Loyalty per turn in foreign cities within 9 tiles. A city that leaves another civilization due to a loss of Loyalty and is currently receiving the most Loyalty per turn from Eleanor's civilization skips the Free City step to join this civilization.[NEWLINE][NEWLINE]Great Works receive additional yields (+1 for Writings and Relics, +2 for Art and Artifacts, +4 for Music) based on the districts built in this city: [ICON_SCIENCE] Science for Campus, [ICON_CULTURE] Culture for Theater Square, [ICON_GOLD] Gold for Harbor or Commercial Hub, [ICON_FAITH] Faith for Holy Site, [ICON_PRODUCTION] Production for Industrial Zone, and [ICON_FOOD] Food for Neighborhood.[NEWLINE](Can't receive other bonus yields on great works by City-states)[NEWLINE][NEWLINE]French Eleanor only: +20% [ICON_PRODUCTION] Production toward Ancient and Classical wonders.</Text>
+		<!-- = leader ability (English) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_ELEANOR_ENGLAND_LOYALTY_DESCRIPTION" Language="en_US">
+			<Text>+100% [ICON_PRODUCTION] Production to Theater Square Buildings. Great Works in Eleanor's cities each cause -1 Loyalty per turn in foreign cities within 9 tiles. A city that leaves another civilization due to a loss of Loyalty and is currently receiving the most Loyalty per turn from Eleanor's civilization skips the Free City step to join this civilization.[NEWLINE][NEWLINE]Great Works receive additional yields (+1 for Writings and Relics, +2 for Art and Artifacts, +4 for Music) based on the districts built in this city: [ICON_SCIENCE] Science for Campus, [ICON_CULTURE] Culture for Theater Square, [ICON_GOLD] Gold for Harbor or Commercial Hub, [ICON_FAITH] Faith for Holy Site, [ICON_PRODUCTION] Production for Industrial Zone, and [ICON_FOOD] Food for Neighborhood.[NEWLINE](Can't receive other bonus yields on great works by City-states)</Text>
+		</Replace>
+		<!-- = leader ability (French) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_ELEANOR_FRANCE_LOYALTY_DESCRIPTION" Language="en_US">
+			<Text>+20% [ICON_PRODUCTION] Production toward Ancient and Classical Wonders. +100% [ICON_PRODUCTION] Production to Theater Square Buildings. Great Works in Eleanor's cities each cause -1 Loyalty per turn in foreign cities within 9 tiles. A city that leaves another civilization due to a loss of Loyalty and is currently receiving the most Loyalty per turn from Eleanor's civilization skips the Free City step to join this civilization.[NEWLINE][NEWLINE]Great Works receive additional yields (+1 for Writings and Relics, +2 for Art and Artifacts, +4 for Music) based on the districts built in this city: [ICON_SCIENCE] Science for Campus, [ICON_CULTURE] Culture for Theater Square, [ICON_GOLD] Gold for Harbor or Commercial Hub, [ICON_FAITH] Faith for Holy Site, [ICON_PRODUCTION] Production for Industrial Zone, and [ICON_FOOD] Food for Neighborhood.[NEWLINE](Can't receive other bonus yields on great works by City-states)</Text>
+		</Replace>
+		<!-- = Civilopedia Entry, this combines both Eleanors currently = -->
+		<Replace Tag="LOC_TRAIT_LEADER_ELEANOR_FRANCE_LOYALTY_DESCRIPTION" Language="en_US">
+			<Text>+100% [ICON_PRODUCTION] Production to Theater Square Buildings. Great Works in Eleanor's cities each cause -1 Loyalty per turn in foreign cities within 9 tiles. A city that leaves another civilization due to a loss of Loyalty and is currently receiving the most Loyalty per turn from Eleanor's civilization skips the Free City step to join this civilization.[NEWLINE][NEWLINE]French Eleanor only: +20% [ICON_PRODUCTION] Production toward Ancient and Classical wonders,[NEWLINE][NEWLINE]Great Works receive additional yields (+1 for Writings and Relics, +2 for Art and Artifacts, +4 for Music) based on the districts built in this city: [ICON_SCIENCE] Science for Campus, [ICON_CULTURE] Culture for Theater Square, [ICON_GOLD] Gold for Harbor or Commercial Hub, [ICON_FAITH] Faith for Holy Site, [ICON_PRODUCTION] Production for Industrial Zone, and [ICON_FOOD] Food for Neighborhood.[NEWLINE](Can't receive other bonus yields on great works by City-states)</Text>
 		</Replace>
 
 		<!-- == ENGLAND == -->
@@ -2472,7 +2480,7 @@
 		</Replace>
 		<!-- = Grande Armée = -->
 		<Replace Tag="LOC_POLICY_GRANDE_ARMEE_DESCRIPTION" Language="en_US">
-			<Text>+50% [ICON_Production] Production toward Industrial era and earlier melee, recon, anti-cavalry, and ranged units.</Text>
+			<Text>+50% [ICON_Production] Production toward Modern era and earlier melee, recon, anti-cavalry, and ranged units.</Text>
 		</Replace>
 		<!-- = Hard Shell Explosives = -->
 		<Replace Tag="LOC_POLICY_HARD_SHELL_EXPLOSIVES_NAME" Language="en_US">
@@ -2819,19 +2827,13 @@
 
 		<!-- === WORLD CONGRESS === -->
 		<Replace Tag="LOC_WORLD_CONGRESS_IMPROVE_TRADE_WTH_PLAYER_DESC" Language="en_US">
-			<Text>International [ICON_TradeRoute] Trade Routes sent to the chosen player provide +4 [ICON_Gold] Gold to the chosen player. The chosen player receives +1 [ICON_TradeRoute] Trade Route capacity.</Text>
+			<Text>International [ICON_TradeRoute] Trade Routes sent to the chosen player provide +4 [ICON_Gold] Gold to the sender. The chosen player receives +1 [ICON_TradeRoute] Trade Route capacity.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BAN_TRADE_WITH_PLAYER_DESC" Language="en_US">
 			<Text>International [ICON_TradeRoute] Trade Routes sent to the chosen player or from the chosen player provide -4 [ICON_Gold] Gold (can be negative).</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_EMPOWER_RELIGION_DESC" Language="en_US">
 			<Text>+10 [ICON_Religion] Religious Strength for all religious units of this [ICON_Religion] Religion.</Text>
-		</Replace>
-		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_PRODUCTION_YIELD_DESC" Language="en_US">
-			<Text>Producing, or purchasing military units using the chosen currency type, is -25% of the cost until the next World Congress.</Text>
-		</Replace>
-		<Replace Tag="LOC_WORLD_CONGRESS_BAN_PRODUCTION_YIELD_DESC" Language="en_US">
-			<Text>Producing, or purchasing military units using the chosen currency type, is +50% of the cost until the next World Congress.</Text>
 		</Replace>
 
 
@@ -3235,4 +3237,10 @@
 			<Text>Guaranteed +3 [ICON_FOOD] +1 [ICON_PRODUCTION] for flat City Center.[NEWLINE]Guaranteed +2 [ICON_FOOD] +2 [ICON_PRODUCTION] for hills City Center.[NEWLINE]City Centers gain maximum between guaranteed yield and tile yield after removal of removable features.</Text>
 		</Row>
 	</LocalizedText>
+
+	<BaseGameText>
+		<Row Tag="LOC_BBG_DUMMY_RESOURCE_MACEDON_NAME">
+			<Text></Text>
+		</Row>
+	</BaseGameText>
 </GameData>
