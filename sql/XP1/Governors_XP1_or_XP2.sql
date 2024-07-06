@@ -293,61 +293,11 @@ UPDATE GovernorPromotions SET Column=1 WHERE GovernorPromotionType='GOVERNOR_PRO
 --=============================================================================================
 --=                                       AMANI                                               =
 --=============================================================================================
+
 -- Amani Abuse Fix... can immediately re-declare war when an enemy suzerian removes Amani
 UPDATE GlobalParameters SET Value='1' WHERE Name='DIPLOMACY_PEACE_MIN_TURNS';
--- new 1st on left promo for Amani
-INSERT OR IGNORE INTO Types (Type, Kind) VALUES ('GOVERNOR_PROMOTION_NEGOTIATOR_BBG', 'KIND_GOVERNOR_PROMOTION');
-INSERT OR IGNORE INTO GovernorPromotionSets (GovernorType, GovernorPromotion) VALUES ('GOVERNOR_THE_AMBASSADOR', 'GOVERNOR_PROMOTION_NEGOTIATOR_BBG');
-INSERT OR IGNORE INTO GovernorPromotions (GovernorPromotionType, Name, Description, Level, 'Column')
-    VALUES
-        ('GOVERNOR_PROMOTION_NEGOTIATOR_BBG', 'LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_NAME', 'LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_DESCRIPTION', 1, 0);
-INSERT OR IGNORE INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId)
-    VALUES
-        ('GOVERNOR_PROMOTION_NEGOTIATOR_BBG', 'DEFENDER_ADJUST_CITY_DEFENSE_STRENGTH'),
-        ('GOVERNOR_PROMOTION_NEGOTIATOR_BBG', 'DEFENSE_LOGISTICS_SIEGE_PROTECTION');
-INSERT OR IGNORE INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion)
-    VALUES
-        ('GOVERNOR_PROMOTION_NEGOTIATOR_BBG', 'GOVERNOR_PROMOTION_AMBASSADOR_MESSENGER');
--- move Amani's Emissary to 2nd on left
-UPDATE GovernorPromotions SET Level=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY';
-UPDATE GovernorPromotionPrereqs SET GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_PUPPETEER' WHERE PrereqGovernorPromotion='GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY';
-UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_NEGOTIATOR_BBG' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY';
-INSERT OR IGNORE INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
-        ('GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY', 'PRESTIGE_IDENTITY_PRESSURE_TO_DOMESTIC_CITIES');
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='EMISSARY_IDENTITY_PRESSURE_TO_FOREIGN_CITIES' AND Name='Amount';
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='PRESTIGE_IDENTITY_PRESSURE_TO_DOMESTIC_CITIES' AND Name='Amount';
--- Delete Amani's Foreign Investor
-DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
-DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
-DELETE FROM GovernorPromotionPrereqs WHERE PrereqGovernorPromotion='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
-DELETE FROM GovernorPromotionSets WHERE GovernorPromotion='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
-DELETE FROM GovernorPromotions WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
 
---Amani Traders
-INSERT INTO Requirements(RequirementId, RequirementType) VALUES
-    ('PLAYER_HAS_CS_AMANI_CITY_FLAG_REQ', 'REQUIREMENT_PLOT_PROPERTY_MATCHES'),
-    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQ', 'REQUIREMENT_PLOT_PROPERTY_MATCHES');
-INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
-    ('PLAYER_HAS_CS_AMANI_CITY_FLAG_REQ', 'PropertyName', 'AMANI_ESTABLISHED_CS'),
-    ('PLAYER_HAS_CS_AMANI_CITY_FLAG_REQ', 'PropertyMinimum', '1'),
-    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQ', 'PropertyName', 'TRADER_TO_AMANI_CS'),
-    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQ', 'PropertyMinimum', '1');
-INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
-    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG', 'PLAYER_HAS_CS_AMANI_CITY_FLAG_REQ'),
-    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQ');
-INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('CS_AMANI_GIVES_2_FOOD_MODIFIER_BBG', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG'),
-    ('CS_AMANI_GIVES_2_PROD_MODIFIER_BBG', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('CS_AMANI_GIVES_2_FOOD_MODIFIER_BBG', 'YieldType', 'YIELD_FOOD'),
-    ('CS_AMANI_GIVES_2_FOOD_MODIFIER_BBG', 'Amount', 2),
-    ('CS_AMANI_GIVES_2_PROD_MODIFIER_BBG', 'YieldType', 'YIELD_PRODUCTION'),
-    ('CS_AMANI_GIVES_2_PROD_MODIFIER_BBG', 'Amount', 2);    
-INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('TRAIT_LEADER_MAJOR_CIV', 'CS_AMANI_GIVES_2_FOOD_MODIFIER_BBG'),
-    ('TRAIT_LEADER_MAJOR_CIV', 'CS_AMANI_GIVES_2_PROD_MODIFIER_BBG');
+-- Amani changes are in xp2/Governors.sql
 
 
 --=============================================================================================

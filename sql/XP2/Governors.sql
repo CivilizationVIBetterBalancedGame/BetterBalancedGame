@@ -1,12 +1,58 @@
 --==============================================================
 --******                G O V E R N O R S                 ******
 --==============================================================
---===============================Amani====================------
--- Amani's changed 1st right ability
-DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE';
 
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
-    VALUES
+--=============================================================================================
+--=                                       AMANI                                               =
+--=============================================================================================
+
+-- Delete old promote
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY';
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY';
+DELETE FROM GovernorPromotionPrereqs WHERE PrereqGovernorPromotion='GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY';
+
+-- 5 turns
+
+-- Default Messenger : Can be assigned to a City-state, where she acts as 2 Envoys. When established in a City-state, your cities that have Trade route to this city gain +2 Food and +2 Production             
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+    ('PLAYER_HAS_CS_AMANI_CITY_FLAG_REQ', 'REQUIREMENT_PLOT_PROPERTY_MATCHES'),
+    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQ', 'REQUIREMENT_PLOT_PROPERTY_MATCHES');
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('PLAYER_HAS_CS_AMANI_CITY_FLAG_REQ', 'PropertyName', 'AMANI_ESTABLISHED_CS'),
+    ('PLAYER_HAS_CS_AMANI_CITY_FLAG_REQ', 'PropertyMinimum', '1'),
+    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQ', 'PropertyName', 'TRADER_TO_AMANI_CS'),
+    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQ', 'PropertyMinimum', '1');
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG', 'PLAYER_HAS_CS_AMANI_CITY_FLAG_REQ'),
+    ('CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQ');
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('CS_AMANI_GIVES_2_FOOD_MODIFIER_BBG', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG'),
+    ('CS_AMANI_GIVES_2_PROD_MODIFIER_BBG', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('CS_AMANI_GIVES_2_FOOD_MODIFIER_BBG', 'YieldType', 'YIELD_FOOD'),
+    ('CS_AMANI_GIVES_2_FOOD_MODIFIER_BBG', 'Amount', 2),
+    ('CS_AMANI_GIVES_2_PROD_MODIFIER_BBG', 'YieldType', 'YIELD_PRODUCTION'),
+    ('CS_AMANI_GIVES_2_PROD_MODIFIER_BBG', 'Amount', 2);    
+INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_MAJOR_CIV', 'CS_AMANI_GIVES_2_FOOD_MODIFIER_BBG'),
+    ('TRAIT_LEADER_MAJOR_CIV', 'CS_AMANI_GIVES_2_PROD_MODIFIER_BBG');  
+
+-- LI Negotiator : City cannot be put under Siege and gains +5 City Defense Strength.       
+INSERT INTO Types (Type, Kind) VALUES ('BBG_GOVERNOR_PROMOTION_NEGOTIATOR', 'KIND_GOVERNOR_PROMOTION');
+INSERT INTO GovernorPromotionSets (GovernorType, GovernorPromotion) VALUES ('GOVERNOR_THE_AMBASSADOR', 'BBG_GOVERNOR_PROMOTION_NEGOTIATOR');
+INSERT INTO GovernorPromotions (GovernorPromotionType, Name, Description, Level, Column) VALUES
+    ('BBG_GOVERNOR_PROMOTION_NEGOTIATOR', 'LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_NAME', 'LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_DESCRIPTION', 1, 0);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('BBG_GOVERNOR_PROMOTION_NEGOTIATOR', 'DEFENDER_ADJUST_CITY_DEFENSE_STRENGTH'),
+    ('BBG_GOVERNOR_PROMOTION_NEGOTIATOR', 'DEFENSE_LOGISTICS_SIEGE_PROTECTION');
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('BBG_GOVERNOR_PROMOTION_NEGOTIATOR', 'GOVERNOR_PROMOTION_AMBASSADOR_MESSENGER');  
+
+-- RI Affluence : Provides +2 additional Strategic Resources per turn of each one you have revealed.     
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE';
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('HORSES_AMANI_AMOUNT_MODIFIER', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_HORSES'),
     ('IRON_AMANI_AMOUNT_MODIFIER', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_IRON'),
     ('NITER_AMANI_AMOUNT_MODIFIER', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_NITER'),
@@ -14,8 +60,7 @@ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
     ('ALUMINUM_AMANI_AMOUNT_MODIFIER', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_ALUMINUM'),
     ('OIL_AMANI_AMOUNT_MODIFIER', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_OIL'),
     ('URANIUM_AMANI_AMOUNT_MODIFIER', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_URANIUM');
-INSERT INTO ModifierArguments (ModifierId, Name, Value)
-    VALUES
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('HORSES_AMANI_AMOUNT_MODIFIER', 'ResourceType', 'RESOURCE_HORSES'),
     ('HORSES_AMANI_AMOUNT_MODIFIER', 'Amount', '2'),
     ('IRON_AMANI_AMOUNT_MODIFIER', 'ResourceType', 'RESOURCE_IRON'),
@@ -37,12 +82,49 @@ INSERT INTO GovernorPromotionModifiers VALUES
     ('GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE', 'COAL_AMANI_AMOUNT_MODIFIER'),
     ('GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE', 'ALUMINUM_AMANI_AMOUNT_MODIFIER'),
     ('GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE', 'OIL_AMANI_AMOUNT_MODIFIER'),
-    ('GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE', 'URANIUM_AMANI_AMOUNT_MODIFIER');
+    ('GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE', 'URANIUM_AMANI_AMOUNT_MODIFIER');    
 
--- Correct Amani's Spies promo
+-- LII Local Informant : All cities within 9 tiles gain +4 Loyalty per turn towards your civilization. Spy operate with 3 malus level in the city
+UPDATE GovernorPromotions SET Level=2, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_LOCAL_INFORMANTS';    
+UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='BBG_GOVERNOR_PROMOTION_NEGOTIATOR' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_LOCAL_INFORMANTS';
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+        ('GOVERNOR_PROMOTION_LOCAL_INFORMANTS', 'PRESTIGE_IDENTITY_PRESSURE_TO_DOMESTIC_CITIES');
+UPDATE ModifierArguments SET Value='4' WHERE ModifierId='EMISSARY_IDENTITY_PRESSURE_TO_FOREIGN_CITIES' AND Name='Amount';
+UPDATE ModifierArguments SET Value='4' WHERE ModifierId='PRESTIGE_IDENTITY_PRESSURE_TO_DOMESTIC_CITIES' AND Name='Amount';
+
+-- RII Foreign Investor : +1food/+1prod/+3gold to traders sent to city state where established
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
+DELETE FROM GovernorPromotionPrereqs WHERE PrereqGovernorPromotion='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
+
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_CS_AMANI_GIVES_1_FOOD_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG'),
+    ('BBG_CS_AMANI_GIVES_1_PROD_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG'),
+    ('BBG_CS_AMANI_GIVES_3_GOLD_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_CS_AMANI_GIVES_1_FOOD_MODIFIER', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_CS_AMANI_GIVES_1_FOOD_MODIFIER', 'Amount', 1),
+    ('BBG_CS_AMANI_GIVES_1_PROD_MODIFIER', 'YieldType', 'YIELD_PRODUCTION'),
+    ('BBG_CS_AMANI_GIVES_1_PROD_MODIFIER', 'Amount', 1),
+    ('BBG_CS_AMANI_GIVES_3_GOLD_MODIFIER', 'YieldType', 'YIELD_GOLD'),
+    ('BBG_CS_AMANI_GIVES_3_GOLD_MODIFIER', 'Amount', 3);    
+INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_MAJOR_CIV', 'BBG_CS_AMANI_GIVES_1_FOOD_MODIFIER'),
+    ('TRAIT_LEADER_MAJOR_CIV', 'BBG_CS_AMANI_GIVES_1_PROD_MODIFIER'),
+    ('TRAIT_LEADER_MAJOR_CIV', 'BBG_CS_AMANI_GIVES_3_GOLD_MODIFIER'); 
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
-        ('GOVERNOR_PROMOTION_LOCAL_INFORMANTS', 'GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE');
-UPDATE GovernorPromotions SET Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_LOCAL_INFORMANTS';
+    ('GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR', 'GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE');
+
+-- MIII Puppeteer : While established in a city-state, doubles the number of envoys you have there.
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('GOVERNOR_PROMOTION_AMBASSADOR_PUPPETEER', 'GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR');
+
+
+
+-- -- Correct Amani's Spies promo
+-- INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+--         ('GOVERNOR_PROMOTION_LOCAL_INFORMANTS', 'GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE');
+-- UPDATE GovernorPromotions SET Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_LOCAL_INFORMANTS';
 
 
 --=============================================================================================
