@@ -269,10 +269,14 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
     ('GOVERNOR_PROMOTION_DEFENSE_LOGISTICS', 'BBG_VIKTOR_PRODUCTION_UNITS');
 
--- LII Embrasure : City cannot be sieged. +1 attack for city.       
+-- LII Embrasure : City cannot be sieged. +1 attack for city.
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EMBRASURE'; 
+UPDATE GovernorPromotions SET Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EMBRASURE';
 DELETE FROM GovernorPromotionModifiers WHERE ModifierId='CITY_DEFENDER_FREE_PROMOTIONS';
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
     ('GOVERNOR_PROMOTION_EMBRASURE', 'DEFENSE_LOGISTICS_SIEGE_PROTECTION');
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('GOVERNOR_PROMOTION_EMBRASURE', 'GOVERNOR_PROMOTION_GARRISON_COMMANDER');
 
 -- RII Arms Race : Units produced in this city start with one promotion. Units does not cost strategics in this city. +50% towards nuclear weapon projects      
 UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_DEFENSE_LOGISTICS' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_ARMS_RACE_PROPONENT'; 
@@ -282,24 +286,13 @@ INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUE
     ('GOVERNOR_PROMOTION_EDUCATOR_ARMS_RACE_PROPONENT', 'CITY_DEFENDER_FREE_PROMOTIONS'),
     ('GOVERNOR_PROMOTION_EDUCATOR_ARMS_RACE_PROPONENT', 'BLACK_MARKETEER_STRATEGIC_RESOURCE_COST_DISCOUNT');
 
--- MII Air Defense Initiative : +25 CS to anti air support unit within the city's territory when defending against aircraft and ICMBs.      
+-- MII Air Defense Initiative : +25 CS to anti air support unit within the city's territory when defending against aircraft and ICMBs.
+UPDATE GovernorPromotions SET Column=1 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE';
 
 
-
---=========================Magnus/Victor==================--
--- Strategics required reduced to zero for Black Marketeer and swapped with Victor's Arms Race
-
-
---=======================================Magnus+Victor
-DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EMBRASURE';
-INSERT OR IGNORE INTO GovernorPromotionPrereqs ( GovernorPromotionType, PrereqGovernorPromotion ) VALUES
-    -- ( 'GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST', 'GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS' ),
-    ( 'GOVERNOR_PROMOTION_EMBRASURE', 'GOVERNOR_PROMOTION_GARRISON_COMMANDER' );
--- UPDATE GovernorPromotions SET 'Column'=1 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST';
-UPDATE GovernorPromotions SET 'Column'=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EMBRASURE';
-UPDATE GovernorPromotions SET 'Column'=1 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE';
-
---=================================Amani==========================================
+--=============================================================================================
+--=                                       AMANI                                               =
+--=============================================================================================
 -- Amani Abuse Fix... can immediately re-declare war when an enemy suzerian removes Amani
 UPDATE GlobalParameters SET Value='1' WHERE Name='DIPLOMACY_PEACE_MIN_TURNS';
 -- new 1st on left promo for Amani
@@ -364,54 +357,95 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 -- Liang changes are in xp2/Governors.sql
 
 
---=============================Reyna=================================
--- Reyna's new 3rd level right ability
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('MANAGER_BUILDING_GOLD_DISCOUNT_BBG', 'MODIFIER_SINGLE_CITY_ADJUST_ALL_BUILDINGS_PURCHASE_COST'),
-    ('MANAGER_DISTRICT_GOLD_DISCOUNT_BBG', 'MODIFIER_SINGLE_CITY_ADJUST_ALL_DISTRICTS_PURCHASE_COST');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('MANAGER_BUILDING_GOLD_DISCOUNT_BBG', 'Amount', '50'),
-    ('MANAGER_DISTRICT_GOLD_DISCOUNT_BBG', 'Amount', '50');
-INSERT OR IGNORE INTO Types (Type, Kind) VALUES ('GOVERNOR_PROMOTION_MANAGER_BBG', 'KIND_GOVERNOR_PROMOTION');
-INSERT OR IGNORE INTO GovernorPromotionSets (GovernorType, GovernorPromotion) VALUES ('GOVERNOR_THE_MERCHANT', 'GOVERNOR_PROMOTION_MANAGER_BBG');
-INSERT OR IGNORE INTO GovernorPromotions (GovernorPromotionType, Name, Description, Level, 'Column')
-    VALUES
-        ('GOVERNOR_PROMOTION_MANAGER_BBG', 'LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_NAME', 'LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_DESCRIPTION', 3, 2);
-INSERT OR IGNORE INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId)
-    VALUES
-        ('GOVERNOR_PROMOTION_MANAGER_BBG', 'MANAGER_BUILDING_GOLD_DISCOUNT_BBG'),
-        ('GOVERNOR_PROMOTION_MANAGER_BBG', 'MANAGER_DISTRICT_GOLD_DISCOUNT_BBG');
-INSERT OR IGNORE INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion)
-    VALUES
-        ('GOVERNOR_PROMOTION_MANAGER_BBG', 'GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR');
+--=============================================================================================
+--=                                        LIANG                                              =
+--=============================================================================================
+
 -- Delete Reyna's old one
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_MERCHANT_RENEWABLE_ENERGY';
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_MERCHANT_RENEWABLE_ENERGY';
 DELETE FROM GovernorPromotionPrereqs WHERE PrereqGovernorPromotion='GOVERNOR_PROMOTION_MERCHANT_RENEWABLE_ENERGY';
 DELETE FROM GovernorPromotionSets WHERE GovernorPromotion='GOVERNOR_PROMOTION_MERCHANT_RENEWABLE_ENERGY';
 DELETE FROM GovernorPromotions WHERE GovernorPromotionType='GOVERNOR_PROMOTION_MERCHANT_RENEWABLE_ENERGY';
--- bump gold from base ability
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='FOREIGN_EXCHANGE_GOLD_FROM_FOREIGN_TRADE_PASSING_THROUGH' AND Name='Amount';
--- add +2 gold per breathtaking
-INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) VALUES
-    ('REQUIRES_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_BBG', 'REQUIREMENT_REQUIREMENTSET_IS_MET');
-INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) VALUES
-    ('REQUIRES_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_BBG', 'RequirementSetId', 'PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS');
-INSERT OR IGNORE INTO RequirementSets VALUES
-    ('PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_OR_BREATHTAKING_BBG', 'REQUIREMENTSET_TEST_ANY');
-INSERT OR IGNORE INTO RequirementSetRequirements VALUES
-    ('PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_OR_BREATHTAKING_BBG', 'REQUIRES_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_BBG'),
-    ('PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_OR_BREATHTAKING_BBG', 'REQUIRES_PLOT_BREATHTAKING_APPEAL');
-UPDATE Modifiers SET SubjectRequirementSetId='PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_OR_BREATHTAKING_BBG' WHERE ModifierId='FORESTRY_MANAGEMENT_FEATURE_NO_IMPROVEMENT_GOLD';
--- +1 trade route
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('TAX_COLLECTOR_ADJUST_TRADE_CAPACITY_BBG', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_CAPACITY');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('TAX_COLLECTOR_ADJUST_TRADE_CAPACITY_BBG', 'Amount', '1');
-INSERT OR IGNORE INTO GovernorPromotionModifiers VALUES
-    ('GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR', 'TAX_COLLECTOR_ADJUST_TRADE_CAPACITY_BBG');
-
 
 -- 4 turns
--- Moksha, Reyna and Pingala also to 4 turns
 UPDATE Governors SET TransitionStrength=125 WHERE GovernorType='GOVERNOR_THE_MERCHANT';
+
+-- Default Land Acquisition : Acquire new tiles in the city faster. +4 golds for foreign traders going through this city.
+UPDATE ModifierArguments SET Value='4' WHERE ModifierId='FOREIGN_EXCHANGE_GOLD_FROM_FOREIGN_TRADE_PASSING_THROUGH' AND Name='Amount';
+
+-- LI Harbormaster : Double adjacency bonuses from Commercial Hubs and Harbor in the city.      
+
+-- RI Forestry Management : This city receives +2 gold for each uninproved feature which also grant +1 appeal. +4 gold per internal traders. +1 traderoute capacity.        
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_REQUIRES_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS', 'REQUIREMENT_REQUIREMENTSET_IS_MET');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS', 'RequirementSetId', 'PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS');
+INSERT INTO RequirementSets VALUES
+    ('BBG_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_OR_BREATHTAKING_REQSET', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements VALUES
+    ('BBG_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_OR_BREATHTAKING_REQSET', 'BBG_REQUIRES_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS'),
+    ('BBG_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_OR_BREATHTAKING_REQSET', 'REQUIRES_PLOT_BREATHTAKING_APPEAL');
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_OR_BREATHTAKING_REQSET' WHERE ModifierId='FORESTRY_MANAGEMENT_FEATURE_NO_IMPROVEMENT_GOLD';
+        
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_REYNA_TRADEROUTE', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_CAPACITY');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_REYNA_TRADEROUTE', 'Amount', '1');
+INSERT INTO GovernorPromotionModifiers VALUES
+    ('GOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT', 'BBG_REYNA_TRADEROUTE');
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'Domestic', '1'),
+    ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'Amount', '4'),
+    ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'YieldType', 'YIELD_GOLD');
+
+INSERT INTO GovernorPromotionModifiers VALUES
+    ('GOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT', 'BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE');
+
+-- MII Tax Collector : +2 gold per turn for each citizen in the city. +1 traderoute capacity. 
+-- +1 trade route
+INSERT INTO GovernorPromotionModifiers VALUES
+    ('GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR', 'BBG_REYNA_TRADEROUTE');
+
+-- LIII Contractor : Allow city to purchase districts with gold. Building cost reduced by 50%. Support unit buy reduced by 50%      
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_REYNA_BUILDING_GOLD_DISCOUNT', 'MODIFIER_SINGLE_CITY_ADJUST_ALL_BUILDINGS_PURCHASE_COST');
+INSERT INTO Modifiers (ModifierId, ModifierType)
+    SELECT 'BBG_REYNA_' || UnitType || '_GOLD_DISCOUNT', 'MODIFIER_PLAYER_CITIES_ADJUST_UNIT_PURCHASE_COST' FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_REYNA_BUILDING_GOLD_DISCOUNT', 'Amount', 50);
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_REYNA_' || UnitType || '_GOLD_DISCOUNT', 'UnitType', UnitType FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_REYNA_' || UnitType || '_GOLD_DISCOUNT', 'Amount', 50 FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT';
+
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_MERCHANT_CONTRACTOR', 'BBG_REYNA_BUILDING_GOLD_DISCOUNT');
+
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId)
+    SELECT 'GOVERNOR_PROMOTION_MERCHANT_CONTRACTOR', 'BBG_REYNA_' || UnitType || '_GOLD_DISCOUNT' FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT';
+
+-- RIII Foreign Exchange : +2 science/culture for foreign traders going through this city.      
+INSERT INTO Types (Type, Kind) VALUES
+    ('BBG_GOVERNOR_PROMOTION_MANAGER', 'KIND_GOVERNOR_PROMOTION');
+INSERT INTO GovernorPromotionSets (GovernorType, GovernorPromotion) VALUES
+    ('GOVERNOR_THE_MERCHANT', 'BBG_GOVERNOR_PROMOTION_MANAGER');
+INSERT INTO GovernorPromotions (GovernorPromotionType, Name, Description, Level, Column) VALUES
+    ('BBG_GOVERNOR_PROMOTION_MANAGER', 'LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_NAME', 'LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_DESCRIPTION', 3, 2);
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('BBG_GOVERNOR_PROMOTION_MANAGER', 'GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR');
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_REYNA_SCIENCE_FROM_FOREIGN_TRADER', 'MODIFIER_CITY_ADJUST_YIELD_FROM_FOREIGN_TRADE_ROUTES_PASSING_THROUGH'),
+    ('BBG_REYNA_CULTURE_FROM_FOREIGN_TRADER', 'MODIFIER_CITY_ADJUST_YIELD_FROM_FOREIGN_TRADE_ROUTES_PASSING_THROUGH');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_REYNA_SCIENCE_FROM_FOREIGN_TRADER', 'YieldType', 'YIELD_SCIENCE'),
+    ('BBG_REYNA_SCIENCE_FROM_FOREIGN_TRADER', 'Amount', 2),
+    ('BBG_REYNA_CULTURE_FROM_FOREIGN_TRADER', 'YieldType', 'YIELD_CULTURE'),
+    ('BBG_REYNA_CULTURE_FROM_FOREIGN_TRADER', 'Amount', 2);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('BBG_GOVERNOR_PROMOTION_MANAGER', 'BBG_REYNA_SCIENCE_FROM_FOREIGN_TRADER'),
+    ('BBG_GOVERNOR_PROMOTION_MANAGER', 'BBG_REYNA_CULTURE_FROM_FOREIGN_TRADER');
