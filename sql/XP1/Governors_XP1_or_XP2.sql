@@ -2,8 +2,54 @@
 --******                G O V E R N O R S                 ******
 --==============================================================
 
---===========================Moksha=================--
---5.1.4 add free starting promo on monks, 2nd promo bugged in 5.1.3
+--=============================================================================================
+--=                                        MOKSHA                                             =
+--=============================================================================================
+
+-- 06/07/24 Governor rework
+-- Moksha 4 turns
+UPDATE Governors SET TransitionStrength=125 WHERE GovernorType='GOVERNOR_THE_CARDINAL';
+
+-- Delete moksha's scrapped abilities
+DELETE FROM GovernorPromotions WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
+DELETE FROM GovernorPromotionSets WHERE GovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
+DELETE FROM GovernorPromotionPrereqs WHERE PrereqGovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR PrereqGovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
+
+
+-- Base Bishop : +15% culture in city. Religious pressure to adjacent cities in 100% stronger from this city. +2 Faith per specialty district in this city.             
+UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_BISHOP' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_LIBRARIAN' AND ModifierId='LIBRARIAN_CULTURE_YIELD_BONUS';
+
+-- LI Conoisseur : +1 culture per population. Ignores pressure and combat effects from Religions not founded by the Governor's player.    
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR';
+UPDATE GovernorPromotionSets SET GovernorType='GOVERNOR_THE_CARDINAL' WHERE GovernorPromotion='GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR';
+UPDATE GovernorPromotions SET Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR';
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR', 'GOVERNOR_PROMOTION_CARDINAL_BISHOP');
+UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR' WHERE ModifierId IN ('CARDINAL_CITADEL_OF_GOD_PRESSURE', 'CARDINAL_CITADEL_OF_GOD_COMBAT');
+
+-- RI Citadel of gods :  Your trade route ending here provide +2 culture to their starting city. Gain Faith equal to 25% of the construction cost when finishing buildings.  
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';  
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'GOVERNOR_PROMOTION_CARDINAL_BISHOP'); 
+UPDATE GovernorPromotions SET Level=1, Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';
+
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE', 'Amount', '2'),
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE', 'Domestic', '1'),
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE', 'YieldType', 'YIELD_CULTURE');
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE');
+
+-- LII Divine Architect : Ability to faith buy district. Apostles/Warrior monks trained in the city receive one extra Promotion. 
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT';
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT', 'GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR');
+UPDATE GovernorPromotions SET Level=2, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT';     
+        
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES
     ('BBG_REQUIRES_UNIT_TYPE_IS_MONK', 'REQUIREMENT_UNIT_TYPE_MATCHES');
 INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
@@ -13,46 +59,42 @@ INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
     ('BBG_UNIT_TYPE_IS_MONK_REQSET', 'BBG_REQUIRES_UNIT_TYPE_IS_MONK');
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('MOKSHA_MONK_FREE_PROMO', 'MODIFIER_CITY_TRAINED_UNITS_ADJUST_GRANT_EXPERIENCE', 'BBG_UNIT_TYPE_IS_MONK_REQSET');
+    ('BBG_MOKSHA_MONK_FREE_PROMO', 'MODIFIER_CITY_TRAINED_UNITS_ADJUST_GRANT_EXPERIENCE', 'BBG_UNIT_TYPE_IS_MONK_REQSET');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('MOKSHA_MONK_FREE_PROMO', 'Amount', '-1');
-INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierID) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'MOKSHA_MONK_FREE_PROMO');
--- delete moksha's scrapped abilities
-DELETE FROM GovernorPromotions WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
-DELETE FROM GovernorPromotionSets WHERE GovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
-DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
-DELETE FROM GovernorPromotionPrereqs WHERE PrereqGovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR PrereqGovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
-DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_GRAND_INQUISITOR' OR GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_LAYING_ON_OF_HANDS';
--- 15% culture moved to moksha
-UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_BISHOP' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_LIBRARIAN' AND ModifierId='LIBRARIAN_CULTURE_YIELD_BONUS';
--- nerf bishop to +50% outgoing pressure
---UPDATE ModifierArguments SET Value='50' WHERE ModifierId='CARDINAL_BISHOP_PRESSURE' AND Name='Amount';
--- move Moksha's abilities
-UPDATE GovernorPromotions SET Level=2, 'Column'=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT';
-UPDATE GovernorPromotions SET Level=1, 'Column'=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';
-UPDATE GovernorPromotions SET Level=2, 'Column'=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';
-INSERT OR IGNORE INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'GOVERNOR_PROMOTION_CARDINAL_BISHOP');
-UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';
--- Curator moved to last moksha ability
-UPDATE GovernorPromotionSets SET GovernorType='GOVERNOR_THE_CARDINAL' WHERE GovernorPromotion='GOVERNOR_PROMOTION_MERCHANT_CURATOR';
-UPDATE GovernorPromotions SET 'Column'=1 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_MERCHANT_CURATOR';
-DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_MERCHANT_CURATOR';
-INSERT OR IGNORE INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion)
-    VALUES
-        ('GOVERNOR_PROMOTION_MERCHANT_CURATOR', 'GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT'),
-        ('GOVERNOR_PROMOTION_MERCHANT_CURATOR', 'GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT');
--- Move +1 Culture to Moksha
-UPDATE GovernorPromotionSets SET GovernorType='GOVERNOR_THE_CARDINAL' WHERE GovernorPromotion='GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR';
-UPDATE GovernorPromotions SET 'Column'=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR';
-INSERT OR IGNORE INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
-    ('GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR', 'GOVERNOR_PROMOTION_CARDINAL_BISHOP');
-UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT' AND PrereqGovernorPromotion='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';
+    ('BBG_MOKSHA_MONK_FREE_PROMO', 'Amount', '-1');
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT', 'BBG_MOKSHA_MONK_FREE_PROMO');
+UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT' WHERE ModifierId='CARDINAL_PATRON_SAINT_PROMOTION';
 
--- 2020/12/21 - Moved Moska Citadel fix from new_bbg_nfp_babylon.sql here (was 25)
--- Related to https://github.com/iElden/BetterBalancedGame/issues/48
-UPDATE ModifierArguments SET Value=24 WHERE ModifierId='CARDINAL_CITADEL_OF_GOD_FAITH_FINISH_BUILDINGS' AND Name='BuildingProductionPercent';
+-- RII Patron Saint : Your trade route ending here provide +1 culture to their starting city. Grant the ability to faith buy support unit in the city.  
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';      
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD');
+UPDATE GovernorPromotions SET Level=2, Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';
+
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_CULTURE', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_CULTURE', 'Amount', '1'),
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_CULTURE', 'Domestic', '1'),
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_CULTURE', 'YieldType', 'YIELD_CULTURE');
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT', 'MODIFIER_CITY_ENABLE_UNIT_FAITH_PURCHASE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT', 'Tag', 'CLASS_SUPPORT');
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_CULTURE'),
+    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT'); 
+
+-- M3 Curator : Double Tourism from Great Works of Art, Music and Writing in the city.   
+UPDATE GovernorPromotionSets SET GovernorType='GOVERNOR_THE_CARDINAL' WHERE GovernorPromotion='GOVERNOR_PROMOTION_MERCHANT_CURATOR';
+UPDATE GovernorPromotions SET Column=1 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_MERCHANT_CURATOR';
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_MERCHANT_CURATOR';
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('GOVERNOR_PROMOTION_MERCHANT_CURATOR', 'GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT'),
+    ('GOVERNOR_PROMOTION_MERCHANT_CURATOR', 'GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT');   
+
+
 
 --============================Pingala===================--
 -- move Pingala's 100% GPP to first on left ability
@@ -227,15 +269,6 @@ INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromo
     ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_VERTICAL_INTEGRATION', 'GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS');
 UPDATE GovernorPromotions SET Level=3, Column=1 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_VERTICAL_INTEGRATION';
 
---=============================================================================================
---=                                        LIANG                                              =
---=============================================================================================
-
--- Liang changes are in XP2/Governors.sql cause of some stuff interacting with natural disasters
- 
-
-
-
 -- Magnus' Surplus Logistics gives only +1 food (reverted)
 --UPDATE ModifierArguments SET Value='1' WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD' AND Name='Amount';
 -- switch Magnus' level 2 promos
@@ -366,4 +399,4 @@ INSERT OR IGNORE INTO GovernorPromotionModifiers VALUES
 
 -- 4 turns
 -- Moksha, Reyna and Pingala also to 4 turns
-UPDATE Governors SET TransitionStrength=125 WHERE GovernorType IN ('GOVERNOR_THE_EDUCATOR', 'GOVERNOR_THE_CARDINAL', 'GOVERNOR_THE_MERCHANT');
+UPDATE Governors SET TransitionStrength=125 WHERE GovernorType IN ('GOVERNOR_THE_EDUCATOR', 'GOVERNOR_THE_MERCHANT');
