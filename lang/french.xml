@@ -865,7 +865,7 @@
 		</Replace>
 		<!-- = leader ability (Seondeok) -->
 		<Replace Tag="LOC_TRAIT_LEADER_HWARANG_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_AMENITIES] Activités +1 pour les villes avec un [ICON_GOVERNOR] gouverneur.[NEWLINE]Rendements +20% pour les bâtiments de la Seowon pour chaque promotion du [ICON_GOVERNOR] gouverneur établi dans la ville.[NEWLINE]Rendements -10% dans les villes sans [ICON_GOVERNOR] gouverneur possédant un Seowon.</Text>
+			<Text>[ICON_AMENITIES] Activités +1 pour les villes avec un [ICON_GOVERNOR] gouverneur.[NEWLINE]Rendements +20% pour les bâtiments de la Seowon pour chaque promotion du [ICON_GOVERNOR] gouverneur établi dans la ville.[NEWLINE]Rendements -10% dans les villes sans [ICON_GOVERNOR] gouverneur possédant une Seowon.</Text>
 		</Replace>
 		<!-- = leader ability (Sejong) -->
 		<Replace Tag="LOC_TRAIT_LEADER_SEJONG_DESCRIPTION" Language="fr_FR">
@@ -935,22 +935,28 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_FOOD] Nourriture +2 pour les Centre-villes si la ville possède au moins deux cases de désert. Les cases de désert sont 50% moins chères à acheter et gagnent +1 [ICON_FOOD] Nourriture.[NEWLINE][NEWLINE]Bonus de proximité des Lieux saints +1 s'ils sont sur une case de désert et +1 pour chaque oasis adjacent.[NEWLINE]Vous pouvez acheter les bâtiments des Sugubas avec de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production -1 et [ICON_GOLD] Or +2 pour les mines (passe à [ICON_GOLD] Or +4 à Banques).[NEWLINE][ICON_PRODUCTION] Production -15% pour toutes les villes.</Text>
+			<Text>[ICON_FOOD] Nourriture +1 pour les Centre-villes pour chaque case de désert adjacentes.[NEWLINE][ICON_FAITH] Foi +2 pour les Centre-villes si la ville possède au moins deux cases de désert.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production -1 et [ICON_GOLD] Or +4 pour les mines.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production -15% pour toutes vos villes.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_MALI_HS_OASIS" Language="fr_FR">
 			<Text>Oasis adjacents : [ICON_FAITH] Foi +{1_num}.</Text>
 		</Replace>
 		<!-- = leader ability (Mansa Moussa) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SAHEL_MERCHANTS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_GOLD] Or +1 pour les [ICON_TRADEROUTE] routes commerciales internationales pour chaque case plate de désert dans la ville d'origine. Capacité des [ICON_TRADEROUTE] routes commerciales +1 à Banques.</Text>
+			<Text>[ICON_GOLD] Or +1 pour les [ICON_TRADEROUTE] routes commerciales internationales pour chaque case plate de désert dans la ville d'origine. Capacité des [ICON_TRADEROUTE] routes commerciales +1 à Banques.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +15% pour les Lieux saints et leurs bâtiments.[NEWLINE]Les Sugubas reçoivent un bonus de proximité standard de la part Lieux saints.</Text>
 		</Replace>
 		<!-- = leader ability (Soundiata) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SUNDIATA_KEITA_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_GOLD] Or -20% pour le recrutement de [ICON_GREATPERSON] Personnages illustres et emplacements de chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires +2 pour le marché dans les villes fondées par le Mali.[NEWLINE][ICON_PRODUCTION] Production +2 et [ICON_GOLD] Or +4 pour les chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires.</Text>
+			<Text>[ICON_GOLD] Or -30% pour le recrutement de [ICON_GREATPERSON] Personnages illustres. Points [ICON_GREATWRITER] d'Écrivain illustre +1 par tour dans les villes possédant une Suguba et une Place du théâtre.[NEWLINE]Les marchés ont 2 emplacements de chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires. [ICON_GOLD] Or +4 et [ICON_CULTURE] Culture +2 pour les chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires.[NEWLINE][NEWLINE]Les Sugubas et les Places du théâtre reçoivent un bonus de proximité standard entre eux.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_THEATER_SUGUBA_SUNDIATA" Language="fr_FR">
+			<Text>[ICON_CULTURE] Culture +{1_num} (Sogolon).</Text>
+		</Replace>
+		<Replace Tag="OC_BBG_SUGUBA_THEATER_SUNDIATA" Language="fr_FR">
+			<Text>[ICON_GOLD] Or +{1_num} (Sogolon).</Text>
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SUGUBA_DESCRIPTION" Language="fr_FR">
-			<Text>Exclusif au Mali, ce quartier remplace la Plateforme commerciale. Les unités, bâtiments et [ICON_DISTRICT] quartiers de cette ville sont 10% moins chers à l'achat ([ICON_GOLD] Or et [ICON_FAITH] Foi).[NEWLINE][NEWLINE][ICON_GOLD] Or +2 pour chaque Lieu saint adjacent. [ICON_GOLD] Or +1 si adjacent à un cours d'eau. [ICON_GOLD] Or +1 par oasis adjacent.</Text>
+			<Text>Exclusif au Mali, ce quartier remplace la Plateforme commerciale. Les unités, bâtiments et [ICON_DISTRICT] quartiers de cette ville sont 10% moins chers à l'achat ([ICON_GOLD] Or et [ICON_FAITH] Foi).[NEWLINE][NEWLINE][ICON_GOLD] Or +1 pour chaque Lieu saint, cours d'eau, oasis et Centre-ville adjacent.</Text>
 		</Replace>
 		<Replace Tag="LOC_SUGUBA_OASIS_GOLD" Language="fr_FR">
 			<Text>Oasis adjacents : [ICON_GOLD] Or +{1_num}.</Text>
@@ -960,7 +966,7 @@
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="fr_FR">
-			<Text>Exclusive au Mali, cette unité médiévale de cavalerie lourde remplace le Chevalier. [ICON_STRENGTH] Puissance de base +3. Les [ICON_TRADEROUTE] Négociants terrestres à 4 cases ou moins sont immunisés au pillage. Les victoire militaires rapportent de [ICON_STRENGTH] l'Or égal à 50% de la [ICON_STRENGTH] Puissance de combat de l'unité vaincue (vitesse en ligne).</Text>
+			<Text>Exclusive au Mali, cette unité médiévale de cavalerie lourde remplace le Chevalier. [ICON_STRENGTH] Puissance de base +3. Les [ICON_TRADEROUTE] Négociants terrestres à 4 cases ou moins sont immunisés au pillage. Les victoire militaires rapportent de [ICON_GOLD] l'Or égal à 50% de la [ICON_STRENGTH] Puissance de combat de l'unité vaincue (vitesse en ligne).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_MANDEKALU_DESCRIPTION" Language="fr_FR">
 			<Text>Protège les [ICON_TRADEROUTE] Négociants terrestres dans un rayon de 4 cases du pillage.[NEWLINE][ICON_BULLET] Rapporte de [ICON_STRENGTH] l'Or égal à 50% de la [ICON_STRENGTH] Puissance de combat de l'unité vaincue (vitesse en ligne).</Text>
@@ -1924,7 +1930,7 @@
 			<Text>[ICON_CULTURE] Culture +15% dans la ville. La pression religieuse de cette ville est 100% plus forte. [ICON_FAITH] Foi +2 pour chaque [ICON_DISTRICT] quartier spécialisé dans la ville.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_CULTURE] Culture +1 par tour pour chaque [ICON_CITIZEN] Citoyen dans la ville. La ville ignore la pression des religions qui n'ont pas été fondées par le joueur</Text>
+			<Text>[ICON_CULTURE] Culture +1 par [ICON_CITIZEN] Citoyen dans la ville. La ville ignore la pression des religions qui n'ont pas été fondées par le joueur</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_CULTURE] Culture +2 pour vos [ICON_TRADEROUTE] routes commerciales se terminant dans cette ville. Gain de [ICON_CULTURE] Culture égal à 25% du coût en [ICON_PRODUCTION] Production à chaque bâtiment terminé.</Text>
@@ -1993,13 +1999,13 @@
 			<Text>{LOC_GOVERNOR_THE_EDUCATOR_NAME} est chargé de développer la [ICON_SCIENCE] Science dans la ville. Il attire aussi les [ICON_GREATPERSON] Personnages illustres.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_LIBRARIAN_DESCRIPTION" Language="fr_FR">
-		  <Text>[ICON_SCIENCE] Science +15% dans la ville.</Text>
+			<Text>[ICON_SCIENCE] Science +15% dans la ville.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_GRANTS_DESCRIPTION" Language="fr_FR">
-		  <Text>Génération de points de [ICON_GREATPERSON] Personnages illustres +100% dans cette ville.</Text>
+			<Text>Génération de points de [ICON_GREATPERSON] Personnages illustres +100% dans cette ville.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_RESEARCHER_DESCRIPTION" Language="fr_FR">
-		  <Text>[ICON_SCIENCE] Science +1 par tour pour chaque [ICON_CITIZEN] Citoyens dans la ville.</Text>
+			<Text>[ICON_SCIENCE] Science +1 par [ICON_CITIZEN] Citoyens dans la ville.</Text>
 		</Replace>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_EUREKA_NAME" Language="fr_FR">
 			<Text>Eurêka !</Text>
@@ -2042,13 +2048,22 @@
 
 		<!-- == Ibrahim == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_PASHA_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +20% pour toutes les unités militaires si établi dans l'une de vos villes.</Text>
+			<Text>[ICON_PRODUCTION] Production +25% pour les unités militaires dans la ville. Si établi dans la [ICON_CAPITAL] Capitale d'un allié, augmente le gain de points d'alliance.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_HEAD_FALCONER_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_CULTURE] Culture +1 et [ICON_FAITH] Foi +1 par [ICON_CITIZEN] Citoyen dans la ville.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_SERASKER_DESCRIPTION" Language="fr_FR">
-			<Text>Vos unités dans un rayon de 10 cases gagnent +10 [ICON_STRENGTH] Puissance de combat en attaquant les quartiers défendables.</Text>
+			<Text>[ICON_MOVEMENT] PM +1 pour vos unités dans un rayon de 10 cases autour de la ville. [ICON_STRENGTH] Puissance de combat +3 pour les unités combattant dans le territoire de la ville.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_KHASS_ODA_BASHI_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_GOLD] Or +2 et [ICON_SCIENCE] Science +1 par [ICON_CITIZEN] Citoyen dans la ville.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CAPOU_AGHA_DESCRIPTION" Language="fr_FR">
-			<Text>Vos unités dans un rayon de 10 cases gagnent +1 [ICON_MOVEMENT] PM.</Text>
+			<Text>Puissance de combat +10 en attaquant des quartiers défendables pour vos unités dans un rayon de 10 cases autour de la ville.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_GRAND_VISIER_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_HOUSING] Habitations +5 et [ICON_AMENITIES] Activités +5.</Text>
 		</Replace>
 
 
@@ -3198,13 +3213,13 @@
 			<Text>Âge d'or "Tambours de guerre" :[NEWLINE][ICON_RESOURCE_HORSES] Chevaux +2 et [ICON_RESOURCE_IRON] Fer +2 par tour. [ICON_PRODUCTION] Production +15% et coût d'entretien -1 pour les unités militaires. [ICON_PRODUCTION] Production +1 pour les Campements et leurs bâtiments. Les victoires militaires octroient un bonus en [ICON_CULTURE] Culture équivalent à 25% de la [ICON_STRENGTH] Puissance de combat de l'unité vaincue (vitesse en ligne).</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="fr_FR">
-			<Text>Bonus d'engagement "Tambours de guerre" :[NEWLINE]Score d'ère +1 chaque fois que vous construisez un nouveau [ICON_DISTRICT] quartier spécialisé.</Text>
+			<Text>Bonus d'engagement "Tambours de guerre" :[NEWLINE]Score d'ère +1 chaque fois que vous recrutez un [ICON_GREATPERSON] Personnage illustre.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_DARK_AGE" Language="fr_FR">
-			<Text>Bonus d'engagement "Tambours de guerre" :[NEWLINE]Score d'ère +1 chaque fois que vous construisez un nouveau [ICON_DISTRICT] quartier spécialisé.</Text>
+			<Text>Bonus d'engagement "Tambours de guerre" :[NEWLINE]Score d'ère +1 chaque fois que vous recrutez un [ICON_GREATPERSON] Personnage illustre.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="fr_FR">
-			<Text>"Tambours de guerre" : score d'ère +1 chaque fois que vous construisez un nouveau [ICON_DISTRICT] quartier spécialisé. Choisi au début d'un âge d'or, [ICON_RESOURCE_HORSES] Chevaux +2 et [ICON_RESOURCE_IRON] Fer +2 par tour. [ICON_PRODUCTION] Production +15% et coût d'entretien -1 pour les unités militaires. [ICON_PRODUCTION] Production +1 et [ICON_CULTURE] Culture +1 pour les Campements et leurs bâtiments. De l'ère classique à la Renaissance.</Text>
+			<Text>"Tambours de guerre" : score d'ère +1 chaque fois que vous recrutez un [ICON_GREATPERSON] Personnage illustre. Choisi au début d'un âge d'or, [ICON_RESOURCE_HORSES] Chevaux +2 et [ICON_RESOURCE_IRON] Fer +2 par tour. [ICON_PRODUCTION] Production +15% et coût d'entretien -1 pour les unités militaires. [ICON_PRODUCTION] Production +1 pour les Campements et leurs bâtiments. Les victoires militaires octroient un bonus en [ICON_CULTURE] Culture équivalent à 25% de la [ICON_STRENGTH] Puissance de combat de l'unité vaincue (vitesse en ligne). De l'ère classique à la Renaissance.</Text>
 		</Replace>
 		<!-- == Monumentality == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_INFRASTRUCTURE" Language="fr_FR">
