@@ -155,7 +155,7 @@ INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
 
 --05/01/2024 temporary era score point for exodus
 INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
-	('COMMEMORATION_RELIGIOUS', 'COMMEMORATION_INFRASTRUCTURE_QUEST');
+	('COMMEMORATION_RELIGIOUS', 'COMMEMORATION_AERONAUTICAL_GREAT_PERSON_QUEST');
 
 
 -- INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , OwnerRequirementSetId)
