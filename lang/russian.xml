@@ -365,7 +365,7 @@
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="ru_RU">
-			<Text>Обработанные или находящиеся под центром города ресурсы вдоль пойм дают +1 [ICON_FOOD] пищи. Принадлежащие вам клетки поймы дают +1 престижа соседним клеткам вместо обычного -1.</Text>
+			<Text>Обработанные или находящиеся под центром города ресурсы вдоль пойм дают +1 [ICON_FOOD] пищи. Обработанные ресурсы вдоль пойм дают +1 [ICON_CULTURE] культуры. Принадлежащие вам клетки поймы дают +1 престижа соседним клеткам вместо обычного -1.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="ru_RU">
@@ -566,7 +566,7 @@
 		</Row>
 		<!-- = leader ability (Pericles) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SURROUNDED_BY_GLORY_DESCRIPTION" Language="ru_RU">
-			<Text>+5% [ICON_Culture] культуры за каждый город государство, сюзереном которого, вы являетесь.[NEWLINE]Получает 1 [ICON_Envoy] посла за каждый построенный амфитеатр.</Text>
+			<Text>+5% [ICON_Culture] культуры и +5% [Icon_Tourism] к туризму за каждый Город-государство, сюзереном которого вы являетесь.[NEWLINE]Получает 1 [ICON_Envoy] посла за каждый построенный амфитеатр.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_GREEK_HOPLITE_DESCRIPTION" Language="ru_RU">
@@ -685,6 +685,7 @@
 		<Replace Tag="LOC_TRAIT_LEADER_TOKUGAWA_XP_DESCRIPTION" Language="ru_RU">
 			<Text>Международные [ICON_TradeRoute] торговые пути дают на 25% меньше доходов и [ICON_Tourism] туризма, но внутренние [ICON_TradeRoute] торговые пути приносят +1 [ICON_Culture] культуры, +1 [ICON_Science] науки и +1 [Icon_GOLD] золота за каждый специализированный район в пункте назначения. Города в пределах 6 клеток от [ICON_Capital] столицы Японии лояльны на 100%, а после исследования авиации они получают +1 [ICON_Tourism] туризма за каждый район.</Text>
 		</Replace>
+		
 		<!-- == KHMER == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_KHMER_BARAYS_EXPANSION2_DESCRIPTION" Language="ru_RU">
@@ -1549,9 +1550,12 @@
 			<Replace Tag="LOC_BELIEF_FEED_THE_WORLD_EXPANSION2_DESCRIPTION" Language="ru_RU">
 		<Text>Святилища приносят +2 [ICON_FOOD] пищи и +1 [ICON_HOUSING] жилья, храмы приносят +4 [ICON_FOOD] пищи и +1 [ICON_HOUSING] жилья.</Text>
 		</Replace>
-		<!-- <Replace Tag="LOC_BELIEF_TITHE_EXPANSION2_DESCRIPTION" Language="ru_RU"> -->
-		<!-- <Text>+2 [ICON_GOLD] золота за каждый город, обращенный в данную религию.</Text> -->
-		<!-- </Replace> -->
+		<Replace Tag="LOC_BELIEF_TITHE_DESCRIPTION" Language="ru_RU">
+			<Text>+1 [ICON_Gold] золота за каждые 3 последователя этой религии.</Text>
+		</Replace>
+		<Replace Tag="LOC_BELIEF_TITHE_EXPANSION2_DESCRIPTION" Language="ru_RU">
+		<Text>+2 [ICON_GOLD] золота за каждый город, обращенный в данную религию (повышается до +3 [ICON_GOLD] после открытия Теологии).</Text>
+		</Replace>
 			<Replace Tag="LOC_BELIEF_HOLY_WATERS_DESCRIPTION" Language="ru_RU">
 		<Text>+20 к лечению на клетках города, обращенного в вашу религию.</Text>
 		</Replace>
@@ -1580,13 +1584,10 @@
 		<Text>Позволяет строить дома собраний (+3 [ICON_Faith] веры, +3 [ICON_Production] производства).</Text>
 		</Replace>
 			<Replace Tag="LOC_BELIEF_CROSS_CULTURAL_DIALOGUE_DESCRIPTION" Language="ru_RU">
-		<Text>+1 [ICON_Science] науки за каждые 4 последователя этой религии в других державах.</Text>
-		</Replace>
-		<Replace Tag="LOC_BELIEF_TITHE_DESCRIPTION" Language="ru_RU">
-			<Text>+1 [ICON_Gold] золота за каждые 3 последователя этой религии.</Text>
+		<Text>+1 [ICON_Science] науки за каждые 3 последователя этой религии в других державах.</Text>
 		</Replace>
 			<Replace Tag="LOC_BELIEF_WORLD_CHURCH_DESCRIPTION" Language="ru_RU">
-		<Text>+1 [ICON_Culture] культуры за каждые 4 последователя этой религии в других державах.</Text>
+		<Text>+1 [ICON_Culture] культуры за каждые 3 последователя этой религии в других державах.</Text>
 		</Replace>
 			<Replace Tag="LOC_BELIEF_DEFENDER_OF_FAITH_DESCRIPTION" Language="ru_RU">
 		<Text>Военные юниты получают +3 к [ICON_Strength] боевой мощи на территории дружественных городов, исповедующих эту религию.</Text>
@@ -2179,10 +2180,10 @@
 		<Text>Барабаны войны</Text>
 		</Replace>
 			<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="ru_RU">
-		<Text>Барабаны войны – золотой век:[NEWLINE]+2 [ICON_RESOURCE_HORSES] Лошади и +2 [ICON_RESOURCE_IRON] Железа в ход. +15% [ICON_Production] к производству военных юнитов. Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше. Военные лагеря и здания в них приносят +1 [ICON_Production] производства и +1 [Icon_Culture] культуры.</Text>
+		<Text>Барабаны войны – золотой век:[NEWLINE]+2 [ICON_RESOURCE_HORSES] Лошади и +2 [ICON_RESOURCE_IRON] Железа в ход. +15% [ICON_Production] к производству военных юнитов. Каждый поверженный боевой юнит приносит [ICON_Culture] Культуру, равную 25% [ICON_Strength] боевой мощи побежденного юнита. Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше. Военные лагеря и здания в них приносят +1 [ICON_Production] производства.</Text>
 		</Replace>
 			<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="ru_RU">
-		<Text>«Барабаны войны»: +2 [ICON_RESOURCE_HORSES] Лошади и 2 [ICON_RESOURCE_IRON] Железа в ход. +15% [ICON_Production] к производству военных юнитов. Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше. Здания в военных лагерях приносят +1 [ICON_Production] производства и +1 [Icon_Culture] культуры.</Text>
+		<Text>«Барабаны войны»: +2 [ICON_RESOURCE_HORSES] Лошади и 2 [ICON_RESOURCE_IRON] Железа в ход. +15% [ICON_Production] к производству военных юнитов. Каждый поверженный боевой юнит приносит [ICON_Culture] Культуру, равную 25% [ICON_Strength] боевой мощи побежденного юнита. Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше. Военные лагеря и здания в них приносят +1 [ICON_Production] производства.</Text>
 		</Replace>
 			<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="ru_RU">
 		<Text>Бонус устремления «Барабаны войны»:[NEWLINE]Каждый построенный специализированный район прибавляет +1 очко к счету эпохи.</Text>
@@ -2339,7 +2340,7 @@
 		<Text>+30% [ICON_Production] производства при создании военных лагерей и гаваней, а также зданий в этих районах.</Text>
 		</Replace>
 			<Replace Tag="LOC_POLICY_BASTIONS_DESCRIPTION" Language="ru_RU">
-		<Text>+6 [ICON_Strength] боевой мощи и +6 [ICON_Ranged] дальнобойной мощи города при наличии стен.</Text>
+		<Text>+6 к [ICON_Strength] боевой мощи города при наличии стен.</Text>
 		</Replace>
 			<Replace Tag="LOC_POLICY_PRAETORIUM_DESCRIPTION" Language="ru_RU">
 		<Text>[ICON_Governor] Губернаторы дают +4 лояльности в ход для города назначения.</Text>
