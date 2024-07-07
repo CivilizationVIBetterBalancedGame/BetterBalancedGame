@@ -348,7 +348,7 @@
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="en_US">
-			<Text>Resources on Floodplains receive +1 [ICON_FOOD] Food. Owned Floodplains tiles grant +1 Appeal to adjacent tiles instead of usual -1.</Text>
+			<Text>Improved resources on Floodplains or Cities settled on Floodplain resources receive +1 [ICON_FOOD] Food. Owned Floodplains tiles grant +1 Appeal to adjacent tiles instead of usual -1.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="en_US">
@@ -1359,10 +1359,7 @@
 		<!-- === GOVERNORS === -->
 		<!-- == Amani == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_MESSENGER_DESCRIPTION" Language="en_US">
-			<Text>Can be assigned to a City-state, where she acts as 2 [ICON_Envoy] Envoys. When established in a City-state, your cities that have Trade route to this city gain +2 [ICON_FOOD] Food and +2 [ICON_PRODUCTION] Production. Establishes in 5 turns.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE_DESCRIPTION" Language="en_US">
-			<Text>Provides +2 additional Strategic Resources per turn of each one you have revealed.</Text>
+			<Text>Can be assigned to a City-state, where she acts as 2 [ICON_Envoy] Envoys. When established in a City-state, your cities that have a [ICON_TradeRoute] Trade Route to this city gain +2 [ICON_FOOD] Food and +2 [ICON_PRODUCTION] Production. Establishes in 5 turns.</Text>
 		</Replace>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_NAME" Language="en_US">
 			<Text>Negotiator</Text>
@@ -1370,9 +1367,22 @@
 		<Row Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_DESCRIPTION" Language="en_US">
 			<Text>City cannot be put under Siege and gains +5 City Defense Strength.</Text>
 		</Row>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_LOCAL_INFORMANTS_DESCRIPTION" Language="en_US">
+			<Text>All cities within 9 tiles gain +4 Loyalty per turn toward your civilization.  Enemy Spies operate at 3 levels below normal in this city.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE_DESCRIPTION" Language="en_US">
+			<Text>Provides +2 additional Strategic Resources per turn of each one you have revealed.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR_DESCRIPTION" Language="en_US">
+			<Text>Your cities that have a [ICON_TradeRoute] Trade Route to this city gain an additional +1 [ICON_FOOD] Food, +1 [ICON_Production] Production, and +3 [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_PUPPETEER_DESCRIPTION" Language="en_US">
+			<Text>While established in a city state, doubles the number of envoys you have there.</Text>
+		</Replace>
+		<!-- = Unused
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY_DESCRIPTION" Language="en_US">
 			<Text>All cities within 9 tiles gain +4 Loyalty per turn towards your civilization.</Text>
-		</Replace>
+		</Replace> = -->
 
 		<!-- == Ibrahim == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_PASHA_DESCRIPTION" Language="en_US">
@@ -1389,14 +1399,11 @@
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_BUILDER_GUILDMASTER_DESCRIPTION" Language="en_US">
 			<Text>All Builders trained in city get +1 [ICON_Charges] charge. Establishes in 4 turns.</Text>
 		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_ZONING_COMMISSIONER_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_Production] Production on the city's revealed resources.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_WATER_WORKS_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_HOUSING] Housing for every [ICON_DISTRICT] district and wonder in the city.</Text>
-		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_REINFORCED_INFRASTRUCTURE_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_PRODUCTION] Production for Floodplain and Volcanic Soil tiles in the city. The city's improvements, buildings, and districts cannot be damaged by Environmental Effects.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_PARKS_RECREATION_DESCRIPTION" Language="en_US">
+			<Text>Can construct the City Park improvement on flat land in the city once Games and Recreation civic is unlocked. +3 [ICON_SCIENCE] Science, +2 [ICON_Culture] Culture, +2 [ICON_HOUSING] Housing, +1 [ICON_Amenities] Amenity, and +2 Appeal to adjacent tiles. One per city.</Text>
 		</Replace>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_AGRICULTURE_NAME" Language="en_US">
 			<Text>Agriculture</Text>
@@ -1404,11 +1411,14 @@
 		<Row Tag="LOC_GOVERNOR_PROMOTION_AGRICULTURE_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_FOOD] Food on the city's revealed resources.</Text>
 		</Row>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_ZONING_COMMISSIONER_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_Production] Production on the city's revealed resources.</Text>
+		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_WATER_WORKS_NAME" Language="en_US">
 			<Text>Housing Boom</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_PARKS_RECREATION_DESCRIPTION" Language="en_US">
-			<Text>Can construct the City Park improvement on flat land in the city once Games and Recreation civic is unlocked. +3 [ICON_SCIENCE] Science, +2 [ICON_Culture] Culture, +2 [ICON_HOUSING] Housing, +1 [ICON_Amenities] Amenity, and +2 Appeal to adjacent tiles. One per city.</Text>
+		</Replace>			
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_WATER_WORKS_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_HOUSING] Housing, +1 [ICON_Amenities] Amenity for every [ICON_DISTRICT] district and wonder in the city.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_CITY_PARK_DESCRIPTION" Language="en_US">
 			<Text>A [ICON_Governor] Governor unique improvement that can be built in a city with a Surveyor Governor with the Parks and Recreation promotion. +3 [ICON_SCIENCE] Science, +3 [ICON_Culture] Culture, +2 [ICON_HOUSING] Housing, +1 [ICON_Amenities] Amenity, and +2 Appeal to adjacent tiles. One per city.</Text>
@@ -1416,32 +1426,47 @@
 
 		<!-- == Magnus == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_GROUNDBREAKER_DESCRIPTION" Language="en_US">
-		  <Text>+50% yields from plot harvests and feature removals in this city. Establishes in 5 turns.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS_DESCRIPTION" Language="en_US">
-			<Text>+20% [ICON_Food] Growth in the city. Settlers trained in the city gain +1 [ICON_Movement] Movement. Your [ICON_TradeRoute] Trade Routes ending here provide +2 [ICON_PRODUCTION] Production to their starting city.</Text>
+		  <Text>+40% yields from plot harvests and feature removals in this city. Establishes in 4 turns.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION_DESCRIPTION" Language="en_US">
-			<Text>Settlers trained in the city do not consume a [ICON_Citizen] Population. Your [ICON_TradeRoute] Trade Routes ending here provide +2 [ICON_Food] Food to their starting city.</Text>
+			<Text>+20% [ICON_Food] Growth in the city. Your [ICON_TradeRoute] Trade Routes ending here provide +2 [ICON_Food] Food to their starting city.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS_DESCRIPTION" Language="en_US">
+			<Text>Your [ICON_TradeRoute] Trade Routes ending here provide +1 [ICON_PRODUCTION] Production to their starting city.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST_DESCRIPTION" Language="en_US">
-			<Text>+4 [ICON_Production] Production and +4 [ICON_POWER] Power provided by the city's Coal, Oil, or Nuclear Power Plant.</Text>
+			<Text>Settlers trained in the city do not consume Population. +25% Production toward IZ buildings in the city.</Text>
 		</Replace>
-
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER_DESCRIPTION" Language="en_US">
+			<Text>+2 [ICON_Production] Production for Workshops, +4 [ICON_Production] Production for Factories, and +7 [ICON_Production] Production and +4 [ICON_POWER] Power provided by the city's Coal, Oil, or Nuclear Power Plant.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_VERTICAL_INTEGRATION_DESCRIPTION" Language="en_US">
+			<Text>This city receives [ICON_Production] Production from any number of Industrial Zones within 6 tiles, not just the first.</Text>
+		</Replace>
+		
 		<!-- == Moksha == -->
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_BISHOP_DESCRIPTION" Language="en_US">
-			<Text>+15% [ICON_Culture] Culture generated by the city and religious pressure to adjacent cities is 100% stronger. +2 [ICON_Faith] Faith for every district. Establishes in 4 turns.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT_DESCRIPTION" Language="en_US">
-			<Text>Allows city to purchase [ICON_DISTRICT] districts with [ICON_FAITH] Faith.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT_DESCRIPTION" Language="en_US">
-			<Text>Warrior Monks trained in this city receive free [ICON_Promotion] promotion. Apostles trained in this city receive second [ICON_Promotion] free promotion immediately after earning their first [ICON_Promotion] promotion.</Text>
-		</Replace>
 		<Replace Tag="LOC_GOVERNOR_THE_CARDINAL_DESCRIPTION" Language="en_US">
 			<Text>{LOC_GOVERNOR_THE_CARDINAL_NAME} is a Spiritual and Religious leader that can increase the [ICON_CULTURE] Cultural Significance and [ICON_Religion] Religious Fortitude of a city.</Text>
 		</Replace>
-		
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_BISHOP_DESCRIPTION" Language="en_US">
+			<Text>+15% [ICON_Culture] Culture generated by the city and religious pressure to adjacent cities is 100% stronger. +2 [ICON_Faith] Faith for every district. Establishes in 4 turns.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_Culture] Culture per turn for each [ICON_Citizen] Citizen in the city.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT_DESCRIPTION" Language="en_US">
+			<Text>Allows this city to purchase [ICON_DISTRICT] districts with [ICON_FAITH] Faith. Warrior Monks trained in this city receive free [ICON_Promotion] promotion. Apostles trained in this city receive second [ICON_Promotion] free promotion immediately after earning their first [ICON_Promotion] promotion.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD_DESCRIPTION" Language="en_US">
+			<Text>Domestic [ICON_TradeRoute] Trade Routes to Moksha's city provide +2 [ICON_CULTURE] Culture. Gain [ICON_FAITH] Faith equal to 25% of the construction cost when finishing buildings in this city.</Text>
+		</Replace>	
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT_DESCRIPTION" Language="en_US">
+			<Text>Domestic [ICON_TradeRoute] Trade Routes to Moksha's city provide +1 [ICON_CULTURE] Culture. Grants the ability to faith buy support units in the city.</Text>
+		</Replace>		
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_CURATOR_DESCRIPTION" Language="en_US">
+			<Text>Doubles the [ICON_Tourism] Trouism from Great Works of Writing, Art, and Music in the city.</Text>
+		</Replace>
+
 		<!-- == Pingala == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_LIBRARIAN_DESCRIPTION" Language="en_US">
 			<Text>+15% [ICON_Science] Science generated by the city. Establishes in 4 turns.</Text>
@@ -1464,44 +1489,51 @@
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_GRANTS_DESCRIPTION" Language="en_US">
 			<Text>+100% [ICON_GreatPerson] Great People points generated per turn in the city by districts, buildings, pantheons and world wonders.</Text>
 		</Replace>
-		
+
 		<!-- == Reyna == -->
-		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_NAME" Language="en_US">
-			<Text>Deal Maker</Text>
-		</Row>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_LAND_ACQUISITION_DESCRIPTION" Language="en_US">
 			<Text>Acquire new tiles in the city faster. +4 [ICON_GOLD] Gold per turn from each foreign [ICON_TRADEROUTE] Route Trade Route passing through the city. Establishes in 4 turns.</Text>
 		</Replace>
-		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_DESCRIPTION" Language="en_US">
-			<Text>50% [ICON_GOLD] Gold discount on purchasing buildings and [ICON_DISTRICT] districts (if able) in the city.</Text>
-		</Row>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_LAND_ACQUISITION_DESCRIPTION" Language="en_US">
-			<Text>Acquire new tiles in city faster. +4 [ICON_Gold] Gold per turn from each foreign [ICON_TradeRoute] Trade Route passing through the city.</Text>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_HARBORMASTER_DESCRIPTION" Language="en_US">
+			<Text>Double the adjacency bonuses from Commercial Hubs and Harbors in the city.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT_DESCRIPTION" Language="en_US">
-			<Text>This city receives +2 [ICON_Gold] Gold from each unimproved feature and each breathtaking tile. Tiles adjacent to unimproved features receive +1 Appeal in this city.</Text>
+			<Text>This city receives +2 [ICON_Gold] Gold from each unimproved feature and each breathtaking tile. Tiles adjacent to unimproved features receive +1 Appeal in this city. Domestic [ICON_TradeRoute] Trade Routes to Reyna's city provide +4 [ICON_GOLD]. +1 [ICON_TradeRoute] Trade Route capacity </Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR_DESCRIPTION" Language="en_US">
-			<Text>+2 [ICON_Gold] Gold per turn for each [ICON_Citizen] Citizen in the city and +1 Trade Route capacity while established in any city.</Text>
+			<Text>+2 [ICON_Gold] Gold per turn for each [ICON_Citizen] Citizen in the city and +1 [ICON_TradeRoute] Trade Route capacity while established in any city.</Text>
 		</Replace>
-
+		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_CONTRACTOR_DESCRIPTION" Language="en_US">
+			<Text>Allows the city to purchase districts with [ICON_GOLD] Gold. 50% [ICON_GOLD] Gold discount on purchasing buildings and support units in the city.</Text>
+		</Row>	
+		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_NAME" Language="en_US">
+			<Text>Foreign Exchange</Text>
+		</Row>
+		<Row Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_INVESTOR_DESCRIPTION" Language="en_US">
+			<Text>+2 [ICON_SCIENCE] Science and +2 [ICON_CULTURE] Culture for foreign traders going through this city.</Text>
+		</Row>
+		
 		<!-- == Victor == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_REDOUBT_DESCRIPTION" Language="en_US">
 			<Text>Increase city garrison [ICON_STRENGTH] Combat Strength by 5. Establishes in 3 turns.</Text>
 		</Replace>		
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_GARRISON_COMMANDER_DESCRIPTION" Language="en_US">
-			<Text>Units within the city's territory get +3 [ICON_Strength] Combat Strength. Your other cities within 9 tiles gain +4 Loyalty per turn towards your civilization.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER_DESCRIPTION" Language="en_US">
-			<Text>Strategic resources are not required in the city in order to build resource dependent units.</Text>
+			<Text>Units defending within the city's territory get +3 [ICON_Strength] Combat Strength. Your other cities within 9 tiles gain +4 Loyalty per turn towards your civilization.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EMBRASURE_DESCRIPTION" Language="en_US">
-			<Text>City gains an additional [ICON_Ranged] Ranged Strike per turn. Military units trained in this city start with a [ICON_Promotion] free promotion that do not already start with a [ICON_Promotion] free promotion.</Text>
+			<Text>City gains an additional [ICON_Ranged] Ranged Strike per turn. City cannot be put under siege.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_DEFENSE_LOGISTICS_DESCRIPTION" Language="en_US">
+			<Text>+25% [ICON_Production] Production toward military units in this city.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_ARMS_RACE_PROPONENT_DESCRIPTION" Language="en_US">
+			<Text>Military units trained in this city start with a [ICON_Promotion] free promotion that do not already start with a [ICON_Promotion] free promotion. Units trained in this city do not cost Strategic Resources. +50% toward nuclear weapon projects.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE_DESCRIPTION" Language="en_US">
 			<Text>+25 [ICON_ANTIAIR_LARGE] Combat Strength to anti-air support units within the city's territory when defending against aircraft and ICBMs.</Text>
 		</Replace>
 
+		
 		
 		<!-- === PANTHEONS === -->
 		<Replace Tag="LOC_BELIEF_CITY_PATRON_GODDESS_DESCRIPTION" Language="en_US">
@@ -1786,12 +1818,16 @@
 			<Text>Builders and Military Engineers gain the ability to use all of their [ICON_Charges] charges to provide bonus [ICON_Production] Production to a District Project. Each [ICON_Charges] charge grants 2% of project [ICON_Production] Production. Once per city per turn.[NEWLINE]Awards +1 [Icon_Governor] Governor Title.</Text>
 		</Replace>
 		<!-- == Harbor Buildings == -->
-		<Replace Tag="LOC_BUILDING_SEAPORT_DESCRIPTION" Language="en_US">
-			<Text>+25% combat experience for all naval units trained in this city. Once required Civics are unlocked, allows [ICON_Corps] Fleets or [ICON_Army] Armadas to be trained directly and their costs reduced by 25%. +2 [ICON_GOLD] Gold on all Coast tiles for this city.</Text>
+		<Replace Tag="LOC_BUILDING_LIGHTHOUSE_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>+25% combat experience for all naval units trained in this city. +1 [ICON_FOOD] Food on all Coast and Lake tiles for this city. +2 [ICON_HOUSING] Housing if this city is adjacent to coast. +1 [ICON_TradeRoute] Trade Route capacity, if this city does not yet have a Market building.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SHIPYARD_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for all naval units trained in this city. Bonus [ICON_Production] Production equal to the adjacency bonus of the Harbor district. +1 [ICON_PRODUCTION] Production on all unimproved Coast and Lake tiles for this city. +1 [ICON_RESOURCE_COAL] Coal per turn once discovered.</Text>
 		</Replace>
+		<Replace Tag="LOC_BUILDING_SEAPORT_DESCRIPTION" Language="en_US">
+			<Text>+25% combat experience for all naval units trained in this city. Once required Civics are unlocked, allows [ICON_Corps] Fleets or [ICON_Army] Armadas to be trained directly and their costs reduced by 25%. +2 [ICON_GOLD] Gold on all Coast and Lake tiles for this city.</Text>
+		</Replace>
+
 		<!-- == Holy Site Buildings == -->
 		<Replace Tag="LOC_BUILDING_SHRINE_DESCRIPTION" Language="en_US">
 			<Text>Allows the purchasing of Missionaries, and with the proper belief, Warrior Monks. These units can only be purchased with [ICON_Faith] Faith.</Text>
@@ -2802,7 +2838,7 @@
 			<Text>+2 [ICON_Culture] Culture from [ICON_TradeRoute] Trade Routes from your ally</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_ECONOMIC_EFFECT_1" Language="en_US">
-			<Text>+6 [ICON_GOLD] Gold from [ICON_TradeRoute] Trade Routes to your ally</Text>
+			<Text>+6 [ICON_GOLD] Gold and +1 [ICON_PRODUCTION] from [ICON_TradeRoute] Trade Routes to your ally</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_ECONOMIC_EFFECT_2" Language="en_US">
 			<Text>+6 [ICON_GOLD] Gold and +1 [ICON_PRODUCTION] from [ICON_TradeRoute] Trade Routes from your ally</Text>
