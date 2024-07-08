@@ -58,6 +58,9 @@ INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
     ('TRAIT_LEADER_HWARANG', 'BBG_Seowon_Culture');
 INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
    SELECT TraitType, 'BBG_Seowon_Culture' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_KOREA' GROUP BY CivilizationType;
+-- +1 for every 2 district / Sejong is excluded in LP/Sejong.sql
+INSERT INTO District_Adjacencies (DistrictType , YieldChangeId) VALUES
+    ('DISTRICT_SEOWON', 'District_Science');
 
 -- specialists +3 science +1 food
 UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' AND DistrictType='DISTRICT_SEOWON';

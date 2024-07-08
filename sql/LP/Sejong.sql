@@ -10,6 +10,12 @@
 -- SEJONG_FUTURE_SCIENCE_INTO_CULTURE
 UPDATE ModifierArguments SET Value=1 WHERE ModifierId LIKE "SEJONG%SCIENCE_INTO_CULTURE" AND Name="Multiplier";
 
+-- Sejong exclusion from .5 adjacency
+INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
+    ('TRAIT_LEADER_SEJONG', 'District_Science');
+
+
+
 -- 04/07/23 Korea rework (Seowon changes are in Korea.sql)
 -- 1 culture/2 tourism per district if city has seowon+theater
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
