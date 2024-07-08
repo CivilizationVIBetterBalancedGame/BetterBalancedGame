@@ -72,6 +72,9 @@ UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='Holy_Site_Gold';
 --=                                 MANSA                                   =
 --===========================================================================
 
+-- Delete gold from traderoute based on number of desert tile in origin
+DELETE FROM TraitModifiers WHERE ModifierId='TRADE_ROUTE_GOLD_DESERT_ORIGIN';
+
 -- 19/03/24 Remove free trader per golden Mansa
 -- Moved to 1 traderoute at Banking
 DELETE FROM TraitModifiers WHERE ModifierId='GOLDEN_AGE_TRADE_ROUTE';
