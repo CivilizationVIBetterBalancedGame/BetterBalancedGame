@@ -308,7 +308,7 @@ UPDATE GlobalParameters SET Value='1' WHERE Name='DIPLOMACY_PEACE_MIN_TURNS';
 
 
 --=============================================================================================
---=                                        LIANG                                              =
+--=                                        REYNA                                              =
 --=============================================================================================
 
 -- Delete Reyna's old one
@@ -324,7 +324,7 @@ UPDATE Governors SET TransitionStrength=125 WHERE GovernorType='GOVERNOR_THE_MER
 -- Default Land Acquisition : Acquire new tiles in the city faster. +4 golds for foreign traders going through this city.
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='FOREIGN_EXCHANGE_GOLD_FROM_FOREIGN_TRADE_PASSING_THROUGH' AND Name='Amount';
 
--- LI Harbormaster : Double adjacency bonuses from Commercial Hubs and Harbor in the city. 
+-- LI Harbormaster : Double adjacency bonuses from Commercial Hubs and Harbor in the city. Grant a traderoute capacity if the city has both a market and a lighthouse.
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_CITY_HAS_MARKET_AND_LIGHTHOUSE_REQSET', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
@@ -338,7 +338,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO GovernorPromotionModifiers VALUES
     ('GOVERNOR_PROMOTION_MERCHANT_HARBORMASTER', 'BBG_REYNA_TRADEROUTE_FROM_MARKET_LIGHTHOUSE');
 
--- RI Forestry Management : This city receives +2 gold for each uninproved feature which also grant +1 appeal. +4 gold per internal traders. +1 traderoute capacity.        
+-- RI Forestry Management : This city receives +2 gold for each uninproved feature which also grant +1 appeal.      
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
     ('BBG_REQUIRES_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS', 'REQUIREMENT_REQUIREMENTSET_IS_MET');
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
