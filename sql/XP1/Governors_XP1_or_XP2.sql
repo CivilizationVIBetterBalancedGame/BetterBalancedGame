@@ -138,8 +138,7 @@ INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUE
     ('BBG_GOVERNOR_PROMOTION_EDUCATOR_CAMPUS_BUILDING_YIELDS', 'BBG_EDUCATOR_BOOST_UNIVERSITY'),
     ('BBG_GOVERNOR_PROMOTION_EDUCATOR_CAMPUS_BUILDING_YIELDS', 'BBG_EDUCATOR_BOOST_LAB');
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
-    ('BBG_GOVERNOR_PROMOTION_EDUCATOR_CAMPUS_BUILDING_YIELDS', 'GOVERNOR_PROMOTION_EDUCATOR_GRANTS'),
-    ('GOVERNOR_PROMOTION_EDUCATOR_SPACE_INITIATIVE', 'BBG_GOVERNOR_PROMOTION_EDUCATOR_CAMPUS_BUILDING_YIELDS');
+    ('BBG_GOVERNOR_PROMOTION_EDUCATOR_CAMPUS_BUILDING_YIELDS', 'GOVERNOR_PROMOTION_EDUCATOR_GRANTS');
 
 -- RII Spread Knowledge : +1 food +3 science per internal traders to this city
 INSERT INTO Types (Type, Kind) VALUES 
@@ -170,7 +169,8 @@ INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromo
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_SPACE_INITIATIVE';
 UPDATE GovernorPromotions SET Column=1 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_SPACE_INITIATIVE';
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
-    ('GOVERNOR_PROMOTION_EDUCATOR_SPACE_INITIATIVE', 'BBG_GOVERNOR_PROMOTION_EDUCATOR_TRADE');
+    ('GOVERNOR_PROMOTION_EDUCATOR_SPACE_INITIATIVE', 'BBG_GOVERNOR_PROMOTION_EDUCATOR_TRADE'),
+    ('GOVERNOR_PROMOTION_EDUCATOR_SPACE_INITIATIVE', 'BBG_GOVERNOR_PROMOTION_EDUCATOR_CAMPUS_BUILDING_YIELDS');
 
 --=============================================================================================
 --=                                        MAGNUS                                             =
@@ -324,7 +324,19 @@ UPDATE Governors SET TransitionStrength=125 WHERE GovernorType='GOVERNOR_THE_MER
 -- Default Land Acquisition : Acquire new tiles in the city faster. +4 golds for foreign traders going through this city.
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='FOREIGN_EXCHANGE_GOLD_FROM_FOREIGN_TRADE_PASSING_THROUGH' AND Name='Amount';
 
--- LI Harbormaster : Double adjacency bonuses from Commercial Hubs and Harbor in the city.      
+-- LI Harbormaster : Double adjacency bonuses from Commercial Hubs and Harbor in the city. 
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_MARKET_AND_LIGHTHOUSE_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_CITY_HAS_MARKET_AND_LIGHTHOUSE_REQSET', 'REQUIRES_CITY_HAS_LIGHTHOUSE'),
+    ('BBG_CITY_HAS_MARKET_AND_LIGHTHOUSE_REQSET', 'REQUIRES_CITY_HAS_MARKET');
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_REYNA_TRADEROUTE_FROM_MARKET_LIGHTHOUSE', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_CAPACITY', 'BBG_CITY_HAS_MARKET_AND_LIGHTHOUSE_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_REYNA_TRADEROUTE_FROM_MARKET_LIGHTHOUSE', 'Amount', '1');
+INSERT INTO GovernorPromotionModifiers VALUES
+    ('GOVERNOR_PROMOTION_MERCHANT_HARBORMASTER', 'BBG_REYNA_TRADEROUTE_FROM_MARKET_LIGHTHOUSE');
 
 -- RI Forestry Management : This city receives +2 gold for each uninproved feature which also grant +1 appeal. +4 gold per internal traders. +1 traderoute capacity.        
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
@@ -338,25 +350,26 @@ INSERT INTO RequirementSetRequirements VALUES
     ('BBG_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_OR_BREATHTAKING_REQSET', 'REQUIRES_PLOT_BREATHTAKING_APPEAL');
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_HAS_ANY_FEATURE_NO_IMPROVEMENTS_OR_BREATHTAKING_REQSET' WHERE ModifierId='FORESTRY_MANAGEMENT_FEATURE_NO_IMPROVEMENT_GOLD';
         
+
+-- INSERT INTO GovernorPromotionModifiers VALUES
+--     ('GOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT', 'BBG_REYNA_TRADEROUTE');
+
+-- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+--     ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+--     ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'Domestic', '1'),
+--     ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'Amount', '4'),
+--     ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'YieldType', 'YIELD_GOLD');
+
+-- INSERT INTO GovernorPromotionModifiers VALUES
+--     ('GOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT', 'BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE');
+
+-- MII Tax Collector : +2 gold per turn for each citizen in the city. +1 traderoute capacity. 
+-- +1 trade route
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_REYNA_TRADEROUTE', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_CAPACITY');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_REYNA_TRADEROUTE', 'Amount', '1');
-INSERT INTO GovernorPromotionModifiers VALUES
-    ('GOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT', 'BBG_REYNA_TRADEROUTE');
-
-INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'Domestic', '1'),
-    ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'Amount', '4'),
-    ('BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE', 'YieldType', 'YIELD_GOLD');
-
-INSERT INTO GovernorPromotionModifiers VALUES
-    ('GOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT', 'BBG_REYNA_GOLD_FROM_DOMESTIC_TRADE');
-
--- MII Tax Collector : +2 gold per turn for each citizen in the city. +1 traderoute capacity. 
--- +1 trade route
 INSERT INTO GovernorPromotionModifiers VALUES
     ('GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR', 'BBG_REYNA_TRADEROUTE');
 
