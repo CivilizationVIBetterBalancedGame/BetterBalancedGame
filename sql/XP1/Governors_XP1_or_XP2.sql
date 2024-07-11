@@ -287,7 +287,11 @@ INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUE
     ('GOVERNOR_PROMOTION_EDUCATOR_ARMS_RACE_PROPONENT', 'BLACK_MARKETEER_STRATEGIC_RESOURCE_COST_DISCOUNT');
 
 -- MII Air Defense Initiative : +25 CS to anti air support unit within the city's territory when defending against aircraft and ICMBs.
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE'; 
 UPDATE GovernorPromotions SET Column=1 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE';
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('GOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE', 'GOVERNOR_PROMOTION_EDUCATOR_ARMS_RACE_PROPONENT'),
+    ('GOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE', 'GOVERNOR_PROMOTION_EMBRASURE');
 
 
 --=============================================================================================
