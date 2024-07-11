@@ -769,53 +769,15 @@ end
 function Initialize()
 	--Exp bug
 	Events.UnitPromoted.Add(OnPromotionFixExp);
-	--Movement bugfix
-	--5.2. Disable: Events.UnitAddedToMap.Add(OnUnitAddedToMap)
-	--5.2. Disable: Events.UnitUpgraded.Add(OnUnitUpgraded)
-	--Communism
-	--5.2. Disable: Events.CityWorkerChanged.Add(OnCityWorkerChanged)
-	--5.2. Disable: Events.GovernmentChanged.Add(OnGovernmentChanged)
-	--5.2. Disable: print("Delete Communism UI hooks added")
 	--Amani
 	Events.GovernorAssigned.Add(OnGovernorAssigned)
 	Events.GovernorChanged.Add(OnGovernorChanged)
 	Events.TradeRouteActivityChanged.Add(OnTradeRouteActivityChanged)
 	print("Delete Amani UI hooks added")
-	--delete suntzu after use for non-unifier
-	--5.2. Disable: Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedNotQinUnifier)
-	--5.2. Disable: print("Delete Suntzu UI Hook added")
+	-- No idea what this is
 	Events.SpyMissionCompleted.Add(OnSpyMissionCompleted)
 	print("Spy Capture Capacity UI hook added")
-	--5.4 Change Religion Mechanism
-	Events.ReligionFounded.Add(OnReligionFounded)
-	Events.BeliefAdded.Add(OnBeliefAdded)
-	Events.CapitalCityChanged.Add(OnCapitalCityChanged)
-	Events.PlayerDefeat.Add(OnPlayerDefeat)
-	--5.4 Exodus
-	--5.6. Disable: Events.PlayerOperationComplete.Add(OnDedicationChosen)
-	--5.6. Disable: Events.GameEraChanged.Add(OnGameEraChanged)
-	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
-	for i, iPlayerID in ipairs(tMajorIDs) do
-		if PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
-			--Qin Unifier
-			--5.2. Disable: Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
-			--5.2. Disable: Events.UnitGreatPersonActivated.Add(OnUnitGreatPersonActivatedQinUnifier)
-			--5.2. Disable: Events.UnitMoved.Add(OnUnitMoved)
-		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
-			--inca dynamic yield cancelation
-			--5.2. Disable: Events.PlotYieldChanged.Add(OnIncaPlotYieldChanged)
-		--5.6. Disable: elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then
-			--5.6. Disable: Events.BuildingAddedToMap.Add(OnLudwigWonderPlaced)
-			--5.6. Disable: Events.BuildingRemovedFromMap.Add(OnLudwigWonderRemoved)
-			--5.6. Disable: Events.WonderCompleted.Add(OnLudwigWonderCompleted)
-		-- Mvemba Religion
-		--5.6. Disable: elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() ~= "LEADER_MVEMBA" then
-			--5.6. Disable: Events.CityReligionChanged.Add(OnMvembaCityReligionChanged)
-			--5.6. Disable: Events.CityAddedToMap.Add(OnMvembaCityAddedToMap)
-			--5.6. Disable: Events.CityRemovedFromMap.Add(OnMvembaCityRemovedFromMap)
-			--5.6. Disable: Events.CityTransfered.Add(OnMvembaCityTransfered)
-		end
-	end
+
 	--BCY no rng setting (param names are still called BBCC)
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then
 		print("BCY: No RNG detected")
