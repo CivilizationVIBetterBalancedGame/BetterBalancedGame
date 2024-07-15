@@ -1,9 +1,13 @@
 include "UnitPanel_Expansion2"
 
--- Vanilla Function ===========================================================================
+-- Corrects Amani owner only trade route bonuses to show on Trade Select and Trade Overview panels
 function TradeUnitView( viewData:table )
 	if viewData.IsTradeUnit then
 		local hideTradeYields:boolean = true;
+		local IsAmaniCase:boolean = false;
+		local addAmount = 0;
+		local isCityState:boolean = false;
+		local has_promo:boolean = false;
 		local originPlayer:table = Players[Game.GetLocalPlayer()];
 		local originCities:table = originPlayer:GetCities();
 		for _, city in originCities:Members() do
@@ -12,10 +16,53 @@ function TradeUnitView( viewData:table )
 				if viewData.UnitID == route.TraderUnitID then
 					-- Add Origin Yields
 					Controls.TradeResourceList:DestroyAllChildren();
+					-- get trade route destinationCities
+					local destinationPlayer:table = Players[route.DestinationCityPlayer];
+					local destinationCities:table = destinationPlayer:GetCities();
+					local destinationCity:table = destinationCities:FindID(route.DestinationCityID);
+					local gov = destinationCity:GetAllAssignedGovernors();
+					if #gov > 0 then
+					    playerId = Game.GetLocalPlayer();
+					    for i, j in ipairs(gov) do
+                            if j:GetOwner() == playerId then
+                                -- print('CS Amani Governor belongs to player');
+                                -- check its a city state
+                                for i, pCityState in ipairs(PlayerManager.GetAliveMinors()) do
+		                            if pCityState:GetID() == destinationCity:GetOwner() then
+			                            isCityState = true;
+			                            break;
+		                            end
+	                            end
+                                -- need this check to make sure its not Ibrahim (Ottoman governor)
+                                if j:GetName() == 'LOC_GOVERNOR_THE_AMBASSADOR_NAME' and j:IsEstablished() and isCityState then
+                                    -- print('Amani fully established, flag set to add Messenger promo yields.')
+                                    IsAmaniCase = true;
+                                    -- has_promo = j:HasPromotion(DB.MakeHash('GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR'));
+                                    -- print('Amani Promotion recognised, flag set to add Foreign Investor yields')
+                                end
+                            end
+                        end
+                    end
 					for j,yieldInfo in pairs(route.OriginYields) do
-						if yieldInfo.Amount > 0 then
+					    addAmount = 0;
+					    if IsAmaniCase and j < 4 then
+					    	if j < 3 then
+					    	    addAmount = 2;
+					    	    -- print('Added Amani Messenger +2 Prod/Food (should appear twice)')
+					    	end
+					    	--[[if has_promo then
+					    	    if j == 3 then
+					    		    addAmount = addAmount + 3;
+					    		    -- print('Added Amani Foreign Investor +3 Gold')
+					    		else
+					    		    addAmount = addAmount + 1;
+					    		    -- print('Added Amani Foreign Investor +1 Prod/Food (should appear twice)')
+					    		end
+					    	end --]]
+					    end
+						if yieldInfo.Amount > 0 or addAmount > 0 then
 							local yieldDetails:table = GameInfo.Yields[yieldInfo.YieldIndex];
-							AddTradeResourceEntry(yieldDetails, Round(yieldInfo.Amount,1));
+							AddTradeResourceEntry(yieldDetails, Round(yieldInfo.Amount + addAmount,1));
 							hideTradeYields = false;
 						end
 					end
@@ -29,7 +76,7 @@ function TradeUnitView( viewData:table )
 		Controls.TradeUnitContainer:SetHide(true);
 	end
 end
-
+--[[ Commented out as currently unused in modinfo and needed file for amani display
 print("Unitpanel Replacement for BBG")
 --Hungary Huszar Display Override: 
 
@@ -209,3 +256,4 @@ function GetCombatResults ( attacker, locX, locY )
 		end
 	end
 end
+--]]
