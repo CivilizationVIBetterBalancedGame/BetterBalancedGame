@@ -1,4 +1,35 @@
 include "UnitPanel_Expansion2"
+
+-- Vanilla Function ===========================================================================
+function TradeUnitView( viewData:table )
+	if viewData.IsTradeUnit then
+		local hideTradeYields:boolean = true;
+		local originPlayer:table = Players[Game.GetLocalPlayer()];
+		local originCities:table = originPlayer:GetCities();
+		for _, city in originCities:Members() do
+			local outgoingRoutes:table = city:GetTrade():GetOutgoingRoutes();
+			for i,route in ipairs(outgoingRoutes) do
+				if viewData.UnitID == route.TraderUnitID then
+					-- Add Origin Yields
+					Controls.TradeResourceList:DestroyAllChildren();
+					for j,yieldInfo in pairs(route.OriginYields) do
+						if yieldInfo.Amount > 0 then
+							local yieldDetails:table = GameInfo.Yields[yieldInfo.YieldIndex];
+							AddTradeResourceEntry(yieldDetails, Round(yieldInfo.Amount,1));
+							hideTradeYields = false;
+						end
+					end
+				end
+			end
+		end
+
+		Controls.TradeYieldGrid:SetHide(hideTradeYields);
+		Controls.TradeUnitContainer:SetHide(false);
+	else
+		Controls.TradeUnitContainer:SetHide(true);
+	end
+end
+
 print("Unitpanel Replacement for BBG")
 --Hungary Huszar Display Override: 
 
