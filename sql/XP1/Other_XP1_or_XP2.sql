@@ -119,7 +119,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('BBG_MILITARY_COMMEMORATION_PROD_ARMORY', 'Amount', 1),
 	('BBG_MILITARY_COMMEMORATION_PROD_MILITARY_ACADEMY', 'Amount', 1),
 	('BBG_MILITARY_COMMEMORATION_CULTURE_KILLS', 'YieldType', 'YIELD_CULTURE'),
-	('BBG_MILITARY_COMMEMORATION_CULTURE_KILLS', 'PercentDefeatedStrength', 25);
+	-- it's standard speed so 50 online
+	('BBG_MILITARY_COMMEMORATION_CULTURE_KILLS', 'PercentDefeatedStrength', 100);
 
 INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
 	('COMMEMORATION_RELIGIOUS', 'BBG_MILITARY_COMMEMORATION_PROD_BARRACK'),
@@ -155,7 +156,7 @@ INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
 
 --05/01/2024 temporary era score point for exodus
 INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
-	('COMMEMORATION_RELIGIOUS', 'COMMEMORATION_INFRASTRUCTURE_QUEST');
+	('COMMEMORATION_RELIGIOUS', 'COMMEMORATION_AERONAUTICAL_GREAT_PERSON_QUEST');
 
 
 -- INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , OwnerRequirementSetId)

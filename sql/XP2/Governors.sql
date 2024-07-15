@@ -10,6 +10,7 @@
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY';
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY';
 DELETE FROM GovernorPromotionPrereqs WHERE PrereqGovernorPromotion='GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY';
+DELETE FROM GovernorPromotionSets WHERE GovernorPromotion='GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY';
 
 -- 5 turns
 
@@ -40,7 +41,8 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_MAJOR_CIV', 'CS_AMANI_GIVES_2_PROD_MODIFIER_BBG');  
 
 -- LI Negotiator : City cannot be put under Siege and gains +5 City Defense Strength.       
-INSERT INTO Types (Type, Kind) VALUES ('BBG_GOVERNOR_PROMOTION_NEGOTIATOR', 'KIND_GOVERNOR_PROMOTION');
+INSERT INTO Types (Type, Kind) VALUES
+    ('BBG_GOVERNOR_PROMOTION_NEGOTIATOR', 'KIND_GOVERNOR_PROMOTION');
 INSERT INTO GovernorPromotionSets (GovernorType, GovernorPromotion) VALUES ('GOVERNOR_THE_AMBASSADOR', 'BBG_GOVERNOR_PROMOTION_NEGOTIATOR');
 INSERT INTO GovernorPromotions (GovernorPromotionType, Name, Description, Level, Column) VALUES
     ('BBG_GOVERNOR_PROMOTION_NEGOTIATOR', 'LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_NAME', 'LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_DESCRIPTION', 1, 0);
@@ -85,35 +87,33 @@ INSERT INTO GovernorPromotionModifiers VALUES
     ('GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE', 'URANIUM_AMANI_AMOUNT_MODIFIER');    
 
 -- LII Local Informant : All cities within 9 tiles gain +4 Loyalty per turn towards your civilization. Spy operate with 3 malus level in the city
-UPDATE GovernorPromotions SET Level=2, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_LOCAL_INFORMANTS';    
-UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='BBG_GOVERNOR_PROMOTION_NEGOTIATOR' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_LOCAL_INFORMANTS';
+UPDATE GovernorPromotions SET Level=2, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_LOCAL_INFORMANTS';   
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES 
+    ('GOVERNOR_PROMOTION_LOCAL_INFORMANTS', 'BBG_GOVERNOR_PROMOTION_NEGOTIATOR');
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
-        ('GOVERNOR_PROMOTION_LOCAL_INFORMANTS', 'PRESTIGE_IDENTITY_PRESSURE_TO_DOMESTIC_CITIES');
+    ('GOVERNOR_PROMOTION_LOCAL_INFORMANTS', 'PRESTIGE_IDENTITY_PRESSURE_TO_DOMESTIC_CITIES');
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='EMISSARY_IDENTITY_PRESSURE_TO_FOREIGN_CITIES' AND Name='Amount';
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='PRESTIGE_IDENTITY_PRESSURE_TO_DOMESTIC_CITIES' AND Name='Amount';
 
--- RII Foreign Investor : +1food/+1prod/+3gold to traders sent to city state where established
+-- RII Foreign Investor : +3 diplo favour and influence point per turn
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
 DELETE FROM GovernorPromotionPrereqs WHERE PrereqGovernorPromotion='GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR';
 
-INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_CS_AMANI_GIVES_1_FOOD_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG'),
-    ('BBG_CS_AMANI_GIVES_1_PROD_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG'),
-    ('BBG_CS_AMANI_GIVES_3_GOLD_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'CITY_HAS_OWN_AMANI_TRADEROUT_REQSET_BBG');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_CS_AMANI_GIVES_1_FOOD_MODIFIER', 'YieldType', 'YIELD_FOOD'),
-    ('BBG_CS_AMANI_GIVES_1_FOOD_MODIFIER', 'Amount', 1),
-    ('BBG_CS_AMANI_GIVES_1_PROD_MODIFIER', 'YieldType', 'YIELD_PRODUCTION'),
-    ('BBG_CS_AMANI_GIVES_1_PROD_MODIFIER', 'Amount', 1),
-    ('BBG_CS_AMANI_GIVES_3_GOLD_MODIFIER', 'YieldType', 'YIELD_GOLD'),
-    ('BBG_CS_AMANI_GIVES_3_GOLD_MODIFIER', 'Amount', 3);    
-INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('TRAIT_LEADER_MAJOR_CIV', 'BBG_CS_AMANI_GIVES_1_FOOD_MODIFIER'),
-    ('TRAIT_LEADER_MAJOR_CIV', 'BBG_CS_AMANI_GIVES_1_PROD_MODIFIER'),
-    ('TRAIT_LEADER_MAJOR_CIV', 'BBG_CS_AMANI_GIVES_3_GOLD_MODIFIER'); 
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
     ('GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR', 'GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE');
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_AMANI_DIPLO_FAVOUR', 'MODIFIER_PLAYER_ADJUST_EXTRA_FAVOR_PER_TURN'),
+    ('BBG_AMANI_INFLUENCE_POINT', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_AMANI_DIPLO_FAVOUR', 'Amount', 3),
+    ('BBG_AMANI_INFLUENCE_POINT', 'Amount', 3);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR', 'BBG_AMANI_DIPLO_FAVOUR'),
+    ('GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR', 'BBG_AMANI_INFLUENCE_POINT');
+
+
 
 -- MIII Puppeteer : While established in a city-state, doubles the number of envoys you have there.
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
@@ -206,6 +206,7 @@ UPDATE Improvements SET OnePerCity=1 WHERE ImprovementType='IMPROVEMENT_CITY_PAR
 
 -- RII Urbanism : +1 production on revealed resources in the city.
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_ZONING_COMMISSIONER';
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_ZONING_COMMISSIONER';
 UPDATE GovernorPromotions SET Level=2, Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_ZONING_COMMISSIONER';
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
     ('GOVERNOR_PROMOTION_ZONING_COMMISSIONER', 'BBG_AGRICULTURE_PROMOTION');
@@ -241,3 +242,6 @@ DELETE FROM ImprovementModifiers WHERE ImprovementType='IMPROVEMENT_FISHERY';
 DELETE FROM Modifiers WHERE ModifierId='AQUACULTURE_CAN_BUILD_FISHERY';
 DELETE FROM ModifierArguments WHERE ModifierId='AQUACULTURE_CAN_BUILD_FISHERY';
 UPDATE Improvements SET PrereqTech='TECH_CARTOGRAPHY' WHERE ImprovementType='IMPROVEMENT_FISHERY';
+
+
+
