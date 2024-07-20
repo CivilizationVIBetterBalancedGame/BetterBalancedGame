@@ -44,14 +44,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT OR IGNORE INTO UnitAbilityModifiers VALUES
     ('ABILITY_CORSAIR', 'BBG_BARBARY_CORSAIR_OCEAN_NAVIGATION');
 
---04/10/22 ibrahim second right 
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_IBRAHIM_2R_ADJUST_MOVEMENT_POINTS', 'MODIFIER_PLAYER_UNITS_ADJUST_MOVEMENT', 'PLOT_10_TILES_AWAY_MAX_REQUIREMENTS');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_IBRAHIM_2R_ADJUST_MOVEMENT_POINTS', 'Amount', 1);
-DELETE FROM GovernorPromotionModifiers WHERE ModifierId='CAPOU_AGHA_ADJUST_GRIEVANCES';
-INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_CAPOU_AGHA', 'BBG_IBRAHIM_2R_ADJUST_MOVEMENT_POINTS');
+
 
 --05/10/22 river bias
 INSERT INTO StartBiasRivers (CivilizationType, Tier) VALUES
@@ -60,3 +53,71 @@ INSERT INTO StartBiasRivers (CivilizationType, Tier) VALUES
 --19/03/24 +3 for all siege units instead of +5 against city center
 UPDATE ModifierArguments SET Value=3 WHERE ModifierId='GREAT_TURKISH_BOMBARD_STRENGTH';
 UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='GREAT_TURKISH_BOMBARD_STRENGTH';
+
+--=============================================================================================
+--=                                       IBRAHIM                                             =
+--=============================================================================================
+
+-- 3 turns
+
+-- Default Pasha : +25% Production to all military units in the city. When established in an allied foreign Capital, Alliance leveling rate is increased with the owner.                
+UPDATE ModifierArguments SET Value=25 WHERE ModifierId='PASHA_BONUS_UNIT_PRODUCTION';
+UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_PASHA' WHERE ModifierId='KHASS_ODA_BASHI_ADJUST_ALLIANCE_POINTS';
+
+-- LI Head Falconer : Grant +1culture/faith per population.
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_HEAD_FALCONER';
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_IBRAHIM_CULTURE_PER_POP', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION'),
+    ('BBG_IBRAHIM_FAITH_PER_POP', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_IBRAHIM_CULTURE_PER_POP', 'YieldType', 'YIELD_CULTURE'),
+    ('BBG_IBRAHIM_CULTURE_PER_POP', 'Amount', 1),
+    ('BBG_IBRAHIM_FAITH_PER_POP', 'YieldType', 'YIELD_FAITH'),
+    ('BBG_IBRAHIM_FAITH_PER_POP', 'Amount', 1);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_HEAD_FALCONER', 'BBG_IBRAHIM_CULTURE_PER_POP'),
+    ('GOVERNOR_PROMOTION_HEAD_FALCONER', 'BBG_IBRAHIM_FAITH_PER_POP');
+
+-- RI Serasker: Grant +1 movement for units within 10 range of the city. All friendly units fighting within the city's territory gain +3 Strength Combat Strength.
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_SERASKER';
+UPDATE ModifierArguments SET VAlUE=3 WHERE ModifierId='HEAD_FALCONER_ADJUST_CITY_COMBAT_BONUS'; 
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_IBRAHIM_ADJUST_MOVEMENT_POINTS', 'MODIFIER_PLAYER_UNITS_ADJUST_MOVEMENT', 'PLOT_10_TILES_AWAY_MAX_REQUIREMENTS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_IBRAHIM_ADJUST_MOVEMENT_POINTS', 'Amount', 1);
+DELETE FROM GovernorPromotionModifiers WHERE ModifierId='CAPOU_AGHA_ADJUST_GRIEVANCES';
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_SERASKER', 'BBG_IBRAHIM_ADJUST_MOVEMENT_POINTS'),
+    ('GOVERNOR_PROMOTION_SERASKER', 'HEAD_FALCONER_ADJUST_CITY_COMBAT_BONUS');
+    
+-- LII Khass-Oda-Bashi : Grant +1science/gold per population.     
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_KHASS_ODA_BASHI';
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_IBRAHIM_SCIENCE_PER_POP', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION'),
+    ('BBG_IBRAHIM_GOLD_PER_POP', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_IBRAHIM_SCIENCE_PER_POP', 'Amount', 1),
+    ('BBG_IBRAHIM_SCIENCE_PER_POP', 'YieldType', 'YIELD_SCIENCE'),
+    ('BBG_IBRAHIM_GOLD_PER_POP', 'Amount', 2),
+    ('BBG_IBRAHIM_GOLD_PER_POP', 'YieldType', 'YIELD_GOLD');
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_KHASS_ODA_BASHI', 'BBG_IBRAHIM_SCIENCE_PER_POP'),
+    ('GOVERNOR_PROMOTION_KHASS_ODA_BASHI', 'BBG_IBRAHIM_GOLD_PER_POP');
+
+-- RII Capou Agha : Grant all units within 10 tiles of the City Center +10 Strength Combat Strength when attacking defensible District   
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CAPOU_AGHA';   
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_CAPOU_AGHA', 'SERASKER_ADJUST_GOVERNOR_COMBAT_DISTRICT');
+
+-- MIII Grand Vizier: Grant +5 housing/amenity.     
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_GRAND_VISIER'; 
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_IBRAHIM_HOUSING', 'MODIFIER_CITY_DISTRICTS_ADJUST_DISTRICT_HOUSING', 'BBG_DISTRICT_IS_DISTRICT_CITY_CENTER_REQSET'),
+    ('BBG_IBRAHIM_AMENITY', 'MODIFIER_CITY_DISTRICTS_ADJUST_DISTRICT_AMENITY', 'BBG_DISTRICT_IS_DISTRICT_CITY_CENTER_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_IBRAHIM_HOUSING', 'Amount', 5),
+    ('BBG_IBRAHIM_AMENITY', 'Amount', 5);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_GRAND_VISIER', 'BBG_IBRAHIM_HOUSING'),
+    ('GOVERNOR_PROMOTION_GRAND_VISIER', 'BBG_IBRAHIM_AMENITY');
+
