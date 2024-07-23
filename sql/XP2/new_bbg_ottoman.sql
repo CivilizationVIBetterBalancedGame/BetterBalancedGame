@@ -67,19 +67,30 @@ UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_
 -- LI Head Falconer : Grant +1culture/faith per population.
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_HEAD_FALCONER';
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('BBG_IBRAHIM_CULTURE_PER_POP', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION'),
-    ('BBG_IBRAHIM_FAITH_PER_POP', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION');
+    ('BBG_IBRAHIM_SCIENCE_PER_POP', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_IBRAHIM_CULTURE_PER_POP', 'YieldType', 'YIELD_CULTURE'),
-    ('BBG_IBRAHIM_CULTURE_PER_POP', 'Amount', 1),
-    ('BBG_IBRAHIM_FAITH_PER_POP', 'YieldType', 'YIELD_FAITH'),
-    ('BBG_IBRAHIM_FAITH_PER_POP', 'Amount', 1);
+    ('BBG_IBRAHIM_SCIENCE_PER_POP', 'YieldType', 'YIELD_SCIENCE'),
+    ('BBG_IBRAHIM_SCIENCE_PER_POP', 'Amount', 1);
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_HEAD_FALCONER', 'BBG_IBRAHIM_CULTURE_PER_POP'),
-    ('GOVERNOR_PROMOTION_HEAD_FALCONER', 'BBG_IBRAHIM_FAITH_PER_POP');
+    ('GOVERNOR_PROMOTION_HEAD_FALCONER', 'BBG_IBRAHIM_SCIENCE_PER_POP');
 
--- RI Serasker: Grant +1 movement for units within 10 range of the city. All friendly units fighting within the city's territory gain +3 Strength Combat Strength.
-DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_SERASKER';
+-- RI Serasker: Grant all units within 10 tiles of the City Center +10 Strength Combat Strength when attacking defensible District   
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_SERASKER';   
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_SERASKER', 'SERASKER_ADJUST_GOVERNOR_COMBAT_DISTRICT');
+    
+-- LII Khass-Oda-Bashi : Grant +1science/gold per population.     
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_KHASS_ODA_BASHI';
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_IBRAHIM_CULTURE_PER_POP', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_IBRAHIM_CULTURE_PER_POP', 'Amount', 1),
+    ('BBG_IBRAHIM_CULTURE_PER_POP', 'YieldType', 'YIELD_CULTURE');
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_KHASS_ODA_BASHI', 'BBG_IBRAHIM_CULTURE_PER_POP');
+
+-- RII Capou Agha : Grant +1 movement for units within 10 range of the city. All friendly units fighting within the city's territory gain +3 Strength Combat Strength.
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CAPOU_AGHA';
 UPDATE ModifierArguments SET VAlUE=3 WHERE ModifierId='HEAD_FALCONER_ADJUST_CITY_COMBAT_BONUS'; 
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_IBRAHIM_ADJUST_MOVEMENT_POINTS', 'MODIFIER_PLAYER_UNITS_ADJUST_MOVEMENT', 'PLOT_10_TILES_AWAY_MAX_REQUIREMENTS');
@@ -87,27 +98,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_IBRAHIM_ADJUST_MOVEMENT_POINTS', 'Amount', 1);
 DELETE FROM GovernorPromotionModifiers WHERE ModifierId='CAPOU_AGHA_ADJUST_GRIEVANCES';
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_SERASKER', 'BBG_IBRAHIM_ADJUST_MOVEMENT_POINTS'),
-    ('GOVERNOR_PROMOTION_SERASKER', 'HEAD_FALCONER_ADJUST_CITY_COMBAT_BONUS');
-    
--- LII Khass-Oda-Bashi : Grant +1science/gold per population.     
-DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_KHASS_ODA_BASHI';
-INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('BBG_IBRAHIM_SCIENCE_PER_POP', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION'),
-    ('BBG_IBRAHIM_GOLD_PER_POP', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_IBRAHIM_SCIENCE_PER_POP', 'Amount', 1),
-    ('BBG_IBRAHIM_SCIENCE_PER_POP', 'YieldType', 'YIELD_SCIENCE'),
-    ('BBG_IBRAHIM_GOLD_PER_POP', 'Amount', 2),
-    ('BBG_IBRAHIM_GOLD_PER_POP', 'YieldType', 'YIELD_GOLD');
-INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_KHASS_ODA_BASHI', 'BBG_IBRAHIM_SCIENCE_PER_POP'),
-    ('GOVERNOR_PROMOTION_KHASS_ODA_BASHI', 'BBG_IBRAHIM_GOLD_PER_POP');
-
--- RII Capou Agha : Grant all units within 10 tiles of the City Center +10 Strength Combat Strength when attacking defensible District   
-DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CAPOU_AGHA';   
-INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_CAPOU_AGHA', 'SERASKER_ADJUST_GOVERNOR_COMBAT_DISTRICT');
+    ('GOVERNOR_PROMOTION_CAPOU_AGHA', 'BBG_IBRAHIM_ADJUST_MOVEMENT_POINTS'),
+    ('GOVERNOR_PROMOTION_CAPOU_AGHA', 'HEAD_FALCONER_ADJUST_CITY_COMBAT_BONUS');
 
 -- MIII Grand Vizier: Grant +5 housing/amenity.     
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_GRAND_VISIER'; 
