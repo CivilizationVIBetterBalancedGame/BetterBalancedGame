@@ -71,4 +71,5 @@ INSERT INTO TraitModifiers VALUES
 
 
 -- 02/07/24 Qin Shi builder charge for wonder upgraded to +20% (from +15%)
-UPDATE ModifierArguments SET Value=20 WHERE ModifierId='TRAIT_BUILDER_WONDER_PERCENT' AND Name='Amount';
+-- 24/07/24 No
+-- UPDATE ModifierArguments SET Value=20 WHERE ModifierId='TRAIT_BUILDER_WONDER_PERCENT' AND Name='Amount';

@@ -17,14 +17,15 @@ INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
     ('TRAIT_LEADER_SAHEL_MERCHANTS', 'BBG_SUGUBA_HOLY_SITE_MANSA');
 
 -- and reverse
-INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentDistrict) VALUES
-    ('BBG_THEATER_SUGUBA_SUNDIATA', 'LOC_BBG_THEATER_SUGUBA_SUNDIATA', 'YIELD_CULTURE', 1, 'DISTRICT_SUGUBA');
-INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
-    ('DISTRICT_THEATER', 'BBG_THEATER_SUGUBA_SUNDIATA');
-INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
-   SELECT TraitType, 'BBG_THEATER_SUGUBA_SUNDIATA' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_MALI' GROUP BY CivilizationType;
-INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
-    ('TRAIT_LEADER_SAHEL_MERCHANTS', 'BBG_THEATER_SUGUBA_SUNDIATA');
+-- 24/07/24 removed
+-- INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentDistrict) VALUES
+--     ('BBG_THEATER_SUGUBA_SUNDIATA', 'LOC_BBG_THEATER_SUGUBA_SUNDIATA', 'YIELD_CULTURE', 1, 'DISTRICT_SUGUBA');
+-- INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
+--     ('DISTRICT_THEATER', 'BBG_THEATER_SUGUBA_SUNDIATA');
+-- INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
+--    SELECT TraitType, 'BBG_THEATER_SUGUBA_SUNDIATA' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_MALI' GROUP BY CivilizationType;
+-- INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
+--     ('TRAIT_LEADER_SAHEL_MERCHANTS', 'BBG_THEATER_SUGUBA_SUNDIATA');
 
 
 -- +1 Great Writer points per turn in cities with both a Suguba and a Theater Square.

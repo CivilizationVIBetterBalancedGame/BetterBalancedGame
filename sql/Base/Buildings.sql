@@ -53,6 +53,9 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_WATERMILL_PRODUCTION_FARM', 'Amount', '1');
 INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
     ('BUILDING_WATER_MILL', 'BBG_WATERMILL_PRODUCTION_FARM');
+UPDATE Buildings SET RequiresAdjacentRiver=0 WHERE BuildingType='BUILDING_WATER_MILL';
+
+
 
 -- Workshop cost less and give more production
 UPDATE Buildings SET Cost=160 WHERE BuildingType='BUILDING_WORKSHOP';
