@@ -209,7 +209,7 @@ UPDATE GovernorPromotions SET Level=2, Column=0 WHERE GovernorPromotionType='GOV
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Amount', '1'),
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Amount', '2'),
     ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Domestic', '1'),
     ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
 INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
