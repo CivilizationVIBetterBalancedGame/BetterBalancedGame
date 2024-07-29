@@ -3,7 +3,8 @@
 --	AUTHOR:  FlashyFeeds
 --	PURPOSE: UI to Gameplay script. Raises synchronized GameEvents from Events
 ------------------------------------------------------------------------------
-
+local tBufferedParams = {}
+tBufferedParams["CSBufferedParams"] = {}
 UIEvents = ExposedMembers.LuaEvents
 print("BBG UI to Gameplay Script started")
 --- Inca Scrits
@@ -204,7 +205,7 @@ function OnGovernorAssigned(iCityOwnerID, iCityID, iGovernorOwnerID, iGovernorTy
 end
 
 function OnTradeRouteActivityChanged(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
-	print("OnTradeRouteActivityChanged")
+	print("OnTradeRouteActivityChanged", iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
 	print(iPlayerID, iOriginPlayerID, iOriginCityID, iTargetPlayerID, iTargetCityID)
 	local pOriginPlayer = Players[iOriginPlayerID]
 	if pOriginPlayer == nil then
@@ -227,15 +228,31 @@ function OnTradeRouteActivityChanged(iPlayerID, iOriginPlayerID, iOriginCityID, 
 		return
 	end
 	--recalculate trade plot properties
+	
+	print("Recalculating plot properties")
+	--local tAmani = pOriginPlayer:GetProperty("AMANI")
+	--local tOCityTraders = pOriginCity:GetProperty("CS_TRADERS")
+	--local iMyTargetPlayerID = -1
+	--for i, iCSCityOwnerID in ipairs(tOCityTraders) do
+		--if tAmani["iMinorID"] == iCSCityOwnerID then
+			--iMyTargetPlayerID = tAmani["iMinorID"]
+		--end
+	--end
 	local pCityOutTrade = pOriginCity:GetTrade():GetOutgoingRoutes()
 	local bControl = false
-	if pCityOutTrade ~= nil then
-		for _, route in ipairs(pCityOutTrade) do
-			if route.DestinationCityPlayer == iTargetPlayerID then
-				bControl = true
+	--print("Checking for Amani Trader property iMyTargetPlayerID", iMyTargetPlayerID)
+	--if iMyTargetPlayerID ~= -1 then
+		print("Amani Trader Property Found => Is Trader to Amani Active Checks")
+		if pCityOutTrade ~= nil then
+			for _, route in ipairs(pCityOutTrade) do
+				if route.DestinationCityPlayer == iTargetPlayerID then
+					bControl = true
+				end
+				print("City Owner", iTargetPlayerID, "bControl", bControl)
 			end
 		end
-	end
+	--end
+	print("bControl Final", bControl)
 	local kParameters = {}
 	kParameters.OnStart = "GameplaySetCSTrader"
 	kParameters["iOriginPlayerID"] = iOriginPlayerID
@@ -246,10 +263,37 @@ function OnTradeRouteActivityChanged(iPlayerID, iOriginPlayerID, iOriginCityID, 
 		UI.RequestPlayerOperation(iOriginPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
 		--UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, iTargetPlayerID)
 	else
-		print("Sending Remove trader req")
 		kParameters["iTargetPlayerID"] = 0 - iTargetPlayerID
-		UI.RequestPlayerOperation(iOriginPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
-		--UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, 0-iTargetPlayerID)
+		print("Sending Remove trader req")
+		if not pOriginPlayer:CanUnreadyTurn() then
+
+			--UI.IsTurnTimerElapsed(Game.GetLocalPlayer()) then
+			print("Player Turn Ended => Adding to buffer")
+			table.insert(tBufferedParams["CSBufferedParams"], kParameters)
+		else
+			print("PlayerTurnActive")
+			tBufferedParams["CSBufferedParams"] = {}	
+			UI.RequestPlayerOperation(iOriginPlayerID, PlayerOperations.EXECUTE_SCRIPT, kParameters);
+			--UIEvents.UISetCSTrader(iOriginPlayerID, iOriginCityID, 0-iTargetPlayerID)
+		end
+	end
+end
+
+function OnLocalPlayerTurnBegin()
+	print("Resolving Buffered Parameters")
+	if tBufferedParams["CSBufferedParams"] == nil or tBufferedParams["CSBufferedParams"] == {} or #tBufferedParams["CSBufferedParams"] == 0 then
+		print("Shoud Terminate")
+		return
+	end
+	print("Buffered Parameters Detected")
+	--local tTempCSBufferedParams = tBufferedParams["CSBufferedParams"]
+	for i, kParameters in ipairs(tBufferedParams["CSBufferedParams"]) do
+		print("OldIndex", i)
+		for k,v in pairs(kParameters) do
+			print(k,v)
+		end
+		UI.RequestPlayerOperation(kParameters["iOriginPlayerID"], PlayerOperations.EXECUTE_SCRIPT, kParameters)
+		table.remove(tBufferedParams["CSBufferedParams"], i)
 	end
 end
 
@@ -773,6 +817,7 @@ function Initialize()
 	Events.GovernorAssigned.Add(OnGovernorAssigned)
 	Events.GovernorChanged.Add(OnGovernorChanged)
 	Events.TradeRouteActivityChanged.Add(OnTradeRouteActivityChanged)
+	Events.LocalPlayerTurnBegin.Add(OnLocalPlayerTurnBegin)
 	print("Delete Amani UI hooks added")
 	-- No idea what this is
 	Events.SpyMissionCompleted.Add(OnSpyMissionCompleted)
