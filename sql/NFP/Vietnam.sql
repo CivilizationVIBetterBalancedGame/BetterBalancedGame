@@ -29,4 +29,4 @@ UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_THANH
 UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_THANH';
 
 -- 03/07/2024 Vietnam nerf extra 1 movement in neutral/ennemy territory
-DELETE FROM UnitAbilityModifiers WHERE UnitAbilityType='ABILITY_TRIEU_FEATURES' AND ModifierId='TRIEU_UNFRIENDLY_MOVEMENT';
+UPDATE UnitAbilityModifiers SET UnitAbilityType='ABILITY_VOI_CHIEN' WHERE ModifierId='TRIEU_UNFRIENDLY_MOVEMENT';
