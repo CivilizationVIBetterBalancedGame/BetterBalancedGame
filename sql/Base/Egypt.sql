@@ -1,6 +1,7 @@
 -- wonder and district on rivers bonus increased to 25%
-UPDATE ModifierArguments SET Value='25' WHERE ModifierId='TRAIT_RIVER_FASTER_BUILDTIME_WONDER';
-UPDATE ModifierArguments SET Value='25' WHERE ModifierId='TRAIT_RIVER_FASTER_BUILDTIME_DISTRICT';
+-- 05/03/2024 nerf bonus on river 25% -> 20%
+UPDATE ModifierArguments SET Value='20' WHERE ModifierId='TRAIT_RIVER_FASTER_BUILDTIME_WONDER';
+UPDATE ModifierArguments SET Value='20' WHERE ModifierId='TRAIT_RIVER_FASTER_BUILDTIME_DISTRICT';
 --
 INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType)
 	VALUES ('REQUIRES_PLOT_HAS_FLOODPLAINS_CPL', 'REQUIREMENTSET_TEST_ANY');

@@ -194,3 +194,8 @@ UPDATE GreatPersonIndividuals SET ActionRequiresVisibleLuxury=0 WHERE GreatPerso
 UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_FERDINAND_MAGELLAN';
 UPDATE GreatPersonIndividuals SET ActionRequiresVisibleLuxury=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_RAJENDRA_CHOLA';
 UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_RAJENDRA_CHOLA';
+
+--10/03/2024 zhou dagan can be activated in hostile territory
+
+UPDATE GreatPersonIndividuals SET ActionRequiresNonHostileTerritory=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_ZHOU_DAGUAN';
+

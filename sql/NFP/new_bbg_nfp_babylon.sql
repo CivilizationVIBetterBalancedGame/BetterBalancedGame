@@ -14,27 +14,19 @@ DELETE FROM Modifiers WHERE ModifierId='MINOR_CIV_NALANDA_FREE_TECHNOLOGY_MODIFI
 DELETE FROM Modifiers WHERE ModifierId='MINOR_CIV_NALANDA_FREE_TECHNOLOGY';
 
 -- Attach the modifier to check for improvement to each player
-INSERT INTO Modifiers 
-    (ModifierId, ModifierType)
-    VALUES
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('MINOR_CIV_NALANDA_MAHAVIHARA', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER');
 
 -- Modifier to actually check if the improvement is built, only done once
-INSERT INTO Modifiers 
-    (ModifierId, ModifierType, OwnerRequirementSetId, RunOnce, Permanent)
-    VALUES
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId, RunOnce, Permanent) VALUES
     ('MINOR_CIV_NALANDA_MAHAVIHARA_TECH_ON_FIRST_BUILD', 'MODIFIER_PLAYER_GRANT_RANDOM_TECHNOLOGY', 'PLAYER_HAS_MAHAVIHARA', 1, 1);
 
-INSERT INTO ModifierArguments
-    (ModifierId, Name, Type, Value)
-    VALUES
+INSERT INTO ModifierArguments (ModifierId, Name, Type, Value) VALUES
     ('MINOR_CIV_NALANDA_MAHAVIHARA', 'ModifierId', 'ARGTYPE_IDENTITY', 'MINOR_CIV_NALANDA_MAHAVIHARA_TECH_ON_FIRST_BUILD'),
     ('MINOR_CIV_NALANDA_MAHAVIHARA_TECH_ON_FIRST_BUILD', 'Amount', 'ARGTYPE_IDENTITY', 1);
 
 -- Modifier which triggers and attaches to all players when game is created 
-INSERT INTO GameModifiers
-    (ModifierId)
-    VALUES
+INSERT INTO GameModifiers (ModifierId) VALUES
     ('MINOR_CIV_NALANDA_MAHAVIHARA');
 
 
@@ -72,3 +64,20 @@ INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, Til
 
 INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId)
     VALUES ('IMPROVEMENT_MAHAVIHARA','BBG_Mahavihara_Lavra_Faith');
+
+
+-- 08/03/24 Samarkand dome also gives production
+-- 27/03/24 Samarkand nerf dome trade route bonus to 2 gold 1 faith
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_MINOR_CIV_SAMARKAND_TRADE_FAITH', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
+    ('BBG_MINOR_CIV_SAMARKAND_TRADE_FAITH_MODIFIER', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_PER_IMPROVEMENT_AT_LOCATION_BABYLON', NULL);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MINOR_CIV_SAMARKAND_TRADE_FAITH',  'ModifierId', 'BBG_MINOR_CIV_SAMARKAND_TRADE_FAITH_MODIFIER'),
+    ('BBG_MINOR_CIV_SAMARKAND_TRADE_FAITH_MODIFIER', 'Amount', 1),
+    ('BBG_MINOR_CIV_SAMARKAND_TRADE_FAITH_MODIFIER', 'ImprovementType', 'IMPROVEMENT_TRADING_DOME'),
+    ('BBG_MINOR_CIV_SAMARKAND_TRADE_FAITH_MODIFIER', 'YieldType', 'YIELD_FAITH');
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('MINOR_CIV_SAMARKAND_TRAIT', 'BBG_MINOR_CIV_SAMARKAND_TRADE_FAITH');
+
+UPDATE ModifierArguments SET Value = 2 WHERE ModifierId = 'MINOR_CIV_SAMARKAND_TRADE_GOLD_MODIFIER' AND Name = 'Amount';
+

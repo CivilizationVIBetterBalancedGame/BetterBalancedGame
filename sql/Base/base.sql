@@ -58,8 +58,8 @@ DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_GREECE' AND T
 --******				    O T H E R					  ******
 --==============================================================
 -- oil can be found on flat plains
-INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType)
-	VALUES ('RESOURCE_OIL', 'TERRAIN_PLAINS');
+INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType) VALUES
+    ('RESOURCE_OIL', 'TERRAIN_PLAINS');
 -- incense +1 food
 -- mercury +1 food
 -- spice -1 food +1 gold
@@ -73,6 +73,9 @@ UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPIC
 
 -- add 1 production to fishing boat improvement
 UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_FISHING_BOATS' AND YieldType='YIELD_PRODUCTION';
+
+--09/03/2024 +1 housing to fishery
+UPDATE Improvements SET Housing=2 WHERE ImprovementType='IMPROVEMENT_FISHERY';
 
 -- Citizen specialists give +1 main yield
 UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' AND DistrictType='DISTRICT_ACROPOLIS';
@@ -117,6 +120,7 @@ UPDATE Improvement_BonusYieldChanges SET PrereqTech='TECH_MILITARY_ENGINEERING' 
 UPDATE Technologies SET Description='BBG_LOC_TECH_MILITARY_ENGINEERING_DESCRIPTION' WHERE TechnologyType='TECH_MILITARY_ENGINEERING';
 UPDATE Improvement_BonusYieldChanges SET BonusYieldChange=2 WHERE Id=13;
 DELETE FROM Improvement_BonusYieldChanges WHERE Id=231;
+UPDATE Technologies SET Description=NULL WHERE TechnologyType='TECH_PREDICTIVE_SYSTEMS';
 
 --****		REQUIREMENTS		****--
 INSERT OR IGNORE INTO Requirements
@@ -264,15 +268,11 @@ UPDATE Technologies SET EraType="ERA_MODERN" WHERE TechnologyType='TECH_ADVANCED
 UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 
 --=======================================================================
---******                       CITY STATE                          ******
---=======================================================================
-
-UPDATE Resources SET Happiness=4 WHERE ResourceType IN ('RESOURCE_CINNAMON', 'RESOURCE_CLOVES');
-
-
---=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================
 
 UPDATE Happinesses SET GrowthModifier=8, NonFoodYieldModifier=8 WHERE HappinessType='HAPPINESS_HAPPY';
 UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_ECSTATIC';
+
+-- 14/03/24 Nationalism boost is now upgrading a land unit to level 3
+UPDATE Boosts SET BoostClass='BOOST_TRIGGER_LAND_UNIT_LEVEL', NumItems=3 WHERE CivicType='CIVIC_NATIONALISM';

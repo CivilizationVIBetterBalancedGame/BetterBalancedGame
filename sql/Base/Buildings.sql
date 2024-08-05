@@ -132,8 +132,7 @@ INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_ARENA_TOURISM', 'Amount', 3);
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-    ('BUILDING_ARENA', 'BBG_ARENA_TOURISM'),
-    ('BUILDING_TLACHTLI', 'BBG_ARENA_TOURISM');
+    ('BUILDING_ARENA', 'BBG_ARENA_TOURISM');
 --12/06/23 Stadium Tourism buff
 UPDATE ModifierArguments SET Value=6 WHERE Name='STADIUM_10_POPULATION_TOURISM';
 UPDATE ModifierArguments SET Value=15 WHERE Name='STADIUM_10_POPULATION_TOURISM';

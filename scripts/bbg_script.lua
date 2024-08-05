@@ -4263,27 +4263,13 @@ function Initialize()
 	-- upgradable uu exp bug fix
 	--LuaEvents.UIPromotionFixExp.Add(OnUIPromotionFixExp)
 	GameEvents.GameplayPromotionFixExp.Add(OnGameplayPromotionFixExp)
-	--print("BBG Promotion bugfix hook added")
-	-- tech boost effect:
-	-- Events.TechBoostTriggered.Add(OnTechBoost);
-	-- Extra Movement bugfix
-	--5.2. Disable: GameEvents.GameplayMovementBugFix.Add(OnGameplayMovementBugFix)
-	--5.2. Disable: GameEvents.GameplayMovementBugFixUpgrade.Add(OnGameplayMovementBugFixUpgrade)
-	--5.2. Disable: print("BBG Movement bugfix hook added")
+
 	-- Yield Adjustment hook
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then --moved to BCY no RNG only
 		GameEvents.CityBuilt.Add(OnCitySettledAdjustYields)
 		--print("BBG Fix firaxis wonder yield hook added")
 	end
-	-- communism
-	--LuaEvents.UIBBGWorkersChanged.Add(OnUIBBGWorkersChanged)
-	--5.2. Disable: GameEvents.GameplayBBGWorkersChanged.Add(OnGameplayBBGWorkersChanged)
-	--LuaEvents.UIBBGDestroyDummyBuildings.Add(OnUIBBGDestroyDummyBuildings)
-	--5.2. Disable: GameEvents.GameplayBBGDestroyDummyBuildings.Add(OnGameplayBBGDestroyDummyBuildings)
-	--5.2. Disable: GameEvents.PolicyChanged.Add(OnPolicyChanged)
-	--LuaEvents.UIBBGGovChanged.Add(OnUIBBGGovChanged)
-	--5.2. Disable: GameEvents.GameplayBBGGovChanged.Add(OnGameplayBBGGovChanged)
-	--5.2. Disable: print("BBG Communism Hooks Added")
+
 	--Amani
 	--LuaEvents.UISetAmaniProperty.Add(OnUISetAmaniProperty)
 	GameEvents.GameplaySetAmaniProperty.Add(OnGameplaySetAmaniProperty)
@@ -4292,19 +4278,7 @@ function Initialize()
 	print("BBG Amani Gameplay hooks added")
 	GameEvents.GameplaySpyMissionCompleted.Add(OnGameplaySpyMissionCompleted)
 	print("BBG Spy Capture Capacity Gameplay Hook Added")
-	--Religion
-	GameEvents.GameplayReligionFounded.Add(OnGameplayReligionFounded)
-	GameEvents.GameplayBeliefAdded.Add(OnGameplayBeliefAdded)
-	GameEvents.GameplayCapitalCityChanged.Add(OnGameplayCapitalCityChanged)
-	GameEvents.GameplayPlayerDefeat.Add(OnGameplayPlayerDefeat)
-	--5.6. Disable: GameEvents.GameplayExodusSetProperty.Add(OnGameplayExodusSetProperty)
-	--5.6. Disable: print("Adding Remove Exodus")
-	--5.6. Disable: GameEvents.GameplayRemoveExodus.Add(OnGameplayRemoveExodus)
-	--5.6. Disable: print(OnGameplayRemoveExodus)
-	--Delete Suntzu for not-Unifier
-	--LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
-	--5.2. Disable: GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
-	--5.2. Disable: print("BBG Suntzu Gameplay Deletion hooks added")
+
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
 		if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()=="CIVILIZATION_BYZANTIUM" then
@@ -4331,46 +4305,10 @@ function Initialize()
 				--InitBarbData()
 			end
 			--print("Sumeria Warcart Added")
-		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_INCA" then
-			-- Inca Yields on non-mountain impassibles bugfix
-			--LuaEvents.UISetPlotProperty.Add(OnUISetPlotProperty)
-			--5.2. Disable: GameEvents.GameplayFixIncaBug.Add(OnGameplayFixIncaBug)
-			--5.2. Disable: GameEvents.CityConquered.Add(OnIncaCityConquered)
-			--5.2. Disable: print("BBG Inca Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_JULIUS_CAESAR" then
 			-- Caesar wildcard
 			GameEvents.CityBuilt.Add(OnCityBuilt);
 			GameEvents.CityConquered.Add(OnCityConquered)
-			--print("BBG Caesar Hooks Added")
-		--5.6. Disable: elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then
-			--5.6. Disable: GameEvents.GameplayLudwigWonderPlaced.Add(OnGameplayLudwigWonderPlaced)
-			--5.6. Disable: GameEvents.GameplayLudwigWonderRemoved.Add(OnGameplayLudwigWonderRemoved)
-			--5.6. Disable: GameEvents.GameplayLudwigWonderCompleted.Add(OnGameplayLudwigWonderCompleted)
-		elseif PlayerConfigurations[iPlayerID]:GetCivilizationTypeName() == "CIVILIZATION_MACEDON" then
-			--Macedon 20%
-			--5.2. Disable: GameEvents.CityConquered.Add(OnMacedonConqueredACity)
-			--5.2. Disable: GameEvents.OnGameTurnStarted.Add(OnGameTurnStartedCheckMacedon)
-			--5.2. Disable: GameEvents.CityBuilt.Add(OnMacedonCitySettled)
-			--5.2. Disable: print("BBG Macedon Hooks Added")
-		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_QIN_ALT" then
-			--Qin Unifier general bugfix
-			--LuaEvents.UIGPGeneralUnifierCreated.Add(OnUIGPGeneralUnifierCreated)
-			--LuaEvents.UIUnifierTrackRelevantGenerals.Add(OnUIUnifierTrackRelevantGenerals)
-			--LuaEvents.UIUnifierSameUnitUniqueEffect.Add(OnUIUnifierSameUnitUniqueEffect)
-			--LuaEvents.UIUnifierSamePlayerUniqueEffect.Add(OnUIUnifierSamePlayerUniqueEffect)
-			--5.2. Disable: GameEvents.GameplayGPGeneralUnifierCreated.Add(OnGameplayGPGeneralUnifierCreated)
-			--5.2. Disable: GameEvents.GameplayUnifierSameUnitUniqueEffect.Add(OnGameplayUnifierSameUnitUniqueEffect)
-			--5.2. Disable: GameEvents.GameplayUnifierSamePlayerUniqueEffect.Add(OnGameplayUnifierSamePlayerUniqueEffect)
-			--5.2. Disable: GameEvents.GameplayUnifierTrackRelevantGenerals.Add(OnGameplayUnifierTrackRelevantGenerals)
-			--5.2. Disable: print("BBG Unifier Hooks Added")
-		--Mvemba religion 
-		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName() == "LEADER_MVEMBA" then
-			--5.6. Disable: Game:SetProperty("MVEMVBA_ID", iPlayerID)
-			--5.6. Disable: GameEvents.GameplayMvembaCityReligionChanged.Add(OnGameplayMvembaCityReligionChanged)
-			--5.6. Disable: GameEvents.GameplayMvembaCityAddedToMap.Add(OnGameplayMvembaCityAddedToMap)
-			--5.6. Disable: GameEvents.GameplayMvembaCityRemovedFromMap.Add(OnGameplayMvembaCityRemovedFromMap)
-			--5.6. Disable: GameEvents.GameplayMvembaGiftCity.Add(OnGameplayMvembaGiftCity)
-			--5.6. Disable: print("Mvemba religious hooks added")
 		end
 	end
 	if BBCC_MODE ~= -1 then

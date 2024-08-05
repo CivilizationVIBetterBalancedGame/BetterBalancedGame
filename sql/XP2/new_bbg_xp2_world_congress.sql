@@ -55,3 +55,7 @@ INSERT INTO ResolutionEffects(ResolutionEffectId, ResolutionType, WhichEffect, M
 -- UPDATE Modifiers SET RunOnce='True' WHERE ModifierId='APPLY_INTERNATIONAL_MAJOR_TRADE_ROUTES_DISABLED';
 
 DELETE FROM ResolutionEffects WHERE ResolutionEffectId=25;
+
+--10/03/2024 Rework prod congress values from 100/50 to 50/25 %
+UPDATE ModifierArguments SET Value='-50' WHERE ModifierId='WC_RES_UNIT_PRODUCTION_YIELD_DEBUFF' AND Name='Amount';
+UPDATE ModifierArguments SET Value='25' WHERE ModifierId='WC_RES_UNIT_PRODUCTION_YIELD_BUFF' AND Name='Amount';
