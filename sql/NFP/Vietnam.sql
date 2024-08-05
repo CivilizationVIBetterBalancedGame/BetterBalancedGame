@@ -27,3 +27,6 @@ UPDATE StartBiasFeatures SET Tier=3 WHERE CivilizationType='CIVILIZATION_VIETNAM
 -- 14/10 discount reduced to 35% (20 for diplo quarter) and unique district to 55%
 UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_THANH';
 UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_THANH';
+
+-- 03/07/2024 Vietnam nerf extra 1 movement in neutral/ennemy territory
+UPDATE UnitAbilityModifiers SET UnitAbilityType='ABILITY_VOI_CHIEN' WHERE ModifierId='TRIEU_UNFRIENDLY_MOVEMENT';

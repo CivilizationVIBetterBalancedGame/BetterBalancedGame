@@ -11,6 +11,8 @@ UPDATE ModifierArguments SET Value='10' WHERE ModifierId='DISCIPLINE_BARBARIANCO
 
 -- Bastillon ""bugfix"" (Value is doubled, so put 2*+3 instead of 2*+5)
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='BASTIONS_RANGEDSTRIKE' AND Name='Amount';
+-- 02/07/24 Bastion ranged strength removed
+DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_BASTIONS' AND ModifierId='BASTIONS_RANGEDSTRIKE';
 
 -- Praeorium give +4 Loyalty (from +2)
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='PRAETORIUM_GOVERNORIDENTITY' AND Name='Amount';
@@ -189,3 +191,4 @@ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('BBG_MEDINA_HOUSING_DISTRICT', 'Amount', 1);
 UPDATE PolicyModifiers SET ModifierId='BBG_MEDINA_HOUSING_DISTRICT' WHERE ModifierId='MEDINAQUARTER_SPECIALTYHOUSING';
+

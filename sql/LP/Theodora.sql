@@ -1,5 +1,5 @@
 --Delete original Theodora bonus / Change to +1 culture for hippos and hs per adjacent districts
-
+-- 04/07/24 hippodrome adjency removed
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_THEODORA';
 
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
@@ -16,5 +16,5 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 	('BBG_THEODORA_HIPPODROME_CULTURE', 'Description', 'LOC_BBG_THEODORA_HIPPODROME_CULTURE');
 
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-	('TRAIT_LEADER_THEODORA', 'BBG_THEODORA_HOLYSITE_CULTURE'),
-	('TRAIT_LEADER_THEODORA', 'BBG_THEODORA_HIPPODROME_CULTURE');
+	('TRAIT_LEADER_THEODORA', 'BBG_THEODORA_HOLYSITE_CULTURE');
+	-- ('TRAIT_LEADER_THEODORA', 'BBG_THEODORA_HIPPODROME_CULTURE');

@@ -1,6 +1,7 @@
 -- free city center building after code of laws
 --====Trajan====--
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_UTILS_PLAYER_HAS_CIVIC_CODE_OF_LAWS_REQSET' WHERE ModifierId='TRAIT_ADJUST_NON_CAPITAL_FREE_CHEAPEST_BUILDING';
+-- 08/07/24 delayed to foreign trade
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_UTILS_PLAYER_HAS_CIVIC_FOREIGN_TRADE_REQSET' WHERE ModifierId='TRAIT_ADJUST_NON_CAPITAL_FREE_CHEAPEST_BUILDING';
 
 --====Rome======--
 -- reverted 04/10/22

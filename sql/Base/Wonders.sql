@@ -12,6 +12,9 @@ INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 UPDATE Buildings SET Cost=1220 WHERE BuildingType='BUILDING_CRISTO_REDENTOR';
 
+-- Cristo bonus on beach resort reduced to +75%
+UPDATE ModifierArguments SET Value=175 WHERE ModifierId='CRISTOREDENTOR_BEACHTOURISM' AND Name='ScalingFactor';
+
 -- Hanging Gardens gives +1 housing to cities within 6 tiles
 UPDATE Buildings SET Housing='1' WHERE BuildingType='BUILDING_HANGING_GARDENS';
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType , ModifierId)
@@ -504,3 +507,5 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 -- BioSphere - reduce cost
 UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_BIOSPHERE';
 
+-- 02/07/24 Oxford moved to Urbanization from Scientific Theory
+UPDATE Buildings SET PrereqTech=NULL, PrereqCivic='CIVIC_URBANIZATION' WHERE BuildingType='BUILDING_OXFORD_UNIVERSITY';
