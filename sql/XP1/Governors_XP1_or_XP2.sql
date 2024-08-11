@@ -222,10 +222,21 @@ UPDATE ModifierArguments SET Value=40 WHERE ModifierId='GROUNDBREAKER_BONUS_HARV
 -- 24/04/23 Magnus surplus logistics give 1 PM to Settler.
 -- 06/07/23 REMOVED, now give +2 food and 20% growth
 -- L1 Expedition : +20% Growth in the city. Internal traderoute +2 food 
+-- 11/08/24 L1 Expedition : +20% Growth in the city. Internal traderoute +1 food / +1 prod
 UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION' WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD';
 UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION' WHERE ModifierId='SURPLUS_LOGISTICS_EXTRA_GROWTH';
 UPDATE GovernorPromotions SET Level=1, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION';
-
+    -- food to 1 (from base game)
+UPDATE ModifierArguments SET Value=1 WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD' AND Name='Amount';
+    -- 1 prod
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Amount', '1'),
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Domestic', '1'),
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION', 'BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD');
 
 -- 06/07/23 RI Industrialist: +25% Production toward Industrial Zone buildings in the city. Settlers trained in the city do not consume a Citizen Population. 
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST';
@@ -243,16 +254,21 @@ UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_
 -- 24/04/23 Magnus' expedition gives +2 production to domestic trade routes
 -- 10/03/24 Swapped with +2 food promotion
 -- 06/07/24 LII Surplus Logistic : +1 production to internal traders 
+-- 11/08/24 LII Surplus Logistic : +20% prod toward building, district and units
 UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS';
 UPDATE GovernorPromotions SET Level=2, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS';
-INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
-    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Amount', '2'),
-    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Domestic', '1'),
-    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
-INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD');
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_MAGNUS_ADJUST_UNITS_PRODUCTION', 'MODIFIER_SINGLE_CITY_ADJUST_UNIT_PRODUCTION_MODIFIER'),
+    ('BBG_MAGNUS_ADJUST_BUILDINGS_PRODUCTION', 'MODIFIER_SINGLE_CITY_ADJUST_BUILDING_PRODUCTION_MODIFIER'),
+    ('BBG_MAGNUS_ADJUST_DISTRICTS_PRODUCTION', 'MODIFIER_SINGLE_CITY_ADJUST_DISTRICT_PRODUCTION_MODIFIER');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MAGNUS_ADJUST_UNITS_PRODUCTION', 'Amount', 20),
+    ('BBG_MAGNUS_ADJUST_BUILDINGS_PRODUCTION', 'Amount', 20),
+    ('BBG_MAGNUS_ADJUST_DISTRICTS_PRODUCTION', 'Amount', 20);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_MAGNUS_ADJUST_UNITS_PRODUCTION'),
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_MAGNUS_ADJUST_BUILDINGS_PRODUCTION'),
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_MAGNUS_ADJUST_DISTRICTS_PRODUCTION');
 
 -- RII Arms Race:  Workshop +2/factory +4/ powerplant +7 production in the city where established + 4 electricity (from +4prod/+4 electricity in power plant)
 UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER';
