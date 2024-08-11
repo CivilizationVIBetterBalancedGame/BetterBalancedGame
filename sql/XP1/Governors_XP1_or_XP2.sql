@@ -28,27 +28,71 @@ INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromo
     ('GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR', 'GOVERNOR_PROMOTION_CARDINAL_BISHOP');
 UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR' WHERE ModifierId IN ('CARDINAL_CITADEL_OF_GOD_PRESSURE', 'CARDINAL_CITADEL_OF_GOD_COMBAT');
 
--- RI Citadel of gods :  Your trade route ending here provide +2 culture to their starting city. Gain Faith equal to 25% of the construction cost when finishing buildings.  
+-- RI Citadel of gods : +4 prophet point when city has HS, can faith buy HS buildings -20%
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';  
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
     ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'GOVERNOR_PROMOTION_CARDINAL_BISHOP'); 
 UPDATE GovernorPromotions SET Level=1, Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';
+    -- 4 prophets points per turn
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_MOKSHA_PROPHET_POINTS', 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', 'DISTRICT_IS_HOLY_SITE');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_MOKSHA_PROPHET_POINTS', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_PROPHET'),
+    ('BBG_MOKSHA_PROPHET_POINTS', 'Amount', 4);
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_PROPHET_POINTS');
+    -- faith buy HS build with 20% discount
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_MOKSHA_HS_BUILDING_FAITHBUY', 'MODIFIER_CITY_ENABLE_BUILDING_FAITH_PURCHASE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MOKSHA_HS_BUILDING_FAITHBUY', 'DistrictType', 'DISTRICT_HOLY_SITE');
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_HS_BUILDING_FAITHBUY');
+INSERT INTO Modifiers (ModifierId, ModifierType)
+    SELECT 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType, 'BBG_MODIFIER_SINGLE_CITY_ADJUST_BUILDING_PURCHASE_COST' FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+    SELECT 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType, 'BuildingType', Buildings.BuildingType FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
+INSERT INTO ModifierArguments(ModifierId, Name, Value)
+    SELECT 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType, 'Amount', 20 FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId)
+    SELECT 'GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
 
+-- LII Divine Architect : Ability to faith buy district with 10% discount. Your trade route ending here provide +2 culture and +1 food to their starting city. 
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT';
+INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT', 'GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR');
+UPDATE GovernorPromotions SET Level=2, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT';  
+    -- culture/food per trader
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE', 'Amount', '2'),
     ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE', 'Domestic', '1'),
     ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE', 'YieldType', 'YIELD_CULTURE');
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_FOOD', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_FOOD', 'Amount', '1'),
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_FOOD', 'Domestic', '1'),
+    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_FOOD', 'YieldType', 'YIELD_FOOD');
 INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE');
+    ('GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT', 'BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_2_CULTURE'),
+    ('GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT', 'BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_FOOD'); 
+    -- district -10% faith buy
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_MOKSHA_DISTRICT_DISCOUNT', 'MODIFIER_SINGLE_CITY_ADJUST_ALL_DISTRICTS_PURCHASE_COST');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MOKSHA_DISTRICT_DISCOUNT', 'Amount', 10);
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT', 'BBG_MOKSHA_DISTRICT_DISCOUNT');
 
--- LII Divine Architect : Ability to faith buy district. Apostles/Warrior monks trained in the city receive one extra Promotion. 
-DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT';
+-- RII Patron Saint : Apostles/Warrior monks trained in the city receive one extra Promotion, they cost 20% less faith. Grant the ability to faith buy support unit in the city for -20%.  
+DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';      
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT', 'GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR');
-UPDATE GovernorPromotions SET Level=2, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT';     
-        
+    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD');
+UPDATE GovernorPromotions SET Level=2, Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';
+    -- Warrior monks promote
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES
     ('BBG_REQUIRES_UNIT_TYPE_IS_MONK', 'REQUIREMENT_UNIT_TYPE_MATCHES');
 INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
@@ -62,28 +106,23 @@ INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_MOKSHA_MONK_FREE_PROMO', 'Amount', '-1');
 INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT', 'BBG_MOKSHA_MONK_FREE_PROMO');
-UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT' WHERE ModifierId='CARDINAL_PATRON_SAINT_PROMOTION';
-
--- RII Patron Saint : Your trade route ending here provide +1 culture to their starting city. Grant the ability to faith buy support unit in the city.  
-DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';      
-INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD');
-UPDATE GovernorPromotions SET Level=2, Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';
-
-INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
-    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_CULTURE', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_CULTURE', 'Amount', '1'),
-    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_CULTURE', 'Domestic', '1'),
-    ('BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_CULTURE', 'YieldType', 'YIELD_CULTURE');
+    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_MONK_FREE_PROMO');
+    -- faith buy support unit FORMATION_CLASS_SUPPORT
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT', 'MODIFIER_CITY_ENABLE_UNIT_FAITH_PURCHASE');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT', 'Tag', 'CLASS_SUPPORT');
 INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_DOMESTIC_TRADE_ROUTE_1_CULTURE'),
     ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT'); 
+    -- 20% discount on warrior monks, apostle and support unit
+INSERT INTO Modifiers (ModifierId, ModifierType)
+    SELECT 'BBG_MOKSHA_'  || UnitType || '_FAITH_DISCOUNT', 'MODIFIER_SINGLE_CITY_ADJUST_UNIT_PURCHASE_COST' FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_MOKSHA_' || UnitType || '_FAITH_DISCOUNT', 'UnitType', UnitType FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_MOKSHA_' || UnitType || '_FAITH_DISCOUNT', 'Amount', 20 FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId)
+    SELECT 'GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_' || UnitType || '_FAITH_DISCOUNT' FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
 
 -- M3 Curator : Double Tourism from Great Works of Art, Music and Writing in the city.   
 UPDATE GovernorPromotionSets SET GovernorType='GOVERNOR_THE_CARDINAL' WHERE GovernorPromotion='GOVERNOR_PROMOTION_MERCHANT_CURATOR';
@@ -183,10 +222,21 @@ UPDATE ModifierArguments SET Value=40 WHERE ModifierId='GROUNDBREAKER_BONUS_HARV
 -- 24/04/23 Magnus surplus logistics give 1 PM to Settler.
 -- 06/07/23 REMOVED, now give +2 food and 20% growth
 -- L1 Expedition : +20% Growth in the city. Internal traderoute +2 food 
+-- 11/08/24 L1 Expedition : +20% Growth in the city. Internal traderoute +1 food / +1 prod
 UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION' WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD';
 UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION' WHERE ModifierId='SURPLUS_LOGISTICS_EXTRA_GROWTH';
 UPDATE GovernorPromotions SET Level=1, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION';
-
+    -- food to 1 (from base game)
+UPDATE ModifierArguments SET Value=1 WHERE ModifierId='SURPLUS_LOGISTICS_TRADE_ROUTE_FOOD' AND Name='Amount';
+    -- 1 prod
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Amount', '1'),
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Domestic', '1'),
+    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION', 'BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD');
 
 -- 06/07/23 RI Industrialist: +25% Production toward Industrial Zone buildings in the city. Settlers trained in the city do not consume a Citizen Population. 
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST';
@@ -204,16 +254,21 @@ UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_
 -- 24/04/23 Magnus' expedition gives +2 production to domestic trade routes
 -- 10/03/24 Swapped with +2 food promotion
 -- 06/07/24 LII Surplus Logistic : +1 production to internal traders 
+-- 11/08/24 LII Surplus Logistic : +20% prod toward building, district and units
 UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS';
 UPDATE GovernorPromotions SET Level=2, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS';
-INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
-    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Amount', '2'),
-    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'Domestic', '1'),
-    ('BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION');
-INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_MAGNUS_DOMESTIC_TRADE_ROUTE_PROD');
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_MAGNUS_ADJUST_UNITS_PRODUCTION', 'MODIFIER_SINGLE_CITY_ADJUST_UNIT_PRODUCTION_MODIFIER'),
+    ('BBG_MAGNUS_ADJUST_BUILDINGS_PRODUCTION', 'MODIFIER_SINGLE_CITY_ADJUST_BUILDING_PRODUCTION_MODIFIER'),
+    ('BBG_MAGNUS_ADJUST_DISTRICTS_PRODUCTION', 'MODIFIER_SINGLE_CITY_ADJUST_DISTRICT_PRODUCTION_MODIFIER');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MAGNUS_ADJUST_UNITS_PRODUCTION', 'Amount', 20),
+    ('BBG_MAGNUS_ADJUST_BUILDINGS_PRODUCTION', 'Amount', 20),
+    ('BBG_MAGNUS_ADJUST_DISTRICTS_PRODUCTION', 'Amount', 20);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_MAGNUS_ADJUST_UNITS_PRODUCTION'),
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_MAGNUS_ADJUST_BUILDINGS_PRODUCTION'),
+    ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_MAGNUS_ADJUST_DISTRICTS_PRODUCTION');
 
 -- RII Arms Race:  Workshop +2/factory +4/ powerplant +7 production in the city where established + 4 electricity (from +4prod/+4 electricity in power plant)
 UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER';
