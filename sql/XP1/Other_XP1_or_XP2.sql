@@ -58,6 +58,7 @@ UPDATE ModifierArguments SET Value='2' WHERE ModifierId='COMMEMORATION_CULTURAL_
 -- 21/06/23 Exodus change to military golden
 -- +2 horse / iron / turn, 15% prod for military units, -1 gold for military units, +1 prod +1 culture for campement & building
 -- 13/03/24 prod/cult removed for encampment
+-- 11/08/24 prod added to encampment, culture removed to buildings, when killing a unit get 40% of its cs in culture
 DELETE FROM CommemorationModifiers WHERE CommemorationType='COMMEMORATION_RELIGIOUS';
 
 -- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
@@ -119,8 +120,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('BBG_MILITARY_COMMEMORATION_PROD_ARMORY', 'Amount', 1),
 	('BBG_MILITARY_COMMEMORATION_PROD_MILITARY_ACADEMY', 'Amount', 1),
 	('BBG_MILITARY_COMMEMORATION_CULTURE_KILLS', 'YieldType', 'YIELD_CULTURE'),
-	-- it's standard speed so 50 online
-	('BBG_MILITARY_COMMEMORATION_CULTURE_KILLS', 'PercentDefeatedStrength', 100);
+	-- it's standard speed so /2 online
+	('BBG_MILITARY_COMMEMORATION_CULTURE_KILLS', 'PercentDefeatedStrength', 80);
 
 INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
 	('COMMEMORATION_RELIGIOUS', 'BBG_MILITARY_COMMEMORATION_PROD_BARRACK'),
