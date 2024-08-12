@@ -101,6 +101,39 @@ function GetYieldsForRoute(pOriginCity:table, pDestinationCity:table, bReturnDes
 		end
 	end
 
+	-- BBG Corrects Amani owner only trade route bonuses to show on Trader Unit Panel
+
+    local isCityState:boolean = false;
+    local governorsAssignedToCity = pDestinationCity:GetAllAssignedGovernors();
+    -- print(#governorsAssignedToCity);
+    local playerId = Game.GetLocalPlayer();
+    -- print('PlayerId:');
+    -- print(playerID);
+    for i, j in ipairs(governorsAssignedToCity) do
+        if j:GetOwner() == playerId then
+            -- print('CS Amani Governor belongs to player');
+            -- check its a city state
+            for i, pCityState in ipairs(PlayerManager.GetAliveMinors()) do
+		        if pCityState:GetID() == destOwnerID then
+			        isCityState = true;
+			        break;
+		        end
+	        end
+	        -- need this check to make sure its not Ibrahim (Ottoman governor)
+            if j:GetName() == 'LOC_GOVERNOR_THE_AMBASSADOR_NAME' and j:IsEstablished() and isCityState then
+                -- print('Amani fully established, adding Messenger promo yields.')
+                kRouteYields[1] = kRouteYields[1] + 2;
+                kRouteYields[2] = kRouteYields[2] + 2;
+                --[[if j:HasPromotion(DB.MakeHash('GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR')) then
+                	kRouteYields[1] = kRouteYields[1] + 1;
+                    kRouteYields[2] = kRouteYields[2] + 1;
+                    kRouteYields[3] = kRouteYields[1] + 3;
+                    -- print('Amani Promotion recognised, added Foreign Investor yields to display');
+                end --]]
+            end
+        end
+    end
+
 	-- Add the yields together and return the result
 	for yieldIndex=1, #kRouteYields, 1 do
 
