@@ -59,7 +59,7 @@ INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, Adja
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentRiver) VALUES
     ('BBG_SUGUBA_RIVER', 'LOC_SUGUBA_RIVER_GOLD', 'YIELD_GOLD', 1, 1);
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentDistrict) VALUES
-    ('BBG_SUGUBA_CITY_CENTER', 'LOC_SUGUBA_OASIS_GOLD', 'YIELD_GOLD', 1, 'DISTRICT_CITY_CENTER');
+    ('BBG_SUGUBA_CITY_CENTER', 'LOC_DISTRICT_CITY_CENTER_GOLD', 'YIELD_GOLD', 1, 'DISTRICT_CITY_CENTER');
 INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
     ('DISTRICT_SUGUBA', 'BBG_SUGUBA_OASIS'),
     ('DISTRICT_SUGUBA', 'BBG_SUGUBA_RIVER'),
@@ -89,8 +89,11 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_SAHEL_MERCHANTS', 'TRAIT_BBG_MANSA_FREE_TRADER_BANKS');
 
 -- Holy site +1 to Suguba / Sundiata is excluded in LP/Sundiata.sql
+-- remove the classic +1 and give +2 on the Mansa one
+INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
+    ('TRAIT_LEADER_SAHEL_MERCHANTS', 'Holy_Site_Gold');
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentDistrict) VALUES
-    ('BBG_SUGUBA_HOLY_SITE_MANSA', 'LOC_BBG_SUGUBA_HOLY_SITE_MANSA', 'YIELD_GOLD', 1, 'DISTRICT_HOLY_SITE');
+    ('BBG_SUGUBA_HOLY_SITE_MANSA', 'LOC_BBG_SUGUBA_HOLY_SITE_MANSA', 'YIELD_GOLD', 2, 'DISTRICT_HOLY_SITE');
 INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
     ('DISTRICT_SUGUBA', 'BBG_SUGUBA_HOLY_SITE_MANSA');
 

@@ -14,7 +14,7 @@ INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, Adja
 INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
     ('DISTRICT_SUGUBA', 'BBG_SUGUBA_THEATER_SUNDIATA');
 INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
-    ('TRAIT_LEADER_SAHEL_MERCHANTS', 'BBG_SUGUBA_HOLY_SITE_MANSA');
+    ('TRAIT_LEADER_SAHEL_MERCHANTS', 'BBG_SUGUBA_THEATER_SUNDIATA');
 
 -- and reverse
 -- 24/07/24 removed
