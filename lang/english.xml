@@ -410,7 +410,7 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_DESCRIPTION" Language="en_US">
-			<Text>A district unique to England for naval activity in your city. Replaces the Harbor district and cheaper to build. Also removes the [ICON_Movement] Movement penalty for embarking and disembarking to and from this tile. Must be built on Coast or Lake Terrain adjacent to land.[NEWLINE][NEWLINE]+1 [ICON_Movement] Movement for all naval units built in Dockyard[NEWLINE]+2 [ICON_Gold] Gold as adjacency when built on a foreign continent[NEWLINE]+1 [ICON_TradeRoute] Trade Route capacity.</Text>
+			<Text>A district unique to England for naval activity in your city. Replaces the Harbor district. Also removes the [ICON_Movement] Movement penalty for embarking and disembarking to and from this tile. Must be built on Coast or Lake Terrain adjacent to land.[NEWLINE][NEWLINE]+1 [ICON_Movement] Movement for all naval units built in Dockyard[NEWLINE]+2 [ICON_Gold] Gold as adjacency and +4 Loyalty per turn when built on a foreign continent. Cannot be built on Reef.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_EXPANSION1_DESCRIPTION" Language="en_US">
 			<Text>A district unique to England for naval activity in your city. Replaces the Harbor district. Also removes the [ICON_Movement] Movement penalty for embarking and disembarking to and from this tile. Must be built on Coast or Lake Terrain adjacent to land.[NEWLINE][NEWLINE]+1 [ICON_Movement] Movement for all naval units built in Dockyard[NEWLINE]+2 [ICON_Gold] Gold as adjacency and +4 Loyalty per turn when built on a foreign continent. Cannot be built on Reef.</Text>
@@ -826,7 +826,7 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="en_US">
-			<Text>-15% [ICON_PRODUCTION] Production toward all production. Mines receive -1 [ICON_PRODUCTION] Production and +4 [ICON_GOLD] Gold. Cities recieve +1 [ICON_FOOD] Food for each desert tile adjacent to your city center. Cities receive +1 [ICON_FAITH] if they own at least 2 desert tiles.[NEWLINE]May purchase Commercial Hub district buildings with [ICON_Faith] Faith.</Text>
+			<Text>-15% [ICON_PRODUCTION] Production toward all production. Mines receive -1 [ICON_PRODUCTION] Production and +4 [ICON_GOLD] Gold. Cities recieve +1 [ICON_FOOD] Food for each desert tile adjacent to your City Center. Cities receive +1 [ICON_FAITH] if they own at least 2 desert tiles.[NEWLINE]May purchase Commercial Hub district buildings with [ICON_Faith] Faith.</Text>
 		</Replace>
 		<!-- = leader ability (Mansa Musa) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SAHEL_MERCHANTS_DESCRIPTION" Language="en_US">
@@ -834,7 +834,7 @@
 		</Replace>
 		<!-- = leader ability (Soundiata) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SUNDIATA_KEITA_DESCRIPTION" Language="en_US">
-			<Text>Patronage of [ICON_GREATPERSON] Great People costs 30% less [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Theater Squares grant standard adjacency to Sugubas. Cities with a Suguba and Theater Square receive +1 Great Writer point. Markets gain 2 slots for [ICON_GREATWORK_WRITING] Great Works of Writing in Cities founded by Mali. [ICON_GREATWORK_WRITING] Great Works of Writing grant +4 [ICON_GOLD] Gold and +2 [ICON_CULTURE] Culture.</Text>
+			<Text>Patronage of [ICON_GREATPERSON] Great People costs 30% less [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Theater Squares grant standard adjacency to Sugubas. Cities with a Suguba and Theater Square receive +1 Great Writer point. Markets gain 2 slots for [ICON_GREATWORK_WRITING] Great Works of Writing in cities founded by Mali. [ICON_GREATWORK_WRITING] Great Works of Writing grant +4 [ICON_GOLD] Gold and +2 [ICON_CULTURE] Culture.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="en_US">
@@ -877,6 +877,7 @@
 		<Replace Tag="LOC_IMPROVEMENT_MAORI_PA_DESCRIPTION" Language="en_US">
 			<Text>Unlocks the Toa ability to construct a Pā, unique to Māori[NEWLINE][NEWLINE]Occupying units receive +1 Sight and +4 [ICON_STRENGTH] Defense Strength, and automatically gains 2 turns of fortification. A Māori unit occupying a Pā heals even if they just moved or attacked. Must be built on a Hill tile.</Text>
 		</Replace>
+		
 		<!-- == MAPUCHE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_ABILITY_TRAIT_MAPUCHE_DESCRIPTION" Language="en_US">
@@ -1397,7 +1398,7 @@
 			<Text>Negotiator</Text>
 		</Row>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_DESCRIPTION" Language="en_US">
-			<Text>City cannot be put under Siege and gains +5 City Defense Strength.</Text>
+			<Text>City cannot be put under siege and gains +5 City Defense Strength.</Text>
 		</Row>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_LOCAL_INFORMANTS_DESCRIPTION" Language="en_US">
 			<Text>All cities within 9 tiles gain +4 Loyalty per turn toward your civilization.  Enemy Spies operate at 3 levels below normal in this city.</Text>
@@ -1409,7 +1410,7 @@
 			<Text>+1 [ICON_Favor] Diplomatic Favor and +1 [ICON_InfluencePerTurn] Influence per turn. Additional +1 [ICON_Favor] Diplomatic Favor and +1 [ICON_InfluencePerTurn] Influence per turn for each tier of Government Plaza building constructed.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_PUPPETEER_DESCRIPTION" Language="en_US">
-			<Text>While established in a city state, doubles the number of envoys you have there.</Text>
+			<Text>While established in a city state, double the number of envoys you have there.</Text>
 		</Replace>
 		<!-- = Unused
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY_DESCRIPTION" Language="en_US">
@@ -1418,7 +1419,7 @@
 
 		<!-- == Ibrahim == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_PASHA_DESCRIPTION" Language="en_US">
-			<Text>+25% [ICON_Production] Production to all military units in your city with Ibrahim. When established in an allied foreign capital, alliance leveling rate is increased with the owner. Establishes in 3 turns.</Text>
+			<Text>When established in your city, +25% [ICON_Production] Production to all military units in this city. When established in an allied foreign capital, alliance leveling rate is increased with the owner. Establishes in 3 turns.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_HEAD_FALCONER_DESCRIPTION" Language="en_US">
 			<Text>Grants +1 [ICON_SCIENCE] Science per population in this city.</Text>
@@ -1438,13 +1439,13 @@
 		
 		<!-- == Liang == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_BUILDER_GUILDMASTER_DESCRIPTION" Language="en_US">
-			<Text>All Builders trained in city get +1 [ICON_Charges] charge. Establishes in 4 turns.</Text>
+			<Text>All Builders trained in this city get +1 [ICON_CHARGES] charge. Establishes in 4 turns.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_REINFORCED_INFRASTRUCTURE_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_PRODUCTION] Production for Floodplain and Volcanic Soil tiles in the city. The city's improvements, buildings, and districts cannot be damaged by Environmental Effects.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_PARKS_RECREATION_DESCRIPTION" Language="en_US">
-			<Text>Can construct the City Park improvement on flat land in the city once Games and Recreation civic is unlocked. +3 [ICON_SCIENCE] Science, +2 [ICON_Culture] Culture, +2 [ICON_HOUSING] Housing, +1 [ICON_Amenities] Amenity, and +2 Appeal to adjacent tiles. One per city.</Text>
+			<Text>Can construct the City Park improvement on flat land in the city unlocked at Games and Recreation. Provides +3 [ICON_SCIENCE] Science, +2 [ICON_Culture] Culture, +2 [ICON_HOUSING] Housing, +1 [ICON_Amenities] Amenity, and +2 Appeal to adjacent tiles. Limit one per city.</Text>
 		</Replace>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_AGRICULTURE_NAME" Language="en_US">
 			<Text>Agriculture</Text>
@@ -1462,7 +1463,7 @@
 			<Text>+1 [ICON_HOUSING] Housing, +1 [ICON_Amenities] Amenity for every [ICON_DISTRICT] district and wonder in the city.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_CITY_PARK_DESCRIPTION" Language="en_US">
-			<Text>A [ICON_Governor] Governor unique improvement that can be built in a city with a Surveyor Governor with the Parks and Recreation promotion. +3 [ICON_SCIENCE] Science, +3 [ICON_Culture] Culture, +2 [ICON_HOUSING] Housing, +1 [ICON_Amenities] Amenity, and +2 Appeal to adjacent tiles. One per city.</Text>
+			<Text>A [ICON_Governor] Governor unique improvement that can be built in a city with a Surveyor Governor with the Parks and Recreation promotion. +3 [ICON_SCIENCE] Science, +2 [ICON_Culture] Culture, +2 [ICON_HOUSING] Housing, +1 [ICON_Amenities] Amenity, and +2 Appeal to adjacent tiles. Limit one per city.</Text>
 		</Replace>
 
 		<!-- == Magnus == -->
@@ -1479,21 +1480,21 @@
 			<Text>Settlers trained in the city do not consume Population. +25% Production toward IZ buildings in the city.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_BLACK_MARKETEER_DESCRIPTION" Language="en_US">
-			<Text>+2 [ICON_Production] Production for Workshops, +4 [ICON_PRODUCTION] Production for Factories, and +7 [ICON_Production] Production and +4 [ICON_POWER] Power provided by the city's Coal, Oil, or Nuclear Power Plant.</Text>
+			<Text>+2 [ICON_Production] Production for Workshop, +4 [ICON_PRODUCTION] Production for Factory, and +7 [ICON_Production] Production and +4 [ICON_POWER] Power provided by the city's Coal, Oil, or Nuclear Power Plant.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_VERTICAL_INTEGRATION_DESCRIPTION" Language="en_US">
-			<Text>This city receives [ICON_Production] Production from all neareby Industrial Zone buildings with regional bonuses, not just the first.</Text>
+			<Text>This city receives [ICON_PRODUCTION] Production from all neareby Industrial Zone buildings with regional bonuses, not just the first.</Text>
 		</Replace>
 		
 		<!-- == Moksha == -->
 		<Replace Tag="LOC_GOVERNOR_THE_CARDINAL_DESCRIPTION" Language="en_US">
-			<Text>{LOC_GOVERNOR_THE_CARDINAL_NAME} is a Spiritual and Religious leader that can increase the [ICON_CULTURE] Cultural Significance and [ICON_Religion] Religious Fortitude of a city.</Text>
+			<Text>{LOC_GOVERNOR_THE_CARDINAL_NAME} is a Spiritual and Religious leader that can increase the [ICON_CULTURE] Cultural Significance and [ICON_RELIGION] Religious Fortitude of a city.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_BISHOP_DESCRIPTION" Language="en_US">
-			<Text>+15% [ICON_Culture] Culture generated by the city and religious pressure to adjacent cities is 100% stronger. +2 [ICON_Faith] Faith for every district. Establishes in 4 turns.</Text>
+			<Text>+15% [ICON_Culture] Culture generated by the city and religious pressure to adjacent cities is 100% stronger. +2 [ICON_FAITH] Faith for every district. Establishes in 4 turns.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_Culture] Culture per turn for each [ICON_Citizen] Citizen in the city.</Text>
+			<Text>+1 [ICON_Culture] Culture per turn for each [ICON_CITIZEN] Citizen in the city.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT_DESCRIPTION" Language="en_US">
 			<Text>Domestic [ICON_TradeRoute] Trade Routes to Moksha's city provide +2 [ICON_CULTURE] Culture and +1 [ICON_FOOD] Food. Allows this city to purchase [ICON_DISTRICT] districts with [ICON_FAITH] Faith at a 10% discount. </Text>
@@ -1502,15 +1503,15 @@
 			<Text>+4 Great Prophet points per turn when this city has a Holy Site.  Allows this city to purchase Holy Site buildings with [ICON_FAITH] Faith at a 20% discount.</Text>
 		</Replace>	
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT_DESCRIPTION" Language="en_US">
-			<Text>Apostles, Warrior Monks, and Support units may be purchased with [ICON_FAITH] Faith at a 20% discount. Warrior Monks trained in this city receive free [ICON_Promotion] promotion. Apostles trained in this city receive second [ICON_Promotion] free promotion immediately after earning their first [ICON_Promotion] promotion.</Text>
+			<Text>Apostles, Warrior Monks, and Support units may be purchased with [ICON_FAITH] Faith at a 20% discount. Warrior Monks trained in this city receive free [ICON_PROMOTION] promotion. Apostles trained in this city receive second [ICON_PROMOTION] free promotion immediately after earning their first [ICON_PROMOTION] promotion.</Text>
 		</Replace>		
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_CURATOR_DESCRIPTION" Language="en_US">
-			<Text>Doubles the [ICON_Tourism] Trouism from Great Works of Writing, Art, and Music in the city.</Text>
+			<Text>Doubles the [ICON_TOURISM] Tourism from Great Works of Writing, Art, and Music in the city.</Text>
 		</Replace>
 
 		<!-- == Pingala == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_LIBRARIAN_DESCRIPTION" Language="en_US">
-			<Text>+15% [ICON_Science] Science generated by the city. Establishes in 4 turns.</Text>
+			<Text>+15% [ICON_SCIENCE] Science generated by the city. Establishes in 4 turns.</Text>
 		</Replace>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_KNOWLEDGE_NAME" Language="en_US">
 			<Text>Shared Knowledge</Text>
@@ -1522,7 +1523,7 @@
 			<Text>Eureka</Text>
 		</Row>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_EUREKA_DESCRIPTION" Language="en_US">
-			<Text>Campus Buildings in this city provide additional science.  +3 [ICON_Science] Science for Library, +5 [ICON_Science] Science for University, +7 [ICON_Science] Science for Research Lab</Text>
+			<Text>Campus buildings in this city provide additional Science.  +3 [ICON_Science] Science for Library, +5 [ICON_Science] Science for University, +7 [ICON_SCIENCE] Science for Research Lab.</Text>
 		</Row>
 		<Replace Tag="LOC_GOVERNOR_THE_EDUCATOR_DESCRIPTION" Language="en_US">
 			<Text>{LOC_GOVERNOR_THE_EDUCATOR_NAME} is focused on the cultivation of [ICON_SCIENCE] Scientific endeavors in the city. He is also quite skilled in the attraction of [ICON_GreatPerson] Great People to his city.</Text>
@@ -1533,16 +1534,16 @@
 
 		<!-- == Reyna == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_LAND_ACQUISITION_DESCRIPTION" Language="en_US">
-			<Text>Acquire new tiles in the city faster. +4 [ICON_GOLD] Gold per turn from each foreign [ICON_TRADEROUTE] Route Trade Route passing through the city. Establishes in 4 turns.</Text>
+			<Text>Acquire new tiles in the city faster. +4 [ICON_GOLD] Gold per turn from each foreign [ICON_TRADEROUTE] Trade Route passing through the city. Establishes in 4 turns.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_HARBORMASTER_DESCRIPTION" Language="en_US">
-			<Text>Double the adjacency bonuses from Commercial Hubs and Harbors in the city. +1 [ICON_TradeRoute] Trade Route capacity if this city has both a market and a lighthouse.</Text>
+			<Text>Double the adjacency bonuses from the Commercial Hub and Harbor in this city. +1 [ICON_TRADEROUTE] Trade Route capacity if this city has both a Market and a Lighthouse.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_FORESTRY_MANAGEMENT_DESCRIPTION" Language="en_US">
-			<Text>This city receives +2 [ICON_Gold] Gold from each unimproved feature and each breathtaking tile. Tiles adjacent to unimproved features receive +1 Appeal in this city.</Text>
+			<Text>This city receives +2 [ICON_GOLD] Gold from each unimproved feature and each breathtaking tile. Tiles adjacent to unimproved features receive +1 Appeal in this city.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_TAX_COLLECTOR_DESCRIPTION" Language="en_US">
-			<Text>+2 [ICON_Gold] Gold per turn for each [ICON_Citizen] Citizen in the city and +1 [ICON_TradeRoute] Trade Route capacity while established in any city.</Text>
+			<Text>+2 [ICON_GOLD] Gold per turn for each [ICON_CITIZEN] Citizen in the city and +1 [ICON_TRADEROUTE] Trade Route capacity while established in any city.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_CONTRACTOR_DESCRIPTION" Language="en_US">
 			<Text>Allows the city to purchase districts with [ICON_GOLD] Gold. 50% [ICON_GOLD] Gold discount on purchasing buildings and support units in the city.</Text>
@@ -1559,16 +1560,16 @@
 			<Text>Increase city garrison [ICON_STRENGTH] Combat Strength by 5. Establishes in 3 turns.</Text>
 		</Replace>		
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_GARRISON_COMMANDER_DESCRIPTION" Language="en_US">
-			<Text>Units defending within the city's territory get +3 [ICON_Strength] Combat Strength. Your other cities within 9 tiles gain +4 Loyalty per turn towards your civilization.</Text>
+			<Text>Units defending within the city's territory get +3 [ICON_STRENGTH] Combat Strength. Your other cities within 9 tiles gain +4 Loyalty per turn toward your civilization.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EMBRASURE_DESCRIPTION" Language="en_US">
-			<Text>City gains an additional [ICON_Ranged] Ranged Strike per turn. City cannot be put under siege.</Text>
+			<Text>City gains an additional [ICON_RANGED] Ranged Strike per turn. City cannot be put under siege.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_DEFENSE_LOGISTICS_DESCRIPTION" Language="en_US">
-			<Text>+25% [ICON_Production] Production toward military units in this city.</Text>
+			<Text>+25% [ICON_PRODUCTION] Production toward military units in this city.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_ARMS_RACE_PROPONENT_DESCRIPTION" Language="en_US">
-			<Text>Military units trained in this city start with a [ICON_Promotion] free promotion that do not already start with a [ICON_Promotion] free promotion. Units trained in this city do not cost Strategic Resources. +50% toward nuclear weapon projects.</Text>
+			<Text>Military units trained in this city start with a [ICON_PROMOTION] free promotion that do not already start with a [ICON_PROMOTION] free promotion. Units trained in this city do not cost Strategic Resources. +50% [ICON_PRODUCTION] Production toward nuclear weapon projects.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AIR_DEFENSE_INITIATIVE_DESCRIPTION" Language="en_US">
 			<Text>+25 [ICON_ANTIAIR_LARGE] Combat Strength to anti-air support units within the city's territory when defending against aircraft and ICBMs.</Text>
@@ -1578,13 +1579,13 @@
 		
 		<!-- === PANTHEONS === -->
 		<Replace Tag="LOC_BELIEF_CITY_PATRON_GODDESS_DESCRIPTION" Language="en_US">
-			<Text>+40% [ICON_Production] Production toward all [ICON_DISTRICT] districts in cities without a specialty [ICON_DISTRICT] district.</Text>
+			<Text>+40% [ICON_PRODUCTION] Production toward all [ICON_DISTRICT] districts in cities without a specialty [ICON_DISTRICT] district.</Text>
 		</Replace>		
 		<Replace Tag="LOC_BELIEF_DANCE_OF_THE_AURORA_DESCRIPTION" Language="en_US">
-			<Text>Holy Site districts get +1 [ICON_Faith] Faith from adjacent flat Tundra tiles.</Text>
+			<Text>Holy Site districts get +1 [ICON_FAITH] Faith from adjacent flat Tundra tiles.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_TUNDRA_FAITH" Language="en_US">
-			<Text>+{1_num} [ICON_Faith] Faith from the adjacent flat Tundra {1_Num : plural 1?tile; other?tiles;}.</Text>
+			<Text>+{1_num} [ICON_FAITH] Faith from the adjacent flat Tundra {1_Num : plural 1?tile; other?tiles;}.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_DIVINE_SPARK_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_GreatPerson] Great Person point for Holy Site ([ICON_GreatProphet] Great Prophet), Campus ([ICON_GreatScientist] Great Scientist) and Industrial Zone ([ICON_GreatEngineer] Great Engineer) districts, Amphiteater ([ICON_GreatWriter] Great Writer) building.</Text>
