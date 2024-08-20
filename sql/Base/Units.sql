@@ -28,12 +28,13 @@ UPDATE ModifierArguments SET Value='10' WHERE ModifierId='THRUST_BONUS_VS_MELEE'
 
 -- Jack the Ripper proposal (31/12/2020) to boost Naval Movement
 -- Base is 3, Resource cost / Maintenance is 1 in GS
-UPDATE Units SET BaseMoves=4 WHERE  UnitType='UNIT_SUBMARINE';
-UPDATE Units SET BaseMoves=4 WHERE  UnitType='UNIT_GERMAN_UBOAT';
+UPDATE Units SET BaseMoves=4 WHERE UnitType='UNIT_SUBMARINE';
+UPDATE Units SET BaseMoves=4 WHERE UnitType='UNIT_GERMAN_UBOAT';
 -- Base is 4
-UPDATE Units SET BaseMoves=6 WHERE  UnitType='UNIT_DESTROYER';
+UPDATE Units SET BaseMoves=6 WHERE UnitType='UNIT_DESTROYER';
 -- Base is 3
-UPDATE Units SET BaseMoves=5 WHERE  UnitType='UNIT_AIRCRAFT_CARRIER';
+UPDATE Units SET BaseMoves=5 WHERE UnitType='UNIT_AIRCRAFT_CARRIER';
+
 
 -- Missile Cruiser range from 3 to 4
 UPDATE Units SET Range=4 WHERE UnitType='UNIT_MISSILE_CRUISER';
@@ -47,7 +48,8 @@ UPDATE Units SET BaseMoves=5 WHERE UnitType='UNIT_HELICOPTER';
 -- 20/12/23 movement from 2 to 3 machine gun
 UPDATE Units SET BaseMoves=3 WHERE UnitType='UNIT_MACHINE_GUN';
 
-UPDATE Units SET Combat=70 WHERE UnitType='UNIT_AIRCRAFT_CARRIER';
+-- 02/07/24 UNIT_AIRCRAFT_CARRIER CS to 80 from 70
+UPDATE Units SET Combat=80 WHERE UnitType='UNIT_AIRCRAFT_CARRIER';
 UPDATE Units SET Combat=90 WHERE UnitType='UNIT_DESTROYER';
 -- UPDATE Units SET Combat=75 WHERE UnitType='UNIT_ROCKET_ARTILLERY';
 UPDATE Units SET Combat=90 WHERE UnitType='UNIT_MODERN_AT';
@@ -292,3 +294,11 @@ DROP TABLE TmpNavalUnit;
 --     ('BBG_ABILITY_GREAT_ADMIRAL_MOVEMENT_BONUS', 'BBG_GREAT_ADMIRAL_MOVEMENT_BONUS');
 -- INSERT INTO UnitAbilities (UnitAbilityType, Name, Description) VALUES
 --     ('BBG_ABILITY_GREAT_ADMIRAL_MOVEMENT_BONUS', 'LOC_BBG_ABILITY_GREAT_ADMIRAL_MOVEMENT_BONUS_NAME', 'LOC_BBG_ABILITY_GREAT_ADMIRAL_MOVEMENT_BONUS_DESC');
+
+
+-- 02/07/24 Naval first promote (melee and ranged) reduced to +5 from +7 
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='EMBOLON_BONUS_VS_NAVAL';
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='LINE_OF_BATTLE_BONUS_VS_NAVAL';
+
+-- 02/07/24 Recon Units get +1 sight (except scouts/oki)
+UPDATE Units SET BaseSightRange=BaseSightRange+1 WHERE PromotionClass='PROMOTION_CLASS_RECON' AND UnitType NOT IN ('UNIT_SCOUT', 'UNIT_CREE_OKIHTCITAW');

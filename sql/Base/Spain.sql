@@ -122,4 +122,5 @@ INSERT OR IGNORE INTO RequirementArguments(RequirementId , Name, Value) VALUES
 
 -- 16/04/23 Reduces bonus combat vs other religion from 5 to 3
 -- 15/06/23 Reverted
--- UPDATE ModifierArguments SET Value=3 WHERE ModifierId='PHILIP_II_COMBAT_BONUS_OTHER_RELIGION' AND Name='Amount'; 
+-- 08/07/24 come back
+UPDATE ModifierArguments SET Value=3 WHERE ModifierId='PHILIP_II_COMBAT_BONUS_OTHER_RELIGION' AND Name='Amount';

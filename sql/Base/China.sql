@@ -1,37 +1,49 @@
 -- great wall gets +1 prod, no initial gold, lowered gold and lowered culture per adj after castles
-INSERT OR IGNORE INTO Improvement_YieldChanges VALUES ('IMPROVEMENT_GREAT_WALL', 'YIELD_PRODUCTION', 1);
+INSERT INTO Improvement_YieldChanges VALUES ('IMPROVEMENT_GREAT_WALL', 'YIELD_PRODUCTION', 1);
 UPDATE Improvement_YieldChanges SET YieldChange=0 WHERE ImprovementType='IMPROVEMENT_GREAT_WALL' AND YieldType='YIELD_GOLD';
 UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='GreatWall_Culture';
 UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='GreatWall_Gold';
--- Crouching Tiger now a crossbowman replacement that gets +7 when adjacent to an enemy unit
-INSERT OR IGNORE INTO UnitReplaces (CivUniqueUnitType , ReplacesUnitType)
-    VALUES ('UNIT_CHINESE_CROUCHING_TIGER' , 'UNIT_CROSSBOWMAN');
-UPDATE Units SET Cost=190 , RangedCombat=40 , Range=2 WHERE UnitType='UNIT_CHINESE_CROUCHING_TIGER';
+--02/07/24 wall +1 culture at military science
+INSERT INTO Improvement_BonusYieldChanges (ImprovementType, YieldType, BonusYieldChange, PrereqTech) VALUES
+    ('IMPROVEMENT_GREAT_WALL', 'YIELD_CULTURE', 1, 'TECH_MILITARY_SCIENCE');
 
-INSERT OR IGNORE INTO Tags (Tag , Vocabulary)
-    VALUES ('CLASS_CROUCHING_TIGER' , 'ABILITY_CLASS');
-INSERT OR IGNORE INTO TypeTags (Type , Tag)
-    VALUES ('UNIT_CHINESE_CROUCHING_TIGER' , 'CLASS_CROUCHING_TIGER');
-INSERT OR IGNORE INTO Types (Type , Kind)
-    VALUES ('ABILITY_TIGER_ADJACENCY_DAMAGE_CPLMOD' , 'KIND_ABILITY');
-INSERT OR IGNORE INTO TypeTags (Type , Tag)
-    VALUES ('ABILITY_TIGER_ADJACENCY_DAMAGE_CPLMOD' , 'CLASS_CROUCHING_TIGER');
-INSERT OR IGNORE INTO UnitAbilities (UnitAbilityType , Name , Description)
-    VALUES ('ABILITY_TIGER_ADJACENCY_DAMAGE_CPLMOD' , 'LOC_ABILITY_TIGER_ADJACENCY_NAME' , 'LOC_ABILITY_TIGER_ADJACENCY_DESCRIPTION');
-INSERT OR IGNORE INTO UnitAbilityModifiers (UnitAbilityType , ModifierId)
-    VALUES ('ABILITY_TIGER_ADJACENCY_DAMAGE_CPLMOD' , 'TIGER_ADJACENCY_DAMAGE');
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType , SubjectRequirementSetId)
-    VALUES ('TIGER_ADJACENCY_DAMAGE' , 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH' , 'TIGER_ADJACENCY_REQUIREMENTS');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-    VALUES ('TIGER_ADJACENCY_DAMAGE', 'Amount' , '7'); 
-INSERT OR IGNORE INTO RequirementSets (RequirementSetId , RequirementSetType)
-    VALUES ('TIGER_ADJACENCY_REQUIREMENTS' , 'REQUIREMENTSET_TEST_ALL');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId)
-    VALUES ('TIGER_ADJACENCY_REQUIREMENTS' , 'PLAYER_IS_ATTACKER_REQUIREMENTS');
-INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId)
-    VALUES ('TIGER_ADJACENCY_REQUIREMENTS' , 'ADJACENT_UNIT_REQUIREMENT');
-INSERT OR IGNORE INTO ModifierStrings (ModifierId , Context , Text)
-    VALUES ('TIGER_ADJACENCY_DAMAGE' , 'Preview' , 'LOC_ABILITY_TIGER_ADJACENCY_DESCRIPTION');
+-- 02/07/24 Eureka/Inspi boost nerfed to +5% (from +10)
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId IN ('TRAIT_CIVIC_BOOST', 'TRAIT_TECHNOLOGY_BOOST');
+
+-- 02/07/24 China bonus of eureka/inspi when finishing wonders moved to Qin Shi Mandate
+UPDATE TraitModifiers SET TraitType='FIRST_EMPEROR_TRAIT' WHERE ModifierId IN ('TRAIT_CIVIC_BOOST_WONDER_ERA', 'TRAIT_TECHNOLOGY_BOOST_WONDER_ERA');
+
+
+-- Crouching Tiger now a crossbowman replacement that gets +7 when adjacent to an enemy unit
+INSERT INTO UnitReplaces (CivUniqueUnitType , ReplacesUnitType)
+    VALUES ('UNIT_CHINESE_CROUCHING_TIGER', 'UNIT_CROSSBOWMAN');
+--02/07/24 Reduced to 170 prod
+UPDATE Units SET Cost=170 , RangedCombat=40 , Range=2 WHERE UnitType='UNIT_CHINESE_CROUCHING_TIGER';
+
+INSERT INTO Tags (Tag , Vocabulary)
+    VALUES ('CLASS_CROUCHING_TIGER', 'ABILITY_CLASS');
+INSERT INTO TypeTags (Type , Tag)
+    VALUES ('UNIT_CHINESE_CROUCHING_TIGER', 'CLASS_CROUCHING_TIGER');
+INSERT INTO Types (Type , Kind)
+    VALUES ('ABILITY_TIGER_ADJACENCY_DAMAGE_CPLMOD', 'KIND_ABILITY');
+INSERT INTO TypeTags (Type , Tag)
+    VALUES ('ABILITY_TIGER_ADJACENCY_DAMAGE_CPLMOD', 'CLASS_CROUCHING_TIGER');
+INSERT INTO UnitAbilities (UnitAbilityType , Name , Description)
+    VALUES ('ABILITY_TIGER_ADJACENCY_DAMAGE_CPLMOD', 'LOC_ABILITY_TIGER_ADJACENCY_NAME', 'LOC_ABILITY_TIGER_ADJACENCY_DESCRIPTION');
+INSERT INTO UnitAbilityModifiers (UnitAbilityType , ModifierId)
+    VALUES ('ABILITY_TIGER_ADJACENCY_DAMAGE_CPLMOD', 'TIGER_ADJACENCY_DAMAGE');
+INSERT INTO Modifiers (ModifierId , ModifierType , SubjectRequirementSetId)
+    VALUES ('TIGER_ADJACENCY_DAMAGE', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'TIGER_ADJACENCY_REQUIREMENTS');
+INSERT INTO ModifierArguments (ModifierId , Name , Value)
+    VALUES ('TIGER_ADJACENCY_DAMAGE', 'Amount', '7'); 
+INSERT INTO RequirementSets (RequirementSetId , RequirementSetType)
+    VALUES ('TIGER_ADJACENCY_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId , RequirementId)
+    VALUES ('TIGER_ADJACENCY_REQUIREMENTS', 'PLAYER_IS_ATTACKER_REQUIREMENTS');
+INSERT INTO RequirementSetRequirements (RequirementSetId , RequirementId)
+    VALUES ('TIGER_ADJACENCY_REQUIREMENTS', 'ADJACENT_UNIT_REQUIREMENT');
+INSERT INTO ModifierStrings (ModifierId , Context , Text)
+    VALUES ('TIGER_ADJACENCY_DAMAGE', 'Preview', 'LOC_ABILITY_TIGER_ADJACENCY_DESCRIPTION');
 
 -- Move builder charge from Qin-Shi to China
 --DELETE FROM TraitModifiers WHERE TraitType='FIRST_EMPEROR_TRAIT' AND ModifierId='TRAIT_ADJUST_BUILDER_CHARGES';
@@ -56,3 +68,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_TRAIT_WONDER_FOOD', 'YieldType', 'YIELD_FOOD');
 INSERT INTO TraitModifiers VALUES
     ('FIRST_EMPEROR_TRAIT', 'BBG_TRAIT_ATTACH_WONDER_FOOD');
+
+
+-- 02/07/24 Qin Shi builder charge for wonder upgraded to +20% (from +15%)
+-- 24/07/24 No
+-- UPDATE ModifierArguments SET Value=20 WHERE ModifierId='TRAIT_BUILDER_WONDER_PERCENT' AND Name='Amount';

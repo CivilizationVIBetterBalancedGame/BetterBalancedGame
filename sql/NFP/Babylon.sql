@@ -77,3 +77,6 @@ UPDATE Modifiers SET SubjectRequirementSetId='BBG_TILE_HAS_ANY_IMPROVEMENT_BUT_F
 -- ... also gives prod to farm like watermill
 INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
     ('BUILDING_PALGUM', 'BBG_WATERMILL_PRODUCTION_FARM');
+
+-- 04/08/24 Palgum buildable everywhere
+UPDATE Buildings SET RequiresAdjacentRiver=0 WHERE BuildingType='BUILDING_PALGUM';
