@@ -550,14 +550,14 @@
 		<!-- == GAUL - GAULE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="fr_FR">
-			<Text>Les mines offrent un bonus de proximité mineur à tous les [ICON_DISTRICT] quartiers, et gagnent +1 [ICON_CULTURE] Culture au Travail du Bronze découvert.[NEWLINE]Les [ICON_DISTRICT] quartiers spécialisés ne reçoivent pas le bonus de proximité mineur habituel des autres quartiers, et ne peuvent pas être adjacents aux Centres-villes.</Text>
+			<Text>Les mines offrent un bonus de proximité mineur à tous les [ICON_DISTRICT] quartiers, et gagnent +1 [ICON_CULTURE] Culture au Travail du Bronze.[NEWLINE]Les [ICON_DISTRICT] quartiers spécialisés ne reçoivent pas le bonus de proximité mineur habituel des autres quartiers, et ne peuvent pas être adjacents aux Centres-villes.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +1 pour les unités de combat rapproché et anti-cavalerie pour chaque unité militaire adjacente.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +1 pour chaque unité adjacente (Roi des Éburons)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +1 pour chaque unité adjacente (Roi des Éburons).</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_GAUL_GAESATAE_DESCRIPTION" Language="fr_FR">
@@ -938,22 +938,29 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_FOOD] Nourriture +1 pour les Centre-villes pour chaque case de désert adjacentes.[NEWLINE][ICON_FAITH] Foi +2 pour les Centre-villes si la ville possède au moins deux cases de désert.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production -1 et [ICON_GOLD] Or +4 pour les mines.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production -15% pour toutes vos villes.</Text>
+			<Text>[ICON_FOOD] Nourriture +1 pour les Centre-villes pour chaque case de désert adjacentes.[NEWLINE][NEWLINE][ICON_FAITH] Foi +1 pour les Centre-villes si l'Empire possède au moins 2 cases de désert dans un rayon de 3 cases autour de la ville.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production -1 et [ICON_GOLD] Or +4 pour les mines.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production -15% pour toutes vos villes.[NEWLINE][NEWLINE]Permet d'acheter les bâtiments de la Suguba avec de la [ICON_FAITH] Foi.</Text>
 		</Replace>
+		<!--   deleted for now
 		<Replace Tag="LOC_BBG_MALI_HS_OASIS" Language="fr_FR">
 			<Text>Oasis adjacents : [ICON_FAITH] Foi +{1_num}.</Text>
 		</Replace>
+		-->
 		<!-- = leader ability (Mansa Moussa) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SAHEL_MERCHANTS_DESCRIPTION" Language="fr_FR">
-			<Text>Capacité des [ICON_TRADEROUTE] routes commerciales +1 à Banques.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +15% pour les Lieux saints et leurs bâtiments.[NEWLINE]Les Sugubas reçoivent un bonus de proximité standard de la part Lieux saints.</Text>
+			<Text>Capacité des [ICON_TRADEROUTE] routes commerciales +1 à Banques.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +15% pour les Lieux saints et leurs bâtiments.[NEWLINE]Les Sugubas reçoivent un bonus de proximité majeur plutôt que standard des Lieux saints.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_SUGUBA_HOLY_SITE_MANSA" Language="fr_FR">
+			<Text>Lieu Saint adjacent : [ICON_GOLD] Or +{1_num} (Marchands du Sahel).</Text>
 		</Replace>
 		<!-- = leader ability (Soundiata) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SUNDIATA_KEITA_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_GOLD] Or -30% pour le recrutement de [ICON_GREATPERSON] Personnages illustres. Points [ICON_GREATWRITER] d'Écrivain illustre +1 par tour dans les villes possédant une Suguba et une Place du théâtre.[NEWLINE]Les marchés ont 2 emplacements de chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires. [ICON_GOLD] Or +4 et [ICON_CULTURE] Culture +2 pour les chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires.[NEWLINE][NEWLINE]Les Sugubas reçoivent un bonus de proximité standard des Places du théâtre.</Text>
 		</Replace>
+		<!--   deleted for now
 		<Replace Tag="LOC_BBG_THEATER_SUGUBA_SUNDIATA" Language="fr_FR">
 			<Text>[ICON_CULTURE] Culture +{1_num} (Sogolon).</Text>
 		</Replace>
+		-->
 		<Replace Tag="LOC_BBG_SUGUBA_THEATER_SUNDIATA" Language="fr_FR">
 			<Text>Place du Théâtre adjacente : [ICON_GOLD] Or +{1_num} (Sogolon).</Text>
 		</Replace>
@@ -967,7 +974,7 @@
 		<Replace Tag="LOC_SUGUBA_RIVER_GOLD" Language="fr_FR">
 			<Text>Rivière adjacente : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
-		<Replace Tag="LOC_BBG_SUGUBA_HOLY_SITE_MANSA" Language="fr_FR">
+		<Replace Tag="LOC_DISTRICT_HOLY_SITE_GOLD" Language="fr_FR">
 			<Text>Lieu Saint adjacent : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<!-- = unique unit = -->
@@ -1497,6 +1504,10 @@
 		<Row Tag="LOC_BBG_ABILITY_MONK_SCALING_DESCRIPTION" Language="fr_FR">
 			<Text>Méditation guerrière : [ICON_STRENGTH] Puissance de combat +1 pour chaque dogme Industriel ou antérieur découvert.</Text>
 		</Row>
+		<!-- == Ranged Units == -->
+		<Replace Tag="LOC_UNIT_MACHINE_GUN_DESCRIPTION" Language="fr_FR">
+			<Text>Unité d'attaque à distance de l'ère moderne.</Text>
+		</Replace>
 		<!-- == Naval Units == -->
 		<Replace Tag="LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_DESC" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat en défense +2 par unité navale adjacente.</Text>
@@ -2354,6 +2365,9 @@
 		<Replace Tag="LOC_DISTRICT_AQUEDUCT_ALT_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_HOUSING] Habitations +2 pour la ville (passe à +3 si la ville est côtière sans eau douce, ou +4 si la ville n'a pas accès à de l'eau). [ICON_AMENITIES] Activités +1 si adjacent à un fissure géothermique. Évite la perte de [ICON_FOOD] Nourriture lors de sécheresses. Les Ingénieurs militaires peuvent dépenser une [ICON_CHARGES] pour achever 20% de la construction du quartier.</Text>
 		</Replace>
+		<Replace Tag="LOC_DISTRICT_CITY_CENTER_GOLD" Language="fr_FR">
+			<Text>Centre-ville adjacent : [ICON_GOLD] Or +{1_num}</Text>
+		</Replace>
 
 
 
@@ -2742,13 +2756,13 @@
 			<Text>Merveille de l'ère industrielle. Emplacement pour Doctrine économique +1. Votre trésorerie augmente de 50% à sa complétion.[NEWLINE][NEWLINE]Doit être construite sur une case adjacente à une rivière et à une Plateforme commerciale dotée d'une banque.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_EIFFEL_TOWER_DESCRIPTION" Language="fr_FR">
-			<Text>Merveille de l'ère moderne. Attrait +2 pour toutes les cases de votre empire.[NEWLINE][NEWLINE]Doit être construite sur une case plate adjacente au centre-ville.</Text>
+			<Text>Merveille de l'ère moderne. Attrait +2 pour toutes les cases de votre Empire.[NEWLINE][NEWLINE]Doit être construite sur une case plate adjacente au centre-ville.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_GOLDEN_GATE_BRIDGE_DESCRIPTION" Language="fr_FR">
 			<Text>Merveille de l'ère moderne. Les unités terrestres peuvent traverser sans embarquer. Fonctionne comme une route moderne et en crée sur les cases terrestres de chaque côté. [ICON_AMENITIES] Activités +3 pour la ville. Attrait +4 pour les cases de la ville. [ICON_TOURISM] Tourisme +100 % pour tous les aménagements et parc nationaux de la ville. Les [ICON_TRADEROUTE] routes commerciales qui la traversent peuvent multiplier l'[ICON_GOLD] l'Or reçu des quartiers de la ville de destination.[NEWLINE][NEWLINE]Doit être construite sur une case de côte, entre 2 cases de terre opposées et au moins 2 cases d'eau.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_BIOSPHERE_EXPANSION2_DESCRIPTION" Language="fr_FR">
-			<Text>Merveille de l'ère atomique. [ICON_POWER] Électricité +200% pour les parcs éoliens, les centrales solaires, les centrales géothermiques et les barrages hydroélectriques. Ce bâtiment et ces aménagements génèrent autant de [ICON_TOURISM] tourisme que [ICON_POWER] d'électricité. Attrait +1 pour les cases adjacentes à une forêt tropicale ou un marais dans votre empire.[NEWLINE][NEWLINE]Doit être construite adjacente à une rivière et à un Quartier résidentiel.</Text>
+			<Text>Merveille de l'ère atomique. [ICON_POWER] Électricité +200% pour les parcs éoliens, les centrales solaires, les centrales géothermiques et les barrages hydroélectriques. Ce bâtiment et ces aménagements génèrent autant de [ICON_TOURISM] tourisme que [ICON_POWER] d'électricité. Attrait +1 pour les cases adjacentes à une forêt tropicale ou un marais dans votre Empire.[NEWLINE][NEWLINE]Doit être construite adjacente à une rivière et à un Quartier résidentiel.</Text>
 		</Replace>
 
 
@@ -2811,7 +2825,7 @@
 			<Text>Merveille de l'ère moderne. [ICON_CULTURE] Culture +20% dans cette ville. Octroie une [ICON_CIVICBOOSTED] Inspiration d'un dogme de l'ère atomique choisi au hasard.[NEWLINE][NEWLINE]Doit être construite sur une case plate adjacente à une Place du théâtre.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_CRISTO_REDENTOR_DESCRIPTION" Language="fr_FR">
-			<Text>Merveille de l'ère moderne. Octroie 1 [ICON_GREATWORK_RELIC] relique. Le [ICON_TOURISM] Tourisme généré par les [ICON_GREATWORK_RELIC] reliques et les villes saintes n'est pas handicapé par les civilisations ayant adopté le dogme des Lumières. [ICON_TOURISM] Tourisme +75% pour les stations balnéaires de votre empire.[NEWLINE][NEWLINE]Doit être construite sur une colline.</Text>
+			<Text>Merveille de l'ère moderne. Octroie 1 [ICON_GREATWORK_RELIC] relique. Le [ICON_TOURISM] Tourisme généré par les [ICON_GREATWORK_RELIC] reliques et les villes saintes n'est pas handicapé par les civilisations ayant adopté le dogme des Lumières. [ICON_TOURISM] Tourisme +75% pour les stations balnéaires de votre Empire.[NEWLINE][NEWLINE]Doit être construite sur une colline.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SYDNEY_OPERA_HOUSE_DESCRIPTION" Language="fr_FR">
 			<Text>Merveille de l'ère atomique.[NEWLINE][NEWLINE]Doit être construite sur une case de côte adjacente à la terre et à un Port.</Text>
