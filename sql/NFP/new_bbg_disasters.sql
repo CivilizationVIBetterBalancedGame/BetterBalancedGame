@@ -84,3 +84,8 @@ UPDATE RandomEvent_Frequencies SET OccurrencesPerGame=0 WHERE RandomEventType='R
 UPDATE RandomEvent_Frequencies SET OccurrencesPerGame=0 WHERE RandomEventType='RANDOM_EVENT_TORNADO_FAMILY';
 UPDATE RandomEvent_Frequencies SET OccurrencesPerGame=0 WHERE RandomEventType='RANDOM_EVENT_DROUGHT_MAJOR';
 UPDATE RandomEvent_Frequencies SET OccurrencesPerGame=0 WHERE RandomEventType='RANDOM_EVENT_DROUGHT_EXTREME';
+
+-- 30/09/24 forest fire can only give production (jungles) or food (woods)
+DELETE FROM RandomEvent_Yields WHERE RandomEventType='RANDOM_EVENT_JUNGLE_FIRE' AND FeatureType='FEATURE_BURNT_JUNGLE';
+DELETE FROM RandomEvent_Yields WHERE RandomEventType='RANDOM_EVENT_FOREST_FIRE' AND FeatureType='FEATURE_BURNT_FOREST';
+UPDATE RandomEvent_Yields SET YieldType='YIELD_FOOD' WHERE RandomEventType='RANDOM_EVENT_FOREST_FIRE' AND FeatureType='FEATURE_FOREST';
