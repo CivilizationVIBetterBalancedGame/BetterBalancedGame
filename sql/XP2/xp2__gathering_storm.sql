@@ -419,3 +419,4 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 
 --09/03/2024 moai buildable next rainforest and forest
 DELETE FROM Improvement_InvalidAdjacentFeatures WHERE ImprovementType = 'IMPROVEMENT_MOAI';
+

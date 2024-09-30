@@ -101,7 +101,7 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 	SELECT 'BBG_MILITARY_COMMEMORATION_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER', 'Amount', 2
 	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
 --Attaching Modifiers to Warlor's Throne
-INSERT INTO CommemorationModifiers(BuildingType, ModifierId)
+INSERT INTO CommemorationModifiers(CommemorationType, ModifierId)
 	SELECT 'COMMEMORATION_RELIGIOUS', 'BBG_MILITARY_COMMEMORATION_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER'
 	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
 
