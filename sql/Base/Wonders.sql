@@ -14,7 +14,7 @@ UPDATE Buildings SET Cost=1220 WHERE BuildingType='BUILDING_CRISTO_REDENTOR';
 
 -- Cristo bonus on beach resort reduced to +75%
 -- 30/09/24 en fait non
-UPDATE ModifierArguments SET Value=175 WHERE ModifierId='CRISTOREDENTOR_BEACHTOURISM' AND Name='ScalingFactor';
+-- UPDATE ModifierArguments SET Value=175 WHERE ModifierId='CRISTOREDENTOR_BEACHTOURISM' AND Name='ScalingFactor';
 
 -- Hanging Gardens gives +1 housing to cities within 6 tiles
 UPDATE Buildings SET Housing='1' WHERE BuildingType='BUILDING_HANGING_GARDENS';
