@@ -57,12 +57,18 @@ UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_OBSERVATORY';
 
 --19/12/23 Observatory adjacency from plantations reduced to +1 but plantations gain 2 science at education
 INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
-    ('IMPROVEMENT_PLANTATION', 'BBG_Plantation_Science_Observatory');
+    ('IMPROVEMENT_PLANTATION', 'BBG_Plantation_Science_Observatory_Education');
 INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict, PrereqTech) VALUES
-    ('BBG_Plantation_Science_Observatory', 'Placeholder', 'YIELD_SCIENCE', 2, 1, 'DISTRICT_OBSERVATORY', 'TECH_EDUCATION');
+    ('BBG_Plantation_Science_Observatory_Education', 'Placeholder', 'YIELD_SCIENCE', 1, 1, 'DISTRICT_OBSERVATORY', 'TECH_EDUCATION');
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
     ('IMPROVEMENT_PLANTATION', 'YIELD_SCIENCE', '0');
 UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='Plantation_Science';
+
+--19/12/23 Observatory adjacency from plantations reduced to +1 but plantations gain 2 science at education
+INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
+    ('IMPROVEMENT_PLANTATION', 'BBG_Plantation_Science_Observatory');
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict) VALUES
+    ('BBG_Plantation_Science_Observatory', 'Placeholder', 'YIELD_SCIENCE', 1, 1, 'DISTRICT_OBSERVATORY');
 
 -- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 --     ('BBG_TRAIT_PLANTATIONS_SCIENCE_OBSERVATORY', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_PLOT_ADJACENT_TO_OBSERVATORIES_PLANTATIONS_AT_EDUCATION_REQSET');
