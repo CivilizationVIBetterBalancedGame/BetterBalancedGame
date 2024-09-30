@@ -33,8 +33,6 @@ INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_HAS_FOREST_EARLY_EMPIRE' WHERE ModifierId='TRAIT_MAORI_PRODUCTION_WOODS';
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_HAS_JUNGLE_EARLY_EMPIRE' WHERE ModifierId='TRAIT_MAORI_PRODUCTION_RAINFOREST';
 
-
-
 -- Complete reset to vanilla +
 -- spawn on coast like other naval civ x
 -- settler can embark at sailing 
@@ -71,3 +69,6 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MAORI_EARLY_SETTLER_NAVIGATION', 'UnitType', 'UNIT_SETTLER');
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_MAORI_MANA', 'BBG_MAORI_EARLY_SETTLER_NAVIGATION');
+
+-- 30/09/24 removed amenity
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='CAPITAL_ENTERTAINMENT';
