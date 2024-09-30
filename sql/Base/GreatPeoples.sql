@@ -72,12 +72,12 @@ UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPers
 UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_BOUDICA';
 
 -- Aethelflaed gives trebuchet with experience (instead of +2 loyalty)
-UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_GRANT_UNIT_WITH_EXPERIENCE' WHERE ModifierId='GREATPERSON_AETHELFLAED_ACTIVE';
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL' WHERE ModifierId='GREATPERSON_AETHELFLAED_ACTIVE';
 DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_AETHELFLAED_ACTIVE';
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('GREATPERSON_AETHELFLAED_ACTIVE', 'UnitType', 'UNIT_TREBUCHET'),
-    ('GREATPERSON_AETHELFLAED_ACTIVE', 'Experience', '-1'),
-    ('GREATPERSON_AETHELFLAED_ACTIVE', 'UniqueOverride', '1');
+    ('GREATPERSON_AETHELFLAED_ACTIVE', 'Amount', '1'),
+    ('GREATPERSON_AETHELFLAED_ACTIVE', 'AllowUniqueOverride', '1');
 UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
 UPDATE GreatPersonIndividuals SET ActionRequiresCompletedDistrictType=NULL WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
 UPDATE GreatPersonIndividuals SET ActionRequiresOwnedTile=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
