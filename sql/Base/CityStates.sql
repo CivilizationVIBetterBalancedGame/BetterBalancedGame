@@ -100,6 +100,7 @@ UPDATE ModifierArguments SET Value='ABILITY_ECONOMIC_GOLDEN_AGE_PLUNDER_IMMUNITY
 -- 09/03/2024 colossal heads +1 food, +1 housing
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES ('IMPROVEMENT_COLOSSAL_HEAD', 'YIELD_FOOD', 1);
 UPDATE Improvements SET Housing=1 WHERE ImprovementType='IMPROVEMENT_COLOSSAL_HEAD';
+UPDATE Improvements SET TilesRequired=2 WHERE ImprovementType='IMPROVEMENT_COLOSSAL_HEAD';
 
 --09/03/2024 Hattusa gives 2 Strategic that you discovered even if improved
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLAYER_CAN_SEE_HORSES' WHERE ModifierId='MINOR_CIV_HATTUSA_HORSES_RESOURCE_BONUS';
