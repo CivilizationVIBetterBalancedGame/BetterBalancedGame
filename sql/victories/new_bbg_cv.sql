@@ -7,16 +7,26 @@
 --==============================================================
 -- moon landing worth 5x science in culture instead of 10x
 UPDATE ModifierArguments SET Value='5' WHERE ModifierId='PROJECT_COMPLETION_GRANT_CULTURE_BASED_ON_SCIENCE_RATE' AND Name='Multiplier';
--- computers and environmentalism tourism boosts to 50% (from 25%)
+-- computers tourism boosts to 50% (from 25%)
 UPDATE ModifierArguments SET Value='50' WHERE ModifierId='COMPUTERS_BOOST_ALL_TOURISM';
-UPDATE ModifierArguments SET Value='50' WHERE ModifierId='ENVIRONMENTALISM_BOOST_ALL_TOURISM';
 -- base wonder tourism adjusted to 5
 UPDATE GlobalParameters SET Value='5' WHERE Name='TOURISM_BASE_FROM_WONDER';
 -- Reduce amount of tourism needed for foreign tourist from 200 to 150
 UPDATE GlobalParameters SET Value='150' WHERE Name='TOURISM_TOURISM_TO_MOVE_CITIZEN';
 -- lower number of turns to move greatworks between cities
 UPDATE GlobalParameters SET Value='2' WHERE Name='GREATWORK_ART_LOCK_TIME';
---
+
+
+-- Environmentalism +50% split  between Environmentalism (25%) and Cultural Hegemony (25%)
+UPDATE ModifierArguments SET Value=25 WHERE ModifierId='ENVIRONMENTALISM_BOOST_ALL_TOURISM';
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('CULTURAL_HEGEMONY_BOOST_ALL_TOURISM', 'MODIFIER_PLAYER_ADJUST_TOURISM');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('CULTURAL_HEGEMONY_BOOST_ALL_TOURISM', 'Amount', 25);
+UPDATE Civics SET Description='BBG_LOC_CIVIC_CULTURAL_HEGEMONY_DESCRIPTION' WHERE CivicType='CIVIC_CULTURAL_HEGEMONY';
+INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES
+    ('CIVIC_CULTURAL_HEGEMONY', 'CULTURAL_HEGEMONY_BOOST_ALL_TOURISM');
 
 -- fix same artist, same archelogist culture and tourism from bing 1 and 1 to being default numbers
 UPDATE Building_GreatWorks SET NonUniquePersonYield=4 WHERE BuildingType='BUILDING_HERMITAGE';

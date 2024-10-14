@@ -40,6 +40,8 @@ INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
 
 -- 13/03/24 Buff Nihang +3 (25->28)
 UPDATE Units SET Combat=28 WHERE UnitType='UNIT_LAHORE_NIHANG';
+--30/09/24 reduce scaling from +15 to +12
+UPDATE ModifierArguments SET Value=12 WHERE Name='Amount' AND ModifierId LIKE 'NIHANG%STRENGTH';
 
 --13/03/24 Medic movement also work on Nihang
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
