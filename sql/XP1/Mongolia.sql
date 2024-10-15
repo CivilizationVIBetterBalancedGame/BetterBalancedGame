@@ -9,9 +9,6 @@ DELETE FROM DiplomaticVisibilitySources WHERE VisibilitySourceType='SOURCE_TRADI
 DELETE FROM DiplomaticVisibilitySources_XP1 WHERE VisibilitySourceType='SOURCE_TRADING_POST_TRAIT';
 DELETE FROM ModifierArguments WHERE ModifierId='TRAIT_TRADING_POST_DIPLO_VISIBILITY';
 DELETE FROM Modifiers WHERE ModifierId='TRAIT_TRADING_POST_DIPLO_VISIBILITY';
--- +100% production to Ordu
-UPDATE Buildings SET Cost=60 WHERE BuildingType='BUILDING_ORDU';
-UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_ORDU';
 -- Keshig
 UPDATE Units SET RangedCombat=40, Cost=180 WHERE UnitType='UNIT_MONGOLIAN_KESHIG';
 
@@ -21,3 +18,8 @@ INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) VALUES
     ('REQUIRES_CITY_HAS_ORDU_BBG', 'REQUIREMENT_CITY_HAS_BUILDING');
 INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) VALUES
     ('REQUIRES_CITY_HAS_ORDU_BBG', 'BuildingType', 'BUILDING_ORDU');
+
+-- 30/09/24 Ordu cost 45 prod (online)
+UPDATE Buildings SET Cost=90 WHERE BuildingType='BUILDING_ORDU';
+
+UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_ORDU';

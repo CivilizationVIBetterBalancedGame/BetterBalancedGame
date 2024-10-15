@@ -48,6 +48,10 @@ DELETE FROM UnitReplaces WHERE CivUniqueUnitType='UNIT_MACEDONIAN_HETAIROI';
 -- 2024/5/23 by OSCAR. 
 -- The implementation of Macedon's trait: grants bonus production after conquering cities
 -- =======================================================================================
+
+-- MODIFIER_PLAYER_ADD_DIPLOMATIC_YIELD_MODIFIER
+-- This should also work (from warlord original bonus)
+
 -- Define a dummy bonus resource																 
 INSERT OR REPLACE INTO Types (Type, Kind) VALUES 
 	('BBG_DUMMY_RESOURCE_MACEDON', 'KIND_RESOURCE');

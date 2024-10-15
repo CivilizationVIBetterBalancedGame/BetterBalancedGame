@@ -17,32 +17,10 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
     ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'Amount', '-15');
 
--- Faith if the city own at least 2 desert tiles
+-- Faith on cities removed
 DELETE FROM TraitModifiers WHERE TraitType = 'TRAIT_CIVILIZATION_MALI_GOLD_DESERT' AND ModifierId = 'TRAIT_DESERT_CITY_CENTER_FAITH';
 DELETE FROM TraitModifiers WHERE TraitType = 'TRAIT_CIVILIZATION_MALI_GOLD_DESERT' AND ModifierId = 'TRAIT_DESERT_HILLS_CITY_CENTER_FAITH';
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_MALI_FAITH_IF_2_DESERT_TILES', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_YIELD_CHANGE', 'BBG_REQUIRES_CITY_CENTER_REQSET');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_MALI_FAITH_IF_2_DESERT_TILES', 'YieldType', 'YIELD_FAITH'),
-    ('BBG_MALI_FAITH_IF_2_DESERT_TILES', 'Amount', 1);
-INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-    ('BBG_REQUIRES_CITY_CENTER_REQSET', 'REQUIREMENTSET_TEST_ALL');
 
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_REQUIRES_CITY_CENTER_REQSET', 'REQUIRES_DISTRICT_IS_CITY_CENTER'),
-    ('BBG_REQUIRES_CITY_CENTER_REQSET', 'BBG_REQUIRES_CITY_HAS_2_DESERT');
-
-INSERT INTO Requirements (RequirementId, RequirementType) VALUES
-    ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'REQUIREMENT_CITY_HAS_X_TERRAIN_TYPE');
-
-INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
-    ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'TerrainType', 'TERRAIN_DESERT'),
-    ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'Hills', '1'),
--- Necessits X+1...
-    ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'Amount', '3');
-
-INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('TRAIT_CIVILIZATION_MALI_GOLD_DESERT', 'BBG_MALI_FAITH_IF_2_DESERT_TILES');
 
 
 --===========================================================================
@@ -67,6 +45,7 @@ INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
 DELETE FROM District_Adjacencies WHERE DistrictType = 'DISTRICT_SUGUBA' AND YieldChangeId = 'River_Gold';
 
 UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='Holy_Site_Gold';
+
 
 --===========================================================================
 --=                                 MANSA                                   =
@@ -113,4 +92,28 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_SAHEL_MERCHANTS', 'BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION_BUILDING');
 
+-- faith if the city has at least 2 desert tiles
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_MALI_FAITH_IF_2_DESERT_TILES', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_YIELD_CHANGE', 'BBG_REQUIRES_CITY_CENTER_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MALI_FAITH_IF_2_DESERT_TILES', 'YieldType', 'YIELD_FAITH'),
+    ('BBG_MALI_FAITH_IF_2_DESERT_TILES', 'Amount', 1);
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_REQUIRES_CITY_CENTER_REQSET', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_REQUIRES_CITY_CENTER_REQSET', 'REQUIRES_DISTRICT_IS_CITY_CENTER'),
+    ('BBG_REQUIRES_CITY_CENTER_REQSET', 'BBG_REQUIRES_CITY_HAS_2_DESERT');
+
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'REQUIREMENT_CITY_HAS_X_TERRAIN_TYPE');
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'TerrainType', 'TERRAIN_DESERT'),
+    ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'Hills', '1'),
+-- Necessits X+1...
+    ('BBG_REQUIRES_CITY_HAS_2_DESERT', 'Amount', '3');
+
+INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_SAHEL_MERCHANTS', 'BBG_MALI_FAITH_IF_2_DESERT_TILES');
 
