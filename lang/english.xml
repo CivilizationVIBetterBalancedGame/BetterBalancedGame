@@ -149,11 +149,20 @@
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_TLACHTLI_DESCRIPTION" Language="en_US">
-			<Text>A building unique to the Aztecs. Provides +1 [ICON_AMENITIES] Amenity and +1 [ICON_CULTURE] Culture to each City Center within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a City Center do not provide additional bonuses.[NEWLINE]+1 [ICON_GreatGeneral] Great General Point per turn.</Text>
+			<Text>A building unique to the Aztecs. Provides +1 [ICON_AMENITIES] Amenity and +1 [ICON_CULTURE] Culture to each City Center within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a City Center do not provide additional bonuses.[NEWLINE]+1 [ICON_GreatGeneral] Great General Point per turn and +3 [ICON_TOURISM] Tourism.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_TLACHTLI_XP1_DESCRIPTION" Language="en_US">
-			<Text>A building unique to the Aztecs. Provides +1 [ICON_AMENITIES] Amenity and +1 [ICON_CULTURE] Culture to each City Center within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a City Center do not provide additional bonuses.[NEWLINE]Provides +1 [ICON_GreatGeneral] Great General Point per turn and +3 [ICON_TOURISM] Tourism.</Text>
+			<Text>A building unique to the Aztecs. Provides +1 [ICON_AMENITIES] Amenity and +1 [ICON_CULTURE] Culture to each City Center within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a City Center do not provide additional bonuses.[NEWLINE] +1 [ICON_GreatGeneral] Great General Point per turn and +3 [ICON_TOURISM] Tourism.</Text>
 		</Replace>
+		<!-- = unique unit = -->		
+		<Replace Tag="LOC_UNIT_AZTEC_EAGLE_WARRIOR_DESCRIPTION" Language="en_US">
+			<Text>Aztec unique Ancient era unit that replaces the Warrior.  Has a chance to capture other civilization's military units by turning them into Builders.</Text>
+		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_GIFTS_FOR_TLATOANI_DESCRIPTION" Language="en_US">
+			<Text>Luxury resources in his territory provide an [ICON_Amenities] Amenity to 2 extra cities. Military units receive +1 [ICON_Strength] Combat Strength when attacking for each different Luxury resource improved in Aztec lands and retained by the Aztec.</Text>
+		</Replace>
+		
 		
 		<!-- == BABYLON == -->
 		<!-- = civilization ability = -->
@@ -2099,6 +2108,9 @@
 
 		<!-- === NATURAL WONDERS === -->
 		<!-- TIP: XP2 tag used for Natural Wonders picker (in game lobby) for specified Natural Wonders -->
+		<Row Tag="LOC_CAMPUS_MOUNTAIN_WONDER_ADJACENCY_BBG" Language="en_US">
+			<Text>+{1_num} [ICON_Science] Science per adjacent wonder that acts as a mountain.</Text>
+		</Row>
 		<Replace Tag="LOC_FEATURE_BERMUDA_TRIANGLE_DESCRIPTION" Language="en_US">
 			<Text>Three tile natural wonder. Units that enter it are teleported to an ocean far away, but naval units that do so earn the ability 'Mysterious Currents' (+1 [ICON_MOVEMENT] Movement).</Text>
 		</Replace>
@@ -3008,6 +3020,18 @@
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_EMPOWER_RELIGION_DESC" Language="en_US">
 			<Text>+10 [ICON_RELIGION] Religious Strength for all religious units of this [ICON_RELIGION] Religion.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_BAN_PRODUCTION_YIELD_DESC" Language="en_US">
+			<Text>The cost to produce or purchase military units using the chosen currency type is increased by 50% until the next World Congress.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_PRODUCTION_YIELD_DESC" Language="en_US">
+			<Text>The cost to produce or purchase military units using the chosen currency type is reduced by 25% until the next World Congress.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_NO_CULTURE_BORDER_GROWTH_DESC" Language="en_US">
+			<Text>This player's borders will not grow via [ICON_Culture] Culture.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_DISTRICTS_CULTURE_BOMB_DESC" Language="en_US">
+			<Text>Tiles bought by this player are 50% cheaper.</Text>
 		</Replace>
 
 
