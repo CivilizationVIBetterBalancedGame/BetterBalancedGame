@@ -5,7 +5,8 @@ UPDATE Districts SET RequiresPopulation=0 WHERE DistrictType IN ('DISTRICT_STREE
 
 -- Up Minas by +5/+5 to match battleship up
 -- 19/12/23 Nerf Minas by 5/5
-UPDATE Units SET Combat=70, RangedCombat=80 WHERE UnitType='UNIT_BRAZILIAN_MINAS_GERAES';
+-- 27/11/24 melee reduced to 60 (from 70)
+UPDATE Units SET Combat=60, RangedCombat=80 WHERE UnitType='UNIT_BRAZILIAN_MINAS_GERAES';
 
 -- 19/12/23 Extra procution on unimproved jungle
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
