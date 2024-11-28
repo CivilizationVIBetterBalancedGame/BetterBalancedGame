@@ -222,6 +222,7 @@ INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
 	('POLICY_RAJ', 'BBG_RAJ_CITY_TRADE_ROUTE_SCIENCE'),
 	('POLICY_RAJ', 'BBG_RAJ_CITY_TRADE_ROUTE_CULTURE');
 
+-- 28/11/24 Merchant Confederation/Gunboat Diplomacy/Ideology changes
 -- 28/11/24 Merchant confederation obsolete at Ideology/Gunboat Diplomacy
 INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
 	('POLICY_MERCHANT_CONFEDERATION', 'POLICY_GUNBOAT_DIPLOMACY');
@@ -229,19 +230,26 @@ INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
 INSERT INTO Types(Type, Kind) VALUES
 	('POLICY_SOVEREIGN_STATE', 'KIND_POLICY');
 INSERT INTO Policies(PolicyType, Name, Description, PrereqCivic, GovernmentSlotType) VALUES
-	('POLICY_SOVEREIGN_STATE', 'LOC_POLICY_SOVEREIGN_STATE', 'LOC_POLICY_SOVEREIGN_STATE_DESCRIPTION', 'CIVIC_CIVIL_SERVICE', 'SLOT_DIPLOMATIC');
+	('POLICY_SOVEREIGN_STATE', 'LOC_POLICY_SOVEREIGN_STATE_NAME', 'LOC_POLICY_SOVEREIGN_STATE_DESCRIPTION', 'CIVIC_CIVIL_SERVICE', 'SLOT_DIPLOMATIC');
 INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
 	('POLICY_SOVEREIGN_STATE', 'POLICY_GUNBOAT_DIPLOMACY');
-
 DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_GUNBOAT_DIPLOMACY' AND ModifierId='GUNBOATDIPLOMACY_OPENBORDERS';
 INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
 	('POLICY_SOVEREIGN_STATE', 'GUNBOATDIPLOMACY_OPENBORDERS');
-
 -- 28/11/24 Ideology now gives open border without card
 INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES
 	('CIVIC_IDEOLOGY', 'GUNBOATDIPLOMACY_OPENBORDERS');
-
 -- 28/11/24 Gunboat Diplomacy now gets Merchant confederation bonus of +4 golds (do not grant open border with cs anymore)
 INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
 	('POLICY_GUNBOAT_DIPLOMACY', 'MERCHANTCONFEDERATION_INFLUENCETOKENGOLD');
+
+-- 28/11/24 Colonial Taxes/Offices changes
+-- 28/11/24 both cards now work for cities 8+ tiles away from cap and not based on continent
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_IS_PLOT_8_TILES_OR_MORE_FROM_CAPITAL_REQUIREMENTS' WHERE ModifierId IN ('COLONIALOFFICES_FOREIGNGROWTH', 'COLONIALTAXES_FOREIGNGOLD', 'COLONIALOFFICES_FOREIGNIDENTITY', 'COLONIALTAXES_FOREIGNPRODUCTION');
+-- 28/11/24 offices is obsolete when taxes is unlocked
+INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
+	('POLICY_COLONIAL_OFFICES', 'POLICY_COLONIAL_TAXES');
+-- 28/11/24 offices also gives production
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+	('POLICY_COLONIAL_OFFICES', 'COLONIALTAXES_FOREIGNPRODUCTION');
 
