@@ -221,3 +221,27 @@ INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
 	('POLICY_RAJ', 'BBG_RAJ_CITY_TRADE_ROUTE_FAITH'),
 	('POLICY_RAJ', 'BBG_RAJ_CITY_TRADE_ROUTE_SCIENCE'),
 	('POLICY_RAJ', 'BBG_RAJ_CITY_TRADE_ROUTE_CULTURE');
+
+-- 28/11/24 Merchant confederation obsolete at Ideology/Gunboat Diplomacy
+INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
+	('POLICY_MERCHANT_CONFEDERATION', 'POLICY_GUNBOAT_DIPLOMACY');
+-- 28/11/24 New green card giving freedom of movement into city state at Civil, osbsolete at Ideology/Gunboat Diplomacy /!\ care if you move gunboat as it is ideology which give open borders with cs now
+INSERT INTO Types(Type, Kind) VALUES
+	('POLICY_SOVEREIGN_STATE', 'KIND_POLICY');
+INSERT INTO Policies(PolicyType, Name, Description, PrereqCivic, GovernmentSlotType) VALUES
+	('POLICY_SOVEREIGN_STATE', 'LOC_POLICY_SOVEREIGN_STATE', 'LOC_POLICY_SOVEREIGN_STATE_DESCRIPTION', 'CIVIC_CIVIL_SERVICE', 'SLOT_DIPLOMATIC');
+INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
+	('POLICY_SOVEREIGN_STATE', 'POLICY_GUNBOAT_DIPLOMACY');
+
+DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_GUNBOAT_DIPLOMACY' AND ModifierId='GUNBOATDIPLOMACY_OPENBORDERS';
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+	('POLICY_SOVEREIGN_STATE', 'GUNBOATDIPLOMACY_OPENBORDERS');
+
+-- 28/11/24 Ideology now gives open border without card
+INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES
+	('CIVIC_IDEOLOGY', 'GUNBOATDIPLOMACY_OPENBORDERS');
+
+-- 28/11/24 Gunboat Diplomacy now gets Merchant confederation bonus of +4 golds (do not grant open border with cs anymore)
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+	('POLICY_GUNBOAT_DIPLOMACY', 'MERCHANTCONFEDERATION_INFLUENCETOKENGOLD');
+
