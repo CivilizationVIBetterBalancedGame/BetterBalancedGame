@@ -125,3 +125,8 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 -- statue of liberty text fix
 UPDATE Buildings SET Description='LOC_BUILDING_STATUE_LIBERTY_EXPANSION2_DESCRIPTION' WHERE BuildingType='BUILDING_STATUE_LIBERTY';
+
+-- 28/11/24 BUILDING_ORSZAGHAZ gets +50% influence point epr turn and 2 envoys
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+    ('BUILDING_ORSZAGHAZ', 'MONARCHY_ENVOYS'),
+    ('BUILDING_ORSZAGHAZ', 'CIVIC_AWARD_TWO_INFLUENCE_TOKENS');
