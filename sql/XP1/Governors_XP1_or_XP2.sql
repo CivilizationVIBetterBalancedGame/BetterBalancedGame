@@ -29,34 +29,69 @@ INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromo
 UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR' WHERE ModifierId IN ('CARDINAL_CITADEL_OF_GOD_PRESSURE', 'CARDINAL_CITADEL_OF_GOD_COMBAT');
 
 -- RI Citadel of gods : +4 prophet point when city has HS, can faith buy HS buildings -20%
+-- 28/11/24 +2 prophet points and faith per holy site within 6 tiles of this city
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';  
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
     ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'GOVERNOR_PROMOTION_CARDINAL_BISHOP'); 
 UPDATE GovernorPromotions SET Level=1, Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';
-    -- 4 prophets points per turn
+
+    -- prophet point and faith per holy site
+INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
+    ('BBG_REQUIRES_PLOT_SIX_TILES_AWAY','REQUIREMENT_PLOT_ADJACENT_TO_OWNER', 0);
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_PLOT_SIX_TILES_AWAY', 'MinDistance', 0),
+    ('BBG_REQUIRES_PLOT_SIX_TILES_AWAY', 'MaxDistance', 6);
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_REQUIRES_PLOT_SIX_TILES_AWAY_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_REQUIRES_PLOT_SIX_TILES_AWAY_REQSET', 'BBG_REQUIRES_PLOT_SIX_TILES_AWAY');
+
+INSERT INTO Types (Type, Kind) VALUES
+    ('BBG_MODIFIER_PLAYER_DISTRICTS_ATTACH_MODIFIER', 'KIND_MODIFIER');
+INSERT INTO DynamicModifiers (ModifierType, CollectionType, EffectType) VALUES
+    ('BBG_MODIFIER_PLAYER_DISTRICTS_ATTACH_MODIFIER', 'COLLECTION_PLAYER_DISTRICTS', 'EFFECT_ATTACH_MODIFIER');
+
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_MOKSHA_PROPHET_POINTS', 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', 'DISTRICT_IS_HOLY_SITE');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_MOKSHA_PROPHET_POINTS', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_PROPHET'),
-    ('BBG_MOKSHA_PROPHET_POINTS', 'Amount', 4);
-INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_PROPHET_POINTS');
-    -- faith buy HS build with 20% discount
-INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('BBG_MOKSHA_HS_BUILDING_FAITHBUY', 'MODIFIER_CITY_ENABLE_BUILDING_FAITH_PURCHASE');
+    ('BBG_MOKSHA_FAITH_FOR_HS', 'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER', 'BBG_REQUIRES_PLOT_SIX_TILES_AWAY_REQSET'),
+    ('BBG_MOKSHA_FAITH_FOR_HS_MODIFIER', 'MODIFIER_SINGLE_CITY_ADJUST_YIELD_CHANGE', 'BBG_CITY_HAS_DISTRICT_HOLY_SITE'),
+    ('BBG_MOKSHA_GREATPROPHET_POINT_FOR_HS', 'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER', 'BBG_REQUIRES_PLOT_SIX_TILES_AWAY_REQSET'),
+    ('BBG_MOKSHA_GREATPROPHET_POINT_FOR_HS_MODIFIER', 'MODIFIER_SINGLE_CITY_ADJUST_GREAT_PERSON_POINT', 'BBG_CITY_HAS_DISTRICT_HOLY_SITE');
+
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_MOKSHA_HS_BUILDING_FAITHBUY', 'DistrictType', 'DISTRICT_HOLY_SITE');
+    ('BBG_MOKSHA_FAITH_FOR_HS', 'ModifierId', 'BBG_MOKSHA_FAITH_FOR_HS_MODIFIER'),
+    ('BBG_MOKSHA_FAITH_FOR_HS_MODIFIER', 'Amount', 2),
+    ('BBG_MOKSHA_FAITH_FOR_HS_MODIFIER', 'YieldType', 'YIELD_FAITH'),
+    ('BBG_MOKSHA_GREATPROPHET_POINT_FOR_HS', 'ModifierId', 'BBG_MOKSHA_GREATPROPHET_POINT_FOR_HS_MODIFIER'),
+    ('BBG_MOKSHA_GREATPROPHET_POINT_FOR_HS', 'Amount', 2),
+    ('BBG_MOKSHA_GREATPROPHET_POINT_FOR_HS_MODIFIER', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_PROPHET');
 INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_HS_BUILDING_FAITHBUY');
-INSERT INTO Modifiers (ModifierId, ModifierType)
-    SELECT 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType, 'BBG_MODIFIER_SINGLE_CITY_ADJUST_BUILDING_PURCHASE_COST' FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
-INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType, 'BuildingType', Buildings.BuildingType FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
-INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType, 'Amount', 20 FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
-INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId)
-    SELECT 'GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
+    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_FAITH_FOR_HS'),
+    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_GREATPROPHET_POINT_FOR_HS');
+
+    -- 4 prophets points per turn
+-- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+--     ('BBG_MOKSHA_PROPHET_POINTS', 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', 'DISTRICT_IS_HOLY_SITE');
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+--     ('BBG_MOKSHA_PROPHET_POINTS', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_PROPHET'),
+--     ('BBG_MOKSHA_PROPHET_POINTS', 'Amount', 4);
+-- INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+--     ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_PROPHET_POINTS');
+--     -- faith buy HS build with 20% discount
+-- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+--     ('BBG_MOKSHA_HS_BUILDING_FAITHBUY', 'MODIFIER_CITY_ENABLE_BUILDING_FAITH_PURCHASE');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+--     ('BBG_MOKSHA_HS_BUILDING_FAITHBUY', 'DistrictType', 'DISTRICT_HOLY_SITE');
+-- INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+--     ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_HS_BUILDING_FAITHBUY');
+-- INSERT INTO Modifiers (ModifierId, ModifierType)
+--     SELECT 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType, 'BBG_MODIFIER_SINGLE_CITY_ADJUST_BUILDING_PURCHASE_COST' FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value)
+--     SELECT 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType, 'BuildingType', Buildings.BuildingType FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value)
+--     SELECT 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType, 'Amount', 20 FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
+-- INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId)
+--     SELECT 'GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_DISCOUNT_' || Buildings.BuildingType FROM Buildings WHERE PrereqDistrict='DISTRICT_HOLY_SITE';
 
 -- LII Divine Architect : Ability to faith buy district with 10% discount. Your trade route ending here provide +2 culture and +1 food to their starting city. 
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT';
@@ -88,41 +123,61 @@ INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
     ('GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT', 'BBG_MOKSHA_DISTRICT_DISCOUNT');
 
 -- RII Patron Saint : Apostles/Warrior monks trained in the city receive one extra Promotion, they cost 20% less faith. Grant the ability to faith buy support unit in the city for -20%.  
+-- 28/11/24 10% faith transformed into culture and science
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';      
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
     ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD');
 UPDATE GovernorPromotions SET Level=2, Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';
-    -- Warrior monks promote
-INSERT INTO Requirements(RequirementId, RequirementType) VALUES
-    ('BBG_REQUIRES_UNIT_TYPE_IS_MONK', 'REQUIREMENT_UNIT_TYPE_MATCHES');
-INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
-    ('BBG_REQUIRES_UNIT_TYPE_IS_MONK', 'UnitType', 'UNIT_WARRIOR_MONK');
-INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
-    ('BBG_UNIT_TYPE_IS_MONK_REQSET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-    ('BBG_UNIT_TYPE_IS_MONK_REQSET', 'BBG_REQUIRES_UNIT_TYPE_IS_MONK');
-INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_MOKSHA_MONK_FREE_PROMO', 'MODIFIER_CITY_TRAINED_UNITS_ADJUST_GRANT_EXPERIENCE', 'BBG_UNIT_TYPE_IS_MONK_REQSET');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_MOKSHA_MONK_FREE_PROMO', 'Amount', '-1');
-INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_MONK_FREE_PROMO');
-    -- faith buy support unit FORMATION_CLASS_SUPPORT
-INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT', 'MODIFIER_CITY_ENABLE_UNIT_FAITH_PURCHASE');
+
+    -- 10% faith transformed into culture and science
+INSERT INTO Types (Type, Kind) VALUES
+    ('BBG_MODIFIER_SINGLE_CITY_ADJUST_YIELD_MODIFIER_FROM_FAITH', 'KIND_MODIFIER');
+INSERT INTO DynamicModifiers (ModifierType, CollectionType, EffectType) VALUES
+    ('BBG_MODIFIER_SINGLE_CITY_ADJUST_YIELD_MODIFIER_FROM_FAITH', 'COLLECTION_OWNER', 'EFFECT_ADJUST_CITY_YIELD_MODIFIER_FROM_FAITH');
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES 
+    ('BBG_MOKSHA_FAITH_IN_CULTURE', 'BBG_MODIFIER_SINGLE_CITY_ADJUST_YIELD_MODIFIER_FROM_FAITH'),
+    ('BBG_MOKSHA_FAITH_IN_CULTURE', 'BBG_MODIFIER_SINGLE_CITY_ADJUST_YIELD_MODIFIER_FROM_FAITH');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT', 'Tag', 'CLASS_SUPPORT');
-INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT'); 
-    -- 20% discount on warrior monks, apostle and support unit
-INSERT INTO Modifiers (ModifierId, ModifierType)
-    SELECT 'BBG_MOKSHA_'  || UnitType || '_FAITH_DISCOUNT', 'MODIFIER_SINGLE_CITY_ADJUST_UNIT_PURCHASE_COST' FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
-INSERT INTO ModifierArguments (ModifierId, Name, Value)
-    SELECT 'BBG_MOKSHA_' || UnitType || '_FAITH_DISCOUNT', 'UnitType', UnitType FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
-INSERT INTO ModifierArguments (ModifierId, Name, Value)
-    SELECT 'BBG_MOKSHA_' || UnitType || '_FAITH_DISCOUNT', 'Amount', 20 FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
-INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId)
-    SELECT 'GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_' || UnitType || '_FAITH_DISCOUNT' FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
+    ('BBG_MOKSHA_FAITH_IN_CULTURE', 'YieldType', 'YIELD_CULTURE'),
+    ('BBG_MOKSHA_FAITH_IN_CULTURE', 'Amount', 10),
+    ('BBG_MOKSHA_FAITH_IN_SCIENCE', 'YieldType', 'YIELD_SCIENCE'),
+    ('BBG_MOKSHA_FAITH_IN_SCIENCE', 'Amount', 10);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_FAITH_IN_CULTURE'),
+    ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_FAITH_IN_SCIENCE');
+
+--     -- Warrior monks promote
+-- INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+--     ('BBG_REQUIRES_UNIT_TYPE_IS_MONK', 'REQUIREMENT_UNIT_TYPE_MATCHES');
+-- INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+--     ('BBG_REQUIRES_UNIT_TYPE_IS_MONK', 'UnitType', 'UNIT_WARRIOR_MONK');
+-- INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+--     ('BBG_UNIT_TYPE_IS_MONK_REQSET', 'REQUIREMENTSET_TEST_ALL');
+-- INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+--     ('BBG_UNIT_TYPE_IS_MONK_REQSET', 'BBG_REQUIRES_UNIT_TYPE_IS_MONK');
+-- INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+--     ('BBG_MOKSHA_MONK_FREE_PROMO', 'MODIFIER_CITY_TRAINED_UNITS_ADJUST_GRANT_EXPERIENCE', 'BBG_UNIT_TYPE_IS_MONK_REQSET');
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+--     ('BBG_MOKSHA_MONK_FREE_PROMO', 'Amount', '-1');
+-- INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+--     ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_MONK_FREE_PROMO');
+--     -- faith buy support unit FORMATION_CLASS_SUPPORT
+-- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+--     ('BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT', 'MODIFIER_CITY_ENABLE_UNIT_FAITH_PURCHASE');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+--     ('BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT', 'Tag', 'CLASS_SUPPORT');
+-- INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+--     ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_FAITH_BUY_SUPPORT_UNIT'); 
+--     -- 20% discount on warrior monks, apostle and support unit
+-- INSERT INTO Modifiers (ModifierId, ModifierType)
+--     SELECT 'BBG_MOKSHA_'  || UnitType || '_FAITH_DISCOUNT', 'MODIFIER_SINGLE_CITY_ADJUST_UNIT_PURCHASE_COST' FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value)
+--     SELECT 'BBG_MOKSHA_' || UnitType || '_FAITH_DISCOUNT', 'UnitType', UnitType FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value)
+--     SELECT 'BBG_MOKSHA_' || UnitType || '_FAITH_DISCOUNT', 'Amount', 20 FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
+-- INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId)
+--     SELECT 'GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_' || UnitType || '_FAITH_DISCOUNT' FROM Units WHERE FormationClass='FORMATION_CLASS_SUPPORT' OR UnitType IN ('UNIT_APOSTLE', 'UNIT_WARRIOR_MONK');
 
 -- M3 Curator : Double Tourism from Great Works of Art, Music and Writing in the city.   
 UPDATE GovernorPromotionSets SET GovernorType='GOVERNOR_THE_CARDINAL' WHERE GovernorPromotion='GOVERNOR_PROMOTION_MERCHANT_CURATOR';
