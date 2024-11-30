@@ -121,3 +121,7 @@ UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MINOR_CIV_ANTIOCH_LUXURY_
 -- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 --     ('BBG_MINOR_CIV_GENEVA_SCIENCE_PER_GREAT_PEOPLE', 'Amount', 1),
 --     ('BBG_MINOR_CIV_GENEVA_SCIENCE_PER_GREAT_PEOPLE', 'YieldType', 'YIELD_SCIENCE');
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_GAUL_GAESATAE', 'CLASS_MALUS_CITY_CENTER');

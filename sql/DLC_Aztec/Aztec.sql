@@ -43,3 +43,7 @@ INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
 --12/06/23 Tlachtli gives 3 tourism from start
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_TLACHTLI', 'BBG_ARENA_TOURISM');
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_AZTEC_EAGLE_WARRIOR', 'CLASS_MALUS_CITY_CENTER');

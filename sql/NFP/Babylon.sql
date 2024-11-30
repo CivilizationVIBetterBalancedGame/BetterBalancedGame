@@ -80,3 +80,7 @@ INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
 
 -- 04/08/24 Palgum buildable everywhere
 UPDATE Buildings SET RequiresAdjacentRiver=0 WHERE BuildingType='BUILDING_PALGUM';
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_BABYLONIAN_SABUM_KIBITTUM', 'CLASS_MALUS_CITY_CENTER');
