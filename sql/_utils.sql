@@ -75,7 +75,7 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     SELECT 'BBG_GAME_IS_IN_' || EraType || '_REQUIREMENTS', 'BBG_GAME_IS_IN_' || EraType || '_REQUIREMENT'
     FROM Eras;
 
--- requirements game era (for teddy)
+-- requirements player game era (for teddy)
 INSERT INTO Requirements(RequirementId, RequirementType)
     SELECT 'BBG_PLAYER_IS_IN_' || EraType || '_REQUIREMENT', 'REQUIREMENT_PLAYER_ERA_AT_LEAST'
     FROM Eras;
