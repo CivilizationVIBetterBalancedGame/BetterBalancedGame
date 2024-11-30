@@ -63,11 +63,20 @@ UPDATE ModifierArguments SET Value='25' WHERE ModifierId='WC_RES_UNIT_PRODUCTION
 
 -- 01/10/24 : A now allow to buy 50% cheaper tiles
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('APPLY_CHEAPER_TILES_BUY', 'MODIFIER_CONGRESS_ATTACH_MODIFIER_TO_PLAYERTYPE'),
-    ('CHEAPER_TILES_BUY', 'MODIFIER_PLAYER_CITIES_ADJUST_PLOT_PURCHASE_COST');
+    ('BBG_APPLY_CHEAPER_TILES_BUY', 'MODIFIER_CONGRESS_ATTACH_MODIFIER_TO_PLAYERTYPE'),
+    ('BBG_CHEAPER_TILES_BUY', 'MODIFIER_PLAYER_CITIES_ADJUST_PLOT_PURCHASE_COST');
 
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('APPLY_CHEAPER_TILES_BUY', 'ModifierId', 'CHEAPER_TILES_BUY'),
-    ('CHEAPER_TILES_BUY', 'Amount', -50);
+    ('BBG_APPLY_CHEAPER_TILES_BUY', 'ModifierId', 'CBBG_HEAPER_TILES_BUY'),
+    ('BBG_CHEAPER_TILES_BUY', 'Amount', -50);
 
-UPDATE ResolutionEffects SET ModifierId='APPLY_CHEAPER_TILES_BUY' WHERE ResolutionEffectId='80';
+UPDATE ResolutionEffects SET ModifierId='BBG_APPLY_CHEAPER_TILES_BUY' WHERE ResolutionEffectId='80';
+
+--================================================
+--******           CombatStrength           ******
+--================================================
+
+-- 30/11/24 Reduced to -+5
+UPDATE ModifierArguments SET Value=3 WHERE ModifierId='WC_RES_UNIT_COMBAT_BUFF';
+UPDATE ModifierArguments SET Value=3 WHERE ModifierId='WC_RES_UNIT_COMBAT_DEBUFF';
+
