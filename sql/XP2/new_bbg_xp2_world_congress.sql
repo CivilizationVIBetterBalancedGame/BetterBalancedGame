@@ -67,7 +67,7 @@ INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_CHEAPER_TILES_BUY', 'MODIFIER_PLAYER_CITIES_ADJUST_PLOT_PURCHASE_COST');
 
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_APPLY_CHEAPER_TILES_BUY', 'ModifierId', 'CBBG_HEAPER_TILES_BUY'),
+    ('BBG_APPLY_CHEAPER_TILES_BUY', 'ModifierId', 'BBG_CHEAPER_TILES_BUY'),
     ('BBG_CHEAPER_TILES_BUY', 'Amount', -50);
 
 UPDATE ResolutionEffects SET ModifierId='BBG_APPLY_CHEAPER_TILES_BUY' WHERE ResolutionEffectId='80';
