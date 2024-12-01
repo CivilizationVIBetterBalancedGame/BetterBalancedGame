@@ -29,3 +29,16 @@ INSERT INTO PolicyModifiers(PolicyType, ModifierId)
     SELECT 'POLICY_GOV_COMMUNISM', Modifiers.ModifierId
     FROM Modifiers WHERE ModifierId LIKE 'COMMUNISM%MODIFIER_BBG';
 */
+
+
+-- Praeorium give +4 Loyalty (from +2)
+UPDATE ModifierArguments SET Value='4' WHERE ModifierId='PRAETORIUM_GOVERNORIDENTITY' AND Name='Amount';
+
+-- 28/11/24 Praetorium give +10% production on conquered cities with a gov
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_PRAETORIUM_PRODUCTION_TO_GOV_CONQUERED_CITIES', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER', 'CITY_HAS_GOVERNOR_NOT_FOUNDED');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_PRAETORIUM_PRODUCTION_TO_GOV_CONQUERED_CITIES', 'YieldType', 'YIELD_PRODUCTION'),
+    ('BBG_PRAETORIUM_PRODUCTION_TO_GOV_CONQUERED_CITIES', 'Amount', '10');
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+    ('BBG_PRAETORIUM_PRODUCTION_TO_GOV_CONQUERED_CITIES', 'BBG_PRAETORIUM_PRODUCTION_TO_GOV_CONQUERED_CITIES');

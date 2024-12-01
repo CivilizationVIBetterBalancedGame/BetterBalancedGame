@@ -14,9 +14,6 @@ UPDATE ModifierArguments SET Value='3' WHERE ModifierId='BASTIONS_RANGEDSTRIKE' 
 -- 02/07/24 Bastion ranged strength removed
 DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_BASTIONS' AND ModifierId='BASTIONS_RANGEDSTRIKE';
 
--- Praeorium give +4 Loyalty (from +2)
--- 28/11/23 Praetorium remove growth malus on conquered cities
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='PRAETORIUM_GOVERNORIDENTITY' AND Name='Amount';
 -- Communications Office give 2 Loyalty per governor promotion (from +1)
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='COMMUNICATIONS_OFFICE_GOVERNOR_IDENTITY_PER_TITLE' AND Name='Amount';
 
