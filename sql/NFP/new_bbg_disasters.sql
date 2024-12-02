@@ -89,3 +89,6 @@ UPDATE RandomEvent_Frequencies SET OccurrencesPerGame=0 WHERE RandomEventType='R
 DELETE FROM RandomEvent_Yields WHERE RandomEventType='RANDOM_EVENT_JUNGLE_FIRE' AND FeatureType='FEATURE_BURNT_JUNGLE';
 DELETE FROM RandomEvent_Yields WHERE RandomEventType='RANDOM_EVENT_FOREST_FIRE' AND FeatureType='FEATURE_BURNT_FOREST';
 UPDATE RandomEvent_Yields SET YieldType='YIELD_FOOD' WHERE RandomEventType='RANDOM_EVENT_FOREST_FIRE' AND FeatureType='FEATURE_FOREST';
+
+-- 02/12/24 yields from flood reduced by 25%
+UPDATE RandomEvent_Yields SET Percentage=Percentage*.75 WHERE RandomEventType LIKE '%FLOOD%';
