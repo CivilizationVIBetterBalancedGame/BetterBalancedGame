@@ -1,7 +1,12 @@
+--=============================================
+--=                 EGYPT                     =
+--=============================================
+
 -- wonder and district on rivers bonus increased to 25%
 -- 05/03/2024 nerf bonus on river 25% -> 20%
-UPDATE ModifierArguments SET Value='20' WHERE ModifierId='TRAIT_RIVER_FASTER_BUILDTIME_WONDER';
-UPDATE ModifierArguments SET Value='20' WHERE ModifierId='TRAIT_RIVER_FASTER_BUILDTIME_DISTRICT';
+-- 02/12/24 reduced to 15% with Egypt changes
+UPDATE ModifierArguments SET Value=15 WHERE ModifierId='TRAIT_RIVER_FASTER_BUILDTIME_WONDER';
+UPDATE ModifierArguments SET Value=15 WHERE ModifierId='TRAIT_RIVER_FASTER_BUILDTIME_DISTRICT';
 --
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)
 	VALUES ('BBG_REQUIRES_PLOT_HAS_FLOODPLAINS', 'REQUIREMENTSET_TEST_ANY');
@@ -81,5 +86,26 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , Requirement
 INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , RequirementId)
 	VALUES ('SPHINX_PRODUCTION_PLOT_HAS_DESERT_HILLS_REQUIREMENTS' , 'REQUIRES_PLOT_HAS_DESERT_HILLS');
 
+--=============================================
+--=               CLEOPATRA                   =
+--=============================================
+
 --14/07/2022: Egypt 6 golds per international traderoutes instead of 4
-UPDATE ModifierArguments SET Value='6' WHERE ModifierId='TRAIT_INTERNATIONAL_TRADE_GAIN_GOLD' AND Name='Amount';
+-- 02/12/24 reverted
+-- UPDATE ModifierArguments SET Value='6' WHERE ModifierId='TRAIT_INTERNATIONAL_TRADE_GAIN_GOLD' AND Name='Amount';
+-- 02/12/24 food reduced to 1
+UPDATE ModifierArguments SET Value=1 WHERE ModifierId='TRAIT_INCOMING_TRADE_OFFER_FOOD' AND Name='Amount';
+
+-- 02/12/24 bonus production doubled when city is settled on river for com hub and iz
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+	('BBG_CLEO_FASTER_HUB_RIVER', 'MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION', 'PLOT_ADJACENT_TO_RIVER_REQUIREMENTS'),
+	('BBG_CLEO_FASTER_IZ_RIVER', 'MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION', 'PLOT_ADJACENT_TO_RIVER_REQUIREMENTS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_CLEO_FASTER_HUB_RIVER', 'DistrictType', 'DISTRICT_COMMERCIAL_HUB'),
+	('BBG_CLEO_FASTER_HUB_RIVER', 'Amount', 15),
+	('BBG_CLEO_FASTER_IZ_RIVER', 'DistrictType', 'DISTRICT_INDUSTRIAL_ZONE'),
+	('BBG_CLEO_FASTER_IZ_RIVER', 'Amount', 15);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+	('TRAIT_LEADER_MEDITERRANEAN', 'BBG_CLEO_FASTER_HUB_RIVER'),
+	('TRAIT_LEADER_MEDITERRANEAN', 'BBG_CLEO_FASTER_IZ_RIVER');
+
