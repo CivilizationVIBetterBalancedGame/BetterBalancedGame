@@ -42,3 +42,6 @@ INSERT INTO ImprovementModifiers(ImprovementType, ModifierID) VALUES
 -- 16/04/23 from 2 irons to 1
 DELETE FROM Route_ResourceCosts WHERE RouteType='ROUTE_RAILROAD' and ResourceType='RESOURCE_COAL';
 -- UPDATE Route_ResourceCosts SET BuildwithUnitCost=2 WHERE RouteType='ROUTE_RAILROAD' and ResourceType='RESOURCE_IRON';
+
+-- 02/12/24 plantations food bonus delayed to medieval faires
+UPDATE Improvement_BonusYieldChanges SET PrereqCivic='CIVIC_MEDIEVAL_FAIRES' WHERE Id=224;
