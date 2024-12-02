@@ -78,5 +78,5 @@ UPDATE ResolutionEffects SET ModifierId='BBG_APPLY_CHEAPER_TILES_BUY' WHERE Reso
 
 -- 30/11/24 Reduced to -+5
 UPDATE ModifierArguments SET Value=3 WHERE ModifierId='WC_RES_UNIT_COMBAT_BUFF';
-UPDATE ModifierArguments SET Value=3 WHERE ModifierId='WC_RES_UNIT_COMBAT_DEBUFF';
+UPDATE ModifierArguments SET Value=-3 WHERE ModifierId='WC_RES_UNIT_COMBAT_DEBUFF';
 
