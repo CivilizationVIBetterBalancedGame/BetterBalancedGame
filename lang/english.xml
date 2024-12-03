@@ -395,22 +395,22 @@
 		<!-- == EGYPT == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ITERU_DESCRIPTION" Language="en_US">
-			<Text>+20% [ICON_PRODUCTION] Production towards [ICON_DISTRICT] districts and wonders if placed next to a River. Floodplains do not block placement of districts and wonders.</Text>
+			<Text>+15% [ICON_PRODUCTION] Production towards [ICON_DISTRICT] districts and wonders if placed next to a River. Floodplains do not block placement of districts and wonders.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ITERU_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>+20% [ICON_PRODUCTION] Production towards [ICON_DISTRICT] districts and wonders if placed next to a River. Does not receive damage from Floods.</Text>
+			<Text>+15% [ICON_PRODUCTION] Production towards [ICON_DISTRICT] districts and wonders if placed next to a River. Does not receive damage from Floods.</Text>
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Egyptian) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MEDITERRANEAN_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Your [ICON_TradeRoute] Trade Routes to other civilizations provide +6 [ICON_GOLD] Gold for Egypt. Other civilizations' [ICON_TradeRoute] Trade Routes to Egypt provide +2 [ICON_FOOD] Food for them and +2 [ICON_GOLD] Gold for Egypt. Trading with Allies earns twice as many bonus Alliance Points.</Text>
+			<Text>Your [ICON_TradeRoute] Trade Routes to other civilizations provide +4 [ICON_GOLD] Gold for Egypt. Other civilizations' [ICON_TradeRoute] Trade Routes to Egypt provide +1 [ICON_FOOD] Food for them and +2 [ICON_GOLD] Gold for Egypt. Trading with Allies earns twice as many bonus Alliance Points. +15% [ICON_PRODUCTION] production toward [ICON_DISTRICT_COMMERCIAL_HUB] commercial hubs and [ICON_DISTRICT_INDUSTRIAL_ZONE] industrial zones when the city is settled on a river.</Text>
 		</Replace>
 		<!-- = leader ability (Ramses II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAMSES_DESCRIPTION" Language="en_US">
-			<Text>Gain [ICON_CULTURE] Culture equal to 10% of the construction cost when finishing Buildings and 25% when completing Wonders.</Text>
+			<Text>Gain [ICON_CULTURE] Culture equal to 10% of the construction cost when finishing Buildings and 25% when completing Wonders. +15% production bonus for [ICON_DISTRICT_HOLY_SITE] holy sites and [ICON_DISTRICT_THEATER] theater squares when the city is settled on a river.</Text>
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="en_US">
-			<Text>Cities settled on Floodplain resources receive +1 [ICON_FOOD] Food. Improved resources on Floodplains receive +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture. Owned Floodplains tiles grant +1 Appeal to adjacent tiles instead of usual -1.</Text>
+			<Text>Military units ignore river [ICON_STRENGTH] Combat Strength and [ICON_MOVEMENT] movement penalties and receive +3 [ICON_STRENGTH] Combat Strength on floodplains. +15% production bonus for [ICON_DISTRICT_CAMPUS] campuses and [ICON_DISTRICT_ENCAMPMENT] encampments when the city is settled on a river.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="en_US">
@@ -1040,7 +1040,7 @@
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_PYRAMID_DESCRIPTION" Language="en_US">
-			<Text>Unlocked at Craftsmanship, unique to Nubia and limited to 1 per city. Nubian Districts receive standad adjacency from Nubian Pyramids. Can be built on any flat tile. Cannot be built next to another Nubian Pyramid. [NEWLINE][NEWLINE]+2 [ICON_FOOD] Food and +2 [ICON_FAITH] Faith. [NEWLINE][NEWLINE]Receives additional yields from adjacent districts: [NEWLINE]+1 [ICON_FOOD] Food for the City Center [NEWLINE]+1 [ICON_CULTURE] Culture and +2 [ICON_GOLD] Gold per adjacent Government Plaza and Diplomatic Quarter [NEWLINE]+2 [ICON_SCIENCE] Science per adjacent Campus [NEWLINE]+2 [ICON_PRODUCTION] Production per adjacent Industrial Zone [NEWLINE]+1 [ICON_PRODUCTION] Production per adjacent Encampment and Aerodrome [NEWLINE]+2 [ICON_CULTURE] Culture per adjacent Theater Square [NEWLINE]+2 [ICON_FAITH] Faith per adjacent Holy Site [NEWLINE]+2 [ICON_GOLD] Gold per adjacent Commercial Hub and Harbor.</Text>
+			<Text>Unlocked at Craftsmanship, unique to Nubia and limited to 1 per city. Nubian Districts receive standad adjacency from Nubian Pyramids. Can be built on any flat tile or desert hill. Cannot be built next to another Nubian Pyramid. [NEWLINE][NEWLINE]+2 [ICON_FOOD] Food and +2 [ICON_FAITH] Faith. [NEWLINE][NEWLINE]Receives additional yields from adjacent districts: [NEWLINE]+1 [ICON_FOOD] Food for the City Center [NEWLINE]+1 [ICON_CULTURE] Culture and +2 [ICON_GOLD] Gold per adjacent Government Plaza and Diplomatic Quarter [NEWLINE]+1 [ICON_SCIENCE] Science per adjacent Campus [NEWLINE]+1 [ICON_PRODUCTION] Production per adjacent Industrial Zone, Encampment, and Aerodrome [NEWLINE]+1 [ICON_CULTURE] Culture per adjacent Theater Square [NEWLINE]+1 [ICON_FAITH] Faith per adjacent Holy Site [NEWLINE]+1 [ICON_GOLD] Gold per adjacent Commercial Hub and Harbor.</Text>
 		</Replace>
 
 		<!-- == OTTOMANS == -->
@@ -1537,7 +1537,7 @@
 			<Text>+1 [ICON_FAVOR] Diplomatic Favor and +1 [ICON_InfluencePerTurn] Influence per turn for each tier of Government Plaza building constructed.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_PUPPETEER_DESCRIPTION" Language="en_US">
-			<Text>While established in a city state, double the number of envoys you have there.</Text>
+			<Text>While established in a city-state, double the number of envoys you have there.</Text>
 		</Replace>
 		<!-- = Unused
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY_DESCRIPTION" Language="en_US">
@@ -2307,6 +2307,10 @@
 		<Replace Tag="LOC_LEADER_TRAIT_CARDIFF_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_PRODUCTION] Production, +1 [ICON_GOLD] Gold, and +2 [ICON_POWER] Power for every Harbor building.</Text>
 		</Replace>
+		<!-- = Johannesburg = -->
+		<Replace Tag="LOC_LEADER_TRAIT_JOHANNESBURG_DESCRIPTION">
+			<Text>Cities receive +1 [ICON_PRODUCTION] Production for each improved type of resource (bonus, luxury, strategic). Receive an additional +1 [ICON_PRODUCTION] Production at Apprenticeship and again at Industrialization.</Text>
+		</Replace>
 		<!-- = Mexico City = -->
 		<Replace Tag="LOC_CIVILIZATION_MEXICO_CITY_BONUS" Language="en_US">
 			<Text>Regional effects from your Industrial Zone, Water Park, and Entertainment Complex districts reach 3 tiles farther. +1 [ICON_AMENITIES] Amenity from Aqueducts.</Text>
@@ -2453,7 +2457,7 @@
 		<Replace Tag="LOC_LEADER_TRAIT_JERUSALEM_DESCRIPTION_EXPANSION" Language="en_US">
 			<Text>Your cities with Holy Sites exert pressure as if they were Holy Cities (4x Religion pressure on all cities within 12 tiles). +1 [ICON_GOLD] Gold for each Holy Site.</Text>
 		</Replace>
-
+		<!-- = La Venta = -->
 		<Replace Tag="LOC_CIVILIZATION_LA_VENTA_BONUS_XP2" Language="en_US">
 			<Text>Your Builders can now make Colossal Head improvements.[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food +2 [ICON_FAITH] Faith, and +1 [ICON_HOUSING] Housing.  +1 [ICON_FAITH] Faith for every 2 adjacent Rainforest or Woods, increasing to +1 [ICON_FAITH] Faith for each adjacent Rainforest or Woods after researching Humanism. [ICON_TOURISM] Tourism from [ICON_FAITH] Faith after researching Flight.  Cannot be built on Snow or Snow Hills.</Text>
 		</Replace>
@@ -2591,21 +2595,32 @@
 			<Text>Unlocks Giant Death Robot upgrade: Drone Air Defense[NEWLINE]+140 [ICON_AntiAir_Large] Anti-Air Strength.</Text>
 		</Replace>
 
+
+
 		<!-- === CULTURE TREE DESCRIPTIONS === -->
+		<Replace Tag="BBG_LOC_CIVIC_CULTURAL_HEGEMONY_DESCRIPTION" Language="en_US">
+			<Text>+25% [ICON_TOURISM] Tourism across your empire.</Text>
+		</Replace>		
 		<Replace Tag="LOC_CIVIC_ENVIRONMENTALISM_DESCRIPTION" Language="en_US">
 			<Text>+25% [ICON_TOURISM] Tourism across your empire.</Text>
+		</Replace>
+ 		<Replace Tag="LOC_CIVIC_FEUDALISM_DESCRIPTION" Language="en_US">
+			<Text>Farm improvements now gain +1 [ICON_Food] Food from every 2 adjacent Farm improvements.</Text>
+ 		</Replace>
+   		<Replace Tag="LOC_CIVIC_IDEOLOGY_DESCRIPTION" Language="en_US">
+    			<Text>Grants the ability to construct an additional Spy. Grants open borders with all city-states.</Text>
+   		</Replace>
+		<Replace Tag="LOC_CIVIC_MEDIEVAL_FAIRES_DESCRIPTION" Language="en_US">
+			<Text>Plantation improvements now gain +1 [ICON_Food] Food.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVIC_MILITARY_TRADITION_DESCRIPTION" Language="en_US">
 			<Text>Grants flanking and support combat bonuses to all combat units except land ranged and naval ranged units.</Text>
 		</Replace>
-		<Replace Tag="LOC_CIVIC_OPERA_BALLET_DESCRIPTION" Language="en_US">
-			<Text>Awards 2 [ICON_ENVOY] Envoys. Great Works of Writing receive an additional +2 [ICON_TOURISM] Tourism.</Text>
-		</Replace>
 		<Replace Tag="LOC_BOOST_TRIGGER_NATIONALISM" Language="en_US">
 			<Text>Own a land combat unit with 3 promotions.</Text>
 		</Replace>
-		<Replace Tag="BBG_LOC_CIVIC_CULTURAL_HEGEMONY_DESCRIPTION" Language="en_US">
-			<Text>+25% [ICON_TOURISM] Tourism across your empire.</Text>
+		<Replace Tag="LOC_CIVIC_OPERA_BALLET_DESCRIPTION" Language="en_US">
+			<Text>Awards 2 [ICON_ENVOY] Envoys. Great Works of Writing receive an additional +2 [ICON_TOURISM] Tourism.</Text>
 		</Replace>
 
 		
@@ -2870,7 +2885,7 @@
 			<Text>+15% faster growth, +10% [ICON_PRODUCTION] Production, and 3 Loyalty per turn for cities at least 8 tiles away from your [ICON_Capital] Capital.</Text>
 		</Replace>
 		<!-- = Colonial Taxes = -->
-		<Replace Tag="LOC_POLICY_COLONIAL_TAXES_DESCRIPTION" Language="en_US">
+		<Replace Tag="LOC_POLICY_COLONIAL_TAXES_DESCRIPTION">
 			<Text>+15% faster growth, +10% [ICON_PRODUCTION] Production, +25% [ICON_Gold] Gold, and 3 Loyalty per turn for cities at least 8 tiles away from your [ICON_Capital] Capital.</Text>
 		</Replace>
 		<!-- = Communications Office = -->	
@@ -2899,7 +2914,7 @@
 		</Replace>
 		<!-- = Raj = -->
 		<Replace Tag="LOC_POLICY_RAJ_DESCRIPTION_XP2" Language="en_US">
-			<Text>[ICON_TradeRoute] Trade Routes to city-states provide: +1 [ICON_FOOD] Food and [ICON PRODUCTION] Prodcution; +2 [ICON_Science] Science, [ICON_Culture] Culture, [ICON_Faith] Faith, and [ICON_Gold] Gold.</Text>
+			<Text>[ICON_TradeRoute] Trade Routes to city-states provide: +1 [ICON_FOOD] Food and [ICON_PRODUCTION] Prodcution; +2 [ICON_Science] Science, [ICON_Culture] Culture, [ICON_Faith] Faith, and [ICON_Gold] Gold.</Text>
 		</Replace>
 		<!-- = Sovereign State added by BBG6.2 = -->
 		<Row Tag="LOC_POLICY_SOVEREIGN_STATE_NAME" Language="en_US">
@@ -3077,10 +3092,10 @@
 			<Text>Tiles bought by this player are 50% cheaper.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_BUFF_DESC">
-			<Text>Units of the chosen promotion class gain 3 Combat Strength.</Text>
+			<Text>Units of the chosen promotion class gain 3 [ICON_STRENGTH] Combat Strength.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_NERF_DESC">
-			<Text>Units of the chosen promotion class lose 3 Combat Strength.</Text>
+			<Text>Units of the chosen promotion class lose 3 [ICON_STRENGTH] Combat Strength.</Text>
 		</Replace>
 
 		
