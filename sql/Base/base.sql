@@ -196,14 +196,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId)
 DROP TABLE Numbers;
 */
 
---=======================================================================
---******                        Spy                                ******
---=======================================================================
---Creating Spy Capacity Modifier (lua attaches it)
-INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
-    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'MODIFIER_PLAYER_GRANT_SPY');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'Amount', '1');
+
 
 --=======================================================================
 --******               Wonder+Terrain/Feature                      ******
