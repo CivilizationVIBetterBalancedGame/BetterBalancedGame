@@ -30,9 +30,8 @@ UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_THANH';
 
 -- 03/07/24 Vietnam nerf extra 1 movement in neutral/ennemy territory, only for voi chien
 -- 01/12/24 1 movement 2 cs everywhere (not doubled in ennemy territory) and removed for voi chien
-UPDATE ModifierArguments SET Value=2 WHERE ModifierId='TRIEU_FRIENDLY_COMBAT';
-UPDATE ModifierArguments SET Value=1 WHERE ModifierId='TRIEU_FRIENDLY_MOVEMENT';
-
+-- 15/12/24 reverted to 03/07/24 state
+UPDATE UnitAbilityModifiers SET UnitAbilityType='ABILITY_VOI_CHIEN' WHERE ModifierId='TRIEU_UNFRIENDLY_MOVEMENT';
 
 -- 15/12/24 Vietnam can now build specialty districts on floodplains and buildings get food
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
