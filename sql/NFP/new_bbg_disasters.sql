@@ -92,3 +92,6 @@ UPDATE RandomEvent_Yields SET YieldType='YIELD_FOOD' WHERE RandomEventType='RAND
 
 -- 02/12/24 yields from flood reduced by 25%
 UPDATE RandomEvent_Yields SET Percentage=Percentage*.75 WHERE RandomEventType LIKE '%FLOOD%';
+
+-- 15/12/24 Disaster 0 = no disaster
+UPDATE RandomEvent_Frequencies SET OccurrencesPerGame=0 WHERE RealismSettingType='REALISM_SETTING_MINIMAL';
