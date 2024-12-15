@@ -2,8 +2,18 @@
 --******			       CITY STATES      			  ******
 --==============================================================
 
-UPDATE Resources SET Happiness=4 WHERE ResourceType IN ('RESOURCE_CINNAMON', 'RESOURCE_CLOVES');
 
+--==========================
+--*       ZANZIBAR         *
+--==========================
+-- amenities reduced to 4
+-- 15/12/24 reverted to 6 but second one delayed at banking
+-- UPDATE Resources SET Happiness=4 WHERE ResourceType IN ('RESOURCE_CINNAMON', 'RESOURCE_CLOVES');
+UPDATE Modifiers SET OwnerRequirementSetId='BBG_UTILS_PLAYER_HAS_TECH_BANKING' WHERE ModifierId='MINOR_CIV_ZANZIBAR_CLOVES_RESOURCE_BONUS';
+
+--==========================
+--*      MEXICO CITY       *
+--==========================
 --08/03/24 Mexico aqueduct amenities
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
@@ -18,6 +28,9 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('MINOR_CIV_MEXICO_CITY_TRAIT', 'BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT');
 
+--==========================
+--*       JERUSALEM        *
+--==========================
 --10/03/24 Jerusalem gives +1 gold per holy site
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),

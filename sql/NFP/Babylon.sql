@@ -87,9 +87,13 @@ INSERT INTO TypeTags (Type, Tag) VALUES
 
 
 --===============================================
---******            CITy STATE             ******
+--******            CITY STATE             ******
 --===============================================
 
+
+--==========================
+--*      JOHANNESBURG      *
+--==========================
 -- Johan nerf : Production is per resource type, aka lux/bonus/strat 1 at start of game, 2 at apprentice, 3 at indus.
 INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) VALUES
     ('BBG_MINOR_CIV_JOHANNESBURG_UNIQUE_INFLUENCE_BONUS_LUX', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', NULL, 'PLAYER_IS_SUZERAIN'),
