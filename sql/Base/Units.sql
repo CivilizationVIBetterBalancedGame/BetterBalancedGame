@@ -305,3 +305,6 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 
 -- 15/12/24 spy progression cost change (based on the % of techs/civics)
 UPDATE Units SET CostProgressionModel='COST_PROGRESSION_GAME_PROGRESS', CostProgressionParam1=500, Cost=120 WHERE UnitType='UNIT_SPY';
+
+-- 15/12/24 Spy can stack so Wu can faith buy spies when there is one opponent in they city 
+UPDATE Units SET Stackable=1 WHERE UnitType='UNIT_SPY';
