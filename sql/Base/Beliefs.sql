@@ -1,28 +1,51 @@
 --==============================================================================================
---******    PANTHEON    ******
+--******                                   PANTHEON                                       ******
 --==============================================================================================
+
+
+--==========================
+--* RELIGIOUS SETTLEMENTS  *
+--==========================
 
 -- religious settlements more border growth since settler removed
 UPDATE ModifierArguments SET Value='50' WHERE ModifierId='RELIGIOUS_SETTLEMENTS_CULTUREBORDER';
--- river goddess +2 HS adj on rivers, -1 housing and -1 amentiy tho
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='RIVER_GODDESS_HOLY_SITE_HOUSING_MODIFIER' AND Name='Amount';
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='RIVER_GODDESS_HOLY_SITE_AMENITIES_MODIFIER' AND Name='Amount';
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
-    VALUES ('RIVER_GODDESS_HOLY_SITE_FAITH_BBG', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_HAS_PANTHEON_REQUIREMENTS');
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
-    VALUES ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG', 'MODIFIER_PLAYER_CITIES_RIVER_ADJACENCY');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('RIVER_GODDESS_HOLY_SITE_FAITH_BBG', 'ModifierId', 'RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG'),
-    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG', 'Amount', '1'),
-    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG', 'DistrictType', 'DISTRICT_HOLY_SITE'),
-    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG', 'YieldType', 'YIELD_FAITH'),
-    ('RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER_BBG', 'Description', 'LOC_DISTRICT_HOLY_SITE_RIVER_FAITH');
-INSERT OR IGNORE INTO BeliefModifiers VALUES
-    ('BELIEF_RIVER_GODDESS', 'RIVER_GODDESS_HOLY_SITE_FAITH_BBG');
+
+--==========================
+--*      RIVER GODDESS     *
+--==========================
+-- river goddess +1 HS adj on rivers, -1 housing and -1 amentiy
+-- 15/12/24 +2 adj but housing removed
+UPDATE ModifierArguments SET Value=1 WHERE ModifierId='RIVER_GODDESS_HOLY_SITE_HOUSING_MODIFIER' AND Name='Amount';
+DELETE FROM BeliefModifiers WHERE ModifierId='RIVER_GODDESS_HOLY_SITE_HOUSING';
+UPDATE ModifierArguments SET Value=1 WHERE ModifierId='RIVER_GODDESS_HOLY_SITE_AMENITIES_MODIFIER' AND Name='Amount';
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_HAS_PANTHEON_REQUIREMENTS'),
+    ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'MODIFIER_PLAYER_CITIES_RIVER_ADJACENCY', NULL);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH', 'ModifierId', 'BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER'),
+    ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'Amount', 2),
+    ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'DistrictType', 'DISTRICT_HOLY_SITE'),
+    ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'YieldType', 'YIELD_FAITH'),
+    ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'Description', 'LOC_DISTRICT_HOLY_SITE_RIVER_FAITH');
+INSERT INTO BeliefModifiers (BeliefType, ModifierID) VALUES
+    ('BELIEF_RIVER_GODDESS', 'BBG_RIVER_GODDESS_HOLY_SITE_FAITH');
+
+--==========================
+--*       CITY PATRON      *
+--==========================
 -- city patron buff
 UPDATE ModifierArguments SET Value='40' WHERE ModifierId='CITY_PATRON_GODDESS_DISTRICT_PRODUCTION_MODIFIER' AND Name='Amount';
+
+
+--==========================
+--*    DANSE OF AURORA     *
+--==========================
 -- Dance of Aurora yields reduced... only work for flat tundra
 --UPDATE ModifierArguments SET Value='0' WHERE ModifierId='DANCE_OF_THE_AURORA_FAITHTUNDRAHILLSADJACENCY' AND Name='Amount';
+
+--==========================
+--*     STONE CIRCLES      *
+--==========================
 -- stone circles -1 faith and +1 prod
 UPDATE ModifierArguments SET Value='1' WHERE ModifierId='STONE_CIRCLES_QUARRY_FAITH_MODIFIER' and Name='Amount';
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
@@ -34,6 +57,10 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('STONE_CIRCLES_QUARRY_PROD_MODIFIER_BBG', 'Amount', '1');
 INSERT OR IGNORE INTO BeliefModifiers (BeliefType, ModifierID) VALUES
     ('BELIEF_STONE_CIRCLES', 'STONE_CIRCLES_QUARRY_PROD_BBG');
+
+--==========================
+--*    RELIGIOUS IDOLS     *
+--==========================
 -- religious idols +3 gold
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('RELIGIOUS_IDOLS_BONUS_MINE_GOLD_BBG', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
@@ -51,12 +78,18 @@ INSERT OR IGNORE INTO BeliefModifiers VALUES
     ('BELIEF_RELIGIOUS_IDOLS', 'RELIGIOUS_IDOLS_BONUS_MINE_GOLD_BBG'),
     ('BELIEF_RELIGIOUS_IDOLS', 'RELIGIOUS_IDOLS_LUXURY_MINE_GOLD_BBG');
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId IN ('RELIGIOUS_IDOLS_BONUS_MINE_FAITH_MODIFIER', 'RELIGIOUS_IDOLS_LUXURY_MINE_FAITH_MODIFIER') AND Name='Amount';
+
+
 -- Goddess of the Harvest is +50% faith from chops instead of +100%
 UPDATE ModifierArguments SET Value='50' WHERE ModifierId='GODDESS_OF_THE_HARVEST_HARVEST_MODIFIER' and Name='Amount';
 UPDATE ModifierArguments SET Value='50' WHERE ModifierId='GODDESS_OF_THE_HARVEST_REMOVE_FEATURE_MODIFIER' and Name='Amount';
+
+
 -- Monument to the Gods affects all wonders... not just Ancient and Classical Era
 UPDATE ModifierArguments SET Value='ERA_INFORMATION' WHERE ModifierId='MONUMENT_TO_THE_GODS_ANCIENTCLASSICALWONDER_MODIFIER' AND Name='EndEra';
 UPDATE ModifierArguments SET Value='20' WHERE ModifierId='MONUMENT_TO_THE_GODS_ANCIENTCLASSICALWONDER_MODIFIER' AND Name='Amount';
+
+
 -- God of War now God of War and Plunder (similar to divine spark)
 DELETE FROM BeliefModifiers WHERE BeliefType='BELIEF_GOD_OF_WAR';
 INSERT OR IGNORE INTO Modifiers  ( ModifierId, ModifierType, SubjectRequirementSetId )
