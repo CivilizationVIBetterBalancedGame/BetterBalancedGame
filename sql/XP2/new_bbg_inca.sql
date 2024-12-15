@@ -65,92 +65,22 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_PACHACUTI_QHAPAQ_NAN', 'BBG_DESERT_MOUNTAIN_PLOT_COST'),
     ('TRAIT_LEADER_PACHACUTI_QHAPAQ_NAN', 'BBG_SNOW_MOUNTAIN_PLOT_COST');
 
-/* --5.2. Disable:
---add prod on mountain wonders
-INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
-    ('REQSET_PLOT_IS_MOUNTAIN_WONDER_BBG', 'REQUIREMENTSET_TEST_ANY');
-INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
-    SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
-    FROM WonderTerrainFeature_BBG WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN';
-INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value)
-    SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'FeatureType', WonderTerrainFeature_BBG.WonderType
-    FROM WonderTerrainFeature_BBG WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN';
-INSERT INTO RequirementSetRequirements
-    SELECT 'REQSET_PLOT_IS_MOUNTAIN_WONDER_BBG', 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG'
-    FROM WonderTerrainFeature_BBG WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN';
---work impassible terrain
-INSERT INTO Modifiers(ModifierId, ModifierType)
-    SELECT 'TRAIT_MODIFIER_WORK_'||Terrains.TerrainType||'_MOUNTAIN_WONDER_BBG', 'MODIFIER_PLAYER_ADJUST_TERRAIN_WORKABLE'
-    FROM Terrains WHERE TerrainType NOT LIKE '%MOUNTAIN%'
-        AND TerrainType NOT LIKE '%HILLS%'
-        AND TerrainType NOT IN ('TERRAIN_OCEAN', 'TERRAIN_COAST');
-INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'TRAIT_MODIFIER_WORK_'||Terrains.TerrainType||'_MOUNTAIN_WONDER_BBG', 'Ignore', 1
-    FROM Terrains WHERE TerrainType NOT LIKE '%MOUNTAIN%'
-        AND TerrainType NOT LIKE '%HILLS%'
-        AND TerrainType NOT IN ('TERRAIN_OCEAN', 'TERRAIN_COAST');
-INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'TRAIT_MODIFIER_WORK_'||Terrains.TerrainType||'_MOUNTAIN_WONDER_BBG', 'TerrainType', Terrains.TerrainType
-    FROM Terrains WHERE TerrainType NOT LIKE '%MOUNTAIN%'
-        AND TerrainType NOT LIKE '%HILLS%'
-        AND TerrainType NOT IN ('TERRAIN_OCEAN', 'TERRAIN_COAST');
-INSERT INTO TraitModifiers
-    SELECT 'TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'TRAIT_MODIFIER_WORK_'||Terrains.TerrainType||'_MOUNTAIN_WONDER_BBG'
-    FROM Terrains WHERE TerrainType NOT LIKE '%MOUNTAIN%'
-        AND TerrainType NOT LIKE '%HILLS%'
-        AND TerrainType NOT IN ('TERRAIN_OCEAN', 'TERRAIN_COAST');
---add prod to mountain wonder modifiers
-INSERT INTO Requirements(RequirementId, RequirementType) VALUES
-    ('REQ_PLOT_IS_MOUNTAIN_WONDER_BBG', 'REQUIREMENT_REQUIREMENTSET_IS_MET');
-INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
-    ('REQ_PLOT_IS_MOUNTAIN_WONDER_BBG', 'RequirementSetId', 'REQSET_PLOT_IS_MOUNTAIN_WONDER_BBG');
-INSERT INTO RequirementSets VALUES
-    ('REQSET_PLOT_IS_MOUNTAIN_WONDER_LATE_BBG', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements VALUES
-    ('REQSET_PLOT_IS_MOUNTAIN_WONDER_LATE_BBG', 'REQ_PLOT_IS_MOUNTAIN_WONDER_BBG'),
-    ('REQSET_PLOT_IS_MOUNTAIN_WONDER_LATE_BBG', 'REQUIRES_ERA_ATLEASTEXPANSION_INDUSTRIAL');
-INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('TRAIT_MODIFIER_MOUNTAIN_WONDER_PRODUCTION', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'REQSET_PLOT_IS_MOUNTAIN_WONDER_BBG'),
-    ('TRAIT_MODIFIER_MOUNTAIN_WONDER_LATE_PRODUCTION', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'REQSET_PLOT_IS_MOUNTAIN_WONDER_LATE_BBG');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('TRAIT_MODIFIER_MOUNTAIN_WONDER_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
-    ('TRAIT_MODIFIER_MOUNTAIN_WONDER_PRODUCTION', 'Amount', 2),
-    ('TRAIT_MODIFIER_MOUNTAIN_WONDER_LATE_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
-    ('TRAIT_MODIFIER_MOUNTAIN_WONDER_LATE_PRODUCTION', 'Amount', 1);
-INSERT INTO TraitModifiers VALUES
-    ('TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'TRAIT_MODIFIER_MOUNTAIN_WONDER_PRODUCTION'),
-    ('TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'TRAIT_MODIFIER_MOUNTAIN_WONDER_LATE_PRODUCTION');
---Mountain Wonders - Terrace Farm Interraction
---MountainWonder Yields From Terrace
-INSERT INTO RequirementSets VALUES
-    ('REQSET_TERRACE_FARM_MOUNTAIN_WONDER_BBG', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements VALUES
-    ('REQSET_TERRACE_FARM_MOUNTAIN_WONDER_BBG', 'REQ_PLOT_IS_MOUNTAIN_WONDER_BBG'),
-    ('REQSET_TERRACE_FARM_MOUNTAIN_WONDER_BBG', 'ADJACENT_TO_OWNER');
-INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('MODIFIER_TERRACE_FARM_MOUNTAIN_FOOD_MOUNTAIN_WONDER_BBG', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'REQSET_TERRACE_FARM_MOUNTAIN_WONDER_BBG');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('MODIFIER_TERRACE_FARM_MOUNTAIN_FOOD_MOUNTAIN_WONDER_BBG', 'YieldType', 'YIELD_FOOD'),
-    ('MODIFIER_TERRACE_FARM_MOUNTAIN_FOOD_MOUNTAIN_WONDER_BBG', 'Amount', 1);
-INSERT INTO ImprovementModifiers VALUES
-    ('IMPROVEMENT_TERRACE_FARM', 'MODIFIER_TERRACE_FARM_MOUNTAIN_FOOD_MOUNTAIN_WONDER_BBG');
---terrace farms yields from mountain wonders
-INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, TilesRequired, AdjacentFeature)
-    SELECT 
-       'Terrace_MountainWonder'||(SELECT COUNT(*)
-        FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN')
-        WHERE t2<= t1.WonderType), 'Placeholder', 'YIELD_FOOD', 1, 1, t1.WonderType
-FROM WonderTerrainFeature_BBG AS t1
-WHERE t1.TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN'
-ORDER BY WonderType;
-INSERT INTO Improvement_Adjacencies
-    SELECT DISTINCT 
-       'IMPROVEMENT_TERRACE_FARM', 'Terrace_MountainWonder'||(SELECT COUNT(*)
-        FROM (SELECT WonderType AS t2 FROM WonderTerrainFeature_BBG  WHERE TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN')
-        WHERE t2<= t1.WonderType)
-FROM WonderTerrainFeature_BBG AS t1
-WHERE t1.TerrainClassType = 'TERRAIN_CLASS_MOUNTAIN'
-ORDER BY WonderType;
+-- 15/12/24 Inca +1 amenity at 5 pop doubled at 10 pop
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_INCA_AMENITY_5_POPULATION', 'MODIFIER_PLAYER_CITIES_ADJUST_POLICY_AMENITY', 'BBG_CITY_HAS_5_POP_REQSET'),
+    ('BBG_INCA_AMENITY_10_POPULATION', 'MODIFIER_PLAYER_CITIES_ADJUST_POLICY_AMENITY', 'STADIUM_10_POPULATION_REQUIREMENTS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_INCA_AMENITY_5_POPULATION', 'Amount', 1),
+    ('BBG_INCA_AMENITY_10_POPULATION', 'Amount', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'BBG_INCA_AMENITY_5_POPULATION'),
+    ('TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'BBG_INCA_AMENITY_10_POPULATION');
 
---Removal of work of non-mountain impassibles is done via lua
-*/
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_CITY_HAS_5_POP', 'REQUIREMENT_CITY_HAS_X_POPULATION');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_CITY_HAS_5_POP', 'Amount', 5);
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_5_POP_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_CITY_HAS_5_POP_REQSET', 'BBG_CITY_HAS_5_POP');
