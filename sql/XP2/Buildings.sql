@@ -3,6 +3,8 @@
 --==============================================================
 -- flood barriers unlocked at steam power
 UPDATE Buildings SET PrereqTech='TECH_STEAM_POWER' WHERE BuildingType='BUILDING_FLOOD_BARRIER';
+-- 15/12/24 mili engineer give 50% prod cost of flood barriers (from 20)
+UPDATE Building_BuildChargeProductions SET PercentProductionPerCharge=50 WHERE BuildingType='BUILDING_FLOOD_BARRIER';
 -- 15/10/23 oil power plant unlocked at refining
 UPDATE Buildings SET PrereqTech='TECH_REFINING' WHERE BuildingType='BUILDING_FOSSIL_FUEL_POWER_PLANT';
 UPDATE Projects SET PrereqTech='TECH_REFINING' WHERE ProjectType='PROJECT_CONVERT_REACTOR_TO_OIL';
@@ -127,6 +129,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 UPDATE Buildings SET Description='LOC_BUILDING_STATUE_LIBERTY_EXPANSION2_DESCRIPTION' WHERE BuildingType='BUILDING_STATUE_LIBERTY';
 
 -- 28/11/24 BUILDING_ORSZAGHAZ gets +50% influence point epr turn and 2 envoys
+-- 15/12/24 reduced to +25%
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_ORSZAGHAZ', 'MONARCHY_ENVOYS'),
     ('BUILDING_ORSZAGHAZ', 'CIVIC_AWARD_TWO_INFLUENCE_TOKENS');
@@ -136,5 +139,5 @@ INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('ORSZAGHAZ_ENVOYS_BONUS', 'MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('ORSZAGHAZ_INFLUENCE_POINTS_BONUS', 'BonusType', 'GOVERNMENTBONUS_ENVOYS'),
-    ('ORSZAGHAZ_INFLUENCE_POINTS_BONUS', 'Amount', '50'),
-    ('ORSZAGHAZ_ENVOYS_BONUS', 'Amount', '2');
+    ('ORSZAGHAZ_INFLUENCE_POINTS_BONUS', 'Amount', 25),
+    ('ORSZAGHAZ_ENVOYS_BONUS', 'Amount', 2);

@@ -302,10 +302,6 @@ INSERT INTO TypeTags (Type, Tag) VALUES
     ('UNIT_GALLEY', 'CLASS_MALUS_CITY_CENTER'),
     ('BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL', 'CLASS_MALUS_CITY_CENTER');
 
-INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-    ('BBG_PLAYER_IS_NOT_IN_ERA_CLASSICAL_REQSET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_PLAYER_IS_NOT_IN_ERA_CLASSICAL_REQSET', 'BBG_PLAYER_IS_NOT_IN_ERA_CLASSICAL_REQUIREMENT');
 INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
     ('BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL', 'LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_NAME', 'LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_DESC');
 INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
@@ -317,3 +313,16 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO ModifierStrings (ModifierId , Context , Text) VALUES
     ('BBG_UNITS_MINUS_AGAINST_CITY_BEFORE_CLASSICAL', 'Preview', 'LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_DESC');
 
+
+
+--=======================================================================
+--******                        Spy                                ******
+--=======================================================================
+--Creating Spy Capacity Modifier (lua attaches it)
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'MODIFIER_PLAYER_GRANT_SPY');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'Amount', '1');
+
+-- 15/12/24 spy progression cost change (based on the % of techs/civics)
+UPDATE Units SET CostProgressionModel='COST_PROGRESSION_GAME_PROGRESS', CostProgressionParam1=500, Cost=120 WHERE UnitType='UNIT_SPY';

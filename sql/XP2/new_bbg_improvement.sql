@@ -45,3 +45,4 @@ DELETE FROM Route_ResourceCosts WHERE RouteType='ROUTE_RAILROAD' and ResourceTyp
 
 -- 02/12/24 plantations food bonus delayed to medieval faires
 UPDATE Improvement_BonusYieldChanges SET PrereqCivic='CIVIC_MEDIEVAL_FAIRES' WHERE Id=224;
+UPDATE Civics SET Description='LOC_CIVIC_MEDIEVAL_FAIRES_DESCRIPTION' WHERE CivicType='CIVIC_MEDIEVAL_FAIRES';

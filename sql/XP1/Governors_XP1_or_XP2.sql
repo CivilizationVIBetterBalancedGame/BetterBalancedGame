@@ -30,13 +30,14 @@ UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_
 
 -- RI Citadel of gods : +4 prophet point when city has HS, can faith buy HS buildings -20%
 -- 28/11/24 +2 prophet points and faith per holy site within 6 tiles of this city
+-- 15/12/24 Removed prophet points per HS but added 4 flat prophets point back
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';  
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
     ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'GOVERNOR_PROMOTION_CARDINAL_BISHOP'); 
 UPDATE GovernorPromotions SET Level=1, Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD';
 
-    -- prophet point and faith per holy site
+-- Faith per holy site
 INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
     ('BBG_REQUIRES_PLOT_SIX_TILES_AWAY','REQUIREMENT_PLOT_ADJACENT_TO_OWNER', 0);
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
@@ -66,18 +67,18 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MOKSHA_GREATPROPHET_POINT_FOR_HS', 'Amount', 2),
     ('BBG_MOKSHA_GREATPROPHET_POINT_FOR_HS_MODIFIER', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_PROPHET');
 INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
-    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_FAITH_FOR_HS'),
-    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_GREATPROPHET_POINT_FOR_HS');
+    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_FAITH_FOR_HS');
 
-    -- 4 prophets points per turn
--- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
---     ('BBG_MOKSHA_PROPHET_POINTS', 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', 'DISTRICT_IS_HOLY_SITE');
--- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
---     ('BBG_MOKSHA_PROPHET_POINTS', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_PROPHET'),
---     ('BBG_MOKSHA_PROPHET_POINTS', 'Amount', 4);
--- INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
---     ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_PROPHET_POINTS');
---     -- faith buy HS build with 20% discount
+-- 4 prophets points per turn
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_MOKSHA_PROPHET_POINTS', 'MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', 'DISTRICT_IS_HOLY_SITE');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_MOKSHA_PROPHET_POINTS', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_PROPHET'),
+    ('BBG_MOKSHA_PROPHET_POINTS', 'Amount', 4);
+INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
+    ('GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD', 'BBG_MOKSHA_PROPHET_POINTS');
+
+-- -- faith buy HS build with 20% discount
 -- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
 --     ('BBG_MOKSHA_HS_BUILDING_FAITHBUY', 'MODIFIER_CITY_ENABLE_BUILDING_FAITH_PURCHASE');
 -- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
@@ -124,12 +125,13 @@ INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
 
 -- RII Patron Saint : Apostles/Warrior monks trained in the city receive one extra Promotion, they cost 20% less faith. Grant the ability to faith buy support unit in the city for -20%.  
 -- 28/11/24 10% faith transformed into culture and science
+-- 15/12/24 increased to 20%
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';      
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
     ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD');
 UPDATE GovernorPromotions SET Level=2, Column=2 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';
 
-    -- 10% faith transformed into culture and science
+-- 20% faith transformed into culture and science
 INSERT INTO Types (Type, Kind) VALUES
     ('BBG_MODIFIER_SINGLE_CITY_ADJUST_YIELD_MODIFIER_FROM_FAITH', 'KIND_MODIFIER');
 INSERT INTO DynamicModifiers (ModifierType, CollectionType, EffectType) VALUES
@@ -140,9 +142,9 @@ INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_MOKSHA_FAITH_IN_SCIENCE', 'BBG_MODIFIER_SINGLE_CITY_ADJUST_YIELD_MODIFIER_FROM_FAITH');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MOKSHA_FAITH_IN_CULTURE', 'YieldType', 'YIELD_CULTURE'),
-    ('BBG_MOKSHA_FAITH_IN_CULTURE', 'Amount', 10),
+    ('BBG_MOKSHA_FAITH_IN_CULTURE', 'Amount', 20),
     ('BBG_MOKSHA_FAITH_IN_SCIENCE', 'YieldType', 'YIELD_SCIENCE'),
-    ('BBG_MOKSHA_FAITH_IN_SCIENCE', 'Amount', 10);
+    ('BBG_MOKSHA_FAITH_IN_SCIENCE', 'Amount', 20);
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
     ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_FAITH_IN_CULTURE'),
     ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'BBG_MOKSHA_FAITH_IN_SCIENCE');
