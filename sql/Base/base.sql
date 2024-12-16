@@ -284,8 +284,8 @@ UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE Happines
 UPDATE Boosts SET BoostClass='BOOST_TRIGGER_LAND_UNIT_LEVEL', NumItems=3 WHERE CivicType='CIVIC_NATIONALISM';
 
 -- 30/11/24 Pillage nerf
--- Improvement pillage value to 30/20
-UPDATE Improvements SET PlunderAmount=30 WHERE PlunderType='PLUNDER_GOLD';
+-- Improvement pillage value to 35/20
+UPDATE Improvements SET PlunderAmount=35 WHERE PlunderType='PLUNDER_GOLD';
 UPDATE Improvements SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', 'PLUNDER_CULTURE', 'PLUNDER_FAITH');
 -- District pillage value to 40/20
 UPDATE Districts SET PlunderAmount=40 WHERE PlunderType='PLUNDER_GOLD';

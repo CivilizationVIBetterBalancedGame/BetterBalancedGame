@@ -96,6 +96,6 @@ UPDATE RandomEvent_Yields SET Percentage=Percentage*.75 WHERE RandomEventType LI
 
 -- 15/15/24 disaster 0 is now disaster 1, disaster 0 has no disaster
 DELETE FROM RandomEvent_Frequencies WHERE RealismSettingType='REALISM_SETTING_LIGHT';
-UPDATE RandomEvent_Frequencies SET RealismSettingType='RealismSettingType' WHERE RealismSettingType='REALISM_SETTING_MINIMAL';
+UPDATE RandomEvent_Frequencies SET RealismSettingType='REALISM_SETTING_LIGHT' WHERE RealismSettingType='REALISM_SETTING_MINIMAL';
 
 
