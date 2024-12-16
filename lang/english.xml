@@ -190,6 +190,13 @@
 		<Replace Tag="LOC_DISTRICT_WATER_STREET_CARNIVAL_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>A district unique to Brazil that doesn't cost a district population slot and is not a specialty district. Replaces the Water Park district, and provides +2 [ICON_AMENITIES] Amenities. Cannot be built in a city with a Street Carnival. Cannot be built on Reef.[NEWLINE][NEWLINE]Unlocks the Carnival project, which grants an additional +1 [ICON_AMENITIES] Amenity when underway and a earns [ICON_GREATENGINEER] Great Engineer, [ICON_GreatMerchant] Great Merchant, [ICON_GreatWriter] Great Writer, [ICON_GreatArtist] Great Artist, [ICON_GreatMusician] Great Musician points upon completion.</Text>
 		</Replace>
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_UNIT_BRAZILIAN_MINAS_GERAES_DESCRIPTION" Language="en_US">
+			<Text>Brazilian unique Industrial era unit that replaces the Battleship and is unlocked by Nationalism. +10 [ICON_RANGED] Ranged and [ICON_STRENGTH] Melee Combat Strength with Refining.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_MINAS_COMBAT_REFINING_DESC" Language="en_US">
+			<Text>+10 [ICON_RANGED] Ranged and [ICON_STRENGTH] Melee Combat Strength with Refining.</Text>
+		</Replace>
 
 		<!-- == BYZANTIUM == -->
 		<!-- = civilization ability = -->
@@ -557,18 +564,21 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="en_US">
-			<Text>Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength on attack for every adjacent combat unit.</Text>
+			<Text>Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength for each of your adjacent land military units (does not count air or naval units).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="en_US">
 			<Text>Receive +1 [ICON_STRENGTH] Combat Strength on attack for each adjacent unit (King of the Eburones)</Text>
+		</Replace>
+		<!-- = unique district = -->
+		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="en_US">
+			<Text>A district unique to Gaul that is cheaper and available earlier than the district it replaces, the Industrial Zone. The Oppidum district is defensible with a ranged attack.[NEWLINE][NEWLINE]+2 [ICON_PRODUCTION] Production adjacency bonus from Quarries and Strategic resources. Triggers a Culture Bomb of unowned territory when completed.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_ABILITY_GAESATAE_DESCRIPTION" Language="en_US">
 			<Text>+10 [ICON_STRENGTH] Combat Strength against units with a higher base Combat Strength.[NEWLINE][ICON_Bullet] +5 [ICON_STRENGTH] Combat Strength vs. district defenses.</Text>
 		</Replace>
-		<!-- = unique district = -->
-		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Gaul that is cheaper and available earlier than the district it replaces, the Industrial Zone. The Oppidum district is defensible with a ranged attack.[NEWLINE][NEWLINE]+2 [ICON_PRODUCTION] Production adjacency bonus from Quarries and Strategic resources. Triggers a Culture Bomb of unowned territory when completed.</Text>
+		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="en_US">
+            <Text>King of the Éburons</Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
 		</Replace>
 
 		<!-- == GEORGIA == -->
@@ -682,11 +692,11 @@
 		<!-- == INCA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GREAT_MOUNTAINS_DESCRIPTION" Language="en_US">
-			<Text>Citizens can work Mountain tiles. Mountain tiles provide +2 [ICON_PRODUCTION] Production, increasing to +3 [ICON_PRODUCTION] Production after you reach the Industrial Era, and +1 [ICON_FOOD] Food for each adjacent Terrace Farm.[NEWLINE]+1 [ICON_AMENITIES] Amenity for every 3 Mountain tiles in each city's borders.[NEWLINE][ICON_BULLET]Bias: T3 Grassland and Plains Mountains. Special "Mountain Lover".</Text>
+			<Text>Citizens can work Mountain tiles. Mountain tiles provide +2 [ICON_PRODUCTION] Production, increasing to +3 [ICON_PRODUCTION] Production after you reach the Industrial Era, and +1 [ICON_FOOD] Food for each adjacent Terrace Farm.[NEWLINE][ICON_BULLET]Bias: T3 Grassland and Plains Mountains. Special "Mountain Lover".</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PACHACUTI_QHAPAQ_NAN_DESCRIPTION" Language="en_US">
-			<Text>Domestic [ICON_TradeRoute] Trade Routes gain +1 [ICON_FOOD] Food for every Mountain tile in the origin city. International [ICON_TradeRoute] Trade Routes gain +1 [ICON_GOLD] Gold for every Mountain tile in the origin city. -50% of the normal [ICON_GOLD] Gold cost to purchase Mountain tiles. Gain the Qhapaq Ñan improvement with Foreign Trade.</Text>
+			<Text>Domestic [ICON_TradeRoute] Trade Routes gain +1 [ICON_FOOD] Food for every Mountain tile in the origin city. International [ICON_TradeRoute] Trade Routes gain +1 [ICON_GOLD] Gold for every Mountain tile in the origin city. -50% of the normal [ICON_GOLD] Gold cost to purchase Mountain tiles.[NEWLINE][NEWLINE]Gain the Qhapaq Ñan improvement with Foreign Trade. Recon units gain +1 [ICON_CHARGES] build charge to build a Qhapaq Ñan.</Text>
 		</Replace>
 			<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_TERRACE_FARM_DESCRIPTION" Language="en_US">
@@ -1419,7 +1429,7 @@
 		</Replace>
 		<!-- == Support Units == -->
 		<Replace Tag="LOC_UNIT_MILITARY_ENGINEER_ALT_DESCRIPTION" Language="en_US">
-			<Text>Medieval era support unit. Requires an Armory to produce. Can construct Roads, Railroads, Forts, Airstrips, Missile Silos, and Mountain Tunnel improvements. One of their build charges can also be used to complete 50% of a Canal, Dam or Aqueduct district or a Flood Barrier building.</Text>
+			<Text>Medieval era support unit. Requires an Armory to produce. Can construct Roads, Railroads, Forts, Airstrips, Missile Silos, and Mountain Tunnel improvements. One of their build charges can also be used to complete 20% of a Canal, Dam or Aqueduct district or 50% of a Flood Barrier building.</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_MEDIC_DESCRIPTION" Language="en_US">
 			<Text>Industrial era support unit. Can heal adjacent units. Grants +1 Movement to Melee, Anti-Cav, and Ranged Units.</Text>
@@ -1827,6 +1837,9 @@
 		</Replace>
 		<Row Tag="LOC_DISTRICT_SACREDPATH_WOODS_FAITH" Language="en_US">
 			<Text>+{1_num} [ICON_FAITH] Faith from the adjacent Woods {1_Num : plural 1?tile; other?tiles;}.</Text>
+		</Row>
+		<Row Tag="LOC_BBG_DISTRICT_SACREDPATH_MARSHES_FAITH" Language="en_US">
+			<Text>+{1_num} [ICON_FAITH] Faith from the adjacent Marsh {1_Num : plural 1?tile; other?tiles;}.</Text>
 		</Row>
 		<!-- == Stone Circles == -->
 		<Replace Tag="LOC_BELIEF_STONE_CIRCLES_DESCRIPTION" Language="en_US">
@@ -2715,7 +2728,7 @@
 			<Text>+50% [ICON_PRODUCTION] Production toward Units.</Text>
 		</Replace>		
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
-			<Text>+1 [ICON_PRODUCTION] Production per [ICON_CITIZEN] Citizen in cities with [ICON_Governor] Governors.</Text> <!-- 5.2.9 REVERTED +1 yield to specialists of the respective district yield. -->
+			<Text>+1 [ICON_PRODUCTION] Production per [ICON_CITIZEN] Citizen in cities with [ICON_Governor] Governors. -10% Gov't Tourism Modifier.</Text> <!-- 5.2.9 REVERTED +1 yield to specialists of the respective district yield. -->
 		</Replace>
 		<!-- == Tier 4 Governments == -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="en_US">
@@ -2743,7 +2756,14 @@
 		<!-- = Agoge = -->		
 		<Replace Tag="LOC_POLICY_AGOGE_DESCRIPTION" Language="en_US">
 			<Text>+50% [ICON_PRODUCTION] Production toward Classical era and earlier melee, recon, anti-cavalry, and ranged units.</Text>
-		</Replace>		
+		</Replace>
+		<!-- = Arms Race (BBG) = -->
+		<Row Tag="LOC_POLICY_ARMS_RACE_NAME" Language="en_US">
+			<Text>Arms Race</Text>
+		</Row>
+ 		<Row Tag="LOC_POLICY_ARMS_RACE_DESCRIPTION" Language="en_US">
+			<Text>+30% [ICON_Production] Production toward [ICON_DISTRICT_ENCAMPMENT] Encampment districts, [ICON_DISTRICT_HARBOR] Harbor districts, [ICON_DISTRICT_AERODROME] Aerodrome districts, and buildings for these districts.</Text>
+		</Row>
 		<!-- = Bastions = -->
 		<Replace Tag="LOC_POLICY_BASTIONS_DESCRIPTION" Language="en_US">
 			<Text>+6 City [ICON_STRENGTH] Defense Strength.</Text>
@@ -2776,7 +2796,7 @@
 		<Replace Tag="LOC_POLICY_GRANDE_ARMEE_DESCRIPTION" Language="en_US">
 			<Text>+50% [ICON_PRODUCTION] Production toward Modern era and earlier melee, recon, anti-cavalry, and ranged units.</Text>
 		</Replace>
-		<!-- = Hard Shell Explosives = -->
+		<!-- = Hard Shell Explosives (BBG) = -->
 		<Replace Tag="LOC_POLICY_HARD_SHELL_EXPLOSIVES_NAME" Language="en_US">
 			<Text>Hard-Shell Explosives</Text>
 		</Replace>
@@ -2814,7 +2834,7 @@
 		<Replace Tag="LOC_POLICY_RETINUES_DESCRIPTION" Language="en_US">
 			<Text>50% resource discount on all unit production and upgrades.</Text>
 		</Replace>
-		<!-- = Siegecraft = -->
+		<!-- = Siegecraft (BBG) = -->
 		<Replace Tag="LOC_POLICY_SIEGE_NAME" Language="en_US">
 			<Text>Siegecraft</Text>
 		</Replace>
@@ -2828,7 +2848,7 @@
 		<Replace Tag="LOC_POLICY_TOTAL_WAR_EXPANSION1_ALT_DESCRIPTION" Language="en_US">
 			<Text>Yields gained from [ICON_PILLAGED] pillaging and coastal raids are +50%. +50% rewards for plundering [ICON_TRADEROUTE] Trade Routes</Text>
 		</Replace>
-		<!-- = Trench Warfare = -->
+		<!-- = Trench Warfare (BBG) = -->
 		<Replace Tag="LOC_POLICY_TRENCH_WARFARE_NAME" Language="en_US">
 			<Text>Trench Warfare</Text>
 		</Replace>
@@ -2837,6 +2857,10 @@
 		</Replace>
 		<Replace Tag="LOC_PEDIA_GOVERNMENTS_PAGE_POLICY_TRENCH_WARFARE_CHAPTER_HISTORY_PARA_1" Language="en_US">
 			<Text>Trench warfare is a type of land warfare using occupied fighting lines largely comprising military trenches, in which troops are well-protected from the enemy's small arms fire and are substantially sheltered from artillery. Trench warfare became archetypically associated with the World War I (1914-1918), when the Race to the Sea rapidly expanded trench use on the Western Front starting in September 1914.[NEWLINE]Trench warfare proliferated when a revolution in firepower was not matched by similar advances in mobility, resulting in a gruelling form of warfare in which the defender held the advantage. On the Western Front in 1914-1918, both sides constructed elaborate trench, underground, and dugout systems opposing each other along a front, protected from assault by barbed wire. The area between opposing trench lines (known as "no man's land") was fully exposed to artillery fire from both sides. Attacks, even if successful, often sustained severe casualties. </Text>
+		</Replace>
+		<!-- = Veterancy = -->	
+		<Replace Tag="LOC_POLICY_VETERANCY_DESCRIPTION_XP2" Language="en_US">
+			<Text>+30% [ICON_Production] Production toward [ICON_DISTRICT_ENCAMPMENT] Encampment districts, [ICON_DISTRICT_HARBOR] Harbor districts, and buildings for these districts.</Text>
 		</Replace>
 		<!-- == Economic Policies == -->	
 		<!-- = Aesthetics = -->	
@@ -2962,7 +2986,7 @@
 		</Replace>
 		<!-- = Praetorium = -->
 		<Replace Tag="LOC_POLICY_PRAETORIUM_DESCRIPTION" Language="en_US">
-			<Text>[ICON_Governor] Governors provide +4 Loyalty per turn to their city. Governors in conquered cities provide +10% [ICON_PRODUCTION] Production.</Text>
+			<Text>[ICON_Governor] Governors provide +4 Loyalty per turn to their city. Governors in conquered cities provide +20% [ICON_PRODUCTION] Production.</Text>
 		</Replace>
 		<!-- = Raj = -->
 		<Replace Tag="LOC_POLICY_RAJ_DESCRIPTION_XP2" Language="en_US">
