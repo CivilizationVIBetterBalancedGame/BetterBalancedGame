@@ -108,7 +108,7 @@
 		<!-- == ARABIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LAST_PROPHET_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_GreatProphet] Great Prophet point per turn after researching Astrology. The last available [ICON_GreatProphet] Great Prophet will automatically go to Arabia, if they have not already recruited one.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science for each foreign city following Arabia's Religion. Campuses and Holy Sites receive a standard adjacency bonus from each other.[NEWLINE][ICON_BULLET]Bias: None.</Text>
+			<Text>+1 [ICON_GreatProphet] Great Prophet point per turn after researching Astrology. The last available [ICON_GreatProphet] Great Prophet will automatically go to Arabia, if they have not already recruited one.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science for each foreign city following Arabia's Religion. Campuses receive +1 [ICON_SCIENCE] Science for each adjacent Holy Site and Holy Sites receive +1 [ICON_FAITH] Faith for each adjacent Campus.[NEWLINE][ICON_BULLET]Bias: None.</Text>
 		</Replace>
 		<Row Tag="BBG_LOC_HS_ARABIA_CAMPUS" Language="en_US">
 			<Text>+{1_num} [ICON_FAITH] Faith from an adjacent Campus district.</Text>
@@ -273,10 +273,10 @@
 			<Text>[ICON_TechBoosted] Eurekas and [ICON_CivicBoosted] Inspirations provide 45% of civics and technologies instead of 40%.[NEWLINE][ICON_BULLET]Bias: None.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_DYNASTIC_CYCLE_EXPANSION1_DESCRIPTION" Language="en_US">
-			<Text>[ICON_TechBoosted] Eurekas and [ICON_CivicBoosted] Inspirations provide 45% of civics and technologies instead of 40%.</Text>
+			<Text>[ICON_TechBoosted] Eurekas and [ICON_CivicBoosted] Inspirations provide 45% of civics and technologies instead of 40%.[NEWLINE][ICON_BULLET]Bias: None.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_DYNASTIC_CYCLE_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>[ICON_TechBoosted] Eurekas and [ICON_CivicBoosted] Inspirations provide 45% of civics and technologies instead of 40%.</Text>
+			<Text>[ICON_TechBoosted] Eurekas and [ICON_CivicBoosted] Inspirations provide 45% of civics and technologies instead of 40%.[NEWLINE][ICON_BULLET]Bias: None.</Text>
 		</Replace>
 		<!-- = leader ability (Qin Shi Huang, Mandate of Heaven) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FIRST_EMPEROR_DESCRIPTION" Language="en_US">
@@ -392,8 +392,8 @@
 
 		<!-- == DUTCH == -->
 		<!-- = civilization ability = -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_GROTE_RIVIEREN_DESCRIPTION" Language="en_US">
-			<Text>Major adjacency bonus for Campuses, Theater Squares, and  Industrial Zones if next to a river.[NEWLINE]Culture Bomb adjacent tiles when completing a Harbor.[NEWLINE][ICON_BULLET]Bias: T2 Rivers, T3 Coast.</Text>
+		 <Replace Tag="LOC_TRAIT_CIVILIZATION_GROTE_RIVIEREN_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>Major adjacency bonus for Campuses, Theater Squares, and Industrial Zones if next to a river.[NEWLINE]Culture Bomb adjacent tiles when completing a Harbor.[NEWLINE]+50% [ICON_Production] Production toward the Dam district and Flood Barrier building.[NEWLINE][ICON_BULLET]Bias: T2 Rivers, T3 Coast.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_RADIO_ORANJE_DESCRIPTION" Language="en_US">
@@ -564,7 +564,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="en_US">
-			<Text>Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength for each of your adjacent land military units (does not count air or naval units).</Text>
+			<Text>Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength on attack for each of your adjacent land military units (does not count air or naval units).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="en_US">
 			<Text>Receive +1 [ICON_STRENGTH] Combat Strength on attack for each adjacent unit (King of the Eburones)</Text>
@@ -3058,7 +3058,7 @@
 			<Text>Creates a Military Engineer in your [ICON_Capital] Capital.</Text>
 		</Replace>
 		<Replace Tag="LOC_GREATPERSON_AETHELFLAED_ACTIVE" Language="en_US">
-			<Text>Instantly creates a Trebuchet unit with one promotion level.</Text>
+			<Text>Instantly creates a Trebuchet in your capital.</Text>
 		</Replace>
 		<Replace Tag="LOC_GREATPERSON_JOAN_OF_ARC_ACTIVE" Language="en_US">
 			<Text>Forms an Army out of a military land unit</Text>
@@ -3167,10 +3167,10 @@
 		<Replace Tag="LOC_WORLD_CONGRESS_DISTRICTS_CULTURE_BOMB_DESC" Language="en_US">
 			<Text>Tiles bought by this player are 50% cheaper.</Text>
 		</Replace>
-		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_BUFF_DESC">
+		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_BUFF_DESC" Language="en_US">
 			<Text>Units of the chosen promotion class gain 3 [ICON_STRENGTH] Combat Strength.</Text>
 		</Replace>
-		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_NERF_DESC">
+		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_NERF_DESC" Language="en_US">
 			<Text>Units of the chosen promotion class lose 3 [ICON_STRENGTH] Combat Strength.</Text>
 		</Replace>
 
