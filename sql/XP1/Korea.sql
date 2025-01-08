@@ -33,7 +33,7 @@ INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
 INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
    SELECT TraitType, 'BBG_Seowon_Culture' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_KOREA' GROUP BY CivilizationType;
 -- +1 for every 2 district / Sejong is excluded in LP/Sejong.sql
-INSERT INTO District_Adjacencies (DistrictType , YieldChangeId) VALUES
+INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
     ('DISTRICT_SEOWON', 'District_Science');
 
 -- specialists +3 science +1 food
@@ -42,7 +42,7 @@ INSERT INTO District_CitizenYieldChanges (DistrictType, YieldType, YieldChange) 
     ('DISTRICT_SEOWON', 'YIELD_FOOD', 1);
 
 -- 08/01/25 Seowon gets +2 from geothermal
-INSERT INTO District_Adjacencies (DistrictType , YieldChangeId) VALUES
+INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
     ('DISTRICT_SEOWON', 'Geothermal_Science');
     
 --=======================================================================
