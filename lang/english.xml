@@ -428,7 +428,7 @@
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="en_US">
-			<Text>Military units ignore river [ICON_STRENGTH] Combat Strength and [ICON_MOVEMENT] movement penalties and receive +3 [ICON_STRENGTH] Combat Strength on floodplains.[NEWLINE][NEWLINE]+15% production bonus for [ICON_DISTRICT_CAMPUS] Campuses and [ICON_DISTRICT_ENCAMPMENT] Encampments when the city is settled on a river.</Text>
+			<Text>Military units receive +5 [ICON_STRENGTH] Combat Strength on floodplains.[NEWLINE][NEWLINE]+15% production bonus for [ICON_DISTRICT_CAMPUS] Campuses and [ICON_DISTRICT_ENCAMPMENT] Encampments when the city is settled on a river.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="en_US">
@@ -710,7 +710,7 @@
 		</Replace>
 		<!-- = leader ability (Chandragupta) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ARTHASHASTRA_DESCRIPTION" Language="en_US">
-			<Text>Shrines grant +1 [ICON_MOVEMENT] Movement and Temples grant +1 Sight for all newly trained military units in the city.[NEWLINE][NEWLINE]Once required Civics are unlocked, allows cities with Worship building to train [ICON_CORPS] Corps or [ICON_ARMY] Armies directly and their costs reduced by 25%.</Text>
+			<Text>Shrines grant +1 [ICON_MOVEMENT] Movement and Temples grant +1 Sight for all newly trained military units in the city.[NEWLINE][NEWLINE]Units receive +1 [ICON_STRENGTH] Combat Strength for eacch Holy Site building in the city when produced.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_CHANDRA_MOVEMENT_ABILITY_DESC" Language="en_US">
 			<Text>+1 [ICON_MOVEMENT] Movement from Shrine building (Arthashastra)</Text>
@@ -718,7 +718,7 @@
 		<Row Tag="LOC_BBG_CHANDRA_SIGHT_ABILITY_DESC" Language="en_US">
 			<Text>+1 Sight from Temple building (Arthashastra)</Text>
 		</Row>
-		<!-- = <Row Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_NAME" Language="en_US">
+		<Row Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_NAME" Language="en_US">
 			<Text>+1 [ICON_STRENGTH] Combat Strength from Shrine (Arthashastra)</Text>
 		</Row>
 		<Row Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_DESC" Language="en_US">
@@ -735,7 +735,7 @@
 		</Row>
 		<Row Tag="LOC_BBG_CHANDRA_CS_T3_ABILITY_DESC" Language="en_US">
 			<Text>+1 from Worship building (Arthashastra)</Text>
-		</Row> = -->
+		</Row>
 		<!-- = leader ability (Gandhi) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SATYAGRAHA_DESCRIPTION" Language="en_US">
 			<Text>Grants an extra belief when founding a [ICON_RELIGION] Religion. +5 [ICON_FAITH] Faith for each civilization (including India) they have met that has founded a Religion and is not currently at war.[NEWLINE][NEWLINE]Settlers and Builders produced in cities with a [ICON_DISTRICT_HOLYSITE] Holy Site receive +1 [ICON_MOVEMENT] Movement. Opposing civilizations receive +50% war weariness for fighting against Gandhi.</Text>
@@ -867,10 +867,10 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Korea that replaces the Campus. +1 [ICON_SCIENCE] Science base adjacency. +1 [ICON_SCIENCE] Science for every 2 adjacent mines. Culture bombs adjacent tiles when completed. Science Specialists grant +1 [ICON_FOOD] Food. Must be built on hills.</Text>
+			<Text>A district unique to Korea that replaces the Campus and has unique adjacencies. Culture bombs adjacent tiles when completed. Science Specialists grant +1 [ICON_FOOD] Food. Must be built on hills.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science base adjacency.[NEWLINE]+1 [ICON_SCIENCE] Science for eachvery 2 adjacent mines.[NEWLINE]+2 [ICON_SCIENCE] Science for each adjacent Geothermal Fissure.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION_ADJACENCY" Language="en_US">
-			<Text>Adjacency: +1 [ICON_SCIENCE] Science for every 2 adjacent mines. -1 [ICON_SCIENCE] Science for each adjacent District except for Theater Squares. Also provides +1 [ICON_CULTURE] Culture for adjacent Theater Squares.</Text>
+			<Text>Adjacency: +1 [ICON_SCIENCE] Science for every 2 adjacent mines. +2 [ICON_SCIENCE] Science for each adjacent Geothermal Fissure.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_BASE_DISTRICT_SCIENCE" Language="en_US">
 			<Text>+{1_num} [ICON_SCIENCE] Science base adjacency.</Text>
@@ -1023,7 +1023,8 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="en_US">
-			<Text>A district unique to the Maya for scientific endeavors. Replaces the Campus district and cheaper to build.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science for adjacent Plantations.[NEWLINE]+1 [ICON_SCIENCE] Science for every two adjacent Farm or district tiles.[NEWLINE]+1 [ICON_HOUSING] Housing.</Text>
+
+			<Text>A district unique to Maya that replaces the Campus and has unique adjacencies.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science for each adjacent Plantation.[NEWLINE]+1 [ICON_SCIENCE] Science for every two adjacent Farm or district tiles.[NEWLINE]+2 [ICON_SCIENCE] Science for each adjacent Geothermal Fissure.[NEWLINE]+1 [ICON_HOUSING] Housing.</Text>
 		</Replace>
 
 		
@@ -1362,7 +1363,7 @@
 		<!-- == VIETNAM == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_VIETNAM_DESCRIPTION" Language="en_US">
-			<Text>All land specialty districts can only be built on Rainforest, Woods, Marsh, or Floodplains. Receive the following yields for every building on these features: +1 [ICON_SCIENCE] Science in Rainforest, +1 [ICON_CULTURE] Culture in Woods, and +1 [ICON_PRODUCTION] Production in Marsh, and +1 [ICON_FOOD] Food on Floodplains.[NEWLINE][NEWLINE]Woods can be planted with Medieval Faires.[NEWLINE][ICON_BULLET]Bias: T3 Rainforest, Woods, Marsh.</Text>
+			<Text>All land specialty districts can only be built on Rainforest, Woods, Marsh, or Floodplains. Receive the following yields for every building on these features: +1 [ICON_SCIENCE] Science in Rainforest, +1 [ICON_CULTURE] Culture in Woods, and +1 [ICON_PRODUCTION] Production in Marsh, and no additional yields on Floodplains.[NEWLINE][NEWLINE]Woods can be planted with Medieval Faires.[NEWLINE][ICON_BULLET]Bias: T3 Rainforest, Woods, Marsh.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRIEU_DESCRIPTION" Language="en_US">
@@ -3253,10 +3254,10 @@
 			<Text>Custom</Text>
 		</Replace>
 		<Replace Tag="BBG_FRONT_MASTER_SETTING_BBG_LEGACY_NAME" Language="en_US">
-			<Text>Legacy BBG</Text>
+			<Text>BBG Default (formerly: Legacy BBG)</Text>
 		</Replace>
 		<Replace Tag="BBG_FRONT_MASTER_SETTING_BBG_LEGACY_DESC" Language="en_US">
-			<Text>Pre 4.0 BBG Settings: earliest possible for CV and DV, everything else is standard</Text>
+			<Text>Default BBG Settings: earliest possible for CV and DV, everything else is standard</Text>
 		</Replace>
 		<Replace Tag="BBG_FRONT_MASTER_SETTING_0_DESC" Language="en_US">
 			<Text>Default Firaxis Settings for GS</Text>
