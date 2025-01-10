@@ -390,7 +390,7 @@
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>所有军事单位不会受到来自河流的 [ICON_Movement] 移动力和 [ICON_Strength] 战斗力减益，且位于泛滥平原时+3 [ICON_Strength] 战斗力。[NEWLINE][NEWLINE]城市若建立在河流旁，建造学院和军营时+15% [ICON_Production] 生产力。</Text>
+			<Text>所有军事单位处于泛滥平原时+5 [ICON_Strength] 战斗力。[NEWLINE][NEWLINE]城市若建立在河流旁，建造学院和军营时+15% [ICON_Production] 生产力。</Text>
 		 </Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="zh_Hans_CN">
@@ -677,7 +677,7 @@
 		</Replace>
 		<!-- = leader ability (Chandragupta) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ARTHASHASTRA_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>拥有神社的城市训练的军事单位+1 [ICON_Movement] 移动力，拥有寺庙的城市训练的军事单位+1视野。[NEWLINE][NEWLINE]解锁相应的市政后，拥有祭祀建筑的城市即可直接生产 [ICON_Corps] 军团和 [ICON_Army] 军队，并使 [ICON_Corps] 军团和 [ICON_Army] 军队生产费用降低25%。</Text>
+			<Text>城市中每个圣地建筑为新训练的军事单位+1 [ICON_STRENGTH] 战斗力。拥有神社的城市训练的军事单位+1 [ICON_Movement] 移动力，拥有寺庙的城市训练的军事单位+1视野。[NEWLINE][NEWLINE]解锁相应的市政后，拥有祭祀建筑的城市即可直接生产 [ICON_Corps] 军团和 [ICON_Army] 军队。</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_CHANDRA_MOVEMENT_ABILITY_DESC" Language="zh_Hans_CN">
 			<Text>+1 [ICON_Movement] 移动力，来自神社（政事论）</Text>
@@ -829,7 +829,7 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>朝鲜特色区域，替代学院。必须建在丘陵上。基础+1 [ICON_SCIENCE] 科技值，每与2个矿山相邻+1 [ICON_SCIENCE] 科技值。其中的专家额外+1 [ICON_FOOD] 食物。建成时向相邻单元格施放文化炸弹。</Text>
+			<Text>朝鲜特色区域，替代学院。必须建在丘陵上。基础+1 [ICON_SCIENCE] 科技值，每与2个矿山相邻+1 [ICON_SCIENCE] 科技值。每与1个地热裂缝相邻，则+2 [ICON_Science] 科技值。其中的专家额外+1 [ICON_FOOD] 食物。建成时向相邻单元格施放文化炸弹。</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION_ADJACENCY" Language="zh_Hans_CN">
 			<Text>相邻加成：+1 [ICON_SCIENCE] 科技值，来自每2个相邻矿山。-1 [ICON_Science] 科技值，来自每个相邻的区域单元格，剧院广场除外。为相邻的剧院广场提供+1 [ICON_Culture] 文化值。</Text>
@@ -991,7 +991,7 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>玛雅特色科学研究区域。替代“学院”区域，且建造花费更低。[NEWLINE][NEWLINE]+1 [ICON_HOUSING] 住房，与种植园相邻则+1 [ICON_Science] 科技值。每与2个农场或区域单元格相邻，则+1 [ICON_Science] 科技值。</Text>
+			<Text>玛雅特色科学研究区域。替代“学院”区域，且建造花费更低。[NEWLINE][NEWLINE]+1 [ICON_HOUSING] 住房，与种植园相邻则+1 [ICON_Science] 科技值。每与2个农场或区域单元格相邻，则+1 [ICON_Science] 科技值。每与1个地热裂缝相邻，则+2 [ICON_Science] 科技值。</Text>
 		</Replace>
 
 		<!-- == MONGOLIA == -->
@@ -1356,7 +1356,7 @@
 		<!-- == VIETNAM == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_VIETNAM_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>所有陆地特色区域只能建造在雨林、沼泽、树林或泛滥平原上。建在这些地貌上的建筑将获得以下收益：建在树林上提供+1 [ICON_CULTURE] 文化值、建在雨林上提供+1 [ICON_SCIENCE] 科技值、建在沼泽上提供+1 [ICON_PRODUCTION] 生产力、建在泛滥平原上提供+1 [ICON_FOOD] 食物。拥有“中世纪集市”市政后即可栽种树林。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3树林、T3雨林、T3沼泽。</Text>
+			<Text>所有陆地特色区域只能建造在雨林、沼泽、树林或泛滥平原上。建在这些地貌上的建筑将获得以下收益（泛滥平原除外）：建在树林上提供+1 [ICON_CULTURE] 文化值、建在雨林上提供+1 [ICON_SCIENCE] 科技值、建在沼泽上提供+1 [ICON_PRODUCTION] 生产力。拥有“中世纪集市”市政后即可栽种树林。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3树林、T3雨林、T3沼泽。</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRIEU_DESCRIPTION" Language="zh_Hans_CN">
