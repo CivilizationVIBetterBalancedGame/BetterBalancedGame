@@ -86,3 +86,7 @@ INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, Til
 
 -- 16/12/24 Observatories give +1 housing
 UPDATE Districts SET Housing=1 WHERE DistrictType='DISTRICT_OBSERVATORY';
+
+-- 08/01/25 Observatories gets +2 from geothermal
+INSERT INTO District_Adjacencies (DistrictType , YieldChangeId) VALUES
+    ('DISTRICT_OBSERVATORY', 'Geothermal_Science');
