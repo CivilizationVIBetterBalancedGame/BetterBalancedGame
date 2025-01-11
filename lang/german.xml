@@ -431,7 +431,10 @@
 		</Replace>
 		<!-- = Führerfähigkeit (Ägypten, Kleopatra Ptolemäisch) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="de_DE">
-			<Text>Militäreinheiten ignorieren den [ICON_STRENGTH] Kampfstärke-Malus an Flüssen und erhalten +5 [ICON_STRENGTH] Kampfstärke auf Schwemmlandfeldern. +15% Produktion für das [ICON_DISTRICT_CAMPUS] Campus-Bezirk und das [ICON_DISTRICT_ENCAMPMENT] Lager-Bezirk, wenn die Stadt neben einem Fluss gegründet wurde.</Text>
+			<Text>Militäreinheiten erhalten +5 [ICON_STRENGTH] Kampfstärke auf Schwemmlandfeldern. +15% Produktion für das [ICON_DISTRICT_CAMPUS] Campus-Bezirk und das [ICON_DISTRICT_ENCAMPMENT] Lager-Bezirk, wenn die Stadt neben einem Fluss gegründet wurde.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_PTOLE_BONUSES_ON_FLOODPLAIN_ABILITY_DESC" Language="de_DE">
+			<Text>+5 [ICON_STRENGTH] Kampfstärke auf Schwemmlandfeldern.</Text>
 		</Replace>
 		<!-- = Einzigartige Einheit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="de_DE">
@@ -713,7 +716,7 @@
 		</Replace>
 		<!-- = Führerfähigkeit (Chandragupta) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ARTHASHASTRA_DESCRIPTION" Language="de_DE">
-			<Text>Schreine gewähren +1 [ICON_MOVEMENT] Bewegung, Tempel gewähren +1 Sicht und für jedes Gebäude im [ICON_DISTRICT_HOLYSITE] Heilige Stätte-Bezirk erhalten alle neu ausgebildeten Militär-Einheiten in der Stadt + 1 [ICON_STRENGTH] Kampfstärke.[NEWLINE][NEWLINE]Sobald die erforderlichen Ausrichtungen freigeschaltet sind, können Städte mit einem Glaubenssatzgebäude direkt [ICON_Corps] Korps oder [ICON_Army] Armeen ausbilden.</Text>
+			<Text>Schreine gewähren +1 [ICON_MOVEMENT] Bewegung, Tempel gewähren +1 Sicht und für jedes Gebäude im [ICON_DISTRICT_HOLYSITE] Heilige Stätte-Bezirk erhalten alle neu ausgebildeten Militär-Einheiten in der Stadt + 1 [ICON_STRENGTH] Kampfstärke.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_CHANDRA_MOVEMENT_ABILITY_DESC" Language="de_DE">
 			<Text>+1 [ICON_MOVEMENT] Bewegung vom Schrein-Gebäude des [ICON_DISTRICT_HOLYSITE] Heilige Stätte-Bezirks (Arthashastra)</Text>
@@ -870,10 +873,10 @@
 		</Replace>
 		<!-- = einzigartiger Bezirk = -->
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION" Language="de_DE">
-			<Text>Ein einzigartiger Bezirk Koreas, der den [ICON_DISTRICT_CAMPUS] Campus-Bezirk ersetzt. +1 [ICON_SCIENCE] Wissenschaft Basis-Nachbarschaftsbonus. +1 [ICON_SCIENCE] Wissenschaft für je 2 benachbarten Minen. +2 [ICON_SCIENCE] Wissenschaft für jedes benachbarte Geothermischer Riss-Feld. Kulturschock bei benachbarten Feldern nach Abschluss des Baus. Wissenschaftsspezialisten gewähren +1 [ICON_FOOD] Nahrung. Muss auf Hügelfeldern gebaut werden.</Text>
+			<Text>Ein einzigartiger Bezirk Koreas, der den [ICON_DISTRICT_CAMPUS] Campus-Bezirk ersetzt. Kulturschock bei benachbarten Feldern nach Abschluss des Baus. Wissenschaftsspezialisten gewähren +1 [ICON_FOOD] Nahrung. Muss auf Hügelfeldern gebaut werden.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Wissenschaft Basis-Nachbarschaftsbonus.[NEWLINE]+1 [ICON_SCIENCE] Wissenschaft für je 2 benachbarten Minen.[NEWLINE]+2 [ICON_SCIENCE] Wissenschaft für jedes benachbarte Geothermischer Riss-Feld.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION_ADJACENCY" Language="de_DE">
-			<Text>Nachbarschaftsbonus: +1 [ICON_SCIENCE] Wissenschaft für je 2 benachbarten Minen. -1 [ICON_SCIENCE] Wissenschaft für jeden benachbarten [ICON_DISTRICT] Bezirk, außer [ICON_DISTRICT_THEATER] Theaterplatz-Bezirken. Bietet auch +1 [ICON_CULTURE] Kultur für benachbarte [ICON_DISTRICT_THEATER] Theaterplatz-Bezirke.</Text>
+			<Text>Nachbarschaftsbonus: +1 [ICON_SCIENCE] Wissenschaft für je 2 benachbarten Minen. +2 [ICON_SCIENCE] Wissenschaft für jedes benachbarte Geothermischer Riss-Feld. -1 [ICON_SCIENCE] Wissenschaft für jeden benachbarten [ICON_DISTRICT] Bezirk, außer [ICON_DISTRICT_THEATER] Theaterplatz-Bezirken. Bietet auch +1 [ICON_CULTURE] Kultur für benachbarte [ICON_DISTRICT_THEATER] Theaterplatz-Bezirke.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_BASE_DISTRICT_SCIENCE" Language="de_DE">
 			<Text>+{1_num} [ICON_SCIENCE] Wissenschaft Basis-Nachbarschaftsbonus.</Text>
@@ -1024,7 +1027,7 @@
 		</Replace>
 		<!-- = einzigartiger Bezirk = -->
 		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="de_DE">
-			<Text>Ein einzigartiger Bezirk der Maya, der für wissenschaftliche Zwecke zur Verfügung steht. Er ersetzt den [ICON_DISTRICT_CAMPUS] Campus-Bezirk und ist günstiger zu bauen.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Wissenschaftsbonus für benachbarte Plantagen. +1 [ICON_SCIENCE] Wissenschaftsbonus für jeweils zwei benachbarte Farmen oder [ICON_DISTRICT] Bezirke. +2 [ICON_SCIENCE] Wissenschaft für benachbartes Geothermischer Riss-Feld. [NEWLINE]+1 [ICON_HOUSING] Wohnraum.</Text>
+			<Text>Ein einzigartiger Bezirk der Maya, der den [ICON_DISTRICT_CAMPUS] Campus-Bezirk ersetzt.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Wissenschaftsbonus für benachbarte Plantagen.[NEWLINE]+1 [ICON_SCIENCE] Wissenschaftsbonus für jeweils zwei benachbarte Farmen oder [ICON_DISTRICT] Bezirke.[NEWLINE]+2 [ICON_SCIENCE] Wissenschaft für benachbartes Geothermischer Riss-Feld. [NEWLINE]+1 [ICON_HOUSING] Wohnraum.</Text>
 		</Replace>
 		
 		<!-- == MONGOLIA == -->
@@ -1361,7 +1364,7 @@
 		<!-- == VIETNAM == -->
 		<!-- = Zivilisationsfähigkeit = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_VIETNAM_DESCRIPTION" Language="de_DE">
-			<Text>Alle Land-[ICON_DISTRICT] Spezial-Bezirke können nur auf Regenwald-, Wald-, Sumpf- oder Schwemmlandfeldern gebaut werden. Für des Bezirks-Gebäude auf diesen Feldern erhältst du die folgenden Erträge: +1 [ICON_SCIENCE] Wissenschaft auf Regenwaldfeldern, +1 [ICON_CULTURE] Kultur auf Waldfeldern und +1 [ICON_PRODUCTION] Produktion auf Sumpffeldern.[NEWLINE][NEWLINE]Wälder können nach Erforschung der Ausrichtung "Mittelaltermärkte" bepflanzt werden.[NEWLINE][NEWLINE][ICON_BULLET] Startbedingungen: T3 Regenwaldfelder, Waldfelder, Sumpffelder.</Text>
+			<Text>Alle Land-[ICON_DISTRICT] Spezial-Bezirke können nur auf Regenwald-, Wald-, Sumpf- oder Schwemmlandfeldern gebaut werden. Für jedes Bezirks-Gebäude auf diesen Feldern erhältst du die folgenden Erträge: +1 [ICON_SCIENCE] Wissenschaft auf Regenwaldfeldern, +1 [ICON_CULTURE] Kultur auf Waldfeldern und +1 [ICON_PRODUCTION] Produktion auf Sumpffeldern, jedoch keine zusätzlichen Erträge auf Schwemmlandfeldern.[NEWLINE][NEWLINE]Wälder können nach Erforschung der Ausrichtung "Mittelaltermärkte" bepflanzt werden.[NEWLINE][NEWLINE][ICON_BULLET] Startbedingungen: T3 Regenwaldfelder, Waldfelder, Sumpffelder.</Text>
 		</Replace>
 		<!-- = Führerfähigkeit = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRIEU_DESCRIPTION" Language="de_DE">
@@ -3255,10 +3258,10 @@
 			<Text>Benutzerdefiniert</Text>
 		</Replace>
 		<Replace Tag="BBG_FRONT_MASTER_SETTING_BBG_LEGACY_NAME" Language="de_DE">
-			<Text>Vorgänger Version von BBG</Text>
+			<Text>BBG-Standard</Text>
 		</Replace>
 		<Replace Tag="BBG_FRONT_MASTER_SETTING_BBG_LEGACY_DESC" Language="de_DE">
-			<Text>Einstellungen vor der 4.0 BBG Änderung: Frühestmöglicher Kultursieg und Diplomatiesieg, alle anderen Siegbedingungen basieren auf den Civ 6 Standardeinstellungen</Text>
+			<Text>Einstellungen von BBG-Standard: Frühestmöglicher Kultursieg und Diplomatiesieg, alle anderen Siegbedingungen basieren auf den Civ 6 Standardeinstellungen</Text>
 		</Replace>
 		<Replace Tag="BBG_FRONT_MASTER_SETTING_0_DESC" Language="de_DE">
 			<Text>Standard Firaxis Einstellungen für "Gathering Storm"</Text>
