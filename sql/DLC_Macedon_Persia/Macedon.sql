@@ -38,14 +38,18 @@ INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
 	VALUES ('BBG_SCIENCE_ON_KILLS', 'MODIFIER_PLAYER_UNITS_ADJUST_POST_COMBAT_YIELD');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
-	('BBG_SCIENCE_ON_KILLS', 'PercentDefeatedStrength', '40'),
+	('BBG_SCIENCE_ON_KILLS', 'PercentDefeatedStrength', 40),
 	('BBG_SCIENCE_ON_KILLS', 'YieldType', 'YIELD_SCIENCE');
 
 -- 01/12/24 science on prod reduced to 20%
-UPDATE ModifierArguments SET Value=20 WHERE ModifierId='BASILIKOI_PAIDES_SCIENCE_TRAINED_UNIT';
+UPDATE ModifierArguments SET Value=20 WHERE ModifierId='BASILIKOI_PAIDES_SCIENCE_TRAINED_UNIT' AND Name='UnitProductionPercent';
 
 -- Hetairoi no longer a Horseman replacement
 DELETE FROM UnitReplaces WHERE CivUniqueUnitType='UNIT_MACEDONIAN_HETAIROI';
+-- 13/01/25 Hetairoi cost to 110 (from 100)
+UPDATE Units SET Cost=110 WHERE UnitType='UNIT_MACEDONIAN_HETAIROI';
+
+
 
 -- =======================================================================================
 -- 2024/5/23 by OSCAR. 
