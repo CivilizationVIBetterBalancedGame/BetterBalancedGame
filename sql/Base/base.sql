@@ -196,14 +196,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId)
 DROP TABLE Numbers;
 */
 
---=======================================================================
---******                        Spy                                ******
---=======================================================================
---Creating Spy Capacity Modifier (lua attaches it)
-INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
-    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'MODIFIER_PLAYER_GRANT_SPY');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'Amount', '1');
+
 
 --=======================================================================
 --******               Wonder+Terrain/Feature                      ******
@@ -289,3 +282,11 @@ UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE Happines
 
 -- 14/03/24 Nationalism boost is now upgrading a land unit to level 3
 UPDATE Boosts SET BoostClass='BOOST_TRIGGER_LAND_UNIT_LEVEL', NumItems=3 WHERE CivicType='CIVIC_NATIONALISM';
+
+-- 30/11/24 Pillage nerf
+-- Improvement pillage value to 35/20
+UPDATE Improvements SET PlunderAmount=35 WHERE PlunderType='PLUNDER_GOLD';
+UPDATE Improvements SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', 'PLUNDER_CULTURE', 'PLUNDER_FAITH');
+-- District pillage value to 40/20
+UPDATE Districts SET PlunderAmount=40 WHERE PlunderType='PLUNDER_GOLD';
+UPDATE Districts SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', 'PLUNDER_CULTURE', 'PLUNDER_FAITH');

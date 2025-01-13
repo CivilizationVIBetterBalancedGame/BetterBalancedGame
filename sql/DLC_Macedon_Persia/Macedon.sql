@@ -32,17 +32,24 @@ INSERT OR IGNORE INTO GreatPersonIndividualBirthModifiers
 
 UPDATE ModifierArguments SET Value='10' WHERE ModifierId='HYPASPIST_SIEGE_BONUS' AND Name='Amount';
 -- 25% Science from kills (online speed)
+-- 01/12/24 reduced to 20%
 INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
-	VALUES ('TRAIT_LEADER_TO_WORLDS_END', 'SCIENCE_ON_KILLS_BBG');
+	VALUES ('TRAIT_LEADER_TO_WORLDS_END', 'BBG_SCIENCE_ON_KILLS');
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
-	VALUES ('SCIENCE_ON_KILLS_BBG', 'MODIFIER_PLAYER_UNITS_ADJUST_POST_COMBAT_YIELD');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
-	VALUES
-		('SCIENCE_ON_KILLS_BBG', 'PercentDefeatedStrength', '50'),
-		('SCIENCE_ON_KILLS_BBG', 'YieldType', 'YIELD_SCIENCE');
+	VALUES ('BBG_SCIENCE_ON_KILLS', 'MODIFIER_PLAYER_UNITS_ADJUST_POST_COMBAT_YIELD');
+INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_SCIENCE_ON_KILLS', 'PercentDefeatedStrength', 40),
+	('BBG_SCIENCE_ON_KILLS', 'YieldType', 'YIELD_SCIENCE');
+
+-- 01/12/24 science on prod reduced to 20%
+UPDATE ModifierArguments SET Value=20 WHERE ModifierId='BASILIKOI_PAIDES_SCIENCE_TRAINED_UNIT' AND Name='UnitProductionPercent';
 
 -- Hetairoi no longer a Horseman replacement
 DELETE FROM UnitReplaces WHERE CivUniqueUnitType='UNIT_MACEDONIAN_HETAIROI';
+-- 13/01/25 Hetairoi cost to 110 (from 100)
+UPDATE Units SET Cost=110 WHERE UnitType='UNIT_MACEDONIAN_HETAIROI';
+
+
 
 -- =======================================================================================
 -- 2024/5/23 by OSCAR. 

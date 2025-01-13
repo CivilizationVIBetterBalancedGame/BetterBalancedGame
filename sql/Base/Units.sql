@@ -227,73 +227,27 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
     ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_NAME', 'LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_DESC');
 
-CREATE TABLE TmpNavalUnit(UnitType PRIMARY KEY NOT NULL);
-INSERT INTO TmpNavalUnit(UnitType) VALUES
-    ('UNIT_GALLEY'),
-    ('UNIT_NORWEGIAN_LONGSHIP'),
-    ('UNIT_QUADRIREME'),
-    ('UNIT_CARAVEL'),
-    ('UNIT_FRIGATE'),
-    ('UNIT_PRIVATEER'),
-    ('UNIT_ENGLISH_SEADOG'),
-    ('UNIT_IRONCLAD'),
-    ('UNIT_BATTLESHIP'),
-    ('UNIT_BRAZILIAN_MINAS_GERAES'),
-    ('UNIT_SUBMARINE'),
-    ('UNIT_GERMAN_UBOAT'),
-    ('UNIT_AIRCRAFT_CARRIER'),
-    ('UNIT_DESTROYER'),
-    ('UNIT_NUCLEAR_SUBMARINE'),
-    ('UNIT_MISSILE_CRUISER');
-    --also see portugal, indo, dutch, byzantium and xp2/units.sql
-
 INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) SELECT
-    'BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER' FROM Units WHERE FormationClass='FORMATION_CLASS_NAVAL';
 INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) SELECT
-    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_IS_DEFENDER_IN_MELEE' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_IS_DEFENDER_IN_MELEE' FROM Units WHERE FormationClass='FORMATION_CLASS_NAVAL';
 INSERT INTO ModifierArguments(ModifierId, Name, Value) SELECT
-    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'Amount', '2' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'Amount', 2 FROM Units WHERE FormationClass='FORMATION_CLASS_NAVAL';
 INSERT INTO ModifierArguments(ModifierId, Name, Value) SELECT
-    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'UnitType', Units.UnitType FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'UnitType', Units.UnitType FROM Units WHERE FormationClass='FORMATION_CLASS_NAVAL';
 INSERT INTO ModifierStrings(ModifierId, Context, Text) SELECT
-    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'Preview', '{'||Units.Name||'} : +{CalculatedAmount}' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_' || Units.UnitType || '_MODIFIER', 'Preview', '{'||Units.Name||'} : +{CalculatedAmount}' FROM Units WHERE FormationClass='FORMATION_CLASS_NAVAL';
 INSERT INTO Requirements (RequirementId, RequirementType) SELECT
-    'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ', 'REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TYPE_MATCHES' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ', 'REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TYPE_MATCHES' FROM Units WHERE FormationClass='FORMATION_CLASS_NAVAL';
 INSERT INTO RequirementArguments (RequirementId, Name, Value) SELECT
-    'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ', 'UnitType', Units.UnitType FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ', 'UnitType', Units.UnitType FROM Units WHERE FormationClass='FORMATION_CLASS_NAVAL';
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) SELECT
-    'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Units WHERE FormationClass='FORMATION_CLASS_NAVAL';
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
-    'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ' FROM Units WHERE FormationClass='FORMATION_CLASS_NAVAL';
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
-    'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UTILS_PLAYER_HAS_CIVIC_MILITARY_TRADITION_REQUIREMENT' FROM Units INNER JOIN TmpNavalUnit ON Units.UnitType = TmpNavalUnit.UnitType;
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UTILS_PLAYER_HAS_CIVIC_MILITARY_TRADITION_REQUIREMENT' FROM Units WHERE FormationClass='FORMATION_CLASS_NAVAL';
 
-DROP TABLE TmpNavalUnit;
-
--- 10/03/24
--- INSERT INTO Requirements (RequirementId, RequirementType) VALUES
---     ('BBG_REQUIRE_MEDIEVAL', 'REQUIREMENT_UNIT_ERA_TYPE_MATCHES');
--- INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
---     ('BBG_REQUIRE_MEDIEVAL', 'EraType', 'ERA_MEDIEVAL');
--- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
---     ('BBG_REQUIRE_MEDIEVAL_REQSET', 'REQUIREMENTSET_TEST_ALL');
--- INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
---     ('BBG_REQUIRE_MEDIEVAL_REQSET', 'BBG_REQUIRE_MEDIEVAL');
--- INSERT INTO Tags (Tag, Vocabulary) VALUES
---     ('CLASS_GREAT_ADMIRAL', 'ABILITY_CLASS');
--- INSERT INTO Types (Type, Kind) VALUES
---     ('BBG_ABILITY_GREAT_ADMIRAL_MOVEMENT_BONUS', 'KIND_ABILITY');
--- INSERT INTO TypeTags (Type, Tag) VALUES
---     ('BBG_ABILITY_GREAT_ADMIRAL_MOVEMENT_BONUS', 'CLASS_GREAT_ADMIRAL'),
---     ('UNIT_GREAT_ADMIRAL', 'CLASS_GREAT_ADMIRAL');
--- INSERT INTO Modifiers ( ModifierId, ModifierType) VALUES
---     ('BBG_GREAT_ADMIRAL_MOVEMENT_BONUS', 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT');
--- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
---     ('BBG_GREAT_ADMIRAL_MOVEMENT_BONUS', 'Amount', '1');
--- INSERT INTO UnitAbilityModifiers VALUES
---     ('BBG_ABILITY_GREAT_ADMIRAL_MOVEMENT_BONUS', 'BBG_GREAT_ADMIRAL_MOVEMENT_BONUS');
--- INSERT INTO UnitAbilities (UnitAbilityType, Name, Description) VALUES
---     ('BBG_ABILITY_GREAT_ADMIRAL_MOVEMENT_BONUS', 'LOC_BBG_ABILITY_GREAT_ADMIRAL_MOVEMENT_BONUS_NAME', 'LOC_BBG_ABILITY_GREAT_ADMIRAL_MOVEMENT_BONUS_DESC');
 
 
 -- 02/07/24 Naval first promote (melee and ranged) reduced to +5 from +7 
@@ -302,3 +256,55 @@ UPDATE ModifierArguments SET Value=5 WHERE ModifierId='LINE_OF_BATTLE_BONUS_VS_N
 
 -- 02/07/24 Recon Units get +1 sight (except scouts/oki)
 UPDATE Units SET BaseSightRange=BaseSightRange+1 WHERE PromotionClass='PROMOTION_CLASS_RECON' AND UnitType NOT IN ('UNIT_SCOUT', 'UNIT_CREE_OKIHTCITAW');
+
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center
+    -- UNIT_WARRIOR
+    -- UNIT_AZTEC_EAGLE_WARRIOR
+    -- UNIT_GAUL_GAESATAE
+    -- UNIT_SCOUT
+    -- UNIT_CREE_OKIHTCITAW
+    -- UNIT_SUMERIAN_WAR_CART
+    -- UNIT_GALLEY
+    -- UNIT_NORWEGIAN_LONGSHIP
+    -- UNIT_PHOENICIA_BIREME
+    -- UNIT_BABYLONIAN_SABUM_KIBITTUM
+    -- UU are in corresponding file
+
+INSERT INTO Tags (Tag, Vocabulary) VALUES
+    ('CLASS_MALUS_CITY_CENTER', 'ABILITY_CLASS');
+INSERT INTO Types (Type, Kind) VALUES
+    ('BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL', 'KIND_ABILITY');
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_WARRIOR', 'CLASS_MALUS_CITY_CENTER'),
+    ('UNIT_SCOUT', 'CLASS_MALUS_CITY_CENTER'),
+    ('UNIT_GALLEY', 'CLASS_MALUS_CITY_CENTER'),
+    ('BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL', 'CLASS_MALUS_CITY_CENTER');
+
+INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
+    ('BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL', 'LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_NAME', 'LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_DESC');
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+    ('BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL', 'BBG_UNITS_MINUS_AGAINST_CITY_BEFORE_CLASSICAL');
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) VALUES
+    ('BBG_UNITS_MINUS_AGAINST_CITY_BEFORE_CLASSICAL', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_NOT_IN_ERA_CLASSICAL_REQSET', 'UNIT_ATTACKING_DISTRICT_REQUIREMENTS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_UNITS_MINUS_AGAINST_CITY_BEFORE_CLASSICAL', 'Amount', -5);
+INSERT INTO ModifierStrings (ModifierId , Context , Text) VALUES
+    ('BBG_UNITS_MINUS_AGAINST_CITY_BEFORE_CLASSICAL', 'Preview', 'LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_DESC');
+
+
+
+--=======================================================================
+--******                        Spy                                ******
+--=======================================================================
+--Creating Spy Capacity Modifier (lua attaches it)
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'MODIFIER_PLAYER_GRANT_SPY');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'Amount', '1');
+
+-- 15/12/24 spy progression cost change (based on the % of techs/civics)
+UPDATE Units SET CostProgressionModel='COST_PROGRESSION_GAME_PROGRESS', CostProgressionParam1=500, Cost=120 WHERE UnitType='UNIT_SPY';
+
+-- 15/12/24 Spy can stack so Wu can faith buy spies when there is one opponent in they city 
+UPDATE Units SET Stackable=1 WHERE UnitType='UNIT_SPY';

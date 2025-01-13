@@ -95,3 +95,7 @@ UPDATE ModifierArguments SET Value = '25' WHERE ModifierId IN (
 	'TRAIT_MODERN_NAVAL_MELEE_PRODUCTION',
 	'TRAIT_RENAISSANCE_NAVAL_MELEE_PRODUCTION'
 ) AND Name = 'Amount';
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_NORWEGIAN_LONGSHIP', 'CLASS_MALUS_CITY_CENTER');

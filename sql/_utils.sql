@@ -75,7 +75,7 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     SELECT 'BBG_GAME_IS_IN_' || EraType || '_REQUIREMENTS', 'BBG_GAME_IS_IN_' || EraType || '_REQUIREMENT'
     FROM Eras;
 
--- requirements game era (for teddy)
+-- requirements player game era (for teddy)
 INSERT INTO Requirements(RequirementId, RequirementType)
     SELECT 'BBG_PLAYER_IS_IN_' || EraType || '_REQUIREMENT', 'REQUIREMENT_PLAYER_ERA_AT_LEAST'
     FROM Eras;
@@ -97,6 +97,13 @@ INSERT INTO Requirements(RequirementId, RequirementType, Inverse)
 INSERT INTO RequirementArguments(RequirementId, Name, Value)
     SELECT 'BBG_PLAYER_IS_NOT_IN_' || EraType || '_REQUIREMENT', 'EraType', EraType
     FROM Eras;
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
+    SELECT 'BBG_PLAYER_IS_NOT_IN_' || EraType || '_REQSET', 'REQUIREMENTSET_TEST_ALL'
+    FROM Eras;
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+    SELECT 'BBG_PLAYER_IS_NOT_IN_' || EraType || '_REQSET', 'BBG_PLAYER_IS_NOT_IN_' || EraType || '_REQUIREMENT'
+    FROM Eras;
+
 
 INSERT OR IGNORE INTO RequirementSets VALUES
     ('BBG_UNIT_ON_HILL_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
@@ -197,3 +204,34 @@ INSERT INTO Requirements(RequirementId, RequirementType) VALUES
     ('BBG_REQUIRES_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL','REQUIREMENT_PLOT_NEAR_CAPITAL');
 INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
     ('BBG_REQUIRES_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL', 'MinDistance', '10');
+
+
+-- Every resources requirement
+INSERT INTO Requirements (RequirementId, RequirementType) SELECT
+    'BBG_CITY_HAS_IMPROVED_' || Resources.ResourceType || '_REQ', 'REQUIREMENT_CITY_HAS_RESOURCE_TYPE_IMPROVED' FROM Resources WHERE NOT Resources.ResourceType='BBG_DUMMY_RESOURCE_MACEDON';
+INSERT INTO RequirementArguments (RequirementId, Name, Value) SELECT
+    'BBG_CITY_HAS_IMPROVED_' || Resources.ResourceType || '_REQ', 'ResourceType', Resources.ResourceType FROM Resources WHERE NOT Resources.ResourceType='BBG_DUMMY_RESOURCE_MACEDON';
+    
+-- city has improved strategic
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_IMPROVED_STRAT_REQSET', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_CITY_HAS_IMPROVED_STRAT_REQSET', 'REQUIRES_CITY_HAS_IMPROVED_ALUMINUM'),
+    ('BBG_CITY_HAS_IMPROVED_STRAT_REQSET', 'REQUIRES_CITY_HAS_IMPROVED_COAL'),
+    ('BBG_CITY_HAS_IMPROVED_STRAT_REQSET', 'REQUIRES_CITY_HAS_IMPROVED_HORSES'),
+    ('BBG_CITY_HAS_IMPROVED_STRAT_REQSET', 'REQUIRES_CITY_HAS_IMPROVED_IRON'),
+    ('BBG_CITY_HAS_IMPROVED_STRAT_REQSET', 'REQUIRES_CITY_HAS_IMPROVED_NITER'),
+    ('BBG_CITY_HAS_IMPROVED_STRAT_REQSET', 'REQUIRES_CITY_HAS_IMPROVED_OIL'),
+    ('BBG_CITY_HAS_IMPROVED_STRAT_REQSET', 'REQUIRES_CITY_HAS_IMPROVED_URANIUM');
+
+-- city has improved bonus
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_IMPROVED_BONUS_REQSET', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
+    'BBG_CITY_HAS_IMPROVED_BONUS_REQSET', 'BBG_CITY_HAS_IMPROVED_' || Resources.ResourceType || '_REQ' FROM Resources WHERE ResourceClassType='RESOURCECLASS_BONUS';
+
+-- city has improved lux
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_IMPROVED_LUX_REQSET', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
+    'BBG_CITY_HAS_IMPROVED_LUX_REQSET', 'BBG_CITY_HAS_IMPROVED_' || Resources.ResourceType || '_REQ' FROM Resources WHERE ResourceClassType='RESOURCECLASS_LUXURY';

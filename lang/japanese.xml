@@ -86,7 +86,7 @@
 		<!-- == AUSTRALIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LAND_DOWN_UNDER_DESCRIPTION" Language="ja_JP">
-			<Text>沿岸都市の [ICON_Housing] 住宅+3。牧草地が文化爆弾を発動させる。キャンパス、商業ハブ、聖地、劇場広場からの産出量は、アピールが「素敵」以上のタイルにある場合+1、「最高」のタイルにある場合+3。</Text>
+			<Text>沿岸都市の [ICON_Housing] 住宅+3。牧草地が文化爆弾を発動させ、政治哲学の完了後は [ICON_Production] 生産力+1。キャンパス、商業ハブ、聖地、劇場広場からの産出量は、アピールが「素敵」以上のタイルにある場合+1、「最高」のタイルにある場合+3。</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CITADEL_CIVILIZATION_EXPANSION2_DESCRIPTION" Language="ja_JP">
@@ -140,6 +140,13 @@
 		<Replace Tag="LOC_DISTRICT_WATER_STREET_CARNIVAL_EXPANSION2_DESCRIPTION" Language="ja_JP">
 			<Text>ブラジル固有の区域。ウォーターパークに取ってかわる。 [ICON_Amenities] 快適性+2。カーニバル (プロジェクト) を解除する。カーニバル開催中は [ICON_Amenities] 快適性がさらに+1され、終了すると各種の [ICON_GreatPerson] 偉人ポイントがもたらされる。ストリートカーニバルがある都市には建設できない。礁には建設できない。建設に人口を必要としない(区域建設枠を消費しない)。</Text>
 		</Replace>
+    <!-- = unique unit = -->
+    <Replace Tag="LOC_UNIT_BRAZILIAN_MINAS_GERAES_DESCRIPTION" Language="ja_JP">
+      <Text>戦艦に取ってかわるブラジル固有の産業時代のユニット。ナショナリズムで解禁される。精製技術の発明後は [ICON_STRENGTH] 近接戦闘力+10、 [ICON_RANGED] 長距離戦闘力+10。</Text>
+    </Replace>
+    <Replace Tag="LOC_BBG_ABILITY_MINAS_COMBAT_REFINING_DESC" Language="ja_JP">
+      <Text>精製技術の発明後は [ICON_STRENGTH] 近接戦闘力+10、 [ICON_RANGED] 長距離戦闘力+10。</Text>
+    </Replace>
 
 		<!-- == BYZANTIUM == -->
 		<!-- = civilization ability = -->
@@ -160,7 +167,7 @@
     </Replace>
     <!-- = leader ability (Theodora) = -->
     <Replace Tag="LOC_TRAIT_LEADER_THEODORA_DESCRIPTION" Language="ja_JP">
-      <Text>聖地は隣接する区域1つにつき [ICON_Culture] 文化力+1。</Text>
+      <Text>政治哲学の完了後、聖地が隣接する区域1つにつき [ICON_Culture] 文化力+1。</Text>
     </Replace>
     <Row Tag="LOC_BBG_THEODORA_HOLYSITE_CULTURE" Language="ja_JP">
       <Text>隣接する{1_num}つの区域により [ICON_CULTURE]文化力+{1_num}。</Text>
@@ -349,19 +356,19 @@
 			<Text>河川に隣接する区域と遺産に対する[ICON_Production]生産力+20%。氾濫原が区域と遺産の建設を妨げない。</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ITERU_EXPANSION2_DESCRIPTION" Language="ja_JP">
-			<Text>河川に隣接する区域と遺産に対する[ICON_Production]生産力+20%。氾濫による被害を受けない。</Text>
+			<Text>河川に隣接する区域と遺産に対する[ICON_Production]生産力+15%。氾濫による被害を受けない。</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MEDITERRANEAN_EXPANSION2_DESCRIPTION" Language="ja_JP">
-			<Text>他文明へ向かう[ICON_Traderoute]交易路はエジプトに[ICON_Gold]ゴールド+6をもたらす。他の文明のエジプトに向かう[ICON_Traderoute]交易路はその文明に[ICON_Food]食料+2を、エジプトに[ICON_Gold]ゴールド+2をもたらす。同盟関係にある文明との交易は通常の2倍の同盟ポイントをもたらす。</Text>
+			<Text>他文明へ向かう[ICON_Traderoute]交易路はエジプトに[ICON_Gold]ゴールド+4をもたらす。他の文明のエジプトに向かう[ICON_Traderoute]交易路はその文明に[ICON_Food]食料+1を、エジプトに[ICON_Gold]ゴールド+2をもたらす。同盟関係にある文明との交易は通常の2倍の同盟ポイントをもたらす。川沿いに建設された都市において商業ハブと劇場への [ICON_Production] 生産力+15%。</Text>
 		</Replace>
     <!-- = leader ability (Ramses II) = -->
     <Replace Tag="LOC_TRAIT_LEADER_RAMSES_DESCRIPTION" Language="ja_JP">
-      <Text>建造物の建設が完了するとその生産力コストの10%に、遺産の建設が完了するとその生産力コストの25%に等しい[ICON_Culture]文化力を得る。</Text>
+      <Text>建造物の建設が完了するとその生産力コストの10%に、遺産の建設が完了するとその生産力コストの25%に等しい[ICON_Culture]文化力を得る。川沿いの聖地から [ICON_Production] 生産力+1。川沿いに建設された都市において聖地と工業地帯への [ICON_Production] 生産力+15%。</Text>
     </Replace>
     <!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
     <Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="ja_JP">
-      <Text>都心直下にある氾濫原の資源タイルから [ICON_food] 食料+1。改善された氾濫原の資源タイルから [ICON_food] 食料+1、 [ICON_Culture] 文化力+1。所有する氾濫原タイルがアピール-1ではなく+1をもたらす。</Text>
+      <Text>川沿いに建設された都市において兵営とキャンパスへの [ICON_Production] 生産力+15%。氾濫原においてユニットの [ICON_Strength] 戦闘力+5。</Text>
     </Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="ja_JP">
@@ -392,8 +399,7 @@
       <Text>太古及び古典時代の遺産への [ICON_PRODUCTION] 生産力+20%。劇場区域の建造物に対する[ICON_PRODUCTION]生産力+100%。[NEWLINE]自文明の都市にある傑作が、1つにつきその都市から9タイル以内にある他文明の都市に対して毎ターン忠誠度-1を与える。[NEWLINE]他文明の都市で反乱が起きた際、自文明が最もその都市に対する忠誠度圧力を与えていたならば、その都市は自由都市になる過程を経ずに直接自文明のものとなる。[NEWLINE][NEWLINE]傑作がその傑作が収まっている都市に存在する区域に応じて追加の出力を得る：[NEWLINE]キャンパスが建設されている場合[ICON_SCIENCE]科学力+1。[NEWLINE]劇場区域が建設されている場合[ICON_CULTURE]文化力+1。[NEWLINE]商業区域や港が建設されている場合それぞれにつき[ICON_GOLD]ゴールド+1。[NEWLINE]聖地が建設されている場合[ICON_FAITH]信仰力+1。[NEWLINE]工業区域が建設されている場合[ICON_PRODUCTION]工業力+1。[NEWLINE]近郊部が建設されている場合[ICON_FOOD]食料+1。[NEWLINE]これらのボーナスは、書物と遺物では+1、芸術と秘宝では+2、音楽では+4となる。[NEWLINE]都市国家による傑作への他の出力ボーナスを受け取ることはできない。</Text>
     </Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_ELEANOR_LOYALTY_DESCRIPTION" Language="ja_JP">
-			<Text>劇場区域の建造物に対する[ICON_PRODUCTION]生産力+100%。[NEWLINE]自文明の都市にある傑作が、1つにつきその都市から9タイル以内にある他文明の都市に対して毎ターン忠誠度-1を与える。[NEWLINE]他文明の都市で反乱が起きた際、自文明が最もその都市に対する忠誠度圧力を与えていたならば、その都市は自由都市になる過程を経ずに直接自文明のものとなる。[NEWLINE][NEWLINE]傑作がその傑作が収まっている都市に存在する区域に応じて追加の出力を得る：[NEWLINE]キャンパスが建設されている場合[ICON_SCIENCE]科学力+1。[NEWLINE]劇場区域が建設されている場合[ICON_CULTURE]文化力+1。[NEWLINE]商業区域や港が建設されている場合それぞれにつき[ICON_GOLD]ゴールド+1。[NEWLINE]聖地が建設されている場合[ICON_FAITH]信仰力+1。[NEWLINE]工業区域が建設されている場合[ICON_PRODUCTION]工業力+1。[NEWLINE]近郊部が建設されている場合[ICON_FOOD]食料+1。[NEWLINE]これらのボーナスは、書物と遺物では+1、芸術と秘宝では+2、音楽では+4となる。[NEWLINE]都市国家による傑作への他の出力ボーナスを受け取ることはできない。
-      
+			<Text>劇場区域の建造物に対する[ICON_PRODUCTION]生産力+100%。[NEWLINE]自文明の都市にある傑作が、1つにつきその都市から9タイル以内にある他文明の都市に対して毎ターン忠誠度-1を与える。[NEWLINE]他文明の都市で反乱が起きた際、自文明が最もその都市に対する忠誠度圧力を与えていたならば、その都市は自由都市になる過程を経ずに直接自文明のものとなる。[NEWLINE][NEWLINE]傑作がその傑作が収まっている都市に存在する区域に応じて追加の出力を得る：[NEWLINE]キャンパスが建設されている場合[ICON_SCIENCE]科学力+1。[NEWLINE]劇場区域が建設されている場合[ICON_CULTURE]文化力+1。[NEWLINE]商業区域や港が建設されている場合それぞれにつき[ICON_GOLD]ゴールド+1。[NEWLINE]聖地が建設されている場合[ICON_FAITH]信仰力+1。[NEWLINE]工業区域が建設されている場合[ICON_PRODUCTION]工業力+1。[NEWLINE]近郊部が建設されている場合[ICON_FOOD]食料+1。[NEWLINE]これらのボーナスは、書物と遺物では+1、芸術と秘宝では+2、音楽では+4となる。[NEWLINE]都市国家による傑作への他の出力ボーナスを受け取ることはできない。[NEWLINE]フランス文明を率いている場合、太古及び古典時代の遺産への [ICON_PRODUCTION] 生産力+20%。
       </Text>
 		</Replace>
 
@@ -498,7 +504,7 @@
 		</Replace>
 		<!-- = unique project (Magnificence) = -->
 		<Replace Tag="LOC_PROJECT_ECOURT_FESTIVAL_DESCRIPTION" Language="ja_JP">
-			<Text>カトリーヌ・ド・メディシス(麗妃)が指導者であるときのフランスに固有のプロジェクト。「中世の市」の社会制度を解禁すると劇場広場のある都市で実行できるようになる。このプロジェクトが完了したとき、重複している高級資源1つごとに[ICON_CULTURE]文化力50と[ICON_TOURISM]観光力50(速度スタンダードにおいて)をフランスに与える。</Text>
+			<Text>カトリーヌ・ド・メディシス(麗妃)が指導者であるときのフランスに固有のプロジェクト。「中世の市」の社会制度を解禁すると劇場広場のある都市で実行できるようになる。このプロジェクトが完了したとき、自文明の [ICON_Tourism] 観光力の3%を得る。</Text>
 		</Replace>
 
 		<!-- == GAUL == -->
@@ -508,7 +514,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="ja_JP">
-			<Text>白兵および対騎兵ユニットは隣接するユニット1体ごとに[ICON_Strength]戦闘力+1。</Text>
+			<Text>白兵および対騎兵ユニットは隣接するユニット1体ごとに攻撃時の[ICON_Strength]戦闘力+1。</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="ja_JP">
 			<Text>隣接するユニット1体ごとに[ICON_Strength]戦闘力+1。（エブロネスの王）</Text>
@@ -621,14 +627,15 @@
 		<!-- == INCA == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PACHACUTI_QHAPAQ_NAN_DESCRIPTION" Language="ja_JP">
-			<Text>国内[ICON_Traderoute]交易路は出発都市にある山タイル1つにつき[ICON_Food]食料+1。国際[ICON_Traderoute]交易路は出発都市にある山タイル1つにつき[ICON_Gold]ゴールド+1。対外交易の社会制度を解禁後、カパック・ニャンを建設できるようになる。山岳タイルを購入する際の[ICON_GOLD]ゴールドコスト-50%。</Text>
+			<Text>国内[ICON_Traderoute]交易路は出発都市にある山タイル1つにつき[ICON_Food]食料+1。国際[ICON_Traderoute]交易路は出発都市にある山タイル1つにつき[ICON_Gold]ゴールド+1。対外交易の社会制度を解禁後、カパック・ニャンを建設できるようになり、すべての偵察ユニットはカパック・ニャンを建設するための労働力を1持つようになる（伐採も可能）。山岳タイルを購入する際の[ICON_GOLD]ゴールドコスト-50%。</Text>
 		</Replace>
 
 		<!-- == INDIA == -->
 		<!-- = leader ability (Chandragupta) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ARTHASHASTRA_DESCRIPTION" Language="ja_JP">
-			<Text>聖地区域の建造物が建設された都市で新たに生産されたユニットは建造物1つにつき[ICON_STRENGTH]戦闘力+1（最大+3）。社、神殿が建設された都市で新たに生産された全てのユニットはそれぞれ[ICON_Movement]移動力+1、視界+1の効果を得る。神殿により大将軍ポイント+1。[NEWLINE][NEWLINE]必要な社会制度が完了していれば、崇拝の建造物を持つ都市で[ICON_Corps]軍団や[ICON_Army]大軍団を直接25%安価に生産できる。</Text>
+			<Text>聖地区域の建造物が建設された都市で新たに生産されたユニットは建造物1つにつき[ICON_STRENGTH]戦闘力+1（最大+3）。社、神殿が建設された都市で新たに生産された全てのユニットはそれぞれ[ICON_Movement]移動力+1、視界+1の効果を得る。</Text>
 		</Replace>
+    <!-- = 神殿により大将軍ポイント+1。[NEWLINE][NEWLINE]必要な社会制度が完了していれば、崇拝の建造物を持つ都市で[ICON_Corps]軍団や[ICON_Army]大軍団を直接25%安価に生産できる。 -->
     <Row Tag="LOC_BBG_CHANDRA_MOVEMENT_ABILITY_DESC" Language="ja_JP">
       <Text>社により [ICON_Movement] 移動力+1（実利論）。</Text>
     </Row>
@@ -687,8 +694,8 @@
 			<Text>別の区域に隣接している区域は通常の隣接ボーナスを追加できる。商業ハブは隣接する川から隣接ボーナスを得ることができない。</Text>
 		</Replace>
 		<!-- = leader ability (Hojo Tokimune) = -->
-		<Replace Tag="LOC_TRAIT_LEADER_DIVINE_WIND_DESCRIPTION" Language="ja_JP">
-			<Text>沿岸タイルに隣接するタイルにおける陸上戦闘ユニットの [ICON_Strength] 戦闘力+3。浅瀬タイルにおける海上戦闘ユニットの [ICON_Strength] 戦闘力+3。Land units receive +5 [ICON_Strength] Combat Strength in land tiles adjacent to Coast; naval units receive +5 [ICON_Strength] Combat Strength in shallow water tiles. +100% [ICON_PRODUCTION] Production to Encampment, Holy Site and Theater Square districts.</Text>
+		<Replace Tag="LOC_TRAIT_LEADER_DIVINE_WIND_EXPANSION2_DESCRIPTION" Language="ja_JP">
+			<Text>沿岸タイルに隣接するタイルにおける陸上戦闘ユニットの [ICON_Strength] 戦闘力+3。浅瀬タイルにおける海上戦闘ユニットの [ICON_Strength] 戦闘力+3。[NEWLINE]兵営、聖地、劇場広場への [ICON_Production] 生産力+100%。[NEWLINE]ユニットがハリケーンによるダメージを受けなくなる。日本と戦争状態にある文明は、日本の領土内でのハリケーンのダメージ+100%。</Text>
 		</Replace>
     <!-- = leader ability (Tokugawa) = -->
     <Replace Tag="LOC_TRAIT_LEADER_TOKUGAWA_DESCRIPTION" Language="ja_JP">
@@ -753,14 +760,14 @@
     
     <!-- = leader ability (Sejong) -->
     <Replace Tag="LOC_TRAIT_LEADER_SEJONG_DESCRIPTION" Language="ja_JP">
-      <Text>新しい時代の技術を初めて研究するたび、毎ターンの[ICON_SCIENCE]科学力に等しい[ICON_CULTURE]文化力を得る。劇場広場以外の隣接する区域1つにつき [ICON_SCIENCE] 科学力-1、隣接する劇場区域1つにつき [ICON_SCIENCE] 科学力+1。隣接する劇場区域の [ICON_CULTURE] 文化力+2。書院と劇場区域のある都市は区域1つごとに文化力+1、観光力+2。封建制度の社会制度の完了後、総督の居ない都市では労働者に対する生産力+15%。</Text>
+      <Text>新しい時代の技術を初めて研究するたび、毎ターンの[ICON_SCIENCE]科学力の200%に等しい[ICON_CULTURE]文化力を得る。劇場広場以外の隣接する区域1つにつき [ICON_SCIENCE] 科学力-1、隣接する劇場区域1つにつき [ICON_SCIENCE] 科学力+1。隣接する劇場区域の [ICON_CULTURE] 文化力+2。書院と劇場区域のある都市は区域1つごとに文化力+1、観光力+2。封建制度の社会制度の完了後、総督の居ない都市では労働者に対する生産力+30%。</Text>
     </Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION" Language="ja_JP">
-			<Text>キャンパスを代替する韓国固有の区域。丘陵タイルに建設されなければならない。基本隣接ボーナスとして[ICON_SCIENCE]科学力+1。隣接する鉱山2つにつき [ICON_SCIENCE] 科学力+1。建設によって文化爆弾を発動する。この区域で働く専門家から追加で [ICON_Food] 食料+1。</Text>
+			<Text>キャンパスを代替する韓国固有の区域。丘陵タイルに建設されなければならない。基本隣接ボーナスとして[ICON_SCIENCE]科学力+1。隣接する鉱山2つにつき [ICON_SCIENCE] 科学力+1。建設によって文化爆弾を発動する。この区域で働く専門家から追加で [ICON_Food] 食料+1。隣接する地熱孔1つにつき [ICON_Science] 科学力+2。</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION_ADJACENCY" Language="ja_JP">
-			<Text>隣接する鉱山2つにつき [ICON_SCIENCE] 科学力+1。劇場広場以外の隣接する区域1つにつき [ICON_SCIENCE] 科学力-1、隣接する劇場区域1つにつき [ICON_SCIENCE] 科学力+1。隣接する劇場区域の [ICON_CULTURE] 文化力+2。</Text>
+			<Text>隣接する鉱山2つにつき [ICON_SCIENCE] 科学力+1。劇場広場以外の隣接する区域1つにつき [ICON_SCIENCE] 科学力-1、隣接する劇場区域1つにつき [ICON_SCIENCE] 科学力+1。隣接する劇場区域の [ICON_CULTURE] 文化力+2。隣接する地熱孔1つにつき [ICON_Science] 科学力+2。</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_BASE_DISTRICT_SCIENCE" Language="ja_JP">
 			<Text>基本の隣接ボーナスにより[ICON_SCIENCE]科学力+{1_num}。</Text>
@@ -792,7 +799,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TO_WORLDS_END_DESCRIPTION" Language="ja_JP">
-			<Text>戦闘に勝利すると、倒したユニットの[ICON_Strength]戦闘力の25%に等しい[ICON_Science]科学力を得る(速度オンラインの場合)。都市が戦争による疲労の影響を受けない。世界遺産を有する都市を占領すると、すべての軍事ユニットが完全に回復する。</Text>
+			<Text>戦闘に勝利すると、倒したユニットの[ICON_Strength]戦闘力の20%に等しい[ICON_Science]科学力を得る(速度オンラインの場合)。都市が戦争による疲労の影響を受けない。世界遺産を有する都市を占領すると、すべての軍事ユニットが完全に回復する。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="ja_JP">
@@ -808,6 +815,11 @@
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="ja_JP">
 			<Text>マケドニア固有の重騎兵ユニット。(どの時代のものであっても)[ICON_GREATGENERAL] 大将軍に隣接していると[ICON_Strength]戦闘力+5。敵ユニットを倒すと[ICON_GREATGENERAL] 大将軍ポイント+5。最初から無料でレベルアップを1つ有する。</Text>
 		</Replace>
+    <!-- = unique building = -->
+    <Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_EXPANSION2_DESCRIPTION" Language="ja_JP">
+      <Text>マケドニア固有の建造物。この都市で生産されたすべての近接戦闘ユニット、長距離戦闘ユニット、ヘタイロイの戦闘経験値+25%。この都市で非民間人ユニットが作られた場合、そのユニットのコストの20%に相当する [ICON_Science] 科学力が加算される。[NEWLINE][NEWLINE]戦略資源の備蓄+10 (標準のスピードで)。[NEWLINE][NEWLINE]すでに厩舎がある兵営区域には建設できない。
+      </Text>
+    </Replace>
 		<!-- = unique building = 日本語版では不要
 		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_DESCRIPTION" Language="ja_JP">
 			<Text>TEXT NOT PROVIDED</Text>
@@ -820,13 +832,13 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="ja_JP">
-			<Text>都心に少なくとも2つ以上の砂漠や砂漠の丘陵タイルが隣接している場合、都心の [ICON_Faith] 信仰力+1。都心に隣接する砂漠や砂漠の丘陵タイル1つにつき [ICON_Food] 食料+1。すべての生産に対して [ICON_PRODUCTION] 生産力-15%。鉱山の[ICON_PRODUCTION]生産力-1、 [ICON_gold] ゴールド+4。聖地はオアシスから隣接ボーナス+1。商業ハブ区域の建造物を [ICON_Faith] 信仰力で購入できる。</Text>
+			<Text>都心に隣接する砂漠や砂漠の丘陵タイル1つにつき [ICON_Food] 食料+1。すべての生産に対して [ICON_PRODUCTION] 生産力-15%。鉱山の[ICON_PRODUCTION]生産力-1、 [ICON_gold] ゴールド+4。聖地はオアシスから隣接ボーナス+1。商業ハブ区域の建造物を [ICON_Faith] 信仰力で購入できる。</Text>
 		</Replace>
     <!-- = leader ability (Mansa Musa) = -->
     <Replace Tag="LOC_TRAIT_LEADER_SAHEL_MERCHANTS_DESCRIPTION" Language="ja_JP">
-      <Text>銀行制度の科学技術を発明すると交易路上限+1。聖地はスグバに隣接ボーナスとして追加で [ICON_Gold] ゴールド+1。聖地と聖地の建造物に対して [ICON_Production] 生産力+15%。</Text>
+      <Text>都心に少なくとも2つ以上の砂漠や砂漠の丘陵タイルが隣接している場合、都心の [ICON_Faith] 信仰力+1。銀行制度の科学技術を発明すると交易路上限+1。聖地はスグバに隣接ボーナスとして追加で [ICON_Gold] ゴールド+1。聖地と聖地の建造物に対して [ICON_Production] 生産力+15%。</Text>
     </Replace>
-    <!-- = leader ability (Soundiata) = -->
+    <!-- = leader ability (Sundiata) = -->
     <Replace Tag="LOC_TRAIT_LEADER_SUNDIATA_KEITA_DESCRIPTION" Language="ja_JP">
       <Text>市場は2つの書物傑作スロットを持つ。 [ICON_Greatperson] 偉人を [ICON_Gold] ゴールドで後援する際のコスト-30%。劇場はスグバに隣接ボーナスとして [ICON_Gold] ゴールド+1をもたらす。書物から [ICON_Gold] ゴールド+4、 [ICON_Culture] 文化力+2。スグバと劇場のある都市はターン毎の [ICON_Greatwriter] 大著述家ポイント+1。</Text>
     </Replace>
@@ -864,7 +876,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KUPES_VOYAGE_DESCRIPTION" Language="ja_JP">
-			<Text>帆走術の技術を研究すると、開拓者が乗船できるようになる。首都の[ICON_HOUSING]住宅+3、[ICON_Amenities]快適性+1。</Text>
+			<Text>帆走術の技術を研究すると、開拓者が乗船できるようになる。首都の[ICON_HOUSING]住宅+3。</Text>
 		</Replace>
 
 		<!-- == MAPUCHE == -->
@@ -894,11 +906,11 @@
 		<!-- == MAYA == -->
     <!-- = civilization ability = -->
     <Replace Tag="LOC_TRAIT_CIVILIZATION_MAYAB_DESCRIPTION" Language="ja_JP">
-      <Text>真水や沿岸に隣接したタイルに都市を築いても追加の [ICON_HOUSING] 住宅を得られないが、各農場がさらに [ICON_HOUSING] 住宅+1、隣接する観測所ごとに [ICON_PRODUCTION] 生産力+1、 [ICON_GOLD] ゴールド+1をもたらす。都心に隣接する高級資源1つにつき [ICON_Amenities] 快適性+1。教育の発明後、隣接する観測所1つにつきプランテーションの [ICON_Science] 科学力+2。首都から6タイル以内においてユニットの [ICON_Strength] 戦闘力+3。</Text>
+      <Text>真水や沿岸に隣接したタイルに都市を築いても追加の [ICON_HOUSING] 住宅を得られないが、各農場がさらに [ICON_HOUSING] 住宅+1、隣接する観測所ごとに [ICON_PRODUCTION] 生産力+1、 [ICON_GOLD] ゴールド+1をもたらす。都心に隣接する高級資源1つにつき [ICON_Amenities] 快適性+1。隣接する観測所1つにつきプランテーションの [ICON_Science] 科学力+1、教育の発明後は [ICON_Science] 科学力+2に強化される。首都から6タイル以内においてユニットの [ICON_Strength] 戦闘力+3。</Text>
     </Replace>
     <!-- = unique district = -->
     <Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="ja_JP">
-      <Text>科学を探求するマヤ固有の区域。キャンパス区域に取ってかわり、より安価に建設できる。隣接するプランテーション1つにつき [ICON_Science] 科学力+1のボーナス。隣接する農場か区域タイル2つにつき [ICON_Science] 科学力+1のボーナス。</Text>
+      <Text>科学を探求するマヤ固有の区域。キャンパス区域に取ってかわり、より安価に建設できる。隣接するプランテーション1つにつき [ICON_Science] 科学力+1のボーナス。隣接する農場か区域タイル2つにつき [ICON_Science] 科学力+1のボーナス。[ICON_Housing]住宅+1。隣接する地熱孔1つにつき [ICON_Science] 科学力+2。</Text>
     </Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="ja_JP">
@@ -953,10 +965,14 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TA_SETI_DESCRIPTION" Language="ja_JP">
 			<Text>長距離戦闘ユニットと海洋遠隔ユニットへの[ICON_Production]生産力+30%。すべての長距離戦闘ユニットと海洋遠隔ユニットは戦闘経験値+50%。戦略資源の鉱山の生産力[ICON_Production]+1。ボーナス資源と高級資源の鉱山のゴールド [ICON_Gold] +2。</Text>
 		</Replace>
+    <!-- = leader ability = --> <!-- production icon -->
+    <Replace Tag="LOC_TRAIT_LEADER_KANDAKE_OF_MEROE_DESCRIPTION" Language="ja_JP">
+      <Text>すべての区域に対する [ICON_PRODUCTION] 生産力+20%。ヌビアのピラミッドのある都市は [ICON_PRODUCTION] +40%に強化される。</Text>
+    </Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_PYRAMID_DESCRIPTION" Language="ja_JP">
 			<Text>
-        職人技の社会制度によって解禁される改善。草原、平原、砂漠、丘陵の砂漠あるいは氾濫原にしか建設できない。[ICON_FOOD]食料+1、[ICON_Faith]信仰力+2。都心に隣接している場合[ICON_Food]食料+2。隣接する区域によって追加の産出を得る。[NEWLINE]キャンパスに隣接するごとに、[ICON_SCIENCE]科学力+2。[NEWLINE]工業区域に隣接するごとに、[ICON_PRODUCTION]生産力+2。[NEWLINE]劇場区域に隣接するごとに、[ICON_CULTURE]文化力+2。[NEWLINE]聖地に隣接するごとに、[ICON_FAITH]信仰力+2。[NEWLINE]商業区域や港に隣接するごとに、[ICON_GOLD]ゴールド+2。[NEWLINE]他のヌビアのピラミッドの隣には建設できない。</Text>
+        職人技の社会制度によって解禁される改善。草原、平原、砂漠、丘陵の砂漠あるいは氾濫原にしか建設できない。1都市につき1つのみ建設可能。他のヌビアのピラミッドの隣には建設できない。ヌビアの区域はヌビアのピラミッドから隣接ボーナス+1を受け取る。[ICON_FOOD]食料+2、[ICON_Faith]信仰力+2。隣接する区域によって追加の産出を得る。[NEWLINE]都心に隣接している場合[ICON_Food]食料+1。[NEWLINE]キャンパスに隣接するごとに、[ICON_SCIENCE]科学力+1。[NEWLINE]工業区域、兵営、飛行場に隣接するごとに、[ICON_PRODUCTION]生産力+1。[NEWLINE]劇場区域に隣接するごとに、[ICON_CULTURE]文化力+1。[NEWLINE]聖地に隣接するごとに、[ICON_FAITH]信仰力+1。[NEWLINE]商業区域や港に隣接するごとに、[ICON_GOLD]ゴールド+1。[NEWLINE]政府複合施設や外交街に隣接するごとに文化力+1、ゴールド+2。</Text>
 		</Replace>
 
 		<!-- == OTTOMANS == -->
@@ -1078,7 +1094,7 @@
 			<Text>都市を建設する際に追加の領土を得る。ツンドラのタイルに対し[ICON_PRODUCTION]生産力+1。ゲーム開始時からターン毎の[ICON_FAITH]信仰力+1。</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MOTHER_RUSSIA_EXPANSION2_DESCRIPTION" Language="ja_JP">
-			<Text>都市を建設する際に追加の領土を得る。ツンドラのタイルに対し[ICON_PRODUCTION]生産力+1。首都の[ICON_FAITH]信仰力+1。ユニットがブリザードによるダメージを受けない。ロシアと戦争状態にある文明のユニットがロシアの領土内でブリザードから受けるダメージ+100%。</Text>
+			<Text>都市を建設する際に追加の領土を得る。ツンドラのタイルに対し[ICON_PRODUCTION]生産力+1。ユニットがブリザードによるダメージを受けない。ロシアと戦争状態にある文明のユニットがロシアの領土内でブリザードから受けるダメージ+100%。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_RUSSIAN_COSSACK_DESCRIPTION" Language="ja_JP">
@@ -1110,6 +1126,10 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_EXTRA_LIGHT_CAVALRY_DESCRIPTION" Language="ja_JP">
 			<Text>[ICON_FAITH]信仰力で軽騎兵や重騎兵、サカ族弓騎兵を購入することができる。</Text>
 		</Replace>
+    <!-- = leader ability = -->
+    <Replace Tag="LOC_TRAIT_LEADER_KILLER_OF_CYRUS_DESCRIPTION" Language="ja_JP">
+      <Text>負傷したユニットを攻撃する際、すべてのユニットの [ICON_Strength] 戦闘力+3、スキタイが中世に入ると+5に強化される。また、敵ユニットを撃破するとヒットポイントが30回復する。</Text>
+    </Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SCYTHIAN_HORSE_ARCHER_DESCRIPTION" Language="ja_JP">
 			<Text>スキタイに固有の古典時代の長距離戦闘ユニット。[ICON_Movement]移動力4、[ICON_Range]射程2。</Text>
@@ -1132,6 +1152,12 @@
 			<Replace Tag="LOC_TRAIT_LEADER_EL_ESCORIAL_EXPANSION2_DESCRIPTION" Language="ja_JP">
       		<Text>審問官が異端の排除を1回多く行える。審問官は他の宗教の勢力を100%排除できる。異なる宗教を信奉するプレイヤーとの戦闘時に、戦闘ユニットか宗教ユニットが [ICON_Strength] 戦闘力+3のボーナスを得る。</Text>
     		</Replace>
+    <Replace Tag="LOC_ABILITY_PHILIP_II_COMBAT_BONUS_OTHER_RELIGION_DESCRIPTION" Language="ja_JP">
+      <Text>異なる宗教を信奉する文明のユニットに対して [ICON_Strength] 戦闘力+3（フェリペ２世の効果）。</Text>
+    </Replace>
+    <Replace Tag="LOC_PROMOTION_COMBAT_OTHER_RELIGION_DESCRIPTION" Language="ja_JP">
+      <Text>異なる宗教を信奉する文明のユニットに対して [ICON_Strength] 戦闘力+3）。</Text>
+    </Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SPANISH_CONQUISTADOR_DESCRIPTION" Language="ja_JP">
 			<Text>マスケット銃兵に取ってかわるスペイン固有のルネサンス時代のユニット。1タイル以内に宗教ユニットがいると [ICON_Strength] 戦闘力+5。このユニットが都市を制圧するか、このユニットが隣接した状態で都市を制圧すると、そのプレイヤーの宗教が自動的にその都市の主流宗教になる。</Text>
@@ -1216,7 +1242,7 @@
 		<!-- = civilization ability = -->
 		
     	<Replace Tag="LOC_TRAIT_CIVILIZATION_VIETNAM_DESCRIPTION" Language="ja_JP">
-      		<Text>熱帯雨林、湿原、森にしか陸上の専門区域を建設できない。これらの特徴に建造物を建設すると、森タイルの場合は建造物1つにつき [ICON_CULTURE] 文化力+1、熱帯雨林タイルの場合は [ICON_SCiENCE] 科学力+1、湿原タイルの場合は [ICON_PRODUCTION] 生産力+1。社会制度「中世の市」を完了すると労働者による植林が可能になる。</Text>
+      		<Text>熱帯雨林、湿原、森、氾濫原にしか陸上の専門区域を建設できない。これらの特徴に建造物を建設すると、森タイルの場合は建造物1つにつき [ICON_CULTURE] 文化力+1、熱帯雨林タイルの場合は [ICON_SCiENCE] 科学力+1、湿原タイルの場合は [ICON_PRODUCTION] 生産力+1、氾濫原タイルの場合は [ICON_Food] 食料+1。社会制度「中世の市」を完了すると労働者による植林が可能になる。</Text>
     	</Replace>
 
 		<!-- = leader ability = -->
@@ -1262,7 +1288,7 @@
 			<Text>戦闘瞑想：社会制度を解禁するたび[ICON_Strength]戦闘力+1(産業時代までを含み、最大+34)。</Text>
 		</Row>
 		<Replace Tag="LOC_UNIT_LAHORE_NIHANG_DESCRIPTION" Language="ja_JP">
-			<Text>独自の昇進ツリーを持つ、都市国家ラホール固有のユニット。[ICON_FAITH]信仰力で購入できる。最初に兵舎、武器庫、士官学校を建設するとそれぞれ[ICON_Strength]戦闘力+15。あらゆる時代の[ICON_Greatgeneral]大将軍の効果の影響を受けることができる。</Text>
+			<Text>独自の昇進ツリーを持つ、都市国家ラホール固有のユニット。[ICON_FAITH]信仰力で購入できる。最初に兵舎、武器庫、士官学校を建設するとそれぞれ[ICON_Strength]戦闘力+12。あらゆる時代の[ICON_Greatgeneral]大将軍の効果の影響を受けることができる。</Text>
 		</Replace>
     <Replace Tag="LOC_UNIT_MEDIC_DESCRIPTION" Language="ja_JP">
       <Text>産業時代の支援ユニット。隣接するユニットの体力回復を早められる。隣接する近接、対騎兵、長距離攻撃ユニットの移動力+1。</Text>
@@ -1307,12 +1333,21 @@
 		<Replace Tag="LOC_PROMOTION_BATTLECRY_DESCRIPTION" Language="ja_JP">
 			<Text>近接戦闘ユニット、対騎兵ユニット、長距離戦闘、または偵察ユニットを攻撃する際の[ICON_Strength]戦闘力+7。</Text>
 		</Replace>
+    <!-- == Warrior Monks == -->
 		<Replace Tag="LOC_PROMOTION_MONK_EXPLODING_PALMS_DESCRIPTION" Language="ja_JP">
 			<Text>あらゆる状況で[ICON_Strength]戦闘力+5。</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_MONK_COBRA_STRIKE_DESCRIPTION" Language="ja_JP">
 			<Text>あらゆる状況で[ICON_Strength]戦闘力+7。</Text>
 		</Replace>
+    <!-- == Naval Ranged Units == -->
+    <Replace Tag="LOC_PROMOTION_LINE_OF_BATTLE_DESCRIPTION" Language="ja_JP">
+      <Text>海軍ユニットに対する [ICON_Strength] 戦闘力+5。</Text>
+    </Replace>
+    <!-- == Naval Melee Units == -->
+    <Replace Tag="LOC_PROMOTION_EMBOLON_DESCRIPTION" Language="ja_JP">
+      <Text>海軍ユニットに対する [ICON_Strength] 戦闘力+5。</Text>
+    </Replace>
 
 
 
@@ -1402,10 +1437,10 @@
 			<Text>この都市を目的地とする自文明の交易路の [ICON_Food] 食料+1、 [ICON_culture] 文化力+2。 [ICON_FAITH] 信仰力で区域を10%安く購入できるようになる。</Text>
 		</Replace>
     <Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD_DESCRIPTION" Language="ja_JP">
-      <Text>この都市に聖地がある場合、毎ターン [ICON_GreatProphet] 大預言者ポイント+4。 [ICON_FAITH] 信仰力で聖地の建造物を20%安く購入できるようになる。</Text>
+      <Text>この都市に聖地がある場合、毎ターン [ICON_GreatProphet] 大預言者ポイント+4。6タイル以内の、聖地がある都市1つにつき [ICON_Faith] 信仰力+2。</Text>
     </Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT_DESCRIPTION" Language="ja_JP">
-			<Text>都市で訓練された使徒と武僧が、最初のレベルアップ時に追加のレベルアップ1つを得る。この都市で [ICON_Faith] 信仰力を使って支援ユニットを20%安く購入できるようになる。</Text>
+			<Text>この都市の [ICON_Faith] 信仰力の20%に等しい [ICON_Science] 科学力と [ICON_Culture] 文化力を産出する。</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_THE_CARDINAL_DESCRIPTION" Language="ja_JP">
 			<Text>{LOC_GOVERNOR_THE_CARDINAL_NAME}は宗教的な指導者であり、この都市の[ICON_Culture]文化的意義や[ICON_Religion]宗教的結束を高めることができます。</Text>
@@ -1448,7 +1483,7 @@
 			<Text>9タイル以内の都市の自文明に対する忠誠度が毎ターン+4。スパイのこの都市での活動はレベル-3で行われる。</Text>
 		</Replace>
     <Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR_DESCRIPTION" Language="ja_JP">
-      <Text>毎ターン [ICON_Favor] 外交的支持+1、 [ICON_InfluencePerTurn] 影響力ポイント+1。政府複合施設に建設された最も高段階の建造物の一段階につき更に毎ターン [ICON_Favor] 外交的支持+1、 [ICON_InfluencePerTurn] 影響力+1。</Text>
+      <Text>政府複合施設に建設された最も高段階の建造物の一段階につき毎ターン [ICON_Favor] 外交的支持+1、 [ICON_InfluencePerTurn] 影響力+1。</Text>
     </Replace>
 
 		<!-- == Magnus == -->
@@ -1500,7 +1535,7 @@
 			<Text>高級資源とボーナス資源を扱う鉱山による [ICON_Faith] 信仰力+3、[ICON_GOLD]ゴールド+3。</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_DIVINE_SPARK_EXPANSION2_DESCRIPTION" Language="ja_JP">
-			<Text>聖地(大預言者)、キャンパス(大科学者)、円形闘技場(大著述家)、工業区域(大技術者)1つにつきそれぞれに対応する[ICON_GreatPerson]偉人ポイント+1。</Text>
+			<Text>聖地(大預言者)、キャンパス(大科学者)、円形闘技場(大著述家)、工業区域(大技術者)1つにつきそれぞれに対応する[ICON_GreatPerson]偉人ポイント+1、大預言者ポイントのみ+2。</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_FERTILITY_RITES_DESCRIPTION" Language="ja_JP">
 			<Text>[ICON_RESOURCE_CATTLE]家畜、[ICON_RESOURCE_RICE]米、および[ICON_RESOURCE_WHEAT]小麦タイルの[ICON_FOOD]食糧+1。</Text>
@@ -1515,7 +1550,7 @@
 			<Text>国境拡大速度+50%。新たに建設した都市は追加で２つのタイルを得る。開拓者に対する[ICON_PRODUCTION]生産力+20%。</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_RIVER_GODDESS_EXPANSION2_DESCRIPTION" Language="ja_JP">
-			<Text>河川が隣接する聖地に[ICON_FAITH]信仰力+1の隣接ボーナスを与える。この条件を満たす聖地を持つ都市は[ICON_Amenities]快適性+1、[ICON_Housing]住宅+1。</Text>
+			<Text>河川が隣接する聖地に[ICON_FAITH]信仰力+2の隣接ボーナスを与える。この条件を満たす聖地を持つ都市は[ICON_Amenities]快適性+1。</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_RIVER_GODDESS_DESCRIPTION" Language="ja_JP">
 			<Text>河川に隣接する聖地の[ICON_FAITH]信仰力+1。河川と隣接している聖地がある都市の[ICON_Amenities]快適性+1。</Text>
@@ -1542,10 +1577,10 @@
 			<Text>陸上戦闘ユニットを生産した際、そのコストの25%に相当する[ICON_FAITH]信仰力を得る。[NEWLINE]首都で戦士を1体得る。</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_LADY_OF_THE_REEDS_AND_MARSHES_EXPANSION2_DESCRIPTION" Language="ja_JP">
-			<Text>湿地、オアシス、氾濫原から [ICON_Production] 生産力+1。</Text>
+			<Text>湿地、オアシス、改善されたまたは都心直下の氾濫原に [ICON_Production] 生産力+1。</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_SACRED_PATH_DESCRIPTION" Language="ja_JP">
-			<Text>聖地が隣接する森林およびジャングルから [ICON_Faith] 信仰力+1を得る。</Text>
+			<Text>聖地が隣接する森林、熱帯雨林、湿地から [ICON_Faith] 信仰力+1を得る。</Text>
 		</Replace>
 		<Row Tag="LOC_DISTRICT_SACREDPATH_WOODS_FAITH" Language="ja_JP">
 			<Text>隣接する森林タイルから [ICON_Faith] 信仰力+{1_num}。</Text>
@@ -1618,7 +1653,7 @@
 			<Text>ダルエ・メフルの建設が可能になる。（ [ICON_Faith] 信仰力+3、[ICON_Culture] 文化力+3。）</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_WORK_ETHIC_DESCRIPTION" Language="ja_JP">
-			<Text>神殿と寺院が、それぞれ自身の出力する [ICON_Faith] 信仰力と同量の [ICON_PRODUCTION] 生産力を生み出すようになる。</Text>
+			<Text>社から [ICON_PRODUCTION] 生産力+2、神殿から [ICON_Production] 生産力+4。</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_JUST_WAR_DESCRIPTION" Language="ja_JP">
 			<Text>軍事ユニットはこの宗教を信仰している他文明の近くで戦闘力[ICON_Strength]+5 を得る。</Text>
@@ -1707,7 +1742,7 @@
 			<Text>工兵によってのみ建設可能。チャージを消費しないが、 [ICON_RESOURCE_IRON] 鉄を1消費する。[NEWLINE][NEWLINE]ある鉄道タイルから別の鉄道タイルに移動するユニットの [ICON_MOVEMENT] 移動力が大幅に上がる。鉄道の上を通る交易路は、目的地にある区域に応じて得られる [ICON_GOLD] ゴールドが更に増加する。</Text>
 		</Replace>
     <Replace Tag="LOC_IMPROVEMENT_BEACH_RESORT_DESCRIPTION" Language="ja_JP">
-      <Text>労働者がシーサイドリゾートを建設できるようになる。[NEWLINE][NEWLINE]タイルのアピールの200%に等しい [ICON_Tourism] 観光力をもたらす。沿岸の、砂漠か平原か草原にのみ建設できる。「素敵」以上のアピールが必要。</Text>
+      <Text>労働者がシーサイドリゾートを建設できるようになる。[NEWLINE][NEWLINE]タイルのアピールの150%に等しい [ICON_Tourism] 観光力をもたらす。沿岸の、砂漠・砂漠丘陵・平原・平原丘陵・草原・草原丘陵・火山性土にのみ建設できる。「素敵」以上のアピールが必要。</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_QUARRY_DESCRIPTION" Language="ja_JP">
       <Text>労働者で採石場を建設できるようになる。[NEWLINE][NEWLINE]生産力+1。軍事工学の技術を研究すると、生産力+1。ロケット工学の技術を研究すると生産力+2。隣接タイルのアピール-1。有効なボーナスまたは高級資源タイル(石材、大理石、石膏)の上にのみ建設可能。</Text>
@@ -1921,7 +1956,7 @@
 			<Text>[ICON_GreatWork_Relic]遺物1つと[ICON_GreatWork_Relic]遺物スロット3つを与える。この都市における宗教からの[ICON_Tourism]観光力+100%。この都市のツンドラタイルから[ICON_Food]食糧+1、[ICON_Production]生産力+1、[ICON_Culture]文化力+1。都心の隣にしか建設できない。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_CRISTO_REDENTOR_DESCRIPTION" Language="ja_JP">
-			<Text>[ICON_GreatWork_Relic]遺物1つを与える。聖地および[ICON_GreatWork_Relic]遺物からの[ICON_Tourism]観光力は、啓蒙思想を発明済みの他文明に対しても従来通りの観光を生み出すようになる。自文明のシーサイドリゾートからの[ICON_Tourism]観光力+75%。丘陵にしか建設できない。</Text>
+			<Text>[ICON_GreatWork_Relic]遺物1つを与える。聖地および[ICON_GreatWork_Relic]遺物からの[ICON_Tourism]観光力は、啓蒙思想を発明済みの他文明に対しても従来通りの観光を生み出すようになる。自文明のシーサイドリゾートからの[ICON_Tourism]観光力+100%。丘陵にしか建設できない。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_AMUNDSEN_SCOTT_RESEARCH_STATION_DESCRIPTION" Language="ja_JP">
 			<Text>すべての都市で[ICON_SCIENCE]科学力+20%、[ICON_PRODUCTION]生産力+10%。この都市から半径3タイル以内に自文明の所有するツンドラが5タイル以上ある場合、この効果は2倍になる。研究所のあるキャンパスの隣、かつツンドラまたは雪原上にしか建設できない。</Text>
@@ -1941,6 +1976,9 @@
 		<Replace Tag="LOC_BUILDING_COLOSSEUM_DESCRIPTION" Language="ja_JP">
 			<Text>コロッセオから6タイル以内にある都心の [ICON_Culture] 文化力+1、ターン毎の忠誠心+2、[ICON_Amenities] 快適性+2。アリーナが建設されている総合娯楽施設 (区域) に隣接した平らな土地にのみ建設可能。</Text>
 		</Replace>
+    <Replace Tag="LOC_BUILDING_COLOSSUS_DESCRIPTION" Language="ja_JP">
+      <Text> [ICON_TRADEROUTE] 交易路許容量+1。交易商ユニットを得る。ロードス島の巨神像が建設された都市に到着する [ICON_TRADEROUTE] 国外交易路は出発した都市と到着した都市双方に [ICON_GOLD] ゴールド+2をもたらす。港と陸地に隣接した沿岸タイルにのみ建設可能。</Text>
+    </Replace>
 		<Replace Tag="LOC_BUILDING_ETEMENANKI_DESCRIPTION" Language="ja_JP">
 			<Text>自文明のすべての湿原タイルの [ICON_SCIENCE] 科学力+1、 [ICON_PRODUCTION] 生産力+1。この都市のすべての氾濫原タイルの[ICON_PRODUCTION] 生産力+1、農場のある氾濫原タイルは更に[ICON_SCIENCE] 科学力+1。[NEWLINE][NEWLINE]氾濫原または湿地にのみ建設可能。</Text>
 		</Replace>
@@ -1954,7 +1992,7 @@
 			<Text>弓兵3、槍兵3、破城槌1を得る。対騎兵ユニットの生産に対して [ICON_Production] 生産力+35%。兵舎が存在する兵営区域に隣接した平坦な土地にのみ建設可能。</Text>
 		</Replace>
     <Replace Tag="LOC_BUILDING_ORSZAGHAZ_DESCRIPTION" Language="ja_JP">
-      <Text>宗主国となっている都市国家１つにつき[ICON_Favor]外交的支持+3。[NEWLINE][NEWLINE]川に隣接した場所に建設しなければならない。</Text>
+      <Text>毎ターンの [ICON_InfluencePerTurn] 影響力ポイント+25%。宗主国となっている都市国家１つにつき[ICON_Favor]外交的支持+3。 [ICON_ENVOY] 代表団+2。[NEWLINE][NEWLINE]川に隣接した場所に建設しなければならない。</Text>
     </Replace>
 		<Replace Tag="LOC_BUILDING_KOTOKU_IN_DESCRIPTION" Language="ja_JP">
 			<Text>この都市の [ICON_Faith] 信仰力+20%。武僧を4つ得る。この都市の宗教に関係なく、この都市で武僧を購入できるようになる。[NEWLINE][NEWLINE]神殿のある聖地に隣接するタイルにのみ建設可能。</Text>
@@ -2007,10 +2045,10 @@
     </Replace>
     <!-- = Lahore = -->
     <Replace Tag="LOC_CIVILIZATION_LAHORE_BONUS" Language="ja_JP">
-      <Text>自文明の都市でニハングを訓練できる。[NEWLINE][NEWLINE]ニハングは固有のレベルアップツリーを持つユニットで、 [ICON_Faith] 信仰力を使って購入できる。兵舎、武器庫、士官学校を初めて建設すると、 [ICON_Strength] 戦闘力+15。あらゆる時代の [ICON_GreatGeneral]大将軍からボーナスを受け取れる。</Text>
+      <Text>自文明の都市でニハングを訓練できる。[NEWLINE][NEWLINE]ニハングは固有のレベルアップツリーを持つユニットで、 [ICON_Faith] 信仰力を使って購入できる。兵舎、武器庫、士官学校を初めて建設すると、 [ICON_Strength] 戦闘力+12。あらゆる時代の [ICON_GreatGeneral]大将軍からボーナスを受け取れる。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_TRAIT_LAHORE_DESCRIPTION" Language="ja_JP">
-      <Text>自文明の都市でニハングを訓練できる。[NEWLINE][NEWLINE]ニハングは固有のレベルアップツリーを持つユニットで、 [ICON_Faith] 信仰力を使って購入できる。兵舎、武器庫、士官学校を初めて建設すると、 [ICON_Strength] 戦闘力+15。あらゆる時代の [ICON_GreatGeneral]大将軍からボーナスを受け取れる。</Text>
+      <Text>自文明の都市でニハングを訓練できる。[NEWLINE][NEWLINE]ニハングは固有のレベルアップツリーを持つユニットで、 [ICON_Faith] 信仰力を使って購入できる。兵舎、武器庫、士官学校を初めて建設すると、 [ICON_Strength] 戦闘力+12。あらゆる時代の [ICON_GreatGeneral]大将軍からボーナスを受け取れる。</Text>
     </Replace>
     <!-- = Ngazargamu = -->
 
@@ -2043,6 +2081,13 @@
     </Replace>
     <Replace Tag="LOC_LEADER_TRAIT_CARDIFF_DESCRIPTION" Language="ja_JP">
       <Text>港の建造物に [ICON_PRODUCTION] 生産力+1、 [ICON_GOLD] ゴールド+1、 [ICON_POWER] 電力+2。</Text>
+    </Replace>
+    <!-- = Johannesburg = -->
+    <Replace Tag="LOC_CIVILIZATION_JOHANNESBURG_BONUS" Language="ja_JP">
+      <Text>都市にある改善された資源のタイプ（ボーナス、高級、戦略）１タイプごとにその都市の生産力+1。弾道学、工業化の発明によりそれぞれ更にタイプごとの生産力+1。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_TRAIT_JOHANNESBURG_DESCRIPTION" Language="ja_JP">
+      <Text>都市にある改善された資源のタイプ（ボーナス、高級、戦略）１タイプごとにその都市の生産力+1。弾道学、工業化の発明によりそれぞれ更にタイプごとの生産力+1。</Text>
     </Replace>
     <!-- = Mexico City = -->
     <Replace Tag="LOC_CIVILIZATION_MEXICO_CITY_BONUS" Language="ja_JP">
@@ -2090,10 +2135,10 @@
     </Replace>
     <!-- = Zanzibar = -->
     <Replace Tag="LOC_CIVILIZATION_ZANZIBAR_BONUS" Language="ja_JP">
-      <Text>[ICON_RESOURCE_CINNAMON] シナモンと [ICON_RESOURCE_CLOVES] クローブの高級資源を得る。これらの高級資源は他の手段では獲得できず、それぞれ[ICON_Amenities]快適性4をもたらす。</Text>
+      <Text>[ICON_RESOURCE_CINNAMON] シナモンの高級資源を得る。銀行制度を発明すると更に [ICON_RESOURCE_CLOVES] クローブの高級資源を得る。これらの高級資源は他の手段では獲得できず、それぞれ[ICON_Amenities]快適性6をもたらす。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_TRAIT_ZANZIBAR_DESCRIPTION" Language="ja_JP">
-      <Text>[ICON_RESOURCE_CINNAMON] シナモンと [ICON_RESOURCE_CLOVES] クローブの高級資源を得る。これらの高級資源は他の手段では獲得できず、それぞれ[ICON_Amenities]快適性4をもたらす。</Text>
+      <Text>[ICON_RESOURCE_CINNAMON] シナモンの高級資源を得る。銀行制度を発明すると更に [ICON_RESOURCE_CLOVES] クローブの高級資源を得る。これらの高級資源は他の手段では獲得できず、それぞれ[ICON_Amenities]快適性6をもたらす。</Text>
     </Replace>
 
     <!-- == SCIENTIFIC == -->
@@ -2133,6 +2178,13 @@
     </Replace>
     <Replace Tag="LOC_LEADER_TRAIT_CAGUANA_DESCRIPTION" Language="ja_JP">
       <Text>労働者がバテイを建設できるようになる。[NEWLINE][NEWLINE] [ICON_CULTURE] 文化力+1。隣接するボーナス資源と総合娯楽施設1つにつき [ICON_CULTURE] 文化力+1、探検の社会制度を完了すると [ICON_CULTURE] 文化力+2に強化される。隣接する戦略資源1つにつき [ICON_PRODUCTION] 生産力+1。隣接する高級資源1つにつき [ICON_GOLD]ゴールド+1。航空技術の研究後は観光力を産出する。他のバテイの隣には建設できない。</Text>
+    </Replace>
+    <!-- = Kumasi = -->
+    <Replace Tag="LOC_CIVILIZATION_KUMASI_BONUS" Language="ja_JP">
+      <Text>都市国家へ向かう [ICON_TRADEROUTE] 交易路は [ICON_CULTURE] 文化力+2、出発都市の専門区域1つにつきさらに [ICON_CULTURE] 文化力+1、 [ICON_GOLD] ゴールド+1。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_TRAIT_KUMASI_DESCRIPTION" Language="ja_JP">
+      <Text>都市国家へ向かう [ICON_TRADEROUTE] 交易路は [ICON_CULTURE] 文化力+2、出発都市の専門区域1つにつきさらに [ICON_CULTURE] 文化力+1、 [ICON_GOLD] ゴールド+1。</Text>
     </Replace>
     <!-- = Rapa Nui = -->
     <Replace Tag="LOC_CIVILIZATION_NAN_MADOL_BONUS" Language="ja_JP">
@@ -2266,7 +2318,7 @@
       <Text>戦争の鼓動</Text>
     </Replace>
     <Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="ja_JP">
-      <Text>戦争の鼓動　黄金時代: [NEWLINE] 毎ターン [ICON_RESOURCE_HORSES] 馬+2、 [ICON_RESOURCE_IRON] 鉄+2。軍事ユニットに対する [ICON_PRODUCTION] 生産力+15%。軍事ユニットの [ICON_Gold] 維持費-1。兵営および兵営の建造物から [ICON_PRODUCTION] 生産力+1。ユニットを倒すとその [ICON_Strength] 戦闘力の40%に等しい [ICON_Culture] 文化力を得る（速度オンラインにおいて）。</Text>
+      <Text>戦争の鼓動　黄金時代: [NEWLINE] 発見済みの戦略資源全種類について、毎ターン+2。軍事ユニットに対する [ICON_PRODUCTION] 生産力+15%。軍事ユニットの [ICON_Gold] 維持費-1。兵営および兵営の建造物から [ICON_PRODUCTION] 生産力+1。ユニットを倒すとその [ICON_Strength] 戦闘力の40%に等しい [ICON_Culture] 文化力を得る（速度オンラインにおいて）。</Text>
     </Replace>
     <Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="ja_JP">
       <Text>戦争の鼓動　通常時代：[NEWLINE] [ICON_Greatperson]偉人を採用するたびに時代スコアを1得る。</Text>
@@ -2275,7 +2327,7 @@
       <Text>戦争の鼓動　暗黒時代：[NEWLINE] [ICON_Greatperson]偉人を採用するたびに時代スコアを1得る。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="ja_JP">
-      <Text>戦争の鼓動：[NEWLINE] [ICON_DISTRICT] 専門区域を1つ建てるたびに時代スコアを1得る。黄金時代に選択された場合は次の効果に置き換わる：毎ターン [ICON_RESOURCE_HORSES] 馬+2、 [ICON_RESOURCE_IRON] 鉄+2。軍事ユニットに対する [ICON_PRODUCTION] 生産力+15%。軍事ユニットの [ICON_Gold] 維持費-1。兵営および兵営の建造物から [ICON_PRODUCTION] 生産力+1。ユニットを倒すとその [ICON_Strength] 戦闘力の40%に等しい [ICON_Culture] 文化力を得る（速度オンラインにおいて）。古典時代からルネサンス時代にかけて採用できる。</Text>
+      <Text>戦争の鼓動：[NEWLINE] [ICON_DISTRICT] 専門区域を1つ建てるたびに時代スコアを1得る。黄金時代に選択された場合は次の効果に置き換わる：発見済みの戦略資源全種類について、毎ターン+2。軍事ユニットに対する [ICON_PRODUCTION] 生産力+15%。軍事ユニットの [ICON_Gold] 維持費-1。兵営および兵営の建造物から [ICON_PRODUCTION] 生産力+1。ユニットを倒すとその [ICON_Strength] 戦闘力の40%に等しい [ICON_Culture] 文化力を得る（速度オンラインにおいて）。古典時代からルネサンス時代にかけて採用できる。</Text>
     </Replace>
     <!-- == Free Inquiry == -->
     <Replace Tag="LOC_MOMENT_CATEGORY_SCIENTIFIC" Language="ja_JP">
@@ -2309,6 +2361,9 @@
 		<Replace Tag="LOC_TECH_COMPUTERS_DESCRIPTION" Language="ja_JP">
 			<Text>スパイ保有数の上限が1増加する。[NEWLINE]自文明の[ICON_TOURISM]観光力産出+50%。</Text>
 		</Replace>
+    <Replace Tag="LOC_BOOST_TRIGGER_STEEL" Language="ja_JP">
+      <Text>ルネサンス時代の防壁を建設する。</Text>
+    </Replace>
 		<Replace Tag="LOC_TECH_STEEL_DESCRIPTION" Language="ja_JP">
 			<Text>現代の防衛をアンロックし、すべての都市に自動的に防衛力300と長距離攻撃能力をもたらす。これまでの防壁施設はすべて廃れ、攻城支援ユニットは有効性を失う。</Text>
 		</Replace>
@@ -2340,9 +2395,21 @@
 
 
 		<!-- === CULTURE TREE DESCRIPTIONS === -->
-		<Replace Tag="LOC_CIVIC_ENVIRONMENTALISM_DESCRIPTION" Language="ja_JP">
-			<Text>自文明の[ICON_TOURISM]観光力産出+50%。</Text>
+    <Replace Tag="BBG_LOC_CIVIC_CULTURAL_HEGEMONY_DESCRIPTION" Language="ja_JP">
+      <Text>自文明の[ICON_TOURISM]観光力産出+25%。</Text>
+    </Replace>
+    <Replace Tag="LOC_CIVIC_ENVIRONMENTALISM_DESCRIPTION" Language="ja_JP">
+			<Text>自文明の[ICON_TOURISM]観光力産出+25%。</Text>
 		</Replace>
+    <Replace Tag="LOC_CIVIC_FEUDALISM_DESCRIPTION" Language="ja_JP">
+      <Text>農場は隣接する農場2つにつき [ICON_Food] 食料+1。</Text>
+    </Replace>
+    <Replace Tag="LOC_CIVIC_IDEOLOGY_DESCRIPTION" Language="ja_JP">
+      <Text>スパイを1人増やすことができるようになる。全ての都市国家の国境が開放される。</Text>
+    </Replace>
+    <Replace Tag="LOC_CIVIC_MEDIEVAL_FAIRES_DESCRIPTION" Language="ja_JP">
+      <Text>プランテーションから [ICON_Food] 食料+1。</Text>
+    </Replace>
 		<Replace Tag="LOC_CIVIC_MILITARY_TRADITION_DESCRIPTION" Language="ja_JP">
 			<Text>長距離戦闘ユニットと海洋長距離戦闘ユニットを除くユニットは側面攻撃と支援攻撃によるボーナスを得る。</Text>
 		</Replace>
@@ -2356,6 +2423,26 @@
 
 
 		<!-- === POLICIES AND GOVERNMENTS === -->
+
+    <!-- = Colonial Offices = -->
+    <Replace Tag="LOC_POLICY_COLONIAL_OFFICES_DESCRIPTION" Language="ja_JP">
+      <Text>自文明の [ICON_CAPITAL] 首都から8タイル以上離れた都市の成長+15%、 [ICON_Production] 生産力+10%、毎ターンの忠誠心+3。</Text>
+    </Replace>
+    <!-- = Colonial Taxes = -->
+    <Replace Tag="LOC_POLICY_COLONIAL_TAXES_DESCRIPTION" Language="ja_JP">
+      <Text>自文明の [ICON_CAPITAL] 首都から8タイル以上離れた都市の成長+15%、 [ICON_Production] 生産力+10%、 [ICON_Gold] ゴールド+25%、毎ターンの忠誠心+3。</Text>
+    </Replace>
+    <!-- = Sovereign State added by BBG6.2 = -->
+    <Row Tag="LOC_POLICY_SOVEREIGN_STATE_NAME" Language="ja_JP">
+      <Text>主権国家</Text>
+    </Row>
+    <Row Tag="LOC_POLICY_SOVEREIGN_STATE_DESCRIPTION" Language="ja_JP">
+      <Text>全ての都市国家の国境を開放する。</Text>
+    </Row>
+    <!-- = Gunboat Diplomacy = -->
+    <Replace Tag="LOC_POLICY_GUNBOAT_DIPLOMACY_DESCRIPTION" Language="ja_JP">
+      <Text>毎ターンの [ICON_InfluencePerTurn] 影響力ポイント+4、都市国家への [ICON_ENVOY] 代表団1つにつき毎ターンの [ICON_GOLD] ゴールド+1。</Text>
+    </Replace>
 		<Replace Tag="LOC_POLICY_COLLECTIVIZATION_DESCRIPTION_XP2" Language="ja_JP">
 			<Text>国内の [ICON_TradeRoute] 交易路の [ICON_Production] 生産力+4、 [ICON_Food] 食料+4。</Text>
 		</Replace>
@@ -2366,7 +2453,7 @@
      		<Text>すべての [ICON_TradeRoute] 交易路の [ICON_Gold] ゴールド+4、 [ICON_Faith] 信仰力+1。</Text>
    		 </Replace>
 		<Replace Tag="LOC_POLICY_RAJ_DESCRIPTION_XP2" Language="ja_JP">
-			<Text>宗主国になっている都市国家ごとに [ICON_Science] 科学力+2、 [ICON_Culture] 文化力+2、 [ICON_Faith] 信仰力+2、 [ICON_Gold] ゴールド+2。都市国家への [ICON_TradeRoute] 交易路の [ICON_Gold] ゴールド+2。</Text>
+			<Text>宗主国になっている都市国家ごとに [ICON_Science] 科学力+2、 [ICON_Culture] 文化力+2、 [ICON_Faith] 信仰力+2、 [ICON_Gold] ゴールド+2。都市国家への [ICON_TradeRoute] 交易路の [ICON_Production] 生産力+1、 [ICON_Food] 食料+1、 [ICON_Science] 科学力+2、 [ICON_Culture] 文化力+2、 [ICON_Faith] 信仰力+2、 [ICON_Gold] ゴールド+2。</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_EQUESTRIAN_ORDERS_DESCRIPTION" Language="ja_JP">
 			<Text>開発したすべての [ICON_RESOURCE_HORSES] 馬と [ICON_RESOURCE_IRON] 鉄資源のターン毎の産出量+1。また、[ICON_RESOURCE_HORSES] 馬と [ICON_RESOURCE_IRON] 鉄資源のターン毎の産出量+2。</Text>
@@ -2422,11 +2509,19 @@
 		<Replace Tag="LOC_POLICY_LIMES_DESCRIPTION" Language="ja_JP">
 			<Text>防御施設に対する [ICON_Production] 生産力+50%。</Text>
 		</Replace>
+    <!-- = Arms Race (BBG) = -->
+    <Row Tag="LOC_POLICY_ARMS_RACE_NAME" Language="ja_JP">
+      <Text>軍拡競争</Text>
+    </Row>
+    <Row Tag="LOC_POLICY_ARMS_RACE_DESCRIPTION" Language="ja_JP">
+      <Text> [ICON_DISTRICT_ENCAMPMENT] 兵営、 [ICON_DISTRICT_HARBOR] 港、 [ICON_DISTRICT_AERODROME] 飛行場とその建造物に対する [ICON_PRODUCTION] 生産力+30%。</Text>
+    </Row>
 		<Replace Tag="LOC_POLICY_BASTIONS_DESCRIPTION" Language="ja_JP">
-			<Text>都市の防御時の [ICON_Strength] 戦闘力+6。都市の [ICON_Ranged] 長距離戦闘力+6。</Text>
+			<Text>都心の防御時の [ICON_Strength] 戦闘力+6。</Text>
 		</Replace>
+    <!-- = Praetorium = -->
 		<Replace Tag="LOC_POLICY_PRAETORIUM_DESCRIPTION" Language="ja_JP">
-			<Text>[ICON_Governor] 総督がターン毎に自分の都市に忠誠心+4をもたらす。</Text>
+			<Text>[ICON_Governor] 総督がターン毎に自分の都市に忠誠心+4をもたらす。征服した都市に配属された総督が [ICON_Production] 生産力+20%をもたらす。</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_COMMUNICATIONS_OFFICE_DESCRIPTION" Language="ja_JP">
 			<Text>[ICON_Governor] 総督が着任した都市の忠誠心が、ターン毎に [ICON_Governor] 総督のレベルアップ1つにつき+2。</Text>
@@ -2468,7 +2563,7 @@
 			<Text>すべての近接戦闘、偵察、対騎兵、長距離戦闘ユニットへの [ICON_Production] 生産力+50%。</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="ja_JP">
-			<Text>[ICON_Governor]総督のいる都市の市民1人につき[ICON_Citizen]生産力+1。専門家の産出(それぞれの区域に応じたもの)+1。</Text>
+			<Text>[ICON_Governor]総督のいる都市の市民1人につき[ICON_Citizen]生産力+1。政府が異なる他文明からもたらされる観光力に対するペナルティを10%追加する。</Text>
 		</Replace>
 
     <!-- === GOVERNMENTS === -->
@@ -2511,7 +2606,7 @@
 			<Text>[ICON_Capital]首都に工兵が出現する。</Text>
 		</Replace>
 		<Replace Tag="LOC_GREATPERSON_AETHELFLAED_ACTIVE" Language="ja_JP">
-			<Text>ただちに昇進を1つ持ったトレビュシェットを得る。</Text>
+			<Text>昇進を1つ持ったトレビュシェットが[ICON_Capital]首都に出現する。</Text>
 		</Replace>
 		<!-- Ana Nzinga - no text fixes -->
 		<Replace Tag="LOC_GREATPERSON_JOAN_OF_ARC_ACTIVE" Language="ja_JP">
@@ -2628,6 +2723,18 @@
     <Replace Tag="LOC_WORLD_CONGRESS_BAN_PRODUCTION_YIELD_DESC" Language="ja_JP">
       <Text>次の世界会議まで、選択されたタイプのコストについて、軍事ユニットの生産あるいは購入コスト+50%。</Text>
     </Replace>
+    <Replace Tag="LOC_WORLD_CONGRESS_NO_CULTURE_BORDER_GROWTH_DESC" Language="ja_JP">
+      <Text>選択された文明の国境の [ICON_Culture] 文化力による拡張が停止する。</Text>
+    </Replace>
+    <Replace Tag="LOC_WORLD_CONGRESS_DISTRICTS_CULTURE_BOMB_DESC" Language="ja_JP">
+      <Text>選択された文明はタイルを50%安く購入できる。</Text>
+    </Replace>
+    <Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_BUFF_DESC" Language="ja_JP">
+      <Text>選択されたレベルアップクラスを持つユニットの [ICON_STRENGTH] 戦闘力+3。</Text>
+    </Replace>
+    <Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_NERF_DESC" Language="ja_JP">
+      <Text>選択されたレベルアップクラスを持つユニットの [ICON_STRENGTH] 戦闘力-3。</Text>
+    </Replace>
 
 
 
@@ -2638,6 +2745,14 @@
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_7_CHAPTER_CONTENT_PARA_4" Language="ja_JP">
 			<Text>Flanking and Support bonuses: Outmaneuvering the enemy as well as making sure units in the field are supported by their counterparts is important in order to insure victory in the field. In Civilization VI we simulate this with the Flanking and Support bonuses. Once a player has completed the Military Tradition civic, their military is considered advanced enough in order to benefit from these bonuses.[NEWLINE][NEWLINE]Flanking: If an enemy melee unit is surrounded by 2 or more adjacent friendly melee units during an attack, it is considered flanked, granting a +2 combat bonus to the melee attacker for each additional flanking melee unit.[NEWLINE][NEWLINE]Support: When defending against an enemy melee attack, a defending unit ([COLOR_RED]except land ranged and naval ranged - Better Balanced Game[ENDCOLOR]) can gain a +2 combat bonus for every adjacent friendly unit.[NEWLINE][NEWLINE]Air and anti-air units gain combat strength for each adjacent unit. It is similar to support combat bonus, but they do not need Military Tradition civic to get this bonus.[NEWLINE][NEWLINE]Air units gain +5 combat bonus for every adjacent deployed air unit when defending.[NEWLINE][NEWLINE]Anti-air units gain +5 combat bonus for every adjacent unit that has anti-air ability.</Text>
 		</Replace>
+    <Replace Tag="LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_NAME" Language="ja_JP">
+      <!-- embarkation tip -->
+      <Text>石の武器</Text>
+    </Replace>
+    <Replace Tag="LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_DESC" Language="ja_JP">
+      <!-- embarkation tip -->
+      <Text>古典時代に達するまで、太古のユニットの都市に対する [ICON_Strength] 戦闘力-5。</Text>
+    </Replace>
 		<Replace Tag="LOC_SIEGE_RANGED_DEFENSE_DESCRIPTION" Language="ja_JP">
 			<Text>遠隔攻撃に対して防衛を行う際の[ICON_Strength]戦闘力+10。</Text>
 		</Replace>

@@ -13,3 +13,7 @@ UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_GOL
 -- 21/08/22 reverted
 -- nerf settler PM to +1
 -- UPDATE ModifierArguments SET Value='1' WHERE ModifierId='MEDITERRANEAN_COLONIES_EXTRA_MOVEMENT';
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_PHOENICIA_BIREME', 'CLASS_MALUS_CITY_CENTER');
