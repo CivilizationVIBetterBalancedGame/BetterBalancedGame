@@ -93,18 +93,14 @@ INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
     ('DISTRICT_COMMERCIAL_HUB', 'BBG_PYRAMID_DISTRICT_GOLD'),
     ('DISTRICT_HARBOR', 'BBG_PYRAMID_DISTRICT_GOLD');
 
--- Encampment and Aerodrome give +1 production to Pyramid, Diplo Quarter and Gov Plaza give +1 culture/2 gold
+-- Encampment and Aerodrome give +1 production to Pyramid, and Gov Plaza give +1 culture/2 gold
 INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict) VALUES
     ('BBG_PYRAMID_GOV_CULTURE', 'Placeholder', 'YIELD_CULTURE', 1, 1, 'DISTRICT_GOVERNMENT'),
-    ('BBG_PYRAMID_DIPLO_CULTURE', 'Placeholder', 'YIELD_CULTURE', 1, 1, 'DISTRICT_DIPLOMATIC_QUARTER'),
     ('BBG_PYRAMID_GOV_GOLD', 'Placeholder', 'YIELD_GOLD', 2, 1, 'DISTRICT_GOVERNMENT'),
-    ('BBG_PYRAMID_DIPLO_GOLD', 'Placeholder', 'YIELD_GOLD', 2, 1, 'DISTRICT_DIPLOMATIC_QUARTER'),
     ('BBG_PYRAMID_ENCAMPMENT_PROD', 'Placeholder', 'YIELD_PRODUCTION', 1, 1, 'DISTRICT_ENCAMPMENT'),
     ('BBG_PYRAMID_AERODROME_PROD', 'Placeholder', 'YIELD_PRODUCTION', 1, 1, 'DISTRICT_AERODROME');
 INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
     ('IMPROVEMENT_PYRAMID', 'BBG_PYRAMID_GOV_CULTURE'),
-    ('IMPROVEMENT_PYRAMID', 'BBG_PYRAMID_DIPLO_CULTURE'),
     ('IMPROVEMENT_PYRAMID', 'BBG_PYRAMID_GOV_GOLD'),
-    ('IMPROVEMENT_PYRAMID', 'BBG_PYRAMID_DIPLO_GOLD'),
     ('IMPROVEMENT_PYRAMID', 'BBG_PYRAMID_ENCAMPMENT_PROD'),
     ('IMPROVEMENT_PYRAMID', 'BBG_PYRAMID_AERODROME_PROD');
