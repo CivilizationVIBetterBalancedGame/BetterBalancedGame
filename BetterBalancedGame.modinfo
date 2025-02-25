@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Release ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="6025"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="6030"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="6025"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="6030"> -->
 
 <!-- WIP ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="6025">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="6030">
 	<Properties>
 		<Name>Better Balanced Game WIP</Name>
 		<Description>
@@ -15,7 +15,7 @@
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>6025</Version>
+		<Version>6030</Version>
 		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, codenaugh, coloo, D. / Jack The Narrator,  Facu, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Onyxum, OSCAR., priz, robal, seed.of.apricot, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
@@ -264,23 +264,6 @@
 				<ConfigurationId>VictoryMasterSlider</ConfigurationId>
 				<Group>Game</Group>
 				<Value>5</Value>
-			</ConfigurationValueMatches>
-		</Criteria>
-		<!-- Gamemode -->
-		<Criteria id="No_Gamemode_Babylon">
-			<ModInUse>8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
-			<ConfigurationValueMatches>
-				<Group>Game</Group>
-				<ConfigurationId>BBG_GAMEMODE_BABYLON</ConfigurationId>
-				<Value>0</Value>
-			</ConfigurationValueMatches>
-		</Criteria>
-		<Criteria id="Gamemode_Babylon">
-			<ConfigurationValueMatches>
-				<ModInUse>8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
-				<Group>Game</Group>
-				<ConfigurationId>BBG_GAMEMODE_BABYLON</ConfigurationId>
-				<Value>1</Value>
 			</ConfigurationValueMatches>
 		</Criteria>
 	</ActionCriteria>
@@ -735,7 +718,6 @@
 				<LoadOrder>11648</LoadOrder>
 			</Properties>
 			<Criteria>Babylon</Criteria>
-			<Criteria>No_Gamemode_Babylon</Criteria>
 			<File>sql/NFP/new_bbg_nfp_babylon.sql</File>
 			<File>sql/NFP/Babylon.sql</File>
 			<File>sql/NFP/GreatPeoples.sql</File>
@@ -745,7 +727,6 @@
 				<LoadOrder>11649</LoadOrder>
 			</Properties>
 			<Criteria>Babylon</Criteria>
-			<Criteria>No_Gamemode_Babylon</Criteria>
 			<Criteria>XP2</Criteria>
 			<File>sql/NFP/mali_dlc_babylon.sql</File>
 		</UpdateDatabase>
@@ -1099,29 +1080,6 @@
 			</Properties>
 			<Criteria>NoConflictingUIMod</Criteria>
 		</ReplaceUIScript>
-		<!--
-		<ImportFiles id="bbg_XP2_panel_override_files">
-			<Criteria>XP2</Criteria>	
-			<File>ui/replacements/unitpanel_bbg.lua</File>
-		</ImportFiles>
-		-->		
-		<!-- Gamemode -->
-		<!--
-		<UpdateDatabase id="bbg_db_Gamemode_Babylon">
-			<Properties>
-				<LoadOrder>21010</LoadOrder>
-			</Properties>
-			<Criteria>Gamemode_Babylon</Criteria>
-			<File>sql/april_fool.sql</File>
-		</UpdateDatabase>
-		<UpdateText>
-			<Properties>
-				<LoadOrder>21010</LoadOrder>
-			</Properties>
-			<Criteria>Gamemode_Babylon</Criteria>
-			<File>lang/april_fool.xml</File>
-		</UpdateText>
-	-->
 	</InGameActions>
 
 	<!-- defines file dependencies -->
@@ -1347,9 +1305,5 @@
 	    <File>sql/bbcc/core_bbcc.sql</File>
 	    <File>sql/bbcc/no_rng_bbcc.sql</File>
 	    <File>sql/bbcc/cap_only_bbcc.sql</File>
-
-		<File>sql/april_fool.sql</File>
-		<File>lang/april_fool.xml</File>
-		<File>config/april_fool_2022_config.sql</File>
 	</Files>
 </Mod>

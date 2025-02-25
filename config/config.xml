@@ -30,13 +30,7 @@
 		<Row ParameterId="VictoryReligiousSetting" Name="LOC_VICTORY_RELIGIOUS_NAME" Description="BBG_FRONT_VICTORY_RELIGIOUS_SETTING_DESC" Domain="BBGVictoryReligiousSettingDomain" DefaultValue="0" ConfigurationGroup="Game" ConfigurationId="VictoryReligiousSetting" GroupId="Victories" SortIndex="6" />
 		<!-- Barbarian -->
 		<Row ParameterId="BarbariansSetting" Name="BBG_FRONT_BARBARIANS_SETTING_NAME" Description="BBG_FRONT_BARBARIANS_SETTING_DESC" Domain="BBGBarbsSetting" DefaultValue="1" ConfigurationGroup="Game" ConfigurationId="BARBS_SETTING" GroupId="AdvancedOptions" SortIndex="2010" />
-		<!-- Gamemode -->
-		<Row ParameterId="BBG_GAMEMODE_BABYLON" Name="BBG_GAMEMODE_BABYLON_NAME" Description="BBG_GAMEMODE_BABYLON_DESCRIPTION" Domain="bool" DefaultValue="0" ConfigurationGroup="Game" ConfigurationId="BBG_GAMEMODE_BABYLON" NameArrayConfigurationId="GAMEMODES_ENABLED_NAMES" GroupId="GameModes" SortIndex="210"  SupportsSinglePlayer="1" Visible="1" />
 	</Parameters>
-
-	<!-- <GameModeItems>
-		<Row GameModeType="BBG_GAMEMODE_BABYLON" Name="BBG_GAMEMODE_BABYLON_NAME" Description="BBG_GAMEMODE_BABYLON_DESCRIPTION"  SortIndex="210"/>
-	</GameModeItems> -->
 
 	<ParameterCriteria>
 		<!--BBCC -->
@@ -156,9 +150,6 @@
 	</DomainValues>
 		
 	<ConfigurationUpdates>
-		<Row SourceGroup="Game" SourceId="BBG_GAMEMODE_BABYLON" SourceValue="1" TargetGroup="Game" TargetId="NO_DUPLICATE_CIVILIZATIONS" TargetValue="0" />
-		<Row SourceGroup="Game" SourceId="BBG_GAMEMODE_BABYLON" SourceValue="1" TargetGroup="Game" TargetId="NO_DUPLICATE_LEADERS" TargetValue="0" />
-
 		<Row SourceGroup="Game" SourceId="BARBS_SETTING" SourceValue="0" TargetGroup="Game" TargetId="GAME_NO_BARBARIANS" TargetValue="0" />
 		<Row SourceGroup="Game" SourceId="BARBS_SETTING" SourceValue="1" TargetGroup="Game" TargetId="GAME_NO_BARBARIANS" TargetValue="1" />
 		<Row SourceGroup="Game" SourceId="BARBS_SETTING" SourceValue="2" TargetGroup="Game" TargetId="GAME_NO_BARBARIANS" TargetValue="1" />
