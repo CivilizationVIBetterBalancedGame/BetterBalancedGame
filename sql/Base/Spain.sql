@@ -3,6 +3,9 @@
 
 -- Early Fleets moved to Mercenaries
 UPDATE ModifierArguments SET Value='CIVIC_MERCENARIES' WHERE Name='CivicType' AND ModifierId='TRAIT_NAVAL_CORPS_EARLY';
+-- 27/02/25 Early armadas delayed to nationalism
+UPDATE ModifierArguments SET Value='CIVIC_NATIONALISM' WHERE Name='CivicType' AND ModifierId='TRAIT_NAVAL_ARMIES_EARLY';
+
 -- 30% discount on missionaries
 INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_EL_ESCORIAL', 'HOLY_ORDER_MISSIONARY_DISCOUNT_MODIFIER');
@@ -100,15 +103,16 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_TREASURE_FLEET', 'BBG_TRAIT_DISTANCE_DISTRICT_PRODUCTION');
 
 -- Can make fleet with shipyard.
-INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
-    ('BBG_SPAIN_FLEET_DISCOUNT', 'MODIFIER_CITY_CORPS_ARMY_ADJUST_DISCOUNT', 'BBG_PLAYER_IS_SPAIN');
+-- 27/02/25 removed
+-- INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+--     ('BBG_SPAIN_FLEET_DISCOUNT', 'MODIFIER_CITY_CORPS_ARMY_ADJUST_DISCOUNT', 'BBG_PLAYER_IS_SPAIN');
 
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_SPAIN_FLEET_DISCOUNT', 'UnitDomain', 'DOMAIN_SEA'),
-    ('BBG_SPAIN_FLEET_DISCOUNT', 'Amount', '25');
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+--     ('BBG_SPAIN_FLEET_DISCOUNT', 'UnitDomain', 'DOMAIN_SEA'),
+--     ('BBG_SPAIN_FLEET_DISCOUNT', 'Amount', '25');
 
-INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
-    ('BUILDING_SHIPYARD', 'BBG_SPAIN_FLEET_DISCOUNT');
+-- INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
+--     ('BUILDING_SHIPYARD', 'BBG_SPAIN_FLEET_DISCOUNT');
 
 -- Leader is Phillipe Requirement.
 INSERT OR IGNORE INTO RequirementSets(RequirementSetId , RequirementSetType) VALUES
