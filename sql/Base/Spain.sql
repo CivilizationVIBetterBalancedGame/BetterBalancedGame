@@ -106,11 +106,9 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 -- 27/02/25 removed
 -- INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
 --     ('BBG_SPAIN_FLEET_DISCOUNT', 'MODIFIER_CITY_CORPS_ARMY_ADJUST_DISCOUNT', 'BBG_PLAYER_IS_SPAIN');
-
 -- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 --     ('BBG_SPAIN_FLEET_DISCOUNT', 'UnitDomain', 'DOMAIN_SEA'),
 --     ('BBG_SPAIN_FLEET_DISCOUNT', 'Amount', '25');
-
 -- INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
 --     ('BUILDING_SHIPYARD', 'BBG_SPAIN_FLEET_DISCOUNT');
 
