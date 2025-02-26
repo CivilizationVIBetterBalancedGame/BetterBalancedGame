@@ -1,6 +1,20 @@
 -- 16/04/23 Ramses wonder culture % from 30 to 25 (also reduces buildings per 5)
 UPDATE ModifierArguments SET Value=25 WHERE ModifierId='RAMSES_CULTURE_POSITIVE_WONDERS_BUILDINGS' AND Name='BuildingProductionPercent';
 
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_RAMSES_CULTURE_POSITIVE_BUILDINGS_IF_WONDER', 'MODIFIER_PLAYER_CITIES_GRANT_YIELD_PER_BUILDING_COST', 'CITY_HAS_WONDER_REQUIREMENTS');
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_RAMSES_CULTURE_POSITIVE_BUILDINGS_IF_WONDER', 'YieldType', 'YIELD_CULTURE'),
+    ('BBG_RAMSES_CULTURE_POSITIVE_BUILDINGS_IF_WONDER', 'BuildingProductionPercent', 10),
+    ('BBG_RAMSES_CULTURE_POSITIVE_BUILDINGS_IF_WONDER', 'IncludeWonder', 0);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_RAMSES', 'BBG_RAMSES_CULTURE_POSITIVE_BUILDINGS_IF_WONDER');
+
+UPDATE ModifierArguments SET Value=-15 WHERE ModifierId='RAMSES_CULTURE_NEGATIVE_BUILDINGS' AND Name='BuildingProductionPercent';
+-- UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_NO_WONDER_REQSET' WHERE ModifierId='RAMSES_CULTURE_NEGATIVE_BUILDINGS';
+ 
+
 -- 02/12/24 Ramses gets culture/food on improved resources on floodplains (old Ptolematic bonus)
 -- Requirement Modifier On Improved Resources
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
