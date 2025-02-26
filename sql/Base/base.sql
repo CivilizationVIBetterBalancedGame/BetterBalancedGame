@@ -74,6 +74,8 @@ INSERT OR IGNORE INTO Resource_YieldChanges (ResourceType, YieldType, YieldChang
     ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1);
 UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPICES' AND YieldType='YIELD_FOOD';
 DELETE FROM Resource_ValidTerrains WHERE ResourceType='RESOURCE_JADE' AND TerrainType='TERRAIN_PLAINS';
+-- 26/02/25 diamonds/cocoa to 2 gold
+UPDATE Resource_YieldChanges SET YieldChange=2 WHERE ResourceType IN ('RESOURCE_COCOA', 'RESOURCE_DIAMONDS') AND YieldType='YIELD_GOLD';
 
 -- add 1 production to fishing boat improvement
 UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_FISHING_BOATS' AND YieldType='YIELD_PRODUCTION';
