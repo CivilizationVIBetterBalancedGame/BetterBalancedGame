@@ -4,7 +4,8 @@ INSERT OR IGNORE INTO ExcludedAdjacencies (TraitType , YieldChangeId)
     ('TRAIT_CIVILIZATION_ADJACENT_DISTRICTS' , 'River_Gold');
 -- Samurai come at Feudalism now
 -- Implemented by Firaxis
--- UPDATE Units SET PrereqCivic='CIVIC_FEUDALISM' , PrereqTech=NULL WHERE UnitType='UNIT_JAPANESE_SAMURAI';
+-- 26/02/25 Moved to Mercenaries
+UPDATE Units SET PrereqCivic='CIVIC_MERCENARIES', PrereqTech=NULL WHERE UnitType='UNIT_JAPANESE_SAMURAI';
 
 -- 02/07/24 Nerf combat strenght from +5  to +3
 UPDATE ModifierArguments SET Value = '3' WHERE ModifierId = 'HOJO_TOKIMUNE_SHALLOW_WATER_COMBAT_BONUS' AND Name = 'Amount';
