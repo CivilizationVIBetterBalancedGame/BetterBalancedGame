@@ -1,18 +1,15 @@
 -- 16/04/23 Ramses wonder culture % from 30 to 25 (also reduces buildings per 5)
 UPDATE ModifierArguments SET Value=25 WHERE ModifierId='RAMSES_CULTURE_POSITIVE_WONDERS_BUILDINGS' AND Name='BuildingProductionPercent';
 
+-- 26/02/25 Ramses gets doubled culture (10% to 20%) on buildings if the city has a wonder
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_RAMSES_CULTURE_POSITIVE_BUILDINGS_IF_WONDER', 'MODIFIER_PLAYER_CITIES_GRANT_YIELD_PER_BUILDING_COST', 'CITY_HAS_WONDER_REQUIREMENTS');
-
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_RAMSES_CULTURE_POSITIVE_BUILDINGS_IF_WONDER', 'YieldType', 'YIELD_CULTURE'),
     ('BBG_RAMSES_CULTURE_POSITIVE_BUILDINGS_IF_WONDER', 'BuildingProductionPercent', 10),
     ('BBG_RAMSES_CULTURE_POSITIVE_BUILDINGS_IF_WONDER', 'IncludeWonder', 0);
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_RAMSES', 'BBG_RAMSES_CULTURE_POSITIVE_BUILDINGS_IF_WONDER');
-
-UPDATE ModifierArguments SET Value=-15 WHERE ModifierId='RAMSES_CULTURE_NEGATIVE_BUILDINGS' AND Name='BuildingProductionPercent';
--- UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_NO_WONDER_REQSET' WHERE ModifierId='RAMSES_CULTURE_NEGATIVE_BUILDINGS';
  
 
 -- 02/12/24 Ramses gets culture/food on improved resources on floodplains (old Ptolematic bonus)
@@ -66,14 +63,6 @@ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_RAMSES_FLOODPLAINS_RESOURCE_FOOD_ON_STRAT_RESOURCE', 'YieldType', 'YIELD_FOOD'),
     ('BBG_RAMSES_FLOODPLAINS_RESOURCE_FOOD_ON_STRAT_RESOURCE', 'Amount', '1');
-
--- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
---     ('TRAIT_LEADER_RAMSES', 'BBG_RAMSES_FLOODPLAINS_RESOURCE_FAITH_ON_BONUS_RESOURCE'),
---     ('TRAIT_LEADER_RAMSES', 'BBG_RAMSES_FLOODPLAINS_RESOURCE_FAITH_ON_LUX_RESOURCE'),
---     ('TRAIT_LEADER_RAMSES', 'BBG_RAMSES_FLOODPLAINS_RESOURCE_FAITH_ON_STRAT_RESOURCE'),
---     ('TRAIT_LEADER_RAMSES', 'BBG_RAMSES_FLOODPLAINS_RESOURCE_FOOD_ON_BONUS_RESOURCE'),
---     ('TRAIT_LEADER_RAMSES', 'BBG_RAMSES_FLOODPLAINS_RESOURCE_FOOD_ON_STRAT_RESOURCE'),
---     ('TRAIT_LEADER_RAMSES', 'BBG_RAMSES_FLOODPLAINS_RESOURCE_FOOD_ON_LUX_RESOURCE');
 
 -- 02/12/24 bonus production doubled when city is settled on river for HS and Theater
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
