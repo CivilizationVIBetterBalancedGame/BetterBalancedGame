@@ -2,6 +2,10 @@
 UPDATE GlobalParameters SET Value=2 WHERE Name='FORTIFY_BONUS_PER_TURN';
 
 
+-- 27/02/25 Combat RNG removed (base damage was 24, and max extra 12, meaning extra damage could go from 24 to 36)
+UPDATE GlobalParameters SET Value=0 WHERE Name='COMBAT_MAX_EXTRA_DAMAGE';
+UPDATE GlobalParameters SET Value=30 WHERE Name='COMBAT_BASE_DAMAGE';
+
 --==============================================================
 --******				S  C  O  R  E				  	  ******
 --==============================================================
