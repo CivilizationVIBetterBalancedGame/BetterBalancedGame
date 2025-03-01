@@ -1,7 +1,9 @@
 --Delete original Theodora bonus / Change to +1 culture for hippos and hs per adjacent districts
 -- 04/07/24 hippodrome adjency removed
 -- 27/11/24 adjacency delayed to political
-DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_THEODORA';
+-- 27/02/25 Reverted the farm bonuses
+-- DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_THEODORA';
+DELETE FROM TraitModifiers WHERE ModifierId='THEODORA_CULTURE_HOLY_SITE';
 
 INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
 	('BBG_THEODORA_HOLYSITE_CULTURE', 'MODIFIER_PLAYER_CITIES_DISTRICT_ADJACENCY', 'BBG_UTILS_PLAYER_HAS_CIVIC_POLITICAL_PHILOSOPHY_REQSET'),

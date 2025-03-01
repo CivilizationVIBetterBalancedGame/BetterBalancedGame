@@ -81,6 +81,9 @@ INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
 -- 04/08/24 Palgum buildable everywhere
 UPDATE Buildings SET RequiresAdjacentRiver=0 WHERE BuildingType='BUILDING_PALGUM';
 
+-- 26/02/25 Palgum no longer gives housing
+UPDATE Buildings SET Housing=0 WHERE BuildingType='BUILDING_PALGUM';
+
 -- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
 INSERT INTO TypeTags (Type, Tag) VALUES
     ('UNIT_BABYLONIAN_SABUM_KIBITTUM', 'CLASS_MALUS_CITY_CENTER');
@@ -156,3 +159,13 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('MINOR_CIV_JOHANNESBURG_TRAIT', 'BBG_MINOR_CIV_JOHANNESBURG_UNIQUE_INFLUENCE_BONUS_LUX_INDUS'),
     ('MINOR_CIV_JOHANNESBURG_TRAIT', 'BBG_MINOR_CIV_JOHANNESBURG_UNIQUE_INFLUENCE_BONUS_BONUS_INDUS'),
     ('MINOR_CIV_JOHANNESBURG_TRAIT', 'BBG_MINOR_CIV_JOHANNESBURG_UNIQUE_INFLUENCE_BONUS_STRAT_INDUS');
+
+--===============================================
+--******           GREAT PERSON            ******
+--===============================================
+
+UPDATE GreatPersonIndividuals SET EraType='ERA_CLASSICAL' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_IBN_FADLAN';
+UPDATE GreatPersonIndividuals SET EraType='ERA_MEDIEVAL' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_ZHANG_QIAN';
+
+UPDATE GreatPersonIndividuals SET EraType='ERA_MEDIEVAL' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_RAJA_TODAR_MAL';
+UPDATE GreatPersonIndividuals SET EraType='ERA_RENAISSANCE' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_MARCO_POLO';
