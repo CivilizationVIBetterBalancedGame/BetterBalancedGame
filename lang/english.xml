@@ -118,7 +118,7 @@
 		</Row>
 		<!-- = leader ability (Saladin Vizier) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RIGHTEOUSNESS_OF_FAITH_DESCRIPTION" Language="en_US">
-			<Text>The worship building for their [ICON_RELIGION] Religion can be purchased by any player for just one-tenth of the usual [ICON_FAITH] Faith cost. It adds 20% to the [ICON_SCIENCE] Science, [ICON_CULTURE] Culture, and [ICON_FAITH] Faith to the city's output.</Text>
+			<Text>The worship building for their [ICON_RELIGION] Religion can be purchased by any player for just one-tenth of the usual [ICON_FAITH] Faith cost. It adds 10% to the [ICON_SCIENCE] Science, [ICON_CULTURE] Culture, and [ICON_FAITH] Faith to the city's output, increasing to 20% with Reformed Church.</Text>
 		</Replace>
 		<!-- = leader ability (Saladin Sultan) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SALADIN_ALT_DESCRIPTION" Language="en_US">
@@ -174,7 +174,7 @@
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_PALGUM_DESCRIPTION" Language="en_US">
-			<Text>A building unique to Babylon.[NEWLINE][NEWLINE]+2 [ICON_PRODUCTION] Production and +1 [ICON_HOUSING] Housing.[NEWLINE]+1 [ICON_FOOD] Food to improved Freshwater tiles, except Farms.[NEWLINE]+1 [ICON_PRODUCTION] Production to all farms in the city.</Text>
+			<Text>A building unique to Babylon.[NEWLINE][NEWLINE]+2 [ICON_PRODUCTION] Production.[NEWLINE]+1 [ICON_FOOD] Food to improved Freshwater tiles, except Farms.[NEWLINE]+1 [ICON_PRODUCTION] Production to all farms in the city.</Text>
 		</Replace>
 		
 		<!-- == BRAZIL == -->
@@ -210,14 +210,14 @@
 			<Text>Receive +2 [ICON_RELIGION] Religious Strength for each Holy City converted to your Religion.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_HIPPODROME_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Byzantium. Replaces the [ICON_DISTRICT_ENTERTAINMENT] Entertainment Complex district, provides +2 [ICON_AMENITIES] Amenities, and is cheaper to build. When the Hippodrome and buildings in this district are constructed, receive a Heavy Cavalry unit.</Text>
+			<Text>A district unique to Byzantium. Replaces the [ICON_DISTRICT_ENTERTAINMENT] Entertainment Complex district, provides +3 [ICON_AMENITIES] Amenities, and is cheaper to build. When the Hippodrome and buildings in this district are constructed, receive a Heavy Cavalry unit.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_HIPPODROME_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Byzantium. Replaces the Entertainment Complex district, provides +2 [ICON_AMENITIES] Amenities, and is cheaper to build. When the Hippodrome and buildings in this district are constructed, receive a Heavy Cavalry unit. Units granted from this district do not have a strategic resource maintenance cost. Cannot be built in a city with a Water Park.</Text>
+			<Text>A district unique to Byzantium. Replaces the Entertainment Complex district, provides +3 [ICON_AMENITIES] Amenities, and is cheaper to build. When the Hippodrome and buildings in this district are constructed, receive a Heavy Cavalry unit. Units granted from this district do not have a strategic resource maintenance cost. Cannot be built in a city with a Water Park.</Text>
 		</Replace>
 		<!-- = leader ability (Theodora) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THEODORA_DESCRIPTION" Language="en_US">
-			<Text>After researching Political Philosophy, Holy Sites provide +1 [ICON_CULTURE] Culture for each adjacent district.</Text>
+			<Text>After researching Political Philosophy, Holy Sites provide +1 [ICON_CULTURE] Culture for each adjacent district. Farms provide a +1 [ICON_FAITH] Faith adjacency to Hippodromes and Holy Sites.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_THEODORA_HOLYSITE_CULTURE" Language="en_US">
 			<Text>+{1_num} [ICON_CULTURE] Culture from the adjacent {1_Num : plural 1?district; other?districts;}.</Text>
@@ -424,14 +424,17 @@
 		</Replace>
 		<!-- = leader ability (Ramses II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAMSES_DESCRIPTION" Language="en_US">
-			<Text>Gain [ICON_CULTURE] Culture equal to 10% of the construction cost when finishing Buildings and 25% when completing Wonders. Holy Sites are granted +1 [ICON_PRODUCTION] Production if built adjacent to a River.[NEWLINE][NEWLINE]+15% production bonus for Holy Sites and Industrial Zones when the city is settled on a river.</Text>
+			<Text>Gain [ICON_CULTURE] Culture equal to 10% of the construction cost when finishing Buildings, doubled for cities with a wonder and 25% [ICON_CULTURE] Culture when completing Wonders. Holy Sites are granted +1 [ICON_PRODUCTION] Production if built adjacent to a River.[NEWLINE][NEWLINE]+15% production bonus for Holy Sites and Industrial Zones when the city is settled on a river.</Text>
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="en_US">
-			<Text>Military units receive +5 [ICON_STRENGTH] Combat Strength on floodplains.[NEWLINE][NEWLINE]+15% production bonus for Campuses and Encampments when the city is settled on a river.</Text>
+			<Text>Military units receive +5 [ICON_STRENGTH] Combat Strength on floodplains. Military units can cross rivers without penalty starting in the classical era.[NEWLINE][NEWLINE]+15% production bonus for Campuses and Encampments when the city is settled on a river. Campus and Encampments receive major [ICON_SCIENCE] Science adjacency from rivers.</Text>
 		</Replace>
-		<Replace Tag="LOC_BBG_PTOLE_BONUSES_ON_FLOODPLAIN_ABILITY_DESC" Language="fr_FR">
+		<Replace Tag="LOC_BBG_PTOLE_BONUSES_ON_FLOODPLAIN_ABILITY_DESC" Language="en_US">
 			<Text>+5 [ICON_STRENGTH] Combat Strength when fighting on floodplains.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_PTOLE_NO_MALUSES_ON_RIVER_ABILITY_DESC" Language="en_US">
+			<Text>No movement penalty when crossing rivers starting in the Classical Era.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="en_US">
@@ -619,7 +622,7 @@
 		</Replace>
 		<!-- = leader ability (Ludwig II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LUDWIG_DESCRIPTION" Language="en_US"> <!-- add icon -->
-			<Text>Wonders (complete and incomplete) receive +1 [ICON_CULTURE] Culture for every adjacent [ICON_DISTRICT] District as adjacency bonus, increasing to +2 after Drama and Poetry. All [ICON_CULTURE] Culture adjacencies provide [ICON_TOURISM] Tourism with Castles.</Text>
+			<Text>Wonders (complete and incomplete) receive +1 [ICON_CULTURE] Culture for every adjacent [ICON_DISTRICT] District as adjacency bonus. All [ICON_CULTURE] Culture adjacencies provide [ICON_TOURISM] Tourism with Castles.</Text>
 		</Replace>
 
 		<!-- == GREECE == -->
@@ -792,12 +795,20 @@
 		</Replace>
 		<!-- = leader ability (Tokugawa) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TOKUGAWA_DESCRIPTION" Language="en_US">
-			<Text>International [ICON_TRADEROUTE] Trade Routes receive -25% Yield and [ICON_TOURISM] Tourism, but Domestic [ICON_TRADEROUTE] Trade Routes provide +1 [ICON_CULTURE] Culture, +1 [ICON_SCIENCE] Science, and +1 [ICON_GOLD] Gold for every Specialty District at the Destination. Cities within 6 tiles of Japan's capital receive +4 [ICON_AMENITIES] Amenities and after researching Flight receive +1 [ICON_TOURISM] Tourism for every District.</Text>
+			<Text>International [ICON_TRADEROUTE] Trade Routes receive -25% Yield and [ICON_TOURISM] Tourism, but Domestic [ICON_TRADEROUTE] Trade Routes provide +0.5 [ICON_CULTURE] Culture, +0.5 [ICON_SCIENCE] Science, and +1 [ICON_GOLD] Gold for every Specialty District at the Destination. Cities within 6 tiles of Japan's capital receive +4 [ICON_AMENITIES] Amenities and after researching Flight receive +1 [ICON_TOURISM] Tourism for every District.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_TOKUGAWA_XP_DESCRIPTION" Language="en_US">
-			<Text>International [ICON_TRADEROUTE] Trade Routes receive -25% Yield and [ICON_TOURISM] Tourism, but Domestic [ICON_TRADEROUTE] Trade Routes provide +1 [ICON_CULTURE] Culture, +1 [ICON_SCIENCE] Science, and +1 [ICON_GOLD] Gold for every Specialty District at the Destination. Cities within 6 tiles of Japan's capital receive 100% Loyalty and after researching Flight receive +1 [ICON_TOURISM] Tourism for every District.</Text>
+			<Text>International [ICON_TRADEROUTE] Trade Routes receive -25% Yield and [ICON_TOURISM] Tourism, but Domestic [ICON_TRADEROUTE] Trade Routes provide +0.5 [ICON_CULTURE] Culture increasing to +1 with Humanism, +0.5 [ICON_SCIENCE] Science increasing to +1 with Education, and +1 [ICON_GOLD] Gold for every Specialty District at the Destination. Cities within 6 tiles of Japan's capital receive 100% Loyalty and after researching Flight receive +1 [ICON_TOURISM] Tourism for every District.</Text>
 		</Replace>
-
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_ABILITY_SAMURAI_DESCRIPTION" Language="en_US">
+			<Text>This unit does not suffer combat penalties when damaged.</Text>
+		</Replace>
+		<!-- = unique building = -->
+		<Replace Tag="LOC_BUILDING_ELECTRONICS_FACTORY_DESCRIPTION" Language="en_US">
+			<Text>A building unique to Japan. +4 [ICON_Production] Production to all city centers within 6 tiles. This building provides an additional +4 [ICON_Culture] Culture to its city. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses.</Text>
+		</Replace>
+		
 		<!-- == KHMER == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_KHMER_BARAYS_EXPANSION2_DESCRIPTION" Language="en_US">
@@ -1201,7 +1212,8 @@
 		</Replace>
 		<!-- = leader ability (Julius Caesar) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="en_US">
-			<Text>+150 [ICON_GOLD] Gold when you conquer a city for the first time or when you capture a [ICON_BARBARIAN] Barbarian Outpost, increasing to +250 [ICON_GOLD] Gold after researching Metal Casting and +350 [ICON_GOLD] Gold after Steel (on Standard speed). When targeting Barbarians, receive +5 Combat Strength and always earn normal XP.[NEWLINE][NEWLINE]Receive a free melee unit each time you found a non-capital city and in your capital after researching Code of Laws. Gain an extra Wildcard Policy slot when capturing and retaining at least one city founded by a major civilization and owned by a major civilization at the time of capture (maximum 1 extra wildcard slot).[NEWLINE][NEWLINE]All Units receive +100% Combat Experience.</Text>
+			<Text>+150 [ICON_GOLD] Gold when you conquer a city for the first time or when you capture a [ICON_BARBARIAN] Barbarian Outpost, increasing to +250 [ICON_GOLD] Gold after researching Metal Casting and +350 [ICON_GOLD] Gold after Steel (on Standard speed). When targeting Barbarians, receive +5 Combat Strength and always earn normal XP.[NEWLINE][NEWLINE]Receive a free melee unit each time you found a non-capital city and in your capital after researching Code of Laws. Gain an extra Wildcard Policy slot when capturing and retaining at least one city founded by a major civilization and owned by a major civilization at the time of capture (maximum 1 extra wildcard slot).[NEWLINE][NEWLINE]All Units receive +50% Combat Experience, increasing to +100% when entering the medieval era.</Text>
+		</Replace>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_DOUBLE_XP_BONUS_MODIFIER_NAME" Language="en_US">
 			<Text>+100% Combat Experience (Veni, Vidi, Vici)</Text>
@@ -1274,7 +1286,7 @@
 		<!-- == SPAIN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>May form [ICON_CORPS] Fleets and [ICON_ARMY] Armadas earlier than usual (Mercenaries and Mercantilism). Once required Civics are unlocked, Shipyard building allows training [ICON_CORPS] Fleets and [ICON_ARMY] Armadas directly and their costs reduced by 25%.[NEWLINE][NEWLINE][ICON_TRADEROUTE] Trade Routes receive +3 [ICON_GOLD] Gold, +2 [ICON_FAITH] Faith, and +1 [ICON_PRODUCTION] Production. International [ICON_TRADEROUTE] Trade Routes between multiple continents receive double these numbers. Cities at least 8 tiles away from [ICON_CAPITAL] Capital receive +25% [ICON_PRODUCTION] Production towards [ICON_DISTRICT] districts.[NEWLINE][ICON_BULLET]Bias: T1 Coast, T3 Geothermal Fissure. Special "Continent Split".</Text>
+			<Text>May form [ICON_CORPS] Fleets and [ICON_ARMY] Armadas earlier than usual (Mercenaries and Nationalism). [NEWLINE][NEWLINE][ICON_TRADEROUTE] Trade Routes receive +3 [ICON_GOLD] Gold, +2 [ICON_FAITH] Faith, and +1 [ICON_PRODUCTION] Production. International [ICON_TRADEROUTE] Trade Routes between multiple continents receive double these numbers. Cities at least 8 tiles away from [ICON_CAPITAL] Capital receive +25% [ICON_PRODUCTION] Production towards [ICON_DISTRICT] districts.[NEWLINE][ICON_BULLET]Bias: T1 Coast, T3 Geothermal Fissure. Special "Continent Split".</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_EL_ESCORIAL_DESCRIPTION" Language="en_US">
@@ -1418,6 +1430,26 @@
 		<Replace Tag="LOC_UNIT_LAHORE_NIHANG_DESCRIPTION" Language="en_US">
 			<Text>Lahore City-state unique unit with a unique Promotion tree. Purchasable with [ICON_FAITH] Faith. +12 [ICON_STRENGTH] Combat Strength when Barracks, Armory, and Military Academy buildings are first constructed. Receives bonuses from [ICON_GREATGENERAL] Great General from any era.</Text>
 		</Replace>
+		<Replace Tag="LOC_UNIT_MECHANIZED_INFANTRY_DESCRIPTION" Language="en_US">
+			<Text>Information era melee unit that ignores Zone of Control.</Text>
+		</Replace>
+		<!-- == Heavy Cavalry Units == -->
+		<!-- = Modern Armor = -->
+		<Replace Tag="LOC_UNIT_MODERN_ARMOR_DESCRIPTION" Language="en_US">
+			<Text>Information era heavy cavalry unit that is fast and strong. +5 [ICON_STRENGTH] Combat Strenth when defending inside friendly territory and +5 [ICON_STRENGTH] Combat Strength when attacking outside friendly territory.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_DEFENDING_FRIENDLY_NAME" Language="en_US">
+			<Text>Entrenched</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_DEFENDING_FRIENDLY_DESC" Language="en_US">
+			<Text>+5 [ICON_STRENGTH] Combat Strenth when defending inside friendly territory.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_ATTACKING_UNFRIENDLY_NAME" Language="en_US">
+			<Text>Blitz</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_ATTACKING_UNFRIENDLY_DESC" Language="en_US">
+			<Text>+5 [ICON_STRENGTH] Combat Strength when attacking outside friendly territory.</Text>
+		</Replace>
 		<!-- == Naval Units == -->
 		<Replace Tag="LOC_UNIT_QUADRIREME_DESCRIPTION" Language="en_US">
 			<Text>Classical era ranged naval unit with [ICON_RANGE] Range of 1. Can only operate on Coastal waters until Cartography is researched.</Text>
@@ -1430,6 +1462,16 @@
 		</Replace>
 		<Replace Tag="LOC_UNIT_MISSILE_CRUISER_DESCRIPTION" Language="en_US">
 			<Text>Information era ranged naval unit with [ICON_RANGE] Range of 4. Provides cover from air and nuclear attacks up to 1 tile away.</Text>
+		</Replace>
+		<!-- == Naval Carrier Units== -->
+		<Replace Tag="LOC_UNIT_AIRCRAFT_CARRIER_DESCRIPTION" Language="en_US">
+			<Text>Atomic era melee naval unit that can transport air units. Receives +25 [ICON_AntiAir_Large] Anti-Air Defense Strength if adjacent to a unit with Anti-Air Defense Strength.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_NEXT_TO_ANTI_AIR_NAME" Language="en_US">
+			<Text>Carrier Formation</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_NEXT_TO_ANTI_AIR_DESC" Language="en_US">
+			<Text>+25 [ICON_AntiAir_Large] Anti-Air Defense Strength if adjacent to a unit with Anti-Air Defense Strength.</Text>
 		</Replace>
 		<!-- == Support Units == -->
 		<Replace Tag="LOC_UNIT_MILITARY_ENGINEER_ALT_DESCRIPTION" Language="en_US">
@@ -2620,6 +2662,9 @@
 		<!-- === SCIENCE TREE DESCRIPTIONS === -->
 		<Replace Tag="LOC_TECH_CASTLES_DESCRIPTION" Language="en_US">
 			<Text>Bonus [ICON_CULTURE] Culture for the Great Wall improvement for adjacency. Gain a free Spy if playing as France.</Text>
+		</Replace>
+		<Replace Tag="LOC_TECH_GUNPOWDER_DESCRIPTION" Language="en_US">
+			<Text>Unlocks a [ICON_GOVERNOR] Governor title for Suleiman (Kanuni).</Text>
 		</Replace>
 		<Replace Tag="LOC_TECH_COMPUTERS_DESCRIPTION" Language="en_US">
 			<Text>Grants the ability to construct an additional Spy. +50% [ICON_TOURISM] Tourism across your empire.</Text>
