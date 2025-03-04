@@ -126,3 +126,8 @@ INSERT OR IGNORE INTO RequirementArguments(RequirementId , Name, Value) VALUES
 -- 15/06/23 Reverted
 -- 08/07/24 come back
 UPDATE ModifierArguments SET Value=3 WHERE ModifierId='PHILIP_II_COMBAT_BONUS_OTHER_RELIGION' AND Name='Amount';
+
+-- 04/03/25 Fixed combat bonus so it works on all combat unit
+DELETE FROM TypeTags WHERE Type='ABILITY_PHILIP_II_COMBAT_BONUS_OTHER_RELIGION';
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('ABILITY_PHILIP_II_COMBAT_BONUS_OTHER_RELIGION', 'CLASS_ALL_COMBAT_UNITS');
