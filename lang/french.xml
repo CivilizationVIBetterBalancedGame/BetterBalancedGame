@@ -430,10 +430,13 @@
 		</Replace>
 		<!-- = Leader ability - Compétence de dirigeant (Cleopatra Ptolemaic - Cléopâtre Ptolémaïque) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +15% pour les Campements et les Campus pour les villes fondées sur une rivière.[NEWLINE]Bonus de proximité majeur en [ICON_SCIENCE] Science pour les Campements et les Campus avec les rivières.[NEWLINE][NEWLINE]Les unités militaires gagnent +5 [ICON_STRENGTH] Puissance de combat sur les cases de plaines inondables. À partir de l'ère classique, les rivières n'infligent plus de pénalité de [ICON_STRENGTH] Puissance de combat de [ICON_MOVEMENT] PM aux unités militaires.</Text>
+			<Text>[ICON_PRODUCTION] Production +15% pour les Campements et les Campus pour les villes fondées sur une rivière.[NEWLINE]Bonus de proximité majeur en [ICON_SCIENCE] Science pour les Campements et les Campus avec les rivières.[NEWLINE][NEWLINE]Les unités militaires gagnent +5 [ICON_STRENGTH] Puissance de combat sur les cases de plaines inondables. À partir de l'ère classique, les rivières n'infligent plus de pénalité de [ICON_STRENGTH] Puissance de combat et de [ICON_MOVEMENT] PM aux unités militaires.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PTOLE_BONUSES_ON_FLOODPLAIN_ABILITY_DESC" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +5 sur les cases de plaines inondables.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_PTOLE_NO_MALUSES_ON_RIVER_ABILITY_DESC" Language="fr_FR">
+			<Text>À partir de l'ère classique, les rivières n'infligent plus de pénalité de [ICON_STRENGTH] Puissance de combat et de [ICON_MOVEMENT] PM aux unités militaires.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="fr_FR">
@@ -1597,6 +1600,18 @@
 		<Replace Tag="LOC_UNIT_MODERN_ARMOR_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de cavalerie lourde de l'ère de l'information. [ICON_STRENGTH] Puissance de combat défensive +5 quand elle se trouve dans son territoire. [ICON_STRENGTH] Puissance de combat +5 contre les unités se trouvant en dehors de son territoire.</Text>
 		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_DEFENDING_FRIENDLY_NAME" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat défensive +5 quand elle se trouve dans son territoire.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_DEFENDING_FRIENDLY_DESC" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat défensive +5 quand elle se trouve dans son territoire.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_ATTACKING_UNFRIENDLY_NAME" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +5 contre les unités se trouvant en dehors de son territoire.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_ATTACKING_UNFRIENDLY_DESC" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +5 contre les unités se trouvant en dehors de son territoire.</Text>
+		</Replace>
 
 		<!-- == SIEGE - SIÈGE == -->
 		 <Replace Tag="LOC_UNIT_CATAPULT_DESCRIPTION" Language="fr_FR">
@@ -1673,7 +1688,13 @@
 
 		<!-- == CARRIER - PORTE-AVIONS == -->
 		<Replace Tag="LOC_UNIT_AIRCRAFT_CARRIER_DESCRIPTION" Language="fr_FR">
-			<Text>Unité navale de l'ère atomique capable de transporter des unités aériennes.</Text>
+			<Text>Unité navale de l'ère atomique capable de transporter des unités aériennes. [ICON_STRENGTH] Puissance de combat défensive +25 contre les avions si adjacente à une unité qui possède de la [ICON_ANTIAIR_LARGE] Puissance anti-aérienne.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_NEXT_TO_ANTI_AIR_NAME" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat défensive +25 contre les avions si adjacente à une unité qui possède de la [ICON_ANTIAIR_LARGE] Puissance anti-aérienne.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_NEXT_TO_ANTI_AIR_DESC" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat défensive +25 contre les avions si adjacente à une unité qui possède de la [ICON_ANTIAIR_LARGE] Puissance anti-aérienne.</Text>
 		</Replace>
 
 		<!-- == AIR FIGHTER - CHASSEUR == -->
