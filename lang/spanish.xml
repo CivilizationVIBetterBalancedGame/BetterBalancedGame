@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <GameData>
 	<LocalizedText>
 		<!-- === CIVILIZATIONS === -->
@@ -84,7 +84,7 @@
 		</Row>
 		<!-- = leader ability (Saladin Vizier) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RIGHTEOUSNESS_OF_FAITH_DESCRIPTION" Language="es_ES">
-			<Text>Los Campus y Lugares sagrados reciben un bonus normal de Adjacencia entre si mismos.[NEWLINE]Cualquier jugador puede comprar el edificio de culto de la religión de Arabia por una décima parte del coste de Fe [ICON_Faith] habitual. Este edificio está mejorado para añadir un 20% de producción a Ciencia [ICON_Science], Fe [ICON_Faith] y Cultura [ICON_Culture].</Text>
+		    <Text>El edificio de culto de su religión [ICON_RELIGION] puede ser comprado por cualquier jugador por solo una décima parte del coste habitual de Fe [ICON_FAITH]. Añade un 10% a la Ciencia [ICON_SCIENCE], Cultura [ICON_CULTURE] y Fe [ICON_FAITH] de la producción de la ciudad, aumentando a un 20% con la Iglesia Reformada.</Text>
 		</Replace>
 		<!-- = leader ability (Saladin Sultan) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SALADIN_ALT_DESCRIPTION" Language="es_ES">
@@ -94,21 +94,25 @@
 		<!-- == AUSTRALIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LAND_DOWN_UNDER_DESCRIPTION" Language="es_ES">
-			<Text>+3 a Alojamiento [ICON_Housing] en las ciudades costeras. Los Pastizales activan un Bombardeo cultural. Los distritos Campus, Centro comercial, Lugar sagrado y Teatro ganan +1 adyacencia en casillas con un Atractivo Encantador, +3 en casillas con Atractivo Impresionante.</Text>
+		    <Text>+3 a Alojamiento [ICON_Housing] en las ciudades costeras. +1 a Producción [ICON_PRODUCTION] en los Pastizales con Filosofía Política. Los Pastizales activan un Bombardeo cultural.[NEWLINE][NEWLINE]Los distritos Campus, Centro comercial, Lugar sagrado y Teatro ganan +1 adyacencia en casillas con Atractivo Encantador, +3 en casillas con Atractivo Impresionante.[NEWLINE][ICON_BULLET]Sesgo:T1 Costa, T4 Caballos, Ganado, Ovejas, -T2 Llanuras aluviales, -T4 Bosque tropical. Especial "Soy Salado", puede generarse en la costa sin agua dulce. [NEWLINE][ICON_BULLET]Sesgo: T1 Costa, T4 Caballo, Ganado, Oveja, -T2 Planicies Aluviales, -T4 Selva. Especial "Estoy Salado", puede aparecer en la costa sin agua dulce.</Text>
 		</Replace>
+
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CITADEL_CIVILIZATION_EXPANSION2_DESCRIPTION" Language="es_ES">
 			<Text>+50% a la Producción [ICON_Production] por 10 turnos tras liberar una ciudad.</Text>
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_OUTBACK_STATION_DESCRIPTION" Language="es_ES">
-			<Text>El principio Gremios desbloquea la habilidad del Constructor para crear una Station del Outback, exclusiva de Australia.[NEWLINE][NEWLINE]+1 a Alimentos [ICON_FOOD], +1 a Producción [ICON_PRODUCTION] y +1 de Atractivo a casillas adyacentes.[NEWLINE][NEWLINE]+1 a Alimentos [ICON_FOOD] por cada Pastizal adyacente. +1 Producción [ICON_PRODUCTION] por cada 2 Outback Stations adyacentes con la tecnología Industrialización. +1 Comida [ICON_FOOD] por cada Outback Stations con el principio Despliegue Rápido.[NEWLINE][NEWLINE]Solo puede construirse en casillas de Desierto, Pastizal y Llanura.</Text>
+			<Text>El principio Gremios desbloquea la habilidad del Constructor para crear una Station del Outback, exclusiva de Australia.[NEWLINE][NEWLINE]+1 a Alimentos [ICON_FOOD], +1 a Producción [ICON_PRODUCTION] y +1 de Atractivo a casillas adyacentes.[NEWLINE][NEWLINE]+1 a Alimentos [ICON_FOOD] por cada Pastizal adyacente. +1 Producción [ICON_PRODUCTION] por cada 2 Outback Stations adyacentes con la tecnología Industrialización. +1 a Alimentos [ICON_FOOD] por cada Outback Stations con el principio Despliegue Rápido.[NEWLINE][NEWLINE]Solo puede construirse en casillas de Desierto, Llanuras y Praderas.</Text>
 		</Replace>
 
 		<!-- == AZTECS == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LEGEND_FIVE_SUNS_DESCRIPTION" Language="es_ES">
-			<Text>Gasta cargas de Constructor para completar el 30% del coste original del distrito. +50% a la Producción [ICON_PRODUCTION] de unidades terrestres Cuerpo a cuerpo.</Text>
+			<Text>Gasta cargas de Constructor para completar el 30% del coste original del distrito. +50% a la Producción [ICON_PRODUCTION] de unidades terrestres Cuerpo a cuerpo.[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_GIFTS_FOR_TLATOANI_DESCRIPTION" Language="es_ES">
+		    <Text>Los recursos de lujo en su territorio proporcionan una [ICON_AMENITIES] Comodidad a 2 ciudades adicionales.[NEWLINE]Las unidades militares reciben +1 [ICON_STRENGTH] Fuerza de Combate al atacar por cada recurso de lujo diferente mejorado en las tierras aztecas y retenido por los aztecas.</Text>
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_TLACHTLI_DESCRIPTION" Language="es_ES">
@@ -121,7 +125,7 @@
 		<!-- == BABYLON == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_BABYLON_DESCRIPTION" Language="es_ES">
-			<Text>Recibe un [ICON_TechBoosted] Eureka gratis tras la construcción de cada Biblioteca.</Text>
+			<Text>Recibe un [ICON_TechBoosted] Eureka gratis tras la construcción de cada Biblioteca.[NEWLINE][ICON_BULLET]Sesgo: T3 Ríos.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HAMMURABI_DESCRIPTION" Language="es_ES">
@@ -132,13 +136,13 @@
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_PALGUM_DESCRIPTION" Language="es_ES">
-			<Text>Edificio único de Babilonia. +1 a Alojamiento [ICON_HOUSING] y +2 a la Producción [ICON_PRODUCTION]. Todas las granjas ganan +1 a la Producción [ICON_PRODUCTION]. Las casillas de Agua Fresca trabajadas, excepto Granjas, ganan +1 a Comida [ICON_FOOD].</Text>
-		</Replace> 
-	
+		    <Text>Edificio único de Babilonia.[NEWLINE][NEWLINE]+2 a la Producción [ICON_PRODUCTION].[NEWLINE]+1 a Alimentos [ICON_FOOD] en casillas de Agua Fresca mejoradas, excepto Granjas.[NEWLINE]+1 a la Producción [ICON_PRODUCTION] para todas las granjas de la ciudad.</Text>
+		</Replace>
+
 		<!-- == BRAZIL == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_AMAZON_DESCRIPTION" Language="es_ES">
-			<Text>Las casillas de Selva tropical proporcionan +1 de bonificación por adyacencia a los distritos de Campus, Centro comercial, Lugar sagrado y Teatro, y otorgan +1 de Atractivo a las casillas adyacentes en lugar del habitual -1. Las casillas de Selva sin trabajar ganan +1 Producción [ICON_PRODUCTION] con la tecnología Construcción.</Text>
+			<Text>Las casillas de Selva tropical proporcionan +1 de bonificación por adyacencia a los distritos de Campus, Centro comercial, Lugar sagrado y Teatro, y otorgan +1 de Atractivo a las casillas adyacentes en lugar del habitual -1. Las casillas de Selva sin trabajar ganan +1 Producción [ICON_PRODUCTION] con la tecnología Construcción.[NEWLINE][ICON_BULLET]Sesgo: T2 Selva.</Text>
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_STREET_CARNIVAL_EXPANSION2_DESCRIPTION" Language="es_ES">
@@ -148,11 +152,19 @@
 		<Replace Tag="LOC_DISTRICT_WATER_STREET_CARNIVAL_EXPANSION2_DESCRIPTION" Language="es_ES">
 			<Text>Un distrito exclusivo de Brasil que no se restringe por la cantidad de población y no es un distrito de especialidad. Sustituye al Parque acuático y proporciona +2 a Servicios [ICON_Amenities]. Además desbloquea el proyecto Carnaval, que concede +1 a Servicios [ICON_Amenities] cuando se inicia y diversos puntos de Grandes personajes [ICON_GreatPerson] cuando se completa. No se puede construir en una ciudad con un Carnaval callejero ni sobre un Arrecife.</Text>
 		</Replace>
+
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_UNIT_BRAZILIAN_MINAS_GERAES_DESCRIPTION" Language="es_ES">
+			<Text>Unidad única de la era Industrial de Brasil que reemplaza al Acorazado y se desbloquea con Nacionalismo. +10 [ICON_RANGED] Fuerza de Combate a Distancia y [ICON_STRENGTH] Fuerza de Combate Cuerpo a Cuerpo con Refinamiento.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_MINAS_COMBAT_REFINING_DESC" Language="es_ES">
+			<Text>+10 [ICON_RANGED] Fuerza de Combate a Distancia y [ICON_STRENGTH] Fuerza de Combate Cuerpo a Cuerpo con Refinamiento.</Text>
+		</Replace>
 		
 		<!-- == BYZANTIUM == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_ABILITY_BYZANTIUM_COMBAT_UNITS_DESCRIPTION" Language="es_ES">
-			<Text>Recibes +2 a la Fuerza de combate [ICON_Strength] por cada Ciudad santa que se convierta a tu religión. La religión de Bizancio se propaga a las ciudades cercanas al derrotar una unidad de una gran civilización (Taxis).</Text>
+			<Text>Recibes +2 a la Fuerza de combate [ICON_Strength] por cada Ciudad santa que se convierta a tu religión. La religión de Bizancio se propaga a las ciudades cercanas al derrotar una unidad de una gran civilización (Taxis).[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_BYZANTIUM_RELIGIOUS_UNITS_DESCRIPTION" Language="es_ES">
 			<Text>Recibes +2 a la Fuerza religiosa [ICON_RELIGION] por cada Ciudad santa que se convierta a tu religión.</Text>
@@ -161,18 +173,19 @@
 			<Text>Las unidades reciben +2 a la Fuerza de combate [ICON_Strength] o Fuerza religiosa [ICON_Religion] por cada Ciudad santa que se convierta a la religión de Bizancio (incluida la ciudad santa de Bizancio). +1 punto de Gran profeta [ICON_GreatProphet] por ciudades que tengan un distrito de Lugar sagrado. [NEWLINE][NEWLINE]Cuando derrota a una unidad, propaga la religion de Bizancio (basada en la fuerza de combate cuerpo a cuerpo [ICON_Strength] de la unidad derrotada) en un radio de 5 casillas.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_HIPPODROME_DESCRIPTION" Language="es_ES">
-			<Text>Distrito único Bizantino. Sustituye el distrito Complejo de Entretenimiento, otorga +2 a Servicios [ICON_Amenities], y es más barato de construir. Cuando el Hipódromo y sus edificio se construyen, recibe una unidad de Caballería pesada.</Text>
+			<Text>Distrito único Bizantino. Sustituye el distrito Complejo de Entretenimiento, otorga +3 a Servicios [ICON_Amenities], y es más barato de construir. Cuando el Hipódromo y sus edificio se construyen, recibe una unidad de Caballería pesada.</Text>
 		</Replace> 
 		<Replace Tag="LOC_DISTRICT_HIPPODROME_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>istrito único Bizantino. Sustituye el distrito Complejo de Entretenimiento, otorga +2 a Servicios [ICON_Amenities], y es más barato de construir. Cuando el Hipódromo y sus edificio se construyen, recibe una unidad de Caballería pesada. Las unidades otorgadas por este distrito no tienen coste de mantenimiento de recursos. No se puede construir en una ciudad con Parque acuático.</Text>
+			<Text>istrito único Bizantino. Sustituye el distrito Complejo de Entretenimiento, otorga +3 a Servicios [ICON_Amenities], y es más barato de construir. Cuando el Hipódromo y sus edificio se construyen, recibe una unidad de Caballería pesada. Las unidades otorgadas por este distrito no tienen coste de mantenimiento de recursos. No se puede construir en una ciudad con Parque acuático.</Text>
 		</Replace>
 		<!-- = leader ability (Theodora) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THEODORA_DESCRIPTION" Language="es_ES">
-			<Text>El Lugar Sagrado otorga +1 a Cultura [ICON_Culture] por cada distrito adyacente.</Text>
+		    <Text>Tras investigar Filosofía Política, los Lugares Sagrados otorgan +1 a Cultura [ICON_Culture] por cada distrito adyacente. Las granjas proporcionan +1 a Fe [ICON_FAITH] por adyacencia a Hipódromos y Lugares Sagrados.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_THEODORA_HOLYSITE_CULTURE" Language="es_ES">
-			<Text>+{1_num} [ICON_CULTURE] a Cultura por adyacencia {1_Num : plural 1?district; other?districts;}.</Text>
+		    <Text>+{1_num} [ICON_CULTURE] a Cultura por adyacencia {1_Num : plural 1?distrito; other?distritos;}.</Text>
 		</Row>
+
 		<!-- = unused as of v5.9
 		<Row Tag="LOC_BBG_THEODORA_HIPPODROME_CULTURE" Language="en_US">
 			<Text>+{1_num} [ICON_CULTURE] Culture from the adjacent {1_Num : plural 1?district; other?districts;}.</Text>
@@ -197,7 +210,7 @@
 		<!-- == CANADA == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LAST_BEST_WEST_DESCRIPTION" Language="es_ES">
-			<Text>Los Centros urbanos en Tundra reciben +1 a Alimentos [ICON_Food].NEWLINE][NEWLINE]Permite que las Granjas se construyan en terreno de Tundra. Después de desbloquear Ingeniería civil, las Granjas se pueden construir en Tundra con colinas. En Nieve y Tundra, las Minas y Aserraderos reciben +2 a la Producción [ICON_PRODUCTION], los Campamentos y Granjas reciben +2 a Alimentos [ICON_FOOD] y el límite de acumulación de recursos se duplica para recursos trabajados en tundra y nieve. Reduce en un 50% el costo de adquisición de las casillas en estos tipos de terreno.</Text>
+			<Text>Los Centros urbanos en Tundra reciben +1 a Alimentos [ICON_Food].NEWLINE][NEWLINE]Permite que las Granjas se construyan en terreno de Tundra. Después de desbloquear Ingeniería civil, las Granjas se pueden construir en Tundra con colinas. En Nieve y Tundra, las Minas y Aserraderos reciben +2 a la Producción [ICON_PRODUCTION], los Campamentos y Granjas reciben +2 a Alimentos [ICON_FOOD] y el límite de acumulación de recursos se duplica para recursos trabajados en tundra y nieve. Reduce en un 50% el costo de adquisición de las casillas en estos tipos de terreno.[NEWLINE][ICON_BULLET]Sesgo: T1 Tundra.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_CANADA_MOUNTIE_DESCRIPTION" Language="es_ES">
@@ -213,31 +226,31 @@
 		<!-- == CHINA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_DYNASTIC_CYCLE_DESCRIPTION" Language="es_ES">
-			<Text>Los Eurekas [ICON_TechBoosted] e Inspiraciones [ICON_CivicBoosted] proporcionan el 45% de principios y tecnologías en lugar del 40%.</Text>
+			<Text>Los Eurekas [ICON_TechBoosted] e Inspiraciones [ICON_CivicBoosted] proporcionan el 45% de principios y tecnologías en lugar del 40%.[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_DYNASTIC_CYCLE_EXPANSION1_DESCRIPTION" Language="es_ES">
-			<Text>Los Eurekas [ICON_TechBoosted] e Inspiraciones [ICON_CivicBoosted] proporcionan el 45% de principios y tecnologías en lugar del 40%. Cuando se completa una maravilla recibe un Eureka [ICON_TechBoosted] y una Inspiración [ICON_CivicBoosted] al azar de la época de las maravilla, si hay disponibles.</Text>
+			<Text>Los Eurekas [ICON_TechBoosted] e Inspiraciones [ICON_CivicBoosted] proporcionan el 45% de principios y tecnologías en lugar del 40%. Cuando se completa una maravilla recibe un Eureka [ICON_TechBoosted] y una Inspiración [ICON_CivicBoosted] al azar de la época de las maravilla, si hay disponibles.[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_DYNASTIC_CYCLE_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>Los Eurekas [ICON_TechBoosted] e Inspiraciones [ICON_CivicBoosted] proporcionan el 45% de principios y tecnologías en lugar del 40%. Cuando se completa una maravilla recibe un Eureka [ICON_TechBoosted] y una Inspiración [ICON_CivicBoosted] al azar de la época de las maravilla, si hay disponibles.</Text>
+			<Text>Los Eurekas [ICON_TechBoosted] e Inspiraciones [ICON_CivicBoosted] proporcionan el 45% de principios y tecnologías en lugar del 40%. Cuando se completa una maravilla recibe un Eureka [ICON_TechBoosted] y una Inspiración [ICON_CivicBoosted] al azar de la época de las maravilla, si hay disponibles.[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
 		</Replace>
 		<!-- = leader ability (Qin Shi Huang, Mandate of Heaven) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FIRST_EMPEROR_DESCRIPTION" Language="es_ES">
-			<Text>El Constructor recibe una carga adicional [ICON_Charges]. Cuando construyas maravillas Antiguas y Clásicas, puedes gastar cargas del Constructor [ICON_Charges] para completar el 15% del costo original de la maravilla. +1 Comida [ICON_FOOD] por cada maravilla construida en esta ciudad. Los Canales se desbloquean con la tecnología Mamposteria.[NEWLINE][NEWLINE]Al completar una maravilla recibe un Eureka [ICON_TechBoosted] y una Inspiración [ICON_CivicBoosted] al azar de la misma era que la maravilla si hay disponible.</Text>
+			<Text>El Constructor recibe una carga adicional [ICON_Charges]. Cuando construyas maravillas Antiguas y Clásicas, puedes gastar cargas del Constructor [ICON_Charges] para completar el 15% del costo original de la maravilla. +1 a Alimentos [ICON_FOOD] por cada maravilla construida en esta ciudad. Los Canales se desbloquean con la tecnología Mamposteria.[NEWLINE][NEWLINE]Al completar una maravilla recibe un Eureka [ICON_TechBoosted] y una Inspiración [ICON_CivicBoosted] al azar de la misma era que la maravilla si hay disponible.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_FIRST_EMPEROR_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>El Constructor recibe una carga adicional [ICON_Charges]. Cuando construyas maravillas Antiguas y Clásicas, puedes gastar cargas del Constructor [ICON_Charges] para completar el 15% del costo original de la maravilla. +1 Comida [ICON_FOOD] por cada maravilla construida en esta ciudad. Los Canales se desbloquean con la tecnología Mamposteria.[NEWLINE][NEWLINE]Al completar una maravilla recibe un Eureka [ICON_TechBoosted] y una Inspiración [ICON_CivicBoosted] al azar de la misma era que la maravilla si hay disponible.</Text>
+			<Text>El Constructor recibe una carga adicional [ICON_Charges]. Cuando construyas maravillas Antiguas y Clásicas, puedes gastar cargas del Constructor [ICON_Charges] para completar el 15% del costo original de la maravilla. +1 a Alimentos [ICON_FOOD] por cada maravilla construida en esta ciudad. Los Canales se desbloquean con la tecnología Mamposteria.[NEWLINE][NEWLINE]Al completar una maravilla recibe un Eureka [ICON_TechBoosted] y una Inspiración [ICON_CivicBoosted] al azar de la misma era que la maravilla si hay disponible.</Text>
 		</Replace>
 		<!-- = leader ability (Qin Shi Huang, Unifier) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_QIN_ALT_DESCRIPTION" Language="es_ES">
-			<Text>Las unidades Cuerpo a cuerpo reciben la habilidad Convertir Barbaros, la cual consume la unidad Cuerpo a cuerpo.[NEWLINE][NEWLINE]+50% a la Producción [ICON_PRODUCTION] hacia edificios del Campamento. +1 punto de Gran Escritor [ICON_GreatWriter] por distrito de Campamento. El edificio Barracas otorga 2 espacios para Grandes Obras de Literatura [ICON_GreatWork_WRITING]. Las Grandes Obras de Literatura otorgan +1 a Comida [ICON_FOOD].[NEWLINE][NEWLINE]Tras reclutar un Gran General o un Gran Escritor recibe un [ICON_TechBoosted] Eureka y [ICON_CivicBoosted] Inspiración al azar.</Text>
+			<Text>Las unidades Cuerpo a cuerpo reciben la habilidad Convertir Barbaros, la cual consume la unidad Cuerpo a cuerpo.[NEWLINE][NEWLINE]+50% a la Producción [ICON_PRODUCTION] hacia edificios del Campamento. +1 punto de Gran Escritor [ICON_GreatWriter] por distrito de Campamento. El edificio Barracas otorga 2 espacios para Grandes Obras de Literatura [ICON_GreatWork_WRITING]. Las Grandes Obras de Literatura otorgan +1 a Alimentos [ICON_FOOD].[NEWLINE][NEWLINE]Tras reclutar un Gran General o un Gran Escritor recibe un [ICON_TechBoosted] Eureka y [ICON_CivicBoosted] Inspiración al azar.</Text>
 		</Replace>
 		<!-- = leader ability (Yongle) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_YONGLE_XP_DESCRIPTION" Language="es_ES">
 			<Text>Todas las Ciudades reciben Proyectos en los que pueden convertir el 70% de su [Icon_Production] Producción en [Icon_Food] Alimentos, [Icon_Faith] Fe, o el 150 % si es [Icon_GOLD] Oro. [NEWLINE][NEWLINE]Las ciudades con 10 o más [ICON_CITIZEN] Población reciben +1 [Icon_Gold] Oro, +0.7 [Icon_Science] Ciencia y +0.5 [Icon_Culture] Cultura por turno por cada [ICON_CITIZEN] Ciudadano en la ciudad.[NEWLINE][NEWLINE]Cuando una ciudad alcanza 13 de Población [ICON_POPULATION] por primera vez recibe un Eureka [ICON_TechBoosted] al azar; al alcanzar 18 de Población [ICON_Citizen] recibe una Inspiración [ICON_CivicBoosted] al azar.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROJECT_LIJIA_FOOD_DESCRIPTION" Language="es_ES">
-			<Text>Los proyectos otorgan Comida [ICON_Food] cada turno igual al 70% de la producción de la ciudad.</Text>
+			<Text>Los proyectos otorgan a Alimentos [ICON_Food] cada turno igual al 70% de la producción de la ciudad.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROJECT_LIJIA_FAITH_DESCRIPTION" Language="es_ES">
 			<Text>Los proyectos otorgan Fe [ICON_Faith] cada turno igual al 70% de la producción de la ciudad.</Text>
@@ -270,7 +283,7 @@
 		<!-- == COLOMBIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_EJERCITO_PATRIOTA_DESCRIPTION" Language="es_ES">
-			<Text>+1 Movimiento [ICON_Movement] para todas las unidades militares tras de investigar el principio Filosofía Política. Ascender unidades de Caballería, unidades Aereas y Espías no finaliza su turno.</Text>
+			<Text>+1 Movimiento [ICON_Movement] para todas las unidades militares tras de investigar el principio Filosofía Política. Ascender unidades de Caballería, unidades Aereas y Espías no finaliza su turno.[NEWLINE][ICON_BULLET]Sesgo: Recursos de plantación T5</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_EJERCITO_PATRIOTA_EXTRA_MOVEMENT_DESCRIPTION" Language="es_ES">
 			<Text>+1 Movimiento para todas las unidades (Ejército Patriota).</Text>
@@ -298,7 +311,7 @@
 		<!-- == CREE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_CREE_TRADE_GAIN_TILES_DESCRIPTION" Language="es_ES">
-			<Text>+1 a la capacidad de Rutas comerciales [ICON_TradeRoute] con la tecnología Alfarería. Las casillas sin dueño que estén a 3 casillas o menos de una ciudad cri pasan a ser controladas por los cri cuando un Comerciante entra por primera vez en ellas.</Text>
+			<Text>+1 a la capacidad de Rutas comerciales [ICON_TradeRoute] con la tecnología Alfarería. Las casillas sin dueño que estén a 3 casillas o menos de una ciudad cri pasan a ser controladas por los cri cuando un Comerciante entra por primera vez en ellas.[NEWLINE][ICON_BULLET]Sesgo: T4 Ciervo, Ganado, Caballos, Ovejas.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_CREE_OKIHTCITAW_DESCRIPTION" Language="es_ES">
@@ -312,13 +325,13 @@
 		</Row>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_MEKEWAP_DESCRIPTION" Language="es_ES">
-			<Text>La tecnología Alfarería desbloquea la habilidad del Constructor de colocar un Mekewap, exclusivo de los cri.[NEWLINE][NEWLINE]Proporciona +1 a la Producción [ICON_PRODUCTION] y +1 a Alojamiento [ICON_Housing].[NEWLINE][NEWLINE]+1 Producción [ICON_PRODUCTION] y +1 Alojamiento [ICON_Housing] con el principio Administracion Publica. +1 Oro [ICON_Gold] si esta adyacente a un recurso de lujo, +2 Oro [ICON_Gold] adicionales por cada recurso de lujo adyacente con la tecnología Cartografía. +1 Comida [ICON_Food] por cada 2 Recursos Adicionales adyacentes. Mejora a +1 Comida [ICON_Food] adicional por cada Recurso Adicional adyacente con el principio Conservación. [NEWLINE][NEWLINE]Debe colocarse adyacente a un recurso adicional o de lujo. No se puede construir adyacente a otro Mekewap. </Text>
+			<Text>La tecnología Alfarería desbloquea la habilidad del Constructor de colocar un Mekewap, exclusivo de los cri.[NEWLINE][NEWLINE]Proporciona +1 a la Producción [ICON_PRODUCTION] y +1 a Alojamiento [ICON_Housing].[NEWLINE][NEWLINE]+1 Producción [ICON_PRODUCTION] y +1 Alojamiento [ICON_Housing] con el principio Administracion Publica. +1 Oro [ICON_Gold] si esta adyacente a un recurso de lujo, +2 Oro [ICON_Gold] adicionales por cada recurso de lujo adyacente con la tecnología Cartografía. +1 a Alimentos [ICON_Food] por cada 2 Recursos Adicionales adyacentes. Mejora a +1 a Alimentos [ICON_Food] adicional por cada Recurso Adicional adyacente con el principio Conservación. [NEWLINE][NEWLINE]Debe colocarse adyacente a un recurso adicional o de lujo. No se puede construir adyacente a otro Mekewap. </Text>
 		</Replace>
 
 		<!-- == DUTCH == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_RADIO_ORANJE_DESCRIPTION" Language="es_ES">
-			<Text>Las Rutas comerciales [ICON_TradeRoute] entre tus propias ciudades proporcionan +2 de Lealtad a la ciudad de origen. Las Rutas comerciales [ICON_TradeRoute] con destino a ciudades extranjeras o con origen en estas te proporcionan +2 a Cultura [ICON_Culture] a ti y +1 a Cultura [ICON_Culture] a quién la envía. +3 Fuerza de Combate [ICON_STRENGTH] a todas las unidades navales al defenderse en una casilla de Pólder. Los Campus de Paises Bajos proporcionan +1 Punto de Gran Almirante [ICON_GREATADMIRAL].</Text>
+			<Text>Las Rutas comerciales [ICON_TradeRoute] entre tus propias ciudades proporcionan +2 de Lealtad a la ciudad de origen. Las Rutas comerciales [ICON_TradeRoute] con destino a ciudades extranjeras o con origen en estas te proporcionan +2 a Cultura [ICON_Culture] a ti y +1 a Cultura [ICON_Culture] a quién la envía. +3 Fuerza de Combate [ICON_STRENGTH] a todas las unidades navales al defenderse en una casilla de Pólder. Los Campus de Paises Bajos proporcionan +1 Punto de Gran Almirante [ICON_GREATADMIRAL].[NEWLINE][ICON_BULLET]Sesgo: T2 Ríos, T3 Costa.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_POLDER_DEFENSIVE_CS" Language="es_ES">
 			<Text>+3 [ICON_STRENGTH] al defenderse en Pólder (Radio Naranja)</Text>
@@ -328,29 +341,38 @@
 		</Row>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_POLDER_DESCRIPTION" Language="es_ES">
-			<Text>El principio Feudalismo desbloquea la habilidad del Constructor para erigir un Pólder, exclusivo de los Países Bajos.[NEWLINE][NEWLINE]+1 a Alimentos [ICON_FOOD], +1 a Producción [ICON_Production] y +0,5 a Alojamiento [ICON_Housing]. +3 Fuerza de Combate [ICON_STRENGTH] a las unidades navales de Paises Bajos que se encuentren en casillas de Polder.[NEWLINE][NEWLINE]+1 Comida [ICON_Food] por cada Polder adyacente, aumenta a +2 Comida [ICON_Food] con la tecnología Repuestos. +1 Producción [ICON_Production] por cada Puerto adyacente. +1 Producción [ICON_Production] por cada 2 Polders adyacentes. Mejora a +1 [ICON_PRODUCTION] por cada Polder adyacente con la tecnología Repuestos. +4 Oro [ICON_Gold] con el principio Ingeniería Civil.[NEWLINE][NEWLINE]Debe colocarse en una casilla de Costa o Lago adyacente a 1 o más casillas terrestres franqueable.</Text>
+			<Text>El principio Feudalismo desbloquea la habilidad del Constructor para erigir un Pólder, exclusivo de los Países Bajos.[NEWLINE][NEWLINE]+1 a Alimentos [ICON_FOOD], +1 a Producción [ICON_Production] y +0,5 a Alojamiento [ICON_Housing]. +3 Fuerza de Combate [ICON_STRENGTH] a las unidades navales de Paises Bajos que se encuentren en casillas de Polder.[NEWLINE][NEWLINE]+1 a Alimentos [ICON_Food] por cada Polder adyacente, aumenta a +2 a Alimentos [ICON_Food] con la tecnología Repuestos. +1 Producción [ICON_Production] por cada Puerto adyacente. +1 Producción [ICON_Production] por cada 2 Polders adyacentes. Mejora a +1 [ICON_PRODUCTION] por cada Polder adyacente con la tecnología Repuestos. +4 Oro [ICON_Gold] con el principio Ingeniería Civil.[NEWLINE][NEWLINE]Debe colocarse en una casilla de Costa o Lago adyacente a 1 o más casillas terrestres franqueable.</Text>
 		</Replace>
 
 		<!-- == EGYPT == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ITERU_DESCRIPTION" Language="es_ES">
-			<Text>+20% a la Producción [ICON_Production] de distritos y maravillas si se encuentran adyacentes a un Río. Los Terrenos de aluvión no impiden la colocación de distritos y maravillas.</Text>
+			<Text>+15% a la Producción [ICON_Production] de distritos y maravillas si se encuentran adyacentes a un Río. Los Terrenos de aluvión no impiden la colocación de distritos y maravillas.[NEWLINE][ICON_BULLET]Sesgo: T2 Planicies Aluviales, T5 Ríos.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ITERU_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>+20% a la Producción [ICON_Production] de distritos y maravillas si se encuentran adyacentes a un Río. Es inmune al daño por inundaciones.</Text>
+			<Text>+20% a la Producción [ICON_Production] de distritos y maravillas si se encuentran adyacentes a un Río. Es inmune al daño por inundaciones.[NEWLINE][ICON_BULLET]Sesgo: T2 Planicies Aluviales, T5 Ríos.</Text>
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Egyptian) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MEDITERRANEAN_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>Tus Rutas comerciales [ICON_TradeRoute] hacia otras civilizaciones proporcionan +6 de Oro [ICON_Gold] para Egipto. Las Rutas comerciales [ICON_TradeRoute] de otras civilizaciones hacia Egipto proporcionan +2 a Alimento [ICON_Food] a la otra civilización y +2 de Oro [ICON_Gold] a Egipto. Tener Rutas comerciales [ICON_TradeRoute] con aliados proporciona el doble de Puntos de alianza.</Text>
+		    <Text>Tus Rutas comerciales [ICON_TradeRoute] hacia otras civilizaciones proporcionan +4 de Oro [ICON_Gold] para Egipto. Las Rutas comerciales [ICON_TradeRoute] de otras civilizaciones hacia Egipto proporcionan +1 de Alimento [ICON_Food] a la otra civilización y +2 de Oro [ICON_Gold] a Egipto. Tener Rutas comerciales [ICON_TradeRoute] con aliados proporciona el doble de Puntos de alianza.[NEWLINE][NEWLINE]+15% de Producción [ICON_Production] hacia Centros comerciales y Plazas de teatro cuando la ciudad está asentada sobre un río.</Text>
 		</Replace>
 		<!-- = leader ability (Ramses II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAMSES_DESCRIPTION" Language="es_ES">
-			<Text>Obtiene Cultura [ICON_CULTURE] igual al 10% de coste de produccióno al finalizar edificios y 25% al completar Maravillas.</Text>
+		    <Text>Obtiene Cultura [ICON_CULTURE] igual al 10% de coste de produccióno al finalizar edificios y 25% al completar Maravillas. Los Lugares Sagrados reciben +1 [ICON_PRODUCTION] de Producción si se construyen adyacentes a un río.[NEWLINE][NEWLINE]+15% de bonificación de producción para Lugares Sagrados y Zonas Industriales cuando la ciudad está asentada en un río.</Text>
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="es_ES">
-			<Text>Las Ciudades construidas en casillas de Aluvión reciben +1 a Comida [ICON_FOOD]. Recursos mejorados en Aluvión reciben +1 a Comida [ICON_FOOD] y +1 a Cultura [ICON_CULTURE]. Las casillas de Aluvión propias otorgan +1 de Encanto a casillas adyacentes en vez del usual -1.</Text>
+		    <Text>Las unidades militares reciben +5 de Fuerza de Combate [ICON_STRENGTH] en los aluviones. Las unidades militares pueden cruzar ríos sin penalización a partir de la era clásica.[NEWLINE][NEWLINE]+15% de bonificación de producción para Campus y Campos de instrucción cuando la ciudad está asentada en un río. Los Campus y Campos de instrucción reciben gran adyacencia de Ciencia [ICON_SCIENCE] de los ríos.</Text>
 		</Replace>
+
+		<Replace Tag="LOC_BBG_PTOLE_BONUSES_ON_FLOODPLAIN_ABILITY_DESC" Language="es_ES">
+		    <Text>+5 [ICON_STRENGTH] de Fuerza de Combate cuando se lucha en los aluviones.</Text>
+		</Replace>
+
+		<Replace Tag="LOC_BBG_PTOLE_NO_MALUSES_ON_RIVER_ABILITY_DESC" Language="es_ES">
+		    <Text>Sin penalización de movimiento al cruzar ríos a partir de la era clásica.</Text>
+		</Replace>
+
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="es_ES">
 			<Text>Unidad de caballería a distancia única de la era Antigua Egipcia. 4 [ICON_Movement] Movimiento al comenzar en terreno abierto.</Text>
@@ -378,7 +400,7 @@
 		<!-- == ENGLAND == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION_DESCRIPTION" Language="es_ES"> <!-- charges icon -->
-			<Text>[ICON_RESOURCE_IRON] Las minas de Hierro y [ICON_RESOURCE_COAL] Carbón acumulan 2 recursos más por turno. Los edificios Portuarios aumentan las reservas de Recursos Estratégicos en +10 (a velocidad estándar). +100% [ICON_PRODUCTION] Producción hacia Ingenieros Militares. Los Ingenieros Militares reciben +2 [ICON_Charges] cargas. Los edificios que proporcionan rendimientos adicionales cuando [ICON_POWER] está activado reciben +4 de ese rendimiento.</Text>
+			<Text>[ICON_RESOURCE_IRON] Las minas de Hierro y [ICON_RESOURCE_COAL] Carbón acumulan 2 recursos más por turno. Los edificios Portuarios aumentan las reservas de Recursos Estratégicos en +10 (a velocidad estándar). +100% [ICON_PRODUCTION] Producción hacia Ingenieros Militares. Los Ingenieros Militares reciben +2 [ICON_Charges] cargas. Los edificios que proporcionan rendimientos adicionales cuando [ICON_POWER] está activado reciben +4 de ese rendimiento.[NEWLINE][ICON_BULLET]Sesgo: T1 Costa, T5 Hierro y Carbón.</Text>
 		</Replace>
 		<!-- = leader ability (Victoria - Age of Empire) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PAX_BRITANNICA_DESCRIPTION" Language="es_ES">
@@ -422,7 +444,7 @@
 		<!-- == ETHIOPIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ETHIOPIA_DESCRIPTION" Language="es_ES">
-			<Text>Las Rutas comerciales internacionales de Etiopía dan +0,5 a Fe [ICON_Faith] por recurso en el punto de origen. Los recursos mejorados dan +1 a Fe [ICON_Faith]. Se pueden adquirir Museos arqueológicos y Arqueólogos con Fe [ICON_Faith].</Text>
+			<Text>Las Rutas comerciales internacionales de Etiopía dan +0,5 a Fe [ICON_Faith] por recurso en el punto de origen. Los recursos mejorados dan +1 a Fe [ICON_Faith]. Se pueden adquirir Museos arqueológicos y Arqueólogos con Fe [ICON_Faith].[NEWLINE][ICON_BULLET]Sesgo: T3 Colinas de Pradera y Llanura.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MENELIK_DESCRIPTION" Language="es_ES">
@@ -449,7 +471,7 @@
 		<!-- == FRANCE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_WONDER_TOURISM_DESCRIPTION" Language="es_ES">
-			<Text>Recive un Espía gratis (y una capacidad de Espías) con la tecnología Castillos. Todos los espías comienzan como Agentes y con una promoción gratis. +20% a la Producción [ICON_Production] para maravillas de la Edad Media, el Renacimiento y la Revolución Industrial. +50% al Turismo [ICON_Tourism] de las maravillas de cualquier época.</Text>
+			<Text>Recive un Espía gratis (y una capacidad de Espías) con la tecnología Castillos. Todos los espías comienzan como Agentes y con una promoción gratis. +20% a la Producción [ICON_Production] para maravillas de la Edad Media, el Renacimiento y la Revolución Industrial. +50% al Turismo [ICON_Tourism] de las maravillas de cualquier época.[NEWLINE][ICON_BULLET]Sesgo: T4 Ríos.</Text>
 		</Replace>
 		<!-- = leader ability (Black Queen) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FLYING_SQUADRON_DESCRIPTION" Language="es_ES">
@@ -481,14 +503,13 @@
 		<!-- == GAUL == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="es_ES">
-			<Text>Las Minas dan una bonificación por adyacencia menor para todos los distritos y reciben +1 a Cultura [ICON_CULTURE] al investigar la tecnología Forja de bronce. Los distritos especializados no reciben una adyacencia menor por estar adyacentes a otro distrito y no se pueden construir adyacentes al Centro urbano.</Text>
+			<Text>Las Minas dan una bonificación por adyacencia menor para todos los distritos y reciben +1 a Cultura [ICON_CULTURE] al investigar la tecnología Forja de bronce. Los distritos especializados no reciben una adyacencia menor por estar adyacentes a otro distrito y no se pueden construir adyacentes al Centro urbano.[NEWLINE][ICON_BULLET]Sesgo: T3 Hierro, T4 Recursos de Cantera, T5 Recursos Minables.</Text>
 		</Replace>
-		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="es_ES">
-			<Text>Las unidades de combate Cuerpo a cuerpo y Anticaballería reciben +1 a la Fuerza de combate [ICON_Strength] por cada unidad de combate adyacente.</Text>
+		    <Text>Las unidades de combate Cuerpo a cuerpo y Anticaballería reciben +1 a la Fuerza de combate [ICON_Strength] por cada una de tus unidades militares adyacentes.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="es_ES">
-			<Text>Recibe +1 a la Fuerza de combate [ICON_Strength] por cada unidad de combate adyacente (Rey de los eburones).</Text>
+		    <Text>Recibe +1 a la Fuerza de combate [ICON_Strength] por cada unidad de combate adyacente (Rey de los eburones).</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_ABILITY_GAESATAE_DESCRIPTION" Language="es_ES">
@@ -502,7 +523,7 @@
 		<!-- == GEORGIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GOLDEN_AGE_QUESTS_DESCRIPTION" Language="es_ES">
-			<Text>Al realizar dedicatorias al comienzo de una Edad Dorada [ICON_GLORY_GOLDEN_AGE] o una Edad Heroica [ICON_GLORY_SUPER_GOLDEN_AGE], recibe la bonificación de edad Normal [ICON_GLORY_NORMAL_AGE] para mejorar la puntuación de la era además de la otra bonificación. +50% [ICON_Production] Producción hacia muros.</Text>
+			<Text>Al realizar dedicatorias al comienzo de una Edad Dorada [ICON_GLORY_GOLDEN_AGE] o una Edad Heroica [ICON_GLORY_SUPER_GOLDEN_AGE], recibe la bonificación de edad Normal [ICON_GLORY_NORMAL_AGE] para mejorar la puntuación de la era además de la otra bonificación. +50% [ICON_Production] Producción hacia muros.[NEWLINE][ICON_BULLET]Sesgo: T4 Recursos de Cantera.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GOLDEN_AGE_QUESTS_EXPANSION2_DESCRIPTION" Language="es_ES">
 			<Text>Al realizar dedicatorias al comienzo de una Edad Dorada [ICON_GLORY_GOLDEN_AGE] o una Edad Heroica [ICON_GLORY_SUPER_GOLDEN_AGE], recibe la bonificación de edad Normal [ICON_GLORY_NORMAL_AGE] para mejorar la puntuación de la era además de la otra bonificación. +50% [ICON_Production] Producción hacia muros.</Text>
@@ -526,7 +547,7 @@
 		<!-- == GERMANY == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_IMPERIAL_FREE_CITIES_DESCRIPTION" Language="es_ES">
-			<Text>Tras desbloquear el principio de Gremios cada ciudad puede construir un distrito más de lo habitual (excediendo el límite normal basado en Población [ICON_Citizen]). Bombardea culturalmente las casillas adyacentes al completar un Centro Comercial.</Text>
+			<Text>Tras desbloquear el principio de Gremios cada ciudad puede construir un distrito más de lo habitual (excediendo el límite normal basado en Población [ICON_Citizen]). Bombardea culturalmente las casillas adyacentes al completar un Centro Comercial.[NEWLINE][ICON_BULLET]Sesgo: T3 Ríos.</Text>
 		</Replace>
 		<!-- = leader ability (Frederick Barbarossa) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HOLY_ROMAN_EMPEROR_DESCRIPTION" Language="es_ES"> <!-- add icon -->
@@ -534,17 +555,17 @@
 		</Replace>
 		<!-- = leader ability (Ludwig II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LUDWIG_DESCRIPTION" Language="es_ES">
-			<Text>Maravillas (completas e incompletas) reciben +1 Cultura [ICON_CULTURE] por cada Distrito como bonus de adyacencia, aumenta a +2 tras investigar Drama y Poesía. Toda la Cultura [ICON_CULTURE] por adyacencia otorga Turismo [ICON_TOURISM] tras investigar Castillos.</Text>
+		    <Text>Maravillas (completas e incompletas) reciben +1 Cultura [ICON_CULTURE] por cada Distrito como bonus de adyacencia. Toda la Cultura [ICON_CULTURE] por adyacencia otorga Turismo [ICON_TOURISM] tras investigar Castillos.</Text>
 		</Replace>
 
 		<!-- == GREECE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_PLATOS_REPUBLIC_DESCRIPTION" Language="es_ES">
-			<Text>Un espacio de política comodín adicional en cualquier gobierno tras desbloquear el principio Imperio Inicial.</Text>
+			<Text>Un espacio de política comodín adicional en cualquier gobierno tras desbloquear el principio Imperio Inicial.[NEWLINE][ICON_BULLET]Sesgo: T4 Colinas de Pastizales y Llanuras.</Text>
 		</Replace>
 		<!-- = leader ability (Gorgo) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THERMOPYLAE_DESCRIPTION" Language="es_ES">
-			<Text>Las Victorias en combate proporcionan Cultura [ICON_Culture]equivalente al 50% de la Fuerza de combate [ICON_Strength] de la unidad derrotada (a velocidad En linea).[NEWLINE][NEWLINE]+1 a la Fuerza de Combate [ICON_Strength] por cada espacio de Política Militar en tu gobierno.</Text>
+			<Text>Las Victorias en combate proporcionan Cultura [ICON_Culture]equivalente al 50% de la Fuerza de combate [ICON_Strength] de la unidad derrotada (a velocidad En linea).[NEWLINE][NEWLINE]+1 a la Fuerza de Combate [ICON_Strength] por cada espacio de Política Militar en tu gobierno.[NEWLINE][ICON_BULLET]Sesgo: T4 Colinas de Pradera y Llanura.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_GORGO_COMBAT_ABILITY_DESCRIPTION" Language="es_ES">
 			<Text>+1 a la Fuerza de Combate [ICON_Strength] por cada espacio de Política Militar en tu gobierno..</Text>
@@ -583,7 +604,7 @@
 		<!-- == HUNGARY == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_PEARL_DANUBE_DESCRIPTION" Language="es_ES">
-			<Text>+50% a la Producción [ICON_PRODUCTION] de distritos y edificios construidos a través de un río adyacente a un Centro urbano.</Text>
+			<Text>+50% a la Producción [ICON_PRODUCTION] de distritos y edificios construidos a través de un río adyacente a un Centro urbano.[NEWLINE][ICON_BULLET]Sesgo: T4 Ríos, T5 Grietas Geotérmicas.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAVEN_KING_DESCRIPTION" Language="es_ES">
@@ -610,7 +631,7 @@
 		<!-- == INCA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GREAT_MOUNTAINS_DESCRIPTION" Language="es_ES">
-			<Text>Los Ciudadanos pueden trabajar las casillas de Montaña. Las casillas de Montaña proporcionan +2 Producción [ICON_Production], aumentá a +3 Producción [ICON_Production] tras alcanzar la Revolución Industrial, y +1 Comida [ICON_Food] por cada Terraza de Cultivo adyacente.</Text>
+			<Text>Los Ciudadanos pueden trabajar las casillas de Montaña. Las casillas de Montaña proporcionan +2 Producción [ICON_Production], aumentá a +3 Producción [ICON_Production] tras alcanzar la Revolución Industrial, y +1 a Alimentos [ICON_Food] por cada Terraza de Cultivo adyacente.[NEWLINE][ICON_BULLET]Sesgo: T3 Llanuras y Praderas Montañosas. Especial "Amante de las Montañas".</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PACHACUTI_QHAPAQ_NAN_DESCRIPTION" Language="es_ES">
@@ -618,33 +639,45 @@
 		</Replace>
 
 		<!-- == INDIA == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_DHARMA_EXPANSION2_DESCRIPTION" Language="es_ES">
+		    <Text>Recibe bonificaciones de Creencias de Seguidores en una ciudad de cada Religión que tenga al menos 1 Seguidor. Las ciudades ganan +1 [ICON_AMENITIES] Amenidad por cada Religión con al menos 1 Seguidor. Los Misioneros tienen +2 propagaciones. +100% de presión religiosa de tus [ICON_TRADEROUTE] Rutas Comerciales.[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
+		</Replace>
 		<!-- = leader ability (Chandragupta) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ARTHASHASTRA_DESCRIPTION" Language="es_ES">
-			<Text>+1 Fuerza de Combate [ICON_STRENGTH] por cada edificio en el distrito Lugar Sagrado a todas las nuevas unidades militares entrenadas en la ciudad. Los Santuarios otorgan +1 Movimiento [ICON_Movement] y los Templos otorgan +1 Visión a todas las nuevas unidades militares entrenadas en esta ciudad. Los Templos otorgan +1 Punto de Gran General.[NEWLINE][NEWLINE]Tras desbloquear los principios necesarios, permite a las ciudades con edificios de Culto entrenar Corps [ICON_Corps] o Ejércitos [ICON_Army] y su costo se reduce por 25%.</Text>
+		    <Text>Los Santuarios otorgan +1 Movimiento [ICON_Movement] y los Templos otorgan +1 Visión a todas las nuevas unidades militares entrenadas en la ciudad. Las unidades reciben +1 Fuerza de Combate [ICON_STRENGTH] por cada edificio de Lugar Sagrado en la ciudad cuando son producidas.[NEWLINE][NEWLINE]Los Santuarios otorgan +1 Fuerza de Combate [ICON_STRENGTH] y los Templos otorgan +1 Visión a todas las nuevas unidades militares entrenadas en esta ciudad. Los Templos otorgan +1 Punto de Gran General.[NEWLINE][NEWLINE]Tras desbloquear los principios necesarios, permite a las ciudades con edificios de Culto entrenar Corps [ICON_Corps] o Ejércitos [ICON_Army] y su costo se reduce por 25%.</Text>
 		</Replace>
+
 		<Row Tag="LOC_BBG_CHANDRA_MOVEMENT_ABILITY_DESC" Language="es_ES">
-			<Text>+1 [ICON_Movement] Movimiento desde el edificio del Santuario (Arthashastra)</Text>
+		    <Text>+1 [ICON_Movement] Movimiento desde el edificio del Santuario (Arthashastra)</Text>
 		</Row>
+
 		<Row Tag="LOC_BBG_CHANDRA_SIGHT_ABILITY_DESC" Language="es_ES">
-			<Text>+1 Vista desde la construcción del Templo (Arthashastra)</Text>
+		    <Text>+1 Vista desde la construcción del Templo (Arthashastra)</Text>
 		</Row>
+
 		<Row Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_NAME" Language="es_ES">
-			<Text>+1 Fuerza de Combate [ICON_STRENGTH] por Santuario (Arthashastra)</Text>
+		    <Text>+1 Fuerza de Combate [ICON_STRENGTH] por Santuario (Arthashastra)</Text>
 		</Row>
+
 		<Row Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_DESC" Language="es_ES">
-			<Text>+1 por Santuario (Arthashastra)</Text>
+		    <Text>+1 por Santuario (Arthashastra)</Text>
 		</Row>
+
 		<Row Tag="LOC_BBG_CHANDRA_CS_T2_ABILITY_NAME" Language="es_ES">
-			<Text>+1 Fuerza de Combate [ICON_STRENGTH] por Templo (Arthashastra)</Text>
+		    <Text>+1 Fuerza de Combate [ICON_STRENGTH] por Templo (Arthashastra)</Text>
 		</Row>
+
 		<Row Tag="LOC_BBG_CHANDRA_CS_T2_ABILITY_DESC" Language="es_ES">
-			<Text>+1 por Templo (Arthashastra)</Text>
+		    <Text>+1 por Templo (Arthashastra)</Text>
 		</Row>
+
 		<Row Tag="LOC_BBG_CHANDRA_CS_T3_ABILITY_NAME" Language="es_ES">
-			<Text>+1 Fuerza de Combate [ICON_STRENGTH] por edificio de Culto (Arthashastra)</Text>
+		    <Text>+1 Fuerza de Combate [ICON_STRENGTH] por edificio de Culto (Arthashastra)</Text>
 		</Row>
+
 		<Row Tag="LOC_BBG_CHANDRA_CS_T3_ABILITY_DESC" Language="es_ES">
-			<Text>+1 por edificio de Culto (Arthashastra)</Text>
+		    <Text>+1 por edificio de Culto (Arthashastra)</Text>
 		</Row>
 		<!-- = leader ability (Gandhi) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SATYAGRAHA_DESCRIPTION" Language="es_ES">
@@ -671,13 +704,13 @@
 		<!-- == INDONESIA == -->
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_KAMPUNG_DESCRIPTION" Language="es_ES">
-			<Text>Desbloquea la habilidad del Constructor para crear un Kampong, exclusivo de Indonesia.[NEWLINE][NEWLINE]+1 a la Producción [ICON_Production] y +1 a Alojamiento [ICON_Housing]. +1 a Alimentos [ICON_Food] y +1 a Fe [ICON_Faith] por cada Barco pesquero adyacente. Producción [ICON_PRODUCTION], Alojamiento [ICON_Housing] y Turismo [ICON_TOURISM] adicionales al avanzar en el árbol tecnológico y de principios. Debe estar en una casilla de Costa o Lago adyacente a un recurso marítimo.</Text>
+			<Text>Desbloquea la habilidad del Constructor para crear un Kampong, exclusivo de Indonesia.[NEWLINE][NEWLINE]+1 a la Producción [ICON_Production] y +1 a Alojamiento [ICON_Housing]. +1 a Alimentos [ICON_Food] y +1 a Fe [ICON_Faith] por cada Barco pesquero adyacente. Producción [ICON_PRODUCTION], Alojamiento [ICON_Housing] y Turismo [ICON_TOURISM] adicionales al avanzar en el árbol tecnológico y de principios. Debe estar en una casilla de Costa o Lago adyacente a un recurso marítimo.[NEWLINE][NEWLINE][ICON_BULLET]Sesgo: T1 Costa.</Text>
 		</Replace>
 
 		<!-- == JAPAN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ADJACENT_DISTRICTS_DESCRIPTION" Language="es_ES">
-			<Text>Todos los distritos [ICON_DISTRICT] reciben una bonificación de adyacencia estándar adicional por ser adyacentes a otro distrito [ICON_DISTRICT]. Los Centros Comerciales no reciben bonificaciones de los ríos adyacentes.</Text>
+			<Text>Todos los distritos [ICON_DISTRICT] reciben una bonificación de adyacencia estándar adicional por ser adyacentes a otro distrito [ICON_DISTRICT]. Los Centros Comerciales no reciben bonificaciones de los ríos adyacentes.[NEWLINE][NEWLINE][ICON_BULLET]Sesgo: T1 Costa.</Text>
 		</Replace>
 		<!-- = leader ability (Hojo Tokimune) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_DIVINE_WIND_DESCRIPTION" Language="es_ES">
@@ -695,20 +728,29 @@
 		
 		<!-- = leader ability (Tokugawa) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TOKUGAWA_DESCRIPTION" Language="es_ES">
-			<Text>Las Rutas Comerciales Internacionales [ICON_TradeRoute] reciben -25 % de Rendimiento y [ICON_Tourism] Turismo, pero las Rutas Comerciales Nacionales [ICON_TradeRoute] Proporcionan +1 Cultura [ICON_Culture], +1 Ciencia [ICON_Science] y +1 Oro [ICON_GOLD] por cada Distrito de especialidad en el destino. Las ciudades dentro de las 6 casillas de la capital de Japón reciben +4 [ICON_Amenities] Servicios y, después de investigar Vuelo, reciben +1 [ICON_Tourism] Turismo por cada Distrito.</Text>
+			<Text>Las Rutas Comerciales Internacionales [ICON_TradeRoute] reciben -25 % de Rendimiento y [ICON_Tourism] Turismo, pero las Rutas Comerciales Nacionales [ICON_TradeRoute] Proporcionan +0.5 Cultura [ICON_Culture], +0.5 Ciencia [ICON_Science] y +1 Oro [ICON_GOLD] por cada Distrito de especialidad en el destino. Las ciudades dentro de las 6 casillas de la capital de Japón reciben +4 [ICON_Amenities] Servicios y, después de investigar Vuelo, reciben +1 [ICON_Tourism] Turismo por cada Distrito.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_TOKUGAWA_XP_DESCRIPTION" Language="es_ES">
-			<Text>Las Rutas Comerciales Internacionales [ICON_TradeRoute] reciben -25 % de Rendimiento y [ICON_Tourism] Turismo, pero las Rutas Comerciales Nacionales [ICON_TradeRoute] Proporcionan +1 Cultura [ICON_Culture], +1 Ciencia [ICON_Science] y +1 Oro [ICON_GOLD] por cada Distrito de especialidad en el destino. Las ciudades dentro de las 6 casillas de la capital de Japón son 100% leales y después de investigar Vuelo reciben +1 [ICON_Tourism] Turismo por cada distrito.</Text>
+		    <Text>Las Rutas Comerciales Internacionales [ICON_TradeRoute] reciben -25 % de Rendimiento y [ICON_Tourism] Turismo, pero las Rutas Comerciales Nacionales [ICON_TradeRoute] proporcionan +0.5 Cultura [ICON_Culture] que aumenta a +1 con Humanismo, +0.5 Ciencia [ICON_Science] que aumenta a +1 con Educación, y +1 Oro [ICON_GOLD] por cada Distrito de especialidad en el destino. Las ciudades dentro de las 6 casillas de la capital de Japón reciben un 100 % de Lealtad, y después de investigar Vuelo reciben +1 [ICON_Tourism] Turismo por cada Distrito.</Text>
 		</Replace>
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_ABILITY_SAMURAI_DESCRIPTION" Language="es_ES">
+			<Text>Esta unidad no sufre penalizaciones de combate cuando está dañada.</Text>
+		</Replace>
+		<!-- = unique building = -->
+		<Replace Tag="LOC_BUILDING_ELECTRONICS_FACTORY_DESCRIPTION" Language="es_ES">
+			<Text>Un edificio único de Japón. +4 [ICON_Production] Producción a todos los centros de ciudad dentro de 6 casillas. Este edificio proporciona un adicional +4 [ICON_Culture] Cultura a su ciudad. Este bono se aplica una vez por ciudad, y copias múltiples de este edificio dentro de 6 casillas de un centro de ciudad no proporcionan bonos adicionales.</Text>
+		</Replace>
+
 
 		<!-- == KHMER == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_KHMER_BARAYS_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>Las ciudades que tengan un Acueducto reciben +1 a Servicios [ICON_AMENITIES] por entretenimiento. Las Granjas proporcionan +2 a Alimentos [ICON_FOOD] si están adyacentes a un Acueducto y +1 a Fe [ICON_FAITH] si están adyacentes a un Lugar sagrado.</Text>
+			<Text>Las ciudades que tengan un Acueducto reciben +1 a Servicios [ICON_AMENITIES] por entretenimiento. Las Granjas proporcionan +2 a Alimentos [ICON_FOOD] si están adyacentes a un Acueducto y +1 a Fe [ICON_FAITH] si están adyacentes a un Lugar sagrado.[NEWLINE][ICON_BULLET]Sesgo: T3 Ríos.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MONASTERIES_KING_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>Los Lugares sagrados obtienen una bonificación estandar de adyacencia por Rio a Fe [ICON_FAITH] por Ríos, +1 Comida [ICON_FOOD] y +2 al Alojamiento [ICON_Housing] si se construye adyacente a un Rio, realiza un Bombardeo Cultural al construirse.</Text>
+			<Text>Los Lugares sagrados obtienen una bonificación estandar de adyacencia por Rio a Fe [ICON_FAITH] por Ríos, +1 a Alimentos [ICON_FOOD] y +2 al Alojamiento [ICON_Housing] si se construye adyacente a un Rio, realiza un Bombardeo Cultural al construirse.</Text>
 		</Replace>
 		<Row Tag="LOC_DISTRICT_HOLY_SITE_RIVER_FAITH" Language="es_ES">
 			<Text>+{1_num} [ICON_Faith] Fe del río.</Text>
@@ -727,11 +769,11 @@
 		<!-- == KONGO == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NKISI_DESCRIPTION" Language="es_ES">
-			<Text>Los Artefactos [ICON_GreatWork_Artifact] y Esculturas [ICON_GreatWork_Sculpture] proporcionan +2 a Alimentos [ICON_Food], +2 a la Producción [ICON_Production], +4 Fe [ICON_FAITH] y +4 a Oro [ICON_Gold]. El Palacio tiene espacio para 5 Grandes obras.[NEWLINE][NEWLINE]Recibe un 50% más de puntos de Gran escritor [ICON_GreatWriter], Gran artista [ICON_GreatArtist], Gran músico [ICON_GreatMusician] y Gran mercader [ICON_GreatMerchant]. +100% a la Producción [ICON_PRODUCTION] de Arqueólogos.</Text>
+			<Text>Los Artefactos [ICON_GreatWork_Artifact] y Esculturas [ICON_GreatWork_Sculpture] proporcionan +2 a Alimentos [ICON_Food], +2 a la Producción [ICON_Production], +4 Fe [ICON_FAITH] y +4 a Oro [ICON_Gold]. El Palacio tiene espacio para 5 Grandes obras.[NEWLINE][NEWLINE]Recibe un 50% más de puntos de Gran escritor [ICON_GreatWriter], Gran artista [ICON_GreatArtist], Gran músico [ICON_GreatMusician] y Gran mercader [ICON_GreatMerchant]. +100% a la Producción [ICON_PRODUCTION] de Arqueólogos.[NEWLINE][ICON_BULLET]Sesgo: T3 Selva tropical, T5 Bosques.</Text>
 		</Replace>
 		<!-- = leader ability (Mvemba a Nzinga) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RELIGIOUS_CONVERT_DESCRIPTION" Language="es_ES">
-			<Text>No puede construir distritos de Lugar sagrado, obtener Grandes profetas [ICON_GreatProphet] ni fundar Religiones. Gana +1 Oro [ICON_GOLD] y +0.2 Cultura [ICON_Culture] por cada ciudadano en una ciudad siguiendo cualquier religión. Recibe un Apóstol (de la Religion mayoritaria en la ciudad) cada vez que se construya un M'Banza or distrito de Teatro.[NEWLINE][NEWLINE]Las Relicias [ICON_GreatWork_Relic] otorgan +2 Comida [ICON_Food], +2 Producción [ICON_Production], +4 Oro [ICON_Gold] y +1 Fe [ICON_Faith] adicional. Recibe una Relicia [ICON_GreatWork_Relic] por cada edificio del distito Plaza de Gobieno.[NEWLINE][NEWLINE]Todas las unidades de combate terrestre ignoran la penalización de movimiento del Bosque y la Selva.</Text>
+			<Text>No puede construir distritos de Lugar sagrado, obtener Grandes profetas [ICON_GreatProphet] ni fundar Religiones. Gana +1 Oro [ICON_GOLD] y +0.2 Cultura [ICON_Culture] por cada ciudadano en una ciudad siguiendo cualquier religión. Recibe un Apóstol (de la Religion mayoritaria en la ciudad) cada vez que se construya un M'Banza or distrito de Teatro.[NEWLINE][NEWLINE]Las Relicias [ICON_GreatWork_Relic] otorgan +2 a Alimentos [ICON_Food], +2 Producción [ICON_Production], +4 Oro [ICON_Gold] y +1 Fe [ICON_Faith] adicional. Recibe una Relicia [ICON_GreatWork_Relic] por cada edificio del distito Plaza de Gobieno.[NEWLINE][NEWLINE]Todas las unidades de combate terrestre ignoran la penalización de movimiento del Bosque y la Selva.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_IGNORE_WOODS_ABILITY_DESCRIPTION" Language="es_ES">
 			<Text>Ignora la penalización de movimiento de Bosques y Selvas Tropicales [ICON_Movement] (Mvemba a Nzinga).</Text>
@@ -742,7 +784,7 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_MBANZA_DESCRIPTION" Language="es_ES">
-			<Text>Un distrito único de Kongo que solo puede ser construido en Selva o Bosque. Remplaza el distrito Barrio residencial pero se desbloquea antes y es más barato de construir. Proporciona +5 Aloamiento [ICON_HOUSING], +2 Comida [ICON_FOOD], y +4 Oro [ICON_GOLD], sin importar el Atractivo.</Text>
+			<Text>Un distrito único de Kongo que solo puede ser construido en Selva o Bosque. Remplaza el distrito Barrio residencial pero se desbloquea antes y es más barato de construir. Proporciona +5 Aloamiento [ICON_HOUSING], +2 a Alimentos [ICON_FOOD], y +4 Oro [ICON_GOLD], sin importar el Atractivo.</Text>
 		</Replace>
 		<Row Tag="BBG_LOC_MBANDE_THEATRE_MBANZA" Language="es_ES">
 			<Text>+{1_num} Cultura [ICON_CULTURE] por M'Banza adyacente.</Text>
@@ -758,7 +800,7 @@
 		<!-- == KOREA == -->
 		<!-- = leader ability (Sejong) -->
 		<Replace Tag="LOC_TRAIT_LEADER_SEJONG_DESCRIPTION" Language="es_ES">
-			<Text>Tras completar la primera tecnología de una nueva Era, recibe tu Ciencia [ICON_SCIENCE] por turno como Cultura [ICON_CULTURE]. Seowon recibe -1 Ciencia [ICON_SCIENCE] por cada Distrito adyacente. Seowons y Teatros reciben mayor adyacencia entre ellos. Ciudades con un Seowon y un Teatro reciben +1 Cultura [ICON_CULTURE] y +2 Turismo [ICON_TOURISM] por distrito. +15 Producción [ICON_Production] hacia constructores en ciudades sin Gobernador [ICON_GOVERNOR] tras investigar Feudalismo.</Text>
+		    <Text>Tras completar la primera tecnología de una nueva Era, recibe el doble de tu Ciencia [ICON_SCIENCE] por turno como Cultura [ICON_CULTURE]. Seowon recibe -1 Ciencia [ICON_SCIENCE] por cada Distrito adyacente. Seowons y Teatros reciben mayor adyacencia entre ellos. Ciudades con un Seowon y un Teatro reciben +1 Cultura [ICON_CULTURE] y +2 Turismo [ICON_TOURISM] por distrito. +30% Producción [ICON_Production] hacia constructores en ciudades sin Gobernador [ICON_GOVERNOR] tras investigar Feudalismo.[NEWLINE][ICON_BULLET]Sesgo: T4 Colinas de pradera y llanuras.</Text>
 		</Replace>
 		<!-- = leader ability (Seondeok) -->
 		<Replace Tag="LOC_TRAIT_LEADER_HWARANG_DESCRIPTION" Language="es_ES">
@@ -794,14 +836,14 @@
 		<!-- == MACEDON == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_DESCRIPTION" Language="es_ES">
-			<Text>Al conquistar una ciudad recibe +20% a la Producción [ICON_PRODUCTION] en todas las ciudades por 10 turnos [ICON_TURN], una Eureka [ICON_TechBoosted] por cada Campamento o Campus en la ciudad conquistada y una Inspiración [ICON_CivicBoosted] por cada Lugar sagrado o Teatro.</Text>
+			<Text>Al conquistar una ciudad recibe +20% a la Producción [ICON_PRODUCTION] en todas las ciudades por 10 turnos [ICON_TURN], una Eureka [ICON_TechBoosted] por cada Campamento o Campus en la ciudad conquistada y una Inspiración [ICON_CivicBoosted] por cada Lugar sagrado o Teatro.[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_EXPANSION1_DESCRIPTION" Language="es_ES">
 			<Text>Al conquistar una ciudad recibe +20% a la Producción [ICON_PRODUCTION] en todas las ciudades por 10 turnos[ICON_TURN], una Eureka [ICON_TechBoosted] por cada Campamento o Campus en la ciudad conquistada y una Inspiración [ICON_CivicBoosted] por cada Lugar sagrado o Teatro.</Text>
 		</Replace>
 		<!-- = leader ability (Alexander) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TO_WORLDS_END_DESCRIPTION" Language="es_ES">
-			<Text>Las victorias en combate otorgan Ciencia [ICON_Science] igual al 25% de la Fuerza de combate [ICON_Strength] de la unidad derrotada (a velocidad En línea). Las ciudades no sufren hastío bélico. Todas las unidades militares se curan por completo cuando este jugador captura una ciudad con una maravilla del mundo.</Text>
+			<Text>Las victorias en combate otorgan Ciencia [ICON_Science] igual al 20% de la Fuerza de combate [ICON_Strength] de la unidad derrotada (a velocidad En línea). Las ciudades no sufren hastío bélico. Todas las unidades militares se curan por completo cuando este jugador captura una ciudad con una maravilla del mundo.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="es_ES">
@@ -828,48 +870,51 @@
 		<!-- == MALI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="es_ES">
-			<Text>-15% Producción [ICON_PRODUCTION] hacia todas las producciones. Las Minas reciben -1 Producción [ICON_PRODUCTION] y +4 Oro [ICON_GOLD]. Las Ciudades reciben +1 Comida [ICON_FOOD] por cada casilla de desierto adyacente a tu Centro de Ciudad. Las Ciudades reciben +1 Fe [ICON_FAITH] si posee al menos 2 casillas de desierto.[NEWLINE]Puede comprar edificios de distrito de Centro Comercial con [ICON_Faith] Fe.</Text>
+		    <Text>-15% Producción [ICON_PRODUCTION] hacia todas las producciones. Las Minas reciben -1 Producción [ICON_PRODUCTION] y +4 Oro [ICON_GOLD]. Las Ciudades reciben +1 a Alimentos [ICON_FOOD] por cada casilla de desierto adyacente a tu Centro de Ciudad. Las Ciudades pueden comprar edificios de distrito de Centro Comercial con [ICON_Faith] Fe.[NEWLINE][ICON_BULLET]Sesgo: T1 Desierto, T5 Recursos minables.</Text>
 		</Replace>
 		<!-- = leader ability (Mansa Musa) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SAHEL_MERCHANTS_DESCRIPTION" Language="es_ES">
-			<Text>+1 a la Capacidad de Rutas Comerciales [ICON_TRADEROUTE] tras investigar Banca. Los Lugares Sagrados otorgan adyacencia al distrito Suguba. +15% Producción [ICON_Production] hacia Lugares Sagrados y sus edificios.</Text>
+		    <Text>+1 a la Capacidad de Rutas Comerciales [ICON_TRADEROUTE] tras investigar Banca. Los Lugares Sagrados otorgan adyacencia al distrito Suguba. +15% Producción [ICON_Production] hacia Lugares Sagrados y sus edificios. Las Ciudades reciben +1 Fe [ICON_FAITH] si posee al menos 2 casillas de desierto dentro de un radio de 3 casillas del Centro de la Ciudad.</Text>
 		</Replace>
-		<!-- = leader ability (Soundiata) = -->
+		<!-- = leader ability (Sundiata) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SUNDIATA_KEITA_DESCRIPTION" Language="es_ES">
-			<Text>Cuesta un 30% menos de Oro [ICON_GOLD] contratar Grandes Personajes [ICON_GREATPERSON].[NEWLINE][NEWLINE]Los Teatros otorgan adyacencia al distrito Suguba. Ciudades con un Suguba y un Teatro reciben +1 puntos de Gran Escritor. Los Mercados ganan 2 espacios para Grandes Obras de la Literatura [ICON_GREATWORK_WRITING] en ciudades fundadas por Mali. Las Grandes obras de la Literatura otorgan +4 Oro [ICON_GOLD] y +2 Cultura [ICON_CULTURE].</Text>
+		    <Text>Cuesta un 30% menos de Oro [ICON_GOLD] contratar Grandes Personajes [ICON_GREATPERSON].[NEWLINE][NEWLINE]Los Teatros otorgan adyacencia al distrito Suguba. Ciudades con un Suguba y un Teatro reciben +1 puntos de Gran Escritor. Los Mercados ganan 2 espacios para Grandes Obras de la Literatura [ICON_GREATWORK_WRITING] en ciudades fundadas por Mali. Las Grandes obras de la Literatura otorgan +4 Oro [ICON_GOLD] y +2 Cultura [ICON_CULTURE].</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_SUGUBA_THEATER_SUNDIATA" Language="es_ES">
+		    <Text>Adyacencia del Teatro: +{1_num} Oro [ICON_GOLD] (Sogolon).</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="es_ES">
-			<Text>Unidad única de la Era Medieval de Malí que reemplaza al Caballero. Las unidades de comerciantes son inmunes al saqueo si están a 4 casillas de una caballería de Mandekalu y en una casilla de tierra. Las victorias en combate proporcionan [ICON_GOLD] Oro equivalente al 50 % de la [ICON_Strength] Fuerza de combate base de esa unidad (en la velocidad en línea).</Text>
+		    <Text>Unidad única de la Era Medieval de Malí que reemplaza al Caballero. Las unidades de comerciantes son inmunes al saqueo si están a 4 casillas de una caballería de Mandekalu y en una casilla de tierra. Las victorias en combate proporcionan [ICON_GOLD] Oro equivalente al 50 % de la [ICON_Strength] Fuerza de combate base de esa unidad (en la velocidad en línea).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_MANDEKALU_DESCRIPTION" Language="es_ES">
-			<Text>Protege a las unidades comerciales terrestres del Saqueo en un radio de 4 casillas.[NEWLINE][ICON_Bullet] Gana [ICON_GOLD] Oro equivalente al 50 % de la Fuerza de combate base [ICON_Strength] de esa unidad (en la velocidad en línea).</Text>
+		    <Text>Protege a las unidades comerciales terrestres del Saqueo en un radio de 4 casillas.[NEWLINE][ICON_Bullet] Gana [ICON_GOLD] Oro equivalente al 50 % de la Fuerza de combate base [ICON_Strength] de esa unidad (en la velocidad en línea).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_MANDEKALU_PROTECT_TRADER_DESCRIPTION" Language="es_ES">
-			<Text>Esta caballería de Mandekalu protege a las unidades comerciales cercanas de ser saqueadas en casillas terrestres.[NEWLINE][ICON_Bullet] Gana [ICON_GOLD] Oro equivalente al 50 % de la Fuerza de combate base [ICON_Strength] de esa unidad (en velocidad en línea).</Text>
+		    <Text>Esta caballería de Mandekalu protege a las unidades comerciales cercanas de ser saqueadas en casillas terrestres.[NEWLINE][ICON_Bullet] Gana [ICON_GOLD] Oro equivalente al 50 % de la Fuerza de combate base [ICON_Strength] de esa unidad (en velocidad en línea).</Text>
 		</Replace>
 		<!-- = unique disctrict = -->
 		<Replace Tag="LOC_DISTRICT_SUGUBA_DESCRIPTION" Language="es_ES">
-			<Text>Un distrito exclusivo de Mali que sustituye al Centro comercial. Las unidades, los edificios y los distritos de esta ciudad cuestan son 10% más baratos de comprar con Oro [ICON_GOLD] y Fe [ICON_FAITH].[NEWLINE][NEWLINE]+2 de Oro [ICON_Gold] por cada Lugar sagrado adyacente. +1 de Oro [ICON_Gold] en una casilla que esté en la orilla de un Río o un Oasis. +1 de Oro [ICON_Gold] por cada dos distritos adyacentes.</Text>
+		    <Text>Un distrito exclusivo de Mali que sustituye al Centro comercial. Las unidades, los edificios y los distritos de esta ciudad cuestan son 10% más baratos de comprar con Oro [ICON_GOLD] y Fe [ICON_FAITH].[NEWLINE][NEWLINE]+2 de Oro [ICON_Gold] por cada Lugar sagrado adyacente. +1 de Oro [ICON_Gold] en una casilla que esté en la orilla de un Río o un Oasis. +1 de Oro [ICON_Gold] por cada dos distritos adyacentes.</Text>
 		</Replace>
 		<Replace Tag="LOC_SUGUBA_OASIS_GOLD" Language="es_ES">
-			<Text>Adyacencia de Oasis: +{1_num} Oro [ICON_GOLD].</Text>
+		    <Text>Adyacencia de Oasis: +{1_num} Oro [ICON_GOLD].</Text>
 		</Replace>
 		<Replace Tag="LOC_SUGUBA_RIVER_GOLD" Language="es_ES">
-			<Text>Adyacencia de Rio: +{1_num} Oro [ICON_GOLD].</Text>
+		    <Text>Adyacencia de Rio: +{1_num} Oro [ICON_GOLD].</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_SUGUBA_HOLY_SITE_MANSA" Language="es_ES">
-			<Text>Adyacencia de Lugar Sagrado: +{1_num} Oro [ICON_GOLD].</Text>
+		    <Text>Adyacencia de Lugar Sagrado: +{1_num} Oro [ICON_GOLD].</Text>
 		</Replace>
 
 		<!-- == MAORI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAORI_MANA_DESCRIPTION" Language="es_ES">
-			<Text>Las Unidades Embarcadas ganan +2 Movimiento [ICON_Movement] tras investigar Construcción Naval. Las casillas sin trabajar de Selva y Bosque ganan +1 Producción [ICON_PRODUCTION] al descubrir Imperio Inicial. +1 de Producción [ICON_PRODUCTION] adicional con Mercantilismo y +2 Producción [ICON_PRODUCTION] por Conservación. Los Barcos Pesqueros bombardean culturalmente las casillas adyacentes y otorgan +1 Comida [ICON_FOOD] tras investigar Navegación Celeste. Los Recursos no se pueden recolectar. No se puede reclutar Grandes Escritores [ICON_GreatWriter].</Text>
+			<Text>Las Unidades Embarcadas ganan +2 Movimiento [ICON_Movement] tras investigar Construcción Naval. Las casillas sin trabajar de Selva y Bosque ganan +1 Producción [ICON_PRODUCTION] al descubrir Imperio Inicial. +1 de Producción [ICON_PRODUCTION] adicional con Mercantilismo y +2 Producción [ICON_PRODUCTION] por Conservación. Los Barcos Pesqueros bombardean culturalmente las casillas adyacentes y otorgan +1 a Alimentos [ICON_FOOD] tras investigar Navegación Celeste. Los Recursos no se pueden recolectar. No se puede reclutar Grandes Escritores [ICON_GreatWriter].[NEWLINE][NEWLINE][ICON_BULLET]Sesgo: T1 Costa.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KUPES_VOYAGE_DESCRIPTION" Language="es_ES">
-			<Text>Los Colonos pueden embarcarse tras investigar la tecnología Navegación a Vela. Obtienes +1 de Población [ICON_Citizen] al establecer tu primera ciudad. El Palacio recibe +3 a Alojamiento [ICON_HOUSING] y +1 a Servicios [ICON_AMENITIES].</Text>
+		<Text>Los Colonos pueden embarcarse tras investigar la tecnología Navegación a Vela. El Palacio recibe +3 a Alojamiento [ICON_HOUSING].</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MAORI_TOA_DESCRIPTION" Language="es_ES"> <!-- = charge icon = -->
@@ -883,7 +928,7 @@
 		<!-- == MAPUCHE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_ABILITY_TRAIT_MAPUCHE_DESCRIPTION" Language="es_ES">
-			<Text>+5 a la Fuerza de combate [ICON_Strength] contra oponentes en una Edad de oro o heroica.</Text>
+			<Text>+5 a la Fuerza de combate [ICON_Strength] contra oponentes en una Edad de oro o heroica.[NEWLINE][ICON_BULLET]Sesgo: T4 Llanura y Montaña de Pradera, -T3 Llanuras aluviales.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LAUTARO_ABILITY_DESCRIPTION_ALT" Language="es_ES">
@@ -907,7 +952,7 @@
 		<!-- == MAYA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAYAB_DESCRIPTION" Language="es_ES">
-			<Text>Asentarse adyacente a Costa o Agua Dulce no da Alojamiento [ICON_HOUSING] adicional. El Palacio recibe +1 Aloamiento [ICON_HOUSING]. Las Granjas otorgan +1 Alojamiento [ICON_HOUSING] adicional, +1 Producción [ICON_PRODUCTION] por cada Observatorio adyacente y +1 Oro [ICON_GOLD]. Las Plantaciones otorgan +2 Ciencia [ICON_Science] por cada Observatorio adyacente tras investigar Educación. +1 Servicios [ICON_Amenities] por cada Recurso de Lujo adyacente al Centro de la Ciudad. +3 Fuerza de Combate [ICON_STRENGTH] a unidades a 6 casillas de tu capital.</Text>
+		    <Text>Asentarse adyacente a Costa o Agua Dulce no da Alojamiento [ICON_HOUSING] adicional. El Palacio recibe +1 Alojamiento [ICON_HOUSING]. Las Granjas otorgan +1 Alojamiento [ICON_HOUSING] adicional, +1 Producción [ICON_PRODUCTION] por cada Observatorio adyacente y +1 Oro [ICON_GOLD]. Las Plantaciones otorgan +1 Ciencia [ICON_SCIENCE] por cada Observatorio adyacente tras investigar Educación. +1 Servicios [ICON_Amenities] por cada Recurso de Lujo adyacente al Centro de la Ciudad. +3 Fuerza de Combate [ICON_STRENGTH] a unidades a 6 casillas de tu capital.[NEWLINE][NEWLINE][ICON_BULLET]Sesgo: T3 Lujo de Plantaciones, T4 Plátanos. Especial "Hidrofóbico".</Text>
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="es_ES">
@@ -924,13 +969,13 @@
 		<!-- == MONGOLIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MONGOLIAN_ORTOO_DESCRIPTION" Language="es_ES">
-			<Text>Todas las unidades mongolas duplican la bonificación normal al Combate [ICON_Strength] si tienen más nivel de Visibilidad diplomática [ICON_VisLimited] que su oponente. Iniciar una Ruta comercial [ICON_TradeRoute] crea de inmediato un Puesto comercial [ICON_TradingPost] en la ciudad de destino.</Text>
+			<Text>Todas las unidades mongolas duplican la bonificación normal al Combate [ICON_Strength] si tienen más nivel de Visibilidad diplomática [ICON_VisLimited] que su oponente. Iniciar una Ruta comercial [ICON_TradeRoute] crea de inmediato un Puesto comercial [ICON_TradingPost] en la ciudad de destino.[NEWLINE][ICON_BULLET]Sesgo: T4 Caballos.</Text>
 		</Replace>
 
 		<!-- == NORWAY == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_EARLY_OCEAN_NAVIGATION_DESCRIPTION" Language="es_ES">
-			<Text>Las unidades consiguen la habilidad de entrar en casillas de Océano tras investigar la tecnología Construcción naval. Las unidades Navales cuerpo a cuerpo se curan en territorio neutral si están en casillas de costa. Las unidades ignoran los costes de Movimiento [ICON_Movement] adicionales por embarcar y desembarcar.[NEWLINE][NEWLINE]+50% Producción [ICON_PRODUCTION] hacia distritos de Lugares Sagrados. Casillas de Costeras y de Lago otorgan adyacencia al distrito Lugar Sagrado. Los Puertos reciben mayor bonus de adyacencia por Lugares Sagrados.</Text>
+			<Text>Las unidades consiguen la habilidad de entrar en casillas de Océano tras investigar la tecnología Construcción naval. Las unidades Navales cuerpo a cuerpo se curan en territorio neutral si están en casillas de costa. Las unidades ignoran los costes de Movimiento [ICON_Movement] adicionales por embarcar y desembarcar.[NEWLINE][NEWLINE]+50% Producción [ICON_PRODUCTION] hacia distritos de Lugares Sagrados. Casillas de Costeras y de Lago otorgan adyacencia al distrito Lugar Sagrado. Los Puertos reciben mayor bonus de adyacencia por Lugares Sagrados.[NEWLINE][ICON_BULLET]Sesgo: T1 Costa, T5 Bosques.</Text>
 		</Replace>
 		<!-- = leader ability (Konge) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_DESCRIPTION" Language="es_ES">
@@ -964,20 +1009,23 @@
 		<!-- == NUBIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TA_SETI_DESCRIPTION" Language="es_ES">
-			<Text>+30% Producción [ICON_Production] hacia las unidades a Distancia y unidades Navales a Distancia. Todas las unidades a Distancia y Navales a Distancia ganan un +50% a la experiencia de combate. Las Minas sobre recursos estratégicos otorgan +2 de Oro [ICON_GOLD].</Text>
+			<Text>+30% Producción [ICON_Production] hacia las unidades a Distancia y unidades Navales a Distancia. Todas las unidades a Distancia y Navales a Distancia ganan un +50% a la experiencia de combate. Las Minas sobre recursos estratégicos otorgan +2 de Oro [ICON_GOLD].[NEWLINE][ICON_BULLET]Sesgo: T2 Llanuras, T5 Recursos Minables.</Text>
 		</Replace>
+
 		<!-- = leader ability = --> <!-- production icon -->
 		<Replace Tag="LOC_TRAIT_LEADER_KANDAKE_OF_MEROE_DESCRIPTION" Language="es_ES">
 			<Text>+20 % de [ICON_Production] Producción hacia todos los [ICON_DISTRICT] distritos, aumentando a +40 % [ICON_Production] Producción si hay una Pirámide Nubia adyacente al Centro de la Ciudad.</Text>
 		</Replace>
+
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_PYRAMID_DESCRIPTION" Language="es_ES">
-			<Text>El principio Artesanía desbloquea la habilidad del Constructor de construir Pirámide Nubia, unico de Nubia. +2 a Fe [ICON_Faith] y +1 a Alimentos [ICON_Food].[NEWLINE][NEWLINE]Recibe rendimientos adicionales por los distritos adyacentes:[NEWLINE]+2 a Alimentos [ICON_Food] por el Centro urbano.[NEWLINE]+2 a Ciencia [ICON_SCIENCE] por Campus.[NEWLINE]+2 a Producción [ICON_PRODUCTION] por Zona industrial.[NEWLINE]+2 a Cultura [ICON_CULTURE] por Teatro.[NEWLINE]+2 a Fe [ICON_FAITH] por Lugar sagrado.[NEWLINE]+2 a Oro [ICON_GOLD] por Centro comercial y Puerto.[NEWLINE][NEWLINE]Debe construirse sobre Desierto, Colinas del desierto, Terrenos de aluvión, Llanuras o Praderas. No se puede construir junto a otra Pirámide.</Text>
+			<Text>El principio Artesanía desbloquea la habilidad del Constructor de construir Pirámide Nubia, único de Nubia. +2 a Fe [ICON_Faith] y +1 a Alimentos [ICON_Food].[NEWLINE][NEWLINE]Recibe rendimientos adicionales por los distritos adyacentes:[NEWLINE]+2 a Alimentos [ICON_Food] por el Centro urbano.[NEWLINE]+2 a Ciencia [ICON_SCIENCE] por Campus.[NEWLINE]+2 a Producción [ICON_PRODUCTION] por Zona industrial.[NEWLINE]+2 a Cultura [ICON_CULTURE] por Teatro.[NEWLINE]+2 a Fe [ICON_FAITH] por Lugar sagrado.[NEWLINE]+2 a Oro [ICON_GOLD] por Centro comercial y Puerto.[NEWLINE][NEWLINE]Debe construirse sobre Desierto, Colinas del desierto, Terrenos de aluvión, Llanuras o Praderas. No se puede construir junto a otra Pirámide.</Text>
 		</Replace>
+
 
 		<!-- == OTTOMANS == -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GREAT_TURKISH_BOMBARD_DESCRIPTION" Language="es_ES">
-			<Text>+50% a la Producción [ICON_PRODUCTION] dirigida dirigida a unidades de asedio. Todas las unidades de asedio obtienen +3 Fuerza de Combate [ICON_STRENGTH].[NEWLINE][NEWLINE]Las ciudades conquistadas no pierden Población [ICON_CITIZEN]. Las ciudades no fundadas por los otomanos obtienen +1 a Servicios [ICON_AMENITIES] y +4 de Lealtad por turno.</Text>
+			<Text>+50% a la Producción [ICON_PRODUCTION] dirigida dirigida a unidades de asedio. Todas las unidades de asedio obtienen +3 Fuerza de Combate [ICON_STRENGTH].[NEWLINE][NEWLINE]Las ciudades conquistadas no pierden Población [ICON_CITIZEN]. Las ciudades no fundadas por los otomanos obtienen +1 a Servicios [ICON_AMENITIES] y +4 de Lealtad por turno.[NEWLINE][ICON_BULLET]Sesgo: T3 Ríos, T5 Nitrato.</Text>
 		</Replace>
 		<!-- = leader ability (Suleiman Muhtesem, Magnificent) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SULEIMAN_ALT_DESCRIPTION" Language="es_ES">
@@ -1014,7 +1062,7 @@
 		<!-- == PERSIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_SATRAPIES_DESCRIPTION" Language="es_ES">
-			<Text>+1 a la capacidad de Rutas comerciales [ICON_TradeRoute] con el principio de Filosofía política. Recibe +2 de Oro [ICON_Gold] y +1 a Cultura [ICON_Culture] en rutas nacionales. +2 de Oro [ICON_Gold] adicional tras investigar Banca y Economía, +2 a Cultura [ICON_Culture] adicional tras desbloquear Ferias medievales y Urbanismo. Las carreteras construidas en tu territorio están un nivel por encima de lo habitual.</Text>
+			<Text>+1 a la capacidad de Rutas comerciales [ICON_TradeRoute] con el principio de Filosofía política. Recibe +2 de Oro [ICON_Gold] y +1 a Cultura [ICON_Culture] en rutas nacionales. +2 de Oro [ICON_Gold] adicional tras investigar Banca y Economía, +2 a Cultura [ICON_Culture] adicional tras desbloquear Ferias medievales y Urbanismo. Las carreteras construidas en tu territorio están un nivel por encima de lo habitual..[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
 		</Replace>
 		<!-- = leader ability (Cyrus) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FALL_BABYLON_DESCRIPTION" Language="es_ES">
@@ -1039,6 +1087,10 @@
 		</Replace>
 		
 		<!-- == PHOENICIA == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="es_ES">
+		    <Text>Comienza el juego con la tecnología Escritura [ICON_TechBoosted] Eureka. Las ciudades costeras fundadas por Fenicia y ubicadas en el mismo continente que la [ICON_CAPITAL] Capital fenicia son 100% leales. Los colonos ganan +2 [ICON_MOVEMENT] Movimiento y +2 rango de visión mientras están embarcados. Los colonos ignoran los costos adicionales de [ICON_MOVEMENT] Movimiento por embarcarse y desembarcarse.[NEWLINE][ICON_BULLET]Sesgo: T1 Costa.</Text>
+		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="es_ES">
 			<Text>Puede trasladar la Capital [ICON_Capital] original a cualquier ciudad que tenga un Cothon y que haya fundado, completando un proyecto exclusivo en esa ciudad. +1 a la capacidad de Rutas comerciales [ICON_TradeRoute] por cada edificio de la Plaza de gobierno. +50% a la Producción [ICON_Production] de distritos en la ciudad con la Plaza de gobierno.</Text>
@@ -1051,7 +1103,8 @@
 		<!-- == POLAND == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GOLDEN_LIBERTY_DESCRIPTION" Language="es_ES"> <!-- government icon -->
-			<Text>Bombardea las casillas adyacentes al completar un Campamento o Fuerte dentro de un territorio amigo. Un espacio de política Militar en el gobierno [ICON_Government] actual se convierte en un espacio de política Comodín.</Text>	
+			<Text>Bombardea las casillas adyacentes al completar un Campamento o Fuerte dentro de un territorio amigo. Un espacio de política Militar en el gobierno [ICON_Government] actual se convierte en un espacio de política Comodín.
+			[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>	
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LITHUANIAN_UNION_DESCRIPTION" Language="es_ES">
@@ -1061,7 +1114,7 @@
 		<!-- == PORTUGAL == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_PORTUGAL_DESCRIPTION" Language="es_ES">
-			<Text>Las Rutas comerciales internacionales [ICON_TradeRoute] deben salir de una ciudad costera y solo pueden llegar a las ciudades que estén en la costa o tengan Puerto, pero reciben +50% al Oro [ICON_GOLD] tras investigar Cartografía. +50% de Ciencia [Icon_Science] tras investigar Educación, y +50% Cultura [ICON_Culture] tras investigar Ferias Medievales. Los Comerciantes tienen un +50% al alcance por agua y pueden embarcarse en cuanto se desbloquean.</Text>
+			<Text>Las Rutas comerciales internacionales [ICON_TradeRoute] deben salir de una ciudad costera y solo pueden llegar a las ciudades que estén en la costa o tengan Puerto, pero reciben +50% al Oro [ICON_GOLD] tras investigar Cartografía. +50% de Ciencia [Icon_Science] tras investigar Educación, y +50% Cultura [ICON_Culture] tras investigar Ferias Medievales. Los Comerciantes tienen un +50% al alcance por agua y pueden embarcarse en cuanto se desbloquean.[NEWLINE][ICON_BULLET]Sesgo: T1 Costa.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_JOAO_III_DESCRIPTION" Language="es_ES">
@@ -1077,13 +1130,17 @@
 		</Replace>
 
 		<!-- == ROME == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_ALL_ROADS_TO_ROME_DESCRIPTION" Language="es_ES">
+		    <Text>Todas las ciudades que fundes o conquistas comienzan con un Puesto Comercial. Si están en el rango de [ICON_TRADEROUTE] Rutas Comerciales de tu [ICON_CAPITAL] Capital, también comienzan con un camino hacia ella. Tus [ICON_TRADEROUTE] Rutas Comerciales ganan +1 [ICON_GOLD] Oro por pasar a través de Puestos Comerciales en tus propias ciudades.[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
+		</Replace>
 		<!-- = leader ability (Trajan) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRAJANS_COLUMN_DESCRIPTION" Language="es_ES">
 			<Text>Todas las ciudades empiezan con un Monumento tras desbloquear Comercio Exterior.</Text>
 		</Replace>
 		<!-- = leader ability (Julius Caesar) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="es_ES">
-			<Text>+150 [ICON_Gold] Oro cuando conquistas una ciudad por primera vez o cuando capturas un [ICON_BARBARIAN] Puesto Bárbaro, aumenta a +250 [ICON_Gold] Oro con la tecnología Vaciado del metal y a +350 Oro [ICON_Gold] tras investigar Acero (en velocidad estandar). Al atacar Barbaros, recibe +5 Fuerza de Combate y consigue una cantidad normal de XP.[NEWLINE][NEWLINE]Recibe una unidad cuerpo a cuerpo gratis cada vez que encuentres una ciudad que no sea capital y en tu capital tras descubrir el principio Código de Leyes. Obtiene un espacio de política de Comodín adicional al capturar y retener al menos una ciudad fundada por una civilización importante y propiedad de una civilización importante en el momento de la captura (máximo 1 espacio de comodín adicional)</Text>
+		    <Text>+150 [ICON_GOLD] Oro cuando conquistes una ciudad por primera vez o cuando captures un [ICON_BARBARIAN] Puesto Avanzado Bárbaro, aumentando a +250 [ICON_GOLD] Oro tras investigar Fundición de Metales y +350 [ICON_GOLD] Oro tras investigar Acero (en velocidad estándar). Al atacar a los Bárbaros, recibe +5 Fuerza de Combate y siempre recibe XP normal.[NEWLINE][NEWLINE]Recibe una unidad cuerpo a cuerpo gratis cada vez que fundes una ciudad no capital y en tu capital tras investigar el Código de Leyes. Obtienes un espacio adicional de Política Wildcard al capturar y retener al menos una ciudad fundada por una civilización mayor y poseída por una civilización mayor en el momento de la captura (máximo 1 espacio adicional de wildcard).[NEWLINE][NEWLINE]Todas las unidades reciben +50% de experiencia de combate, aumentando a +100% al entrar en la era medieval.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_DOUBLE_XP_BONUS_MODIFIER_NAME" Language="es_ES">
 			<Text>+100% Experiencia de Combate (Veni, Vidi, Vici).</Text>
@@ -1099,7 +1156,7 @@
 		<!-- == RUSSIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MOTHER_RUSSIA_DESCRIPTION" Language="es_ES">
-			<Text>Territorio extra al fundar ciudades. +1 a Fe [ICON_Faith] para tu Capital. +1 a la Producción [ICON_Production] en casillas de Tundra. Las unidades no reciben daño por Ventiscas. Las civilizaciones que estén en guerra con Rusia reciben +100% al daño por Ventiscas en territorio ruso.</Text>
+			<Text>Territorio extra al fundar ciudades. +1 a Fe [ICON_Faith] para tu Capital. +1 a la Producción [ICON_Production] en casillas de Tundra. Las unidades no reciben daño por Ventiscas. Las civilizaciones que estén en guerra con Rusia reciben +100% al daño por Ventiscas en territorio ruso.[NEWLINE][ICON_BULLET]Sesgo: T1 Tundra.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MOTHER_RUSSIA_EXPANSION2_DESCRIPTION" Language="es_ES">
 			<Text>Territorio extra al fundar ciudades. +1 a Fe [ICON_Faith] para tu Imperio. +1 a la Producción [ICON_Production] en casillas de Tundra.[NEWLINE]Las unidades no reciben daño por Ventiscas. Las civilizaciones que estén en guerra con Rusia reciben +100% al daño por Ventiscas en territorio ruso.</Text>
@@ -1116,7 +1173,7 @@
 		<!-- == SCOTLAND == -->
 		<!-- leader ability-->
 		<Replace Tag="LOC_TRAIT_LEADER_BANNOCKBURN_DESCRIPTION" Language="es_ES">
-			<Text>Las de reconocimiento reciben +50 Experiencia de Combate.</Text>
+			<Text>Las de reconocimiento reciben +50 Experiencia de Combate.[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
 		</Replace>
 		<!-- unused old ability
 		<Row Tag="TRAIT_BANNOCKBURN_EXTRA_MOVEMENT_DESC" Language="es_ES">
@@ -1136,8 +1193,16 @@
 		<!-- == SCYTHIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_EXTRA_LIGHT_CAVALRY_DESCRIPTION" Language="es_ES">
-			<Text>Se pueden comprar unidades de Caballería ligera, Caballería pesada y Caballería a distancia con Fe [ICON_FAITH].</Text>
+			<Text>Se pueden comprar unidades de Caballería ligera, Caballería pesada y Caballería a distancia con Fe [ICON_FAITH].[NEWLINE][ICON_BULLET]Sesgo: T3 Caballos, T4 Ganado y Ovejas, T5 Praderas y Llanuras.</Text>
 		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_KILLER_OF_CYRUS_DESCRIPTION" Language="es_ES">
+			<Text>Todas las unidades reciben +3 [ICON_STRENGTH] Fuerza de Combate al atacar unidades heridas, aumentando a +5 [ICON_STRENGTH] Fuerza de Combate después de ingresar a la Era Medieval. Cuando eliminen una unidad, se curan hasta 30 puntos de vida.</Text>
+		</Replace>
+		<!-- = unit bonus after stirrups = -->		
+		<Row Tag="LOC_BBG_TOMYRIS_BONUS_VS_WOUNDED_UNITS_STIRRUPS_MODIFIER_DESC" Language="es_ES">
+			<Text>+5 [ICON_STRENGTH] Fuerza de Combate al atacar unidades heridas.</Text>
+		</Row>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_SCYTHIAN_HORSE_ARCHER_DESCRIPTION" Language="es_ES">
 			<Text>Unidad exclusiva escita de la Época Clásica con 4 de Movimiento [ICON_Movement] y 2 de Alcance [ICON_Range].</Text>
@@ -1150,7 +1215,7 @@
 		<!-- == SPAIN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_DESCRIPTION" Language="es_ES">
-			<Text>Se pueden formar Flotas y Armadas antes (Mercenarios y Mercantilismo). Se pueden entrenar Flotas y Armadas más rápido en ciudades con un Astillero.[NEWLINE][NEWLINE]Las Rutas comerciales [ICON_TradeRoute] reciben +3 de Oro [ICON_Gold], +2 a Fe [ICON_Faith] y +1 a Producción [ICON_Production]. Las Rutas comerciales Internacionales [ICON_TradeRoute] entre varios continentes reciben el doble de estas cantidades. Las ciudades que no estén en el continente original de la capital reciben un +25% a la Producción [ICON_Production] destinada a distritos.</Text>
+			<Text>Puede formar [ICON_CORPS] Flotas y [ICON_ARMY] Armadas antes de lo habitual (Mercenarios y Nacionalismo). [NEWLINE][NEWLINE][ICON_TRADEROUTE] Las Rutas Comerciales reciben +3 [ICON_GOLD] Oro, +2 [ICON_FAITH] Fe y +1 [ICON_PRODUCTION] Producción. Las Rutas Comerciales Internacionales [ICON_TRADEROUTE] entre múltiples continentes reciben el doble de estos valores. Las ciudades al menos a 8 casillas de distancia de la [ICON_CAPITAL] Capital reciben +25% [ICON_PRODUCTION] Producción hacia los [ICON_DISTRICT] distritos.[NEWLINE][ICON_BULLET]Sesgo: T1 Costa, T3 Fisura Geotérmica. Especial "División Continental".</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_EXPANSION2_DESCRIPTION" Language="es_ES">
 			<Text>Se pueden formar Flotas y Armadas antes (Mercenarios y Mercantilismo). Se pueden entrenar Flotas y Armadas más rápido en ciudades con un Astillero.[NEWLINE][NEWLINE]Las Rutas comerciales [ICON_TradeRoute] reciben +3 de Oro [ICON_Gold], +2 a Fe [ICON_Faith] y +1 a Producción [ICON_Production]. Las Rutas comerciales Internacionales [ICON_TradeRoute] entre varios continentes reciben el doble de estas cantidades. Las ciudades que no estén en el continente original de la capital reciben un +25% a la Producción [ICON_Production] destinada a distritos.</Text>
@@ -1186,7 +1251,7 @@
 			<Text>La cuna de la civilización</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_FIRST_CIVILIZATION_DESCRIPTION" Language="es_ES">
-			<Text>Las Granjas reciben +1 a Alimentos [ICON_Food] cuando están adyacentes a un Río y +1 a la Producción [ICON_Production] si están adyacentes a un Zigurat después de descubrir Imperio inicial. No reciben daño de las inundaciones.</Text>
+			<Text>Las Granjas reciben +1 a Alimentos [ICON_Food] cuando están adyacentes a un Río y +1 a la Producción [ICON_Production] si están adyacentes a un Zigurat después de descubrir Imperio inicial. No reciben daño de las inundaciones.[NEWLINE][ICON_BULLET]Sesgo: T3 Ríos, T4 Llanuras aluviales.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ADVENTURES_ENKIDU_NAME" Language="es_ES">
@@ -1238,7 +1303,7 @@
 		<!-- == SWEDEN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="es_ES">
-			<Text>Suecia obtiene 50 de Favor diplomático [ICON_Favor] al conseguir un Gran personaje. Contar con Suecia en la partida hace que el Congreso Mundial tenga tres competiciones exclusivas a partir de la Era Industrial.[NEWLINE][NEWLINE]Recibe +1 punto de Gran ingeniero [ICON_GreatEngineer] de las Fábricas y +1 punto de Gran científico [ICON_GreatScientist] de las Universidades. +50% a la Producción [ICON_PRODUCTION] de Bibliotecas, Talleres, Universidades, Fábricas y Plaza de Gobierno.[NEWLINE][NEWLINE]Tras desloquear Filosofía Política, las ciudades fundadas en desierto, tundra o nieve reciben +1 Comida [ICON_FOOD] y +1 Producción [ICON_Production].</Text>
+			<Text>Suecia obtiene 50 de Favor diplomático [ICON_Favor] al conseguir un Gran personaje. Contar con Suecia en la partida hace que el Congreso Mundial tenga tres competiciones exclusivas a partir de la Era Industrial.[NEWLINE][NEWLINE]Recibe +1 punto de Gran ingeniero [ICON_GreatEngineer] de las Fábricas y +1 punto de Gran científico [ICON_GreatScientist] de las Universidades. +50% a la Producción [ICON_PRODUCTION] de Bibliotecas, Talleres, Universidades, Fábricas y Plaza de Gobierno.[NEWLINE][NEWLINE]Tras desloquear Filosofía Política, las ciudades fundadas en desierto, tundra o nieve reciben +1 a Alimentos [ICON_FOOD] y +1 Producción [ICON_Production].[NEWLINE][ICON_BULLET]Sesgo: Especial "Rey del Norte".</Text>
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_QUEENS_BIBLIOTHEQUE_DESCRIPTION" Language="es_ES">
@@ -1247,8 +1312,8 @@
 
 		<!-- == VIETNAM == -->
 		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_TRIEU_DESCRIPTION" Language="es_ES">
-			<Text>+2 Movimiento [ICON_Movement] a todas las unidades que comienzen el turno en casillas de Selva tropical, Pantano o Bosque. +2 Fuerza de Combate [ICON_Strength] a las unidades que peleen en esas casillas, se duplica si es territorio propio.</Text>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_VIETNAM_DESCRIPTION" Language="es_ES">
+		    <Text>Todos los distritos de especialidad terrestre solo pueden ser construidos en Selva tropical, Bosque, Pantano o Llanuras aluviales. Recibes los siguientes rendimientos por cada edificio en estos terrenos: +1 Ciencia [ICON_SCIENCE] en Selva tropical, +1 Cultura [ICON_CULTURE] en Bosque, y +1 Producción [ICON_PRODUCTION] en Pantano, sin rendimientos adicionales en Llanuras aluviales.[NEWLINE][NEWLINE]Los Bosques pueden ser plantados con Ferias Medievales.[NEWLINE][ICON_BULLET]Sesgo: T3 Selva tropical, Bosque, Pantano.[NEWLINE][ICON_BULLET]Sesgo: T3 Selva tropical, Bosques, Pantanos.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_TRIEU_FEATURES_DESCRIPTION" Language="es_ES">
 			<Text>+2 a la Fuerza de combate [ICON_Strength] para las unidades que peleen en casillas de Selva tropical, Pantano o Bosque, se duplican dentro de territorio Vietnamita. +2 al Movimiento [ICON_Movement] si empiezan el turno en dichas casillas.</Text>
@@ -1265,7 +1330,7 @@
 		<!-- == ZULU == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ZULU_ISIBONGO_DESCRIPTION" Language="es_ES"> <!-- icons -->
-			<Text>Las ciudades con una unidad guarnecida obtienen +3 Lealtad por turno, o +5 si es un Corp [ICON_Corps] o un Ejército [ICON_Army]. Conquistar una ciudad con una unidad la actualizará a un [ICON_Corps] Corps/Flota o [ICON_Army] Ejercito/Armada si la unidad ya era Corps/Flota, si se desbloqueron los Principios apropiados.</Text>
+			<Text>Las ciudades con una unidad guarnecida obtienen +3 Lealtad por turno, o +5 si es un Corp [ICON_Corps] o un Ejército [ICON_Army]. Conquistar una ciudad con una unidad la actualizará a un [ICON_Corps] Corps/Flota o [ICON_Army] Ejercito/Armada si la unidad ya era Corps/Flota, si se desbloqueron los Principios apropiados.[NEWLINE][ICON_BULLET]Sesgo: Ninguno.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMABUTHO_DESCRIPTION" Language="es_ES">
@@ -1294,7 +1359,27 @@
 			<Text>Meditación de Batalla: +1 [ICON_Strength] Fuerza de combate por cada cívico investigado (hasta la Era Industrial inclusive).</Text>
 		</Row>
 		<Replace Tag="LOC_UNIT_LAHORE_NIHANG_DESCRIPTION" Language="es_ES">
-			<Text>Unidad única de la Ciudad-Estado de Lahore con un árbol de promoción único. Se puede comprar con [ICON_Faith] Fe. +15 [ICON_Strength] Fuerza de combate cuando se construyen por primera vez edificios de Cuarteles, Armería y Academia Militar. Recibe bonificaciones de [ICON_GREATGENERAL] Gran General de cualquier época.</Text>
+		    <Text>Unidad única de la Ciudad-Estado de Lahore con un árbol de promoción único. Se puede comprar con [ICON_Faith] Fe. +12 [ICON_Strength] Fuerza de combate cuando se construyen por primera vez edificios de Cuarteles, Armería y Academia Militar. Recibe bonificaciones de [ICON_GREATGENERAL] Gran General de cualquier época.</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_MECHANIZED_INFANTRY_DESCRIPTION" Language="es_ES">
+			<Text>Unidad de combate de la era de la Información que ignora la Zona de Control.</Text>
+		</Replace>
+		<!-- == Heavy Cavalry Units == -->
+		<!-- = Modern Armor = -->
+		<Replace Tag="LOC_UNIT_MODERN_ARMOR_DESCRIPTION" Language="es_ES">
+			<Text>Unidad de caballería pesada de la era de la Información que es rápida y fuerte. +5 [ICON_STRENGTH] Fuerza de Combate al defenderse dentro del territorio aliado y +5 [ICON_STRENGTH] Fuerza de Combate al atacar fuera del territorio aliado.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_DEFENDING_FRIENDLY_NAME" Language="es_ES">
+			<Text>Atrincherado</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_DEFENDING_FRIENDLY_DESC" Language="es_ES">
+			<Text>+5 [ICON_STRENGTH] Fuerza de Combate al defenderse dentro del territorio aliado.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_ATTACKING_UNFRIENDLY_NAME" Language="es_ES">
+			<Text>Blitz</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_ATTACKING_UNFRIENDLY_DESC" Language="es_ES">
+			<Text>+5 [ICON_STRENGTH] Fuerza de Combate al atacar fuera del territorio aliado.</Text>
 		</Replace>
 		<!-- == Naval Units == -->
 		<Replace Tag="LOC_UNIT_QUADRIREME_DESCRIPTION" Language="es_ES">
@@ -1308,6 +1393,16 @@
 		</Replace>
 		<Replace Tag="LOC_UNIT_MISSILE_CRUISER_DESCRIPTION" Language="es_ES">
 			<Text>Unidad naval a distancia de la era de la Información con [ICON_Range] Alcance de 4. Brinda cobertura contra ataques aéreos y nucleares hasta 1 casilla de distancia.</Text>
+		</Replace>
+		<!-- == Naval Carrier Units== -->
+		<Replace Tag="LOC_UNIT_AIRCRAFT_CARRIER_DESCRIPTION" Language="es_ES">
+			<Text>Unidad naval de combate de la era Atómica que puede transportar unidades aéreas. Recibe +25 [ICON_AntiAir_Large] Fuerza de Defensa Aérea si está adyacente a una unidad con Fuerza de Defensa Aérea.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_NEXT_TO_ANTI_AIR_NAME" Language="es_ES">
+			<Text>Formación de Portaviones</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_NEXT_TO_ANTI_AIR_DESC" Language="es_ES">
+			<Text>+25 [ICON_AntiAir_Large] Fuerza de Defensa Aérea si está adyacente a una unidad con Fuerza de Defensa Aérea.</Text>
 		</Replace>
 		<!-- == Support Units == -->
 		<Replace Tag="LOC_UNIT_MEDIC_DESCRIPTION" Language="es_ES">
@@ -1394,26 +1489,27 @@
 		<!-- === GOVERNORS === -->
 		<!-- == Amani == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_MESSENGER_DESCRIPTION" Language="es_ES">
-			<Text>Puede asignarse a una Ciudad-Estado donde ella actúa como 2 Enviados [ICON_Envoy]. Cuando se establece en una Ciudad-estado, tus ciudades que tienen una Ruta Comercial [ICON_TradeRoute] a esta ciudad ganan +2 a Comida [ICON_FOOD] y +2 a Producción [ICON_PRODUCTION]. Se establece en 5 turnos.</Text>
+		    <Text>Puede asignarse a una Ciudad-Estado donde ella actúa como 2 Enviados [ICON_Envoy]. Cuando se establece en una Ciudad-estado, tus ciudades que tienen una Ruta Comercial [ICON_TradeRoute] a esta ciudad ganan +2 a Alimentos [ICON_FOOD] y +2 a Producción [ICON_PRODUCTION]. Se establece en 5 turnos.</Text>
 		</Replace>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_NAME" Language="es_ES">
-			<Text>Negociador</Text>
+		    <Text>Negociador</Text>
 		</Row>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_NEGOTIATOR_DESCRIPTION" Language="es_ES">
-			<Text>La ciudad no se puede asediar y obtiene +5 a la Fuerza de defensa.</Text>
+		    <Text>La ciudad no se puede asediar y obtiene +5 a la Fuerza de defensa.</Text>
 		</Row>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_LOCAL_INFORMANTS_DESCRIPTION" Language="es_ES">
-			<Text>Todas las ciudades dentro de 9 casillas ganan +4 Lealtad por turno hacia tu civilización. Los Espias enemigos operan a 3 niveles menos en esta ciudad.</Text>
+		    <Text>Todas las ciudades dentro de 9 casillas ganan +4 Lealtad por turno hacia tu civilización. Los Espias enemigos operan a 3 niveles menos en esta ciudad.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_AFFLUENCE_DESCRIPTION" Language="es_ES">
-			<Text>Otorga +2 Recursos Estrategicos adicionales por turno una vez que lo hayas descubierto.</Text>
+		    <Text>Otorga +2 Recursos Estrategicos adicionales por turno una vez que lo hayas descubierto.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_FOREIGN_INVESTOR_DESCRIPTION" Language="es_ES">
-			<Text>+1 a Favor Dimploatico [ICON_Favor] y +1 a Influencia por turno [ICON_InfluencePerTurn]. +1 a Favor Dimploatico [ICON_Favor] y +1 a Influencia por turno [ICON_InfluencePerTurn] adicional por cada nivel de edificio construido en la Plaza de Gobierno.</Text>
+		    <Text>+1 a Favor Diplomático [ICON_Favor] y +1 a Influencia por turno [ICON_InfluencePerTurn]. +1 a Favor Diplomático [ICON_Favor] y +1 a Influencia por turno [ICON_InfluencePerTurn] adicional por cada nivel de edificio construido en la Plaza de Gobierno.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_PUPPETEER_DESCRIPTION" Language="es_ES">
-			<Text>Mientras este establecida en una Ciudad-Estado, double el número de enviados que tengas aca.</Text>
+		    <Text>Mientras este establecida en una Ciudad-Estado, duplique el número de enviados que tengas allí.</Text>
 		</Replace>
+
 		<!-- = Unused
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY_DESCRIPTION" Language="en_US">
 			<Text>All cities within 9 tiles gain +4 Loyalty per turn towards your civilization.</Text>
@@ -1473,7 +1569,7 @@
 		  <Text>+40% a los rendimientos de las cosechas y a la eliminación de accidentes en la ciudad. Se establece en 4 turnos.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION_DESCRIPTION" Language="es_ES">
-			<Text>+20% a Alimentos [ICON_Food] en la ciudad. Tus Rutas comerciales [ICON_TRADEROUTE] que terminen aquí proporcionan +1 a Comida [ICON_FOOD] y +1 a Producción [ICON_Production] para la ciudad de origen.</Text>
+			<Text>+20% a Alimentos [ICON_Food] en la ciudad. Tus Rutas comerciales [ICON_TRADEROUTE] que terminen aquí proporcionan +1 a Alimentos [ICON_FOOD] y +1 a Producción [ICON_Production] para la ciudad de origen.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS_DESCRIPTION" Language="es_ES">
 			<Text>+20% a Producción [ICON_PRODUCTION] hacia unidades, edificios y distritos.</Text>
@@ -1490,25 +1586,25 @@
 		
 		<!-- == Moksha == -->
 		<Replace Tag="LOC_GOVERNOR_THE_CARDINAL_DESCRIPTION" Language="es_ES">
-			<Text>{LOC_GOVERNOR_THE_CARDINAL_NAME} es un líder religioso y espiritual que puede incrementar la relevancia Cultural [ICON_CULTURE] y aumentar la Fuerza religiosa de una ciudad [ICON_Religion].</Text>
+		    <Text>{LOC_GOVERNOR_THE_CARDINAL_NAME} es un líder religioso y espiritual que puede incrementar la relevancia Cultural [ICON_CULTURE] y aumentar la Fuerza religiosa de una ciudad [ICON_Religion].</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_BISHOP_DESCRIPTION" Language="es_ES">
-			<Text>+15% a la Cultura [ICON_Culture] que genera la ciudad y la presión religiosa a las ciudades adyacentes es un 100% más fuerte. +2 a Fe [ICON_FAITH] por cada distrito. Se establece en 4 turnos.</Text>
+		    <Text>+15% a la Cultura [ICON_Culture] que genera la ciudad y la presión religiosa a las ciudades adyacentes es un 100% más fuerte. +2 a Fe [ICON_FAITH] por cada distrito. Se establece en 4 turnos.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR_DESCRIPTION" Language="es_ES">
-			<Text>+1 a Cultura [ICON_Culture] por turno por cada Ciudadano [ICON_CITIZEN] en la ciudad.</Text>
+		    <Text>+1 a Cultura [ICON_Culture] por turno por cada Ciudadano [ICON_CITIZEN] en la ciudad.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_DIVINE_ARCHITECT_DESCRIPTION" Language="es_ES">
-			<Text>Las Rutas comerciales [ICON_TradeRoute] domesticas a la ciudad de Moksha proporcionan +2 de Cultura [ICON_CULTURE] y +1 de Comida [ICON_FOOD]. Permite a la ciudad comprar Distritos [ICON_DISTRICT] con Fe [ICON_FAITH] a 10% de descuento.</Text>
+		    <Text>Las Rutas comerciales [ICON_TradeRoute] domesticas a la ciudad de Moksha proporcionan +2 de Cultura [ICON_CULTURE] y +1 a Alimentos [ICON_FOOD]. Permite a la ciudad comprar Distritos [ICON_DISTRICT] con Fe [ICON_FAITH] a 10% de descuento.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD_DESCRIPTION" Language="es_ES">
-			<Text>+4 puntos de Gran Profeta por turno cuando esta ciudad tenga un Sitio Sagrado.  Permite a la ciudad comprar edificios de Sitio Divino con Fe [ICON_FAITH] a 20% de descuento.</Text>
+		    <Text>+4 puntos de Gran Profeta por turno cuando esta ciudad tenga un Sitio Sagrado. Permite a la ciudad comprar edificios de Sitio Divino con Fe [ICON_FAITH] a 20% de descuento.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT_DESCRIPTION" Language="es_ES">
-			<Text>Apostoles, Monjes Guerreros y unidades de apoyo pueden ser compradas con Fe [ICON_FAITH] a 20% de descuento. Los Monjes Guerreros entrenados en esta ciudad reciben una promoción gratuita de [ICON_Promotion]. Los Apóstoles entrenados en esta ciudad reciben una segunda promoción gratuita de [ICON_Promotion] inmediatamente después de obtener su primera promoción de [ICON_Promotion].</Text>
+		    <Text>Apostoles, Monjes Guerreros y unidades de apoyo pueden ser compradas con Fe [ICON_FAITH] a 20% de descuento. Los Monjes Guerreros entrenados en esta ciudad reciben una promoción gratuita de [ICON_Promotion]. Los Apóstoles entrenados en esta ciudad reciben una segunda promoción gratuita de [ICON_Promotion] inmediatamente después de obtener su primera promoción de [ICON_Promotion].</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_MERCHANT_CURATOR_DESCRIPTION" Language="es_ES">
-			<Text>Duplica el Turismo [ICON_TOURISM] de Grandes Obras de Literatura, Arte y Música en la ciudad.</Text>
+		    <Text>Duplica el Turismo [ICON_TOURISM] de Grandes Obras de Literatura, Arte y Música en la ciudad.</Text>
 		</Replace>
 		
 		<!-- == Pingala == -->
@@ -1590,7 +1686,7 @@
 			<Text>+{1_num} a Fe [ICON_Faith] por las casillas de Tundra adyacentes {1_Num : plural 1?tile; other?tiles;}.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_DIVINE_SPARK_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>+1 punto de Gran personaje [ICON_GreatPerson] por cada Lugar sagrado (Profeta), Campus (Científico), Teatro (Escritor) y Zona industrial (Ingeniero).</Text>
+		    <Text>+2 puntos de Gran Persona [ICON_GreatPerson] por cada Lugar Sagrado ([ICON_GreatProphet] Gran Profeta), Campus ([ICON_GreatScientist] Gran Científico) y Zona Industrial ([ICON_GreatEngineer] Gran Ingeniero), Edificio de Anfiteatro ([ICON_GreatWriter] Gran Escritor).</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_EARTH_GODDESS_EXPANSION2_DESCRIPTION" Language="es_ES">
 			<Text>+1 a Fe [ICON_FAITH] en casillas con un Atractivo encantador o mejor.</Text>
@@ -1632,7 +1728,7 @@
 			<Text>Se obtiene Fe [ICON_FAITH] igual al 30% de la Producción [ICON_PRODUCTION] de unidades militares terrestres cuando se entrenan.[NEWLINE]Tu capital obtiene 1 Guerreros.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_LADY_OF_THE_REEDS_AND_MARSHES_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>+1 a la Producción [ICON_Production] en Pantanos, Oasis y Terrenos de aluvión.</Text>
+		    <Text>+1 a la Producción [ICON_Production] en Pantanos, Oasis y Terrenos de aluvión mejorados o Centros de Ciudad fundados sobre estos terrenos.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_MONUMENT_TO_THE_GODS_DESCRIPTION" Language="es_ES">
 			<Text>+20% a la Producción [ICON_Production] de Maravillas.</Text>
@@ -1647,16 +1743,19 @@
 			<Text>+20% a la Producción [ICON_PRODUCTION] de Colonos.[NEWLINE]Las fronteras se expanden un 50% más rápido y las ciudades nuevas obtienen dos casillas gratis al fundarse.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_RIVER_GODDESS_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>Los Ríos otorgan +1 a la Fe [ICON_FAITH] por adyacencia a Lugares sagrados. +1 a Servicios [ICON_Amenities] y +1 a Alojamiento [ICON_Housing] en ciudades con un Lugar sagrado adyacente a un Río.</Text>
+		    <Text>Los Ríos otorgan +1 a la Fe [ICON_FAITH] por adyacencia a Lugares Sagrados. +1 a Servicios [ICON_Amenities] y +1 a Alojamiento [ICON_Housing] en ciudades con un Lugar Sagrado adyacente a un Río.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_RIVER_GODDESS_DESCRIPTION" Language="es_ES">
-			<Text>Los Ríos otorgan +1 a la Fe [ICON_FAITH] por adyacencia a Lugares sagrados. +1 a Servicios [ICON_Amenities] en ciudades con un Lugar sagrado adyacente a un Río.</Text>
+		    <Text>Los Ríos otorgan +2 a la Fe [ICON_FAITH] por adyacencia a Lugares Sagrados. +1 a Servicios [ICON_Amenities] en ciudades con un Lugar Sagrado adyacente a un Río.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_SACRED_PATH_DESCRIPTION" Language="es_ES">
 			<Text>Los Lugares sagrados obtienen +1 a Fe [ICON_Faith] por Bosques y Selvas tropicales adyacentes.</Text>
 		</Replace>
 		<Row Tag="LOC_DISTRICT_SACREDPATH_WOODS_FAITH" Language="es_ES">
 			<Text>+{1_num} de Fe [ICON_Faith] por Bosques adyacentes.</Text>
+		</Row>
+		<Row Tag="LOC_BBG_DISTRICT_SACREDPATH_MARSHES_FAITH" Language="es_ES">
+	    	<Text>+{1_num} [ICON_FAITH] Fe de los pantanos adyacentes casillas.</Text>
 		</Row>
 		<Replace Tag="LOC_BELIEF_STONE_CIRCLES_DESCRIPTION" Language="es_ES">
 			<Text>+1 a Producción [ICON_Production] y +1 a Fe [ICON_FAITH] en Canteras.</Text>
@@ -1789,8 +1888,9 @@
 			<Text>Solo puede ser construido por Ingenieros Militares. No cuesta una carga, pero cuesta 2 [ICON_RESOURCE_IRON] de Hierro.[NEWLINE][NEWLINE]Mejora enormemente la velocidad de Movimiento de [ICON_Movement] de cualquier unidad que se mueva de una casilla de Ferrocarril a otra. [ICON_TradeRoute] Las Rutas Comerciales que viajan sobre ferrocarriles pueden multiplicar el [ICON_Gold] Oro que obtienen de los distritos en su destino.</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_BEACH_RESORT_DESCRIPTION" Language="es_ES">
-			<Text>Desbloquea la habilidad del Constructor para construir Balneario.[NEWLINE][NEWLINE]Otorga Turismo [ICON_Tourism] igual 200% de Atractivo de la casilla. Solo puede ser construido en casillas de Desierto Costero, Llanuras Costeras o Praderas Costeras. Atractivo mínimo: Encantador.</Text>
+		    <Text>Desbloquea la habilidad del Constructor para construir Balneario.[NEWLINE][NEWLINE]Otorga Turismo [ICON_Tourism] igual al 150% del Atractivo de la casilla. Solo puede ser construido en casillas de Desierto Costero, Llanuras Costeras o Praderas Costeras. Atractivo mínimo: Encantador.</Text>
 		</Replace>
+
 		<Replace Tag="LOC_IMPROVEMENT_QUARRY_DESCRIPTION" Language="es_ES">
 		  <Text>Desbloquea la habilida del Constructor para construir Cantera.[NEWLINE][NEWLINE]+1 a la Producción[ICON_PRODUCTION]. +1 de Producción [ICON_PRODUCTION] tras haber investigado Ingeniería Militar, y +2 [ICON_Production] tras investigar Cohetería. -1 Atractivo a casillas adyacentes. Solo puede construirse en casillas con el recurso de lujo o bonus valida (Piedra, Mármol, Yeso).</Text>
 		</Replace>
@@ -1872,7 +1972,7 @@
 			<Text>+25% a la experiencia de combate de todas las unidades navales entrenadas en esta ciudad. Bonificación a Producción [ICON_Production] equivalente a la bonificación por adyacencia del distrito de Puerto. +1 a la Producción [ICON_PRODUCTION] de todas las casillas de Costa y Lago sin mejoras de esta ciudad. +1 de Carbón [ICON_RESOURCE_COAL] por turno una vez descubierto.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_LIGHTHOUSE_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>+25% a la experiencia de combate de todas las unidades navales entrenadas en esta ciudad. +1 de Comida [ICON_FOOD] a todas las casilla de Costa y Lago de esta ciudad. +2 De Alojamiento [ICON_HOUSING] si esta ciudad es adyacente a la costa. +1 [ICON_TradeRoute] a la capacidad de Rutas Comerciales si esta ciudad no tiene un edificio de Mercado.</Text>
+			<Text>+25% a la experiencia de combate de todas las unidades navales entrenadas en esta ciudad. +1 a Alimentos [ICON_FOOD] a todas las casilla de Costa y Lago de esta ciudad. +2 De Alojamiento [ICON_HOUSING] si esta ciudad es adyacente a la costa. +1 [ICON_TradeRoute] a la capacidad de Rutas Comerciales si esta ciudad no tiene un edificio de Mercado.</Text>
 		</Replace>
 		
 		<!-- == Holy Site Buildings == -->
@@ -1888,7 +1988,7 @@
 		</Replace>
 		<!-- == Preserve Buildings == -->
 		<Replace Tag="LOC_BUILDING_GROVE_DESCRIPTION" Language="es_ES">
-			<Text>Todas las casillas adyacentes sin trabajar reciben mejoras de acuerdo a su Atractivo:[NEWLINE] • +1 a Comida [ICON_FOOD] y +1 a Fe [ICON_FAITH] para casillas con Atractivo Encantador o menor.[NEWLINE] •  +1 a Cultura [ICON_CULTURE] adicional si la casilla es Encantadora.[NEWLINE] • +2 a Comida [ICON_FOOD], +2 a Cultura [ICON_CULTURE], +2 a Fe [ICON_FAITH] en casillas con atractivo Impresionante.</Text>
+			<Text>Todas las casillas adyacentes sin trabajar reciben mejoras de acuerdo a su Atractivo:[NEWLINE] • +1 a Alimentos [ICON_FOOD] y +1 a Fe [ICON_FAITH] para casillas con Atractivo Encantador o menor.[NEWLINE] •  +1 a Cultura [ICON_CULTURE] adicional si la casilla es Encantadora.[NEWLINE] • +2 a Alimentos [ICON_FOOD], +2 a Cultura [ICON_CULTURE], +2 a Fe [ICON_FAITH] en casillas con atractivo Impresionante.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SANCTUARY_DESCRIPTION" Language="es_ES">
 			<Text>Todas las casillas adyacentes sin trabajar reciben mejoras de acuerdo a su Atractivo:[NEWLINE] • +1 de Oro [ICON_GOLD] y +1 a Ciencia [ICON_SCIENCE] para casillas con Atractivo Encantador o menor.[NEWLINE] • +1 a Producción [ICON_PRODUCTION] adicional si la casilla es Encantadora.[NEWLINE] • +2 Oro [ICON_GOLD], +2 Ciencia [ICON_SCIENCE], +2 Producción [ICON_PRODUCTION] en casillas con encanto Impresionante.</Text>
@@ -1993,7 +2093,7 @@
 			<Text>Maravilla natural infranqueable de tres casillas. Aparece como una montaña y proporciona +3 [ICON_Faith] Fe a las casillas adyacentes. Las unidades Religiosas que se mueven junto al Monte Everest ignoran las Colinas durante el resto del juego.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_TSINGY_DESCRIPTION" Language="es_ES">
-			<Text>Maravilla natural infranqueable de una casilla. Proporciona +1 a Comida [ICON_FOOD], +1 a Ciencia [ICON_Science] y +1 a Cultura [ICON_Culture] a las casillas adyacentes.</Text>
+			<Text>Maravilla natural infranqueable de una casilla. Proporciona +1 a Alimentos [ICON_FOOD], +1 a Ciencia [ICON_Science] y +1 a Cultura [ICON_Culture] a las casillas adyacentes.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_KILIMANJARO_DESCRIPTION" Language="es_ES">
 			<Text>Maravilla natural infranqueable de una casilla. Aparece como una Montaña y proporciona +2 [ICON_Food] Alimento a las casillas adyacentes.</Text>
@@ -2020,16 +2120,16 @@
 			<Text>Bendición de Njord: +2 [ICON_Movement] Movimiento</Text>
 		</Row>
 		<Replace Tag="LOC_FEATURE_YOSEMITE_DESCRIPTION" Language="es_ES">
-			<Text>Maravilla natural infranqueable de dos casillas. Aparece como una Montaña y proporciona +1 a Comida [ICON_FOOD], +1 de Oro [ICON_Gold] y +1 a Ciencia [ICON_Science] a las casillas adyacentes.</Text>
+			<Text>Maravilla natural infranqueable de dos casillas. Aparece como una Montaña y proporciona +1 a Alimentos [ICON_FOOD], +1 de Oro [ICON_Gold] y +1 a Ciencia [ICON_Science] a las casillas adyacentes.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_YOSEMITE_XP2_DESCRIPTION" Language="es_ES">
-			<Text>Maravilla natural infranqueable de dos casillas. Aparece como una Montaña y proporciona +1 a Comida [ICON_FOOD], +1 de Oro [ICON_Gold] y +1 a Ciencia [ICON_Science]  Ciencia a las casillas adyacentes.</Text>
+			<Text>Maravilla natural infranqueable de dos casillas. Aparece como una Montaña y proporciona +1 a Alimentos [ICON_FOOD], +1 de Oro [ICON_Gold] y +1 a Ciencia [ICON_Science]  Ciencia a las casillas adyacentes.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_EYJAFJALLAJOKULL_DESCRIPTION" Language="es_ES">
-			<Text>Maravilla natural infranqueable de dos casillas. Aparece como un Volcán y proporciona +1 a Cultura [ICON_Culture] y +1 a Comida [ICON_Food]. En erupción da rendimientos medios y es más probable que dañe edificios y distritos. Entra en erupción con poca frecuencia, pero siempre está activo.</Text>
+			<Text>Maravilla natural infranqueable de dos casillas. Aparece como un Volcán y proporciona +1 a Cultura [ICON_Culture] y +1 a Alimentos [ICON_Food]. En erupción da rendimientos medios y es más probable que dañe edificios y distritos. Entra en erupción con poca frecuencia, pero siempre está activo.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_EYJAFJALLAJOKULL_XP2_DESCRIPTION" Language="es_ES">
-			<Text>Maravilla natural infranqueable de dos casillas. Aparece como un Volcán y proporciona +1 a Cultura [ICON_Culture] y +1 a Comida [ICON_Food]. En erupción da rendimientos medios y es más probable que dañe edificios y distritos. Entra en erupción con poca frecuencia, pero siempre está activo.</Text>
+			<Text>Maravilla natural infranqueable de dos casillas. Aparece como un Volcán y proporciona +1 a Cultura [ICON_Culture] y +1 a Alimentos [ICON_Food]. En erupción da rendimientos medios y es más probable que dañe edificios y distritos. Entra en erupción con poca frecuencia, pero siempre está activo.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_PAMUKKALE_DESCRIPTION" Language="es_ES">
 			<Text>Maravilla natural infranqueable de dos casillas. Proporciona +1 [ICON_AMENITIES] Servicios a las ciudades que poseen al menos una casilla de Pamukkale. Importante bonificación por adyacencia a los distritos Plaza del Teatro, Campus y Centro Comercial. Bono de adyacencia estándar adicional al distrito del Lugar Sagrado. Complejo de Entretenimiento proporciona +1 [ICON_AMENITIES] Servicios si está junto a Pamukkale. Proporciona agua dulce.</Text>
@@ -2044,7 +2144,10 @@
 			<Text>Otorga 1 Reliquia [ICON_GreatWork_Relic]. +100% al Turismo Religioso [ICON_Tourism] en esta ciudad. +1 a Alimentos [ICON_Food], +1 a Producción[ICON_Production] y +1 a Cultura [ICON_Culture] en todas las casillas de Tundra de esta ciudad.[NEWLINE][NEWLINE]Debe estar adyacente al Centro urbano.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_CRISTO_REDENTOR_DESCRIPTION" Language="es_ES">
-			<Text>Otorga 1 Reliquia [ICON_GreatWork_Relic]. El Turismo [ICON_Tourism] de las Reliquias [ICON_GreatWork_Relic] y las Ciudades santas no disminuye contra otras civilizaciones que hayan investigado el principio de Ilustración. +75% al Turismo [ICON_Tourism] de los Centros turísticos costeros de toda tu civilización.[NEWLINE][NEWLINE]Debe construirse en Colinas.</Text>
+		    <Text>Otorga 1 Reliquia [ICON_GreatWork_Relic]. El Turismo [ICON_Tourism] de las Reliquias [ICON_GreatWork_Relic] y las Ciudades santas no disminuye contra otras civilizaciones que hayan investigado el principio de Ilustración. +100% al Turismo [ICON_Tourism] de los Centros turísticos costeros de toda tu civilización.[NEWLINE][NEWLINE]Debe construirse en Colinas.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_COLOSSUS_DESCRIPTION" Language="es_ES">
+		    <Text>+1 [ICON_TRADEROUTE] Capacidad de Rutas Comerciales. Otorga una unidad de Comerciante. Las Rutas Comerciales extranjeras hacia esta ciudad proporcionan +2 [ICON_GOLD] Oro a ambas ciudades. Debe construirse en la Costa, adyacente a tierra y a un distrito de Puerto.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_AMUNDSEN_SCOTT_RESEARCH_STATION_DESCRIPTION" Language="es_ES">
 			<Text>+20% a Ciencia [ICON_SCIENCE] y +10% a Producción [ICON_PRODUCTION] en todas las ciudades. Si hay 5 casillas de Tundra o de Colinas de Tundra en un radio de 3 casillas de una ciudad que sea propiedad del jugador, estos rendimientos se duplican.[NEWLINE][NEWLINE]Se debe construir al lado de un Campus que tenga un Laboratorio de investigación y en una casilla de Tundra o Nieve.</Text>
@@ -2083,7 +2186,7 @@
 			<Text>Otorga 3 Arqueros, 3 Lanceros y un Ariete. +35 % [ICON_PRODUCTION] Producción para unidades anticaballería.[NEWLINE][NEWLINE]Debe construirse en un terreno llano adyacente a un distrito de Campamento con un Cuartel.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_ORSZAGHAZ_DESCRIPTION" Language="es_ES">
-			<Text>+3 [ICON_Favor] Favor Diplomático adicional por cada Ciudad-Estado de la que seas Soberano.[NEWLINE][NEWLINE]Debe construirse en un Río.</Text>
+		    <Text>+25% [ICON_InfluencePerTurn] Puntos de Influencia por turno.[NEWLINE]+3 [ICON_FAVOR] Favor Diplomático por cada Ciudad-Estado de la que seas Soberano.[NEWLINE]+2 [ICON_ENVOY] Enviados.[NEWLINE][NEWLINE]Debe construirse en un Río.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_KOTOKU_IN_DESCRIPTION" Language="es_ES">
 			<Text>+20% [ICON_Faith] Fe en esta ciudad. Otorga 4 Monjes Guerreros. Permite la compra de Monjes Guerreros en esta ciudad independientemente de la Religión de la ciudad.[NEWLINE][NEWLINE]Debe construirse junto a un distrito de Lugar Sagrado con un Templo.</Text>
@@ -2170,6 +2273,14 @@
 		<Replace Tag="LOC_LEADER_TRAIT_CARDIFF_DESCRIPTION" Language="es_ES">
 			<Text>+1 Producción [ICON_PRODUCTION], +1 Oro [ICON_GOLD], y +2 de Energía [ICON_POWER] por cada Puerto.</Text>
 		</Replace>
+		<!-- = Johannesburg = -->
+		<Replace Tag="LOC_CIVILIZATION_JOHANNESBURG_BONUS" Language="es_ES">
+		    <Text>Las ciudades reciben +1 [ICON_PRODUCTION] Producción por cada tipo de recurso mejorado (bono, lujo, estratégico). Reciben +1 [ICON_PRODUCTION] Producción adicional con Balística e Industrialización.</Text>
+		</Replace>
+
+		<Replace Tag="LOC_LEADER_TRAIT_JOHANNESBURG_DESCRIPTION" Language="es_ES">
+		    <Text>Las ciudades reciben +1 [ICON_PRODUCTION] Producción por cada tipo de recurso mejorado (bono, lujo, estratégico). Reciben +1 [ICON_PRODUCTION] Producción adicional con Balística e Industrialización.</Text>
+		</Replace>
 		<!-- = Mexico City = -->
 		<Replace Tag="LOC_CIVILIZATION_MEXICO_CITY_BONUS" Language="es_ES">
 			<Text>Los efectos regionales de tus distritos de Zona industrial, Parque acuático y de Complejo de ocio llegan 3 casillas más lejos. +1 a Servicios [ICON_AMENITIES] por Acueducto.</Text>
@@ -2216,10 +2327,10 @@
 		</Replace>
 		<!-- = Zanzibar = -->
 		<Replace Tag="LOC_CIVILIZATION_ZANZIBAR_BONUS" Language="es_ES">
-			<Text>Recibe los recursos de lujo Canela [ICON_RESOURCE_CINNAMON] y Clavo [ICON_RESOURCE_CLOVES]. No se pueden conseguir de otro modo, y otorgan 4 Servicios [ICON_Amenities] cada uno.</Text>
+		    <Text>Recibe los recursos de lujo Canela [ICON_RESOURCE_CINNAMON] y Clavo [ICON_RESOURCE_CLOVES]. No se pueden conseguir de otro modo, y otorgan 4 Servicios [ICON_Amenities] cada uno.</Text>
 		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_ZANZIBAR_DESCRIPTION" Language="es_ES">
-			<Text>Recibe los recursos de lujo Canela [ICON_RESOURCE_CINNAMON] y Clavo [ICON_RESOURCE_CLOVES]. No se pueden conseguir de otro modo, y otorgan 4 Servicios [ICON_Amenities] cada uno.</Text>
+		    <Text>Recibe los recursos de lujo Canela [ICON_RESOURCE_CINNAMON] y, con la investigación de Banca, el recurso de lujo Clavo [ICON_RESOURCE_CLOVES]. No se pueden conseguir de otro modo, y otorgan +6 Servicios [ICON_Amenities] cada uno.</Text>
 		</Replace>
 		
 		<!-- == SCIENTIFIC == -->
@@ -2260,6 +2371,13 @@
 		<Replace Tag="LOC_LEADER_TRAIT_CAGUANA_DESCRIPTION" Language="es_ES">
 			<Text>Tus constructores pueden crear la mejora Batey.[NEWLINE][NEWLINE]+1 a Cultura [ICON_CULTURE]. +1 a Cultura [ICON_CULTURE] por cada recurso adicional y Complejo de ocio adyacente, aumenta a +2 de Cultura [ICON_CULTURE] cuando se descubre la Exploración. +1 Producción [ICON_PRODUCTION] por cada Recurso Estrategico adyacente. +1 Oro [ICON_GOLD] por cada Recurso de Lujo adyacente. Da Turismo [ICON_TOURISM] tras investigar Vuelo. No se puede construir adyacente a otro Batey.</Text>
 		</Replace>
+		<!-- = Kumasi = -->
+		<Replace Tag="LOC_CIVILIZATION_KUMASI_BONUS" Language="es_ES">
+		    <Text>Tus Rutas Comerciales [ICON_TRADEROUTE] a cualquier ciudad-estado otorgan +2 Cultura [ICON_CULTURE] y también +1 Cultura [ICON_CULTURE] y +1 Oro [ICON_GOLD] por cada distrito especializado en la ciudad de origen.</Text>
+		</Replace>
+		<Replace Tag="LOC_LEADER_TRAIT_KUMASI_DESCRIPTION" Language="es_ES">
+		    <Text>Tus Rutas Comerciales [ICON_TRADEROUTE] a cualquier ciudad-estado otorgan +2 Cultura [ICON_CULTURE] y +1 Oro [ICON_GOLD] por cada distrito especializado en la ciudad de origen.</Text>
+		</Replace>
 		<!-- = Nan Madol = -->
 		<Replace Tag="LOC_CIVILIZATION_NAN_MADOL_BONUS" Language="es_ES">
 			<Text>Los distritos [ICON_DISTRICT] que tengas en o junto a casillas de Costa o Lago proporcionan +1 a Cultura [ICON_Culture]. +1 a Cultura [ICON_Culture] adicional al investigar el principio Exploración.</Text>
@@ -2294,7 +2412,7 @@
 			<Text>Desbloquea la habilidad Constructor para construir un Monasterio.[NEWLINE][NEWLINE]+3 [ICON_Faith] Fe. +15 HP de curación para la unidad religiosa aliada en esta casilla que no haya atacado este turno.[NEWLINE][NEWLINE]No se puede construir junto a otro Monasterio.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVILIZATION_ARMAGH_BONUS_XP2" Language="es_ES">
-			<Text>Tus Constructores ahora pueden hacer la mejora Monasterio.[NEWLINE][NEWLINE]+3 [ICON_Faith] Fe y +1 [ICON_HOUSING] Alojamiento. +15 HP de curación para la unidad religiosa aliada en esta casilla que no ha atacado este turno.[NEWLINE][NEWLINE]+1 Comida [ICON_FOOD] y +1 Fe[ICON_Faith] cada 2 distritos adyacentes, +1 Fe [ICON_FAITH] adicional por cada distrito adyacente al desbloquear Iglesia Reformista. [ICON_HOUSING] Alojamiento adicional con el principio Colonialismo.Otorga Turismo [ICON_TOURISM] igual a la Fe [ICON_FAITH] tras investigar Vuelo.[NEWLINE][NEWLINE]No se puede construir junto a otro Monasterio.</Text>
+			<Text>Tus Constructores ahora pueden hacer la mejora Monasterio.[NEWLINE][NEWLINE]+3 [ICON_Faith] Fe y +1 [ICON_HOUSING] Alojamiento. +15 HP de curación para la unidad religiosa aliada en esta casilla que no ha atacado este turno.[NEWLINE][NEWLINE] +1 a Alimentos [ICON_FOOD] y +1 Fe[ICON_Faith] cada 2 distritos adyacentes, +1 Fe [ICON_FAITH] adicional por cada distrito adyacente al desbloquear Iglesia Reformista. [ICON_HOUSING] Alojamiento adicional con el principio Colonialismo.Otorga Turismo [ICON_TOURISM] igual a la Fe [ICON_FAITH] tras investigar Vuelo.[NEWLINE][NEWLINE]No se puede construir junto a otro Monasterio.</Text>
 		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_ARMAGH_EXPANSION2_DESCRIPTION" Language="es_ES">
 			<Text>Tus Constructores ahora pueden hacer la mejora Monasterio.[NEWLINE][NEWLINE]+3 [ICON_Faith] Fe y +1 [ICON_HOUSING] Alojamiento. +15 HP de curación para la unidad religiosa aliada en esta casilla que no ha atacado este turno.[NEWLINE][NEWLINE]+1 [ICON_Faith] Fe de cada 2 distritos adyacentes. [ICON_HOUSING] Alojamiento adicional con el cívico Colonialismo.[NEWLINE][NEWLINE]No se puede construir junto a otro Monasterio.</Text>
@@ -2318,10 +2436,10 @@
 		</Replace>
 		<!-- = La Venta = -->
 		<Replace Tag="LOC_CIVILIZATION_LA_VENTA_BONUS_XP2" Language="es_ES">
-			<Text>Tus Constructores pueden crear la mejora Cabeza Colosal.[NEWLINE][NEWLINE]+1 Comida [ICON_FOOD], +2 Fe [ICON_FAITH] y +1 Alojamiento [ICON_HOUSING]. +1 Fe [ICON_FAITH] por cada 2 Selvas o Bosques adyacentes, mejora a +1 Fe [ICON_FAITH] por cada Selva o Bosque adyacente, tras investigar Humanismo. Turismo [ICON_TOURISM] por Fe [ICON_FAITH] tras investigar Vuelo. No se puede crear en Nieve o Colinas Nevadas.</Text>
+			<Text>Tus Constructores pueden crear la mejora Cabeza Colosal.[NEWLINE][NEWLINE] +1 a Alimentos [ICON_FOOD], +2 Fe [ICON_FAITH] y +1 Alojamiento [ICON_HOUSING]. +1 Fe [ICON_FAITH] por cada 2 Selvas o Bosques adyacentes, mejora a +1 Fe [ICON_FAITH] por cada Selva o Bosque adyacente, tras investigar Humanismo. Turismo [ICON_TOURISM] por Fe [ICON_FAITH] tras investigar Vuelo. No se puede crear en Nieve o Colinas Nevadas.</Text>
 		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_LA_VENTA_EXPANSION2_DESCRIPTION" Language="es_ES">
-			<Text>Tus Constructores pueden crear la mejora Cabeza Colosal.[NEWLINE][NEWLINE]+1 Comida [ICON_FOOD], +2 Fe [ICON_FAITH] y +1 Alojamiento [ICON_HOUSING]. +1 Fe [ICON_FAITH] por cada 2 Selvas o Bosques adyacentes, mejora a +1 Fe [ICON_FAITH] por cada Selva o Bosque adyacente, tras investigar Humanismo. Turismo [ICON_TOURISM] por Fe [ICON_FAITH] tras investigar Vuelo. No se puede crear en Nieve o Colinas Nevadas.</Text>
+			<Text>Tus Constructores pueden crear la mejora Cabeza Colosal.[NEWLINE][NEWLINE]+1 a Alimentos [ICON_FOOD], +2 Fe [ICON_FAITH] y +1 Alojamiento [ICON_HOUSING]. +1 Fe [ICON_FAITH] por cada 2 Selvas o Bosques adyacentes, mejora a +1 Fe [ICON_FAITH] por cada Selva o Bosque adyacente, tras investigar Humanismo. Turismo [ICON_TOURISM] por Fe [ICON_FAITH] tras investigar Vuelo. No se puede crear en Nieve o Colinas Nevadas.</Text>
 		</Replace>
 		<!-- = Vatican City = -->
 		<Replace Tag="LOC_CIVILIZATION_VATICAN_CITY_BONUS" Language="es_ES">
@@ -2378,7 +2496,7 @@
 			<Text>Tambores de Guerra</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="es_ES">
-			<Text>Tambores de Guerra (edad de oro):[NEWLINE]+2 Caballos [ICON_RESOURCE_HORSES] y +2 Hierro [ICON_RESOURCE_IRON] por turno. +15% Producción [ICON_PRODUCTION] hacia unidades militares. Se reduce +1 [ICON_GOLD] el costo de mantenimiento de unidades. +1 Producción [ICON_PRODUCTION] para Campamentos y sus Edificios. Las victorias en Combates otorgan Guclutra [ICON_Culture] igual al 40% de la Fuerza de Combate [ICON_STRENGTH] de la unidad derrotada.</Text>
+		    <Text>Tambores de Guerra (edad de oro):[NEWLINE]+2 Recursos estratégicos de cada tipo descubierto por turno. +15% Producción [ICON_PRODUCTION] hacia unidades militares. Se reduce en 1 [ICON_GOLD] el costo de mantenimiento de unidades por turno. +1 Producción [ICON_PRODUCTION] para Campamentos y sus Edificios. Las victorias en Combates otorgan [ICON_CULTURE] Cultura igual al 40% de la Fuerza de Combate [ICON_STRENGTH] de la unidad derrotada.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="es_ES">
 			<Text>Tambores de Guerra (edad de normal):[NEWLINE]Gana +1 Puntuación de Era cada vez que reclutes un Gran Personaje.</Text>
@@ -2458,8 +2576,11 @@
 		</Replace>
 
 		<!-- === CULTURE TREE DESCRIPTIONS === -->
+		<Replace Tag="BBG_LOC_CIVIC_CULTURAL_HEGEMONY_DESCRIPTION" Language="es_ES">
+			<Text>+25% al Turismo [ICON_TOURISM] en tu imperio.</Text>
+		</Replace>	
 		<Replace Tag="LOC_CIVIC_ENVIRONMENTALISM_DESCRIPTION" Language="es_ES">
-			<Text>+50% al Turismo [ICON_Tourism] en tu imperio.</Text>
+			<Text>+25% al Turismo [ICON_Tourism] en tu imperio.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVIC_MILITARY_TRADITION_DESCRIPTION" Language="es_ES">
 			<Text>Concede las bonificaciones de Flanqueo y Apoyo a todas las unidades de combate excepto unidades terrestres y navales a distancia.</Text>
@@ -2484,7 +2605,7 @@
 			<Text>+10 % Producción [ICON_Production] hacia Maravillas.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="es_ES">
-			<Text>+1 a todos los rendimientos por cada edificio de la Plaza de gobierno, del Barrio diplomático, Palacio y cada edificio que haya en estos distritos. Los Monumentos otorgan +1 Comida [ICON_FOOD] y +1 [ICON_Production] en ciudades con un Distrito de Especialidad.</Text>
+			<Text>+1 a todos los rendimientos por cada edificio de la Plaza de gobierno, del Barrio diplomático, Palacio y cada edificio que haya en estos distritos. Los Monumentos otorgan +1 a Alimentos [ICON_FOOD] y +1 [ICON_Production] en ciudades con un Distrito de Especialidad.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CLASSREP_XP1" Language="es_ES">
 			<Text>+15% [ICON_GreatPerson] Puntos de Gran Persona.</Text>
@@ -2510,7 +2631,7 @@
 			<Text>+50% [ICON_Production] Producción hacia Unidades.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="es_ES">
-			<Text>+1 Producción [ICON_Production] por cada Ciudadano [ICON_Citizen] en ciudades con [ICON_Governor] Gobernadores.</Text> <!-- 5.2.9 REVERTED +1 yield to specialists of the respective district yield. -->
+		    <Text>+1 Producción [ICON_Production] por cada Ciudadano [ICON_Citizen] en ciudades con [ICON_Governor] Gobernadores. -10% Modificador de Turismo del Gobierno.</Text> <!-- 5.2.9 REVERTED +1 yield to specialists of the respective district yield. -->
 		</Replace>
 		<!-- == Tier 4 Governments == -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="es_ES">
@@ -2691,7 +2812,7 @@
 		</Replace>
 		<!-- = Public Transportation = -->
 		<Replace Tag="LOC_POLICY_PUBLIC_TRANSPORT_DESCRIPTION_XP2" Language="es_ES">
-			<Text>Los Barrios residenciales con un atractivo Encantador reciben +3 a Alimentos [ICON_Food] y +1 a Producción [ICON_Production], Barrios con un atractivo Asombroso reciben +1 Comida [ICON_Food] y +1 Producción [ICON_Production] adicional. Todos los Barrios residenciales reciben +1 de Oro [ICON_Gold].</Text>
+			<Text>Los Barrios residenciales con un atractivo Encantador reciben +3 a Alimentos [ICON_Food] y +1 a Producción [ICON_Production], Barrios con un atractivo Asombroso reciben +1 a Alimentos [ICON_Food] y +1 Producción [ICON_Production] adicional. Todos los Barrios residenciales reciben +1 de Oro [ICON_Gold].</Text>
 		</Replace>
 		<!-- = Public Works = -->
 		<Replace Tag="LOC_POLICY_PUBLIC_WORKS_DESCRIPTION" Language="es_ES">
@@ -2726,6 +2847,14 @@
 		<Replace Tag="LOC_POLICY_CHARISMATIC_LEADER_DESCRIPTION" Language="es_ES">
 			<Text>+2 [ICON_InfluencePerTurn] Puntos de Influencia por turno.</Text>
 		</Replace>
+		<!-- = Colonial Offices = -->
+		<Replace Tag="LOC_POLICY_COLONIAL_OFFICES_DESCRIPTION" Language="es_ES">
+		    <Text>+15% de crecimiento más rápido, +10% de Producción [ICON_PRODUCTION], y 3 de Lealtad por turno para las ciudades que estén al menos a 8 casillas de tu Capital [ICON_CAPITAL].</Text>
+		</Replace>
+		<!-- = Colonial Taxes = -->
+		<Replace Tag="LOC_POLICY_COLONIAL_TAXES_DESCRIPTION" Language="es_ES">
+		    <Text>+15% de crecimiento más rápido, +10% de Producción [ICON_PRODUCTION], +25% de Oro [ICON_GOLD], y 3 de Lealtad por turno para las ciudades que estén al menos a 8 casillas de tu Capital [ICON_CAPITAL].</Text>
+		</Replace>
 		<!-- = Communications Office = -->	
 		<Replace Tag="LOC_POLICY_COMMUNICATIONS_OFFICE_DESCRIPTION" Language="es_ES">
 			<Text>Por cada ascenso que tengan, los Gobernadores [ICON_Governor] proporcionan +2 de Lealtad por turno a su ciudad.</Text>
@@ -2736,7 +2865,7 @@
 		</Replace>
 		<!-- = Gunboat Diplomacy = -->
 		<Replace Tag="LOC_POLICY_GUNBOAT_DIPLOMACY_DESCRIPTION" Language="es_ES">
-			<Text>Fronteras Abiertas con todas las ciudades-estado y +4 Puntos de Influencia [ICON_InfluencePerTurn] por turno.</Text>
+		    <Text>+4 Puntos de Influencia [ICON_InfluencePerTurn] por turno y +1 de Oro [ICON_GOLD] de cada uno de tus Enviados [ICON_ENVOY] en las ciudades-estado.</Text>
 		</Replace>
 		<!-- = Machiavellianism = -->
 		<Replace Tag="LOC_POLICY_MACHIAVELLIANISM_DESCRIPTION" Language="es_ES">
@@ -2748,8 +2877,19 @@
 		</Replace>
 		<!-- = Praetorium = -->
 		<Replace Tag="LOC_POLICY_PRAETORIUM_DESCRIPTION" Language="es_ES">
-			<Text>Los Gobernadores [ICON_Governor] proporcionan +4 de Lealtad por turno a su ciudad.</Text>
+		    <Text>Los Gobernadores [ICON_Governor] proporcionan +4 de Lealtad por turno a su ciudad. Los Gobernadores en ciudades conquistadas proporcionan +20% de Producción [ICON_PRODUCTION].</Text>
 		</Replace>
+		<!-- = Raj = -->
+		<Replace Tag="LOC_POLICY_RAJ_DESCRIPTION_XP2" Language="es_ES">
+		    <Text>Las Rutas Comerciales [ICON_TRADEROUTE] a ciudades-estado proporcionan: +1 a Alimentos [ICON_FOOD] y Producción [ICON_PRODUCTION]; +2 Ciencia [ICON_SCIENCE], Cultura [ICON_CULTURE], Fe [ICON_FAITH] y Oro [ICON_GOLD].</Text>
+		</Replace>
+		<!-- = Sovereign State added by BBG6.2 = -->
+		<Row Tag="LOC_POLICY_SOVEREIGN_STATE_NAME" Language="es_ES">
+		    <Text>Estado Soberano</Text>
+		</Row>
+		<Row Tag="LOC_POLICY_SOVEREIGN_STATE_DESCRIPTION" Language="es_ES">
+		    <Text>Fronteras abiertas con todas las ciudades-estado</Text>
+		</Row>
 		<!-- = Wisselbanken = -->
 		<Replace Tag="LOC_POLICY_WISSELBANKEN_DESCRIPTION" Language="es_ES">
 			<Text>Tus Rutas Comerciales [ICON_TradeRoute] hacia la ciudad o ciudad-estado vasallo de un Aliado proporcionan +2 [ICON_Food] de Alimentos y +2 [ICON_Production] de Producción para ambas ciudades. +0.25 Puntos de Alianza por turno para todas las Alianzas.</Text>
@@ -2903,10 +3043,10 @@
 			<Text>+1 Punto de Influencia [ICON_InfluencePerTurn] por turno por cada Ciudad-Estado de la que tu aliado sea suzerano.</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_RELIGIOUS_EFFECT_1" Language="es_ES">
-			<Text>+1 Comida [ICON_FOOD] y +4 Fe [ICON_FAITH] a las Rutas Comerciales [ICON_TradeRoute] hacia tu aliado.</Text>
+			<Text>+1 a Alimentos [ICON_FOOD] y +4 Fe [ICON_FAITH] a las Rutas Comerciales [ICON_TradeRoute] hacia tu aliado.</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_RELIGIOUS_EFFECT_2" Language="es_ES">
-			<Text>+1 Comida [ICON_FOOD] y +4 Fe [ICON_FAITH] a las Rutas Comerciales [ICON_TradeRoute] de tu aliado.</Text>
+			<Text>+1 a Alimentos [ICON_FOOD] y +4 Fe [ICON_FAITH] a las Rutas Comerciales [ICON_TradeRoute] de tu aliado.</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV2_RELIGIOUS_EFFECT_1" Language="es_ES">
 			<Text>+10 Fuerza de Combate Religioso [ICON_RELIGION] contra Religiones no aliadas.</Text>
@@ -3322,7 +3462,7 @@
 			<Text>Balanceado</Text>
 		</Row>
 		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_0_DESC" Language="es_ES">
-			<Text>El Centro de la Ciudad gana +1 [ICON_PRODUCTION] cuando, de otro modo, una ciudad solo sería de 2 [ICON_FOOD] / 1 [ICON_PRODUCTION].[NEWLINE][NEWLINE]Esta habilidad solo afecta a ciudades fundadas en casillas de pradera o llanura. Las habilidades específicas de la civilización se aplican de manera normal.[NEWLINE][NEWLINE]No se gana producción si hay un recurso presente que otorgue Oro [ICON_GOLD], Fe [ICON_FAITH], Ciencia [ICON_SCIENCE] o Cultura [ICON_CULTURE]. Los recursos de Comida que crean una base de 3 [ICON_FOOD]/1 [ICON_PRODUCTION] no se ven afectados por esta habilidad. Si aparece un recurso estratégico en la casilla, entonces esos rendimientos entran en efecto y se pierde la producción añadida.</Text>
+			<Text>El Centro de la Ciudad gana +1 [ICON_PRODUCTION] cuando, de otro modo, una ciudad solo sería de 2 [ICON_FOOD] / 1 [ICON_PRODUCTION].[NEWLINE][NEWLINE]Esta habilidad solo afecta a ciudades fundadas en casillas de pradera o llanura. Las habilidades específicas de la civilización se aplican de manera normal.[NEWLINE][NEWLINE]No se gana producción si hay un recurso presente que otorgue Oro [ICON_GOLD], Fe [ICON_FAITH], Ciencia [ICON_SCIENCE] o Cultura [ICON_CULTURE]. Los recursos de a Alimentos que crean una base de 3 [ICON_FOOD]/1 [ICON_PRODUCTION] no se ven afectados por esta habilidad. Si aparece un recurso estratégico en la casilla, entonces esos rendimientos entran en efecto y se pierde la producción añadida.</Text>
 		</Row>
 		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_1_NAME" Language="es_ES">
 			<Text>Sin RNG</Text>
