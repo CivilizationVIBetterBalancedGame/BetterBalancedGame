@@ -113,7 +113,7 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_RECON'),
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_NIHANG');
 
--- 16/12 Mobile SAM buff 110 anti air
+-- 16/12/23 Mobile SAM buff 110 anti air
 -- Start of the -5 vs planes but didn't find an adapted modifier
 -- INSERT INTO Tags VALUES
 --     ('BBG_CLASS_MOBILE_SAM', 'ABILITY_CLASS');
@@ -130,7 +130,10 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
 
 -- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 --     ('BBG_MODIFIER_MINUS_CS_PLANES', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_REQUIREMENT_')
-UPDATE Units SET AntiAirCombat=110 WHERE UnitType='UNIT_MOBILE_SAM';
+-- 29/03/25 5 movement (from 3)
+UPDATE Units SET AntiAirCombat=110, BaseMoves=5 WHERE UnitType='UNIT_MOBILE_SAM';
+
+
 
 -- 16/12/22 Obsolescence
 -- 15/10/23 added Varus
