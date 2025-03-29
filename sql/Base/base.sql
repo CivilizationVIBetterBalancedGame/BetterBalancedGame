@@ -299,3 +299,4 @@ UPDATE Improvements SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE'
 -- District pillage value to 40/20
 UPDATE Districts SET PlunderAmount=40 WHERE PlunderType='PLUNDER_GOLD';
 UPDATE Districts SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', 'PLUNDER_CULTURE', 'PLUNDER_FAITH');
+
