@@ -69,14 +69,17 @@ INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType) VALUES
 -- mercury +1 food
 -- spice -1 food +1 gold
 -- 02/07/24 Jade +1 prod (can no longer spawn on plains)
+-- 29/03/25 Cotton +4 gold Marble +1 faith (still as +1 culture)
 INSERT OR IGNORE INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange) VALUES
 	('RESOURCE_INCENSE', 'YIELD_FOOD', 1),
 	('RESOURCE_MERCURY', 'YIELD_FOOD', 1),
     ('RESOURCE_JADE', 'YIELD_PRODUCTION', 1),
 	('RESOURCE_SPICES', 'YIELD_GOLD', 1),
     ('RESOURCE_TEA', 'YIELD_FOOD', 1),
-    ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1);
+    ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1),
+    ('RESOURCE_MARBLE', 'YIELD_FAITH', 1);
 UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPICES' AND YieldType='YIELD_FOOD';
+UPDATE Resource_YieldChanges SET YieldChange=4 WHERE ResourceType='RESOURCE_COTTON' AND YieldType='YIELD_GOLD';
 DELETE FROM Resource_ValidTerrains WHERE ResourceType='RESOURCE_JADE' AND TerrainType='TERRAIN_PLAINS';
 -- 26/02/25 diamonds/cocoa to 2 gold
 UPDATE Resource_YieldChanges SET YieldChange=2 WHERE ResourceType IN ('RESOURCE_COCOA', 'RESOURCE_DIAMONDS') AND YieldType='YIELD_GOLD';
