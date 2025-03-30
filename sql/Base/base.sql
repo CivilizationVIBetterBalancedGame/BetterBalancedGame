@@ -156,10 +156,6 @@ INSERT OR IGNORE INTO RequirementArguments
 	('PLAYER_HAS_BANKING_CPLMOD', 'TechnologyType', 'TECH_BANKING'  ),
 	('PLAYER_HAS_ECONOMICS_CPLMOD', 'TechnologyType', 'TECH_ECONOMICS');
 
--- 2022-06-04 -- Add Scientific Theory as Prereq for Steam Power
-INSERT INTO TechnologyPrereqs (Technology, PrereqTech)
-	VALUES ('TECH_STEAM_POWER', 'TECH_SCIENTIFIC_THEORY');
-
 -- This is simply a visual change which makes the tech paths slighly more understandable (the dotted lines)
 -- UPDATE Technologies SET UITreeRow=-3 WHERE TechnologyType='TECH_INDUSTRIALIZATION';
 
@@ -275,7 +271,7 @@ UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_ENTERTAINMENT_
 --=======================================================================
 
 --18/12/23 advanced ballistics advanced one era
-UPDATE Technologies SET EraType="ERA_MODERN" WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
+UPDATE Technologies SET EraType='ERA_MODERN' WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 
 -- 02/07/24 Cost of tech ahead of actual game era are now +30% instead of +20%
@@ -285,6 +281,14 @@ UPDATE Technologies SET Cost=Cost*1.05 WHERE EraType NOT IN ('ERA_ANCIENT', 'ERA
 
 -- 02/07/24 Steel eureka is now "have 1 renaissance wall"
 UPDATE Boosts SET Unit1Type=NULL, BoostClass='BOOST_TRIGGER_HAVE_X_BUILDINGS', BuildingType='BUILDING_STAR_FORT', ImprovementType=NULL, ResourceType=NULL WHERE TechnologyType='TECH_STEEL';
+
+-- 2022-06-04 -- Add Scientific Theory as Prereq for Steam Power
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_STEAM_POWER', 'TECH_SCIENTIFIC_THEORY');
+
+-- 30/03/25 Robotics needs Composites
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_ROBOTICS', 'TECH_COMPOSITES');
 
 --=======================================================================
 --******                       AMENITIES                           ******
