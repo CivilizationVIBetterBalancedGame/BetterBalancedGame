@@ -32,55 +32,63 @@ INSERT OR IGNORE INTO GreatPersonIndividualBirthModifiers
 
 UPDATE ModifierArguments SET Value='10' WHERE ModifierId='HYPASPIST_SIEGE_BONUS' AND Name='Amount';
 -- 25% Science from kills (online speed)
+-- 01/12/24 reduced to 20%
 INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
-	VALUES ('TRAIT_LEADER_TO_WORLDS_END', 'SCIENCE_ON_KILLS_BBG');
+	VALUES ('TRAIT_LEADER_TO_WORLDS_END', 'BBG_SCIENCE_ON_KILLS');
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
-	VALUES ('SCIENCE_ON_KILLS_BBG', 'MODIFIER_PLAYER_UNITS_ADJUST_POST_COMBAT_YIELD');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
-	VALUES
-		('SCIENCE_ON_KILLS_BBG', 'PercentDefeatedStrength', '50'),
-		('SCIENCE_ON_KILLS_BBG', 'YieldType', 'YIELD_SCIENCE');
+	VALUES ('BBG_SCIENCE_ON_KILLS', 'MODIFIER_PLAYER_UNITS_ADJUST_POST_COMBAT_YIELD');
+INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_SCIENCE_ON_KILLS', 'PercentDefeatedStrength', 40),
+	('BBG_SCIENCE_ON_KILLS', 'YieldType', 'YIELD_SCIENCE');
 
-INSERT OR IGNORE INTO TraitModifiers (TraitType , ModifierId)
-	VALUES
-	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION' , 'TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER');
-/* --5.2. Disable:
--- Macedon Prod Bugfix
--- +20% Production for 10 turns after conquering a city
-INSERT INTo Requirements(RequirementId, RequirementType) VALUES
-	('MACEDON_RECENTLY_CONQUERED_BBG_REQ', 'REQUIREMENT_PLOT_PROPERTY_MATCHES');
-INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
-	('MACEDON_RECENTLY_CONQUERED_BBG_REQ', 'PropertyName', 'GETS_MACEDON_20'),
-	('MACEDON_RECENTLY_CONQUERED_BBG_REQ', 'PropertyMinimum', 1);
-INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
-	('MACEDON_RECENTLY_CONQUERED_BBG_REQSET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-	('MACEDON_RECENTLY_CONQUERED_BBG_REQSET', 'MACEDON_RECENTLY_CONQUERED_BBG_REQ');
-INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER', 'MACEDON_RECENTLY_CONQUERED_BBG_REQSET');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER', 'YieldType', 'YIELD_PRODUCTION'),
-	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER', 'Amount', 20);
-*/
---this is needs to be greyed out because Diplo Modifiers are bugged
-INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType)
-	VALUES
-	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER' , 'MODIFIER_PLAYER_ADD_DIPLOMATIC_YIELD_MODIFIER');
-INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
-	VALUES 
-	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER' , 'DiplomaticYieldSource' , 'CITY_CAPTURED'   ),
-	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER' , 'TurnsActive'           , '10'              ),
-	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER' , 'YieldType'             , 'YIELD_PRODUCTION'),
-	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER' , 'Amount'                , '20'              );
+-- 01/12/24 science on prod reduced to 20%
+UPDATE ModifierArguments SET Value=20 WHERE ModifierId='BASILIKOI_PAIDES_SCIENCE_TRAINED_UNIT' AND Name='UnitProductionPercent';
 
 -- Hetairoi no longer a Horseman replacement
 DELETE FROM UnitReplaces WHERE CivUniqueUnitType='UNIT_MACEDONIAN_HETAIROI';
+-- 13/01/25 Hetairoi cost to 110 (from 100)
+UPDATE Units SET Cost=110 WHERE UnitType='UNIT_MACEDONIAN_HETAIROI';
 
--- 14/10/23 Add Military Card at political
--- 05/03/24 remove red card at political
-/*INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
-    ('BBG_ADDITIONAL_MILITARY_CARD', 'MODIFIER_PLAYER_CULTURE_ADJUST_GOVERNMENT_SLOTS_MODIFIER', 'BBG_UTILS_PLAYER_HAS_CIVIC_POLITICAL_PHILOSOPHY_REQSET');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_ADDITIONAL_MILITARY_CARD', 'GovernmentSlotType', 'SLOT_MILITARY');
-INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('TRAIT_CIVILIZATION_HELLENISTIC_FUSION', 'BBG_ADDITIONAL_MILITARY_CARD');*/
+
+
+-- =======================================================================================
+-- 2024/5/23 by OSCAR. 
+-- The implementation of Macedon's trait: grants bonus production after conquering cities
+-- =======================================================================================
+
+-- MODIFIER_PLAYER_ADD_DIPLOMATIC_YIELD_MODIFIER
+-- This should also work (from warlord original bonus)
+
+-- Define a dummy bonus resource																 
+INSERT OR REPLACE INTO Types (Type, Kind) VALUES 
+	('BBG_DUMMY_RESOURCE_MACEDON', 'KIND_RESOURCE');
+
+INSERT OR REPLACE INTO Resources (ResourceType, Name, ResourceClassType) VALUES 
+	('BBG_DUMMY_RESOURCE_MACEDON', 'LOC_BBG_DUMMY_RESOURCE_MACEDON_NAME', 'RESOURCECLASS_BONUS');
+
+-- Hide this dummy resource on the Civilopedia page
+INSERT OR REPLACE INTO CivilopediaPageExcludes (SectionId, PageId) VALUES 
+  	('RESOURCES', 'BBG_DUMMY_RESOURCE_MACEDON');
+
+INSERT OR REPLACE INTO TraitModifiers (TraitType, ModifierId) VALUES
+	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION', 'TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER');
+
+INSERT OR REPLACE INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER', 'PLAYER_HAS_DUMMY_RESOURCE_MACEDON');
+
+INSERT OR REPLACE INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER', 'YieldType', 'YIELD_PRODUCTION'),
+	('TRAIT_CIVILIZATION_HELLENISTIC_FUSION_PRODUCTION_MODIFIER', 'Amount', '20');
+
+-- Define the requirement for the player to possess that dummy resource
+INSERT OR REPLACE INTO Requirements (RequirementId, RequirementType) VALUES
+	('REQUIRES_PLAYER_HAS_DUMMY_RESOURCE_MACEDON', 'REQUIREMENT_PLAYER_HAS_RESOURCE_OWNED');
+
+INSERT OR REPLACE INTO RequirementArguments (RequirementId, Name, Value) VALUES
+	('REQUIRES_PLAYER_HAS_DUMMY_RESOURCE_MACEDON', 'ResourceType', 'BBG_DUMMY_RESOURCE_MACEDON');
+
+INSERT OR REPLACE INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+	('PLAYER_HAS_DUMMY_RESOURCE_MACEDON', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT OR REPLACE INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+	('PLAYER_HAS_DUMMY_RESOURCE_MACEDON', 'REQUIRES_PLAYER_HAS_DUMMY_RESOURCE_MACEDON');

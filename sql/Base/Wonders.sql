@@ -12,6 +12,10 @@ INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 UPDATE Buildings SET Cost=1220 WHERE BuildingType='BUILDING_CRISTO_REDENTOR';
 
+-- Cristo bonus on beach resort reduced to +75%
+-- 30/09/24 en fait non
+-- UPDATE ModifierArguments SET Value=175 WHERE ModifierId='CRISTOREDENTOR_BEACHTOURISM' AND Name='ScalingFactor';
+
 -- Hanging Gardens gives +1 housing to cities within 6 tiles
 UPDATE Buildings SET Housing='1' WHERE BuildingType='BUILDING_HANGING_GARDENS';
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType , ModifierId)
@@ -504,3 +508,18 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 -- BioSphere - reduce cost
 UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_BIOSPHERE';
 
+-- 02/07/24 Oxford moved to Urbanization from Scientific Theory
+UPDATE Buildings SET PrereqTech=NULL, PrereqCivic='CIVIC_URBANIZATION' WHERE BuildingType='BUILDING_OXFORD_UNIVERSITY';
+
+-- 28/11/24 Colossus now give +2 gold to foreign traders coming to and leaving the city
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('COLOSSUS_GOLD_TO_INCOMING_FOREIGN', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_TO_OTHERS'),
+	('COLOSSUS_GOLD_FROM_INCOMING_FOREIGN', 'MODIFIER_SINGLE_CITY_ADJUST_TRADE_ROUTE_YIELD_FROM_OTHERS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('COLOSSUS_GOLD_TO_INCOMING_FOREIGN', 'YieldType', 'YIELD_GOLD'),
+	('COLOSSUS_GOLD_TO_INCOMING_FOREIGN', 'Amount', '2'),
+	('COLOSSUS_GOLD_FROM_INCOMING_FOREIGN', 'YieldType', 'YIELD_GOLD'),
+	('COLOSSUS_GOLD_FROM_INCOMING_FOREIGN', 'Amount', '2');
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+	('BUILDING_COLOSSUS', 'COLOSSUS_GOLD_TO_INCOMING_FOREIGN'),
+	('BUILDING_COLOSSUS', 'COLOSSUS_GOLD_FROM_INCOMING_FOREIGN');

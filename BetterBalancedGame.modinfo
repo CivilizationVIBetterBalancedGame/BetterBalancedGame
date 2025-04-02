@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Release ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="5081"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="6031"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="5081"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="6031"> -->
 
 <!-- WIP ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="5081">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="6031">
 	<Properties>
 		<Name>Better Balanced Game WIP</Name>
 		<Description>
@@ -15,16 +15,16 @@
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>5081</Version>
-		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, codenaugh, coloo, D. / Jack The Narrator, Kid, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Klas, MarsLife(puj), OSCAR., priz, seed.of.apricot, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
+		<Version>6031</Version>
+		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, codenaugh, coloo, D. / Jack The Narrator,  Facu, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Onyxum, OSCAR., priz, robal, seed.of.apricot, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
-	<!--
+	
 	<Dependencies>
 		<Mod id="1B28771A-C749-434B-9053-D1380C553DE9" title="Expansion: Rise and Fall"/>
 		<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Expansion: Gathering Storm" />
 	</Dependencies>
-	-->
+	
 	<!-- can load only select files based on these requirements, if applied -->
 	<ActionCriteria>
 		<Criteria id="XP1" any="1">
@@ -264,23 +264,6 @@
 				<ConfigurationId>VictoryMasterSlider</ConfigurationId>
 				<Group>Game</Group>
 				<Value>5</Value>
-			</ConfigurationValueMatches>
-		</Criteria>
-		<!-- Gamemode -->
-		<Criteria id="No_Gamemode_Babylon">
-			<ModInUse>8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
-			<ConfigurationValueMatches>
-				<Group>Game</Group>
-				<ConfigurationId>BBG_GAMEMODE_BABYLON</ConfigurationId>
-				<Value>0</Value>
-			</ConfigurationValueMatches>
-		</Criteria>
-		<Criteria id="Gamemode_Babylon">
-			<ConfigurationValueMatches>
-				<ModInUse>8424840C-92EF-4426-A9B4-B4E0CB818049</ModInUse>
-				<Group>Game</Group>
-				<ConfigurationId>BBG_GAMEMODE_BABYLON</ConfigurationId>
-				<Value>1</Value>
 			</ConfigurationValueMatches>
 		</Criteria>
 	</ActionCriteria>
@@ -655,6 +638,14 @@
 			<Criteria>XP2</Criteria>
 			<File>sql/DLC_Nubia/xp2_nubia.sql</File>
 		</UpdateDatabase>
+		<UpdateDatabase id="BBG_NFP_Nubia">
+			<Properties>
+				<LoadOrder>11626</LoadOrder>
+			</Properties>
+			<Criteria>DLC_Nubia</Criteria>
+			<Criteria>Ethiopia</Criteria>
+			<File>sql/DLC_Nubia/Nubia_nfp.sql</File>
+		</UpdateDatabase>
 		<!-- -->
 		<UpdateDatabase id="BBG_Indonesia_Khmer">
 			<Properties>
@@ -735,7 +726,6 @@
 				<LoadOrder>11648</LoadOrder>
 			</Properties>
 			<Criteria>Babylon</Criteria>
-			<Criteria>No_Gamemode_Babylon</Criteria>
 			<File>sql/NFP/new_bbg_nfp_babylon.sql</File>
 			<File>sql/NFP/Babylon.sql</File>
 			<File>sql/NFP/GreatPeoples.sql</File>
@@ -745,7 +735,6 @@
 				<LoadOrder>11649</LoadOrder>
 			</Properties>
 			<Criteria>Babylon</Criteria>
-			<Criteria>No_Gamemode_Babylon</Criteria>
 			<Criteria>XP2</Criteria>
 			<File>sql/NFP/mali_dlc_babylon.sql</File>
 		</UpdateDatabase>
@@ -825,6 +814,7 @@
 			<Criteria>RulersChina</Criteria>
 			<File>sql/LP/QinUnifier.sql</File>
 			<File>sql/LP/Yongle.sql</File>
+			<File>sql/LP/WuZetian.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulesChina_XP1">
 			<Properties>
@@ -834,9 +824,17 @@
 			<Criteria>XP1</Criteria>
 			<File>sql/LP/lp_qin_unifier_xp1.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="BBG_RulesChina_XP2">
+		<UpdateDatabase id="BBG_RulesChina_NFPEthiopia">
 			<Properties>
 				<LoadOrder>11658</LoadOrder>
+			</Properties>
+			<Criteria>RulersChina</Criteria>
+			<Criteria>Ethiopia</Criteria>
+			<File>sql/LP/WuZetian_nfp.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_RulesChina_XP2">
+			<Properties>
+				<LoadOrder>11659</LoadOrder>
 			</Properties>
 			<Criteria>RulersChina</Criteria>
 			<Criteria>XP2</Criteria>
@@ -844,7 +842,7 @@
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_Builders">
 			<Properties>
-				<LoadOrder>11659</LoadOrder>
+				<LoadOrder>11660</LoadOrder>
 			</Properties>
 			<Criteria>Builders</Criteria>
 			<File>sql/LP/lp_ludwig.sql</File>
@@ -852,7 +850,7 @@
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_Builders_Byzantium">
 			<Properties>
-				<LoadOrder>11659</LoadOrder>
+				<LoadOrder>11661</LoadOrder>
 			</Properties>
 			<Criteria>Builders</Criteria>
 			<Criteria>Byzantium_Gaul</Criteria>
@@ -860,15 +858,16 @@
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulersSahara">
 			<Properties>
-				<LoadOrder>11660</LoadOrder>
+				<LoadOrder>11662</LoadOrder>
 			</Properties>
 			<Criteria>RulersSahara</Criteria>
 			<File>sql/LP/Ptolemaic.sql</File>
 			<File>sql/LP/Ramses.sql</File>
+			<File>sql/LP/Sundiata.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_RulersEngland">
 			<Properties>
-				<LoadOrder>11661</LoadOrder>
+				<LoadOrder>11663</LoadOrder>
 			</Properties>
 			<Criteria>RulersEngland</Criteria>
 			<File>sql/LP/VictoriaSteam.sql</File>
@@ -1028,7 +1027,6 @@
 			<LuaReplace>ui/replacements/worldrankings_bbg.lua</LuaReplace>
 			</Properties>
 		</ReplaceUIScript>
-		<!--
 		<ReplaceUIScript id="BBG_UnitPanel_XP2">
 			<Criteria>XP2</Criteria>
 			<Properties>
@@ -1037,6 +1035,7 @@
 				<LuaReplace>ui/replacements/unitpanel_bbg.lua</LuaReplace>
 			</Properties>
 		</ReplaceUIScript>
+		<!--
 		<ReplaceUIScript id="productionpanel_bbg">
 			<Criteria>BBGTS_ProductionPanel_BBG_Expansion2</Criteria>
 			<Properties>
@@ -1089,29 +1088,6 @@
 			</Properties>
 			<Criteria>NoConflictingUIMod</Criteria>
 		</ReplaceUIScript>
-		<!--
-		<ImportFiles id="bbg_XP2_panel_override_files">
-			<Criteria>XP2</Criteria>	
-			<File>ui/replacements/unitpanel_bbg.lua</File>
-		</ImportFiles>
-		-->		
-		<!-- Gamemode -->
-		<!--
-		<UpdateDatabase id="bbg_db_Gamemode_Babylon">
-			<Properties>
-				<LoadOrder>21010</LoadOrder>
-			</Properties>
-			<Criteria>Gamemode_Babylon</Criteria>
-			<File>sql/april_fool.sql</File>
-		</UpdateDatabase>
-		<UpdateText>
-			<Properties>
-				<LoadOrder>21010</LoadOrder>
-			</Properties>
-			<Criteria>Gamemode_Babylon</Criteria>
-			<File>lang/april_fool.xml</File>
-		</UpdateText>
-	-->
 	</InGameActions>
 
 	<!-- defines file dependencies -->
@@ -1252,6 +1228,7 @@
 		<!-- -->
 		<File>sql/DLC_Nubia/dlc_nubia.sql</File>
 		<File>sql/DLC_Nubia/xp2_nubia.sql</File>
+		<File>sql/DLC_Nubia/Nubia_nfp.sql</File>
 		<!-- -->
 		<File>sql/DLC_Indonesia_Khmer/_dlc_indo_khmer_utils.sql</File>
 		<File>sql/DLC_Indonesia_Khmer/dlc_indo_khmer.sql</File>
@@ -1287,6 +1264,8 @@
 		<File>sql/LP/lp_ottoman_suleiman_magnificent.sql</File>
 		<File>sql/LP/QinUnifier.sql</File>
 		<File>sql/LP/Yongle.sql</File>
+		<File>sql/LP/WuZetian.sql</File>
+		<File>sql/LP/WuZetian_nfp.sql</File>
 		<File>sql/LP/Theodora.sql</File>
 		<File>sql/LP/lp_ludwig.sql</File>
 		<File>sql/LP/Sejong.sql</File>
@@ -1294,6 +1273,7 @@
 		<File>sql/LP/lp_qin_unifier_xp1.sql</File>
 		<File>sql/LP/Ptolemaic.sql</File>
 		<File>sql/LP/Ramses.sql</File>
+		<File>sql/LP/Sundiata.sql</File>
 		<File>sql/LP/Elizabeth.sql</File>
 		<File>sql/LP/VictoriaSteam.sql</File>
 		<File>sql/LP/Varangian.sql</File>
@@ -1307,7 +1287,7 @@
 		<File>ui/replacements/endgamemenu.xml</File>
 		<!--<File>ui/replacements/productionpanel_bbg.lua</File>-->
 		<File>ui/replacements/tradeoverview_bbg.lua</File>
-		<!--<File>ui/replacements/unitpanel_bbg.lua</File>-->
+		<File>ui/replacements/unitpanel_bbg.lua</File>
 		<File>ui/replacements/tradesupport.lua</File>
 		<File>ui/replacements/compatibility/traderoutechooser.lua</File>
 		<File>ui/replacements/compatibility/tradeoverview.lua</File>
@@ -1334,9 +1314,5 @@
 	    <File>sql/bbcc/core_bbcc.sql</File>
 	    <File>sql/bbcc/no_rng_bbcc.sql</File>
 	    <File>sql/bbcc/cap_only_bbcc.sql</File>
-
-		<File>sql/april_fool.sql</File>
-		<File>lang/april_fool.xml</File>
-		<File>config/april_fool_2022_config.sql</File>
 	</Files>
 </Mod>

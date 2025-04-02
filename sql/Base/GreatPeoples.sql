@@ -72,12 +72,12 @@ UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPers
 UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_BOUDICA';
 
 -- Aethelflaed gives trebuchet with experience (instead of +2 loyalty)
-UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_GRANT_UNIT_WITH_EXPERIENCE' WHERE ModifierId='GREATPERSON_AETHELFLAED_ACTIVE';
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL' WHERE ModifierId='GREATPERSON_AETHELFLAED_ACTIVE';
 DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_AETHELFLAED_ACTIVE';
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('GREATPERSON_AETHELFLAED_ACTIVE', 'UnitType', 'UNIT_TREBUCHET'),
-    ('GREATPERSON_AETHELFLAED_ACTIVE', 'Experience', '-1'),
-    ('GREATPERSON_AETHELFLAED_ACTIVE', 'UniqueOverride', '1');
+    ('GREATPERSON_AETHELFLAED_ACTIVE', 'Amount', '1'),
+    ('GREATPERSON_AETHELFLAED_ACTIVE', 'AllowUniqueOverride', '1');
 UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
 UPDATE GreatPersonIndividuals SET ActionRequiresCompletedDistrictType=NULL WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
 UPDATE GreatPersonIndividuals SET ActionRequiresOwnedTile=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_AETHELFLAED';
@@ -88,7 +88,25 @@ UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPers
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREATPERSON_ANA_NZINGA_ACTIVE' AND Name='Amount';
 
 -- Joan d'arc gives 2 relics (instead of 1)
-UPDATE GreatPersonIndividuals SET ActionCharges=2 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_JOAN_OF_ARC';
+-- UPDATE GreatPersonIndividuals SET ActionCharges=2 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_JOAN_OF_ARC';
+-- 24/07/24 now become the army general
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_ADJUST_MILITARY_FORMATION' WHERE ModifierId='GREATPERSON_JOAN_OF_ARC_ACTIVE';
+DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_JOAN_OF_ARC_ACTIVE';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_JOAN_OF_ARC_ACTIVE', 'MilitaryFormationType', 'ARMY_MILITARY_FORMATION');
+UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_DOMAIN_MILITARY_IN_TILE' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_JOAN_OF_ARC';
+UPDATE GreatPersonIndividuals SET ActionRequiresPlayerRelicSlot=0, ActionRequiresMilitaryUnitDomain='DOMAIN_LAND', ActionRequiresUnitMilitaryFormation='STANDARD_MILITARY_FORMATION' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_JOAN_OF_ARC';
+
+-- 24/07/24 Napoleon grant 1 baloon
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_GRANT_UNIT_WITH_EXPERIENCE' WHERE ModifierId='GREATPERSON_NAPOLEON_BONAPARTE_ACTIVE';
+DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_NAPOLEON_BONAPARTE_ACTIVE';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_NAPOLEON_BONAPARTE_ACTIVE', 'UnitType', 'UNIT_OBSERVATION_BALLOON'),
+    ('GREATPERSON_NAPOLEON_BONAPARTE_ACTIVE', 'Experience', '0'),
+    ('GREATPERSON_NAPOLEON_BONAPARTE_ACTIVE', 'UniqueOverride', '1');
+UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_NAPOLEON_BONAPARTE';
+UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1, ActionRequiresMilitaryUnitDomain=NULL, ActionRequiresUnitMilitaryFormation=NULL WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_NAPOLEON_BONAPARTE';
+
 
 -- Lakshmibai gives an helicopter with experience (instead of a cavalry)
 UPDATE ModifierArguments SET Value='UNIT_HELICOPTER' WHERE ModifierId='GREATPERSON_RANI_LAKSHMIBAI_ACTIVE' AND Name='UnitType';

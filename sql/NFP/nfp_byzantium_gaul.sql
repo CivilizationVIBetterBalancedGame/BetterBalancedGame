@@ -5,7 +5,9 @@
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='BYZANTIUM_COMBAT_HOLY_CITIES' AND Name='Amount';
 --remove dromon combat bonus
 --25/10/23 remove dromon combat bonus again
-DELETE FROM UnitAbilityModifiers WHERE ModifierId='DROMON_COMBAT_STRENGTH_AGAINST_UNITS';
+-- nerf dromon cs bonus to +5
+-- DELETE FROM UnitAbilityModifiers WHERE ModifierId='DROMON_COMBAT_STRENGTH_AGAINST_UNITS';
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='DROMON_COMBAT_STRENGTH_AGAINST_UNITS' AND Name='Amount';
 
 -- Delete Byzantium religious spread (script will do it)
 DELETE FROM Modifiers WHERE ModifierId='BYZANTIUM_PRESSURE_KILLS';
@@ -25,29 +27,8 @@ UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_HIPPO
 UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_HIPPODROME';
 
 --19/12/23 hippodromes to 2 amenities (from 3)
-UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_HIPPODROME';
-
---19/12/23 Naval support only from naval units (see Base/Units.sql)
-INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
-    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE', 'BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_BYZANTINE_DROMON_MODIFIER');
-INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) VALUES
-    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_BYZANTINE_DROMON_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_IS_DEFENDER_IN_MELEE');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_BYZANTINE_DROMON_MODIFIER', 'Amount', '2');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_BYZANTINE_DROMON_MODIFIER', 'UnitType', 'UNIT_BYZANTINE_DROMON');
-INSERT INTO ModifierStrings(ModifierId, Context, Text) SELECT
-    'BBG_ABILITY_SUPPORT_NAVAL_MELEE_UNIT_BYZANTINE_DROMON_MODIFIER', 'Preview', '{'||Units.Name||'} : +{CalculatedAmount}' From Units WHERE UnitType='UNIT_BYZANTINE_DROMON';
-INSERT INTO Requirements (RequirementId, RequirementType) VALUES
-    ('BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_REQ', 'REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TYPE_MATCHES');
-INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
-    ('BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_REQ', 'UnitType', 'UNIT_BYZANTINE_DROMON');
-INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-    ('BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_REQ');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_UNIT_BYZANTINE_DROMON_IS_ADJACENT_AND_MILITARY_TRADITION_REQSET', 'BBG_UTILS_PLAYER_HAS_CIVIC_MILITARY_TRADITION_REQUIREMENT');
+-- 26/02/23 reverted to +3
+-- UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_HIPPODROME';
 
 --==================
 -- Gaul
@@ -64,10 +45,6 @@ INSERT INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
 UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' AND DistrictType='DISTRICT_OPPIDUM';
 -- remove culture from unit production
 DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_GRANT_CULTURE_UNIT_TRAINED';
--- reduce king's combat bonus for adj units
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='AMBIORIX_NEIGHBOR_COMBAT' and Name='Amount';
--- remove ranged units from having kings combat bonus
-DELETE FROM TypeTags WHERE Type='ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS' AND Tag='CLASS_RANGED';
 
 -- 7/3/2021: Beta: Remove Apprenticeship free tech
 DELETE FROM DistrictModifiers WHERE DistrictType='DISTRICT_OPPIDUM' AND ModifierId='OPPIDUM_GRANT_TECH_APPRENTICESHIP';
@@ -88,6 +65,33 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 -- 14/10 discount reduced to 35% (20 for diplo quarter) and unique district to 55%
 UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_OPPIDUM';
 UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_OPPIDUM';
+
+
+-- reduce king's combat bonus for adj units
+UPDATE ModifierArguments SET Value='1' WHERE ModifierId='AMBIORIX_NEIGHBOR_COMBAT' and Name='Amount';
+-- remove ranged units from having kings combat bonus
+DELETE FROM TypeTags WHERE Type='ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS' AND Tag='CLASS_RANGED';
+-- 15/12/24 recode the bonus so only friendly units give combat bonus
+DELETE FROM UnitAbilityModifiers WHERE UnitAbilityType='ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS';
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) SELECT
+    'ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS', 'BBG_ABILITY_AMBIORIX_COMBAT_' || Units.UnitType || '_MODIFIER' FROM Units WHERE FormationClass='FORMATION_CLASS_LAND_COMBAT';
+INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) SELECT
+    'BBG_ABILITY_AMBIORIX_COMBAT_' || Units.UnitType || '_MODIFIER', 'GRANT_STRENGTH_PER_ADJACENT_UNIT_TYPE', 'BBG_' || Units.UnitType || '_IS_ADJACENT_REQSET', NULL FROM Units WHERE FormationClass='FORMATION_CLASS_LAND_COMBAT';
+INSERT INTO ModifierArguments(ModifierId, Name, Value) SELECT
+    'BBG_ABILITY_AMBIORIX_COMBAT_' || Units.UnitType || '_MODIFIER', 'Amount', 1 FROM Units WHERE FormationClass='FORMATION_CLASS_LAND_COMBAT';
+INSERT INTO ModifierArguments(ModifierId, Name, Value) SELECT
+    'BBG_ABILITY_AMBIORIX_COMBAT_' || Units.UnitType || '_MODIFIER', 'UnitType', Units.UnitType FROM Units WHERE FormationClass='FORMATION_CLASS_LAND_COMBAT';
+INSERT INTO ModifierStrings(ModifierId, Context, Text) SELECT
+    'BBG_ABILITY_AMBIORIX_COMBAT_' || Units.UnitType || '_MODIFIER', 'Preview',  '{LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC} ({'||Units.Name||'}) : +{CalculatedAmount}' FROM Units WHERE FormationClass='FORMATION_CLASS_LAND_COMBAT';
+INSERT INTO Requirements (RequirementId, RequirementType) SELECT
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ', 'REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TYPE_MATCHES' FROM Units WHERE FormationClass='FORMATION_CLASS_LAND_COMBAT';
+INSERT INTO RequirementArguments (RequirementId, Name, Value) SELECT
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ', 'UnitType', Units.UnitType FROM Units WHERE FormationClass='FORMATION_CLASS_LAND_COMBAT';
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) SELECT
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Units WHERE FormationClass='FORMATION_CLASS_LAND_COMBAT';
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
+    'BBG_' || Units.UnitType || '_IS_ADJACENT_REQSET', 'BBG_' || Units.UnitType || '_IS_ADJACENT_REQ' FROM Units WHERE FormationClass='FORMATION_CLASS_LAND_COMBAT';
+
 
 --==============================================================
 --******                RELIGION                          ******
@@ -119,3 +123,8 @@ UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MINOR_CIV_ANTIOCH_LUXURY_
 -- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 --     ('BBG_MINOR_CIV_GENEVA_SCIENCE_PER_GREAT_PEOPLE', 'Amount', 1),
 --     ('BBG_MINOR_CIV_GENEVA_SCIENCE_PER_GREAT_PEOPLE', 'YieldType', 'YIELD_SCIENCE');
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_GAUL_GAESATAE', 'CLASS_MALUS_CITY_CENTER');
+

@@ -1,5 +1,5 @@
 
---21/06/23 Varangian gets 50% toward holy site building
+--21/06/23 Varangian gets 25% toward holy site building
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_VARANGIAN_HOLY_SITE_BONUS_PRODUCTION_BUILDING', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES

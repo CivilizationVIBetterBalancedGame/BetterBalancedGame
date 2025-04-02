@@ -1,6 +1,8 @@
 --====Summer====--
 --moved from base because alliance levels didn't exist
 -- 16/05/2021: +1 military power per alliance level (on better alliance)
+-- 30/11/24 Removed 
+-- 15/12/24 reverted
 INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) VALUES
     ('BBG_SUMMER_COMBAT_ALLY_1', 'MODIFIER_PLAYER_UNITS_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', NULL),
     ('BBG_SUMMER_COMBAT_ALLY_2', 'MODIFIER_PLAYER_UNITS_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', NULL),

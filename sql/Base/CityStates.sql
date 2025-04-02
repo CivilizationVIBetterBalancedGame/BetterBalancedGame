@@ -2,8 +2,18 @@
 --******			       CITY STATES      			  ******
 --==============================================================
 
-UPDATE Resources SET Happiness=4 WHERE ResourceType IN ('RESOURCE_CINNAMON', 'RESOURCE_CLOVES');
 
+--==========================
+--*       ZANZIBAR         *
+--==========================
+-- amenities reduced to 4
+-- 15/12/24 reverted to 6 but second one delayed at banking
+-- UPDATE Resources SET Happiness=4 WHERE ResourceType IN ('RESOURCE_CINNAMON', 'RESOURCE_CLOVES');
+UPDATE Modifiers SET OwnerRequirementSetId='BBG_UTILS_PLAYER_HAS_TECH_BANKING' WHERE ModifierId='MINOR_CIV_ZANZIBAR_CLOVES_RESOURCE_BONUS';
+
+--==========================
+--*      MEXICO CITY       *
+--==========================
 --08/03/24 Mexico aqueduct amenities
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
@@ -18,6 +28,9 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('MINOR_CIV_MEXICO_CITY_TRAIT', 'BBG_MINOR_CIV_MEXICO_CITY_UNIQUE_INFLUENCE_BONUS_AQUEDUCT');
 
+--==========================
+--*       JERUSALEM        *
+--==========================
 --10/03/24 Jerusalem gives +1 gold per holy site
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_MINOR_CIV_JERUSALEM_UNIQUE_INFLUENCE_BONUS_GOLD_HS', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
@@ -100,6 +113,7 @@ UPDATE ModifierArguments SET Value='ABILITY_ECONOMIC_GOLDEN_AGE_PLUNDER_IMMUNITY
 -- 09/03/2024 colossal heads +1 food, +1 housing
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES ('IMPROVEMENT_COLOSSAL_HEAD', 'YIELD_FOOD', 1);
 UPDATE Improvements SET Housing=1 WHERE ImprovementType='IMPROVEMENT_COLOSSAL_HEAD';
+UPDATE Improvements SET TilesRequired=2 WHERE ImprovementType='IMPROVEMENT_COLOSSAL_HEAD';
 
 --09/03/2024 Hattusa gives 2 Strategic that you discovered even if improved
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLAYER_CAN_SEE_HORSES' WHERE ModifierId='MINOR_CIV_HATTUSA_HORSES_RESOURCE_BONUS';
@@ -125,3 +139,17 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value, Extra) VALUES
     ('BBG_GENEVA_UNIQUE_INFLUENCE_EUREKAS_MODIFIER', 'ModifierId', 'BBG_GENEVA_EUREKAS_BOOSTS', NULL),
     ('BBG_GENEVA_EUREKAS_BOOSTS', 'Amount', '5', -1);
 UPDATE TraitModifiers SET ModifierId='BBG_GENEVA_UNIQUE_INFLUENCE_EUREKAS_MODIFIER' WHERE TraitType='MINOR_CIV_GENEVA_TRAIT';
+
+
+-- 15/12/24 Kumasi: change to "traders to CS provide 2 culture, +1 culture and +1 gold per district in origin city" (from +2/+1 per district)
+UPDATE ModifierArguments SET Value=1 WHERE ModifierId='MINOR_CIV_KUMASI_CULTURE_TRADE_ROUTE_YIELD_BONUS' AND Name='Amount';
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_KUMASI_UNIQUE_INFLUENCE_BASE_CULTURE_TRADEROUTE_MODIFIER', 'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER', 'PLAYER_IS_SUZERAIN'),
+    ('BBG_KUMASI_BASE_CULTURE_TRADEROUTE', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTES_CITY_STATE_YIELD', NULL);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_KUMASI_UNIQUE_INFLUENCE_BASE_CULTURE_TRADEROUTE_MODIFIER', 'ModifierId', 'BBG_KUMASI_BASE_CULTURE_TRADEROUTE'),
+    ('BBG_KUMASI_BASE_CULTURE_TRADEROUTE', 'YieldType', 'YIELD_CULTURE'),
+    ('BBG_KUMASI_BASE_CULTURE_TRADEROUTE', 'Amount', 2);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('MINOR_CIV_KUMASI_TRAIT', 'BBG_KUMASI_UNIQUE_INFLUENCE_BASE_CULTURE_TRADEROUTE_MODIFIER');

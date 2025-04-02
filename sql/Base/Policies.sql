@@ -11,9 +11,9 @@ UPDATE ModifierArguments SET Value='10' WHERE ModifierId='DISCIPLINE_BARBARIANCO
 
 -- Bastillon ""bugfix"" (Value is doubled, so put 2*+3 instead of 2*+5)
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='BASTIONS_RANGEDSTRIKE' AND Name='Amount';
+-- 02/07/24 Bastion ranged strength removed
+DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_BASTIONS' AND ModifierId='BASTIONS_RANGEDSTRIKE';
 
--- Praeorium give +4 Loyalty (from +2)
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='PRAETORIUM_GOVERNORIDENTITY' AND Name='Amount';
 -- Communications Office give 2 Loyalty per governor promotion (from +1)
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='COMMUNICATIONS_OFFICE_GOVERNOR_IDENTITY_PER_TITLE' AND Name='Amount';
 
@@ -189,3 +189,87 @@ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('BBG_MEDINA_HOUSING_DISTRICT', 'Amount', 1);
 UPDATE PolicyModifiers SET ModifierId='BBG_MEDINA_HOUSING_DISTRICT' WHERE ModifierId='MEDINAQUARTER_SPECIALTYHOUSING';
+
+-- 28/11/24 Raj now gives +1 prod/food, +2sci/culture/faith/gold per traderoute to a city state
+DELETE FROM PolicyModifiers WHERE ModifierId LIKE 'RAJ%TRIBUTARY';
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_RAJ_CITY_TRADE_ROUTE_FOOD', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTES_CITY_STATE_YIELD'),
+	('BBG_RAJ_CITY_TRADE_ROUTE_PROD', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTES_CITY_STATE_YIELD'),
+	('BBG_RAJ_CITY_TRADE_ROUTE_FAITH', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTES_CITY_STATE_YIELD'),
+	('BBG_RAJ_CITY_TRADE_ROUTE_SCIENCE', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTES_CITY_STATE_YIELD'),
+	('BBG_RAJ_CITY_TRADE_ROUTE_CULTURE', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTES_CITY_STATE_YIELD');
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_RAJ_CITY_TRADE_ROUTE_FOOD', 'YieldType', 'YIELD_FOOD'),
+	('BBG_RAJ_CITY_TRADE_ROUTE_FOOD', 'Amount', 1),
+	('BBG_RAJ_CITY_TRADE_ROUTE_PROD', 'YieldType', 'YIELD_PRODUCTION'),
+	('BBG_RAJ_CITY_TRADE_ROUTE_PROD', 'Amount', 1),
+	('BBG_RAJ_CITY_TRADE_ROUTE_FAITH', 'YieldType', 'YIELD_FAITH'),
+	('BBG_RAJ_CITY_TRADE_ROUTE_FAITH', 'Amount', 2),
+	('BBG_RAJ_CITY_TRADE_ROUTE_SCIENCE', 'YieldType', 'YIELD_SCIENCE'),
+	('BBG_RAJ_CITY_TRADE_ROUTE_SCIENCE', 'Amount', 2),
+	('BBG_RAJ_CITY_TRADE_ROUTE_CULTURE', 'YieldType', 'YIELD_CULTURE'),
+	('BBG_RAJ_CITY_TRADE_ROUTE_CULTURE', 'Amount', 2);
+
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+	('POLICY_RAJ', 'BBG_RAJ_CITY_TRADE_ROUTE_FOOD'),
+	('POLICY_RAJ', 'BBG_RAJ_CITY_TRADE_ROUTE_PROD'),
+	('POLICY_RAJ', 'BBG_RAJ_CITY_TRADE_ROUTE_FAITH'),
+	('POLICY_RAJ', 'BBG_RAJ_CITY_TRADE_ROUTE_SCIENCE'),
+	('POLICY_RAJ', 'BBG_RAJ_CITY_TRADE_ROUTE_CULTURE');
+
+-- 28/11/24 Merchant Confederation/Gunboat Diplomacy/Ideology changes
+-- 28/11/24 Merchant confederation obsolete at Ideology/Gunboat Diplomacy
+INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
+	('POLICY_MERCHANT_CONFEDERATION', 'POLICY_GUNBOAT_DIPLOMACY');
+-- 28/11/24 New green card giving freedom of movement into city state at Civil, osbsolete at Ideology/Gunboat Diplomacy /!\ care if you move gunboat as it is ideology which give open borders with cs now
+INSERT INTO Types(Type, Kind) VALUES
+	('POLICY_SOVEREIGN_STATE', 'KIND_POLICY');
+INSERT INTO Policies(PolicyType, Name, Description, PrereqCivic, GovernmentSlotType) VALUES
+	('POLICY_SOVEREIGN_STATE', 'LOC_POLICY_SOVEREIGN_STATE_NAME', 'LOC_POLICY_SOVEREIGN_STATE_DESCRIPTION', 'CIVIC_CIVIL_SERVICE', 'SLOT_DIPLOMATIC');
+INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
+	('POLICY_SOVEREIGN_STATE', 'POLICY_GUNBOAT_DIPLOMACY');
+DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_GUNBOAT_DIPLOMACY' AND ModifierId='GUNBOATDIPLOMACY_OPENBORDERS';
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+	('POLICY_SOVEREIGN_STATE', 'GUNBOATDIPLOMACY_OPENBORDERS');
+-- 28/11/24 Ideology now gives open border without card
+INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES
+	('CIVIC_IDEOLOGY', 'GUNBOATDIPLOMACY_OPENBORDERS');
+-- 28/11/24 Gunboat Diplomacy now gets Merchant confederation bonus of +4 golds (do not grant open border with cs anymore)
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+	('POLICY_GUNBOAT_DIPLOMACY', 'MERCHANTCONFEDERATION_INFLUENCETOKENGOLD');
+
+-- 28/11/24 Colonial Taxes/Offices changes
+-- 28/11/24 both cards now work for cities 8+ tiles away from cap and not based on continent
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_IS_PLOT_8_TILES_OR_MORE_FROM_CAPITAL_REQUIREMENTS' WHERE ModifierId IN ('COLONIALOFFICES_FOREIGNGROWTH', 'COLONIALTAXES_FOREIGNGOLD', 'COLONIALOFFICES_FOREIGNIDENTITY', 'COLONIALTAXES_FOREIGNPRODUCTION');
+-- 28/11/24 offices is obsolete when taxes is unlocked
+INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
+	('POLICY_COLONIAL_OFFICES', 'POLICY_COLONIAL_TAXES');
+-- 28/11/24 offices also gives production
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+	('POLICY_COLONIAL_OFFICES', 'COLONIALTAXES_FOREIGNPRODUCTION');
+
+-- 15/12/24 Veterancy now obsolete at mobi replaced by arms race that also give production to aerodrome and its building
+INSERT INTO Types(Type, Kind) VALUES
+	('POLICY_ARMS_RACE', 'KIND_POLICY');
+INSERT INTO Policies(PolicyType, Name, Description, PrereqCivic, GovernmentSlotType) VALUES
+	('POLICY_ARMS_RACE', 'LOC_POLICY_ARMS_RACE_NAME', 'LOC_POLICY_ARMS_RACE_DESCRIPTION', 'CIVIC_MOBILIZATION', 'SLOT_MILITARY');
+INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
+	('POLICY_VETERANCY', 'POLICY_ARMS_RACE');
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_ARMS_RACE_AERODROME_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION'),
+	('BBG_ARMS_RACE_AERODROME_BUILDING_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_ARMS_RACE_AERODROME_PRODUCTION', 'DistrictType', 'DISTRICT_AERODROME'),
+	('BBG_ARMS_RACE_AERODROME_PRODUCTION', 'Amount', '30'),
+	('BBG_ARMS_RACE_AERODROME_BUILDING_PRODUCTION', 'DistrictType', 'DISTRICT_AERODROME'),
+	('BBG_ARMS_RACE_AERODROME_BUILDING_PRODUCTION', 'Amount', '30');
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+	('POLICY_ARMS_RACE', 'BBG_ARMS_RACE_AERODROME_PRODUCTION'),
+	('POLICY_ARMS_RACE', 'BBG_ARMS_RACE_AERODROME_BUILDING_PRODUCTION'),
+	('POLICY_ARMS_RACE', 'VETERANCY_ENCAMPMENT_PRODUCTION'),
+	('POLICY_ARMS_RACE', 'VETERANCY_ENCAMPMENT_BUILDINGS_PRODUCTION'),
+	('POLICY_ARMS_RACE', 'VETERANCY_HARBOR_PRODUCTION'),
+	('POLICY_ARMS_RACE', 'VETERANCY_HARBOR_BUILDINGS_PRODUCTION');

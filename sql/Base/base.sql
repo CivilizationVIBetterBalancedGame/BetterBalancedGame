@@ -1,6 +1,11 @@
 
 UPDATE GlobalParameters SET Value=2 WHERE Name='FORTIFY_BONUS_PER_TURN';
 
+
+-- 27/02/25 Combat RNG removed (base damage was 24, and max extra 12, meaning extra damage could go from 24 to 36)
+UPDATE GlobalParameters SET Value=0 WHERE Name='COMBAT_MAX_EXTRA_DAMAGE';
+UPDATE GlobalParameters SET Value=30 WHERE Name='COMBAT_BASE_DAMAGE';
+
 --==============================================================
 --******				S  C  O  R  E				  	  ******
 --==============================================================
@@ -63,13 +68,18 @@ INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType) VALUES
 -- incense +1 food
 -- mercury +1 food
 -- spice -1 food +1 gold
+-- 02/07/24 Jade +1 prod (can no longer spawn on plains)
 INSERT OR IGNORE INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange) VALUES
 	('RESOURCE_INCENSE', 'YIELD_FOOD', 1),
 	('RESOURCE_MERCURY', 'YIELD_FOOD', 1),
+    ('RESOURCE_JADE', 'YIELD_PRODUCTION', 1),
 	('RESOURCE_SPICES', 'YIELD_GOLD', 1),
     ('RESOURCE_TEA', 'YIELD_FOOD', 1),
     ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1);
 UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPICES' AND YieldType='YIELD_FOOD';
+DELETE FROM Resource_ValidTerrains WHERE ResourceType='RESOURCE_JADE' AND TerrainType='TERRAIN_PLAINS';
+-- 26/02/25 diamonds/cocoa to 2 gold
+UPDATE Resource_YieldChanges SET YieldChange=2 WHERE ResourceType IN ('RESOURCE_COCOA', 'RESOURCE_DIAMONDS') AND YieldType='YIELD_GOLD';
 
 -- add 1 production to fishing boat improvement
 UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_FISHING_BOATS' AND YieldType='YIELD_PRODUCTION';
@@ -101,9 +111,10 @@ INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType) VALUES
     ('IMPROVEMENT_BEACH_RESORT', 'TERRAIN_DESERT_HILLS');
 -- 12/06/23 Beach Resort can be built on appealling tiles
 UPDATE Improvements SET MinimumAppeal=2 WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
---15/06/23 Beach resort get gold double the appeal and tourism based on that
+-- 15/06/23 Beach resort get gold double the appeal and tourism based on that
+-- 30/09/24 from *2 to *1.5
 UPDATE Improvement_Tourism SET TourismSource='TOURISMSOURCE_GOLD' WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
-UPDATE Improvements SET YieldFromAppealPercent=200 WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
+UPDATE Improvements SET YieldFromAppealPercent=150 WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
 
 
 -- 12/06/23 Fix tourism at flight on some improvement
@@ -191,14 +202,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId)
 DROP TABLE Numbers;
 */
 
---=======================================================================
---******                        Spy                                ******
---=======================================================================
---Creating Spy Capacity Modifier (lua attaches it)
-INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
-    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'MODIFIER_PLAYER_GRANT_SPY');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('MODIFIER_CAPTURED_ADD_SPY_CAPACITY_BBG', 'Amount', '1');
+
 
 --=======================================================================
 --******               Wonder+Terrain/Feature                      ******
@@ -267,6 +271,14 @@ UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_ENTERTAINMENT_
 UPDATE Technologies SET EraType="ERA_MODERN" WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 
+-- 02/07/24 Cost of tech ahead of actual game era are now +30% instead of +20%
+UPDATE GlobalParameters SET Value=30 WHERE Name='TECH_COST_PERCENT_CHANGE_AFTER_GAME_ERA';
+
+UPDATE Technologies SET Cost=Cost*1.05 WHERE EraType NOT IN ('ERA_ANCIENT', 'ERA_CLASSICAL');
+
+-- 02/07/24 Steel eureka is now "have 1 renaissance wall"
+UPDATE Boosts SET Unit1Type=NULL, BoostClass='BOOST_TRIGGER_HAVE_X_BUILDINGS', BuildingType='BUILDING_STAR_FORT', ImprovementType=NULL, ResourceType=NULL WHERE TechnologyType='TECH_STEEL';
+
 --=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================
@@ -276,3 +288,11 @@ UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE Happines
 
 -- 14/03/24 Nationalism boost is now upgrading a land unit to level 3
 UPDATE Boosts SET BoostClass='BOOST_TRIGGER_LAND_UNIT_LEVEL', NumItems=3 WHERE CivicType='CIVIC_NATIONALISM';
+
+-- 30/11/24 Pillage nerf
+-- Improvement pillage value to 35/20
+UPDATE Improvements SET PlunderAmount=35 WHERE PlunderType='PLUNDER_GOLD';
+UPDATE Improvements SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', 'PLUNDER_CULTURE', 'PLUNDER_FAITH');
+-- District pillage value to 40/20
+UPDATE Districts SET PlunderAmount=40 WHERE PlunderType='PLUNDER_GOLD';
+UPDATE Districts SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', 'PLUNDER_CULTURE', 'PLUNDER_FAITH');

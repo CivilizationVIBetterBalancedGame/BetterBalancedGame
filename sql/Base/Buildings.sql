@@ -54,6 +54,11 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
     ('BUILDING_WATER_MILL', 'BBG_WATERMILL_PRODUCTION_FARM');
 
+-- 24/07/24 test : is now buildable everywhere
+UPDATE Buildings SET RequiresAdjacentRiver=0 WHERE BuildingType='BUILDING_WATER_MILL';
+
+
+
 -- Workshop cost less and give more production
 UPDATE Buildings SET Cost=160 WHERE BuildingType='BUILDING_WORKSHOP';
 UPDATE Building_YieldChanges SET YieldChange=4 WHERE BuildingType='BUILDING_WORKSHOP' AND YieldType='YIELD_PRODUCTION';

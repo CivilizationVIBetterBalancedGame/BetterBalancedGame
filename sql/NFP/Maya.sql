@@ -1,7 +1,8 @@
 -- reduce combat bonus to 3 from 5
 --16/04/23 Remove combat bonus
--- UPDATE ModifierArguments SET Value='3' WHERE ModifierId='MUTAL_NEAR_CAPITAL_COMBAT' AND Name='Amount';
-DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_LEADER_NEARBY_CITIES_GAIN_ABILITY';
+-- 02/07/24 revert 16/04/23 cs change
+UPDATE ModifierArguments SET Value='3' WHERE ModifierId='MUTAL_NEAR_CAPITAL_COMBAT' AND Name='Amount';
+-- DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_LEADER_NEARBY_CITIES_GAIN_ABILITY';
 -- set citizen yields to same as other campuses
 UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' AND DistrictType='DISTRICT_OBSERVATORY';
 --- start biases ---
@@ -56,12 +57,18 @@ UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_OBSERVATORY';
 
 --19/12/23 Observatory adjacency from plantations reduced to +1 but plantations gain 2 science at education
 INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
-    ('IMPROVEMENT_PLANTATION', 'BBG_Plantation_Science_Observatory');
+    ('IMPROVEMENT_PLANTATION', 'BBG_Plantation_Science_Observatory_Education');
 INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict, PrereqTech) VALUES
-    ('BBG_Plantation_Science_Observatory', 'Placeholder', 'YIELD_SCIENCE', 2, 1, 'DISTRICT_OBSERVATORY', 'TECH_EDUCATION');
+    ('BBG_Plantation_Science_Observatory_Education', 'Placeholder', 'YIELD_SCIENCE', 1, 1, 'DISTRICT_OBSERVATORY', 'TECH_EDUCATION');
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
     ('IMPROVEMENT_PLANTATION', 'YIELD_SCIENCE', '0');
 UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='Plantation_Science';
+
+--19/12/23 Observatory adjacency from plantations reduced to +1 but plantations gain 2 science at education
+INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
+    ('IMPROVEMENT_PLANTATION', 'BBG_Plantation_Science_Observatory');
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict) VALUES
+    ('BBG_Plantation_Science_Observatory', 'Placeholder', 'YIELD_SCIENCE', 1, 1, 'DISTRICT_OBSERVATORY');
 
 -- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 --     ('BBG_TRAIT_PLANTATIONS_SCIENCE_OBSERVATORY', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_PLOT_ADJACENT_TO_OBSERVATORIES_PLANTATIONS_AT_EDUCATION_REQSET');
@@ -76,3 +83,10 @@ UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='Plantation_Science';
 --     ('BBG_PLOT_ADJACENT_TO_OBSERVATORIES_PLANTATIONS_AT_EDUCATION_REQSET', 'BBG_UTILS_PLAYER_HAS_TECH_EDUCATION_REQUIREMENT');
 -- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 --     ('TRAIT_LEADER_MUTAL', 'BBG_TRAIT_PLANTATIONS_SCIENCE_OBSERVATORY');
+
+-- 16/12/24 Observatories give +1 housing
+UPDATE Districts SET Housing=1 WHERE DistrictType='DISTRICT_OBSERVATORY';
+
+-- 08/01/25 Observatories gets +2 from geothermal
+INSERT INTO District_Adjacencies (DistrictType , YieldChangeId) VALUES
+    ('DISTRICT_OBSERVATORY', 'Geothermal_Science');

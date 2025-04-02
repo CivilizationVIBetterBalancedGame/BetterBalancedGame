@@ -75,7 +75,7 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     SELECT 'BBG_GAME_IS_IN_' || EraType || '_REQUIREMENTS', 'BBG_GAME_IS_IN_' || EraType || '_REQUIREMENT'
     FROM Eras;
 
--- requirements game era (for teddy)
+-- requirements player game era (for teddy)
 INSERT INTO Requirements(RequirementId, RequirementType)
     SELECT 'BBG_PLAYER_IS_IN_' || EraType || '_REQUIREMENT', 'REQUIREMENT_PLAYER_ERA_AT_LEAST'
     FROM Eras;
@@ -97,6 +97,13 @@ INSERT INTO Requirements(RequirementId, RequirementType, Inverse)
 INSERT INTO RequirementArguments(RequirementId, Name, Value)
     SELECT 'BBG_PLAYER_IS_NOT_IN_' || EraType || '_REQUIREMENT', 'EraType', EraType
     FROM Eras;
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
+    SELECT 'BBG_PLAYER_IS_NOT_IN_' || EraType || '_REQSET', 'REQUIREMENTSET_TEST_ALL'
+    FROM Eras;
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+    SELECT 'BBG_PLAYER_IS_NOT_IN_' || EraType || '_REQSET', 'BBG_PLAYER_IS_NOT_IN_' || EraType || '_REQUIREMENT'
+    FROM Eras;
+
 
 INSERT OR IGNORE INTO RequirementSets VALUES
     ('BBG_UNIT_ON_HILL_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
@@ -187,3 +194,45 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     WHERE InheritFrom IN
         ('LEADER_MINOR_CIV_CULTURAL', 'LEADER_MINOR_CIV_INDUSTRIAL', 'LEADER_MINOR_CIV_MILITARISTIC',
         'LEADER_MINOR_CIV_RELIGIOUS', 'LEADER_MINOR_CIV_SCIENTIFIC', 'LEADER_MINOR_CIV_TRADE');
+
+-- For Victoria AoE and Elizabeth
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL_REQSET', 'BBG_REQUIRES_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL');
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+    ('BBG_REQUIRES_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL','REQUIREMENT_PLOT_NEAR_CAPITAL');
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_OBJECT_10_OR_MORE_TILES_FROM_CAPITAL', 'MinDistance', '10');
+
+
+-- Every resources requirement
+INSERT INTO Requirements (RequirementId, RequirementType) SELECT
+    'BBG_CITY_HAS_IMPROVED_' || Resources.ResourceType || '_REQ', 'REQUIREMENT_CITY_HAS_RESOURCE_TYPE_IMPROVED' FROM Resources WHERE NOT Resources.ResourceType='BBG_DUMMY_RESOURCE_MACEDON';
+INSERT INTO RequirementArguments (RequirementId, Name, Value) SELECT
+    'BBG_CITY_HAS_IMPROVED_' || Resources.ResourceType || '_REQ', 'ResourceType', Resources.ResourceType FROM Resources WHERE NOT Resources.ResourceType='BBG_DUMMY_RESOURCE_MACEDON';
+    
+-- city has improved strategic
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_IMPROVED_STRAT_REQSET', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
+    'BBG_CITY_HAS_IMPROVED_STRAT_REQSET', 'BBG_CITY_HAS_IMPROVED_' || Resources.ResourceType || '_REQ' FROM Resources WHERE ResourceClassType='RESOURCECLASS_STRATEGIC';
+-- city has improved bonus
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_IMPROVED_BONUS_REQSET', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
+    'BBG_CITY_HAS_IMPROVED_BONUS_REQSET', 'BBG_CITY_HAS_IMPROVED_' || Resources.ResourceType || '_REQ' FROM Resources WHERE ResourceClassType='RESOURCECLASS_BONUS';
+-- city has improved lux
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_IMPROVED_LUX_REQSET', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
+    'BBG_CITY_HAS_IMPROVED_LUX_REQSET', 'BBG_CITY_HAS_IMPROVED_' || Resources.ResourceType || '_REQ' FROM Resources WHERE ResourceClassType='RESOURCECLASS_LUXURY';
+
+-- needed for players without nfp
+INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) VALUES
+    ('REQUIRES_PLOT_HAS_GRASS_FLOODPLAINS', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'),
+    ('REQUIRES_PLOT_HAS_PLAINS_FLOODPLAINS', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES');
+INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('REQUIRES_PLOT_HAS_GRASS_FLOODPLAINS', 'FeatureType', 'FEATURE_FLOODPLAINS_GRASSLAND'),
+    ('REQUIRES_PLOT_HAS_PLAINS_FLOODPLAINS', 'FeatureType', 'FEATURE_FLOODPLAINS_PLAINS');
+    
