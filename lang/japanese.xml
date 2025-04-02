@@ -76,7 +76,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RIGHTEOUSNESS_OF_FAITH_DESCRIPTION" Language="ja_JP">
-			<Text>すべてのプレイヤーは自分が創始する宗教の崇拝の建物を通常の10分の1の信仰力[ICON_Faith] で購入できる。またこの建物のあるアラビアの都市が生み出す科学力[ICON_Science]、信仰力[ICON_Faith] 、文化力[ICON_Culture]が+20%される。</Text>
+			<Text>すべてのプレイヤーは自分が創始する宗教の崇拝の建物を通常の10分の1の信仰力[ICON_Faith] で購入できる。またこの建物のあるアラビアの都市が生み出す科学力[ICON_Science]、信仰力[ICON_Faith] 、文化力[ICON_Culture]が+10%される。宗教改革の社会制度を完了すると+20%に強化される。</Text>
 		</Replace>
     <!-- = leader ability (Saladin Sultan) = -->
     <Replace Tag="LOC_TRAIT_LEADER_SALADIN_ALT_DESCRIPTION" Language="ja_JP">
@@ -124,7 +124,7 @@
 		</Replace>
     <!-- = unique building = -->
     <Replace Tag="LOC_BUILDING_PALGUM_DESCRIPTION" Language="ja_JP">
-      <Text>バビロン固有の建造物。 [ICON_HOUSING] 住宅+1、 [ICON_PRODUCTION] 生産力+2。この都市のすべての農場に [ICON_PRODUCTION] 生産力+1。農場ではない、改善された真水タイルの [ICON_FOOD] 食料+1。</Text>
+      <Text>バビロン固有の建造物。[ICON_PRODUCTION] 生産力+2。この都市のすべての農場に [ICON_PRODUCTION] 生産力+1。農場ではない、改善された真水タイルの [ICON_FOOD] 食料+1。</Text>
     </Replace>
 
 		<!-- == BRAZIL == -->
@@ -167,7 +167,7 @@
     </Replace>
     <!-- = leader ability (Theodora) = -->
     <Replace Tag="LOC_TRAIT_LEADER_THEODORA_DESCRIPTION" Language="ja_JP">
-      <Text>政治哲学の完了後、聖地が隣接する区域1つにつき [ICON_Culture] 文化力+1。</Text>
+      <Text>政治哲学の完了後、聖地が隣接する区域1つにつき [ICON_Culture] 文化力+1。農場はヒッポドロームと聖地に隣接ボーナスとして [ICON_Faith] 信仰力+1をもたらす。</Text>
     </Replace>
     <Row Tag="LOC_BBG_THEODORA_HOLYSITE_CULTURE" Language="ja_JP">
       <Text>隣接する{1_num}つの区域により [ICON_CULTURE]文化力+{1_num}。</Text>
@@ -368,7 +368,7 @@
     </Replace>
     <!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
     <Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="ja_JP">
-      <Text>川沿いに建設された都市において兵営とキャンパスへの [ICON_Production] 生産力+15%。氾濫原においてユニットの [ICON_Strength] 戦闘力+5。</Text>
+      <Text>川沿いに建設された都市において兵営とキャンパスへの [ICON_Production] 生産力+15%。兵営とキャンパスは川から隣接ボーナスとして [Icon_Science] 科学力+2。氾濫原においてユニットの [ICON_Strength] 戦闘力+5。この文明が古典時代に達すると、軍事ユニットは渡河による移動力と戦闘力のペナルティを受けなくなる。</Text>
     </Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="ja_JP">
@@ -555,7 +555,7 @@
 		</Replace>
     <!-- = leader ability (Ludwig II) = -->
     <Replace Tag="LOC_TRAIT_LEADER_LUDWIG_DESCRIPTION" Language="ja_JP">
-      <Text>完成した、または未完成の遺産は隣接する区域1つにつき[ICON_Culture]文化力+1、演劇と詩の社会制度の完了後は+2。城の技術を完了するとその[ICON_Culture]文化力に等しい[ICON_Tourism]観光力も生み出すようになる。</Text>
+      <Text>完成した、または未完成の遺産は隣接する区域1つにつき[ICON_Culture]文化力+1。城の技術を完了するとその[ICON_Culture]文化力に等しい[ICON_Tourism]観光力も生み出すようになる。</Text>
     </Replace>
 
 		<!-- == GREECE == -->
@@ -695,14 +695,24 @@
 		</Replace>
 		<!-- = leader ability (Hojo Tokimune) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_DIVINE_WIND_EXPANSION2_DESCRIPTION" Language="ja_JP">
-			<Text>沿岸タイルに隣接するタイルにおける陸上戦闘ユニットの [ICON_Strength] 戦闘力+3。浅瀬タイルにおける海上戦闘ユニットの [ICON_Strength] 戦闘力+3。[NEWLINE]兵営、聖地、劇場広場への [ICON_Production] 生産力+100%。[NEWLINE]ユニットがハリケーンによるダメージを受けなくなる。日本と戦争状態にある文明は、日本の領土内でのハリケーンのダメージ+100%。</Text>
+			<Text>沿岸に隣接する陸地タイルにおける陸上戦闘ユニットの [ICON_Strength] 戦闘力+3。近海タイルにおける海上戦闘ユニットの [ICON_Strength] 戦闘力+3。[NEWLINE]兵営、聖地、劇場広場への [ICON_Production] 生産力+100%。[NEWLINE]ユニットがハリケーンによるダメージを受けなくなる。日本と戦争状態にある文明は、日本の領土内でのハリケーンのダメージ+100%。</Text>
 		</Replace>
+    <Replace Tag="LOC_PROMOTION_COMBAT_SHALLOW_WATER_DESCRIPTION" Language="en_US">
+      <Text>近海タイルにおける海上戦闘ユニットの [ICON_Strength] 戦闘力+3。</Text>
+    </Replace>
+    <Replace Tag="LOC_PROMOTION_COMBAT_LAND_ON_COAST_DESCRIPTION" Language="en_US">
+      <Text>沿岸に隣接する陸地タイルにおける陸上戦闘ユニットの [ICON_Strength] 戦闘力+3。</Text>
+    </Replace>
     <!-- = leader ability (Tokugawa) = -->
     <Replace Tag="LOC_TRAIT_LEADER_TOKUGAWA_DESCRIPTION" Language="ja_JP">
       <Text>異なる文明にまたがる [ICON_TradeRoute] 交易路の産出量と [ICON_Tourism] 観光力が-25%になるが、国内  交易路は目的地の専門区域ごとに [ICON_Culture] 文化力+1、 [ICON_Science] 科学力+1、 [ICON_GOLD] ゴールド+1をもたらす。日本の首都から6タイル以内にある都市は100%忠実になり、「航空技術」を研究すると区域ごとに [ICON_Tourism] 観光力+1を受け取る。</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TOKUGAWA_XP_DESCRIPTION" Language="ja_JP">
-      <Text>異なる文明にまたがる [ICON_TradeRoute] 交易路の産出量と [ICON_Tourism] 観光力が-25%になるが、国内  交易路は目的地の専門区域ごとに [ICON_Culture] 文化力+1、 [ICON_Science] 科学力+1、 [ICON_GOLD] ゴールド+1をもたらす。日本の首都から6タイル以内にある都市は100%忠実になり、「航空技術」を研究すると区域ごとに [ICON_Tourism] 観光力+1を受け取る。</Text>
+      <Text>異なる文明にまたがる [ICON_TradeRoute] 交易路の産出量と [ICON_Tourism] 観光力が-25%になるが、国内  交易路は目的地の専門区域ごとに [ICON_Culture] 文化力+0.5、 [ICON_Science] 科学力+0.5、 [ICON_GOLD] ゴールド+1をもたらす。このボーナスは教育の科学技術の発明後は [ICON_Science] 科学力+1に、ヒューマニズムの社会制度の完了後は [ICON_Culture] 文化力+1に強化される。日本の首都から6タイル以内にある都市は100%忠実になり、「航空技術」を研究すると区域ごとに [ICON_Tourism] 観光力+1を受け取る。</Text>
+    </Replace>
+    <!-- = unique building = -->
+    <Replace Tag="LOC_BUILDING_ELECTRONICS_FACTORY_DESCRIPTION" Language="en_US">
+      <Text>日本固有の建造物。 [ICON_Production] 生産力ボーナスは、このタイプの建造物からボーナスをまだ得ていない、6タイル以内の全都心に適用される。</Text>
     </Replace>
 
 		<!-- == KHMER == -->
@@ -1075,7 +1085,7 @@
 		</Replace>
 		<!-- = leader ability (Julius Caesar) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="ja_JP">
-			<Text>速度オンラインにおいて、都市をその都市について初めて征服すると[ICON_gold]ゴールド+75。[ICON_BARBARIAN]蛮族の前哨地を占領すると[ICON_Gold]ゴールド+75。これらのボーナスは共に鋳造を発明すると[ICON_Gold]ゴールド+125に、鉄鋼を発明すると[ICON_Gold]ゴールド+175に強化される。蛮族に対する戦闘力+5、ただし得られる経験値は通常のものとなる。[NEWLINE][NEWLINE]首都を除き、都市を建設するたび無償の近接戦闘ユニットを得る。他の文明によって建設され、所有されている都市を少なくとも1つ占領し、保持していれば追加のワイルドカードスロットをどの[ICON_Government]政府であっても1つ得る。全てのユニットの経験値+100%。</Text>
+			<Text>速度オンラインにおいて、都市をその都市について初めて征服すると[ICON_gold]ゴールド+75。[ICON_BARBARIAN]蛮族の前哨地を占領すると[ICON_Gold]ゴールド+75。これらのボーナスは共に鋳造を発明すると[ICON_Gold]ゴールド+125に、鉄鋼を発明すると[ICON_Gold]ゴールド+175に強化される。蛮族に対する戦闘力+5、ただし得られる経験値は通常のものとなる。[NEWLINE][NEWLINE]首都を除き、都市を建設するたび無償の近接戦闘ユニットを得る。他の文明によって建設され、所有されている都市を少なくとも1つ占領し、保持していれば追加のワイルドカードスロットをどの[ICON_Government]政府であっても1つ得る。[NEWLINE]全てのユニットの経験値+50%。この文明が中世時代に達すると、+100%に強化される。</Text>
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_BATH_DESCRIPTION" Language="ja_JP">
@@ -1142,10 +1152,10 @@
 		<!-- == SPAIN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_DESCRIPTION" Language="ja_JP">
-			<Text>通常より早く(傭兵と重商主義の社会制度で)艦隊と大艦隊を編成できる。造船所のある都市で艦隊や大艦隊を速く作成できる。[NEWLINE][NEWLINE][ICON_TradeRoute]交易路が[ICON_Gold]ゴールド+3、[ICON_Faith]信仰力+2、[ICON_Production]生産力+1を追加で得る。異大陸間の国際交易路はこれらのボーナスが2倍になる。[ICON_Capital]首都から8タイル以上離れた都市は区域の建設に対する[ICON_PRODUCTION]生産力+25%。</Text>
+			<Text>通常より早く(傭兵とナショナリズムの社会制度で)艦隊と大艦隊を編成できる。[NEWLINE] [ICON_TradeRoute] 交易路が[ICON_Gold]ゴールド+3、[ICON_Faith]信仰力+2、[ICON_Production]生産力+1を追加で得る。異大陸間の国際交易路はこれらのボーナスが2倍になる。[ICON_Capital]首都から8タイル以上離れた都市は区域の建設に対する[ICON_PRODUCTION]生産力+25%。</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_EXPANSION2_DESCRIPTION" Language="ja_JP">
-			<Text>通常より早く(傭兵と重商主義の社会制度で)艦隊と大艦隊を編成できる。造船所のある都市で艦隊や大艦隊を速く作成できる。[NEWLINE][NEWLINE][ICON_TradeRoute]交易路が[ICON_Gold]ゴールド+3、[ICON_Faith]信仰力+2、[ICON_Production]生産力+1を追加で得る。異大陸間の国際交易路はこれらのボーナスが2倍になる。[ICON_Capital]首都から8タイル以上離れた都市は区域の建設に対する[ICON_PRODUCTION]生産力+25%。</Text>
+			<Text>通常より早く(傭兵とナショナリズムの社会制度で)艦隊と大艦隊を編成できる。[NEWLINE][NEWLINE][ICON_TradeRoute]交易路が[ICON_Gold]ゴールド+3、[ICON_Faith]信仰力+2、[ICON_Production]生産力+1を追加で得る。異大陸間の国際交易路はこれらのボーナスが2倍になる。[ICON_Capital]首都から8タイル以上離れた都市は区域の建設に対する[ICON_PRODUCTION]生産力+25%。</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<!-- = firaxisの誤訳修正 = -->
@@ -1293,8 +1303,37 @@
     <Replace Tag="LOC_UNIT_MEDIC_DESCRIPTION" Language="ja_JP">
       <Text>産業時代の支援ユニット。隣接するユニットの体力回復を早められる。隣接する近接、対騎兵、長距離攻撃ユニットの移動力+1。</Text>
     </Replace>
+    <Replace Tag="LOC_UNIT_MECHANIZED_INFANTRY_DESCRIPTION" Language="en_US">
+      <Text>情報時代の近接戦闘ユニット。支配領域を無視する。</Text>
+    </Replace>
+    
+    <!-- = Modern Armor = -->
+    <Replace Tag="LOC_UNIT_MODERN_ARMOR_DESCRIPTION" Language="en_US">
+      <Text>高速で強力な、情報時代の重騎兵ユニット。友好的な領土内では防衛時の [ICON_STRENGTH] 戦闘力+5、友好的な領土外では攻撃時の [ICON_STRENGTH] 戦闘力+5。</Text>
+    </Replace>
+    <Replace Tag="LOC_BBG_ABILITY_STRENGTH_DEFENDING_FRIENDLY_NAME" Language="en_US">
+      <Text>塹壕化</Text>
+    </Replace>
+    <Replace Tag="LOC_BBG_ABILITY_STRENGTH_DEFENDING_FRIENDLY_DESC" Language="en_US">
+      <Text>友好的な領土内では防衛時の [ICON_STRENGTH] 戦闘力+5。</Text>
+    </Replace>
+    <Replace Tag="LOC_BBG_ABILITY_STRENGTH_ATTACKING_UNFRIENDLY_NAME" Language="en_US">
+      <Text>電撃戦</Text>
+    </Replace>
+    <Replace Tag="LOC_BBG_ABILITY_STRENGTH_ATTACKING_UNFRIENDLY_DESC" Language="en_US">
+      <Text>友好的な領土外では攻撃時の [ICON_STRENGTH] 戦闘力+5。</Text>
+    </Replace>
 
-
+    <!-- == Naval Carrier Units== -->
+    <Replace Tag="LOC_UNIT_AIRCRAFT_CARRIER_DESCRIPTION" Language="en_US">
+      <Text>原子力時代の海洋航空母艦ユニット。空軍ユニットを搭載できる。対空戦闘力を持つユニットに隣接している場合、 [ICON_AntiAir_Large] 対空戦闘力+25。</Text>
+    </Replace>
+    <Replace Tag="LOC_BBG_ABILITY_STRENGTH_NEXT_TO_ANTI_AIR_NAME" Language="en_US">
+      <Text>護衛艦による対空防御</Text>
+    </Replace>
+    <Replace Tag="LOC_BBG_ABILITY_STRENGTH_NEXT_TO_ANTI_AIR_DESC" Language="en_US">
+      <Text>対空戦闘力を持つユニットに隣接している場合、 [ICON_AntiAir_Large] 対空戦闘力+25。</Text>
+    </Replace>
 
 		<!-- === UNIT PROMOTIONS === -->
 		<Replace Tag="LOC_PROMOTION_SENTRY_DESCRIPTION" Language="ja_JP">
