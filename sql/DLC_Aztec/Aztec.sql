@@ -21,7 +21,7 @@ UPDATE Building_YieldChanges SET YieldChange=1 WHERE BuildingType='BUILDING_TLAC
 UPDATE Buildings SET Cost=100, Entertainment=1, RegionalRange=6 WHERE BuildingType='BUILDING_TLACHTLI';
 
 -- 28/02/2022: Builder charge on district => 30%
-UPDATE ModifierArguments SET Value='30' WHERE ModifierId='TRAIT_BUILDER_DISTRICT_PERCENT' AND Name='Amount';
+UPDATE ModifierArguments SET Value=30 WHERE ModifierId='TRAIT_BUILDER_DISTRICT_PERCENT' AND Name='Amount';
 
 -- Huey gives +2 culture to lake tiles
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
@@ -35,10 +35,12 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('HUEY_LAKE_CULTURE_MODIFIER', 'YieldType', 'YIELD_CULTURE');
 
 -- 17/08/2022: fix bug where bonus is not working on gdr
+-- 05/04/25 now only work on melee, ranged and anticav
 DELETE FROM TypeTags WHERE Type='ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY';
-
 INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
-    ('ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY' ,'CLASS_ALL_COMBAT_UNITS');
+    ('ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY' ,'CLASS_MELEE'),
+    ('ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY' ,'CLASS_RANGED'),
+    ('ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY' ,'CLASS_ANTI_CAVALRY');
 
 --12/06/23 Tlachtli gives 3 tourism from start
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
