@@ -113,7 +113,7 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_RECON'),
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_NIHANG');
 
--- 16/12 Mobile SAM buff 110 anti air
+-- 16/12/23 Mobile SAM buff 110 anti air
 -- Start of the -5 vs planes but didn't find an adapted modifier
 -- INSERT INTO Tags VALUES
 --     ('BBG_CLASS_MOBILE_SAM', 'ABILITY_CLASS');
@@ -130,10 +130,15 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
 
 -- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 --     ('BBG_MODIFIER_MINUS_CS_PLANES', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_REQUIREMENT_')
-UPDATE Units SET AntiAirCombat=110 WHERE UnitType='UNIT_MOBILE_SAM';
+-- 29/03/25 5 movement (from 3)
+UPDATE Units SET AntiAirCombat=110, BaseMoves=5 WHERE UnitType='UNIT_MOBILE_SAM';
+
+-- 31/03/25 Settlers send back to closest city
+UPDATE Units SET CanRetreatWhenCaptured=1 WHERE UnitType='UNIT_SETTLER';
 
 -- 16/12/22 Obsolescence
--- 15/10/23 added Varus
+-- 15/10/23 Added Varus
+-- 30/03/25 Units are now obsolete when the next tech is unlocked 05/04/25 reverted
 UPDATE Units SET MandatoryObsoleteTech='TECH_MILITARY_TACTICS' WHERE UnitType='UNIT_WARRIOR';
 UPDATE Units SET MandatoryObsoleteTech='TECH_BALLISTICS' WHERE UnitType='UNIT_HEAVY_CHARIOT';
 UPDATE Units SET MandatoryObsoleteTech='TECH_GUNPOWDER' WHERE UnitType='UNIT_SWORDSMAN';
@@ -159,6 +164,7 @@ UPDATE Units SET MandatoryObsoleteTech='TECH_REPLACEABLE_PARTS' WHERE UnitType='
 UPDATE Units SET MandatoryObsoleteTech='TECH_COMBUSTION' WHERE UnitType='UNIT_BYZANTINE_TAGMA';
 UPDATE Units SET MandatoryObsoleteTech='TECH_MILITARY_TACTICS' WHERE UnitType='UNIT_GAUL_GAESATAE';
 UPDATE Units SET MandatoryObsoleteTech='TECH_MILITARY_TACTICS' WHERE UnitType='UNIT_BABYLONIAN_SABUM_KIBITTUM';
+
 
 --5.2.5 Musketman/Line infantry buff
 UPDATE Units SET Cost=220 WHERE UnitType='UNIT_MUSKETMAN';

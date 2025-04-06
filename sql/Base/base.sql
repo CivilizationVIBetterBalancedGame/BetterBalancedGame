@@ -2,6 +2,10 @@
 UPDATE GlobalParameters SET Value=2 WHERE Name='FORTIFY_BONUS_PER_TURN';
 
 
+UPDATE GlobalParameters SET Value=0.5 WHERE Name='TRADE_ROUTE_TRANSPORTATION_EFFICIENCY_MAX_RATIO';
+
+
+
 -- 27/02/25 Combat RNG removed (base damage was 24, and max extra 12, meaning extra damage could go from 24 to 36)
 UPDATE GlobalParameters SET Value=0 WHERE Name='COMBAT_MAX_EXTRA_DAMAGE';
 UPDATE GlobalParameters SET Value=30 WHERE Name='COMBAT_BASE_DAMAGE';
@@ -69,14 +73,17 @@ INSERT OR IGNORE INTO Resource_ValidTerrains (ResourceType, TerrainType) VALUES
 -- mercury +1 food
 -- spice -1 food +1 gold
 -- 02/07/24 Jade +1 prod (can no longer spawn on plains)
+-- 29/03/25 Cotton +4 gold Marble +1 faith (still as +1 culture)
 INSERT OR IGNORE INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange) VALUES
 	('RESOURCE_INCENSE', 'YIELD_FOOD', 1),
 	('RESOURCE_MERCURY', 'YIELD_FOOD', 1),
     ('RESOURCE_JADE', 'YIELD_PRODUCTION', 1),
 	('RESOURCE_SPICES', 'YIELD_GOLD', 1),
     ('RESOURCE_TEA', 'YIELD_FOOD', 1),
-    ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1);
+    ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1),
+    ('RESOURCE_MARBLE', 'YIELD_FAITH', 1);
 UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPICES' AND YieldType='YIELD_FOOD';
+UPDATE Resource_YieldChanges SET YieldChange=4 WHERE ResourceType='RESOURCE_COTTON' AND YieldType='YIELD_GOLD';
 DELETE FROM Resource_ValidTerrains WHERE ResourceType='RESOURCE_JADE' AND TerrainType='TERRAIN_PLAINS';
 -- 26/02/25 diamonds/cocoa to 2 gold
 UPDATE Resource_YieldChanges SET YieldChange=2 WHERE ResourceType IN ('RESOURCE_COCOA', 'RESOURCE_DIAMONDS') AND YieldType='YIELD_GOLD';
@@ -148,10 +155,6 @@ INSERT OR IGNORE INTO RequirementArguments
 	('PLAYER_HAS_URBANIZATION_CPLMOD', 'CivicType', 'CIVIC_URBANIZATION'),
 	('PLAYER_HAS_BANKING_CPLMOD', 'TechnologyType', 'TECH_BANKING'  ),
 	('PLAYER_HAS_ECONOMICS_CPLMOD', 'TechnologyType', 'TECH_ECONOMICS');
-
--- 2022-06-04 -- Add Scientific Theory as Prereq for Steam Power
-INSERT INTO TechnologyPrereqs (Technology, PrereqTech)
-	VALUES ('TECH_STEAM_POWER', 'TECH_SCIENTIFIC_THEORY');
 
 -- This is simply a visual change which makes the tech paths slighly more understandable (the dotted lines)
 -- UPDATE Technologies SET UITreeRow=-3 WHERE TechnologyType='TECH_INDUSTRIALIZATION';
@@ -268,7 +271,7 @@ UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_ENTERTAINMENT_
 --=======================================================================
 
 --18/12/23 advanced ballistics advanced one era
-UPDATE Technologies SET EraType="ERA_MODERN" WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
+UPDATE Technologies SET EraType='ERA_MODERN' WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 
 -- 02/07/24 Cost of tech ahead of actual game era are now +30% instead of +20%
@@ -278,6 +281,14 @@ UPDATE Technologies SET Cost=Cost*1.05 WHERE EraType NOT IN ('ERA_ANCIENT', 'ERA
 
 -- 02/07/24 Steel eureka is now "have 1 renaissance wall"
 UPDATE Boosts SET Unit1Type=NULL, BoostClass='BOOST_TRIGGER_HAVE_X_BUILDINGS', BuildingType='BUILDING_STAR_FORT', ImprovementType=NULL, ResourceType=NULL WHERE TechnologyType='TECH_STEEL';
+
+-- 2022-06-04 -- Add Scientific Theory as Prereq for Steam Power
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_STEAM_POWER', 'TECH_SCIENTIFIC_THEORY');
+
+-- 30/03/25 Robotics needs Composites
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_ROBOTICS', 'TECH_COMPOSITES');
 
 --=======================================================================
 --******                       AMENITIES                           ******
@@ -296,3 +307,4 @@ UPDATE Improvements SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE'
 -- District pillage value to 40/20
 UPDATE Districts SET PlunderAmount=40 WHERE PlunderType='PLUNDER_GOLD';
 UPDATE Districts SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', 'PLUNDER_CULTURE', 'PLUNDER_FAITH');
+

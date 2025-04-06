@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Release ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="6031"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="6040"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="6031"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="6040"> -->
 
 <!-- WIP ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="6031">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="6040">
 	<Properties>
 		<Name>Better Balanced Game WIP</Name>
 		<Description>
@@ -15,7 +15,7 @@
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>6031</Version>
+		<Version>6040</Version>
 		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, codenaugh, coloo, D. / Jack The Narrator,  Facu, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Onyxum, OSCAR., priz, robal, seed.of.apricot, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
@@ -490,7 +490,6 @@
 			<File>sql/XP1/Policies_XP1_or_XP2.sql</File>
 			<File>sql/XP1/Buildings_XP1_or_XP2.sql</File>
 			<File>sql/XP1/Governors_XP1_or_XP2.sql</File>
-			<File>sql/Base/Kongo_XP1_or_XP2.sql</File>
 			<File>sql/Base/Sumer_XP1_or_XP2.sql</File>
 			<File>sql/XP1/Other_XP1_or_XP2.sql</File>
 		</UpdateDatabase>
@@ -652,15 +651,9 @@
 				<LoadOrder>11627</LoadOrder>
 			</Properties>
 			<Criteria>DLC_Indonesia_Khmer</Criteria>
-			<File>sql/DLC_Indonesia_Khmer/dlc_indo_khmer.sql</File>
-		</UpdateDatabase>
-		<UpdateDatabase id="BBG_XP2_Indonesia_Khmer">
-			<Properties>
-				<LoadOrder>11628</LoadOrder>
-			</Properties>
-			<Criteria>DLC_Indonesia_Khmer</Criteria>
-			<Criteria>XP2</Criteria>
-			<File>sql/DLC_Indonesia_Khmer/xp2_indo_khmer.sql</File>
+			<File>sql/DLC_Indonesia_Khmer/Other.sql</File>
+			<File>sql/DLC_Indonesia_Khmer/Khmer.sql</File>
+			<File>sql/DLC_Indonesia_Khmer/Indonesia.sql</File>
 		</UpdateDatabase>
 		<!-- -->
 		<UpdateDatabase id="BBG_NFP_GranColombia_Maya">
@@ -788,7 +781,7 @@
 			</Properties>
 			<Criteria>Negotiators</Criteria>
 			<Criteria>XP2</Criteria>
-			<File>sql/LP/lp_arabia_saladin_sultan_xp2.sql</File>
+			<File>sql/LP/Sultan.sql</File>
 		</UpdateDatabase>
 		
 		<UpdateDatabase id="BBG_Warlords">
@@ -1169,7 +1162,6 @@
 		<File>sql/XP1/Governors_XP1_or_XP2.sql</File>
 		<File>sql/XP1/Other_XP1_or_XP2.sql</File>
 		<File>sql/Base/Sumer_XP1_or_XP2.sql</File>
-		<File>sql/Base/Kongo_XP1_or_XP2.sql</File>
 		<!-- XP2 -->
 		<File>sql/XP2/_xp2_utils.sql</File>
 		<File>sql/XP2/xp2__gathering_storm.sql</File>
@@ -1231,8 +1223,9 @@
 		<File>sql/DLC_Nubia/Nubia_nfp.sql</File>
 		<!-- -->
 		<File>sql/DLC_Indonesia_Khmer/_dlc_indo_khmer_utils.sql</File>
-		<File>sql/DLC_Indonesia_Khmer/dlc_indo_khmer.sql</File>
-		<File>sql/DLC_Indonesia_Khmer/xp2_indo_khmer.sql</File>
+			<File>sql/DLC_Indonesia_Khmer/Other.sql</File>
+			<File>sql/DLC_Indonesia_Khmer/Khmer.sql</File>
+		<File>sql/DLC_Indonesia_Khmer/Indonesia.sql</File>
 		<!-- -->
 		<File>sql/NFP/_nfp_maya_colombia_utils.sql</File>
 		<File>sql/NFP/dlc_maya_colombia.sql</File>
@@ -1257,7 +1250,7 @@
 		<File>sql/LP/lp_rome_caesar.sql</File>
 		<File>sql/LP/lp_america_lincoln.sql</File>
 		<File>sql/LP/lp_arabia_saladin_sultan.sql</File>
-		<File>sql/LP/lp_arabia_saladin_sultan_xp2.sql</File>
+		<File>sql/LP/Sultan.sql</File>
 		<File>sql/LP/lp_kongo_mbande.sql</File>
 		<File>sql/LP/lp_japan_tokugawa.sql</File>
 		<File>sql/LP/NaderShah.sql</File>
