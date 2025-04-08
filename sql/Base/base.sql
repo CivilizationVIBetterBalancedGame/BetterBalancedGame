@@ -81,7 +81,7 @@ INSERT OR IGNORE INTO Resource_YieldChanges (ResourceType, YieldType, YieldChang
 	('RESOURCE_SPICES', 'YIELD_GOLD', 1),
     ('RESOURCE_TEA', 'YIELD_FOOD', 1),
     ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1),
-    ('RESOURCE_MARBLE', 'YIELD_FAITH', 1);
+    ('RESOURCE_MARBLE', 'YIELD_GOLD', 2);
 UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPICES' AND YieldType='YIELD_FOOD';
 UPDATE Resource_YieldChanges SET YieldChange=4 WHERE ResourceType='RESOURCE_COTTON' AND YieldType='YIELD_GOLD';
 DELETE FROM Resource_ValidTerrains WHERE ResourceType='RESOURCE_JADE' AND TerrainType='TERRAIN_PLAINS';
