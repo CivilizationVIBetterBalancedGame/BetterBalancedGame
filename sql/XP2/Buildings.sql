@@ -46,6 +46,25 @@ INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSet
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('COAL_FROM_SHIPYARD_BBG', 'ResourceType', 'RESOURCE_COAL'),
     ('COAL_FROM_SHIPYARD_BBG', 'Amount', '1');
+
+
+-- 08/04/25 Barracks and Stables get +2 Iron/Horses
+INSERT INTO BuildingModifiers (BuildingType, ModifierId)
+    SELECT BuildingType, 'BBG_HORSES_FOR_STABLES' FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.BuildingType='BUILDING_STABLE' OR br.ReplacesBuildingType='BUILDING_STABLE';
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_HORSES_FOR_STABLES', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_HORSES');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_HORSES_FOR_STABLES', 'ResourceType', 'RESOURCE_HORSES'),
+    ('BBG_HORSES_FOR_STABLES', 'Amount', '2');
+INSERT INTO BuildingModifiers (BuildingType, ModifierId)
+    SELECT BuildingType, 'BBG_IRON_FOR_BARRACKS' FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.BuildingType='BUILDING_BARRACKS' OR br.ReplacesBuildingType='BUILDING_BARRACKS';
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_IRON_FOR_BARRACKS', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_IRON');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_IRON_FOR_BARRACKS', 'ResourceType', 'RESOURCE_IRON'),
+    ('BBG_IRON_FOR_BARRACKS', 'Amount', '2');
+
+
 -- +2 alum from airports
 -- INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 --   ('BUILDING_AIRPORT', 'ALUM_FROM_AIRPORT_BBG');
