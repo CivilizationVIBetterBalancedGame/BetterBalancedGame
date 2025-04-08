@@ -33,7 +33,7 @@ INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_SWEDEN_GOV_BUILDINGS_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_SWEDEN_GOV_BUILDINGS_PRODUCTION', 'DistrictType', 'DISTRICT_GOVERNMENT'),
-    ('BBG_SWEDEN_GOV_BUILDINGS_PRODUCTION', 'Amount', '50');
+    ('BBG_SWEDEN_GOV_BUILDINGS_PRODUCTION', 'Amount', 50);
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_NOBEL_PRIZE', 'BBG_SWEDEN_GOV_BUILDINGS_PRODUCTION');
 
@@ -118,7 +118,8 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 --     -- ('BBG_REQUIRES_CITY_IS_NOT_CAPITAL', 'Count', '1');
 
 -- 30/03/25 favor per gp nerfed to 5 (10 normal speed)
-UPDATE ModifierArguments SET Value=10 WHERE ModifierId='TRAIT_GREATPERSON_FAVOR_MODIFIER';
+-- 08/04 to 10
+UPDATE ModifierArguments SET Value=20 WHERE ModifierId='TRAIT_GREATPERSON_FAVOR_MODIFIER';
 
 
 INSERT INTO Requirements (RequirementId, RequirementType)
