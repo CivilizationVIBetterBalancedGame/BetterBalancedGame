@@ -59,6 +59,11 @@ UPDATE Units SET Combat=90 WHERE UnitType='UNIT_MECHANIZED_INFANTRY';
 UPDATE Units SET Combat=140, AntiAirCombat=120 WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
 UPDATE ModifierArguments SET Value='20' WHERE ModifierId='GDR_AA_DEFENSE' AND Name='Amount';
 
+-- 29/03/25 GDR can't be gold bought
+-- 08/04/25 Reverted
+-- UPDATE Units SET PurchaseYield=NULL WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
+
+
 --=== RECON UNITS ===--
 -- 1 sight after ranger
 UPDATE Units SET BaseSightRange=3 WHERE UnitType IN ('UNIT_RANGER', 'UNIT_SPEC_OPS');
