@@ -289,6 +289,9 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
 -- 30/03/25 Robotics needs Composites
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
     ('TECH_ROBOTICS', 'TECH_COMPOSITES');
+-- 08/04/25 Robotics needs TELECOMMUNICATIONS
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_ROBOTICS', 'TECH_TELECOMMUNICATIONS');
 
 --=======================================================================
 --******                       AMENITIES                           ******
