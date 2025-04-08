@@ -68,9 +68,10 @@ UPDATE ModifierArguments SET Value='20' WHERE ModifierId='GDR_AA_DEFENSE' AND Na
 -- 1 sight after ranger
 UPDATE Units SET BaseSightRange=3 WHERE UnitType IN ('UNIT_RANGER', 'UNIT_SPEC_OPS');
 -- Upgrade ReconUnit strengh
-UPDATE Units SET Combat=25, RangedCombat=35 WHERE UnitType='UNIT_SKIRMISHER'; -- +5/+5
-UPDATE Units SET Combat=55, RangedCombat=65 WHERE UnitType='UNIT_RANGER'; -- +10/+5
-UPDATE Units SET Combat=65, RangedCombat=75 WHERE UnitType='UNIT_SPEC_OPS'; -- +10/+10
+-- 08/04/25 +5 melee
+UPDATE Units SET Combat=30, RangedCombat=35 WHERE UnitType='UNIT_SKIRMISHER'; -- +5/+5
+UPDATE Units SET Combat=60, RangedCombat=65 WHERE UnitType='UNIT_RANGER'; -- +10/+5
+UPDATE Units SET Combat=70, RangedCombat=75 WHERE UnitType='UNIT_SPEC_OPS'; -- +10/+10
 -- Reduce Ambush Strength to 15 (from 20)
 UPDATE ModifierArguments SET Value='15' WHERE ModifierId='AMBUSH_INCREASED_COMBAT_STRENGTH';
 -- Merge SpyGlass and Sentry promotion

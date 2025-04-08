@@ -1,7 +1,7 @@
 --==========
 -- Inca
 --==========
-UPDATE Units SET Combat=25, RangedCombat=40 WHERE UnitType='UNIT_INCA_WARAKAQ';
+UPDATE Units SET Combat=30, RangedCombat=40 WHERE UnitType='UNIT_INCA_WARAKAQ';
 
 -- 24/05/2021: Change era from game to personal.
 UPDATE Requirements SET RequirementType='REQUIREMENT_PLAYER_ERA_AT_LEAST' WHERE RequirementId='REQUIRES_ERA_ATLEASTEXPANSION_INDUSTRIAL';
