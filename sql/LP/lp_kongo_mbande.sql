@@ -75,7 +75,7 @@ INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
     ('BBG_IGNORE_WOODS_MBANDE_ABILITY', 'RANGER_IGNORE_FOREST_MOVEMENT_PENALTY');
 
 
--- 18/06/23 Reduced archaelogist cost for Mbande +100% prod towards archealogists
+-- 18/06/23 Reduced archaelogist cost for Mbande
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_TRAIT_ARCHAEOLOGIST_COST', 'MODIFIER_PLAYER_CITIES_ADJUST_UNIT_PURCHASE_COST');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES

@@ -136,4 +136,5 @@ UPDATE ModifierArguments SET Value=200 WHERE ModifierId='BARBARIAN_CAMP_GOLD_CAP
 
 
 -- 29/03/25 roads from rome moved to caesar
-UPDATE TraitModifiers SET TraitType='TRAIT_LEADER_CAESAR' WHERE ModifierId='TRAIT_FREE_ROADS_TO_CAPITAL';
+-- 08/04/25 reverted
+-- UPDATE TraitModifiers SET TraitType='TRAIT_LEADER_CAESAR' WHERE ModifierId='TRAIT_FREE_ROADS_TO_CAPITAL';
