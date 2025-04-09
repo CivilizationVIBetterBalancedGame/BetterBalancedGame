@@ -23,7 +23,7 @@
 		</Replace>
 		<!-- = leader ability (Rough Rider)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_ROOSEVELT_COROLLARY_ROUGH_RIDER_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>每通过科技或市政进入一个新时代，单位+1 [ICON_Strength] 战斗力（从古典时期开始，上限至现代+5）。如与城邦之间存在 [ICON_TradeRoute] 贸易路线，派往此处的1位 [ICON_Envoy] 使者将视为2位。研究完“弹道学”科技解锁莽骑兵。</Text>
+			<Text>每通过科技或市政进入一个新时代，单位+1 [ICON_Strength] 战斗力（从古典时期开始，上限至现代+5）。第1个派往城邦的 [ICON_Envoy] 使者将视为2位。如与城邦之间存在 [ICON_TradeRoute] 贸易路线，派往此处的1位 [ICON_Envoy] 使者将视为2位。研究完“弹道学”科技解锁莽骑兵。</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_CLASSICAL" Language="zh_Hans_CN">
 			<Text>进入古典时期+1 [ICON_Strength] 战斗力（罗斯福推论）</Text>
@@ -88,8 +88,15 @@
 		</Replace>
 		<!-- = leader ability (Saladin Sultan) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SALADIN_ALT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>为所有战斗和宗教单位+100%夹击和支援加成。每回合、每单位的单位维护费用减少1 [ICON_Gold] 金币。</Text>
+			<Text>玩家可以使用平时 [ICON_Faith] 信仰值消耗的9/10 来购买他们的军营和学院建筑。使徒使一环内的陆地单位获得+5[ICON_Strength]战斗力。</Text>
 		</Replace>
+		<Replace Tag="LOC_BBG_SULTAN_COMBAT_ADJACENT_APOSTLE_ABILITY_NAME" Language="zh_Hans_CN">
+			<Text>圣战</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_SULTAN_COMBAT_ADJACENT_APOSTLE_ABILITY_DESC" Language="zh_Hans_CN">
+			<Text>为一环内的陆地单位提供+5[ICON_Strength]战斗力。</Text>
+		</Replace>
+
 
 		<!-- == AUSTRALIA == -->
 		<!-- = civilization ability = -->
@@ -109,6 +116,10 @@
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LEGEND_FIVE_SUNS_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>使用建造者 [ICON_Charges] 劳动力来推进30%的 [ICON_DISTRICT] 区域建设进程。生产陆地近战单位时+50% [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：无。</Text>
+		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_GIFTS_FOR_TLATOANI_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>领地内的奢侈品提供额外2个城市 [ICON_AMENITIES] 宜居度。[NEWLINE] 阿兹特克领地内每改良并且保留不同的奢侈品使近战，远程和抗骑兵单位 在进攻时获得 +1 [ICON_STRENGTH] 战斗力。</Text>
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_TLACHTLI_DESCRIPTION" Language="zh_Hans_CN">
@@ -390,7 +401,7 @@
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>所有军事单位处于泛滥平原时+5 [ICON_Strength] 战斗力。通过科技或市政进入古典时期后，所有军事单位不会受到来自河流的 [ICON_Movement] 移动力和 [ICON_Strength] 战斗力减益。[NEWLINE][NEWLINE]城市若建立在河流旁，建造学院和军营时+15% [ICON_Production] 生产力。学院和军营从河流获得+2 [ICON_Science] 科技值相邻加成。</Text>
+			<Text>通过科技或市政进入古典时期后，所有军事单位不会受到来自河流的 [ICON_Movement] 移动力和 [ICON_Strength] 战斗力减益。[NEWLINE][NEWLINE]城市若建立在河流旁，建造学院和军营时+15% [ICON_Production] 生产力。学院和军营从河流获得+2 [ICON_Science] 科技值相邻加成。</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PTOLE_BONUSES_ON_FLOODPLAIN_ABILITY_NAME" Language="zh_Hans_CN">
 			<Text>哈庇的降临</Text>
@@ -672,7 +683,7 @@
 		<!-- == INCA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GREAT_MOUNTAINS_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>公民可改良山脉单元格。山脉单元格提供+2 [ICON_PRODUCTION] 生产力，通过科技或市政进入工业时代后额外+1 [ICON_PRODUCTION] 生产力。每与一个梯田农场相邻，山脉单元格则+1 [ICON_FOOD] 食物。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3草原山脉与平原山脉。特殊：允许周边存在大量山脉。</Text>
+			<Text>公民可改良山脉单元格。山脉单元格提供+2 [ICON_PRODUCTION] 生产力，通过科技或市政进入工业时代后额外+1 [ICON_PRODUCTION] 生产力。每与一个梯田农场相邻，山脉单元格则+1 [ICON_FOOD] 食物。[NEWLINE] 城市不受非 [ICON_Food] 食物产出的负宜居惩罚。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3草原山脉与平原山脉。特殊：允许周边存在大量山脉。</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PACHACUTI_QHAPAQ_NAN_DESCRIPTION" Language="zh_Hans_CN">
@@ -735,9 +746,12 @@
 		</Replace>
 
 		<!-- == INDONESIA == -->
-		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_INDONESIA_NUSANTARA_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>海岸和湖泊单元格可为圣地、学院、工业区和剧院广场提供少量相邻加成。如与海岸或湖泊单元格相邻，娱乐设施+1 [ICON_AMENITIES] 宜居度。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T1海岸。</Text>
+			<Text>海岸和湖泊单元格可为圣地、学院、工业区和剧院广场提供少量相邻加成。如与海岸或湖泊单元格相邻，娱乐设施+1 [ICON_AMENITIES] 宜居度。相邻海岸和湖泊的区域+2 [ICON_Faith] 信仰值。可以使用 [ICON_FAITH] 信仰购买港口建筑。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T1海岸。</Text>
+		</Replace>
+		<!-- = leader ability (Gitarja) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_EXALTED_GODDESS_DESCRIPTION" Language="en_US">
+			<Text>可以使用 [ICON_FAITH] 信仰购买海军单位。宗教单位上船下船时无移动力消耗。</Text>
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_KAMPUNG_DESCRIPTION" Language="zh_Hans_CN">
@@ -813,14 +827,14 @@
 		<!-- == KONGO == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NKISI_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>除了通常的 [ICON_CULTURE] 文化值，还会从每个 [ICON_GreatWork_Artifact] 文物以及 [ICON_GreatWork_Sculpture] 雕塑艺术巨作获得+2 [ICON_Food] 食物、+2 [ICON_Production] 生产力、+4 [ICON_Gold] 金币、+4 [ICON_Faith] 信仰值。[NEWLINE][NEWLINE]获得的 [ICON_GreatWriter] 大作家、 [ICON_GreatArtist] 大艺术家、 [ICON_GreatMusician] 大音乐家和 [ICON_GreatMerchant] 大商人点数+50%。生产考古学家时+100% [ICON_PRODUCTION] 生产力。宫殿有5个巨作槽位。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3雨林、T5树林。</Text>
+			<Text>从每个 [ICON_GreatWork_Relic] 遗物获得额外+2 [ICON_Food] 食物、+2 [ICON_Production] 生产力、+4 [ICON_Gold] 金币、+2 [Icon_Faith] 信仰值。除了通常的 [ICON_CULTURE] 文化值，还会从每个 [ICON_GreatWork_Artifact] 文物以及 [ICON_GreatWork_Sculpture] 雕塑艺术巨作获得+2 [ICON_Food] 食物、+2 [ICON_Production] 生产力、+4 [ICON_Gold] 金币、+2 [ICON_Faith] 信仰值。每次建造完成一个市政广场建筑后，获得一个 [ICON_GreatWork_Relic] 遗物。[NEWLINE][NEWLINE]获得的 [ICON_GreatWriter] 大作家、 [ICON_GreatArtist] 大艺术家、 [ICON_GreatMusician] 大音乐家和 [ICON_GreatMerchant] 大商人点数+50%。生产考古学家时+100% [ICON_PRODUCTION] 生产力。宫殿有5个巨作槽位。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3雨林、T5树林。</Text>
 		</Replace>
 		<!-- = leader ability (Mvemba a Nzinga) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RELIGIOUS_CONVERT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>无法建造圣地区、获得大预言家，或创建宗教。从刚果的主流宗教中获得强化信仰加成，而不只是信徒信仰。每次完成一个姆班赞或剧院广场区时获得一位（城市主流宗教的）使徒。城市从每个任意宗教的信徒+0.2 [ICON_CULTURE] 文化值、+1 [ICON_Gold] 金币。[NEWLINE][NEWLINE]从每个 [ICON_GreatWork_Relic] 遗物获得额外+2 [ICON_Food] 食物、+2 [ICON_Production] 生产力、+4 [ICON_Gold] 金币、+1 [Icon_Faith] 信仰值。每次建造完成一个市政广场建筑后，获得一个 [ICON_GreatWork_Relic] 遗物。[NEWLINE][NEWLINE]所有陆地战斗单位在树林和雨林中移动时无 [ICON_Movement] 移动力减益。</Text>
+			<Text>无法建造圣地区、获得大预言家，或创建宗教。从刚果的主流宗教中获得强化信仰加成，而不只是信徒信仰。每次完成一个姆班赞或剧院广场区时获得一位（城市主流宗教的）使徒。城市从每个任意宗教的信徒+0.2 [ICON_CULTURE] 文化值、+1 [ICON_Gold] 金币。[NEWLINE][NEWLINE]所有陆地战斗单位在树林和雨林中移动时无 [ICON_Movement] 移动力减益。</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_IGNORE_WOODS_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>在树林和雨林中移动时无 [ICON_Movement] 移动力减益。（宗教转换）</Text>
+			<Text>陆地单位和大将军在树林和雨林中移动时无 [ICON_Movement] 移动力减益。（宗教转换）</Text>
 		</Row>
 		<!-- = leader ability (Nzinga Mbande) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_NZINGA_MBANDE_DESCRIPTION" Language="zh_Hans_CN">
@@ -849,7 +863,7 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>朝鲜特色区域，替代学院。必须建在丘陵上。基础+1 [ICON_SCIENCE] 科技值，每与2个矿山相邻+1 [ICON_SCIENCE] 科技值。每与1个地热裂缝相邻，则+2 [ICON_Science] 科技值。其中的专家额外+1 [ICON_FOOD] 食物。建成时向相邻单元格施放文化炸弹。</Text>
+			<Text>朝鲜特色区域，替代学院。必须建在丘陵上。基础+2 [ICON_SCIENCE] 科技值，每与2个矿山相邻+1 [ICON_SCIENCE] 科技值。每与1个地热裂缝相邻，则+2 [ICON_Science] 科技值。其中的专家额外+1 [ICON_FOOD] 食物。建成时向相邻单元格施放文化炸弹。</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION_ADJACENCY" Language="zh_Hans_CN">
 			<Text>相邻加成：+1 [ICON_SCIENCE] 科技值，来自每2个相邻矿山。-1 [ICON_Science] 科技值，来自每个相邻的区域单元格，剧院广场除外。为相邻的剧院广场提供+1 [ICON_Culture] 文化值。</Text>
@@ -870,7 +884,7 @@
 		<!-- == KUBLAI (LEADER) == -->
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KUBLAI_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>任意 [ICON_Government] 政体中额外增加一个经济政策槽位。首次在另一个文明的城市中建立 [ICON_TradingPost] 贸易站时随机获得一项 [ICON_TechBoosted] 尤里卡和 [ICON_CivicBoosted] 鼓舞。[NEWLINE]从国际 [ICON_TradeRoute] 贸易路线+1 [ICON_CULTURE] 文化值和+1 [ICON_SCIENCE] 科技值。[ICON_TradeRoute] 贸易路线每经过20个单元格，额外提供+1 [ICON_CULTURE] 文化值和+1 [ICON_SCIENCE] 科技值。</Text>
+			<Text>任意 [ICON_Government] 政体中额外增加一个经济政策槽位。首次在另一个文明的城市中建立 [ICON_TradingPost] 贸易站时随机获得一项 [ICON_TechBoosted] 尤里卡和 [ICON_CivicBoosted] 鼓舞。[NEWLINE]从国际 [ICON_TradeRoute] 贸易路线+1 [ICON_CULTURE] 文化值和+1 [ICON_SCIENCE] 科技值。[ICON_TradeRoute] 贸易路线每经过25个单元格，额外提供+1 [ICON_CULTURE] 文化值和+1 [ICON_SCIENCE] 科技值。</Text>
 		</Replace>
 		
 
@@ -987,7 +1001,7 @@
 		</Row>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MAPUCHE_MALON_RAIDER_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>中世纪马普切特色单位，替代追猎者。+1 [ICON_Movement] 行动力。初始便拥有一次免费 [ICON_Promotion] 升级。</Text>
+			<Text>中世纪马普切特色单位，替代追猎者。当开局处在平地上时+1 [ICON_Movement] 行动力。初始便拥有一次免费 [ICON_Promotion] 升级。</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_MAPUCHE_MALON_RAIDER_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>+1 [ICON_Movement] 行动力。</Text>
@@ -1185,11 +1199,11 @@
 		<!-- == ROME == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ALL_ROADS_TO_ROME_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>所有您创建或攻占的城市一开始便拥有贸易站。如果位于您 [ICON_Capital] 首都的 [ICON_TradeRoute] 贸易路线范围内，城市自动建立一条通至罗马的路。您的 [ICON_TradeRoute] 贸易路线经过您的城市贸易站+1 [ICON_Gold] 金币。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：无。</Text>
+			<Text>如果位于您 [ICON_Capital] 首都的 [ICON_TradeRoute] 贸易路线范围内，城市自动建立一条通至罗马的路。所有您创建或攻占的城市一开始便拥有贸易站。您的 [ICON_TradeRoute] 贸易路线经过您的城市贸易站+1 [ICON_Gold] 金币。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：无。</Text>
 		</Replace>
 		<!-- = leader ability (Trajan) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TRAJANS_COLUMN_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>“对外贸易”市政后，所有城市获得一个额外的市中心建筑。（远古时代是纪念碑）</Text>
+			<Text>“帝国初期”市政后，所有城市获得一个额外的市中心建筑。（远古时代是纪念碑）</Text>
 		</Replace>
 		<!-- = leader ability (Julius Caesar) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="zh_Hans_CN">
@@ -1372,11 +1386,11 @@
 		<!-- == SWEDEN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>瑞典招募 [ICON_GreatPerson] 伟人时可获得50点 [ICON_Favor] 外交支持（标准速度下）。工厂和大学分别提供+1 [ICON_GreatEngineer] 大工程师点数和+1 [ICON_GreatScientist] 大科学家点数。建造图书馆、大学、工作坊和工厂时+50% [ICON_PRODUCTION] 生产力。如果瑞典在游戏中，进入工业时代之后将增添3项特色世界议会竞赛。[NEWLINE]建造市政广场建筑时+50% [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]“政治哲学”市政后，位于沙漠、冻土、雪地的市中心额外+1 [ICON_FOOD] 食物、+1 [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：特殊：靠近冻土。</Text>
+			<Text>瑞典招募 [ICON_GreatPerson] 伟人时可获得20点 [ICON_Favor] 外交支持（标准速度下）。工厂和大学分别提供+1 [ICON_GreatEngineer] 大工程师点数和+1 [ICON_GreatScientist] 大科学家点数。建造图书馆、大学、工作坊和工厂时+50% [ICON_PRODUCTION] 生产力。如果瑞典在游戏中，进入工业时代之后将增添3项特色世界议会竞赛。[NEWLINE]建造市政广场建筑时+50% [ICON_PRODUCTION] 生产力。[NEWLINE]一级/二级/三级市政广场建筑分别提供2点[ICON_GreatWriter] 大作家、 [ICON_GreatArtist] 大艺术家、 [ICON_GreatMusician] 大音乐家点数。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：特殊：靠近冻土。</Text>
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_QUEENS_BIBLIOTHEQUE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>瑞典特色建筑。该建筑包含2个 [ICON_GreatWork_WRITING] 著作槽位，2个 [ICON_GreatWork_Landscape] 艺术槽位，2个 [ICON_GreatWork_MUSIC] 音乐槽位。该建筑不与其他市政广场建筑冲突。[NEWLINE]奖励1个 [Icon_Governor] 总督头衔。</Text>
+			<Text>瑞典特色建筑。该建筑包含6个通用槽位。该建筑不与其他市政广场建筑冲突。[NEWLINE]奖励1个 [Icon_Governor] 总督头衔。</Text>
 		</Replace>
 
 		<!-- == VIETNAM == -->
@@ -1420,6 +1434,9 @@
 		<!-- No nuclear defense -->
 		<Replace Tag="LOC_UNIT_ANTIAIR_GUN_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>现代防空支援单位。为相邻1个单元格内的单位提供庇护以躲避空袭。</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_MOBILE_SAM_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>信息时代防空支援单位。为相邻1个单元格内的单位提供庇护以躲避空袭和核弹。</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_WARRIOR_MONK_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>高移动力的陆地战斗单位，拥有独特的升级树。[NEWLINE][NEWLINE]获得所有近战单位战斗力加成（对阵抗骑兵除外）。从任何时代的 [ICON_GREATGENERAL] 大将军获得加成。造价随科技和文化进度提升。[NEWLINE][NEWLINE]拥有独特技能“武道”：每解锁一个市政+1 [ICON_Strength] 战斗力（工业时代及之前）。</Text>
@@ -2198,7 +2215,7 @@
 			<Text>每回合奖励4点 [ICON_RESOURCE_IRON] 铁。为6个单元格内的所有城市提供+4 [ICON_Faith] 信仰值。[NEWLINE][NEWLINE]必须建在沙漠（丘陵）地貌上。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_APADANA_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>在此城市中建造奇观（包括阿帕达纳宫）时+1 [ICON_ENVOY] 使者。[NEWLINE][NEWLINE]必须和你的 [ICON_CAPITAL] 首都相邻。</Text>
+			<Text>在此城市中建造奇观（包括阿帕达纳宫）时获得两个巨作槽位，+1 [ICON_ENVOY] 使者。[NEWLINE][NEWLINE]必须和你的 [ICON_CAPITAL] 首都相邻。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_VENETIAN_ARSENAL_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>所有城市生产海军单位时+75% [ICON_Production] 生产力。[NEWLINE][NEWLINE]必须建在与工业区相邻的海岸单元格上。</Text>
