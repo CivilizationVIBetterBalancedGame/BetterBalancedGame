@@ -293,6 +293,14 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
     ('TECH_ROBOTICS', 'TECH_TELECOMMUNICATIONS');
 
+
+-- 09/04/25 Guidance as prereq for Nanotech and Nuclear Fusion (swapped lasers and guidance on the tech tree so it makes more sense)
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_NANOTECHNOLOGY', 'TECH_GUIDANCE_SYSTEMS'),
+    ('TECH_NUCLEAR_FUSION', 'TECH_GUIDANCE_SYSTEMS');
+UPDATE Technologies SET UITreeRow=0 WHERE TechnologyType='TECH_LASERS';
+UPDATE Technologies SET UITreeRow=1 WHERE TechnologyType='TECH_GUIDANCE_SYSTEMS';
+
 --=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================
