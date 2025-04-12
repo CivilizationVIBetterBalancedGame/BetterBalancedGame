@@ -23,3 +23,7 @@ INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) VALUES
 UPDATE Buildings SET Cost=90 WHERE BuildingType='BUILDING_ORDU';
 
 UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_ORDU';
+
+
+-- 08/04/25 Ordu movement now only works if unit starts turn on flat terrain
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_IS_FLAT' WHERE ModifierId='ORDU_ADJUST_MOVEMENT';

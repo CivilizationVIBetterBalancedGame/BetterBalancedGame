@@ -46,7 +46,8 @@ INSERT OR IGNORE INTO RequirementArguments (RequirementId , Name , Value)
 	VALUES ('REQUIRES_PLAYER_HAS_ASTROLOGY_CPLMOD' , 'TechnologyType' , 'TECH_ASTROLOGY');
 
 -- 18/05/2021: Mamluk 53 strengh
-UPDATE Units SET Combat=53 WHERE UnitType='UNIT_ARABIAN_MAMLUK';
+-- 08/04/25 reverted to 50 base game
+-- UPDATE Units SET Combat=53 WHERE UnitType='UNIT_ARABIAN_MAMLUK';
 -- 18/05/2021: Madrasa cost to 175
 -- UPDATE Buildings SET Cost=175 WHERE BuildingType='BUILDING_MADRASA';
 
