@@ -81,7 +81,7 @@ INSERT OR IGNORE INTO Resource_YieldChanges (ResourceType, YieldType, YieldChang
 	('RESOURCE_SPICES', 'YIELD_GOLD', 1),
     ('RESOURCE_TEA', 'YIELD_FOOD', 1),
     ('RESOURCE_PEARLS', 'YIELD_PRODUCTION', 1),
-    ('RESOURCE_MARBLE', 'YIELD_FAITH', 1);
+    ('RESOURCE_MARBLE', 'YIELD_GOLD', 2);
 UPDATE Resource_YieldChanges SET YieldChange=1 WHERE ResourceType='RESOURCE_SPICES' AND YieldType='YIELD_FOOD';
 UPDATE Resource_YieldChanges SET YieldChange=4 WHERE ResourceType='RESOURCE_COTTON' AND YieldType='YIELD_GOLD';
 DELETE FROM Resource_ValidTerrains WHERE ResourceType='RESOURCE_JADE' AND TerrainType='TERRAIN_PLAINS';
@@ -289,6 +289,17 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
 -- 30/03/25 Robotics needs Composites
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
     ('TECH_ROBOTICS', 'TECH_COMPOSITES');
+-- 08/04/25 Robotics needs TELECOMMUNICATIONS
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_ROBOTICS', 'TECH_TELECOMMUNICATIONS');
+
+
+-- 09/04/25 Guidance as prereq for Nanotech and Nuclear Fusion (swapped lasers and guidance on the tech tree so it makes more sense)
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_NANOTECHNOLOGY', 'TECH_GUIDANCE_SYSTEMS'),
+    ('TECH_NUCLEAR_FUSION', 'TECH_GUIDANCE_SYSTEMS');
+UPDATE Technologies SET UITreeRow=0 WHERE TechnologyType='TECH_LASERS';
+UPDATE Technologies SET UITreeRow=1 WHERE TechnologyType='TECH_GUIDANCE_SYSTEMS';
 
 --=======================================================================
 --******                       AMENITIES                           ******
