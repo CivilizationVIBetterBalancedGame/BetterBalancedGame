@@ -35,6 +35,7 @@
 			<!-- === SPLASH TEXT === -->
 			<!-- === CIVILOPEDIA === -->
 			<!-- === FRONTEND, MENU, AND VICTORIES === -->
+			<!-- === Settler Capture === -->
 			<!-- === BETTER CITY YIELDS (BCY) === -->
 
 
@@ -1058,7 +1059,7 @@
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_ORDU_DESCRIPTION" Language="en_US">
-			<Text>A building unique to Mongolia. Grants an ability that gives +1 [ICON_MOVEMENT] Movement when starting on open flat terrain to Heavy and Light Cavalry trained in this city. +25% combat experience for all cavalry and siege class units trained in this city. May not be built in an Encampment district that already has a Barracks.[NEWLINE][NEWLINE]+2 [ICON_RESOURCE_HORSES] Horses per turn once discovered.</Text>
+			<Text>A building unique to Mongolia. Grants an ability that gives +1 [ICON_MOVEMENT] Movement when starting on flat terrain to Heavy and Light Cavalry trained in this city. +25% combat experience for all cavalry and siege class units trained in this city. May not be built in an Encampment district that already has a Barracks.[NEWLINE][NEWLINE]+2 [ICON_RESOURCE_HORSES] Horses per turn once discovered.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_ORDU_INCREASED_MOVEMENT_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_MOVEMENT] Movement when starting in flat terrain.</Text>
@@ -1248,7 +1249,7 @@
 		<!-- == RUSSIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MOTHER_RUSSIA_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Extra territory upon founding cities. +1 [ICON_FAITH] Faith for your Empire. +1 [ICON_PRODUCTION] Production from Tundra tiles.[NEWLINE]Units do not receive damage from Blizzards. Civilizations that are at war with Russia receive +100% unit damage from Blizzards in Russian territory.[NEWLINE][ICON_BULLET]Bias: T1 Tundra.</Text>
+			<Text>Extra territory upon founding cities. +1 [ICON_PRODUCTION] Production from Tundra tiles.[NEWLINE]Units do not receive damage from Blizzards. Civilizations that are at war with Russia receive +100% unit damage from Blizzards in Russian territory.[NEWLINE][ICON_BULLET]Bias: T1 Tundra.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_RUSSIAN_COSSACK_DESCRIPTION" Language="en_US">
@@ -3587,6 +3588,26 @@
 		<Replace Tag="LOC_WORLD_RANKINGS_DOMINATION_DETAILS" Language="en_US">
 			<Text>To achieve a [COLOR:ResMilitaryLabelCS]CONQUEST[ENDCOLOR] victory, you must conquer the original [ICON_CAPITAL] Capital of every other civilization.[NEWLINE][NEWLINE]A strong military is highly recommended.</Text>
 		</Replace>
+		
+
+		<!-- === Settler Capture === -->
+		<Row Tag="LOC_BBG_SETTLER_CONFIG_NAME" Language="en_US">
+			<Text>[COLOR:92,216,92]Settler Capture[ENDCOLOR]</Text>
+		</Row>
+		<!-- == Settlers can be captured == -->
+		<Row Tag="LOC_BBG_SETTLER_CONFIG_BASEGAME_NAME" Language="en_US">
+			<Text>Capture</Text>
+		</Row>
+		<Row Tag="LOC_BBG_SETTLER_CONFIG_BASEGAME_DESC" Language="en_US">
+			<Text>Default firaxis setting. Settlers can be captured.</Text>
+		</Row>
+		<!-- == Settlers sent to City Centers == -->		
+		<Row Tag="LOC_BBG_SETTLER_CONFIG_CHILL_NAME" Language="en_US">
+			<Text>Sent Home</Text>
+		</Row>
+		<Row Tag="LOC_BBG_SETTLER_CONFIG_CHILL_DESC" Language="en_US">
+			<Text>Settlers are sent to the nearest city similar to great people when stepped on with an enemy unit.</Text>
+		</Row>
 
 
 
