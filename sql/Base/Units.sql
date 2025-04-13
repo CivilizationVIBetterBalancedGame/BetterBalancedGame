@@ -139,8 +139,6 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
 -- 29/03/25 5 movement (from 3)
 UPDATE Units SET AntiAirCombat=110, BaseMoves=5 WHERE UnitType='UNIT_MOBILE_SAM';
 
--- 31/03/25 Settlers send back to closest city
-UPDATE Units SET CanRetreatWhenCaptured=1 WHERE UnitType='UNIT_SETTLER';
 
 -- 16/12/22 Obsolescence
 -- 15/10/23 Added Varus
