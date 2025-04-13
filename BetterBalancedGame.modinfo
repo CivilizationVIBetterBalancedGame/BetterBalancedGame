@@ -266,6 +266,16 @@
 				<Value>5</Value>
 			</ConfigurationValueMatches>
 		</Criteria>
+
+
+		<!-- Settlers -->
+		<Criteria id="Settlers_Sent_Back">
+			<ConfigurationValueMatches>
+				<ConfigurationId>SettlersConfig</ConfigurationId>
+				<Group>Game</Group>
+				<Value>0</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
 	</ActionCriteria>
 
 	<!-- defines pre-game mods (e.g. menus, visual, text, etc..) -->
@@ -1007,6 +1017,16 @@
 			<File>sql/victories/new_bbg_cv.sql</File>
 			<File>sql/victories/new_bbg_cv_2.sql</File>
 		</UpdateDatabase>
+
+		<!-- Settlers -->
+		<UpdateDatabase id="Settlers">
+			<Properties>
+				<LoadOrder>20000</LoadOrder>
+			</Properties>
+			<Criteria>Settlers_Sent_Back</Criteria>
+			<File>sql/Settlers/Settlers.sql</File>
+		</UpdateDatabase>
+
 		<!-- -->
 		<UpdateIcons id="bbg_Icons">
 			<File>data/new_bbg_icons.xml</File>
@@ -1300,6 +1320,8 @@
 		<File>sql/victories/new_bbg_rv_1.sql</File>
 		<File>sql/victories/new_bbg_rv_2.sql</File>
 		<File>sql/victories/new_bbg_new_domination.sql</File>
+
+		<File>sql/Settlers/Settlers.sql</File>
 
 		<File>sql/bbcc/bbcc_configvalues.sql</File>
 	    <File>sql/bbcc/core_bbcc.sql</File>
