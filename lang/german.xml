@@ -38,6 +38,7 @@
 			<!-- === SPLASH TEXT === -->
 			<!-- === CIVILOPEDIA === -->
 			<!-- === FRONTEND, MENU, AND VICTORIES === -->
+			<!-- === SETTLER CAPTURE === -->
 			<!-- === BETTER CITY YIELDS (BCY) === -->
 
 
@@ -164,7 +165,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_GIFTS_FOR_TLATOANI_DESCRIPTION" Language="de_DE">
-			<Text>Luxusressourcen in seinem Gebiet bieten 2 zusätzlichen [ICON_DISTRICT_CITY_CENTER] Städten +1 [ICON_AMENITIES] Annehmlichkeit. Militärische Land- und Marine-Einheiten erhalten +1 [ICON_STRENGTH] Kampfstärke, nur beim Angriff, für jede verschiedene Luxusressource, die im aztekischen Gebiet verbessert wurde und im Besitz der Azteken bleibt.</Text>
+			<Text>Luxusressourcen in seinem Gebiet bieten 2 zusätzlichen [ICON_DISTRICT_CITY_CENTER] Städten +1 [ICON_AMENITIES] Annehmlichkeit. Militärische Land- und Marine-Einheiten (keine Riesenkampfroboter) erhalten +1 [ICON_STRENGTH] Kampfstärke, nur beim Angriff, für jede verschiedene Luxusressource, die im aztekischen Gebiet verbessert wurde und im Besitz der Azteken bleibt .</Text>
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_TLACHTLI_DESCRIPTION" Language="de_DE">
@@ -3603,6 +3604,25 @@
 			<Text>Um einen [COLOR:ResMilitaryLabelCS]HERRSCHAFTSSIEG[ENDCOLOR] zu erringen, musst du die ursprüngliche [ICON_Capital] Hauptstadt jeder anderen Zivilisation erobern.[NEWLINE][NEWLINE]Ein starkes Militär wird dringend empfohlen.</Text>
 		</Replace>
 		
+		
+		<!-- === SETTLER CAPTURE === -->
+        <Row Tag="LOC_BBG_SETTLER_CONFIG_NAME" Language="de_DE">
+            <Text>[COLOR:92,216,92]Gefangennahme von Siedlern[ENDCOLOR]</Text>
+        </Row>
+        <!-- == Settlers can be captured == -->
+        <Row Tag="LOC_BBG_SETTLER_CONFIG_BASEGAME_NAME" Language="de_DE">
+            <Text>Gefangennahme</Text>
+        </Row>
+        <Row Tag="LOC_BBG_SETTLER_CONFIG_BASEGAME_DESC" Language="de_DE">
+            <Text>Standard-Einstellung. Siedler können gefangen genommen werden.</Text>
+        </Row>
+        <!-- == Settlers sent to City Centers == -->
+        <Row Tag="LOC_BBG_SETTLER_CONFIG_CHILL_NAME" Language="de_DE">
+            <Text>Zurück zur [ICON_DISTRICT_CITY_CENTER] Stadt</Text>
+        </Row>
+        <Row Tag="LOC_BBG_SETTLER_CONFIG_CHILL_DESC" Language="de_DE">
+            <Text>Siedler werden in die nächstgelegene [ICON_DISTRICT_CITY_CENTER] Stadt geschickt, ähnlich wie Große Persöhnlichkeiten, wenn sie von einer feindlichen Einheit angegriffen werden.</Text>
+        </Row>
 		
 		
 		<!-- BETTER CITY YIELDS (BCY) -->
