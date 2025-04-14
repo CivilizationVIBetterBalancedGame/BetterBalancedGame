@@ -59,13 +59,19 @@ UPDATE Units SET Combat=90 WHERE UnitType='UNIT_MECHANIZED_INFANTRY';
 UPDATE Units SET Combat=140, AntiAirCombat=120 WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
 UPDATE ModifierArguments SET Value='20' WHERE ModifierId='GDR_AA_DEFENSE' AND Name='Amount';
 
+-- 29/03/25 GDR can't be gold bought
+-- 08/04/25 Reverted
+-- UPDATE Units SET PurchaseYield=NULL WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
+
+
 --=== RECON UNITS ===--
 -- 1 sight after ranger
 UPDATE Units SET BaseSightRange=3 WHERE UnitType IN ('UNIT_RANGER', 'UNIT_SPEC_OPS');
 -- Upgrade ReconUnit strengh
-UPDATE Units SET Combat=25, RangedCombat=35 WHERE UnitType='UNIT_SKIRMISHER'; -- +5/+5
-UPDATE Units SET Combat=55, RangedCombat=65 WHERE UnitType='UNIT_RANGER'; -- +10/+5
-UPDATE Units SET Combat=65, RangedCombat=75 WHERE UnitType='UNIT_SPEC_OPS'; -- +10/+10
+-- 08/04/25 +5 melee
+UPDATE Units SET Combat=30, RangedCombat=35 WHERE UnitType='UNIT_SKIRMISHER'; -- +5/+5
+UPDATE Units SET Combat=60, RangedCombat=65 WHERE UnitType='UNIT_RANGER'; -- +10/+5
+UPDATE Units SET Combat=70, RangedCombat=75 WHERE UnitType='UNIT_SPEC_OPS'; -- +10/+10
 -- Reduce Ambush Strength to 15 (from 20)
 UPDATE ModifierArguments SET Value='15' WHERE ModifierId='AMBUSH_INCREASED_COMBAT_STRENGTH';
 -- Merge SpyGlass and Sentry promotion
@@ -113,7 +119,7 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_RECON'),
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_NIHANG');
 
--- 16/12 Mobile SAM buff 110 anti air
+-- 16/12/23 Mobile SAM buff 110 anti air
 -- Start of the -5 vs planes but didn't find an adapted modifier
 -- INSERT INTO Tags VALUES
 --     ('BBG_CLASS_MOBILE_SAM', 'ABILITY_CLASS');
@@ -130,10 +136,13 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
 
 -- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 --     ('BBG_MODIFIER_MINUS_CS_PLANES', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_REQUIREMENT_')
-UPDATE Units SET AntiAirCombat=110 WHERE UnitType='UNIT_MOBILE_SAM';
+-- 29/03/25 5 movement (from 3)
+UPDATE Units SET AntiAirCombat=110, BaseMoves=5 WHERE UnitType='UNIT_MOBILE_SAM';
+
 
 -- 16/12/22 Obsolescence
--- 15/10/23 added Varus
+-- 15/10/23 Added Varus
+-- 30/03/25 Units are now obsolete when the next tech is unlocked 05/04/25 reverted
 UPDATE Units SET MandatoryObsoleteTech='TECH_MILITARY_TACTICS' WHERE UnitType='UNIT_WARRIOR';
 UPDATE Units SET MandatoryObsoleteTech='TECH_BALLISTICS' WHERE UnitType='UNIT_HEAVY_CHARIOT';
 UPDATE Units SET MandatoryObsoleteTech='TECH_GUNPOWDER' WHERE UnitType='UNIT_SWORDSMAN';
@@ -159,6 +168,7 @@ UPDATE Units SET MandatoryObsoleteTech='TECH_REPLACEABLE_PARTS' WHERE UnitType='
 UPDATE Units SET MandatoryObsoleteTech='TECH_COMBUSTION' WHERE UnitType='UNIT_BYZANTINE_TAGMA';
 UPDATE Units SET MandatoryObsoleteTech='TECH_MILITARY_TACTICS' WHERE UnitType='UNIT_GAUL_GAESATAE';
 UPDATE Units SET MandatoryObsoleteTech='TECH_MILITARY_TACTICS' WHERE UnitType='UNIT_BABYLONIAN_SABUM_KIBITTUM';
+
 
 --5.2.5 Musketman/Line infantry buff
 UPDATE Units SET Cost=220 WHERE UnitType='UNIT_MUSKETMAN';

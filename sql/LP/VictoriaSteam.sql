@@ -36,3 +36,7 @@ INSERT INTO ModifierArguments (ModifierId , Name , Value) VALUES
     ('BBG_ENGINEER_LIGHTHOUSE_DOCKYARD', 'Amount', '1');
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_VICTORIA_ALT', 'BBG_ENGINEER_LIGHTHOUSE_DOCKYARD_GIVER');
+
+
+-- 13/04/25 powered building bonus moved from England bonus to Steam
+UPDATE TraitModifiers SET TraitType='TRAIT_LEADER_VICTORIA_ALT' WHERE ModifierId LIKE 'TRAIT_POWERED_BUILDINGS_MORE_%';

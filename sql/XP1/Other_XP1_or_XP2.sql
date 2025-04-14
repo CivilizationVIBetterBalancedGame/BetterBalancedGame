@@ -240,3 +240,8 @@ UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_WATER
 UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_IKANDA', 'DISTRICT_SEOWON', 'DISTRICT_WATER_STREET_CARNIVAL');
 UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_IKANDA', 'DISTRICT_SEOWON', 'DISTRICT_WATER_STREET_CARNIVAL');
 
+--=======================================================================
+--******                          AGES                             ******
+--=======================================================================
+-- 29/03/25 Dark age threshold increased by 3 era score (don't really get how it works but it works)
+UPDATE GlobalParameters SET Value=18 WHERE Name='DARK_AGE_SCORE_BASE_THRESHOLD';
