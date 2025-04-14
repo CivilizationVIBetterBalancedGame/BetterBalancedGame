@@ -1,0 +1,37 @@
+
+
+-- Jongs cost Niter
+-- 29/03/25 Jong no longer cost Niter
+-- INSERT OR IGNORE INTO Units_XP2 (UnitType , ResourceCost)
+-- 	VALUES ('UNIT_INDONESIAN_JONG' , 10);
+-- UPDATE Units SET StrategicResource ='RESOURCE_NITER'  WHERE UnitType='UNIT_INDONESIAN_JONG';
+-- Jongs moved to Exploration
+UPDATE Units SET Cost=345, PrereqCivic='CIVIC_EXPLORATION' WHERE UnitType='UNIT_INDONESIAN_JONG';
+
+INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, TilesRequired, AdjacentImprovement) VALUES
+    ('BBG_KampungFaithFishing', 'Placeholder', 'YIELD_FAITH', 1, 1, 'IMPROVEMENT_FISHING_BOATS');
+INSERT INTO Improvement_YieldChanges(ImprovementType, YieldType, YieldChange) VALUES
+    ('IMPROVEMENT_KAMPUNG', 'YIELD_FAITH', 0);
+INSERT INTO Improvement_Adjacencies(ImprovementType, YieldChangeId) VALUES
+    ('IMPROVEMENT_KAMPUNG', 'BBG_KampungFaithFishing');
+
+-- 29/03/25 Faith on districts works on all specialty district and city center
+INSERT INTO RequirementSets ( RequirementSetId, RequirementSetType ) VALUES
+    ( 'BBG_SPECIAL_DISTRICT_OR_CITY_CENTER_ON_COAST', 'REQUIREMENTSET_TEST_ALL' );
+INSERT INTO RequirementSetRequirements ( RequirementSetId, RequirementId ) VALUES
+    ( 'BBG_SPECIAL_DISTRICT_OR_CITY_CENTER_ON_COAST', 'REQUIRES_PLOT_IS_ADJACENT_TO_COAST' ),
+    ( 'BBG_SPECIAL_DISTRICT_OR_CITY_CENTER_ON_COAST', 'REQUIRES_DISTRICT_IS_NOT_AQUEDUCT_BBG' ),
+    ( 'BBG_SPECIAL_DISTRICT_OR_CITY_CENTER_ON_COAST', 'REQUIRES_DISTRICT_IS_NOT_CANAL_BBG' ),
+    ( 'BBG_SPECIAL_DISTRICT_OR_CITY_CENTER_ON_COAST', 'REQUIRES_DISTRICT_IS_NOT_DAM_BBG' ),
+    ( 'BBG_SPECIAL_DISTRICT_OR_CITY_CENTER_ON_COAST', 'REQUIRES_DISTRICT_IS_NOT_NEIGHBORHOOD_BBG' ),
+    ( 'BBG_SPECIAL_DISTRICT_OR_CITY_CENTER_ON_COAST', 'REQUIRES_DISTRICT_IS_NOT_SPACEPORT_BBG' ),
+    ( 'BBG_SPECIAL_DISTRICT_OR_CITY_CENTER_ON_COAST', 'REQUIRES_DISTRICT_IS_NOT_WORLD_WONDER_BBG' );
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_SPECIAL_DISTRICT_OR_CITY_CENTER_ON_COAST' WHERE ModifierId='TRAIT_FAITH_CITY_CENTER';
+
+-- 29/03/25 Can buy encampment and campus buildings
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+     ('BBG_INDONESIA_FAITH_HARBOR_BUILDING', 'MODIFIER_PLAYER_CITIES_ENABLE_BUILDING_FAITH_PURCHASE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+     ('BBG_INDONESIA_FAITH_HARBOR_BUILDING', 'DistrictType', 'DISTRICT_HARBOR');
+ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+     ('TRAIT_LEADER_EXALTED_GODDESS', 'BBG_INDONESIA_FAITH_HARBOR_BUILDING');

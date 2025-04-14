@@ -2,6 +2,7 @@
 --******              UNITS  (NON-UNIQUE)                ******
 --==============================================================
 UPDATE Units_XP2 SET ResourceMaintenanceAmount=2 WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
+
 UPDATE Units SET StrategicResource='RESOURCE_OIL' WHERE UnitType='UNIT_HELICOPTER';
 UPDATE Units_XP2 SET ResourceMaintenanceAmount=1, ResourceCost=1, ResourceMaintenanceType='RESOURCE_OIL' WHERE UnitType='UNIT_HELICOPTER';
 UPDATE Units SET Cost=200 WHERE UnitType='UNIT_KNIGHT';

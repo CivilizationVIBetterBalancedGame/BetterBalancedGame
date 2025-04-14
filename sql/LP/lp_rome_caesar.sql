@@ -133,3 +133,8 @@ UPDATE ModifierArguments SET Value=200 WHERE ModifierId='TRAIT_CAESAR_GOLD_CAPTU
 UPDATE ModifierArguments SET Value=150 WHERE ModifierId='BARBARIAN_CAMP_GOLD_CAPTURED_CITY' AND Name='Amount';
 UPDATE ModifierArguments SET Value=100 WHERE ModifierId='BARBARIAN_CAMP_GOLD_CAPTURED_CITY_METAL_CASTING' AND Name='Amount';
 UPDATE ModifierArguments SET Value=200 WHERE ModifierId='BARBARIAN_CAMP_GOLD_CAPTURED_CITY_STEEL' AND Name='Amount';
+
+
+-- 29/03/25 roads from rome moved to caesar
+-- 08/04/25 reverted
+-- UPDATE TraitModifiers SET TraitType='TRAIT_LEADER_CAESAR' WHERE ModifierId='TRAIT_FREE_ROADS_TO_CAPITAL';

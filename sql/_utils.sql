@@ -43,6 +43,18 @@ INSERT INTO RequirementArguments(RequirementId, Name, Value)
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     SELECT 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQSET', 'BBG_UTILS_PLAYER_HAS_' || CivicType || '_REQUIREMENT' FROM Civics;
 
+
+-- Create requiremnt for each leader
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
+    SELECT 'BBG_PLAYER_IS_' || LeaderType || '_REQSET', 'REQUIREMENTSET_TEST_ANY' FROM Leaders WHERE InheritFrom='LEADER_DEFAULT';
+INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
+    SELECT 'BBG_PLAYER_IS_' || LeaderType || '_REQSET', 'BBG_PLAYER_IS_' || LeaderType || '_REQUIREMENT' FROM Leaders WHERE InheritFrom='LEADER_DEFAULT';
+INSERT INTO Requirements(RequirementId , RequirementType)
+    SELECT 'BBG_PLAYER_IS_' || LeaderType || '_REQUIREMENT' , 'REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES' FROM Leaders WHERE InheritFrom='LEADER_DEFAULT';
+INSERT INTO RequirementArguments(RequirementId , Name, Value)
+    SELECT 'BBG_PLAYER_IS_' || LeaderType || '_REQUIREMENT' , 'LeaderType', 'LEADER_CHANDRAGUPTA' FROM Leaders WHERE InheritFrom='LEADER_DEFAULT';
+
+
 -- Create requirements for each ressources
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
 	('BBG_PLAYER_CAN_SEE_HORSES', 'REQUIREMENTSET_TEST_ALL'),
