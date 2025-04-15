@@ -1,7 +1,7 @@
 --==========
 -- Inca
 --==========
-UPDATE Units SET Combat=25, RangedCombat=40 WHERE UnitType='UNIT_INCA_WARAKAQ';
+UPDATE Units SET Combat=30, RangedCombat=40 WHERE UnitType='UNIT_INCA_WARAKAQ';
 
 -- 24/05/2021: Change era from game to personal.
 UPDATE Requirements SET RequirementType='REQUIREMENT_PLAYER_ERA_AT_LEAST' WHERE RequirementId='REQUIRES_ERA_ATLEASTEXPANSION_INDUSTRIAL';
@@ -108,3 +108,51 @@ INSERT INTO Improvement_ValidBuildUnits (ImprovementType, UnitType, ConsumesChar
     ('IMPROVEMENT_MOUNTAIN_ROAD', 'UNIT_INCA_WARAKAQ', 1);
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'BBG_INCA_SCOUT_BUILD_CHARGE');
+
+
+-- 29/03/25 Incas does not suffer from negative amenity
+-- HAPPINESS_DISPLEASED
+-- SET Displeased = SELECT -NonYieldFoodModifier FROM Happinesses WHERE HappinessType='HAPPINESS_DISPLEASED';
+INSERT INTO Modifiers (ModifierId, ModifierType)
+    SELECT 'BBG_INCA_DISPLEASED_NO_NEGATIVE_' || YieldType, 'MODIFIER_PLAYER_CITIES_ADJUST_HAPPINESS_YIELD' FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_DISPLEASED_NO_NEGATIVE_' || YieldType, 'YieldType', YieldType FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_DISPLEASED_NO_NEGATIVE_' || YieldType, 'HappinessType', 'HAPPINESS_DISPLEASED' FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_DISPLEASED_NO_NEGATIVE_' || YieldType, 'Amount', (SELECT -NonFoodYieldModifier FROM Happinesses WHERE HappinessType='HAPPINESS_DISPLEASED') FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO TraitModifiers (TraitType, ModifierId)
+    SELECT 'TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'BBG_INCA_DISPLEASED_NO_NEGATIVE_' || YieldType FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+-- HAPPINESS_UNHAPPY
+INSERT INTO Modifiers (ModifierId, ModifierType)
+    SELECT 'BBG_INCA_UNHAPPY_NO_NEGATIVE_' || YieldType, 'MODIFIER_PLAYER_CITIES_ADJUST_HAPPINESS_YIELD' FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_UNHAPPY_NO_NEGATIVE_' || YieldType, 'YieldType', YieldType FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_UNHAPPY_NO_NEGATIVE_' || YieldType, 'HappinessType', 'HAPPINESS_UNHAPPY' FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_UNHAPPY_NO_NEGATIVE_' || YieldType, 'Amount', (SELECT -NonFoodYieldModifier FROM Happinesses WHERE HappinessType='HAPPINESS_UNHAPPY') FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO TraitModifiers (TraitType, ModifierId)
+    SELECT 'TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'BBG_INCA_UNHAPPY_NO_NEGATIVE_' || YieldType FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+-- HAPPINESS_UNREST
+INSERT INTO Modifiers (ModifierId, ModifierType)
+    SELECT 'BBG_INCA_UNREST_NO_NEGATIVE_' || YieldType, 'MODIFIER_PLAYER_CITIES_ADJUST_HAPPINESS_YIELD' FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_UNREST_NO_NEGATIVE_' || YieldType, 'YieldType', YieldType FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_UNREST_NO_NEGATIVE_' || YieldType, 'HappinessType', 'HAPPINESS_UNREST' FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_UNREST_NO_NEGATIVE_' || YieldType, 'Amount', (SELECT -NonFoodYieldModifier FROM Happinesses WHERE HappinessType='HAPPINESS_UNREST') FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO TraitModifiers (TraitType, ModifierId)
+    SELECT 'TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'BBG_INCA_UNREST_NO_NEGATIVE_' || YieldType FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+-- HAPPINESS_REVOLT
+INSERT INTO Modifiers (ModifierId, ModifierType)
+    SELECT 'BBG_INCA_REVOLT_NO_NEGATIVE_' || YieldType, 'MODIFIER_PLAYER_CITIES_ADJUST_HAPPINESS_YIELD' FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_REVOLT_NO_NEGATIVE_' || YieldType, 'YieldType', YieldType FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_REVOLT_NO_NEGATIVE_' || YieldType, 'HappinessType', 'HAPPINESS_REVOLT' FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+    SELECT 'BBG_INCA_REVOLT_NO_NEGATIVE_' || YieldType, 'Amount', (SELECT -NonFoodYieldModifier FROM Happinesses WHERE HappinessType='HAPPINESS_REVOLT') FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+INSERT INTO TraitModifiers (TraitType, ModifierId)
+    SELECT 'TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'BBG_INCA_REVOLT_NO_NEGATIVE_' || YieldType FROM Yields WHERE NOT YieldType='YIELD_FOOD';

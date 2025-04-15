@@ -1,3 +1,7 @@
+-- 18/06/23 Remove old modifier for same/foreign continent
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_NZINGA_MBANDE' AND ModifierId='TRAIT_SAME_CONTINENT_YIELD';
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_NZINGA_MBANDE' AND ModifierId='TRAIT_FOREIGN_CONTINENT_YIELD';
+
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
 	('REQUIRES_OBJECT_1_OR_MORE_TILES_FROM_CAPITAL','REQUIREMENT_PLOT_NEAR_CAPITAL');
 INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
@@ -6,16 +10,6 @@ INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
 --Disabling Mbande's effect on the capital city
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
 	('REQUIRES_CITY_IS_SAME_CONTINENT', 'REQUIRES_OBJECT_1_OR_MORE_TILES_FROM_CAPITAL');
-
--- 18/06/23 Reduced archaelogist cost for Mbande
-INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('BBG_TRAIT_ARCHAEOLOGIST_COST', 'MODIFIER_PLAYER_CITIES_ADJUST_UNIT_PURCHASE_COST');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_TRAIT_ARCHAEOLOGIST_COST', 'UnitType', 'UNIT_ARCHAEOLOGIST');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_TRAIT_ARCHAEOLOGIST_COST', 'Amount', '50');
-INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
-    ('TRAIT_LEADER_NZINGA_MBANDE', 'BBG_TRAIT_ARCHAEOLOGIST_COST');
 
 -- 18/06/23 Mbande gets +2 golds for commercial hubs adjacent to Mbanza
 INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, AdjacentDistrict) VALUES
@@ -61,13 +55,8 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_NZINGA_MBANDE', 'BBG_MODIFIER_MBANZA_ADDCULTUREYIELD'),
 	('TRAIT_LEADER_NZINGA_MBANDE', 'BBG_MODIFIER_MBANZA_ADDGOLDYIELD');
 
--- 18/06/23 Remove old modifier for same/foreign continent
-DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_NZINGA_MBANDE' AND ModifierId='TRAIT_SAME_CONTINENT_YIELD';
-DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_NZINGA_MBANDE' AND ModifierId='TRAIT_FOREIGN_CONTINENT_YIELD';
-
 -- 05/03/2024
 -- Mbande civilian units get forest and jungle free movement
-
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_CIVILIAN_UNITS_IGNORE_WOODS', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
@@ -77,7 +66,6 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 
 INSERT INTO Types(Type, Kind) VALUES
     ('BBG_IGNORE_WOODS_MBANDE_ABILITY', 'KIND_ABILITY');
-
 INSERT INTO TypeTags(Type, Tag) VALUES
     ('BBG_IGNORE_WOODS_MBANDE_ABILITY', 'CLASS_LANDCIVILIAN');
 
@@ -85,3 +73,13 @@ INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive, ShowFloa
     ('BBG_IGNORE_WOODS_MBANDE_ABILITY', 'LOC_BBG_IGNORE_WOODS_MBANDE_ABILITY_NAME', 'LOC_BBG_IGNORE_WOODS_MBANDE_ABILITY_DESCRIPTION', 1, 0, 1);
 INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
     ('BBG_IGNORE_WOODS_MBANDE_ABILITY', 'RANGER_IGNORE_FOREST_MOVEMENT_PENALTY');
+
+
+-- 18/06/23 Reduced archaelogist cost for Mbande
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_TRAIT_ARCHAEOLOGIST_COST', 'MODIFIER_PLAYER_CITIES_ADJUST_UNIT_PURCHASE_COST');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_TRAIT_ARCHAEOLOGIST_COST', 'UnitType', 'UNIT_ARCHAEOLOGIST'),
+    ('BBG_TRAIT_ARCHAEOLOGIST_COST', 'Amount', '50');
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_NZINGA_MBANDE', 'BBG_TRAIT_ARCHAEOLOGIST_COST');
