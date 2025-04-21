@@ -29,13 +29,18 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 --  with faith at a 10% discount
 INSERT INTO Modifiers (ModifierId, ModifierType)
-     SELECT 'BBG_SULTAN_CHEAPER_PURCHASE_' || Buildings.BuildingType, 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PURCHASE_COST' FROM Buildings WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_ENCAMPMENT');
+     SELECT 'BBG_SULTAN_CHEAPER_PURCHASE_' || b.BuildingType, 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PURCHASE_COST' 
+    FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_ENCAMPMENT') AND br.CivUniqueBuildingType IS NULL;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'BBG_SULTAN_CHEAPER_PURCHASE_' || Buildings.BuildingType, 'BuildingType', BuildingType FROM Buildings WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_ENCAMPMENT');
+    SELECT 'BBG_SULTAN_CHEAPER_PURCHASE_' || b.BuildingType, 'BuildingType', b.BuildingType 
+    FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_ENCAMPMENT') AND br.CivUniqueBuildingType IS NULL;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'BBG_SULTAN_CHEAPER_PURCHASE_' || Buildings.BuildingType, 'Amount', 10 FROM Buildings WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_ENCAMPMENT');
+    SELECT 'BBG_SULTAN_CHEAPER_PURCHASE_' || b.BuildingType, 'Amount', 10 
+    FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_ENCAMPMENT') AND br.CivUniqueBuildingType IS NULL;
 INSERT INTO TraitModifiers (TraitType, ModifierId)
-    SELECT 'TRAIT_LEADER_SALADIN_ALT', 'BBG_SULTAN_CHEAPER_PURCHASE_' || Buildings.BuildingType FROM Buildings WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_ENCAMPMENT');
+    SELECT 'TRAIT_LEADER_SALADIN_ALT', 'BBG_SULTAN_CHEAPER_PURCHASE_' || b.BuildingType 
+    FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_ENCAMPMENT') AND br.CivUniqueBuildingType IS NULL;
+
 
 -- Units get +5 combat strength if they are within 1 tile of an apostle.
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES

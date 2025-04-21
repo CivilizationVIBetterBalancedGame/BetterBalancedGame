@@ -378,27 +378,27 @@ UPDATE ModifierArguments SET Value='2' WHERE Name='Amount' AND ModifierId IN ('S
 
 -- Jesuit Education give 15% discount on campus and theater purchase.
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
-    SELECT 'BBG_GIVER_PURCHASE_CHEAPER_' || Buildings.BuildingType, 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_RELIGION_REQUIREMENTS'
-    FROM Buildings WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER');
+    SELECT 'BBG_GIVER_PURCHASE_CHEAPER_' || b.BuildingType, 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_RELIGION_REQUIREMENTS'
+    FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER') AND br.CivUniqueBuildingType IS NULL;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'BBG_GIVER_PURCHASE_CHEAPER_' || Buildings.BuildingType, 'ModifierId', 'BBG_PURCHASE_CHEAPER_' || Buildings.BuildingType
-    FROM Buildings WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER');
+    SELECT 'BBG_GIVER_PURCHASE_CHEAPER_' || b.BuildingType, 'ModifierId', 'BBG_PURCHASE_CHEAPER_' || b.BuildingType
+    FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER') AND br.CivUniqueBuildingType IS NULL;
 INSERT INTO Types(Type, Kind) VALUES
     ('BBG_MODIFIER_SINGLE_CITY_ADJUST_BUILDING_PURCHASE_COST', 'KIND_MODIFIER');
 INSERT INTO DynamicModifiers(ModifierType, CollectionType, EffectType) VALUES
     ('BBG_MODIFIER_SINGLE_CITY_ADJUST_BUILDING_PURCHASE_COST', 'COLLECTION_OWNER', 'EFFECT_ADJUST_BUILDING_PURCHASE_COST');
 INSERT INTO Modifiers(ModifierId, ModifierType)
-    SELECT 'BBG_PURCHASE_CHEAPER_' || Buildings.BuildingType, 'BBG_MODIFIER_SINGLE_CITY_ADJUST_BUILDING_PURCHASE_COST'
-    FROM Buildings WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER');
+    SELECT 'BBG_PURCHASE_CHEAPER_' || b.BuildingType, 'BBG_MODIFIER_SINGLE_CITY_ADJUST_BUILDING_PURCHASE_COST'
+    FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER') AND br.CivUniqueBuildingType IS NULL;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'BBG_PURCHASE_CHEAPER_' || Buildings.BuildingType, 'BuildingType', BuildingType
-    FROM Buildings WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER');
+    SELECT 'BBG_PURCHASE_CHEAPER_' || b.BuildingType, 'BuildingType', b.BuildingType
+    FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER') AND br.CivUniqueBuildingType IS NULL;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'BBG_PURCHASE_CHEAPER_' || Buildings.BuildingType, 'Amount', '15'
-    FROM Buildings WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER');
+    SELECT 'BBG_PURCHASE_CHEAPER_' || b.BuildingType, 'Amount', '15'
+    FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER') AND br.CivUniqueBuildingType IS NULL;
 INSERT INTO BeliefModifiers(BeliefType, ModifierID)
-    SELECT 'BELIEF_JESUIT_EDUCATION', 'BBG_GIVER_PURCHASE_CHEAPER_' || Buildings.BuildingType
-    FROM Buildings WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER');
+    SELECT 'BELIEF_JESUIT_EDUCATION', 'BBG_GIVER_PURCHASE_CHEAPER_' || b.BuildingType
+    FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_THEATER') AND br.CivUniqueBuildingType IS NULL;
 
 -- Monks: Base Game BugFixes
 -- Monks: Added: Work with Rams/SeigeTowers, Removed: Wall Breaker 
