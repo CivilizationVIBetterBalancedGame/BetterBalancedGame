@@ -11,7 +11,8 @@ INSERT INTO District_Adjacencies (DistrictType , YieldChangeId) VALUES
     ('DISTRICT_SEOWON', 'BBG_Mine_Science');
 -- 04/07/24 +1 base adj
 -- 08/04/25 +2 base 
-UPDATE Adjacency_YieldChanges SET YieldChange=2 WHERE ID='BaseDistrict_Science';
+-- 21/04/24 +1 base adj
+UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='BaseDistrict_Science';
 -- Culture bomb
 INSERT INTO TraitModifiers (TraitType, ModifierId)
     VALUES ('TRAIT_CIVILIZATION_THREE_KINGDOMS' , 'TRAIT_SEOWON_BOMB');
