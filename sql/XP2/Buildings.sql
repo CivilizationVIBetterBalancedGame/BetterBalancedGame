@@ -48,6 +48,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('COAL_FROM_SHIPYARD_BBG', 'Amount', '1');
 
 
+
 -- 08/04/25 Barracks and Stables get +2 Iron/Horses
 INSERT INTO BuildingModifiers (BuildingType, ModifierId)
     SELECT BuildingType, 'BBG_HORSES_FOR_STABLES' FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.BuildingType='BUILDING_STABLE' OR br.ReplacesBuildingType='BUILDING_STABLE';
