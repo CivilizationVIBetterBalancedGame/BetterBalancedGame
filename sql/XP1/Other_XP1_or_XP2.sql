@@ -38,9 +38,10 @@ INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSet
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('MOD_MILITARY_GA_BUFF', 'Amount', '10');
 INSERT OR IGNORE INTO ModifierStrings (ModifierId, Context, Text) VALUES
-('MOD_MILITARY_GA_BUFF', 'Preview', 'LOC_MILITARY_GA_BUFF_DESCRIPTION');
--- Sic Hunt Dracones works on all new cities, not just diff continent
-UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_CITIES_ADD_POPULATION', NewOnly=1, Permanent=1 WHERE ModifierId='COMMEMORATION_EXPLORATION_GA_NEW_CITY_POPULATION';
+	('MOD_MILITARY_GA_BUFF', 'Preview', 'LOC_MILITARY_GA_BUFF_DESCRIPTION');
+-- 25/06/25 To Arms no longer give casus belli
+DELETE FROM DiplomaticActions_XP1 WHERE DiplomaticActionType='DIPLOACTION_DECLARE_GOLDEN_AGE_WAR';
+
 -- Monumentality discount reduced from 30% to 10%
 UPDATE ModifierArguments SET Value='10' WHERE ModifierId='COMMEMORATION_INFRASTRUCTURE_BUILDER_DISCOUNT_MODIFIER' AND Name='Amount';
 UPDATE ModifierArguments SET Value='10' WHERE ModifierId='COMMEMORATION_INFRASTRUCTURE_SETTLER_DISCOUNT_MODIFIER' AND Name='Amount';
@@ -100,7 +101,7 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
 	SELECT 'BBG_MILITARY_COMMEMORATION_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER', 'Amount', 2
 	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
---Attaching Modifiers to Warlor's Throne
+-- Attaching Modifiers to Warlor's Throne
 INSERT INTO CommemorationModifiers(CommemorationType, ModifierId)
 	SELECT 'COMMEMORATION_RELIGIOUS', 'BBG_MILITARY_COMMEMORATION_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER'
 	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
@@ -161,7 +162,7 @@ INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
 	('COMMEMORATION_RELIGIOUS', 'BBG_MILITARY_COMMEMORATION_CULTURE_MILITARY_ACADEMY');
 */
 
---05/01/2024 temporary era score point for exodus
+-- 05/01/2024 temporary era score point for exodus
 INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
 	('COMMEMORATION_RELIGIOUS', 'COMMEMORATION_AERONAUTICAL_GREAT_PERSON_QUEST');
 
@@ -176,6 +177,84 @@ INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
 
 -- 19/03/2024 free inquiry boost nerf (10% -> 5%)
 UPDATE ModifierArguments SET Value='5' WHERE ModifierId='COMMEMORATION_SCIENTIFIC_GA_BOOSTS' AND Name='Amount';
+
+-- 25/06/25 New Commemoration order
+-- Third Era (70-90 turns) : Hic Sunt, Reform, To Arms & Heartbeat
+-- Fourth Era (90-110 turns) : To Arms, Wish You Were Here, Bodyguard of Lies & Sky and Stars
+-- Fifth Era (110+ turns) : Wish You Were Here, Bodyguard of Lies, Sky and Stars & Automaton Warfare
+UPDATE CommemorationTypes SET MaximumGameEra='ERA_MEDIEVAL' WHERE CommemorationType IN ('COMMEMORATION_INFRASTRUCTURE', 'COMMEMORATION_RELIGIOUS');
+UPDATE CommemorationTypes SET MinimumGameEra='ERA_RENAISSANCE' WHERE CommemorationType IN ('COMMEMORATION_INDUSTRIAL', 'COMMEMORATION_MILITARY'); 
+UPDATE CommemorationTypes SET MaximumGameEra='ERA_RENAISSANCE' WHERE CommemorationType IN ('COMMEMORATION_EXPLORATION', 'COMMEMORATION_ECONOMIC', 'COMMEMORATION_INDUSTRIAL');
+UPDATE CommemorationTypes SET MinimumGameEra='ERA_INDUSTRIAL' WHERE CommemorationType IN ('COMMEMORATION_TOURISM', 'COMMEMORATION_AERONAUTICAL', 'COMMEMORATION_ESPIONAGE'); 
+UPDATE CommemorationTypes SET MaximumGameEra='ERA_INDUSTRIAL' WHERE CommemorationType='COMMEMORATION_MILITARY'; 
+UPDATE CommemorationTypes SET MinimumGameEra='ERA_MODERN' WHERE CommemorationType='COMMEMORATION_AUTOMATON'; 
+
+-- 25/06/25 Heartbeat of Steam : +10% Production toward Industrial Era and later wonders. Campus district's Science adjacency bonus provides Production as well. +25% production on projects.
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+	('BBG_HEARTBEAT_PROJECT_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_ALL_PROJECTS_PRODUCTION', 'PLAYER_HAS_GOLDEN_AGE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_HEARTBEAT_PROJECT_PRODUCTION', 'Amount', 25);
+INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
+	('COMMEMORATION_INDUSTRIAL', 'BBG_HEARTBEAT_PROJECT_PRODUCTION');
+
+-- 25/06/25 Hic Sunt Dracones NEW: +2 Movement for Settlers and naval units. +3 starting Population for newly settled cities. Cities first 2 districts gets +100% production.
+-- Hic Sunt Dracones works on all new cities, not just diff continent
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_CITIES_ADD_POPULATION', NewOnly=1, Permanent=1 WHERE ModifierId='COMMEMORATION_EXPLORATION_GA_NEW_CITY_POPULATION';
+
+DELETE FROM CommemorationModifiers WHERE ModifierId IN ('COMMEMORATION_EXPLORATION_GA_FOREIGNIDENTITY', 'COMMEMORATION_EXPLORATION_GA_EMBARKED_MOVEMENT');
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) VALUES
+	('BBG_HIC_SUNT_SETTLER_MOV', 'MODIFIER_PLAYER_UNITS_ADJUST_MOVEMENT', 'PLAYER_HAS_GOLDEN_AGE', 'BBG_UNIT_IS_SETTLER_REQSET'),
+	('BBG_HIC_SUNT_DISTRICT_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION_MODIFIER', 'PLAYER_HAS_GOLDEN_AGE', 'BBG_CITY_HAS_LESS_THAN_2_DISTRICTS_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_HIC_SUNT_SETTLER_MOV', 'Amount', 2),
+	('BBG_HIC_SUNT_DISTRICT_PRODUCTION', 'Amount', 100);
+INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
+	('COMMEMORATION_EXPLORATION', 'BBG_HIC_SUNT_SETTLER_MOV'),
+	('COMMEMORATION_EXPLORATION', 'BBG_HIC_SUNT_DISTRICT_PRODUCTION');
+
+INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
+	('BBG_UNIT_IS_SETTLER_REQUIREMENT', 'REQUIREMENT_UNIT_TYPE_MATCHES', 0),
+	('BBG_CITY_HAS_LESS_THAN_2_DISTRICTS_REQUIREMENT', 'REQUIREMENT_CITY_HAS_X_SPECIALTY_DISTRICTS', 1);
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+	('BBG_UNIT_IS_SETTLER_REQUIREMENT', 'UnitType', 'UNIT_SETTLER'),
+	('BBG_CITY_HAS_LESS_THAN_2_DISTRICTS_REQUIREMENT', 'Amount', 2);
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+	('BBG_UNIT_IS_SETTLER_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+	('BBG_CITY_HAS_LESS_THAN_2_DISTRICTS_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+	('BBG_UNIT_IS_SETTLER_REQSET', 'BBG_UNIT_IS_SETTLER_REQUIREMENT'),
+	('BBG_CITY_HAS_LESS_THAN_2_DISTRICTS_REQSET', 'BBG_CITY_HAS_LESS_THAN_2_DISTRICTS_REQUIREMENT');
+
+
+-- Wish You Were Here NEW: Cities with Governors receive 50% Tourism from World Wonders. +50% Tourism to all National Parks. +4 Musician points per city. 
+-- BUT Base Tourism from National Parks is reduced by 33% (so with Golden Age we reach same value as before). This is a change all the time, not only when we select the Golden ofc.
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+	('BBG_GREAT_MUSICIAN_POINTS_WYWH', 'MODIFIER_PLAYER_CITIES_ADJUST_GREAT_PERSON_POINT_BASE', 'PLAYER_HAS_GOLDEN_AGE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES 
+	('BBG_GREAT_MUSICIAN_POINTS_WYWH', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_MUSICIAN'),
+	('BBG_GREAT_MUSICIAN_POINTS_WYWH', 'Amount', 4);
+INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
+	('COMMEMORATION_TOURISM', 'BBG_GREAT_MUSICIAN_POINTS_WYWH');
+UPDATE ModifierArguments SET Value=-33 WHERE ModifierId='COMMEMORATION_TOURISM_GA_NATIONAL_PARKS';
+-- Attaching it to unlocking Code of Laws cause there is no way to modify national parks directly
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_NATIONAL_PARKS_STRENGTH_REDUCTION', 'MODIFIER_PLAYER_ADJUST_TOURISM_FROM_NATIONAL_PARKS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES 
+	('BBG_NATIONAL_PARKS_STRENGTH_REDUCTION', 'Amount', -33);
+INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES
+	('CIVIC_CODE_OF_LAWS', 'BBG_NATIONAL_PARKS_STRENGTH_REDUCTION');
+
+-- Sky and Stars NEW: Give 4 random Eurekas from Information and Future Era. +100% XP earned for all Air Units. Aluminum mines accumulate +2 more resources per turn.
+DELETE FROM CommemorationModifiers WHERE ModifierId IN ('COMMEMORATION_AERONAUTICAL_GA_SATELLITES', 'COMMEMORATION_AERONAUTICAL_GA_NUCLEAR_FUSION', 'COMMEMORATION_AERONAUTICAL_GA_NANOTECHNOLOGY', 'COMMEMORATION_AERONAUTICAL_GA_SMART_MATERIALS', 'COMMEMORATION_AERONAUTICAL_GA_PREDICTIVE_SYSTEMS', 'COMMEMORATION_AERONAUTICAL_GA_OFFWORLD_MISSION');
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+	('BBG_INFORMATIC_FUTURE_BOOST_SKY_AND_STARS', 'MODIFIER_PLAYER_GRANT_RANDOM_TECHNOLOGY_BOOST_BY_ERA', 'PLAYER_HAS_GOLDEN_AGE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES 
+	('BBG_INFORMATIC_FUTURE_BOOST_SKY_AND_STARS', 'StartEraType', 'ERA_INFORMATION'),
+	('BBG_INFORMATIC_FUTURE_BOOST_SKY_AND_STARS', 'EndEraType', 'ERA_FUTURE'),
+	('BBG_INFORMATIC_FUTURE_BOOST_SKY_AND_STARS', 'Amount', 4);
+INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
+	('COMMEMORATION_AERONAUTICAL', 'BBG_INFORMATIC_FUTURE_BOOST_SKY_AND_STARS');
+
 
 --==============================================================
 --******				S  C  O  R  E				  	  ******
