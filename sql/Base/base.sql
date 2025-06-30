@@ -311,6 +311,11 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
 UPDATE Technologies SET UITreeRow=0 WHERE TechnologyType='TECH_LASERS';
 UPDATE Technologies SET UITreeRow=1 WHERE TechnologyType='TECH_GUIDANCE_SYSTEMS';
 
+-- 30/06/25 Military Science grant 1 Spy cap
+INSERT INTO TechnologyModifiers (TechnologyType, ModifierId) VALUES
+    ('TECH_MILITARY_SCIENCE', 'CIVIC_GRANT_SPY');
+UPDATE Technologies SET Description='BBG_LOC_TECH_MILITARY_SCIENCE_DESCRIPTION' WHERE TechnologyType='TECH_MILITARY_SCIENCE';
+
 --=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================
