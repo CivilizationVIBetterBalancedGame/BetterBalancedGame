@@ -1,11 +1,11 @@
 -- reduce combat bonus to 3 from 5
---16/04/23 Remove combat bonus
+-- 16/04/23 Remove combat bonus
 -- 02/07/24 revert 16/04/23 cs change
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='MUTAL_NEAR_CAPITAL_COMBAT' AND Name='Amount';
 -- DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_LEADER_NEARBY_CITIES_GAIN_ABILITY';
 -- set citizen yields to same as other campuses
 UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_SCIENCE' AND DistrictType='DISTRICT_OBSERVATORY';
---- start biases ---
+-- start biases --
 -- after coastals and tundra and desert; delete non-plantation lux biases; add banana bias; make flat land bias last priority
 INSERT OR REPLACE INTO StartBiasResources(CivilizationType, ResourceType, Tier) VALUES
     ('CIVILIZATION_MAYA', 'RESOURCE_CITRUS', 3),
@@ -55,7 +55,7 @@ INSERT INTO TypeTags(Type, Tag) Values
 UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_OBSERVATORY';
 UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_OBSERVATORY';
 
---19/12/23 Observatory adjacency from plantations reduced to +1 but plantations gain 2 science at education
+-- 19/12/23 Observatory adjacency from plantations reduced to +1 but plantations gain 2 science at education
 INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
     ('IMPROVEMENT_PLANTATION', 'BBG_Plantation_Science_Observatory_Education');
 INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict, PrereqTech) VALUES
@@ -64,7 +64,7 @@ INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) V
     ('IMPROVEMENT_PLANTATION', 'YIELD_SCIENCE', '0');
 UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='Plantation_Science';
 
---19/12/23 Observatory adjacency from plantations reduced to +1 but plantations gain 2 science at education
+-- 19/12/23 Observatory adjacency from plantations reduced to +1 but plantations gain 2 science at education
 INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
     ('IMPROVEMENT_PLANTATION', 'BBG_Plantation_Science_Observatory');
 INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict) VALUES
@@ -90,3 +90,7 @@ UPDATE Districts SET Housing=1 WHERE DistrictType='DISTRICT_OBSERVATORY';
 -- 08/01/25 Observatories gets +2 from geothermal
 INSERT INTO District_Adjacencies (DistrictType , YieldChangeId) VALUES
     ('DISTRICT_OBSERVATORY', 'Geothermal_Science');
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_EGYPTIAN_CHARIOT_ARCHER', 'CLASS_MALUS_CITY_CENTER');
