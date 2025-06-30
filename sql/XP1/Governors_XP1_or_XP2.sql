@@ -314,6 +314,8 @@ UPDATE GovernorPromotionModifiers SET GovernorPromotionType='GOVERNOR_PROMOTION_
 -- 10/03/24 Swapped with +2 food promotion
 -- 06/07/24 LII Surplus Logistic : +1 production to internal traders 
 -- 11/08/24 LII Surplus Logistic : +20% prod toward building, district and units
+-- 30/06/25 fixed so the prod doesn't work on wonders
+
 UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_RESOURCE_MANAGER_EXPEDITION' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS';
 UPDATE GovernorPromotions SET Level=2, Column=0 WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS';
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
@@ -323,6 +325,7 @@ INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MAGNUS_ADJUST_UNITS_PRODUCTION', 'Amount', 20),
     ('BBG_MAGNUS_ADJUST_BUILDINGS_PRODUCTION', 'Amount', 20),
+    ('BBG_MAGNUS_ADJUST_BUILDINGS_PRODUCTION', 'IsWonder', 0),
     ('BBG_MAGNUS_ADJUST_DISTRICTS_PRODUCTION', 'Amount', 20);
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
     ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS', 'BBG_MAGNUS_ADJUST_UNITS_PRODUCTION'),
