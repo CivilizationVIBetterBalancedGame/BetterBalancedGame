@@ -10,7 +10,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_CRISTO_REDENTOR', 'WONDER_GRANT_RELIC_BBG');
 
-UPDATE Buildings SET Cost=1220 WHERE BuildingType='BUILDING_CRISTO_REDENTOR';
+UPDATE Buildings SET Cost=1240 WHERE BuildingType='BUILDING_CRISTO_REDENTOR';
 
 -- Cristo bonus on beach resort reduced to +75%
 -- 30/09/24 en fait non
@@ -459,7 +459,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId)
 INSERT INTO BuildingModifiers (BuildingType, ModifierId)
 	SELECT 'BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType
 	FROM Floodplains_tmp;
---DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MONT_ST_MICHEL' AND ModifierId='MONT_ST_MICHEL_GRANT_MARTYR'; (We weren't supposed to drop Martyr)
+-- DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MONT_ST_MICHEL' AND ModifierId='MONT_ST_MICHEL_GRANT_MARTYR'; (We weren't supposed to drop Martyr)
 DROP TABLE Floodplains_tmp;
 
 -- Great Zimbabwe - Give 2 trader capacity instead of 1
@@ -484,11 +484,11 @@ UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_CITIES_ADJUST_TRADE_ROUTE_YIE
 -- Golden Gate Bridge
 
 -- Hermitage - GW inside double their tourism yields
---INSERT INTO Modifiers (ModifierId , ModifierType, Permanent) VALUES
+-- INSERT INTO Modifiers (ModifierId , ModifierType, Permanent) VALUES
 --	('HERMITAGE_DOUBLE_TOURISM_GREAT_WORK', 'MODIFIER_PLAYER_ADJUST_GREAT_WORK_OBJECT_TOURISM', 1);
---INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 --    ('HERMITAGE_DOUBLE_TOURISM_GREAT_WORK', 'Amount', '100');
---INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+-- INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 --	('BUILDING_HERMITAGE', 'HERMITAGE_DOUBLE_TOURISM_GREAT_WORK');
 INSERT OR IGNORE INTO Modifiers(ModifierId, ModifierType) VALUES
 	('THEMED_YIELD_MODIFIER', 'MODIFIER_PLAYER_ADJUST_THEMED_ALL_YIELDS'),
@@ -523,3 +523,23 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_COLOSSUS', 'COLOSSUS_GOLD_TO_INCOMING_FOREIGN'),
 	('BUILDING_COLOSSUS', 'COLOSSUS_GOLD_FROM_INCOMING_FOREIGN');
+
+-- 30/06/25 Wonder cost balancing
+-- Hanging Gardens : 90 > 110
+UPDATE Buildings SET Cost=220 WHERE BuildingType='BUILDING_HANGING_GARDENS';
+-- Great Library : 200 > 250
+UPDATE Buildings SET Cost=500 WHERE BuildingType='BUILDING_GREAT_LIBRARY';
+-- Forbidden City : 460 > 530
+UPDATE Buildings SET Cost=1060 WHERE BuildingType='BUILDING_FORBIDDEN_CITY';
+-- Bolshoi Theatre : 620 > 680
+UPDATE Buildings SET Cost=1360 WHERE BuildingType='BUILDING_BOLSHOI_THEATRE';
+-- Oxford University : 620 > 725
+UPDATE Buildings SET Cost=1450 WHERE BuildingType='BUILDING_OXFORD_UNIVERSITY';
+-- Big Ben : 725 > 810
+UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_BIG_BEN';
+-- Hermitage : 725 > 680
+UPDATE Buildings SET Cost=1360 WHERE BuildingType='BUILDING_HERMITAGE';
+-- Broadway : 810 > 725
+UPDATE Buildings SET Cost=1450 WHERE BuildingType='BUILDING_BROADWAY';
+-- Sydney Opera House : 925 > 810
+UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_SYDNEY_OPERA_HOUSE';
