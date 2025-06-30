@@ -44,3 +44,17 @@ INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 	('BBG_CITY_HAS_18_POP_REQSET', 'BBG_CITY_HAS_18_POP'),
 	('BBG_CITY_HAS_13_POP_REQSET', 'BBG_CITY_HAS_13_POP');
+
+
+-- 30/06/25 China leaders get different wall buffs
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_YONGLE_WALL_FOOD_ADJACENT', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_PLOT_IS_WALL_NEXT_TO_WALL_REQSET'),
+    ('BBG_YONGLE_WALL_FOOD', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_PLOT_IS_WALL_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_YONGLE_WALL_FOOD_ADJACENT', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_YONGLE_WALL_FOOD_ADJACENT', 'Amount', 1),
+    ('BBG_YONGLE_WALL_FOOD', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_YONGLE_WALL_FOOD', 'Amount', 1);
+INSERT INTO TraitModifiers VALUES
+    ('TRAIT_LEADER_YONGLE', 'BBG_YONGLE_WALL_FOOD_ADJACENT'),
+    ('TRAIT_LEADER_YONGLE', 'BBG_YONGLE_WALL_FOOD');

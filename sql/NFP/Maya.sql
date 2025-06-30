@@ -93,4 +93,4 @@ INSERT INTO District_Adjacencies (DistrictType , YieldChangeId) VALUES
 
 -- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
 INSERT INTO TypeTags (Type, Tag) VALUES
-    ('UNIT_EGYPTIAN_CHARIOT_ARCHER', 'CLASS_MALUS_CITY_CENTER');
+    ('UNIT_MAYAN_HULCHE', 'CLASS_MALUS_CITY_CENTER');

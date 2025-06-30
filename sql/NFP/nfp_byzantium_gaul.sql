@@ -156,5 +156,5 @@ UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MINOR_CIV_ANTIOCH_LUXURY_
 
 -- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
 INSERT INTO TypeTags (Type, Tag) VALUES
-    ('UNIT_MAYAN_HULCHE', 'CLASS_MALUS_CITY_CENTER');
+    ('UNIT_GAUL_GAESATAE', 'CLASS_MALUS_CITY_CENTER');
 
