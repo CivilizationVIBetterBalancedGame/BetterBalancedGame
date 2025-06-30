@@ -377,7 +377,7 @@ UPDATE Building_YieldChanges SET YieldChange=1 WHERE BuildingType='BUILDING_COLO
 -- Jabel Barkal - Increase strategics ressource storage by 20 (online speed).
 
 
--- Chichen Itza - Culture +2 / prod +1 for all jungle in the empire.
+-- Chichen Itza - Culture +1 / prod +1 for all jungle in the empire.
 UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_ADJUST_PLOT_YIELD' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_CULTURE';
 UPDATE Modifiers SET SubjectRequirementSetId='PLOT_HAS_JUNGLE_REQUIREMENTS' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_CULTURE';
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
@@ -533,3 +533,20 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('BBG_HAGIA_SOFIA_SCIENCE_SHRINE', 'Amount', '2');
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_HAGIA_SOPHIA', 'BBG_HAGIA_SOFIA_SCIENCE_SHRINE');
+
+
+
+-- 30/06/25 Terracota no longer work on naval and air units
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET' WHERE ModifierId='TERRACOTTA_ARMY_LEVEL_UP_UNITS';
+
+INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
+	('BBG_REQUIRES_UNIT_IS_NOT_NAVAL', 'REQUIREMENT_UNIT_DOMAIN_MATCHES', 1),
+	('BBG_REQUIRES_UNIT_IS_NOT_AIR', 'REQUIREMENT_UNIT_DOMAIN_MATCHES', 1);
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+	('BBG_REQUIRES_UNIT_IS_NOT_NAVAL', 'UnitDomain', 'DOMAIN_SEA'),
+	('BBG_REQUIRES_UNIT_IS_NOT_AIR', 'UnitDomain', 'DOMAIN_AIR');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+	('BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+	('BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET', 'BBG_REQUIRES_UNIT_IS_NOT_NAVAL'),
+	('BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET', 'BBG_REQUIRES_UNIT_IS_NOT_AIR');

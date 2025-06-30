@@ -73,3 +73,25 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MINOR_CIV_LISBON_GOLD_BONUS', 'Amount', '2');
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('MINOR_CIV_LISBON_TRAIT', 'BBG_MINOR_CIV_LISBON_UNIQUE_INFLUENCE_BONUS_GOLD');
+
+
+
+--=======================================================================
+--******                         WONDER                            ******
+--=======================================================================
+
+-- Torre de Belem : Cost reduced to 400 [from 460] 
+UPDATE Buildings SET Cost=800 WHERE BuildingType='BUILDING_TORRE_DE_BELEM';
+-- Give one promotion to every naval units (Terracotta no longer work on naval units)
+DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_TORRE_DE_BELEM';
+
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_UNIT_IS_NAVAL_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_IS_NAVAL_REQSET', 'UNIT_IS_NAVAL_REQUIREMENT');
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_TORRE_LEVEL_UP_NAVAL', 'MODIFIER_PLAYER_UNITS_ADJUST_GRANT_EXPERIENCE', 'BBG_UNIT_IS_NAVAL_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_TORRE_LEVEL_UP_NAVAL', 'Amount', -1);
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+    ('BUILDING_TORRE_DE_BELEM', 'BBG_TORRE_LEVEL_UP_NAVAL');
