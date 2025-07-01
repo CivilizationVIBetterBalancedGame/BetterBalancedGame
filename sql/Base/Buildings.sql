@@ -9,15 +9,15 @@ UPDATE Building_GreatPersonPoints SET PointsPerTurn=2 WHERE BuildingType='BUILDI
 UPDATE Building_GreatPersonPoints SET PointsPerTurn=2 WHERE BuildingType='BUILDING_MILITARY_ACADEMY';
 UPDATE Building_GreatPersonPoints SET PointsPerTurn=3 WHERE BuildingType='BUILDING_SEAPORT';
 
---Watermil available with aqueduct, bath, dam
---UPDATE Buildings SET RequiresAdjacentRiver = '0' WHERE BuildingType ='BUILDING_WATER_MILL';
+-- Watermil available with aqueduct, bath, dam
+-- UPDATE Buildings SET RequiresAdjacentRiver = '0' WHERE BuildingType ='BUILDING_WATER_MILL';
 
 UPDATE Buildings SET OuterDefenseHitPoints=75, Cost=100 WHERE BuildingType='BUILDING_WALLS';
 UPDATE Buildings SET OuterDefenseHitPoints=75, Cost=200 WHERE BuildingType='BUILDING_CASTLE';
 UPDATE Buildings SET OuterDefenseHitPoints=75 WHERE BuildingType='BUILDING_STAR_FORT';
 UPDATE ModifierArguments SET Value='300' WHERE ModifierId='STEEL_UNLOCK_URBAN_DEFENSES';
  
---11/12/22 ancient wall -2 (1 from 3) def medieval wall +2 (5 from 3)
+-- 11/12/22 ancient wall -2 (1 from 3) def medieval wall +2 (5 from 3)
 UPDATE Buildings SET OuterDefenseStrength=1 WHERE BuildingType='BUILDING_WALLS';
 UPDATE Buildings SET OuterDefenseStrength=6 WHERE BuildingType='BUILDING_CASTLE';
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
@@ -37,7 +37,7 @@ UPDATE Buildings SET Entertainment=1 WHERE BuildingType='BUILDING_SEWER';
 DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_WATER_MILL' AND
     ModifierId IN ('WATERMILL_ADDRICEFOOD', 'WATERMILL_ADDWHEATYIELD', 'WATERMILL_ADDMAIZEYIELD');
 -- Watermill give 1 production towards farm
---Plot has farm doesn't exist in base, recreate
+-- Plot has farm doesn't exist in base, recreate
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
     ('REQUIRES_PLOT_HAS_FARM', 'REQUIREMENT_PLOT_IMPROVEMENT_TYPE_MATCHES');
 INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
@@ -129,7 +129,7 @@ INSERT INTO BuildingModifiers(BuildingType, ModifierId) VALUES
     ('BUILDING_STOCK_EXCHANGE', 'BBG_STOCK_EXCHANGE_TRADEROUTE_FROM_INTERNATIONAL'),
     ('BUILDING_STOCK_EXCHANGE', 'BBG_STOCK_EXCHANGE_TRADEROUTE_TO_INTERNATIONAL');
 
---12/06/23 Arena gives 3 tourism from start
+-- 12/06/23 Arena gives 3 tourism from start
 -- Delete old modifier
 DELETE FROM Modifiers WHERE ModifierId='CONSERVATION_ARENA_TOURISM';
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
@@ -138,6 +138,6 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_ARENA_TOURISM', 'Amount', 3);
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_ARENA', 'BBG_ARENA_TOURISM');
---12/06/23 Stadium Tourism buff
+-- 12/06/23 Stadium Tourism buff
 UPDATE ModifierArguments SET Value=6 WHERE Name='STADIUM_10_POPULATION_TOURISM';
 UPDATE ModifierArguments SET Value=15 WHERE Name='STADIUM_10_POPULATION_TOURISM';
