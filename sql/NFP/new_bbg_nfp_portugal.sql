@@ -89,8 +89,8 @@ INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_UNIT_IS_NAVAL_REQSET', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_UNIT_IS_NAVAL_REQSET', 'UNIT_IS_NAVAL_REQUIREMENT');
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_TORRE_LEVEL_UP_NAVAL', 'MODIFIER_PLAYER_UNITS_ADJUST_GRANT_EXPERIENCE', 'BBG_UNIT_IS_NAVAL_REQSET');
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent, SubjectRequirementSetId) VALUES
+    ('BBG_TORRE_LEVEL_UP_NAVAL', 'MODIFIER_PLAYER_UNITS_ADJUST_GRANT_EXPERIENCE', 1, 1, 'BBG_UNIT_IS_NAVAL_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_TORRE_LEVEL_UP_NAVAL', 'Amount', -1);
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
