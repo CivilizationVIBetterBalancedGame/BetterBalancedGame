@@ -53,6 +53,6 @@ UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_TEMP
 
 -- 30/06/25 Wonder cost balancing
 -- Temple Artemis : 90 > 110
-UPDATE Buildings SET Cost=110 WHERE BuildingType='BUILDING_TEMPLE_ARTEMIS';
+UPDATE Buildings SET Cost=220 WHERE BuildingType='BUILDING_TEMPLE_ARTEMIS';
 -- Kilwa Kisiwani : 355 > 400
 UPDATE Buildings SET Cost=800 WHERE BuildingType='BUILDING_KILWA_KISIWANI';
