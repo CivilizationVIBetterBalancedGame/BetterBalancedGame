@@ -97,7 +97,7 @@ UPDATE Improvements SET Housing=2 WHERE ImprovementType='IMPROVEMENT_FISHERY';
 -- Harbor gives 1 housing [Lighthouse loses 1]
 UPDATE Buildings SET Housing=0 WHERE BuildingType='BUILDING_LIGHTHOUSE';
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_HARBOR_HOUSING', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_HOUSING', 'BBG_DISTRICT_IS_DISTRICT_HARBOR_REQSET');
+    ('BBG_HARBOR_HOUSING', 'MODIFIER_CITY_DISTRICTS_ADJUST_DISTRICT_HOUSING', 'BBG_DISTRICT_IS_DISTRICT_HARBOR_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_HARBOR_HOUSING', 'Amount', 1);
 INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
