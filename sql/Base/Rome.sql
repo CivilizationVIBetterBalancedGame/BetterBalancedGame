@@ -6,8 +6,13 @@ UPDATE Modifiers SET SubjectRequirementSetId='BBG_UTILS_PLAYER_HAS_CIVIC_EARLY_E
 
 --====Rome======--
 -- reverted 04/10/22
--- INSERT OR IGNORE INTO District_Adjacencies (DistrictType , YieldChangeId)
--- 	VALUES ('DISTRICT_BATH' , 'District_Culture');
+-- back to the menu 07/07/25
+INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
+	('DISTRICT_BATH' , 'District_Culture');
+
+-- 07/07/25 Bath no longer give amenity
+UPDATE Districts SET Entertainment=0 WHERE DistrictType='DISTRICT_BATH';
+
 
 -- 08/04/25 Legions down to 38
 UPDATE Units SET Combat=38 WHERE UnitType='UNIT_ROMAN_LEGION';
