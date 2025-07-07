@@ -1,24 +1,18 @@
 -- only 1 envoy from levying city-states units
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='LEVY_MILITARY_TWO_FREE_ENVOYS';
+UPDATE ModifierArguments SET Value=1 WHERE ModifierId='LEVY_MILITARY_TWO_FREE_ENVOYS';
 -- no combat bonus for levied units
 -- DELETE FROM ModifierArguments WHERE ModifierId='RAVEN_LEVY_COMBAT' AND Name='Amount' AND Value='5';
 -- Black Army only +2 combat strength from adjacent levied units
-UPDATE ModifierArguments SET Value='2' WHERE ModifierId='BLACK_ARMY_ADJACENT_LEVY';
+UPDATE ModifierArguments SET Value=2 WHERE ModifierId='BLACK_ARMY_ADJACENT_LEVY';
 -- Only 1 extra movement for levied units
-UPDATE ModifierArguments SET Value='1' WHERE ModifierId='RAVEN_LEVY_MOVEMENT';
+UPDATE ModifierArguments SET Value=1 WHERE ModifierId='RAVEN_LEVY_MOVEMENT';
 
 
 -- Levy combat to +3
-UPDATE ModifierArguments SET VALUE='3' WHERE ModifierId='RAVEN_LEVY_COMBAT' AND Name='Amount';
+UPDATE ModifierArguments SET VALUE=3 WHERE ModifierId='RAVEN_LEVY_COMBAT' AND Name='Amount';
 
--- Add Green Card
--- 05/03/2024 remove green card
-/*INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
-    ('BBG_ADDITIONAL_GREEN_CARD', 'MODIFIER_PLAYER_CULTURE_ADJUST_GOVERNMENT_SLOTS_MODIFIER', 'BBG_UTILS_PLAYER_HAS_CIVIC_POLITICAL_PHILOSOPHY_REQSET');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_ADDITIONAL_GREEN_CARD', 'GovernmentSlotType', 'SLOT_DIPLOMATIC');
-INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('TRAIT_CIVILIZATION_PEARL_DANUBE', 'BBG_ADDITIONAL_GREEN_CARD');*/
+DELETE FROM UnitAbilityModifiers WHERE ModifierId='RAVEN_LEVY_MOVEMENT';
+
 
 -- Huszar +2 by suzed city-states
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
