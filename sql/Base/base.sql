@@ -261,8 +261,8 @@ INSERT INTO CustomPlacement(ObjectType, Hash, PlacementFunction)
 
 UPDATE GoodyHutSubTypes SET Turn=30 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RELIC';
 -- 30/06/25 Governor titles delayed to turn 25. Free technology delayed to turn 31.
-UPDATE GoodyHutSubTypes SET Turn=50 WHERE ModifierID='GOODYHUT_GOVERNOR_TITLE';
-UPDATE GoodyHutSubTypes SET Turn=62 WHERE ModifierID='GOODYHUT_ONE_TECH';
+UPDATE GoodyHutSubTypes SET Turn=50 WHERE ModifierID='GOODY_DIPLOMACY_GRANT_GOVERNOR_TITLE';
+UPDATE GoodyHutSubTypes SET Turn=62 WHERE ModifierID='GOODY_SCIENCE_GRANT_ONE_TECH';
 
 --=======================================================================
 --******                       DISTRICTS                          ******
