@@ -11,6 +11,10 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_ANTIQUES_AND_PARKS', 'TEDDY_PLANT_MEDIEVAL_WOODS_BBG');
 
+-- BM no longer gets bonus appeal on cities with national park due to new golden age
+DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_NATIONAL_PARK_APPEAL_BONUS';
+
+
 -- Codenaugh's BM modification
 -- 19/03/24 BM bonus delayed to code of laws
 DELETE FROM TraitModifiers WHERE ModifierId IN ('TRAIT_ANTIQUES_AND_PARKS_CULTURE_FORESTS_OR_WONDERS', 'TRAIT_ANTIQUES_AND_PARKS_SCIENCE_NATIONAL_WONDERS_OR_MOUNTAINS');
