@@ -22,7 +22,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_CAESAR', 'BBG_CAESAR_SIEGE_IGNORE_TERRAIN');
 */
 
---Free Melee Unit on Settle--
+-- Free Melee Unit on Settle
 -- 22/12/22 not giving a warrior on capital
 -- 14/10/23 warrior on capital at code of laws
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
@@ -68,9 +68,9 @@ INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
 	('BBG_REQUIRES_CAESAR_CAPTURED_NOT_CS_OR_RECONQUEST', 'REQUIREMENT_REQUIREMENTSET_IS_MET', '0');
 	--('BBG_REQUIRES_CITY_IS_ORIGINAL_CAPITAL', 'REQUIREMENT_CITY_IS_ORIGINAL_CAPITAL', '0');-- Capital
 
---property 'CS_CAPITAL_BBG' is attached to the plot via lua. Safe Game Loop, trivial code.
---Tried with InternalOnly buildings for CS controll, but they vanish after change of ownership
---Visible buildings show up in a lot of previews (city buildings, civilopedia), even if you make their construction conditions unaccessible
+-- property 'CS_CAPITAL_BBG' is attached to the plot via lua. Safe Game Loop, trivial code.
+-- Tried with InternalOnly buildings for CS controll, but they vanish after change of ownership
+-- Visible buildings show up in a lot of previews (city buildings, civilopedia), even if you make their construction conditions unaccessible
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
 	('BBG_REQUIRES_CAESAR_CAPTURED_NOT_CS_OR_RECONQUEST', 'RequirementSetId', 'BBG_CAESAR_CAPTURED_NOT_CS_OR_RECONQUEST_REQSET'),
 	('BBG_REQUIRES_NOT_CS', 'PropertyName', 'CS_CAPITAL_BBG'),
@@ -82,7 +82,7 @@ INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
 	('BBG_REQUIRES_CAESAR_CAPTURED_MAJOR_PLAYER_CITY', 'RequirementSetId', 'BBG_CAESAR_CAPTURED_CITY_NOT_CS_REQSET');
 	--('BBG_REQUIRES_CAESAR_CAPTURED_MAJOR_PLAYER_CITY', 'RequirementSetId', 'BBG_CAESAR_CAPTURED_ORIGINAL_CAPITAL_NOT_CS_REQSET');--CAP
 
---Caesar Wildcard per retained captured city--
+-- Caesar Wildcard per retained captured city--
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES 
 	('BBG_CAESAR_FREE_WILDCARD_SLOT', 'MODIFIER_PLAYER_CULTURE_ADJUST_GOVERNMENT_SLOTS_MODIFIER', 'BBG_CAESAR_WILDCARD_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES 
@@ -126,7 +126,7 @@ INSERT INTO UnitAbilityModifiers (UnitAbilityType, ModifierId) VALUES
 	('BBG_CAESAR_XP_BONUS_MEDIEVAL_ABILITY', 'BBG_CAESAR_XP_MEDIEVAL_MODIFIER');
 
 
---19/12/23 Caesar gold per city/camp /2
+-- 19/12/23 Caesar gold per city/camp /2
 UPDATE ModifierArguments SET Value=150 WHERE ModifierId='TRAIT_CAESAR_GOLD_CAPTURED_CITY_MODIFIER' AND Name='Amount';
 UPDATE ModifierArguments SET Value=100 WHERE ModifierId='TRAIT_CAESAR_GOLD_CAPTURED_CITY_METAL_CASTING_MODIFIER' AND Name='Amount';
 UPDATE ModifierArguments SET Value=200 WHERE ModifierId='TRAIT_CAESAR_GOLD_CAPTURED_CITY_STEEL_MODIFIER' AND Name='Amount';
@@ -138,3 +138,11 @@ UPDATE ModifierArguments SET Value=200 WHERE ModifierId='BARBARIAN_CAMP_GOLD_CAP
 -- 29/03/25 roads from rome moved to caesar
 -- 08/04/25 reverted
 -- UPDATE TraitModifiers SET TraitType='TRAIT_LEADER_CAESAR' WHERE ModifierId='TRAIT_FREE_ROADS_TO_CAPITAL';
+
+-- 07/07/25 Gets amenity on Bath
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+	('BBG_BATH_AMENITY_CAESAR', 'MODIFIER_PLAYER_DISTRICT_ADJUST_DISTRICT_AMENITY', 'BBG_PLAYER_IS_LEADER_JULIUS_CAESAR_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_BATH_AMENITY_CAESAR', 'Amount', 1);
+INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
+	('DISTRICT_BATH', 'BBG_BATH_AMENITY_CAESAR');
