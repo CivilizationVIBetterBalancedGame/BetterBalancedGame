@@ -408,6 +408,15 @@ UPDATE OR IGNORE Features SET DefenseModifier = 3
 UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_COTHON', 'DISTRICT_SUGUBA');
 UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_COTHON', 'DISTRICT_SUGUBA');
 
+-- 07/07/25 Lagrange and Terrestrial now necessits Spaceport
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_POWER_AND_SPACEPORT_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_CITY_HAS_POWER_AND_SPACEPORT_REQSET', 'REQUIRES_CITY_IS_POWERED'),
+    ('BBG_CITY_HAS_POWER_AND_SPACEPORT_REQSET', 'BBG_CITY_HAS_DISTRICT_SPACEPORT_REQUIREMENT');
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_POWER_AND_SPACEPORT_REQSET' WHERE ModifierId='PROJECT_COMPLETION_TERRESTRIAL_LASER_SCIENCE_VP';
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_DISTRICT_SPACEPORT' WHERE ModifierId IN ('PROJECT_COMPLETION_EXOPLANET_SCIENCE_VP', 'PROJECT_COMPLETION_ORBITAL_LASER_SCIENCE_VP');
+
 --=======================================================================
 --******                       CITY STATE                          ******
 --=======================================================================

@@ -226,31 +226,33 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 	('BBG_CITY_HAS_LESS_THAN_2_DISTRICTS_REQSET', 'BBG_CITY_HAS_LESS_THAN_2_DISTRICTS_REQUIREMENT');
 
 
--- Wish You Were Here NEW: Cities with Governors receive 50% Tourism from World Wonders. +50% Tourism to all National Parks. +4 Musician points per city. 
--- BUT Base Tourism from National Parks is reduced by 33% (so with Golden Age we reach same value as before). This is a change all the time, not only when we select the Golden ofc.
-INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
-	('BBG_GREAT_MUSICIAN_POINTS_WYWH', 'MODIFIER_PLAYER_CITIES_ADJUST_GREAT_PERSON_POINT_BASE', 'PLAYER_HAS_GOLDEN_AGE');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES 
-	('BBG_GREAT_MUSICIAN_POINTS_WYWH', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_MUSICIAN'),
-	('BBG_GREAT_MUSICIAN_POINTS_WYWH', 'Amount', 4);
+-- Wish You Were Here NEW: Cities with Governors receive 50% Tourism from World Wonders. +2 Musician points per city, doubled if city has broadcast center. 
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId, SubjectRequirementSetId) VALUES
+	('BBG_GREAT_MUSICIAN_POINTS_BASE_WYWH', 'MODIFIER_PLAYER_CITIES_ADJUST_GREAT_PERSON_POINT_BASE', 'PLAYER_HAS_GOLDEN_AGE', NULL),
+	('BBG_GREAT_MUSICIAN_POINTS_BROADCAST_WYWH', 'MODIFIER_PLAYER_CITIES_ADJUST_GREAT_PERSON_POINT_BASE', 'PLAYER_HAS_GOLDEN_AGE', 'BUILDING_IS_BROADCAST_CENTER');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_GREAT_MUSICIAN_POINTS_BASE_WYWH', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_MUSICIAN'),
+	('BBG_GREAT_MUSICIAN_POINTS_BASE_WYWH', 'Amount', 2),
+	('BBG_GREAT_MUSICIAN_POINTS_BROADCAST_WYWH', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_MUSICIAN'),
+	('BBG_GREAT_MUSICIAN_POINTS_BROADCAST_WYWH', 'Amount', 2);
 INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
-	('COMMEMORATION_TOURISM', 'BBG_GREAT_MUSICIAN_POINTS_WYWH');
+	('COMMEMORATION_TOURISM', 'BBG_GREAT_MUSICIAN_POINTS_BASE_WYWH'),
+	('COMMEMORATION_TOURISM', 'BBG_GREAT_MUSICIAN_POINTS_BROADCAST_WYWH');
 
--- TEMPORARY CHANGE
+-- +1 appeal on cities with a national park
 DELETE FROM CommemorationModifiers WHERE ModifierId='COMMEMORATION_TOURISM_GA_NATIONAL_PARKS';
-
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+	('BBG_APPEAL_WYWH', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_APPEAL', 'CITY_HAS_NATIONAL_PARK_REQUREMENTS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_APPEAL_WYWH', 'Amount', 1);
+INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
+	('COMMEMORATION_TOURISM', 'BBG_APPEAL_WYWH');
 
 
 -- Sky and Stars NEW: Give 4 random Eurekas from Information and Future Era. +100% XP earned for all Air Units. Aluminum mines accumulate +2 more resources per turn.
-DELETE FROM CommemorationModifiers WHERE ModifierId IN ('COMMEMORATION_AERONAUTICAL_GA_SATELLITES', 'COMMEMORATION_AERONAUTICAL_GA_NUCLEAR_FUSION', 'COMMEMORATION_AERONAUTICAL_GA_NANOTECHNOLOGY', 'COMMEMORATION_AERONAUTICAL_GA_SMART_MATERIALS', 'COMMEMORATION_AERONAUTICAL_GA_PREDICTIVE_SYSTEMS', 'COMMEMORATION_AERONAUTICAL_GA_OFFWORLD_MISSION');
-INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
-	('BBG_INFORMATIC_FUTURE_BOOST_SKY_AND_STARS', 'MODIFIER_PLAYER_GRANT_RANDOM_TECHNOLOGY_BOOST_BY_ERA', 'PLAYER_HAS_GOLDEN_AGE');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES 
-	('BBG_INFORMATIC_FUTURE_BOOST_SKY_AND_STARS', 'StartEraType', 'ERA_INFORMATION'),
-	('BBG_INFORMATIC_FUTURE_BOOST_SKY_AND_STARS', 'EndEraType', 'ERA_FUTURE'),
-	('BBG_INFORMATIC_FUTURE_BOOST_SKY_AND_STARS', 'Amount', 4);
-INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
-	('COMMEMORATION_AERONAUTICAL', 'BBG_INFORMATIC_FUTURE_BOOST_SKY_AND_STARS');
+-- From 4 randoms Eurekas to Offworld and Smart Materials
+DELETE FROM CommemorationModifiers WHERE ModifierId IN ('COMMEMORATION_AERONAUTICAL_GA_SATELLITES', 'COMMEMORATION_AERONAUTICAL_GA_NUCLEAR_FUSION', 'COMMEMORATION_AERONAUTICAL_GA_NANOTECHNOLOGY', 'COMMEMORATION_AERONAUTICAL_GA_PREDICTIVE_SYSTEMS');
+UPDATE Modifiers SET OwnerRequirementSetId='PLAYER_HAS_GOLDEN_AGE' WHERE ModifierId IN ('COMMEMORATION_AERONAUTICAL_GA_SMART_MATERIALS', 'COMMEMORATION_AERONAUTICAL_GA_OFFWORLD_MISSION');
 
 
 --==============================================================

@@ -45,7 +45,7 @@ UPDATE StartBiasFeatures SET Tier=2 WHERE CivilizationType='CIVILIZATION_BRAZIL'
 -- t3 identities
 UPDATE StartBiasResources SET Tier=3 WHERE CivilizationType='CIVILIZATION_SCYTHIA' AND ResourceType='RESOURCE_HORSES';
 -- t4 river mechanics
---UPDATE StartBiasRivers SET Tier=4 WHERE CivilizationType='CIVILIZATION_SUMERIA';
+-- UPDATE StartBiasRivers SET Tier=4 WHERE CivilizationType='CIVILIZATION_SUMERIA';
 UPDATE StartBiasRivers SET Tier=4 WHERE CivilizationType='CIVILIZATION_FRANCE';
 -- t4 feature mechanics
 UPDATE StartBiasFeatures SET Tier=3 WHERE CivilizationType='CIVILIZATION_KONGO' AND FeatureType='FEATURE_JUNGLE';
@@ -97,7 +97,7 @@ UPDATE Improvements SET Housing=2 WHERE ImprovementType='IMPROVEMENT_FISHERY';
 -- Harbor gives 1 housing [Lighthouse loses 1]
 UPDATE Buildings SET Housing=0 WHERE BuildingType='BUILDING_LIGHTHOUSE';
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_HARBOR_HOUSING', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_HOUSING', 'BBG_DISTRICT_IS_DISTRICT_HARBOR_REQSET');
+    ('BBG_HARBOR_HOUSING', 'MODIFIER_CITY_DISTRICTS_ADJUST_DISTRICT_HOUSING', 'BBG_DISTRICT_IS_DISTRICT_HARBOR_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_HARBOR_HOUSING', 'Amount', 1);
 INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
@@ -261,8 +261,8 @@ INSERT INTO CustomPlacement(ObjectType, Hash, PlacementFunction)
 
 UPDATE GoodyHutSubTypes SET Turn=30 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RELIC';
 -- 30/06/25 Governor titles delayed to turn 25. Free technology delayed to turn 31.
-UPDATE GoodyHutSubTypes SET Turn=50 WHERE ModifierID='GOODYHUT_GOVERNOR_TITLE';
-UPDATE GoodyHutSubTypes SET Turn=62 WHERE ModifierID='GOODYHUT_ONE_TECH';
+UPDATE GoodyHutSubTypes SET Turn=50 WHERE ModifierID='GOODY_DIPLOMACY_GRANT_GOVERNOR_TITLE';
+UPDATE GoodyHutSubTypes SET Turn=62 WHERE ModifierID='GOODY_SCIENCE_GRANT_ONE_TECH';
 
 --=======================================================================
 --******                       DISTRICTS                          ******
