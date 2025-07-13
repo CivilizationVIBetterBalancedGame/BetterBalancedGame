@@ -169,6 +169,8 @@ INSERT INTO Building_GreatWorks (BuildingType, GreatWorkSlotType, NumSlots) VALU
 -- 20/06/25 Nobel Prize Competition starts renaissance era instead of indus
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
     ('BBG_REQUIRES_GAME_ERA_AFTER_MEDIEVAL', 'REQUIREMENT_GAME_ERA_ATLEAST_EXPANSION');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_GAME_ERA_AFTER_MEDIEVAL', 'EraType', 'ERA_RENAISSANCE');
 DELETE FROM RequirementSetRequirements WHERE RequirementSetId='NOBEL_PRIZE_TARGET_REQUIREMENTS' AND RequirementId='REQUIRES_GAME_ERA_AFTER_RENAISSANCE';
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('NOBEL_PRIZE_TARGET_REQUIREMENTS', 'BBG_REQUIRES_GAME_ERA_AFTER_MEDIEVAL');

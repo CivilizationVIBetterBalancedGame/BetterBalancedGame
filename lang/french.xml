@@ -58,27 +58,32 @@
 		</Row>
 		<!-- = Leader ability - Compétence de dirigeant (Theodore Élan - Bull Moose) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ANTIQUES_AND_PARKS_DESCRIPTION" Language="fr_FR">
-			<Text>Au Code Juridique :[NEWLINE] • [ICON_SCIENCE] Science +1 pour les cases à l'Attrait époustouflant adjacentes à une merveille naturelle ou une montagne (passe à +2 à Astronomie).[NEWLINE] • [ICON_CULTURE] Culture +1 pour les cases à l'Attrait époustouflant adjacentes à une merveille mondiale ou des bois (passe à +2 à Lumières).[NEWLINE][NEWLINE]Attrait +1 pour toutes les cases d'une ville dotée d'un parc national.[NEWLINE][NEWLINE]Les Foires Médiévales permettent de planter des bois.</Text>
+			<Text>Au Code Juridique :[NEWLINE] • [ICON_SCIENCE] Science +1 pour les cases à l'Attrait époustouflant adjacentes à une merveille naturelle ou une montagne (passe à +2 à Astronomie).[NEWLINE] • [ICON_CULTURE] Culture +1 pour les cases à l'Attrait époustouflant adjacentes à une merveille mondiale ou des bois (passe à +2 à Lumières).[NEWLINE][NEWLINE]Les Foires Médiévales permettent de planter des bois.</Text>
 		</Replace>
 		<!-- = Leader ability - Compétence de dirigeant (Theodore - Rough Rider) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ROOSEVELT_COROLLARY_ROUGH_RIDER_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +1 pour chaque ère franchie dans l'arbre technologique ou dogmatique (+5 max à l'ère moderne).[NEWLINE][NEWLINE]Les [ICON_ENVOY] émissaires envoyés vers les Cités-états avec lesquelles vous avez une [ICON_TRADEROUTE] route commerciale comptent pour deux.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +1 pour chaque ère franchie (dont l'ère antique) dans l'arbre technologique ou dogmatique (+5 max à l'ère industrielle).[NEWLINE][NEWLINE]Les [ICON_ENVOY] émissaires envoyés vers les Cités-états avec lesquelles vous avez une [ICON_TRADEROUTE] route commerciale comptent pour deux.</Text>
 		</Replace>
+		<Replace Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_ANCIENT" Language="fr_FR">
+      		<Text>[ICON_STRENGTH] Puissance de combat +1 (ère antique)</Text>
+    	</Replace>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_CLASSICAL" Language="fr_FR">
-      		<Text>[ICON_STRENGTH] Puissance de combat +1 (ère classique)</Text>
+      		<Text>[ICON_STRENGTH] Puissance de combat +2 (ère classique)</Text>
     	</Row>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_MEDIEVAL" Language="fr_FR">
-      		<Text>[ICON_STRENGTH] Puissance de combat +2 (ère médiévale)</Text>
+      		<Text>[ICON_STRENGTH] Puissance de combat +3 (ère médiévale)</Text>
     	</Row>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_RENAISSANCE" Language="fr_FR">
-      		<Text>[ICON_STRENGTH] Puissance de combat +3 (Renaissance)</Text>
+      		<Text>[ICON_STRENGTH] Puissance de combat +4 (Renaissance)</Text>
     	</Row>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_INDUSTRIAL" Language="fr_FR">
-      		<Text>[ICON_STRENGTH] Puissance de combat +4 (ère industrielle)</Text>
+      		<Text>[ICON_STRENGTH] Puissance de combat +5 (ère industrielle)</Text>
     	</Row>
+		<!-- not used anymore
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_MODERN" Language="fr_FR">
       		<Text>[ICON_STRENGTH] Puissance de combat +5 (ère moderne)</Text>
     	</Row>
+		-->
 		<!-- = Leader ability - Compétence de dirigeant (Abraham Lincoln)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_EXPANSION_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_PRODUCTION] Production +100% pour la construction de Zones industrielles et d'Aqueducs.[NEWLINE][ICON_AMENITIES] Activités +2 et Loyauté +3 pour les Zones industrielles.[NEWLINE]Les Zones industrielles et leurs bâtiments octroient une unité de combat rapproché gratuite, dont la création et l'entretien ne nécessitent pas de ressources.[NEWLINE][NEWLINE]Loyauté -2 par tour pour chaque plantation.</Text>
@@ -317,7 +322,7 @@
 		</Replace>
 		<!-- = Leader ability - Compétence de dirigeant (Wu Zetian) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_WU_ZETIAN_DESCRIPTION" Language="fr_FR">
-			<Text>Tous les espions offensifs bénéficient virtuellement d'un niveau de plus. Lorsqu'un espion offensif réussit sa mission, vous gagnez également un bonus égal à 50% de la [ICON_SCIENCE] Science, de la [ICON_CULTURE] Culture et de la [ICON_FAITH] Foi générées lors de ce tour dans la ville cible. Vous recevez un espion gratuit et votre nombre maximum d'espions augmente de 1 à Fonction Publique. Les Espions peuvent être achetés contre de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE]Vision +2 pour les Espions et les [ICON_TRADEROUTE] Négociants. Vision +1 pour les unités de reconnaisance à Mécanique.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités militaires terrestres se trouvant dans un rayon de 3 cases autour d'une unité de reconnaissance.[NEWLINE][NEWLINE]Chaque fois que vous construisez un bâtiment de la Place de la gouvernance et du Quartier diplomatique, vous obtenez un [ICON_TECHBOOSTED] Eurêka ! et une [ICON_CIVICBOOSTED] Inspiration aléatoires.[NEWLINE][NEWLINE][ICON_SCIENCE] Science +1 pour les cases de Grande Muraille si elles sont adjacentes à une autre case de Grande Muraille..</Text>
+			<Text>Tous les espions offensifs bénéficient virtuellement d'un niveau de plus. Lorsqu'un espion offensif réussit sa mission, vous gagnez également un bonus égal à 50% de la [ICON_SCIENCE] Science, de la [ICON_CULTURE] Culture et de la [ICON_FAITH] Foi générées lors de ce tour dans la ville cible. Vous recevez un espion gratuit et votre nombre maximum d'espions augmente de 1 à Fonction Publique. Les Espions peuvent être achetés contre de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités militaires terrestres se trouvant dans un rayon de 3 cases autour d'une unité de reconnaissance.[NEWLINE][NEWLINE]Chaque fois que vous construisez un bâtiment de la Place de la gouvernance et du Quartier diplomatique, vous obtenez un [ICON_TECHBOOSTED] Eurêka ! et une [ICON_CIVICBOOSTED] Inspiration aléatoires.[NEWLINE][NEWLINE][ICON_SCIENCE] Science +1 pour les cases de Grande Muraille si elles sont adjacentes à une autre case de Grande Muraille..</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_WUZETIAN_COMBAT_FROM_RECON_ABILITY_PREVIEW" Language="fr_FR">
 			<Text>Unité de reconnaissance proche : +3</Text>
@@ -675,7 +680,7 @@
 		</Replace>
 		<!-- = Leader ability - Compétence de dirigeant = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAVEN_KING_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 et [ICON_MOVEMENT] PM +1 pour les unités levées de Cités-états. Améliorer des unités levées coûte 75% [ICON_GOLD] d'Or et de ressources en moins. Si vous levez les troupes d'une Cité-état, vous y recevez 1 [ICON_ENVOY] émissaire.</Text>
+			<Text>[ICON_MOVEMENT] PM +1 pour les unités levées de Cités-états. Améliorer des unités levées coûte 75% [ICON_GOLD] d'Or et de ressources en moins. Si vous levez les troupes d'une Cité-état, vous y recevez 1 [ICON_ENVOY] émissaire.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_HUNGARY_BLACK_ARMY_DESCRIPTION" Language="fr_FR">
@@ -1305,7 +1310,7 @@
 		</Replace>
 		<!-- = Leader ability - Compétence de dirigeant (Jules César - Julius Caesar) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="fr_FR">
-			<Text>Expérience +50% pour toutes les unités militaires (passe à +100% à l'ère médiévale).[NEWLINE][NEWLINE]Vous recevez un exemplaire de la plus puissante unité de classe combat rapproché que vous pouvez former à chaque fois que vous fondez une ville, [ICON_CAPITAL] Capitale exclue. Vous recevez un Guerrier sur votre [ICON_CAPITAL] Capitale au Code Juridique.[NEWLINE][NEWLINE]Si vous parvenez à conquérir une ville fondée par un autre joueur, et tant que vous en contrôlez au moins une, vous obtenez un emplacement de doctrine Joker supplémentaire.[NEWLINE][ICON_GOLD] Or +150 lorsque vous prenez une ville pour la première fois et lorsque vous rasez un [ICON_BARBARIAN] camp barbare (passe à +250 à Fonte des métaux et +350 à Acier) (en vitesse normale).[NEWLINE][ICON_STRENGTH] Puissance de combat +5 et Expérience reçue complète contres les [ICON_BARBARIAN] barbares.</Text>
+			<Text>Expérience +50% pour toutes les unités militaires (passe à +100% à l'ère médiévale).[NEWLINE][NEWLINE]Vous recevez un exemplaire de la plus puissante unité de classe combat rapproché que vous pouvez former à chaque fois que vous fondez une ville, [ICON_CAPITAL] Capitale exclue. Vous recevez un Guerrier sur votre [ICON_CAPITAL] Capitale au Code Juridique.[NEWLINE][NEWLINE]Si vous parvenez à conquérir une ville fondée par un autre joueur, et tant que vous en contrôlez au moins une, vous obtenez un emplacement de doctrine Joker supplémentaire.[NEWLINE][ICON_GOLD] Or +150 lorsque vous prenez une ville pour la première fois et lorsque vous rasez un [ICON_BARBARIAN] camp barbare (passe à +250 à Fonte des métaux et +350 à Acier) (en vitesse normale).[NEWLINE][ICON_STRENGTH] Puissance de combat +5 et Expérience reçue complète contres les [ICON_BARBARIAN] barbares.[NEWLINE][NEWLINE][ICON_AMENITIES] Activités +1 pour les Thermes.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_XP_BONUS_BASE_MODIFIER_NAME" Language="fr_FR">
 			<Text>Expérience de combat +50% (Veni, Vidi, Vici).</Text>
@@ -1325,7 +1330,7 @@
 		</Replace>
 		<!-- = Unique district - Quartier unique = -->
 		<Replace Tag="LOC_DISTRICT_BATH_EXPANSION2_ALT_DESCRIPTION" Language="fr_FR">
-			<Text>Exclusif à Rome, ce quartier remplace l'Aqueduc.[NEWLINE][NEWLINE]En plus des bonus de l'Aqueduc, [ICON_HOUSING] Habitations +2 et [ICON_AMENITIES] Activités +1.</Text>
+			<Text>Exclusif à Rome, ce quartier remplace l'Aqueduc.[NEWLINE][NEWLINE]En plus des bonus de l'Aqueduc, [ICON_HOUSING] Habitations +2. [ICON_CULTURE] Culture +1 tous les deux quartiers adjacents.</Text>
 		</Replace>
 
 		<!-- == RUSSIA - RUSSIE == -->
@@ -3789,7 +3794,7 @@
 			<Text>Vacances de rêve</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_TOURISM_BONUS_GOLDEN_AGE" Language="fr_FR">
-			<Text>Âge d'or "Vacances de rêve" :[NEWLINE][ICON_TOURISM] Tourisme +50% pour les merveilles dans les villes disposant d'un [ICON_GOVERNOR] gouverneur. Points de [ICON_GREATMUSICIAN] Musicien illustre +4 par tour.</Text>
+			<Text>Âge d'or "Vacances de rêve" :[NEWLINE]Les villes gagnent plusieurs bonus : • [ICON_TOURISM] Tourisme +50% pour les merveilles si elles disposent d'un [ICON_GOVERNOR] gouverneur. • Points de [ICON_GREATMUSICIAN] Musicien illustre +2 par tour (passe à +4 si elle possèdent un centre de diffusion). • Attrait +1 pour toutes les cases si elles possèdent un parc national.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_TOURISM_BONUS_NORMAL_AGE" Language="fr_FR">
 			<Text>Bonus d'engagement "Vacances de rêve" :[NEWLINE]Score de l'ère +1 pour chaque artefact déterré.</Text>
@@ -3798,14 +3803,14 @@
 			<Text>Bonus d'engagement "Vacances de rêve" :[NEWLINE]Score de l'ère +1 pour chaque artefact déterré.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_11" Language="fr_FR">
-			<Text>"Vacances de rêve" : score d'ère +1 pour chaque artefact déterré. Choisi au début d'un âge d'or, [ICON_TOURISM] Tourisme +50% pour les merveilles dans les villes disposant d'un [ICON_GOVERNOR] gouverneur. Points de [ICON_GREATMUSICIAN] Musicien illustre +4 par tour.</Text>
+			<Text>"Vacances de rêve" : score d'ère +1 pour chaque artefact déterré. Choisi au début d'un âge d'or, les villes gagnent plusieurs bonus : • [ICON_TOURISM] Tourisme +50% pour les merveilles si elles disposent d'un [ICON_GOVERNOR] gouverneur. • Points de [ICON_GREATMUSICIAN] Musicien illustre +2 par tour (passe à +4 si elle possèdent un centre de diffusion). • Attrait +1 pour toutes les cases si elles possèdent un parc national.</Text>
 		</Replace>
 		<!-- == SKY AND STARS - LE CIEL ET LES ÉTOILES == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL" Language="fr_FR">
 			<Text>Le ciel et les étoiles</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL_BONUS_EXPANSION2_GOLDEN_AGE" Language="fr_FR">
-			<Text>Âge d'or "Le ciel et les étoiles" :[NEWLINE]Débloque 4 [ICON_TECHBOOSTED] Eurêka ! pour 4 technologies des ères de l'information et future. Expérience +100% pour toutes les unités aériennes. [ICON_RESOURCE_ALUMINUM] Aluminium +2 par mine [ICON_RESOURCE_ALUMINUM] d'Aluminium aménagée.</Text>
+			<Text>Âge d'or "Le ciel et les étoiles" :[NEWLINE]Débloque les [ICON_TECHBOOSTED] Eurêka ! des Matériaux Intelligents et de Mission Extraterrestre. Expérience +100% pour toutes les unités aériennes. [ICON_RESOURCE_ALUMINUM] Aluminium +2 par mine [ICON_RESOURCE_ALUMINUM] d'Aluminium aménagée.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL_BONUS_NORMAL_AGE" Language="fr_FR">
 			<Text>Bonus d'engagement "Le ciel et les étoiles" :[NEWLINE]Score d'ère +1 pour chaque Aérodrome construit et pour chaque [ICON_GREATPERSON] Personnage illustre recruté ou acheté.</Text>
@@ -3814,7 +3819,7 @@
 			<Text>Bonus d'engagement "Le ciel et les étoiles" :[NEWLINE]Score d'ère +1 pour chaque Aérodrome construit et pour chaque [ICON_GREATPERSON] Personnage illustre recruté ou acheté.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_12" Language="fr_FR">
-			<Text>"Le ciel et les étoiles" : score d'ère +1 pour chaque Aérodrome construit et +1 pour chaque [ICON_GREATPERSON] Personnage illustre recruté ou acheté. Choisi au début d'un âge d'or, débloque 4 [ICON_TECHBOOSTED] Eurêka ! pour 4 technologies des ères de l'information et future. Expérience +100% pour toutes les unités aériennes. [ICON_RESOURCE_ALUMINUM] Aluminium +2 par mine [ICON_RESOURCE_ALUMINUM] d'Aluminium aménagée.</Text>
+			<Text>"Le ciel et les étoiles" : score d'ère +1 pour chaque Aérodrome construit et +1 pour chaque [ICON_GREATPERSON] Personnage illustre recruté ou acheté. Choisi au début d'un âge d'or, débloque les [ICON_TECHBOOSTED] Eurêka ! des Matériaux Intelligents et de Mission Extraterrestre. Expérience +100% pour toutes les unités aériennes. [ICON_RESOURCE_ALUMINUM] Aluminium +2 par mine [ICON_RESOURCE_ALUMINUM] d'Aluminium aménagée.</Text>
 		</Replace>
 		<!-- == AUTOMATON WARFARE - GUERRE AUTOMATISÉE == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON" Language="fr_FR">
@@ -4116,7 +4121,7 @@
 
 		<!-- == INSPIRATIONS == -->
 		<Replace Tag="LOC_BOOST_TRIGGER_CRAFTSMANSHIP" Language="fr_FR">
-			<Text>Aménagez 2 cases.</Text>
+			<Text>Possédez 2 cases aménagées.</Text>
 		</Replace>
 		<Replace Tag="LOC_BOOST_TRIGGER_FOREIGN_TRADE" Language="fr_FR">
 			<Text>Possédez un Éclaireur.</Text>

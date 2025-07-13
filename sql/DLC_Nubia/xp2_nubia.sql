@@ -17,7 +17,6 @@ UPDATE ModifierArguments SET Value='4' WHERE ModifierId='JEBELBARKAL_GRANT_FOUR_
 
 
 -- 30/06/25 Jebel rework
-DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_JEBEL_BARKAL';
 UPDATE Buildings SET RegionalRange=0 WHERE BuildingType='BUILDING_JEBEL_BARKAL';
 DELETE FROM Building_YieldChanges WHERE BuildingType='BUILDING_JEBEL_BARKAL';
 -- Must be built on a hill next to an improved iron tile 
@@ -28,6 +27,7 @@ INSERT INTO Building_ValidTerrains (BuildingType, TerrainType) VALUES
 	('BUILDING_JEBEL_BARKAL', 'TERRAIN_SNOW_HILLS');
 UPDATE Buildings SET AdjacentImprovement='IMPROVEMENT_MINE', AdjacentResource='RESOURCE_IRON' WHERE BuildingType='BUILDING_JEBEL_BARKAL';
 -- +6 iron per turn (no change)
+UPDATE ModifierArguments SET Value=6 WHERE ModifierId='JEBELBARKAL_GRANT_FOUR_IRON_PER_TURN' AND Name='Amount';
 -- Cost reduced to 145 (from 200)
 UPDATE Buildings SET Cost=290 WHERE BuildingType='BUILDING_JEBEL_BARKAL';
 -- Improved strategics resources 4 tiles around it give +1 amenity
