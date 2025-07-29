@@ -126,6 +126,7 @@ INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
 -- RII Patron Saint : Apostles/Warrior monks trained in the city receive one extra Promotion, they cost 20% less faith. Grant the ability to faith buy support unit in the city for -20%.  
 -- 28/11/24 10% faith transformed into culture and science
 -- 15/12/24 increased to 20%
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';
 DELETE FROM GovernorPromotionPrereqs WHERE GovernorPromotionType='GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT';      
 INSERT INTO GovernorPromotionPrereqs (GovernorPromotionType, PrereqGovernorPromotion) VALUES
     ('GOVERNOR_PROMOTION_CARDINAL_PATRON_SAINT', 'GOVERNOR_PROMOTION_CARDINAL_CITADEL_OF_GOD');
@@ -301,7 +302,7 @@ INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_GOVERNOR_MAGNUS_PROD_IZ', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_GOVERNOR_MAGNUS_PROD_IZ', 'DistrictType', 'DISTRICT_INDUSTRIAL_ZONE'),
-    ('BBG_GOVERNOR_MAGNUS_PROD_IZ', 'Amount', 20);
+    ('BBG_GOVERNOR_MAGNUS_PROD_IZ', 'Amount', 25);
 INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
     ('GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST', 'BBG_GOVERNOR_MAGNUS_PROD_IZ');
 UPDATE GovernorPromotionPrereqs SET PrereqGovernorPromotion='GOVERNOR_PROMOTION_RESOURCE_MANAGER_GROUNDBREAKER' WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST';
