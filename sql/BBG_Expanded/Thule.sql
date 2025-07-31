@@ -1,0 +1,86 @@
+-- ========================================================================
+-- =                             THULE                                    =
+-- ========================================================================
+
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_TILE_NEXT_WBH','REQUIREMENT_PLOT_ADJACENT_IMPROVEMENT_TYPE_MATCHES');
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('BBG_TILE_NEXT_WBH', 'ImprovementType', 'IMPROVEMENT_LIME_THULE_WBH');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_TILE_NEXT_WBH_TUNDRA_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+    ('BBG_TILE_NEXT_WBH_TUNDRA_HILLS_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+    ('BBG_TILE_NEXT_WBH_SNOW_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+    ('BBG_TILE_NEXT_WBH_SNOW_HILLS_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_TILE_NEXT_WBH_TUNDRA_REQSET', 'BBG_TILE_NEXT_WBH'), 
+    ('BBG_TILE_NEXT_WBH_TUNDRA_REQSET', 'REQUIRES_PLOT_HAS_TUNDRA'), 
+    ('BBG_TILE_NEXT_WBH_TUNDRA_HILLS_REQSET', 'BBG_TILE_NEXT_WBH'), 
+    ('BBG_TILE_NEXT_WBH_TUNDRA_HILLS_REQSET', 'REQUIRES_PLOT_HAS_TUNDRA_HILLS'), 
+    ('BBG_TILE_NEXT_WBH_SNOW_REQSET', 'BBG_TILE_NEXT_WBH'), 
+    ('BBG_TILE_NEXT_WBH_SNOW_REQSET', 'REQ_LIME_THULE_DAVE_SNOW'), 
+    ('BBG_TILE_NEXT_WBH_SNOW_HILLS_REQSET', 'BBG_TILE_NEXT_WBH'), 
+    ('BBG_TILE_NEXT_WBH_SNOW_HILLS_REQSET', 'REQ_LIME_THULE_DAVE_SNOW_HILLS');
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_WBH_ADJACENT_FOOD_TUNDRA', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_TILE_NEXT_WBH_TUNDRA_REQSET'),
+    ('BBG_WBH_ADJACENT_FOOD_TUNDRA_HILLS', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_TILE_NEXT_WBH_TUNDRA_HILLS_REQSET'),
+    ('BBG_WBH_ADJACENT_FOOD_SNOW', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_TILE_NEXT_WBH_SNOW_REQSET'),
+    ('BBG_WBH_ADJACENT_FOOD_SNOW_HILLS', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_TILE_NEXT_WBH_SNOW_HILLS_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_WBH_ADJACENT_FOOD_TUNDRA', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_WBH_ADJACENT_FOOD_TUNDRA', 'Amount', 1),
+    ('BBG_WBH_ADJACENT_FOOD_TUNDRA_HILLS', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_WBH_ADJACENT_FOOD_TUNDRA_HILLS', 'Amount', 1),
+    ('BBG_WBH_ADJACENT_FOOD_SNOW', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_WBH_ADJACENT_FOOD_SNOW', 'Amount', 2),
+    ('BBG_WBH_ADJACENT_FOOD_SNOW_HILLS', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_WBH_ADJACENT_FOOD_SNOW_HILLS', 'Amount', 2);
+
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD', 'BBG_WBH_ADJACENT_FOOD_TUNDRA'),
+    ('TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD', 'BBG_WBH_ADJACENT_FOOD_TUNDRA_HILLS'),
+    ('TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD', 'BBG_WBH_ADJACENT_FOOD_SNOW'),
+    ('TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD', 'BBG_WBH_ADJACENT_FOOD_SNOW_HILLS');
+
+
+
+INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
+    ('IMPROVEMENT_CAMP', 'Lime_WBH_FishingBoats_Food'),
+    ('IMPROVEMENT_CAMP', 'Lime_WBH_FishingBoats_Production');
+
+
+-- ==========================================================
+-- =                        DOGSLED                         =
+-- ==========================================================
+
+DELETE FROM UnitReplaces WHERE CivUniqueUnitType='UNIT_LIME_THULE_DOGSLED';
+INSERT INTO UnitReplaces (CivUniqueUnitType, ReplacesUnitType) VALUES
+    ('UNIT_LIME_THULE_DOGSLED', 'UNIT_SCOUT');
+DELETE FROM UnitUpgrades WHERE Unit='UNIT_LIME_THULE_DOGSLED';
+INSERT INTO UnitUpgrades (Unit, UpgradeUnit) VALUES
+    ('UNIT_LIME_THULE_DOGSLED', 'UNIT_SKIRMISHER');
+
+UPDATE Units SET Combat=10, RangedCombat=10, Range=1, Cost=24, BuildCharges=1, Maintenance=0, PrereqTech=NULL WHERE UnitType='UNIT_LIME_THULE_DOGSLED';
+DELETE FROM UnitAbilityModifiers WHERE UnitAbilityType='ABIL_LIME_THULE_DOGSLED';
+
+INSERT INTO Improvement_ValidBuildUnits (ImprovementType, UnitType) VALUES
+    ('IMPROVEMENT_LIME_THULE_WBH', 'UNIT_LIME_THULE_DOGSLED');
+
+-- ==========================================================
+-- =                       WB HOUSE                         =
+-- ==========================================================
+
+UPDATE Improvements SET PrereqTech=NULL, ValidAdjacentTerrainAmount=0, RequiresAdjacentBonusOrLuxury=1 WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
+DELETE FROM Improvement_ValidAdjacentTerrains WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
+
+INSERT INTO Improvement_ValidFeatures (ImprovementType, FeatureType) VALUES
+    ('IMPROVEMENT_LIME_THULE_WBH', 'FEATURE_FOREST');
+
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+    ('IMPROVEMENT_LIME_THULE_WBH', 'YIELD_FOOD', 1);
+
+-- ========================================================================
+-- =                             KIVIUQ                                   =
+-- ========================================================================
+
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='LIME_RECON_STRONG' AND Name='Amount';
