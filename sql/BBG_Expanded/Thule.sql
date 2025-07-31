@@ -79,6 +79,37 @@ INSERT INTO Improvement_ValidFeatures (ImprovementType, FeatureType) VALUES
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
     ('IMPROVEMENT_LIME_THULE_WBH', 'YIELD_FOOD', 1);
 
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_TILE_IS_TUNDRA_OR_TUNDRA_HILL_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+    ('BBG_TILE_IS_SNOW_OR_SNOW_HILL_REQSET', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_TILE_IS_TUNDRA_OR_TUNDRA_HILL_REQSET', 'REQUIRES_PLOT_HAS_TUNDRA'),
+    ('BBG_TILE_IS_TUNDRA_OR_TUNDRA_HILL_REQSET', 'REQUIRES_PLOT_HAS_TUNDRA_HILLS'),
+    ('BBG_TILE_IS_SNOW_OR_SNOW_HILL_REQSET', 'REQ_LIME_THULE_DAVE_SNOW'),
+    ('BBG_TILE_IS_SNOW_OR_SNOW_HILL_REQSET', 'REQ_LIME_THULE_DAVE_SNOW_HILLS');    
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_WBH_FOOD_TUNDRA', 'MODIFIER_SINGLE_PLOT_ADJUST_PLOT_YIELDS', 'BBG_TILE_IS_TUNDRA_OR_TUNDRA_HILL_REQSET'),
+    ('BBG_WBH_FOOD_SNOW', 'MODIFIER_SINGLE_PLOT_ADJUST_PLOT_YIELDS', 'BBG_TILE_IS_SNOW_OR_SNOW_HILL_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_WBH_FOOD_TUNDRA', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_WBH_FOOD_TUNDRA', 'Amount', 1),
+    ('BBG_WBH_FOOD_SNOW', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_WBH_FOOD_SNOW', 'Amount', 2);
+
+INSERT INTO ImprovementModifiers (ImprovementType, ModifierId) VALUES
+    ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_FOOD_TUNDRA'),
+    ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_FOOD_SNOW');
+
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentImprovement) VALUES
+    ('BBG_WBH_CULTURE_CAMP', 'Placeholder', 'YIELD_CULTURE', 1, 1, 'IMPROVEMENT_CAMP'),
+    ('BBG_WBH_FAITH_CAMP', 'Placeholder', 'YIELD_FAITH', 1, 1, 'IMPROVEMENT_CAMP');
+
+INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
+    ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_CULTURE_CAMP'),
+    ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_FAITH_CAMP');
+
 -- ========================================================================
 -- =                             KIVIUQ                                   =
 -- ========================================================================
