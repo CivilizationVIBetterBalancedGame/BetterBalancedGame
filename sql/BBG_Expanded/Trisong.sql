@@ -7,6 +7,11 @@
 -- May purchase buildings with faith in specialty districts next to mountains.
 -- Cities with an established governor receive +5% faith for each promotion that governor has.
 
+-- Start bias
+-- All mountains to 3
+DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_SUK_TIBET' AND TerrainType='TERRAIN_DESERT_MOUNTAIN';
+UPDATE StartBiasTerrains SET Tier=3 WHERE CivilizationType='CIVILIZATION_SUK_TIBET';
+
 -- ==========================================================
 -- =                         DZONG                          =
 -- ==========================================================

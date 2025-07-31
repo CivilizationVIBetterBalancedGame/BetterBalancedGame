@@ -2,6 +2,12 @@
 -- =                            SWAHILI                                   =
 -- ========================================================================
 
+-- Start bias
+DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_SUK_SWAHILI';
+DELETE FROM StartBiasFeatures WHERE CivilizationType='CIVILIZATION_SUK_SWAHILI';
+INSERT INTO StartBiasTerrains (CivilizationType) VALUES
+    ('CIVILIZATION_SUK_SWAHILI', 'TERRAIN_COAST', 1);
+
 -- 30/07/25 No more adjacency shenanigans
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION' AND ModifierId IS NOT 'TRAIT_SUK_SWAHILI_REEF_PRODUCTION';
 

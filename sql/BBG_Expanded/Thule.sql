@@ -2,6 +2,14 @@
 -- =                             THULE                                    =
 -- ========================================================================
 
+-- Start bias
+DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_LIME_THULE';
+DELETE FROM StartBiasResources WHERE CivilizationType='CIVILIZATION_LIME_THULE';
+INSERT INTO StartBiasTerrains (CivilizationType) VALUES
+    ('CIVILIZATION_LIME_THULE', 'TERRAIN_TUNDRA', 1),
+    ('CIVILIZATION_LIME_THULE', 'TERRAIN_TUNDRA_HILLS', 1),
+    ('CIVILIZATION_LIME_THULE', 'TERRAIN_COAST', 2);
+
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
     ('BBG_TILE_NEXT_WBH','REQUIREMENT_PLOT_ADJACENT_IMPROVEMENT_TYPE_MATCHES');
 INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES

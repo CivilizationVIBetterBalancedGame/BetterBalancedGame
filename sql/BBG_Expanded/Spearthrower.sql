@@ -26,6 +26,11 @@ INSERT INTO CityNames (CivilizationType, CityName) VALUES
     ('CIVILIZATION_LIME_TEOTIHUACAN', 'LOC_CITY_NAME_TLATELOLCO'),
     ('CIVILIZATION_LIME_TEOTIHUACAN', 'LOC_CITY_NAME_TLACOCHCALCO');
 
+-- Start bias
+DELETE FROM StartBiasResources WHERE CivilizationType='CIVILIZATION_LIME_TEOTIHUACAN';
+DELETE FROM StartBiasFeatures WHERE CivilizationType='CIVILIZATION_LIME_TEOTIHUACAN';
+
+
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS';
 
 -- International trade routes to allies gain yields per type of CS under your control
