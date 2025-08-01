@@ -51,10 +51,14 @@ INSERT OR IGNORE INTO TypeTags (Type, Tag) VALUES
     ('ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY' ,'CLASS_NAVAL_RAIDER'),
     ('ABILITY_MONTEZUMA_COMBAT_BONUS_PER_LUXURY' ,'CLASS_NAVAL_CARRIER');
 
---12/06/23 Tlachtli gives 3 tourism from start
+-- 12/06/23 Tlachtli gives 3 tourism from start
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_TLACHTLI', 'BBG_ARENA_TOURISM');
 
 -- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
 INSERT INTO TypeTags (Type, Tag) VALUES
     ('UNIT_AZTEC_EAGLE_WARRIOR', 'CLASS_MALUS_CITY_CENTER');
+
+
+-- 30/06/25 Huey Teocalli : 355 > 250
+UPDATE Buildings SET Cost=500 WHERE BuildingType='BUILDING_HUEY_TEOCALLI';

@@ -8,6 +8,8 @@ DELETE FROM TraitModifiers WHERE ModifierId='VICTORIA_STRATEGIC_RESOURCE';
 
 -- 15/06/23 remove production bonus with workshop
 DELETE FROM Modifiers WHERE ModifierId='VICTORIA_PRODUCTION_WORKSHOP';
+-- 20/06/25 production from factory and powerplant reduced to 10
+UPDATE ModifierArguments SET Value=5 WHERE Name='Amount' AND ModifierId IN ('VICTORIA_PRODUCTION_FACTORY', 'VICTORIA_PRODUCTION_POWER_PLANT');
 
 -- 04/07/24 England rework : get the % prod toward IZ building from England
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES

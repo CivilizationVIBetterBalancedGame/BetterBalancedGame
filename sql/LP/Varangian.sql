@@ -1,5 +1,5 @@
 
---21/06/23 Varangian gets 25% toward holy site building
+-- 21/06/23 Varangian gets 25% toward holy site building
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_VARANGIAN_HOLY_SITE_BONUS_PRODUCTION_BUILDING', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
@@ -47,7 +47,7 @@ INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_VARANGIAN_BOAT_CS_PER_SUZ', 'AbilityType', 'BBG_VARANGIAN_BOAT_CS_PER_SUZ_ABILITY');
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-    SELECT 'BBG_MODIFIER_VARANGIAN_SUZ_' || LeaderType, 'Amount', '1'
+    SELECT 'BBG_MODIFIER_VARANGIAN_SUZ_' || LeaderType, 'Amount', 1
     FROM Leaders
     WHERE InheritFrom IN
         ('LEADER_MINOR_CIV_CULTURAL', 'LEADER_MINOR_CIV_INDUSTRIAL', 'LEADER_MINOR_CIV_MILITARISTIC',
@@ -68,7 +68,7 @@ INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId)
     WHERE InheritFrom IN
         ('LEADER_MINOR_CIV_CULTURAL', 'LEADER_MINOR_CIV_INDUSTRIAL', 'LEADER_MINOR_CIV_MILITARISTIC',
         'LEADER_MINOR_CIV_RELIGIOUS', 'LEADER_MINOR_CIV_SCIENTIFIC', 'LEADER_MINOR_CIV_TRADE');
--- THIS USE THE SAME LOC AS VARANGIAN CAUSE THIS IS THE SAME KIND OF MODIFIER
+-- THIS USE THE SAME LOC AS HUNGARY CAUSE THIS IS THE SAME KIND OF MODIFIER
 INSERT INTO ModifierStrings(ModifierId, Context, Text) 
     SELECT 'BBG_MODIFIER_VARANGIAN_SUZ_' || LeaderType, 'Preview', '+{1_Amount} {LOC_ABILITY_HUSZAIR_COMBAT_PREVIEW} {'||Name||'}'
     FROM Leaders

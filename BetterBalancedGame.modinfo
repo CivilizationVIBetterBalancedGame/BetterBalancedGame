@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- Maybe change Expanded Criteria ? -->
+
 <!-- Release ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="6042"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="6050"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="6042"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="6050"> -->
 
 <!-- WIP ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="6042">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="6050">
 	<Properties>
 		<Name>Better Balanced Game WIP</Name>
 		<Description>
@@ -15,7 +17,7 @@
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>6042</Version>
+		<Version>6050</Version>
 		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Onyxum, OSCAR., priz, robal, seed.of.apricot, Sent Kurokawa, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
@@ -275,6 +277,13 @@
 				<Group>Game</Group>
 				<Value>0</Value>
 			</ConfigurationValueMatches>
+		</Criteria>
+
+
+		<!-- BBG Expanded -->
+		<Criteria id="BBGExpanded">
+			<ModInUse>2a0aa96a-a31c-4ce2-87ec-09144f6f3e00</ModInUse>
+			<!-- <ModInUse>2a0aa96a-a31c-4ce2-87ec-09152f6f3e00</ModInUse> -->
 		</Criteria>
 	</ActionCriteria>
 
@@ -721,6 +730,8 @@
 			</Properties>
 			<Criteria>Byzantium_Gaul</Criteria>
 			<File>sql/NFP/nfp_byzantium_gaul.sql</File>
+			<File>sql/NFP/Gaul.sql</File>
+			<File>sql/NFP/Byzantium.sql</File>
 		</UpdateDatabase>
 		<!-- -->
 		<UpdateDatabase id="BBG_Babylon">
@@ -877,6 +888,36 @@
 			<File>sql/LP/Varangian.sql</File>
 		</UpdateDatabase>
 		<!-- -->
+
+
+		<UpdateDatabase id="BBG_Expanded">
+			<Properties>
+				<LoadOrder>100000000</LoadOrder>
+			</Properties>
+			<Criteria>BBGExpanded</Criteria>
+			<Criteria>XP1_AND_XP2</Criteria>
+			<Criteria>DLC_Aztec</Criteria>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<Criteria>GranColombia_Maya</Criteria>
+			<File>sql/BBG_Expanded/Vercingetorix.sql</File>
+			<File>sql/BBG_Expanded/Olympia.sql</File>
+			<File>sql/BBG_Expanded/Thule.sql</File>
+			<File>sql/BBG_Expanded/Te_Kinich.sql</File>
+			<File>sql/BBG_Expanded/Trisong.sql</File>
+			<File>sql/BBG_Expanded/Ahiram.sql</File>
+			<File>sql/BBG_Expanded/Al_Hasan.sql</File>
+			<File>sql/BBG_Expanded/Spearthrower.sql</File>
+			<File>sql/BBG_Expanded/Resources.sql</File>
+		</UpdateDatabase>
+
+
+
+
+
+
+
+
 
 		<UpdateDatabase id="BBG_XP2_SecretSocieties">
 			<Properties>
@@ -1256,6 +1297,8 @@
 		<File>sql/NFP/Teddy_Persona.sql</File> <!-- Must split files for teddy persona -->
 		<File>sql/NFP/Catherine_Persona.sql</File>
 		<File>sql/NFP/nfp_byzantium_gaul.sql</File>
+		<File>sql/NFP/Gaul.sql</File>
+		<File>sql/NFP/Byzantium.sql</File>
 		<File>sql/NFP/new_bbg_nfp_babylon.sql</File>
 		<File>sql/NFP/Babylon.sql</File>
 		<File>sql/NFP/mali_dlc_babylon.sql</File>
@@ -1288,6 +1331,21 @@
 		<File>sql/LP/Elizabeth.sql</File>
 		<File>sql/LP/VictoriaSteam.sql</File>
 		<File>sql/LP/Varangian.sql</File>
+
+
+
+
+
+		<!-- BBG Expanded -->
+		<File>sql/BBG_Expanded/Vercingetorix.sql</File>
+		<File>sql/BBG_Expanded/Olympia.sql</File>
+		<File>sql/BBG_Expanded/Thule.sql</File>
+		<File>sql/BBG_Expanded/Te_Kinich.sql</File>
+		<File>sql/BBG_Expanded/Trisong.sql</File>
+		<File>sql/BBG_Expanded/Ahiram.sql</File>
+		<File>sql/BBG_Expanded/Al_Hasan.sql</File>
+		<File>sql/BBG_Expanded/Spearthrower.sql</File>
+		<File>sql/BBG_Expanded/Resources.sql</File>
 		<!-- -->
 		<File>sql/Secret_Societies.sql</File>
 		<!-- -->
