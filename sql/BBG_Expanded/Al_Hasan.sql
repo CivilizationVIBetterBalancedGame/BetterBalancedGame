@@ -5,7 +5,7 @@
 -- Start bias
 DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_SUK_SWAHILI';
 DELETE FROM StartBiasFeatures WHERE CivilizationType='CIVILIZATION_SUK_SWAHILI';
-INSERT INTO StartBiasTerrains (CivilizationType) VALUES
+INSERT INTO StartBiasTerrains (CivilizationType, TerrainType, Tier) VALUES
     ('CIVILIZATION_SUK_SWAHILI', 'TERRAIN_COAST', 1);
 
 -- 30/07/25 No more adjacency shenanigans

@@ -5,7 +5,7 @@
 -- Start bias
 DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_LIME_THULE';
 DELETE FROM StartBiasResources WHERE CivilizationType='CIVILIZATION_LIME_THULE';
-INSERT INTO StartBiasTerrains (CivilizationType) VALUES
+INSERT INTO StartBiasTerrains (CivilizationType, TerrainType, Tier) VALUES
     ('CIVILIZATION_LIME_THULE', 'TERRAIN_TUNDRA', 1),
     ('CIVILIZATION_LIME_THULE', 'TERRAIN_TUNDRA_HILLS', 1),
     ('CIVILIZATION_LIME_THULE', 'TERRAIN_COAST', 2);
