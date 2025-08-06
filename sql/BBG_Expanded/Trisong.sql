@@ -9,7 +9,7 @@
 
 -- Start bias
 -- All mountains to 3
-DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_SUK_TIBET' AND TerrainType='TERRAIN_DESERT_MOUNTAIN';
+DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_SUK_TIBET' AND TerrainType IN ('TERRAIN_DESERT_MOUNTAIN', 'TERRAIN_SNOW_MOUNTAIN', 'TERRAIN_TUNDRA_MOUNTAIN');
 UPDATE StartBiasTerrains SET Tier=3 WHERE CivilizationType='CIVILIZATION_SUK_TIBET';
 
 -- ==========================================================
@@ -17,6 +17,8 @@ UPDATE StartBiasTerrains SET Tier=3 WHERE CivilizationType='CIVILIZATION_SUK_TIB
 -- ==========================================================
 
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='SUK_DZONG_DEFENSE_STRENGTH';
+UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_SUK_DZONG';
+DELETE FROM District_ValidTerrains WHERE DistrictType='DISTRICT_SUK_DZONG';
 
 -- ==========================================================
 -- =                        RTA PA                          =
