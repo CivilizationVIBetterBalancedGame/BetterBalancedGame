@@ -129,6 +129,8 @@ INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_FIREISBORN_BASE_ENVOY', 'MODIFIER_GOVERNOR_ADJUST_CITY_ENVOYS'); 
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_FIREISBORN_BASE_ENVOY', 'Amount', 1);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL', 'BBG_FIREISBORN_BASE_ENVOY');
 
 -- L1 : While established in a City State, provides a copy of its Luxury resources.
 
