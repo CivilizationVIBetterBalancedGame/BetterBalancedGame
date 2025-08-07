@@ -18,7 +18,7 @@
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
 		<Version>6050</Version>
-		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Onyxum, OSCAR., priz, robal, seed.of.apricot, Sent Kurokawa, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax</SpecialThanks>
+		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Onyxum, OSCAR., priz, robal, seed.of.apricot, Sent Kurokawa, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, ZhenjaMax, 3JIO6HbIU_Kycb</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
 	
@@ -1143,6 +1143,21 @@
 			</Properties>
 			<Criteria>NoConflictingUIMod</Criteria>
 		</ReplaceUIScript>
+
+
+
+		<AddGameplayScripts id="Lua">
+			<Criteria>BBGExpanded</Criteria>
+			<Criteria>XP1_AND_XP2</Criteria>
+			<Criteria>DLC_Aztec</Criteria>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<Criteria>GranColombia_Maya</Criteria>
+      		<File>lua/BBG_Expanded/Thule.lua</File>
+      		<File>lua/BBG_Expanded/Te_Kinich.lua</File>
+      		<File>lua/BBG_Expanded/Al_Hasan.lua</File>
+      		<File>lua/BBG_Expanded/Olympia.lua</File>
+    	</AddGameplayScripts>
 	</InGameActions>
 
 	<!-- defines file dependencies -->
@@ -1348,6 +1363,11 @@
 		<File>sql/BBG_Expanded/Al_Hasan.sql</File>
 		<File>sql/BBG_Expanded/Spearthrower.sql</File>
 		<File>sql/BBG_Expanded/Resources.sql</File>
+		<!-- BBG Expanded lua -->
+      	<File>lua/BBG_Expanded/Thule.lua</File>
+      	<File>lua/BBG_Expanded/Te_Kinich.lua</File>
+      	<File>lua/BBG_Expanded/Al_Hasan.lua</File>
+      	<File>lua/BBG_Expanded/Olympia.lua</File>
 		<!-- -->
 		<File>sql/Secret_Societies.sql</File>
 		<!-- -->
