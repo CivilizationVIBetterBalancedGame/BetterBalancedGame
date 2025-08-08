@@ -15,7 +15,11 @@ INSERT INTO Resource_ValidTerrains (ResourceType, TerrainType) VALUES
 INSERT INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange) VALUES
     ('RESOURCE_P0K_PENGUINS', 'YIELD_FOOD', 1);
 
+-- There is a custom spawn for Penguins in BBM, thanks to BaNiPouZ
+UPDATE Resources SET AdjacentToLand=1, SeaFrequency=1 WHERE ResourceType='RESOURCE_P0K_PENGUINS';
 
+INSERT INTO Improvement_ValidResources (ImprovementType, ResourceType, MustRemoveFeature) VALUES
+    ('IMPROVEMENT_FISHING_BOATS', 'RESOURCE_P0K_PENGUINS', 1);
 
 INSERT INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange) VALUES
     ('RESOURCE_P0K_PAPYRUS', 'YIELD_PRODUCTION', 1);

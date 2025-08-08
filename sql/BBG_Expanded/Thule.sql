@@ -50,12 +50,36 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD', 'BBG_WBH_ADJACENT_FOOD_SNOW'),
     ('TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD', 'BBG_WBH_ADJACENT_FOOD_SNOW_HILLS');
 
+DELETE FROM Improvement_Adjacencies WHERE YieldChangeId IN ('Lime_WBH_FishingBoats_Food', 'Lime_WBH_FishingBoats_Production');
 
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_WBH_CAMP_PROD', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_CAMP_NEXT_WBH_REQSET'),
+    ('BBG_WBH_CAMP_FOOD', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_CAMP_NEXT_WBH_REQSET'),
+    ('BBG_WBH_FISHING_BOAT_PROD', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_FISHING_BOAT_NEXT_WBH_REQSET'),
+    ('BBG_WBH_FISHING_BOAT_FOOD', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_FISHING_BOAT_NEXT_WBH_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_WBH_CAMP_PROD', 'YieldType', 'YIELD_PRODUCTION'),
+    ('BBG_WBH_CAMP_PROD', 'Amount', 1),
+    ('BBG_WBH_CAMP_FOOD', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_WBH_CAMP_FOOD', 'Amount', 1),
+    ('BBG_WBH_FISHING_BOAT_PROD', 'YieldType', 'YIELD_PRODUCTION'),
+    ('BBG_WBH_FISHING_BOAT_PROD', 'Amount', 1),
+    ('BBG_WBH_FISHING_BOAT_FOOD', 'YieldType', 'YIELD_FOOD'),
+    ('BBG_WBH_FISHING_BOAT_FOOD', 'Amount', 1);
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CAMP_NEXT_WBH_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+    ('BBG_FISHING_BOAT_NEXT_WBH_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_CAMP_NEXT_WBH_REQSET', 'REQUIRES_PLOT_HAS_CAMP'), 
+    ('BBG_CAMP_NEXT_WBH_REQSET', 'BBG_TILE_NEXT_WBH'), 
+    ('BBG_FISHING_BOAT_NEXT_WBH_REQSET', 'BBG_TILE_NEXT_WBH'), 
+    ('BBG_FISHING_BOAT_NEXT_WBH_REQSET', 'REQUIRES_PLOT_HAS_FISHINGBOATS');
 
-INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
-    ('IMPROVEMENT_CAMP', 'Lime_WBH_FishingBoats_Food'),
-    ('IMPROVEMENT_CAMP', 'Lime_WBH_FishingBoats_Production');
-
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD', 'BBG_WBH_CAMP_PROD'),
+    ('TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD', 'BBG_WBH_CAMP_FOOD'),
+    ('TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD', 'BBG_WBH_FISHING_BOAT_PROD'),
+    ('TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD', 'BBG_WBH_FISHING_BOAT_FOOD');
 
 -- ==========================================================
 -- =                        DOGSLED                         =
@@ -78,18 +102,18 @@ INSERT INTO Improvement_ValidBuildUnits (ImprovementType, UnitType) VALUES
 -- =                       WB HOUSE                         =
 -- ==========================================================
 
-UPDATE Improvements SET PrereqTech=NULL, ValidAdjacentTerrainAmount=0, RequiresAdjacentBonusOrLuxury=1 WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
+UPDATE Improvements SET PrereqTech=NULL, ValidAdjacentTerrainAmount=0, RequiresAdjacentBonusOrLuxury=1, TilesRequired=2, Housing=2 WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
 DELETE FROM Improvement_ValidAdjacentTerrains WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
 
 INSERT INTO Improvement_ValidFeatures (ImprovementType, FeatureType) VALUES
     ('IMPROVEMENT_LIME_THULE_WBH', 'FEATURE_FOREST');
 
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
-    ('IMPROVEMENT_LIME_THULE_WBH', 'YIELD_FOOD', 1);
+    ('IMPROVEMENT_LIME_THULE_WBH', 'YIELD_FOOD', 0);
 
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-    ('BBG_TILE_IS_TUNDRA_OR_TUNDRA_HILL_REQSET', 'REQUIREMENTSET_TEST_ALL'),
-    ('BBG_TILE_IS_SNOW_OR_SNOW_HILL_REQSET', 'REQUIREMENTSET_TEST_ALL');
+    ('BBG_TILE_IS_TUNDRA_OR_TUNDRA_HILL_REQSET', 'REQUIREMENTSET_TEST_ANY'),
+    ('BBG_TILE_IS_SNOW_OR_SNOW_HILL_REQSET', 'REQUIREMENTSET_TEST_ANY');
 
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_TILE_IS_TUNDRA_OR_TUNDRA_HILL_REQSET', 'REQUIRES_PLOT_HAS_TUNDRA'),
