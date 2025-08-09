@@ -13,7 +13,6 @@ UPDATE ModifierArguments SET VALUE=3 WHERE ModifierId='RAVEN_LEVY_COMBAT' AND Na
 
 DELETE FROM UnitAbilityModifiers WHERE ModifierId='RAVEN_LEVY_COMBAT';
 
-
 -- Huszar +2 by suzed city-states
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
     SELECT 'BBG_MODIFIER_HUSZAR_SUZ_' || LeaderType, 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_SUZERAIN_OF_' || LeaderType || '_REQUIREMENTS'
