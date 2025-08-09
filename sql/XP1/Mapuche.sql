@@ -42,7 +42,7 @@ INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_MAPUCHE_TOQUI', 'TRAIT_TOQUI_COMBAT_BONUS_ABILITY_VS_GOLDEN_AGE_CIV');
     
---Mapuche Malon loses 1 MP pillage and gains a free promotion instead 
+-- Mapuche Malon loses 1 MP pillage and gains a free promotion instead 
 DELETE FROM UnitAbilityModifiers WHERE ModifierId='MALON_RAIDER_TERRITORY_COMBAT_BONUS';
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_MALON_RAIDER_FREE_PROMOTION', 'MODIFIER_PLAYER_UNIT_ADJUST_GRANT_EXPERIENCE');

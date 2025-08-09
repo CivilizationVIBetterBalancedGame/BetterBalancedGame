@@ -8,10 +8,23 @@ INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
     ('IMPROVEMENT_STEPWELL', 'BBG_STEPWELL_FOOD');
 DELETE FROM ImprovementModifiers WHERE ModifierId='STEPWELL_FARMADJACENCY_FOOD';
 
+-- 25/06/25 Amenity per different religion changed to 1 amenity if city following India's religion
+DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_AMENITIES_FOR_MIN_FOLLOWERS';
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_INDIA_AMENITY_RELIGION', 'MODIFIER_PLAYER_CITIES_ADJUST_AMENITIES_FROM_RELIGION', 'CITY_FOLLOWS_RELIGION_REQUIREMENTS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_INDIA_AMENITY_RELIGION', 'Amount', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_CIVILIZATION_DHARMA', 'BBG_INDIA_AMENITY_RELIGION');
+INSERT INTO Types (Type, Kind) VALUES
+    ('MODIFIER_PLAYER_CITIES_ADJUST_AMENITIES_FROM_RELIGION', 'KIND_MODIFIER');
+INSERT INTO DynamicModifiers (ModifierType, CollectionType, EffectType) VALUES
+    ('MODIFIER_PLAYER_CITIES_ADJUST_AMENITIES_FROM_RELIGION', 'COLLECTION_PLAYER_CITIES', 'EFFECT_ADJUST_CITY_AMENITIES_FROM_RELIGION');
 
---==================
+
+-- ==================
 -- India (Gandhi)
---==================
+-- ==================
 -- Extra belief when founding a Religion
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('EXTRA_BELIEF_MODIFIER', 'MODIFIER_PLAYER_ADD_BELIEF', 'HAS_A_RELIGION_BBG');
@@ -78,8 +91,8 @@ INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
     ('DISTRICT_HOLY_SITE', 'BBG_ABILITY_GANDHI_SETTLER_BUILDER_MOVEMENT_GIVER');
 
 
---15/12/22 Gandhi faith per city following religion
---02/11/23 Removed
+-- 15/12/22 Gandhi faith per city following religion
+-- 02/11/23 Removed
 -- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
 --  ('BBG_TRAIT_FAITH_PER_CITY_FOLLOWING_RELIGION', 'MODIFIER_PLAYER_RELIGION_ADD_PLAYER_BELIEF_YIELD');
 -- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
@@ -93,7 +106,7 @@ INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
 -- 10/03/2024 nerf gandhi war weariness to 50%
 UPDATE ModifierArguments SET Value=50 WHERE ModifierId='TRAIT_INCREASE_ENEMY_WAR_WEARINESS' AND Name='Amount'; 
 
---19/12/23 Varus cost 5 horse
+-- 19/12/23 Varus cost 5 horse
 UPDATE Units SET StrategicResource='RESOURCE_HORSES' WHERE UnitType='UNIT_INDIAN_VARU';
 INSERT INTO Units_XP2 (UnitType, ResourceCost) VALUES
     ('UNIT_INDIAN_VARU', 10);

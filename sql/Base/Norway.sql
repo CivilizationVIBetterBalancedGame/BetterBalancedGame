@@ -1,6 +1,6 @@
---==================
+-- ==================
 -- Norway
---==================
+-- ==================
 -- Can only heal on coast tile
 UPDATE Modifiers SET SubjectRequirementSetId='LONGSHIP_PLOT_IS_COAST' WHERE ModifierId='MELEE_SHIP_HEAL_NEUTRAL';
 -- Berserker
@@ -78,7 +78,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('THUNDERBOLT_HOLY_SITE_DISTRICT_BOOST', 'DistrictType', 'DISTRICT_HOLY_SITE'),
 	('THUNDERBOLT_HOLY_SITE_DISTRICT_BOOST', 'Amount', '50');
 
--- 21/06/23 from classic harald to norway
+-- 21/06/23 HS bonuses from classic harald to norway
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_CIVILIZATION_EARLY_OCEAN_NAVIGATION', 'THUNDERBOLT_HOLY_SITE_DISTRICT_BOOST'),
 	('TRAIT_CIVILIZATION_EARLY_OCEAN_NAVIGATION', 'BBG_HOLY_SITE_COASTAL_ADJACENCY');
@@ -99,3 +99,29 @@ UPDATE ModifierArguments SET Value = '25' WHERE ModifierId IN (
 -- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
 INSERT INTO TypeTags (Type, Tag) VALUES
     ('UNIT_NORWEGIAN_LONGSHIP', 'CLASS_MALUS_CITY_CENTER');
+
+
+-- 20/06/25 Longship strength reduced to 30 but all melee naval units get +3
+UPDATE Units SET Combat=30 WHERE UnitType='UNIT_NORWEGIAN_LONGSHIP';
+
+INSERT INTO Modifiers(ModifierId, ModifierType, Permanent) VALUES
+    ('BBG_NORWAY_MELEE_BOAT_COMBAT_GIVER', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY', 1),
+    ('BBG_NORWAY_MELEE_BOAT_COMBAT_MODIFIER', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 0);   
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_NORWAY_MELEE_BOAT_COMBAT_GIVER', 'AbilityType', 'BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY'),
+    ('BBG_NORWAY_MELEE_BOAT_COMBAT_MODIFIER', 'Amount', 3);
+INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
+    ('BBG_NORWAY_MELEE_BOAT_COMBAT_MODIFIER', 'Preview', 'LOC_BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY_DESC');  
+INSERT INTO Types(Type, Kind) VALUES
+    ('BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY', 'KIND_ABILITY');
+INSERT INTO TypeTags(Type, Tag) VALUES
+    ('BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY', 'CLASS_NAVAL_MELEE');
+INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive) VALUES
+    ('BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY', 'LOC_BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY_NAME', 'LOC_BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY_DESC', 1);
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+    ('BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY', 'BBG_NORWAY_MELEE_BOAT_COMBAT_MODIFIER');   
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+	('TRAIT_LEADER_MELEE_COASTAL_RAIDS', 'BBG_NORWAY_MELEE_BOAT_COMBAT_GIVER');
+
+-- 20/06/25 Early Navigation moved from Norway to Konge
+UPDATE TraitModifiers SET TraitType='TRAIT_LEADER_MELEE_COASTAL_RAIDS' WHERE ModifierId='TRAIT_EARLY_OCEAN_NAVIGATION';

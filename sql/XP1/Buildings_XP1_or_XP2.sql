@@ -15,7 +15,8 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_WAS_FOUNDED' WHERE ModifierId LIKE 'GOV_FAITH_PURCHASE_%';
 
 -- 04/10/22: intel agency buff
-UPDATE ModifierArguments SET Value=2 WHERE ModifierId='GOV_GRANT_SPY' AND Name='Amount';
+-- 19/06/25 Revert 2nd spy capacity bonus
+-- UPDATE ModifierArguments SET Value=2 WHERE ModifierId='GOV_GRANT_SPY' AND Name='Amount';
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
 	('BBG_INTEL_AGENCY_SPY_PROD_BONUS', 'MODIFIER_PLAYER_UNITS_ADJUST_UNIT_PRODUCTION');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
@@ -36,7 +37,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value) VALUES
 	('GOV_TALL_FOOD_BUFF' , 'YieldType' , 'YIELD_FOOD'),
 	('GOV_TALL_FOOD_BUFF' , 'Amount' , '3');
 
---Warlord's Throne gives +25% production to naval and land military units... also reduces unit maintenance by 1
+-- Warlord's Throne gives +25% production to naval and land military units... also reduces unit maintenance by 1
 DELETE FROM BuildingModifiers WHERE ModifierId='GOV_PRODUCTION_BOOST_FROM_CAPTURE';
 DELETE FROM ModifierArguments WHERE ModifierId='GOV_PRODUCTION_BOOST_FROM_CAPTURE';
 DELETE FROM Modifiers WHERE ModifierId='GOV_PRODUCTION_BOOST_FROM_CAPTURE';
@@ -58,8 +59,8 @@ INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
 	VALUES ('BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE', 'MODIFIER_PLAYER_ADJUST_RESOURCE_STOCKPILE_CAP');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 	VALUES ('BUILDING_GOV_CONQUEST_RESOURCE_STOCKPILE', 'Amount', '30');
---Warlord's Throne +2 revealed strategics/turn (abstract, robust to reveal tech change in Resources Table)
---Creating Modifiers
+-- Warlord's Throne +2 revealed strategics/turn (abstract, robust to reveal tech change in Resources Table)
+-- Creating Modifiers
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
 	SELECT 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_'||REPLACE(Resources.ResourceType, 'RESOURCE_','')
 	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
@@ -69,7 +70,7 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
 	SELECT 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER', 'Amount', 2
 	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
---Attaching Modifiers to Warlor's Throne
+-- Attaching Modifiers to Warlor's Throne
 INSERT INTO BuildingModifiers(BuildingType, ModifierId)
 	SELECT 'BUILDING_GOV_CONQUEST', 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER'
 	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';

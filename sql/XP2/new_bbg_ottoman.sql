@@ -35,7 +35,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_BUILDING_GRAND_BAZAAR', 'BBG_GRAND_BAZAAR_GOV_POINT');
 
 
---04/10/22 barbary corsaire can go in ocean tiles without cartography
+-- 04/10/22 barbary corsaire can go in ocean tiles without cartography
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_BARBARY_CORSAIR_OCEAN_NAVIGATION', 'MODIFIER_PLAYER_UNIT_ADJUST_VALID_TERRAIN');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
@@ -46,17 +46,17 @@ INSERT OR IGNORE INTO UnitAbilityModifiers VALUES
 
 
 
---05/10/22 river bias
+-- 05/10/22 river bias
 INSERT INTO StartBiasRivers (CivilizationType, Tier) VALUES
     ('CIVILIZATION_OTTOMAN', 3);
 
---19/03/24 +3 for all siege units instead of +5 against city center
+-- 19/03/24 +3 for all siege units instead of +5 against city center
 UPDATE ModifierArguments SET Value=3 WHERE ModifierId='GREAT_TURKISH_BOMBARD_STRENGTH';
 UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='GREAT_TURKISH_BOMBARD_STRENGTH';
 
---=============================================================================================
---=                                       IBRAHIM                                             =
---=============================================================================================
+-- =============================================================================================
+-- =                                       IBRAHIM                                             =
+-- =============================================================================================
 
 -- 3 turns
 
