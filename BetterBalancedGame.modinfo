@@ -281,11 +281,14 @@
 
 
 		<!-- BBG Expanded -->
-		<Criteria id="BBGExpanded">
-			<!-- Release -->
-			<!-- <ModInUse>2a0aa96a-a31c-4ce2-87ec-09152f6f3e00</ModInUse> -->
+		<!-- I don't know how to do an OR -->
+		<Criteria id="BBGExpanded_WIP">
 			<!-- WIP -->
 			<ModInUse>2a0aa96a-a31c-4ce2-87ec-09144f6f3e00</ModInUse>
+		</Criteria>
+		<Criteria id="BBGExpanded_Release">
+			<!-- Release -->
+			<ModInUse>2a0aa96a-a31c-4ce2-87ec-09152f6f3e00</ModInUse>
 		</Criteria>
 	</ActionCriteria>
 
@@ -894,7 +897,7 @@
 		<!-- -->
 
 
-		<UpdateDatabase id="BBG_Expanded">
+		<UpdateDatabase id="BBG_Expanded_WIP">
 			<Properties>
 				<LoadOrder>100000000</LoadOrder>
 			</Properties>
@@ -914,13 +917,27 @@
 			<File>sql/BBG_Expanded/Spearthrower.sql</File>
 			<File>sql/BBG_Expanded/Resources.sql</File>
 		</UpdateDatabase>
-
-
-
-
-
-
-
+		<!-- I don't know how to do an OR -->
+		<UpdateDatabase id="BBG_Expanded_Release">
+			<Properties>
+				<LoadOrder>100000000</LoadOrder>
+			</Properties>
+			<Criteria>BBGExpanded_Release</Criteria>
+			<Criteria>XP1_AND_XP2</Criteria>
+			<Criteria>DLC_Aztec</Criteria>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<Criteria>GranColombia_Maya</Criteria>
+			<File>sql/BBG_Expanded/Vercingetorix.sql</File>
+			<File>sql/BBG_Expanded/Olympia.sql</File>
+			<File>sql/BBG_Expanded/Thule.sql</File>
+			<File>sql/BBG_Expanded/Te_Kinich.sql</File>
+			<File>sql/BBG_Expanded/Trisong.sql</File>
+			<File>sql/BBG_Expanded/Ahiram.sql</File>
+			<File>sql/BBG_Expanded/Al_Hasan.sql</File>
+			<File>sql/BBG_Expanded/Spearthrower.sql</File>
+			<File>sql/BBG_Expanded/Resources.sql</File>
+		</UpdateDatabase>
 
 
 		<UpdateDatabase id="BBG_XP2_SecretSocieties">
