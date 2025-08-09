@@ -256,7 +256,7 @@ INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
     ('TRAIT_LEADER_MAJOR_CIV', 'ALUMINUM_BASE_AMOUNT_MODIFIER'),
     ('TRAIT_LEADER_MAJOR_CIV', 'OIL_BASE_AMOUNT_MODIFIER'),
     ('TRAIT_LEADER_MAJOR_CIV', 'URANIUM_BASE_AMOUNT_MODIFIER');
---can't go minus favor from grievances
+-- can't go minus favor from grievances
 UPDATE GlobalParameters SET Value='0' WHERE Name='FAVOR_GRIEVANCES_MINIMUM';
 -- additional niter spawn locations
 INSERT OR IGNORE INTO Resource_ValidFeatures (ResourceType, FeatureType)
@@ -275,7 +275,7 @@ UPDATE Improvements SET PrereqTech='TECH_REFINING' WHERE ImprovementType='IMPROV
 
 -- 14/07/2022 Nuke +50% production cost. uranium cost x1.5
 UPDATE Projects SET Cost=1500 WHERE ProjectType='PROJECT_MANHATTAN_PROJECT';
-UPDATE Projects SET Cost=1500 WHERE ProjectType='PROJECT_OPERATION_IVY';
+UPDATE Projects SET Cost=1000 WHERE ProjectType='PROJECT_OPERATION_IVY';
 UPDATE Projects SET Cost=1200 WHERE ProjectType='PROJECT_BUILD_NUCLEAR_DEVICE';
 UPDATE Projects SET Cost=1500 WHERE ProjectType='PROJECT_BUILD_THERMONUCLEAR_DEVICE';
 UPDATE Project_ResourceCosts SET StartProductionCost=15 WHERE ProjectType='PROJECT_BUILD_NUCLEAR_DEVICE';
@@ -407,6 +407,15 @@ UPDATE OR IGNORE Features SET DefenseModifier = 3
 -- 14/10 discount reduced to 35% and unique district to 55%
 UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_COTHON', 'DISTRICT_SUGUBA');
 UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_COTHON', 'DISTRICT_SUGUBA');
+
+-- 07/07/25 Lagrange and Terrestrial now necessits Spaceport
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_POWER_AND_SPACEPORT_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_CITY_HAS_POWER_AND_SPACEPORT_REQSET', 'REQUIRES_CITY_IS_POWERED'),
+    ('BBG_CITY_HAS_POWER_AND_SPACEPORT_REQSET', 'BBG_CITY_HAS_DISTRICT_SPACEPORT_REQUIREMENT');
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_POWER_AND_SPACEPORT_REQSET' WHERE ModifierId='PROJECT_COMPLETION_TERRESTRIAL_LASER_SCIENCE_VP';
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_DISTRICT_SPACEPORT' WHERE ModifierId IN ('PROJECT_COMPLETION_EXOPLANET_SCIENCE_VP', 'PROJECT_COMPLETION_ORBITAL_LASER_SCIENCE_VP');
 
 --=======================================================================
 --******                       CITY STATE                          ******

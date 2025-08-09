@@ -2,6 +2,10 @@
 --******                ENGLAND                           ******
 --==============================================================================================
 
+-- Harbor gives 1 housing [Lighthouse loses 1]
+INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
+    ('DISTRICT_ROYAL_NAVY_DOCKYARD', 'BBG_HARBOR_HOUSING');
+
 -- Sea Dog available at Exploration now
 UPDATE Units SET PrereqCivic='CIVIC_EXPLORATION' WHERE UnitType='UNIT_ENGLISH_SEADOG';
 
@@ -10,7 +14,7 @@ UPDATE ModifierArguments SET Value='5' WHERE ModifierId='REDCOAT_FOREIGN_COMBAT'
 
 UPDATE District_GreatPersonPoints SET PointsPerTurn=1 WHERE DistrictType='DISTRICT_ROYAL_NAVY_DOCKYARD' AND GreatPersonClassType='GREAT_PERSON_CLASS_ADMIRAL';
 
---Doesn't have lighthouse req, recreate
+-- Doesn't have lighthouse req, recreate
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
     ('REQUIRES_CITY_HAS_LIGHTHOUSE', 'REQUIREMENT_CITY_HAS_BUILDING');
 INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES

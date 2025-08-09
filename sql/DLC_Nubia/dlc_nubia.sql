@@ -16,9 +16,13 @@
 --UPDATE ModifierArguments SET Value='0' WHERE ModifierId='TRAIT_INFORMATION_RANGED_UNIT_PRODUCTION' and Name='Amount';
 --UPDATE ModifierArguments SET Value='25' WHERE ModifierId='TRAIT_RANGED_EXPERIENCE_MODIFIER' and Name='Amount';
 
---15/06/23 Nubia also gets xp bonus for naval ranged units
+-- 15/06/23 Nubia also gets xp bonus for naval ranged units
 INSERT INTO TypeTags (Type, Tag) VALUES
     ('ABILITY_NUBIA_RANGED_EXPERIENCE_MODIFIER', 'CLASS_NAVAL_RANGED');
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_NUBIAN_PITATI', 'CLASS_MALUS_CITY_CENTER');
 
 --==============================================================
 --******                START BIASES                      ******

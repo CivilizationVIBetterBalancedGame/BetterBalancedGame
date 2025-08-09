@@ -3,8 +3,8 @@
 --==================
 -- reduce combat bonus for holy cities
 UPDATE ModifierArguments SET Value='2' WHERE ModifierId='BYZANTIUM_COMBAT_HOLY_CITIES' AND Name='Amount';
---remove dromon combat bonus
---25/10/23 remove dromon combat bonus again
+-- remove dromon combat bonus
+-- 25/10/23 remove dromon combat bonus again
 -- nerf dromon cs bonus to +5
 -- DELETE FROM UnitAbilityModifiers WHERE ModifierId='DROMON_COMBAT_STRENGTH_AGAINST_UNITS';
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='DROMON_COMBAT_STRENGTH_AGAINST_UNITS' AND Name='Amount';
@@ -26,9 +26,39 @@ INSERT OR IGNORE INTO TypeTags (Type , Tag) VALUES
 UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_HIPPODROME';
 UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_HIPPODROME';
 
---19/12/23 hippodromes to 2 amenities (from 3)
+-- 19/12/23 hippodromes to 2 amenities (from 3)
 -- 26/02/23 reverted to +3
 -- UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_HIPPODROME';
+
+DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_CREATE_HIPPODROME_HEAVY_CAVALRY';
+
+
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_REQUIRES_CITY_HAS_ZOO', 'REQUIREMENT_CITY_HAS_BUILDING');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_CITY_HAS_ZOO', 'BuildingType', 'BUILDING_ZOO');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_CITY_HAS_HIPPODROME_ARENA_REQSET', 'REQUIRES_CITY_HAS_ARENA'),
+    ('BBG_CITY_HAS_HIPPODROME_ZOO_REQSET', 'BBG_REQUIRES_CITY_HAS_ZOO'),
+    ('BBG_CITY_HAS_HIPPODROME_STADIUM_REQSET', 'REQUIRES_CITY_HAS_STADIUM');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_CITY_HAS_HIPPODROME_ARENA_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+    ('BBG_CITY_HAS_HIPPODROME_ZOO_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+    ('BBG_CITY_HAS_HIPPODROME_STADIUM_REQSET', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT INTO Modifiers (ModifierId, ModifierType, Permanent, SubjectRequirementSetId) VALUES
+    ('BBG_BYZANTIUM_GET_HEAVY_CAV_HIPPO_ARENA', 'MODIFIER_PLAYER_CITIES_GRANT_UNIT_BY_CLASS', 1, 'BBG_CITY_HAS_HIPPODROME_ARENA_REQSET'),
+    ('BBG_BYZANTIUM_GET_HEAVY_CAV_HIPPO_ZOO', 'MODIFIER_PLAYER_CITIES_GRANT_UNIT_BY_CLASS', 1, 'BBG_CITY_HAS_HIPPODROME_ZOO_REQSET'),
+    ('BBG_BYZANTIUM_GET_HEAVY_CAV_HIPPO_STADIUM', 'MODIFIER_PLAYER_CITIES_GRANT_UNIT_BY_CLASS', 1, 'BBG_CITY_HAS_HIPPODROME_STADIUM_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_BYZANTIUM_GET_HEAVY_CAV_HIPPO_ARENA', 'UnitPromotionClassType', 'PROMOTION_CLASS_HEAVY_CAVALRY'),
+    ('BBG_BYZANTIUM_GET_HEAVY_CAV_HIPPO_ZOO', 'UnitPromotionClassType', 'PROMOTION_CLASS_HEAVY_CAVALRY'),
+    ('BBG_BYZANTIUM_GET_HEAVY_CAV_HIPPO_STADIUM', 'UnitPromotionClassType', 'PROMOTION_CLASS_HEAVY_CAVALRY');
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_CIVILIZATION_DISTRICT_HIPPODROME', 'BBG_BYZANTIUM_GET_HEAVY_CAV_HIPPO_ARENA'),
+    ('TRAIT_CIVILIZATION_DISTRICT_HIPPODROME', 'BBG_BYZANTIUM_GET_HEAVY_CAV_HIPPO_ZOO'),
+    ('TRAIT_CIVILIZATION_DISTRICT_HIPPODROME', 'BBG_BYZANTIUM_GET_HEAVY_CAV_HIPPO_STADIUM');
+
 
 --==================
 -- Gaul
@@ -96,7 +126,7 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) SELECT
 --==============================================================
 --******                RELIGION                          ******
 --==============================================================
---Monks: Gaul CS
+-- Monks: Gaul CS
 
 INSERT INTO TypeTags(Type, Tag) VALUES
 	('ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS', 'CLASS_WARRIOR_MONK');
@@ -105,17 +135,17 @@ INSERT INTO TypeTags(Type, Tag) VALUES
 --******                  WONDER                          ******
 --==============================================================
 
---reduce statue of zeus from 50 to 35
+-- Reduce statue of zeus from 50 to 35
 UPDATE ModifierArguments SET Value=35 WHERE ModifierId='STAUEZEUS_ANTI_CAVALRY_PRODUCTION' AND Name='Amount';
 
 --==============================================================
 --******                  CITY STATE                      ******
 --==============================================================
 
---08/03/24 Venice buff 2 golds per lux instead of 1
+-- 08/03/24 Venice buff 2 golds per lux instead of 1
 UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MINOR_CIV_ANTIOCH_LUXURY_TRADE_ROUTE_BONUS' AND Name='Amount';
 
---08/03/24
+-- 08/03/24
 -- DELETE FROM Modifiers WHERE ModifierId='MINOR_CIV_GENEVA_SCIENCE_AT_PEACE_BONUS';
 -- UPDATE ModifierArguments SET Value='BBG_MINOR_CIV_GENEVA_SCIENCE_PER_GREAT_PEOPLE' WHERE ModifierId='MINOR_CIV_GENEVA_UNIQUE_INFLUENCE_BONUS';
 -- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES

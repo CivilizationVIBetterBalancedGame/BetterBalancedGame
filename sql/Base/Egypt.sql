@@ -2,6 +2,11 @@
 --=                 EGYPT                     =
 --=============================================
 
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_EGYPTIAN_CHARIOT_ARCHER', 'CLASS_MALUS_CITY_CENTER');
+
 -- wonder and district on rivers bonus increased to 25%
 -- 05/03/2024 nerf bonus on river 25% -> 20%
 -- 02/12/24 reduced to 15% with Egypt changes

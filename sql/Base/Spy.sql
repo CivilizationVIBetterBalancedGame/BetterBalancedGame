@@ -1,3 +1,6 @@
 
 -- Listening post and counterspy last 50 turns (Online Speed)
 UPDATE UnitOperations SET Turns=100 WHERE OperationType='UNITOPERATION_SPY_COUNTERSPY' OR OperationType='UNITOPERATION_SPY_LISTENING_POST';
+
+
+UPDATE UnitOperations SET Turns=12 WHERE OperationType='UNITOPERATION_SPY_NEUTRALIZE_GOVERNOR' OR OperationType='UNITOPERATION_SPY_SABOTAGE_PRODUCTION';

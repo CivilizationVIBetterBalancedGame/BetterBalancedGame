@@ -10,7 +10,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_CRISTO_REDENTOR', 'WONDER_GRANT_RELIC_BBG');
 
-UPDATE Buildings SET Cost=1220 WHERE BuildingType='BUILDING_CRISTO_REDENTOR';
+UPDATE Buildings SET Cost=1240 WHERE BuildingType='BUILDING_CRISTO_REDENTOR';
 
 -- Cristo bonus on beach resort reduced to +75%
 -- 30/09/24 en fait non
@@ -377,7 +377,7 @@ UPDATE Building_YieldChanges SET YieldChange=1 WHERE BuildingType='BUILDING_COLO
 -- Jabel Barkal - Increase strategics ressource storage by 20 (online speed).
 
 
--- Chichen Itza - Culture +2 / prod +1 for all jungle in the empire.
+-- Chichen Itza - Culture +1 / prod +1 for all jungle in the empire.
 UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_ADJUST_PLOT_YIELD' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_CULTURE';
 UPDATE Modifiers SET SubjectRequirementSetId='PLOT_HAS_JUNGLE_REQUIREMENTS' WHERE ModifierId='CHICHEN_ITZA_JUNGLE_CULTURE';
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
@@ -389,29 +389,7 @@ UPDATE Modifiers SET SubjectRequirementSetId='PLOT_HAS_JUNGLE_REQUIREMENTS' WHER
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('CHICHEN_ITZA_JUNGLE_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
     ('CHICHEN_ITZA_JUNGLE_PRODUCTION', 'Amount', '1');
---CHICHEN_ITZA_JUNGLE_CULTURE_MODIFIER and CHICHEN_ITZA_PRODUCTION_CULTURE_MODIFIER are not used anymore
-
--- Hagia Sophia - Missionaries/apostles recieve +2 movement and missionaries are 30% cheaper to purchase.
-INSERT INTO Modifiers (ModifierId , ModifierType) VALUES
-	('HAGIA_SOPHIA_GRANT_MISSIONARY_APOSTLE_MOVEMENT' , 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY'),
-	('HAGIA_SOPHIA_ADJUST_MISSIONARY_APOSTLE_MOVEMENT' , 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT'),
-	('HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT' , 'MODIFIER_PLAYER_CITIES_ADJUST_UNIT_PURCHASE_COST');
-INSERT INTO Types (Type, Kind) VALUES
-    ('ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT', 'KIND_ABILITY');
-INSERT INTO TypeTags (Type, Tag) VALUES
-    ('ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT', 'CLASS_RELIGIOUS');
-INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive) VALUES
-    ('ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT', 'LOC_HAGIA_SOPHIA_MOVEMENT_ABILITY', 'LOC_HAGIA_SOPHIA_MOVEMENT_ABILITY', 1);
-INSERT INTO UnitAbilityModifiers (UnitAbilityType, ModifierId) VALUES
-    ('ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT', 'HAGIA_SOPHIA_ADJUST_MISSIONARY_APOSTLE_MOVEMENT');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('HAGIA_SOPHIA_GRANT_MISSIONARY_APOSTLE_MOVEMENT', 'AbilityType', 'ABILITY_HAGIA_SOPHIA_MISSIONARY_APOSTLE_MOVEMENT'),
-    ('HAGIA_SOPHIA_ADJUST_MISSIONARY_APOSTLE_MOVEMENT', 'Amount', '2'),
-    ('HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT', 'UnitType', 'UNIT_MISSIONARY'),
-    ('HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT', 'Amount', '25');
-INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-	('BUILDING_HAGIA_SOPHIA', 'HAGIA_SOPHIA_GRANT_MISSIONARY_APOSTLE_MOVEMENT'),
-	('BUILDING_HAGIA_SOPHIA', 'HAGIA_SOPHIA_ADJUST_MISSIONARY_DISCOUNT');
+-- CHICHEN_ITZA_JUNGLE_CULTURE_MODIFIER and CHICHEN_ITZA_PRODUCTION_CULTURE_MODIFIER are not used anymore
 
 -- Mont St. Michel - Culture +1 for flood plains in the empire. (unless you wanna split this change amongst many dlc recreate the reqs and use abstract queries)
 CREATE TABLE Floodplains_tmp(
@@ -459,7 +437,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId)
 INSERT INTO BuildingModifiers (BuildingType, ModifierId)
 	SELECT 'BUILDING_MONT_ST_MICHEL', 'MONT_ST_MICHEL_FOOD_'||Floodplains_tmp.FloodplainType
 	FROM Floodplains_tmp;
---DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MONT_ST_MICHEL' AND ModifierId='MONT_ST_MICHEL_GRANT_MARTYR'; (We weren't supposed to drop Martyr)
+-- DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MONT_ST_MICHEL' AND ModifierId='MONT_ST_MICHEL_GRANT_MARTYR'; (We weren't supposed to drop Martyr)
 DROP TABLE Floodplains_tmp;
 
 -- Great Zimbabwe - Give 2 trader capacity instead of 1
@@ -484,11 +462,11 @@ UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_CITIES_ADJUST_TRADE_ROUTE_YIE
 -- Golden Gate Bridge
 
 -- Hermitage - GW inside double their tourism yields
---INSERT INTO Modifiers (ModifierId , ModifierType, Permanent) VALUES
+-- INSERT INTO Modifiers (ModifierId , ModifierType, Permanent) VALUES
 --	('HERMITAGE_DOUBLE_TOURISM_GREAT_WORK', 'MODIFIER_PLAYER_ADJUST_GREAT_WORK_OBJECT_TOURISM', 1);
---INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 --    ('HERMITAGE_DOUBLE_TOURISM_GREAT_WORK', 'Amount', '100');
---INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+-- INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 --	('BUILDING_HERMITAGE', 'HERMITAGE_DOUBLE_TOURISM_GREAT_WORK');
 INSERT OR IGNORE INTO Modifiers(ModifierId, ModifierType) VALUES
 	('THEMED_YIELD_MODIFIER', 'MODIFIER_PLAYER_ADJUST_THEMED_ALL_YIELDS'),
@@ -523,3 +501,62 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_COLOSSUS', 'COLOSSUS_GOLD_TO_INCOMING_FOREIGN'),
 	('BUILDING_COLOSSUS', 'COLOSSUS_GOLD_FROM_INCOMING_FOREIGN');
+
+-- 30/06/25 Wonder cost balancing
+-- Hanging Gardens : 90 > 110
+UPDATE Buildings SET Cost=220 WHERE BuildingType='BUILDING_HANGING_GARDENS';
+-- Great Library : 200 > 250
+UPDATE Buildings SET Cost=500 WHERE BuildingType='BUILDING_GREAT_LIBRARY';
+-- Forbidden City : 460 > 530
+UPDATE Buildings SET Cost=1060 WHERE BuildingType='BUILDING_FORBIDDEN_CITY';
+-- Bolshoi Theatre : 620 > 680
+UPDATE Buildings SET Cost=1360 WHERE BuildingType='BUILDING_BOLSHOI_THEATRE';
+-- Oxford University : 620 > 725
+UPDATE Buildings SET Cost=1450 WHERE BuildingType='BUILDING_OXFORD_UNIVERSITY';
+-- Big Ben : 725 > 810
+UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_BIG_BEN';
+-- Hermitage : 725 > 680
+UPDATE Buildings SET Cost=1360 WHERE BuildingType='BUILDING_HERMITAGE';
+-- Broadway : 810 > 725
+UPDATE Buildings SET Cost=1450 WHERE BuildingType='BUILDING_BROADWAY';
+-- Sydney Opera House : 925 > 810
+UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_SYDNEY_OPERA_HOUSE';
+
+
+-- 30/06/25 Hagia Sofia : Must be built next to a HS, need a religion Shrine give 2 science
+DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_HAGIA_SOPHIA';
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_HAGIA_SOFIA_SCIENCE_SHRINE', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_YIELD_CHANGE');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_HAGIA_SOFIA_SCIENCE_SHRINE', 'BuildingType', 'BUILDING_SHRINE'),
+	('BBG_HAGIA_SOFIA_SCIENCE_SHRINE', 'YieldType', 'YIELD_SCIENCE'),
+	('BBG_HAGIA_SOFIA_SCIENCE_SHRINE', 'Amount', '2');
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+	('BUILDING_HAGIA_SOPHIA', 'BBG_HAGIA_SOFIA_SCIENCE_SHRINE');
+
+
+
+-- 30/06/25 Terracota no longer work on naval and air units
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET' WHERE ModifierId='TERRACOTTA_ARMY_LEVEL_UP_UNITS';
+
+INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
+	('BBG_REQUIRES_UNIT_IS_NOT_NAVAL', 'REQUIREMENT_UNIT_DOMAIN_MATCHES', 1),
+	('BBG_REQUIRES_UNIT_IS_NOT_AIR', 'REQUIREMENT_UNIT_DOMAIN_MATCHES', 1);
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+	('BBG_REQUIRES_UNIT_IS_NOT_NAVAL', 'UnitDomain', 'DOMAIN_SEA'),
+	('BBG_REQUIRES_UNIT_IS_NOT_AIR', 'UnitDomain', 'DOMAIN_AIR');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+	('BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+	('BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET', 'BBG_REQUIRES_UNIT_IS_NOT_NAVAL'),
+	('BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET', 'BBG_REQUIRES_UNIT_IS_NOT_AIR');
+
+
+-- 28/07/25 Sydney Opera House grants 2 rockband
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_OPERA_SYDNEY_ROCKBAND', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_OPERA_SYDNEY_ROCKBAND', 'UnitType', 'UNIT_ROCK_BAND'),
+	('BBG_OPERA_SYDNEY_ROCKBAND', 'Amount', 2);
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+	('BUILDING_SYDNEY_OPERA_HOUSE', 'BBG_OPERA_SYDNEY_ROCKBAND');

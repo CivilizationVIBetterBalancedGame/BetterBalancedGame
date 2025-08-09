@@ -52,7 +52,7 @@ INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
 INSERT INTO Requirements(RequirementId , RequirementType)
     SELECT 'BBG_PLAYER_IS_' || LeaderType || '_REQUIREMENT' , 'REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES' FROM Leaders WHERE InheritFrom='LEADER_DEFAULT';
 INSERT INTO RequirementArguments(RequirementId , Name, Value)
-    SELECT 'BBG_PLAYER_IS_' || LeaderType || '_REQUIREMENT' , 'LeaderType', 'LEADER_CHANDRAGUPTA' FROM Leaders WHERE InheritFrom='LEADER_DEFAULT';
+    SELECT 'BBG_PLAYER_IS_' || LeaderType || '_REQUIREMENT' , 'LeaderType', LeaderType FROM Leaders WHERE InheritFrom='LEADER_DEFAULT';
 
 
 -- Create requirements for each ressources
