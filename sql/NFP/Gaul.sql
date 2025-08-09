@@ -15,8 +15,9 @@ UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRO
 -- 7/3/2021: Beta: Remove Apprenticeship free tech
 DELETE FROM DistrictModifiers WHERE DistrictType='DISTRICT_OPPIDUM' AND ModifierId='OPPIDUM_GRANT_TECH_APPRENTICESHIP';
 
--- Delay culture to bronze working
-UPDATE Modifiers SET OwnerRequirementSetId='BBG_UTILS_PLAYER_HAS_TECH_BRONZE_WORKING' WHERE ModifierId='GAUL_MINE_CULTURE';
+    
+-- Moved to Vercingetorix, so deleted here
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_GAUL' AND ModifierId='GAUL_MINE_CULTURE';
 
 -- 16/04/23 move culture bomb from mine to oppidum
 DELETE FROM TraitModifiers WHERE ModifierId='GAUL_MINE_CULTURE_BOMB';
