@@ -11,8 +11,7 @@ UPDATE ModifierArguments SET Value=1 WHERE ModifierId='RAVEN_LEVY_MOVEMENT';
 -- Levy combat to +3
 UPDATE ModifierArguments SET VALUE=3 WHERE ModifierId='RAVEN_LEVY_COMBAT' AND Name='Amount';
 
-DELETE FROM UnitAbilityModifiers WHERE ModifierId='RAVEN_LEVY_MOVEMENT';
-
+DELETE FROM UnitAbilityModifiers WHERE ModifierId='RAVEN_LEVY_COMBAT';
 
 -- Huszar +2 by suzed city-states
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
