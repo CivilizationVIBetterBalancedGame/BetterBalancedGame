@@ -3,8 +3,13 @@
 -- ========================================================================
 
 -- 30/07/25 Vercingetorix gets the culture on mine
-UPDATE TraitModifiers SET TraitType='TRAIT_LEADER_SUK_GALLIC_WAR' WHERE ModifierId='GAUL_MINE_CULTURE';
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_SUK_GALLIC_WAR', 'GAUL_MINE_CULTURE');
 
+-- Delay culture to bronze working
+UPDATE Modifiers SET OwnerRequirementSetId='BBG_UTILS_PLAYER_HAS_TECH_BRONZE_WORKING' WHERE ModifierId='GAUL_MINE_CULTURE';
+
+    
 -- 30/07/25 envoy from great engineer
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
     ('BBG_UNIT_IS_GREAT_ENGINEER', 'REQUIREMENT_GREAT_PERSON_TYPE_MATCHES');

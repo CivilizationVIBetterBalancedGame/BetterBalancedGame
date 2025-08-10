@@ -470,23 +470,23 @@
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Egyptian) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MEDITERRANEAN_EXPANSION2_DESCRIPTION" Language="ru_RU">
-			<Text>Ваши [ICON_TradeRoute] Торговые Пути к другим цивилизациям приносят +4 [ICON_Gold] Золота Египту. [ICON_TradeRoute] Торговые Пути других цивилизаций к Египту приносят им +1 [ICON_Food] Пищи и +2 [ICON_Gold] Золота Египту. Торговля с союзниками приносит Египту в два раза больше очков союза.[NEWLINE][NEWLINE]+15% к [ICON_PRODUCTION] производству [ICON_DISTRICT_COMMERCIAL_HUB] центров коммерции и [ICON_DISTRICT_INDUSTRIAL_ZONE] промышленных зон, если город основан на реке.</Text>
+			<Text>Ваши [ICON_TradeRoute] Торговые Пути к другим цивилизациям приносят +4 [ICON_Gold] Золота Египту. [ICON_TradeRoute] Торговые Пути других цивилизаций к Египту приносят им +1 [ICON_Food] Пищи и +2 [ICON_Gold] Золота Египту. Торговля с союзниками приносит Египту в два раза больше очков союза.[NEWLINE][NEWLINE]+15% к [ICON_PRODUCTION] производству центров коммерции и театральных площадей, если город основан на реке.</Text>
 		</Replace>
 		<!-- = leader ability (Egypt, Cleopatra Ptolemaic) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CLEOPATRA_ALT_DESCRIPTION" Language="ru_RU">
-			<Text>После вступления в античность ваши боевые юниты не получают штрафа за перемещение и атаку через реку.[NEWLINE][NEWLINE]+15% к [ICON_PRODUCTION] производству [ICON_DISTRICT_CAMPUS] кампусов и [ICON_DISTRICT_ENCAMPMENT] военных лагерей, если город основан на реке, также эти районы получают +2 [Icon_Science] науки при соседстве с рекой (в качестве бонуса соседства).</Text>
+			<Text>После вступления в античность ваши боевые юниты не получают штрафа за перемещение и атаку через реку.[NEWLINE][NEWLINE]+15% к [ICON_PRODUCTION] производству кампусов и военных лагерей, если город основан на реке, также эти районы получают +2 [Icon_Science] науки при соседстве с рекой (в качестве бонуса соседства).</Text>
 		</Replace>
 		<!-- Reverted in BBG 6.4c
-<Replace Tag="LOC_BBG_PTOLE_BONUSES_ON_FLOODPLAIN_ABILITY_DESC" Language="ru_RU">
-<Text>+5 [ICON_STRENGTH] боевой мощи при сражении на поймах рек.</Text>
-</Replace
+		<Replace Tag="LOC_BBG_PTOLE_BONUSES_ON_FLOODPLAIN_ABILITY_DESC" Language="ru_RU">
+		<Text>+5 [ICON_STRENGTH] боевой мощи при сражении на поймах рек.</Text>
+		</Replace
 		>-->
 		<Replace Tag="LOC_BBG_PTOLE_NO_MALUSES_ON_RIVER_ABILITY_DESC" Language="ru_RU">
 			<Text>Нет штрафа за атаку и перемещение через реку после вступления в античность.</Text>
 		</Replace>
 		<!-- = leader ability (Ramses II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAMSES_DESCRIPTION" Language="ru_RU">
-			<Text>После постройки чудес получает [ICON_CULTURE] культуру в объеме 25% от стоимости строительства; после постройки зданий - 10%, повышается до 20%, если в городе есть чудо.[NEWLINE][NEWLINE] Священные места приносят +1 [ICON_PRODUCTION], если построены на реке.[NEWLINE]+15% к [ICON_PRODUCTION] производству [ICON_DISTRICT_HOLYSITE] священных мест и [ICON_DISTRICT_THEATER] театральных площадей, если город основан на реке.</Text>
+			<Text>После постройки чудес получает [ICON_CULTURE] культуру в объеме 25% от стоимости строительства; после постройки зданий - 10%, повышается до 20%, если в городе есть чудо.[NEWLINE][NEWLINE] Священные места приносят +1 [ICON_PRODUCTION], если построены на реке.[NEWLINE]+15% к [ICON_PRODUCTION] производству священных мест и промышленных зон, если город основан на реке.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="ru_RU">
@@ -624,10 +624,13 @@
 		</Replace>
 		<!-- = leader ability Ambiorix = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="ru_RU">
-			<Text>Юниты ближнего боя, а также антикавалерийские юниты получают +1 [ICON_Strength] боевой мощи за каждый соседний боевой гальский юнит. После исследования обработки бронзы получает культуру в размере 25% от стоимости создания антикавалерийского или юнита ближнего боя. </Text>
+			<Text>Юниты ближнего боя, а также антикавалерийские юниты получают +1 [ICON_Strength] боевой мощи за каждый соседний боевой гальский юнит. После исследования обработки бронзы получает культуру в размере 25% от стоимости создания боевых юнитов. </Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="ru_RU">
 			<Text>Получает +1 [ICON_Strength] боевой мощи за каждый соседний боевой гальский юнит. (Царь Эбуронов)</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="ru_RU">
+			<Text>Царь эбуронов</Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_GAUL_GAESATAE_DESCRIPTION" Language="ru_RU">
@@ -639,7 +642,8 @@
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="ru_RU">
 			<Text>Уникальный район Галлии, заменяющий промышленную зону. После постройки активирует культурный захват клеток без владельца. Доступен раньше, дешевле в строительстве. Имеет дальнобойную атаку, если в городе построены стены.[NEWLINE][NEWLINE]+2 [ICON_Production] производства за соседство с каменоломнями и стратегическими ресурсами.</Text>
-		</Replace>		
+		</Replace>
+		
 		<!-- Leader Vercingetorix-->
 		<Replace Tag="LOC_LEADER_SUK_VERCINGETORIX_NAME" Language="ru_RU">
 			<Text>Верцингеториг</Text>
@@ -747,7 +751,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAVEN_KING_DESCRIPTION" Language="ru_RU">
-			<Text>Нанятые у Городов-государств юниты получают +1 [ICON_Movement] очко перемещения. Улучшение нанятых юнитов стоит на 75% дешевле в [ICON_GOLD] золоте и ресурсах. При выкупе войск Города-государства вы получаете в нем 1 [ICON_ENVOY] посла.</Text>
+			<Text>Нанятые у Городов-государств юниты получают +3 [ICON_STRENGTH] боевой мощи. Улучшение нанятых юнитов стоит на 75% дешевле в [ICON_GOLD] золоте и ресурсах. При выкупе войск Города-государства вы получаете в нем 1 [ICON_ENVOY] посла.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_HUNGARY_BLACK_ARMY_DESCRIPTION" Language="ru_RU">
@@ -839,7 +843,7 @@
 		</Replace>
 		<!-- = leader ability (Gitarja) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_EXALTED_GODDESS_DESCRIPTION" Language="ru_RU">
-			<Text>Морские юниты можно покупать за [ICON_FAITH] веру. Религиозные юниты не тратят очки перемещения при погрузке на корабль и выгрузку с корабля. Районы и центры городов рядом с побережьем или озером приносят +1 [ICON_Faith] веры (бонус повышается до +2 после открытия судостроения).[NEWLINE]Может покупать здания в гаванях за [ICON_Faith] веру.</Text>
+			<Text>Морские юниты можно покупать за [ICON_FAITH] веру. Религиозные юниты не тратят очки перемещения при погрузке на корабль и выгрузку с корабля. Центры городов рядом с побережьем или озером приносят +2 [ICON_Faith] веры, а районы на таких клетках - +1 [ICON_Faith] веры (бонус повышается до +2 после открытия судостроения).[NEWLINE]Может покупать здания в гаванях за [ICON_Faith] веру.</Text>
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_KAMPUNG_DESCRIPTION" Language="ru_RU">
@@ -2722,6 +2726,7 @@
 		<Replace Tag="LOC_CITIZEN_SUK_SWAHILI_FEMALE_10" Language="ru_RU">
 			<Text>Джаха</Text>
 		</Replace>
+
 		<Replace Tag="LOC_CITIZEN_SUK_SWAHILI_MODERN_MALE_1" Language="ru_RU">
 			<Text>Юсуф</Text>
 		</Replace>
@@ -2752,6 +2757,7 @@
 		<Replace Tag="LOC_CITIZEN_SUK_SWAHILI_MODERN_MALE_10" Language="ru_RU">
 			<Text>Асим</Text>
 		</Replace>
+
 		<Replace Tag="LOC_CITIZEN_SUK_SWAHILI_MODERN_FEMALE_1" Language="ru_RU">
 			<Text>Шукура</Text>
 		</Replace>
@@ -2783,6 +2789,7 @@
 			<Text>Далили</Text>
 		</Replace>
 
+
 		<!-- Rivers etc -->
 		<Replace Tag="LOC_NAMED_RIVER_RUVUMA_NAME" Language="ru_RU">
 			<Text>Река Рувума</Text>
@@ -2799,6 +2806,7 @@
 		<Replace Tag="LOC_NAMED_RIVER_SHEBELLE_NAME" Language="ru_RU">
 			<Text>Река Шабелле</Text>
 		</Replace>
+
 		<Replace Tag="LOC_NAMED_MOUNTAIN_USAMBARA_NAME" Language="ru_RU">
 			<Text>Усамбарские горы</Text>
 		</Replace>
@@ -2843,6 +2851,13 @@
 		<!-- === THEOTIHUACAN === -->
 		
 	
+
+
+	
+
+
+
+
 
 
 
@@ -3746,7 +3761,7 @@
 			<Text>+1 [ICON_FOOD] пищи и +1 [ICON_CULTURE] культуры на всех клетках поймы в ваших городах.[NEWLINE]Все ваши апостолы получают способность «Мученик» вдобавок к обычной способности.[NEWLINE][NEWLINE]Можно построить только в пойме реки или на болоте.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_UNIVERSITY_SANKORE_DESCRIPTION" Language="ru_RU">
-			<Text>+1 [ICON_TradeRoute] доступный торговый путь. Ваши торговые пути получают +1 [ICON_SCIENCE] науки и +2 [ICON_GOLD] золота.[NEWLINE][NEWLINE]Можно построить только в пустыне или на пустынных холмах рядом с кампусом, в котором есть университет.</Text>
+			<Text>[ICON_TradeRoute] Торговые пути, проложенные к этому городу другими державами, приносят им +1 [ICON_SCIENCE] ед. науки и +1 [ICON_GOLD] ед. золота. +2 [ICON_SCIENCE] ед. науки за каждый [ICON_TradeRoute] торговый путь к этому городу. Внутренние [ICON_TradeRoute] торговые пути дают городу дополнительно +1 [ICON_FAITH] ед. веры. +1 [ICON_TradeRoute] доступный торговый путь.[NEWLINE]Ваши торговые пути получают +1 [ICON_SCIENCE] науки и +2 [ICON_GOLD] золота.[NEWLINE][NEWLINE]Можно построить только в пустыне или на пустынных холмах рядом с кампусом, в котором есть университет.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_GREAT_ZIMBABWE_DESCRIPTION" Language="ru_RU">
 			<Text>+2 [ICON_TradeRoute] доступных торговых пути. После постройки в городе появляются два торговца.[NEWLINE][NEWLINE]Ваши [ICON_TradeRoute] торговые пути из этого города получают +2 [ICON_Gold] золота за каждый бонусный ресурс в пределах 3 клеток от города.[NEWLINE][NEWLINE]Для постройки рядом должен быть центр коммерции, содержащий рынок, и [ICON_RESOURCE_CATTLE] скот.</Text>
@@ -4002,7 +4017,9 @@
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="ru_RU">
 			<Text>«Барабаны войны»: каждый нанятый великий человек прибавляет +1 очко к счету эпохи. При выборе в начале золотого века даёт +2 ед. каждого из изученных стратегических ресурсов в ход. +15% [ICON_Production] к производству военных юнитов. Каждый поверженный боевой юнит приносит [ICON_Culture] Культуру, равную 80% [ICON_Strength] боевой мощи побежденного юнита (на обычной скорости). Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше. Военные лагеря и здания в них приносят +1 [ICON_Production] производства. Эпохи от Античности до Возрождения.</Text>
 		</Replace>
-		<Text>Барабаны войны – золотой век:[NEWLINE]+2 ед. [ICON_RESOURCE_HORSES] лошадей, [ICON_RESOURCE_IRON] железа и [ICON_RESOURCE_NITER] селитры в ход после их изучения. +15% [ICON_Production] к производству военных юнитов. Каждый поверженный боевой юнит приносит [ICON_Culture] Культуру, равную 80% [ICON_Strength] боевой мощи побежденного юнита (на обычной скорости). Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше. Военные лагеря и здания в них приносят +1 [ICON_Production] производства.</Text>
+		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="ru_RU">
+			<Text>Барабаны войны – золотой век:[NEWLINE]+2 ед. [ICON_RESOURCE_HORSES] лошадей, [ICON_RESOURCE_IRON] железа и [ICON_RESOURCE_NITER] селитры в ход после их изучения. +15% [ICON_Production] к производству военных юнитов. Каждый поверженный боевой юнит приносит [ICON_Culture] Культуру, равную 80% [ICON_Strength] боевой мощи побежденного юнита (на обычной скорости). Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше. Военные лагеря и здания в них приносят +1 [ICON_Production] производства.</Text>
+		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="ru_RU">
 			<Text>Бонус устремления «Барабаны войны»:[NEWLINE]Каждый нанятый великий человек прибавляет +1 очко к счету эпохи.</Text>
 		</Replace>
@@ -4130,79 +4147,6 @@
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_GOLDEN_AGE" Language="ru_RU">
 			<Text>«Война роботов» в золотом веке:[NEWLINE]Создает ОБР в столице, если изучена технология Роботехника. +25% [Icon_Production] производства при создании ОБР. 3 ед. [ICON_Resource_Uranium] урана за ход. [ICON_Resource_Uranium] Урановые рудники дают +1 ед. ресурса за ход.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_NORMAL_AGE" Language="ru_RU">
-			<Text>Бонус устремления «Война роботов»:[NEWLINE]Каждый уничтоженный с помощью ОБР юнит, кроме варваров, прибавляет 1 очко к счету эпохи.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_DARK_AGE" Language="ru_RU">
-			<Text>Бонус устремления «Война роботов»:[NEWLINE]Каждый уничтоженный с помощью ОБР юнит, кроме варваров, прибавляет 1 очко к счету эпохи.</Text>
-		</Replace>
-
-
-		<!-- == Wish You Were Here - Жаль, что тебя здесь нет == -->
-
-		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_12" Language="ru_RU">
-			<Text>«Жаль, что тебя здесь нет»: каждый обнаруженный артефакт прибавляет +1 очко к счету эпохи. Города с [ICON_Governor] губернаторами получают +50% [ICON_Tourism] туризма от чудес света. Каждый город производит +2 очка [ICON_GreatMusician] Великого Музыканта, число удваивается, если в городе есть Центр вещания. Города с национальным парком получают +1 престижа на всех клетках.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_TOURISM" Language="ru_RU">
-			<Text>Жаль, что тебя здесь нет</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_TOURISM_BONUS_GOLDEN_AGE" Language="ru_RU">
-			<Text>Жаль, что тебя здесь нет – золотой век:[NEWLINE]Города с [ICON_Governor] губернаторами получают +50% [ICON_Tourism] туризма от чудес света. Каждый город производит +2 очка [ICON_GreatMusician] Великого Музыканта, число удваивается, если в городе есть Центр вещания. Города с национальным парком получают +1 престижа на всех клетках.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_TOURISM_BONUS_NORMAL_AGE" Language="ru_RU">
-			<Text>Бонус устремления «Жаль, что тебя здесь нет»:[NEWLINE]Каждый обнаруженный артефакт прибавляет +1 очко к счету эпохи.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_TOURISM_BONUS_DARK_AGE" Language="ru_RU">
-			<Text>Бонус устремления «Жаль, что тебя здесь нет»:[NEWLINE]Каждый обнаруженный артефакт прибавляет +1 очко к счету эпохи.</Text>
-		</Replace>
-
-
-		<!-- == Bodyguard of Lies - Под охраной лжи == -->
-
-		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_11" Language="ru_RU">
-			<Text>«Под охраной лжи»: каждая успешная шпионская операция в городе других цивилизаций прибавляет 1 очко к счету эпохи. Шпионы мгновенно обосновываются во всех вражеских городах. Время выполнения операций против врагов сокращается на 25%.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_ESPIONAGE" Language="ru_RU">
-			<Text>Под охраной лжи</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_ESPIONAGE_BONUS_GOLDEN_AGE" Language="ru_RU">
-			<Text>Хранитель лжи – золотой век:[NEWLINE]Шпионы мгновенно обосновываются во вражеском городе. Время выполнения операций против других держав сокращается на 25%.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_ESPIONAGE_BONUS_NORMAL_AGE" Language="ru_RU">
-			<Text>Бонус устремления «Под охраной лжи»:[NEWLINE]Каждая успешная шпионская операция в иностранных городах прибавляет +1 очко к счету эпохи.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_ESPIONAGE_BONUS_DARK_AGE" Language="ru_RU">
-			<Text>Бонус устремления «Под охраной лжи»:[NEWLINE]Каждая успешная шпионская операция в иностранных городах прибавляет +1 очко к счету эпохи.</Text>
-		</Replace>
-
-		<!-- == Sky and Stars - Небо и звезды == -->
-
-		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_10" Language="ru_RU">
-			<Text>«Небо и звезды»: каждый построенный аэродром прибавляет +1 очко к счету эпохи. Каждый нанятый (заработанный или приобретенный) [ICON_GreatPerson] великий человек прибавляет +1 очко к счету эпохи.При выборе в начале золотого века открывает [ICON_TechBoosted] озарения для исследования Умных материалов и Межпланетного полета. +100% очков опыта для всех воздушных юнитов. Алюминиевые рудники приносят на 2 [Icon_RESOURCE_ALUMINUM] алюминия больше.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL" Language="ru_RU">
-			<Text>Небо и звезды</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL_BONUS_GOLDEN_AGE" Language="ru_RU">
-			<Text>Небо и звезды – золотой век:[NEWLINE]Открывает 4 случайных [ICON_TechBoosted] озарения Информационной Эры или Эпохи Будущего. +100% очков опыта для всех воздушных юнитов. Алюминиевые рудники приносят на 2 [Icon_RESOURCE_ALUMINUM] алюминия больше.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL_BONUS_NORMAL_AGE" Language="ru_RU">
-			<Text>Бонус устремления «Небо и звезды»:[NEWLINE]Каждый построенный аэродром прибавляет +1 очко к счету эпохи. Каждый заработанный или приобретенный [ICON_GreatPerson] великий человек прибавляет +1 очко к счету эпохи.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL_BONUS_DARK_AGE" Language="ru_RU">
-			<Text>Бонус устремления «Небо и звезды»:[NEWLINE]Каждый построенный аэродром прибавляет +1 очко к счету эпохи. Каждый заработанный или приобретенный [ICON_GreatPerson] великий человек прибавляет +1 очко к счету эпохи.</Text>
-		</Replace>
-
-		<!-- == Automaton Warfare  - Война роботов == -->
-		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_13" Language="ru_RU">
-			<Text>«Война роботов»: каждый юнит (кроме варваров), уничтоженный с помощью ОБР, прибавляет 1 очко к счету эпохи. При выборе в начале золотого века дает одного ОБР в столице. Дает 3 [ICON_Resource_Uranium] ед. урана за ход. [ICON_Resource_Uranium] Урановые рудники дают +1 ед. ресурса за ход. Информационная эра и Эпоха будущего.</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON" Language="ru_RU">
-			<Text>Война роботов</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_GOLDEN_AGE" Language="ru_RU">
-			<Text>«Война роботов» в золотом веке:[NEWLINE]Создает ОБР в столице. 3 ед. [ICON_Resource_Uranium] урана за ход. [ICON_Resource_Uranium] Урановые рудники дают +1 ед. ресурса за ход.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_NORMAL_AGE" Language="ru_RU">
 			<Text>Бонус устремления «Война роботов»:[NEWLINE]Каждый уничтоженный с помощью ОБР юнит, кроме варваров, прибавляет 1 очко к счету эпохи.</Text>
@@ -4453,14 +4397,6 @@
 		<Replace Tag="LOC_POLICY_BATTLEFIELD_MEDICINE_DESCRIPTION" Language="ru_RU">
 			<Text>+10 к лечению наземных юнитов на недружественной территории.</Text>
 		</Replace>
-
-		<!-- = Полевая медицина, BBG 6.5 = -->
-		<Row Tag="LOC_POLICY_BATTLEFIELD_MEDICINE_NAME" Language="ru_RU">
-			<Text>Полевая медицина</Text>
-		</Row>
-		<Row Tag="LOC_POLICY_BATTLEFIELD_MEDICINE_DESCRIPTION" Language="ru_RU">
-			<Text>+10 к лечению наземных юнитов на недружественной территории.</Text>
-		</Row>
 
 		<Replace Tag="LOC_POLICY_RETINUES_DESCRIPTION" Language="ru_RU">
 			<Text>Уменьшение стоимости в ресурсах на 50% при постройке или улучшении юнитов.</Text>
@@ -4745,8 +4681,6 @@
 		<Replace Tag="LOC_BBG_METOR_GOODIES_FREE_TECH_DESC" Language="ru_RU">
 			<Text>[COLOR_FLOAT_SCIENCE]2 бесплатных ускорения технологий![ENDCOLOR]</Text>
 		</Replace>
-
-
 
 
 		<!-- === FRONTEND, MENU AND VICTORIES === -->
