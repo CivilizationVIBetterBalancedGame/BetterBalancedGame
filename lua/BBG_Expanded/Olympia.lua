@@ -100,7 +100,6 @@ function JFD_MacedonOlympias_OnPlayerGaveInfluenceToken(playerID, otherPlayerID,
 	or otherLeaderInfo.InheritFrom == "LEADER_MINOR_CIV_MILITARISTIC" 
 	or otherLeaderType == "LEADER_MINOR_CIV_MILITARISTIC") then 
 		numGGP = numGGP*2
-		numGPP = numGPP*2
 	end
 	player:GetGreatPeoplePoints():ChangePointsTotal(unitGreatPersonClassGeneralID, numGGP)
 	player:GetGreatPeoplePoints():ChangePointsTotal(unitGreatPersonClassProphetID, numGPP)
