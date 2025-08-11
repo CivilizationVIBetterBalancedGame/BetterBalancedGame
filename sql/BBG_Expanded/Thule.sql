@@ -92,8 +92,11 @@ DELETE FROM UnitUpgrades WHERE Unit='UNIT_LIME_THULE_DOGSLED';
 INSERT INTO UnitUpgrades (Unit, UpgradeUnit) VALUES
     ('UNIT_LIME_THULE_DOGSLED', 'UNIT_SKIRMISHER');
 
-UPDATE Units SET Combat=10, RangedCombat=10, Range=1, Cost=24, BuildCharges=1, Maintenance=0, PrereqTech=NULL WHERE UnitType='UNIT_LIME_THULE_DOGSLED';
+UPDATE Units SET BaseSightRange=2, Combat=10, RangedCombat=10, Range=1, Cost=30, BuildCharges=1, Maintenance=0, PrereqTech=NULL WHERE UnitType='UNIT_LIME_THULE_DOGSLED';
 DELETE FROM UnitAbilityModifiers WHERE UnitAbilityType='ABIL_LIME_THULE_DOGSLED';
+DELETE FROM UnitAbilities WHERE UnitAbilityType='ABIL_LIME_THULE_DOGSLED';
+DELETE FROM TypeTags WHERE Type='ABIL_LIME_THULE_DOGSLED' AND Tag='CLASS_LIME_THULE_DOGSLED';
+DELETE FROM Types WHERE Type='ABIL_LIME_THULE_DOGSLED';
 
 INSERT INTO Improvement_ValidBuildUnits (ImprovementType, UnitType) VALUES
     ('IMPROVEMENT_LIME_THULE_WBH', 'UNIT_LIME_THULE_DOGSLED');
