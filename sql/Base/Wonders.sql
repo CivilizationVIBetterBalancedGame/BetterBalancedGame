@@ -550,3 +550,13 @@ INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 	('BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET', 'BBG_REQUIRES_UNIT_IS_NOT_NAVAL'),
 	('BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET', 'BBG_REQUIRES_UNIT_IS_NOT_AIR');
+
+
+-- 28/07/25 Sydney Opera House grants 2 rockband
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_OPERA_SYDNEY_ROCKBAND', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_OPERA_SYDNEY_ROCKBAND', 'UnitType', 'UNIT_ROCK_BAND'),
+	('BBG_OPERA_SYDNEY_ROCKBAND', 'Amount', 2);
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+	('BUILDING_SYDNEY_OPERA_HOUSE', 'BBG_OPERA_SYDNEY_ROCKBAND');

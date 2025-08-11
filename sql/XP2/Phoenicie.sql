@@ -22,3 +22,10 @@ UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_GOL
 -- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
 INSERT INTO TypeTags (Type, Tag) VALUES
     ('UNIT_PHOENICIA_BIREME', 'CLASS_MALUS_CITY_CENTER');
+
+
+
+-- 31/07/25 Delete project because bug
+DELETE FROM Projects WHERE ProjectType='PROJECT_COTHON_CAPITAL_MOVE';
+
+DELETE FROM TraitModifiers WHERE ModifierId='DISTRICT_COMPLETE_MOVE_CAPITAL';
