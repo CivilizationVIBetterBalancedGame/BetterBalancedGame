@@ -43,7 +43,7 @@ UPDATE Units SET Range=4 WHERE UnitType='UNIT_MISSILE_CRUISER';
 UPDATE Units SET Combat=80 WHERE UnitType='UNIT_AT_CREW';
 UPDATE Units SET Combat=80, BaseMoves=3 WHERE UnitType='UNIT_INFANTRY';
 UPDATE Units SET Combat=65, RangedCombat=75 WHERE UnitType='UNIT_BATTLESHIP';
---03/10/22: movement from 6 to 5
+-- 03/10/22: movement from 6 to 5
 UPDATE Units SET BaseMoves=5 WHERE UnitType='UNIT_HELICOPTER';
 -- 20/12/23 movement from 2 to 3 machine gun
 UPDATE Units SET BaseMoves=3 WHERE UnitType='UNIT_MACHINE_GUN';
@@ -64,7 +64,7 @@ UPDATE ModifierArguments SET Value='20' WHERE ModifierId='GDR_AA_DEFENSE' AND Na
 -- UPDATE Units SET PurchaseYield=NULL WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
 
 
---=== RECON UNITS ===--
+-- === RECON UNITS ===--
 -- 1 sight after ranger
 UPDATE Units SET BaseSightRange=3 WHERE UnitType IN ('UNIT_RANGER', 'UNIT_SPEC_OPS');
 -- Upgrade ReconUnit strengh
@@ -120,24 +120,9 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
     ('BATTLECRY_OPPONENT_REQUIREMENTS', 'BBG_OPPONENT_IS_NIHANG');
 
 -- 16/12/23 Mobile SAM buff 110 anti air
--- Start of the -5 vs planes but didn't find an adapted modifier
--- INSERT INTO Tags VALUES
---     ('BBG_CLASS_MOBILE_SAM', 'ABILITY_CLASS');
--- INSERT INTO Types (Type, Kind) VALUES 
---     ('BBG_ABILITY_MINUS_CS_PLANES', 'KIND_ABILITY');
--- INSERT INTO TypesTags VALUES
---     ('UNIT_MOBILE_SAM', 'BBG_CLASS_MOBILE_SAM'),
---     ('BBG_ABILITY_MINUS_PLANES', 'BBG_CLASS_MOBILE_SAM');
-
--- INSERT INTO UnitAbilitiesModifiers (UnitAbilityType, UnitAbilityModifiers) VALUES
---     ('BBG_ABILITY_MINUS_CS_PLANES', 'BBG_MODIFIER_MINUS_CS_PLANES');
--- INSERT INTO UnitAbilities (UnitAbilityType, Name, Description) VALUES
---     ('BBG_ABILITY_MINUS_CS_PLANES', 'LOC_BBG_ABILITY_MINUS_CS_PLANES_NAME', 'LOC_BBG_ABILITY_MINUS_CS_PLANES_DESC');
-
--- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
---     ('BBG_MODIFIER_MINUS_CS_PLANES', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_REQUIREMENT_')
 -- 29/03/25 5 movement (from 3)
-UPDATE Units SET AntiAirCombat=110, BaseMoves=5 WHERE UnitType='UNIT_MOBILE_SAM';
+-- 30/06/25 SAM 125 anti air (stop all nukes)
+UPDATE Units SET AntiAirCombat=125, BaseMoves=5 WHERE UnitType='UNIT_MOBILE_SAM';
 
 
 -- 16/12/22 Obsolescence
@@ -279,6 +264,11 @@ UPDATE Units SET BaseSightRange=BaseSightRange+1 WHERE PromotionClass='PROMOTION
     -- UNIT_NORWEGIAN_LONGSHIP
     -- UNIT_PHOENICIA_BIREME
     -- UNIT_BABYLONIAN_SABUM_KIBITTUM
+    -- UNIT_HEAVY_CHARIOT
+    -- UNIT_ARCHER
+    -- UNIT_EGYPTIAN_CHARIOT_ARCHER
+    -- UNIT_NUBIAN_PITATI
+    -- UNIT_MAYAN_HULCHE
     -- UU are in corresponding file
 
 INSERT INTO Tags (Tag, Vocabulary) VALUES
@@ -289,6 +279,8 @@ INSERT INTO TypeTags (Type, Tag) VALUES
     ('UNIT_WARRIOR', 'CLASS_MALUS_CITY_CENTER'),
     ('UNIT_SCOUT', 'CLASS_MALUS_CITY_CENTER'),
     ('UNIT_GALLEY', 'CLASS_MALUS_CITY_CENTER'),
+    ('UNIT_ARCHER', 'CLASS_MALUS_CITY_CENTER'),
+    ('UNIT_HEAVY_CHARIOT', 'CLASS_MALUS_CITY_CENTER'),
     ('BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL', 'CLASS_MALUS_CITY_CENTER');
 
 INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
@@ -386,6 +378,27 @@ INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
     ('BBG_ADJACENT_UNIT_HAS_ANTI_AIR', 'Tag', 'CLASS_HAS_ANTI_AIR');
 
 
+
+-- 30/06/25 Artillery & Rocket Artillery : +5 combat strength against city center.
+INSERT INTO Tags (Tag, Vocabulary) VALUES
+    ('CLASS_ARTILLERY', 'ABILITY_CLASS');
+INSERT INTO Types (Type, Kind) VALUES
+    ('BBG_ABILITY_ARTILLERY_DEFENSIBLE_DISTRICTS', 'KIND_ABILITY');
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_ARTILLERY', 'CLASS_ARTILLERY'),
+    ('UNIT_ROCKET_ARTILLERY', 'CLASS_ARTILLERY'),
+    ('BBG_ABILITY_ARTILLERY_DEFENSIBLE_DISTRICTS', 'CLASS_ARTILLERY');
+
+INSERT INTO UnitAbilities (UnitAbilityType, Name, Description) VALUES
+    ('BBG_ABILITY_ARTILLERY_DEFENSIBLE_DISTRICTS', 'LOC_BBG_ABILITY_ARTILLERY_DEFENSIBLE_DISTRICTS_NAME', 'LOC_BBG_ABILITY_ARTILLERY_DEFENSIBLE_DISTRICTS_DESC');
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+    ('BBG_ABILITY_ARTILLERY_DEFENSIBLE_DISTRICTS', 'BBG_ARTILLERY_DEFENSIBLE_DISTRICTS');
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_ARTILLERY_DEFENSIBLE_DISTRICTS', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'UNIT_ATTACKING_DISTRICT_REQUIREMENTS');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_ARTILLERY_DEFENSIBLE_DISTRICTS', 'Amount', 5);
+INSERT INTO ModifierStrings (ModifierId, Context , Text) VALUES
+    ('BBG_ARTILLERY_DEFENSIBLE_DISTRICTS', 'Preview', 'LOC_BBG_ABILITY_ARTILLERY_DEFENSIBLE_DISTRICTS_DESC');
 
 
 

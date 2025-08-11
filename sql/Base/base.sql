@@ -91,8 +91,18 @@ UPDATE Resource_YieldChanges SET YieldChange=2 WHERE ResourceType IN ('RESOURCE_
 -- add 1 production to fishing boat improvement
 UPDATE Improvement_YieldChanges SET YieldChange=1 WHERE ImprovementType='IMPROVEMENT_FISHING_BOATS' AND YieldType='YIELD_PRODUCTION';
 
---09/03/2024 +1 housing to fishery
+-- 09/03/2024 +1 housing to fishery
 UPDATE Improvements SET Housing=2 WHERE ImprovementType='IMPROVEMENT_FISHERY';
+
+-- Harbor gives 1 housing [Lighthouse loses 1]
+UPDATE Buildings SET Housing=0 WHERE BuildingType='BUILDING_LIGHTHOUSE';
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_HARBOR_HOUSING', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_HOUSING', 'BBG_DISTRICT_IS_DISTRICT_HARBOR_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_HARBOR_HOUSING', 'Amount', 1);
+INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
+    ('DISTRICT_HARBOR', 'BBG_HARBOR_HOUSING');
+
 
 -- Citizen specialists give +1 main yield
 UPDATE District_CitizenYieldChanges SET YieldChange=3 WHERE YieldType='YIELD_CULTURE' AND DistrictType='DISTRICT_ACROPOLIS';
@@ -250,6 +260,9 @@ INSERT INTO CustomPlacement(ObjectType, Hash, PlacementFunction)
 --=======================================================================
 
 UPDATE GoodyHutSubTypes SET Turn=30 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RELIC';
+-- 30/06/25 Governor titles delayed to turn 25. Free technology delayed to turn 31.
+UPDATE GoodyHutSubTypes SET Turn=50 WHERE ModifierID='GOODYHUT_GOVERNOR_TITLE';
+UPDATE GoodyHutSubTypes SET Turn=62 WHERE ModifierID='GOODYHUT_ONE_TECH';
 
 --=======================================================================
 --******                       DISTRICTS                          ******
@@ -263,14 +276,14 @@ UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType IN ('DISTRICT_A
 UPDATE Districts SET Cost=20 WHERE DistrictType='DISTRICT_BATH';
 UPDATE Districts SET Cost=30 WHERE DistrictType IN ('DISTRICT_MBANZA', 'DISTRICT_ACROPOLIS', 'DISTRICT_STREET_CARNIVAL', 'DISTRICT_ROYAL_NAVY_DOCKYARD', 'DISTRICT_LAVRA', 'DISTRICT_HANSA');
 
---19/12/23 entertainment complex to 2 amenities (from 1)
+-- 19/12/23 entertainment complex to 2 amenities (from 1)
 UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_ENTERTAINMENT_COMPLEX';
 
 --=======================================================================
 --******                       TECHS                               ******
 --=======================================================================
 
---18/12/23 advanced ballistics advanced one era
+-- 18/12/23 advanced ballistics advanced one era
 UPDATE Technologies SET EraType='ERA_MODERN' WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 
@@ -278,9 +291,6 @@ UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS
 UPDATE GlobalParameters SET Value=30 WHERE Name='TECH_COST_PERCENT_CHANGE_AFTER_GAME_ERA';
 
 UPDATE Technologies SET Cost=Cost*1.05 WHERE EraType NOT IN ('ERA_ANCIENT', 'ERA_CLASSICAL');
-
--- 02/07/24 Steel eureka is now "have 1 renaissance wall"
-UPDATE Boosts SET Unit1Type=NULL, BoostClass='BOOST_TRIGGER_HAVE_X_BUILDINGS', BuildingType='BUILDING_STAR_FORT', ImprovementType=NULL, ResourceType=NULL WHERE TechnologyType='TECH_STEEL';
 
 -- 2022-06-04 -- Add Scientific Theory as Prereq for Steam Power
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
@@ -301,15 +311,17 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
 UPDATE Technologies SET UITreeRow=0 WHERE TechnologyType='TECH_LASERS';
 UPDATE Technologies SET UITreeRow=1 WHERE TechnologyType='TECH_GUIDANCE_SYSTEMS';
 
+-- 30/06/25 Military Science grant 1 Spy cap
+INSERT INTO TechnologyModifiers (TechnologyType, ModifierId) VALUES
+    ('TECH_MILITARY_SCIENCE', 'CIVIC_GRANT_SPY');
+UPDATE Technologies SET Description='BBG_LOC_TECH_MILITARY_SCIENCE_DESCRIPTION' WHERE TechnologyType='TECH_MILITARY_SCIENCE';
+
 --=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================
 
 UPDATE Happinesses SET GrowthModifier=8, NonFoodYieldModifier=8 WHERE HappinessType='HAPPINESS_HAPPY';
 UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_ECSTATIC';
-
--- 14/03/24 Nationalism boost is now upgrading a land unit to level 3
-UPDATE Boosts SET BoostClass='BOOST_TRIGGER_LAND_UNIT_LEVEL', NumItems=3 WHERE CivicType='CIVIC_NATIONALISM';
 
 -- 30/11/24 Pillage nerf
 -- Improvement pillage value to 35/20
@@ -319,3 +331,26 @@ UPDATE Improvements SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE'
 UPDATE Districts SET PlunderAmount=40 WHERE PlunderType='PLUNDER_GOLD';
 UPDATE Districts SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', 'PLUNDER_CULTURE', 'PLUNDER_FAITH');
 
+
+--=======================================================================
+--******                        BOOSTS                             ******
+--=======================================================================
+
+
+-- 14/03/24 Nationalism boost is now upgrading a land unit to level 3
+UPDATE Boosts SET BoostClass='BOOST_TRIGGER_LAND_UNIT_LEVEL', NumItems=3 WHERE CivicType='CIVIC_NATIONALISM';
+
+-- 02/07/24 Steel eureka is now "have 1 renaissance wall"
+UPDATE Boosts SET Unit1Type=NULL, BoostClass='BOOST_TRIGGER_HAVE_X_BUILDINGS', BuildingType='BUILDING_STAR_FORT', ImprovementType=NULL, ResourceType=NULL WHERE TechnologyType='TECH_STEEL';
+
+-- 30/03/25 Craftman : Improve 2 tiles [3 tiles]
+UPDATE Boosts SET NumItems=2 WHERE CivicType='CIVIC_CRAFTSMANSHIP';
+
+-- 30/03/25 Foreign Trade : Own 1 Scout [Find new Continent]
+UPDATE Boosts SET Unit1Type='UNIT_SCOUT', NumItems=1, BoostClass='BOOST_TRIGGER_OWN_X_UNITS_OF_TYPE' WHERE CivicType='CIVIC_FOREIGN_TRADE';
+
+-- 30/03/25 Guidance Systems : Kill a unit with a Fighter [Kill a Fighter]
+UPDATE Boosts SET BoostClass='BOOST_TRIGGER_KILL_WITH' WHERE TechnologyType='TECH_GUIDANCE_SYSTEMS';
+
+-- 30/03/25 Humanism : Own 2 Amphiteater [Recruit an Artist]
+UPDATE Boosts SET Unit1Type=NULL, NumItems=2, BoostClass='BOOST_TRIGGER_HAVE_X_BUILDINGS', BuildingType='BUILDING_AMPHITHEATER' WHERE CivicType='CIVIC_HUMANISM';

@@ -48,6 +48,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('COAL_FROM_SHIPYARD_BBG', 'Amount', '1');
 
 
+
 -- 08/04/25 Barracks and Stables get +2 Iron/Horses
 INSERT INTO BuildingModifiers (BuildingType, ModifierId)
     SELECT BuildingType, 'BBG_HORSES_FOR_STABLES' FROM Buildings b LEFT JOIN BuildingReplaces br ON b.BuildingType = br.CivUniqueBuildingType WHERE b.BuildingType='BUILDING_STABLE' OR br.ReplacesBuildingType='BUILDING_STABLE';
@@ -76,7 +77,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 UPDATE Building_YieldChanges SET YieldChange=6 WHERE BuildingType='BUILDING_FOSSIL_FUEL_POWER_PLANT' AND YieldType='YIELD_PRODUCTION';
 UPDATE Building_YieldChanges SET YieldChange=8 WHERE BuildingType='BUILDING_POWER_PLANT' AND YieldType='YIELD_PRODUCTION';
 UPDATE Building_YieldChanges SET YieldChange=6 WHERE BuildingType='BUILDING_POWER_PLANT' AND YieldType='YIELD_SCIENCE';
---moved from buildings, because it's GS
+-- moved from buildings, because it's GS
 UPDATE Building_YieldChangesBonusWithPower SET YieldChange=12 WHERE BuildingType='BUILDING_STOCK_EXCHANGE' AND YieldType='YIELD_GOLD';
 
 -- 14/10/23 Reduced by 15% from base game
@@ -128,21 +129,30 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 -- Meenakshi Temple - Grant 2 apostles instead of 2guru + Apostles/Guru cost 25% less
 DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_MEENAKSHI_TEMPLE' AND ModifierId='MEENAKSHITEMPLE_FREE_GURU';
-INSERT OR REPLACE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY', null),
-    ('MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT', 'MODIFIER_PLAYER_CITIES_ADJUST_UNIT_PURCHASE_COST', null),
-    ('MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT', 'MODIFIER_PLAYER_CITIES_ADJUST_UNIT_PURCHASE_COST', null);
+INSERT OR REPLACE INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_CITY');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES', 'UnitType', 'UNIT_APOSTLE'),
-    ('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES', 'Amount', '2'),
-    ('MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT', 'UnitType', 'UNIT_APOSTLE'),
-    ('MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT', 'Amount', '25'),
-    ('MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT', 'UnitType', 'UNIT_GURU'),
-    ('MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT', 'Amount', '25');
+    ('MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES', 'Amount', '2');
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-    ('BUILDING_MEENAKSHI_TEMPLE', 'MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES'),
-    ('BUILDING_MEENAKSHI_TEMPLE', 'MEENAKSHI_TEMPLE_ADJUST_APOSTLE_DISCOUNT'),
-    ('BUILDING_MEENAKSHI_TEMPLE', 'MEENAKSHI_TEMPLE_ADJUST_GURU_DISCOUNT');
+    ('BUILDING_MEENAKSHI_TEMPLE', 'MEENAKSHI_TEMPLE_GRANT_FREE_APOSTLES');
+-- 30/06/25 Meenakshi Temple : 2 apostle Give 2 faith on every forest and jungle tile of your land
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_PLOT_HAS_FOREST_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_PLOT_HAS_FOREST_REQSET', 'PLOT_IS_FOREST_REQUIREMENT');
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_MEENAKSHI_FAITH_JUNGLE', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_JUNGLE_REQUIREMENTS'),
+    ('BBG_MEENAKSHI_FAITH_FOREST', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'BBG_PLOT_HAS_FOREST_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MEENAKSHI_FAITH_JUNGLE', 'YieldType', 'YIELD_FAITH'),
+    ('BBG_MEENAKSHI_FAITH_JUNGLE', 'Amount', 2),
+    ('BBG_MEENAKSHI_FAITH_FOREST', 'YieldType', 'YIELD_FAITH'),
+    ('BBG_MEENAKSHI_FAITH_FOREST', 'Amount', 2);
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+    ('BUILDING_MEENAKSHI_TEMPLE', 'BBG_MEENAKSHI_FAITH_JUNGLE'),
+    ('BUILDING_MEENAKSHI_TEMPLE', 'BBG_MEENAKSHI_FAITH_FOREST');
+
 
 -- statue of liberty text fix
 UPDATE Buildings SET Description='LOC_BUILDING_STATUE_LIBERTY_EXPANSION2_DESCRIPTION' WHERE BuildingType='BUILDING_STATUE_LIBERTY';

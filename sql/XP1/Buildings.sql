@@ -39,12 +39,20 @@ INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_ST_BASILS_CATHEDRAL', 'WONDER_GRANT_RELIC_BBG');
 
 
---12/06/23 Water Park building buff
+-- 12/06/23 Water Park building buff
 -- Ferris wheel tourism from 2 to 6
 UPDATE ModifierArguments SET Value=6 WHERE Name='FERRIS_WHEEL_TOURISM';
 -- Aquatics Center: +6 Tourism for each wonder built in this city on or adjacent to coast (from +2)
 UPDATE ModifierArguments SET Value=6 WHERE Name='AQUATICS_CENTER_WONDER_TOURISM';
 
---18/12/23 Artemis -1 food/housing
+-- 18/12/23 Artemis -1 food/housing
 UPDATE Buildings SET Housing=2 WHERE BuildingType='BUILDING_TEMPLE_ARTEMIS';
 UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_TEMPLE_ARTEMIS' AND YieldType='YIELD_FOOD';
+
+
+
+-- 30/06/25 Wonder cost balancing
+-- Temple Artemis : 90 > 110
+UPDATE Buildings SET Cost=220 WHERE BuildingType='BUILDING_TEMPLE_ARTEMIS';
+-- Kilwa Kisiwani : 355 > 400
+UPDATE Buildings SET Cost=800 WHERE BuildingType='BUILDING_KILWA_KISIWANI';

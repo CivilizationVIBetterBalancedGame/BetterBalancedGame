@@ -256,7 +256,7 @@ INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
     ('TRAIT_LEADER_MAJOR_CIV', 'ALUMINUM_BASE_AMOUNT_MODIFIER'),
     ('TRAIT_LEADER_MAJOR_CIV', 'OIL_BASE_AMOUNT_MODIFIER'),
     ('TRAIT_LEADER_MAJOR_CIV', 'URANIUM_BASE_AMOUNT_MODIFIER');
---can't go minus favor from grievances
+-- can't go minus favor from grievances
 UPDATE GlobalParameters SET Value='0' WHERE Name='FAVOR_GRIEVANCES_MINIMUM';
 -- additional niter spawn locations
 INSERT OR IGNORE INTO Resource_ValidFeatures (ResourceType, FeatureType)
@@ -275,7 +275,7 @@ UPDATE Improvements SET PrereqTech='TECH_REFINING' WHERE ImprovementType='IMPROV
 
 -- 14/07/2022 Nuke +50% production cost. uranium cost x1.5
 UPDATE Projects SET Cost=1500 WHERE ProjectType='PROJECT_MANHATTAN_PROJECT';
-UPDATE Projects SET Cost=1500 WHERE ProjectType='PROJECT_OPERATION_IVY';
+UPDATE Projects SET Cost=1000 WHERE ProjectType='PROJECT_OPERATION_IVY';
 UPDATE Projects SET Cost=1200 WHERE ProjectType='PROJECT_BUILD_NUCLEAR_DEVICE';
 UPDATE Projects SET Cost=1500 WHERE ProjectType='PROJECT_BUILD_THERMONUCLEAR_DEVICE';
 UPDATE Project_ResourceCosts SET StartProductionCost=15 WHERE ProjectType='PROJECT_BUILD_NUCLEAR_DEVICE';

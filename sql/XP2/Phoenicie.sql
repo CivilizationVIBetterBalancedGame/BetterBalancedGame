@@ -1,3 +1,8 @@
+
+-- Harbor gives 1 housing [Lighthouse loses 1]
+INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
+    ('DISTRICT_COTHON', 'BBG_HARBOR_HOUSING');
+
 UPDATE ModifierArguments SET Value='25' WHERE ModifierId='COTHON_NAVAL_UNIT_PRODUCTION' AND Name='Amount';
 UPDATE ModifierArguments SET Value='25' WHERE ModifierId='COTHON_SETTLER_PRODUCTION' AND Name='Amount';
 
