@@ -2,9 +2,9 @@
 <GameData>
 	<LocalizedText>
 
-		<!-- Author : Rafael Pinheiro -->
-		<!-- 6.5f 03/08/2025 03:40 -->
-		<!-- Special thanks to platypus, Ybanca and Apeul -->
+		<!-- Author : Rafael Pinheiro, FaelSCCP -->
+		<!-- 6.5fextended 03/08/2025 03:40 -->
+		<!-- Special thanks to platypus, Ybanca, FaelSCCP and Apeul -->
 		<!-- Based on French and English translation -->
 
 
@@ -32,6 +32,7 @@
 		<!-- === GRANDES PERSONAGENS === -->
 		<!-- === ALIANÇAS === -->
 		<!-- === CONGRESSO MUNDIAL === -->
+		<!-- === RESSOURCES === -->
 		<!-- === TEXTOS DIVERSOS === -->
 		<!-- === CIVILOPÉDIA === -->
 		<!-- === INTERFACE PRINCIPAL === -->
@@ -568,17 +569,30 @@
 		<!-- == GAUL - GAULE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="pt_BR">
-			<Text>As minas oferecem um bônus de adjacência menor a todos os [ICON_DISTRICT] distritos e ganham +1 [ICON_CULTURE] Cultura no Trabalho do Bronze.[NEWLINE]Os [ICON_DISTRICT] distritos especializados não recebem o bônus de adjacencia menor habitual dos outros distritos e não podem estar adjacentes aos Centros urbanos.[NEWLINE][NEWLINE]Tendência: T3 Ferro / T5 Recursos bônus e de luxo em minas e pedreiras.</Text>
+			<Text>Todos os [ICON_DISTRICT] distritos especializados ganham bônus padrão de adjacencia de pedreiras e bônus menor de adjacencia de minas.[NEWLINE]Os [ICON_DISTRICT] distritos especializados não recebem o bônus de adjacencia menor habitual dos outros distritos e não podem estar adjacentes ao Centro da Cidade[NEWLINE][NEWLINE]Tendência: T3 Ferro / T5 Recursos bônus e de luxo em minas e pedreiras.</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability (Ambriorix) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="pt_BR">
-			<Text>[ICON_STRENGTH] Força de combate +1 para as unidades de combate corpo a corpo e anti-cavalaria para cada unidade militar gaulesa adjacente.</Text>
+			<Text>[ICON_STRENGTH] Força de combate +1 para as unidades de combate corpo a corpo e anti-cavalaria para cada unidade militar adjacente. Após pesquisar Trabalho em Broze ganha [Icon_Culture] Cultura igual a 25% do custo de [ICON_PRODUCTION] produção ao treinar unidades militares.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="pt_BR">
 			<Text>[ICON_STRENGTH] Força de combate +1 para cada unidade adjacente (Rei dos Éburons).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="pt_BR">
 			<Text>Rei dos Éburons</Text> <!-- Este é o nome do bônus, ele será exibido assim "[NomeDoBônus] ([NomeDaUnidadeAdjacente]) : +X", por exemplo: "Rei dos Éburons (Arqueiro) : +1" em francês com um arqueiro ao lado da unidade -->
+		</Replace>
+		<!-- = Leader ability - Compétence de dirigeant (Vercingetorix) = --> <!-- BBG expanded -->
+        <Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_NAME" Language="pt_BR">
+			<Text>Confederação Gaulesa</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION" Language="pt_BR">
+			<Text>[ICON_CULTURE] +1 de Cultura em Minas com Trabalho em Bronze.[NEWLINE][NEWLINE]Recrutar um [ICON_GREATENGINEER] Grande Engenheiro concede 1 [ICON_ENVOY] Emissário.[NEWLINE]+1 de [ICON_INFLUENCEPERTURN] Influência por turno para cada Oficina.[NEWLINE]+1 de [ICON_STRENGTH] Força de Combate por tipo de Cidade-Estado que você é suserano.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION_DLC" Language="pt_BR">
+			<Text>[ICON_CULTURE] +1 de Cultura em Minas com Trabalho em Bronze.[NEWLINE][NEWLINE]Recrutar um [ICON_GREATENGINEER] Grande Engenheiro concede 1 [ICON_ENVOY] Emissário.[NEWLINE]+1 de [ICON_INFLUENCEPERTURN] Influência por turno para cada Oficina.[NEWLINE]+1 de [ICON_STRENGTH] Força de Combate por tipo de Cidade-Estado que você é suserano.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_GALLIC_WAR_COMBAT_DESCRIPTION" Language="pt_BR">
+			<Text>+1 de [ICON_STRENGTH] Força de Combate por tipo de Cidade-Estado vassala.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_GAUL_GAESATAE_DESCRIPTION" Language="pt_BR">
@@ -589,7 +603,7 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="pt_BR">
-			<Text>Exclusivo da Gália, este distrito substitui a Zona Industrial e é desbloqueado com o Trabalho do Ferro. O Oppidum é um distrito defensável.[NEWLINE][ICON_PRODUCTION] Produção +2 se estiver adjacente a uma pedreira ou recurso estratégico. Provoca uma bomba cultural nos painéis neutros ao ser concluído.</Text>
+			<Text>Exclusivo da Gália, este distrito substitui a Zona Industrial e é desbloqueado com o Trabalho do Ferro. O Oppidum é um distrito defensável.[NEWLINE]Recebe bônus maior de adjacencia de pedreiras ou recursos estratégicos. Provoca uma bomba cultural nos painéis neutros ao ser concluído.</Text>
 		</Replace>
 
 		<!-- == GEORGIA - GÉORGIE == -->
@@ -933,9 +947,16 @@
 		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_EXPANSION1_DESCRIPTION" Language="pt_BR">
 			<Text>Você recebe um bônus para cada cidade capturada: [ICON_PRODUCTION] Produção +20% em todas as suas cidades durante 10 [ICON_TURN] turnos, um [ICON_TECHBOOSTED] Eureka! para cada Acampamento ou Campus da cidade conquistada, e uma [ICON_CIVICBOOSTED] Inspiração para cada Praça de Teatro ou Lugar Sagrado.</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability(Alexander) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TO_WORLDS_END_DESCRIPTION" Language="pt_BR">
 			<Text>As vitórias militares geram uma quantidade de [ICON_SCIENCE] Ciência igual a 20% da [ICON_STRENGTH] Força de combate da unidade derrotada (velocidade Online).[NEWLINE]As cidades não geram desgaste de guerra.[NEWLINE]Todas as unidades militares são completamente curadas quando Alexandre captura uma cidade com uma maravilha mundial.</Text>
+		</Replace>
+		<!-- = Habilidade de líder - Habilidade de Líder (Olímpia) = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_NAME" Language="pt_BR">
+			<Text>Mistérios Cabíricos</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_DESCRIPTION" Language="pt_BR">
+			<Text>Fundar um panteão concede +1 [ICON_ENVOY] Emissário. Enviar um [ICON_ENVOY] Emissário para uma Cidade-Estado concede 5 pontos de [ICON_GREATGENERAL] Grande General e [ICON_GREATPROPHET] Grande Profeta, aumenta para 10 em Cidades-Estado militaristas e religiosas.[NEWLINE][NEWLINE]+1 de [ICON_SCIENCE] Ciência por [ICON_CITIZEN] Cidadão em cidades com um Acampamento com a Academia dos Basilikoi Paides e que sigam sua [ICON_RELIGION] religião.[NEWLINE][NEWLINE]+2 de [ICON_STRENGTH] Força de Combate para unidades corpo a corpo e cavalaria pesada para cada Cidade-Estado que você é suserano.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="pt_BR">
@@ -953,7 +974,7 @@
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="pt_BR">
-			<Text>Exclusivo à Macedônia, este edifício substitui o quartel. Experiência de combate +25% para todas as unidades de combate corpo a corpo, à distância e Hétairoi. Fornece [ICON_SCIENCE] Ciência igual a 20% do custo em [ICON_PRODUCTION] Produção das unidades militares produzidas na cidade.[NEWLINE][NEWLINE]Reserva de recursos estratégicos +5 (velocidade online).[NEWLINE][ICON_RESOURCE_IRON] Ferro +2 por turno uma vez descoberto.[NEWLINE][NEWLINE]Construção impossível em um Acampamento que já possua um estábulo.</Text>
+			<Text>Exclusiva da Macedônia, esta unidade clássica de cavalaria pesada começa com uma promoção gratuita. [ICON_STRENGTH] Força de combate +5 se adjacente a um [ICON_GREATGENERAL] Grande General. Gera pontos de [ICON_GREATGENERAL] Grande General a cada inimigo morto.</Text>
 		</Replace>
 
 		<!-- == MALI == -->
@@ -1063,9 +1084,28 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAYAB_DESCRIPTION" Language="pt_BR">
 			<Text>As cidades não recebem [ICON_HOUSING] Habitações de água doce e de Paineis costeiros. [ICON_HOUSING] Habitações +1 para a [ICON_CAPITAL] Capital. Os Centros Urbanos ganham +1 [ICON_AMENITIES] Serviço para cada recurso de luxo adjacente.[NEWLINE][NEWLINE]As fazendas fornecem +1 [ICON_GOLD] Ouro e +1 [ICON_HOUSING] Habitações, além de +1 [ICON_PRODUCTION] Produção por Observatório adjacente.[NEWLINE][ICON_SCIENCE] Ciência +1 para as plantações por Observatório adjacente (aumenta para +2 com Educação).</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability(Lady Six Sky) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="pt_BR">
 			<Text>Todos os rendimentos são aumentados em 5% nas cidades situadas em um raio de 6 Paineis ao redor da sua [ICON_CAPITAL] Capital. As outras cidades veem todos os seus rendimentos diminuídos em 10%.[NEWLINE][ICON_STRENGTH] Força de combate +3 para as unidades militares situadas em um raio de 6 Paineis ao redor da sua [ICON_CAPITAL] Capital.</Text>
+		</Replace>
+		<!-- = Habilidade de líder(Te'Knich II) = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_NAME" Language="pt_BR">
+			<Text>Fúria de Vênus</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_DESC" Language="pt_BR">
+			<Text>-2 [ICON_STRENGTH] Força de combate para unidades em um raio de 6 paineis ao redor da [ICON_CAPITAL] Capital.[NEWLINE]+4 [ICON_STRENGTH] Força de combate para unidades a 7 paineis ou mais da [ICON_CAPITAL] Capital.[NEWLINE][NEWLINE]Unidades curam 5 PV e ganham 2 XP ao conseguir uma [ICON_TECHBOOSTED] Eureka.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_NAME" Language="pt_BR">
+			<Text>-2 [ICON_STRENGTH] Força de combate (Fúria de Vênus)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_DESC" Language="pt_BR">
+			<Text>-2 [ICON_STRENGTH] Força de combate (Fúria de Vênus)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_NAME" Language="pt_BR">
+			<Text>+4 [ICON_STRENGTH] Força de combate (Fúria de Vênus)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_DESC" Language="pt_BR">
+			<Text>+4 [ICON_STRENGTH] Força de combate (Fúria de Vênus)</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MAYAN_HULCHE_DESCRIPTION" Language="pt_BR">
@@ -1255,15 +1295,22 @@
 			<Text>Exclusivo à Pérsia, esta melhoria se desbloqueia no Império Antigo.[NEWLINE][NEWLINE][ICON_GOLD] Ouro +2, [ICON_CULTURE] Cultura +1 e [ICON_HOUSING] Habitações +1.[NEWLINE][ICON_GOLD] Ouro +1 para cada Centro Urbano, Zona industrial, Porto e Centro comercial adjacente.[NEWLINE][ICON_CULTURE] Cultura +1 para cada Centro Urbano, Campus, Teatro e Local Sagrado adjacente.[NEWLINE][ICON_CULTURE] Cultura +1 no Serviço diplomático.[NEWLINE]Atração +1 para os Paineis adjacentes.[NEWLINE]Gera [ICON_TOURISM] Turismo através da [ICON_CULTURE] Cultura após a descoberta da Aviação.[NEWLINE][NEWLINE]Impossível construir em um Paineil de neve ou tundra, ou adjacente a outro pairidaeza.</Text>
 		</Replace>
 
-		<!-- == PHOENICIA - PHÉNICIE == -->
+        <!-- == PHOENICIA - PHÉNICIE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="pt_BR">
 			<Text>[ICON_MOVEMENT] PM +2 e Campo de visão +2 para os Colonos embarcados. O embarque e desembarque dos Colonos não consomem [ICON_MOVEMENT] PM adicional.[NEWLINE][NEWLINE]As cidades costeiras fundadas pela Fenícia e localizadas no mesmo continente que a [ICON_CAPITAL] Capital fenícia são leais a 100%.[NEWLINE]Comece a partida com um [ICON_TECHBOOSTED] Eureka para a Escrita.[NEWLINE][NEWLINE]Bias: T1 Costa.</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability (Dido) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="pt_BR">
 			<Text>Habilidade de [ICON_TRADEROUTE] rotas comerciais +1 para cada edifício na Praça do Governo.[NEWLINE][ICON_PRODUCTION] Produção +50% para distritos [ICON_DISTRICT] na cidade com Praça do Governo.[NEWLINE][NEWLINE]Pode mover sua [ICON_CAPITAL] Capital original para uma cidade por ela fundada com um Cothon ao concluir um projeto exclusivo nessa cidade.</Text>
 		</Replace>
+		<!-- = leader ability (Airã - Airã) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_NAME" Language="pt_BR">
+            <Text>Príncipe Mercador</Text>
+        </Replace>
+        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_DESCRIPTION" Language="pt_BR">
+            <Text>+0,5 de [ICON_PRODUCTION] Produção e +2 de [ICON_GOLD] Ouro em [ICON_TRADEROUTE] Rotas Comerciais internacionais para cada recurso de luxo na cidade de origem. Desbloqueia a construção única Tumba Real.</Text>
+        </Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_PHOENICIA_BIREME_DESCRIPTION" Language="pt_BR">
 			<Text>Exclusiva à Fenícia, esta unidade naval antiga de combate próximo substitui a Galé. [ICON_STRENGTH] Poder base +5 e [ICON_MOVEMENT] PM +1. Os [ICON_TRADEROUTE] Comerciantes não podem ser saqueados se estiverem em um raio de 4 paineis de água ao redor de uma Birreme.</Text>
@@ -1272,6 +1319,13 @@
 		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="pt_BR">
 			<Text>Exclusivo da Fenícia, este distrito substitui o Porto.[NEWLINE][NEWLINE]Além dos bônus do Porto, [ICON_PRODUCTION] Produção +25% para unidades navais e Colonos na cidade.</Text>
 		</Replace>
+		<!-- = Unique building - Bâtiment unique = -->
+		<Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_NAME" Language="pt_BR">
+            <Text>Tumba Real</Text>
+        </Replace>
+        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_DESCRIPTION" Language="pt_BR">
+            <Text>Substitui a biblioteca. +2 de [ICON_SCIENCE] Ciência base, produz [ICON_GOLD] Ouro igual ao bonus de adjacencia do Campus. Não tem custo de manutenção.</Text>
+        </Replace>
 
 		<!-- == POLAND == -->
 		<!-- = civilization ability = -->
@@ -1481,6 +1535,51 @@
 		<Replace Tag="LOC_IMPROVEMENT_ZIGGURAT_DESCRIPTION" Language="pt_BR">
 			<Text>Exclusivo a Suméria.[NEWLINE][NEWLINE][ICON_SCIENCE] Ciência +2 e [ICON_HOUSING] Habitação +1.[NEWLINE][ICON_CULTURE] Cultura +1 se adjacente a um rio.[NEWLINE][ICON_FAITH] Fé +1 por cada [ICON_DISTRICT] distrito adjacente e a cada duas fazendas adjacentes no Primeiro Império.[NEWLINE][NEWLINE]Construção impossível em colina ou ao lado de outra Ziggurat.</Text>
 		</Replace>
+		
+        <!-- == SUAÍLI == --> <!-- BBG expanded -->
+		<!-- = Habilidade de civilização = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_NAME" Language="pt_BR">
+			<Text>Construção de Coral</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION" Language="pt_BR">
+			<Text>Cidades costeiras ganham +25% de [ICON_PRODUCTION] Produção para distritos. +1 de [ICON_PRODUCTION] Produção em Recifes, sem melhorias, com Navegação.[NEWLINE][NEWLINE]Tendência: T1 Costa.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION_XP1" Language="pt_BR">
+			<Text>Cidades costeiras ganham +25% de [ICON_PRODUCTION] Produção para distritos. +1 de [ICON_PRODUCTION] Produção em Recifes, sem melhorias, com Navegação.[NEWLINE][NEWLINE]Tendência: T1 Costa.</Text>
+		</Replace>
+		<!-- = Habilidade de líder = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_NAME" Language="pt_BR">
+			<Text>Palácio de Husuni Kubwa</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_DESCRIPTION" Language="pt_BR">
+			<Text>+1 capacidade de [ICON_TRADEROUTE] rotas comerciais para cada Porto adjacente a uma maravilha mundial.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_XP2_DESCRIPTION" Language="pt_BR">
+			<Text>+1 capacidade de [ICON_TRADEROUTE] rotas comerciais para cada Porto adjacente a uma maravilha mundial.</Text>
+		</Replace>
+		<!-- = Unidade única = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_UNIT_SUK_JAHAZI_NAME" Language="pt_BR">
+			<Text>Jahazi</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_SUK_JAHAZI_DESCRIPTION" Language="pt_BR">
+			<Text>Exclusivo dos Suaílis, esta unidade naval de suporte da era antiga tem 2 [ICON_CHARGES] Cargas para construir barcos de pesca. Barcos de pesca construídos por Jahazi fornecem +3 de [ICON_GOLD] Ouro adicional. Unidades embarcadas num raio de 2 paineis ganham +1 [ICON_MOVEMENT] MP e ignoram penalidades de movimento. Pode ser capturada.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_NAME" Language="pt_BR">
+			<Text>+1 [ICON_MOVEMENT] MP</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_DESCRIPTION" Language="pt_BR">
+			<Text>+1 [ICON_MOVEMENT] MP</Text>
+		</Replace>
+		<!-- = Edifício único = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_NAME" Language="pt_BR">
+			<Text>Tumba de Pilar</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_DESCRIPTION" Language="pt_BR">
+			<Text>Edifício exclusivo dos Suaílis, substitui o Monumento.[NEWLINE][NEWLINE]+1 de Lealdade. Se a lealdade já estiver no máximo, +1 de [ICON_CULTURE] Cultura.[NEWLINE]+2 de [ICON_GOLD] Ouro e +1 de [ICON_SCIENCE] Ciência para [ICON_TRADEROUTE] rotas comerciais internacionais a cada 2 distritos num raio de 2 tiles do Centro da Cidade (máximo de 6 distritos).</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_XP1_DESCRIPTION" Language="pt_BR">
+			<Text>Edifício exclusivo dos Suaílis, substitui o Monumento.[NEWLINE][NEWLINE]+1 de Lealdade. Se a lealdade já estiver no máximo, +1 de [ICON_CULTURE] Cultura.[NEWLINE] +2 de [ICON_GOLD] Ouro e +1 de [ICON_SCIENCE] Ciência para [ICON_TRADEROUTE] rotas comerciais internacionais a cada 2 distritos num raio de 2 tiles do Centro da Cidade (máximo de 6 distritos).</Text>
+		</Replace>		
 
 		<!-- == SWEDEN - SUÈDE== -->
 		<!-- = civilization ability = -->
@@ -1503,6 +1602,105 @@
 		<Replace Tag="LOC_IMPROVEMENT_OPEN_AIR_MUSEUM_DESCRIPTION" Language="pt_BR">
 			<Text>Exclusivo à Suécia, esta melhoria é desbloqueado no Serviço Diplomático.[NEWLINE][NEWLINE]Lealdade +2 por turno na cidade.[NEWLINE][ICON_CULTURE] Cultura +2 e [ICON_TOURISM] Turismo +2 para cada tipo de painel (neve, tundra, deserto, planície ou pradaria) sobre o qual pelo menos uma cidade sueca é construída.[NEWLINE][NEWLINE]Limitado a um por cidade. Os painéis contendo um museu ao ar livre não podem ser atribuídos a outra cidade.</Text>
 		</Replace>
+		
+		<!-- = TEOTIHUACAN = --> <!-- BBG expanded -->
+		<!-- = Habilidade de civilização = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_NAME" Language="pt_BR">
+			<Text>Onde os Homens se Tornam Deuses</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_DESC" Language="pt_BR">
+			<Text>[ICON_TRADEROUTE] Rotas comerciais internacionais recebem bônus adicionais por tipo de Cidade-Estado que você é suserano:[NEWLINE] • Religiosa: +1 [ICON_FOOD] Alimento.[NEWLINE] • Industrial e Militar: +1 [ICON_PRODUCTION] Produção.[NEWLINE] • Comercial: +3 [ICON_GOLD] Ouro.[NEWLINE] • Científica: +1 [ICON_SCIENCE] Ciência.[NEWLINE] • Cultural: +1 [ICON_CULTURE] Cultura.[NEWLINE]Cada bônus é triplicado se você for suserano de 2 Cidades-Estado do mesmo tipo.</Text>
+		</Replace>
+		<!-- = Habilidade de líder = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_NAME" Language="pt_BR">
+			<Text>Senhor do Oeste</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="pt_BR">
+			<Text>+1 capacidade de [ICON_TRADEROUTE] rotas comerciais para o Enclave Pochteca e para a Chancelaria. Tem o governador único Siyaj K'ak'.</Text>
+		</Replace>
+		<!-- = Unidade única = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="pt_BR">
+			<Text>Guerreiro Coruja</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_DESC" Language="pt_BR">
+			<Text>Unidade corpo a corpo da Era Clássica exclusiva de Teotihuacan, substitui o Espadachim. +1 Visão. Não requer [ICON_RESOURCE_IRON] Ferro para a produção.</Text>
+		</Replace>
+		<!-- = Distrito único = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_NAME" Language="pt_BR">
+			<Text>Enclave Pochteca</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_DESC" Language="pt_BR">
+			<Text>Distrito exclusivo de Teotihuacan, substitui o Distrito Diplomático. Não conta no limite de distritos. Não fornece benefícios para [ICON_TRADEROUTE] rotas comerciais domésticas.</Text>
+		</Replace>
+
+		<!-- = THULE = -->
+		<!-- = Habilidade de civilização = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_NAME" Language="pt_BR">
+			<Text>Caça às Baleias</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_DESCRIPTION" Language="pt_BR">
+			<Text>Cabana dos Caçadores dão +1 de [ICON_FOOD] Comida para paineis de Tundra e +2 para paineis de Neve adjacentes. Barcos de Pesca e Acampamentos adjacentes à uma Cabana dos Caçadores recebem +1 de [ICON_FOOD] Comida e [ICON_PRODUCTION] Produção.[NEWLINE][NEWLINE]Construtores podem consumir 1 [ICON_CHARGES] Carga e 1 [ICON_CITIZEN] Cidadão para criar um recurso [ICON_RESOURCE_WHALES] Baleias.[NEWLINE][NEWLINE]Tendência de Nascimento: T2 Costa / T1 Tundra.</Text>
+		</Replace>
+		<!-- = Habilidade de líder = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_NAME" Language="pt_BR">
+			<Text>Coração, Não Pedra</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_DESCRIPTION" Language="pt_BR">
+			<Text>+5 de [ICON_STRENGTH] Força de Combate e +1 [ICON_MOVEMENT] PM para unidades de reconhecimento que começarem o turno em Tundra ou Neve.</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_RECON_ABILITY_NAME" Language="pt_BR">
+			<Text>+5 de [ICON_STRENGTH] Força de Combate (Coração, Não Pedra)</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_RECON_ABILITY_DESCRIPTION" Language="pt_BR">
+			<Text>+5 de [ICON_STRENGTH] Força de Combate (Coração, Não Pedra)</Text>
+		</Replace>
+		<!-- = Unidade única = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_NAME" Language="pt_BR">
+			<Text>Caçador de Trenó</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_DESCRIPTION" Language="pt_BR">
+			<Text>Unidade de reconhecimento da Era Antiga exclusiva da Nação Thule, substitui o Batedor. Faz ataques à distância. Possui 1 [ICON_CHARGES] Carga para construir uma Cabana dos Caçadores.</Text>
+		</Replace>
+		<!-- = Melhoria única = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_NAME" Language="pt_BR">
+			<Text>Cabana dos Caçadores</Text>
+		</Replace>
+		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_DESCRIPTION" Language="pt_BR">
+			<Text>Melhoria exclusiva dos Thule, desbloqueada com Navegação Astronômica. +1 de [ICON_FOOD] Comida se construído na Tundra, +2 de [ICON_FOOD] Comida se construído na Neve.+1 de [ICON_CULTURE] Cultura e +1 de [ICON_FAITH] Fé para cada recurso marítimo e acampamento adjacente. Deve ser construído adjacente a um recurso. Pode ser construído em Floresta.</Text>
+		</Replace>
+
+		<!-- = TIBET = --> <!-- BBG expanded -->
+		<!-- = Habilidade de civilização = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_NAME_XP2" Language="pt_BR">
+			<Text>Teto do Mundo</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_DESCRIPTION_XP2" Language="pt_BR">
+			<Text>Paineis de montanha ganham bônus adicionais para cada distrito em um raio de 2 paineis:[NEWLINE] • [ICON_FOOD] +2 Alimento por Centro da Cidade.[NEWLINE] • [ICON_PRODUCTION] +1 Produção por Zona Industrial.[NEWLINE] • [ICON_GOLD] +1 Ouro por Porto e Hub Comercial.[NEWLINE] • [ICON_SCIENCE] +1 Ciência por Campus.[NEWLINE] • [ICON_CULTURE] +1 Cultura por Teatro.[NEWLINE] • [ICON_FAITH] +1 Fé por Santuário.[NEWLINE][NEWLINE]Pode comprar edifícios em distritos adjacentes a montanhas com [ICON_FAITH] Fé.[NEWLINE][NEWLINE][ICON_FAITH] +5% de Fé em cidades com [ICON_GOVERNOR] Governador por cada promoção.[NEWLINE][NEWLINE]Tendência de Nascimento: T3 Montanhas (de planície, pradaria e tundra).</Text>
+		</Replace>
+		<!-- = Habilidade de líder = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_NAME" Language="pt_BR">
+			<Text>Batalha de Chang'an</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_DESCRIPTION" Language="pt_BR">
+			<Text>Fundar uma [ICON_RELIGION] religião concede 1 [ICON_GOVERNOR] título de Governador. Unidades militares terrestres treinadas em cidades com Acampamento e Templo começam com 1 [ICON_PROMOTION] promoção.</Text>
+		</Replace>
+		<!-- = Unidade única = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_NAME" Language="pt_BR">
+			<Text>Rta Pa</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_DESCRIPTION" Language="pt_BR">
+			<Text>Unidade montada de ataque à distância da Renascença exclusiva do Tibete. Tem 1 de [ICON_RANGE] Alcance e pode se mover após atacar. Sem penalidade de movimento em colinas.</Text>
+		</Replace>
+		<!-- = Distrito único = --> <!-- BBG expanded -->
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_NAME" Language="pt_BR">
+			<Text>Dzong</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION" Language="pt_BR">
+			<Text>Distrito exclusivo do Tibete, substitui o Local Sagradp. Fornece +5 de [ICON_STRENGTH] Força de Combate defensiva para unidades no distrito. Edifícios no Dzong são 20% mais baratos para comprar com [ICON_GOLD] Ouro e [ICON_FAITH] Fé.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION_XP2" Language="pt_BR">
+			<Text>Distrito exclusivo do Tibete, substitui o Local Sagrado. Fornece +5 de [ICON_STRENGTH] Força de Combate defensiva para unidades no distrito. Edifícios no Dzong são 20% mais baratos para comprar com [ICON_GOLD] Ouro e [ICON_FAITH] Fé.</Text>
+		</Replace>		
 
 		<!-- == VIETNAM == -->
 		<!-- = civilization ability = -->
@@ -2463,6 +2661,64 @@
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_GRAND_VISIER_DESCRIPTION" Language="pt_BR">
 			<Text>[ICON_HOUSING] Habitações +5 e [ICON_AMENITIES] Serviço +5.</Text>
 		</Replace>
+		
+		<!-- == FIRE IS BORN - Siyaj K'ak' == --> <!-- BBG expanded -->
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_NAME" Language="pt_BR">
+			<Text>Siyaj K'ak'</Text> <!-- Nome alterado para a versão indigena original do Nome -->
+		</Replace>
+		<!-- later
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_DESC" Language="pt_BR">
+			<Text></Text>
+		</Replace>
+		--> 
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_TITLE" Language="pt_BR">
+			<Text>O Emissário</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_SHORT_TITLE" Language="pt_BR">
+			<Text>O Emissário</Text>
+		</Replace>		
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_NAME" Language="pt_BR"> <!-- M0 -->
+			<Text>Chegada do Emissário</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_DESC" Language="pt_BR"> <!-- M0 -->
+			<Text>Pode ser enviado a uma Cidade-Estado, onde fornece 1 [ICON_ENVOY] Emissário. +5 de [ICON_STRENGTH] Força de Combate nas fronteiras da cidade.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_NAME" Language="pt_BR"> <!-- L1 -->
+			<Text>Posto Avançado Waka</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_DESC" Language="pt_BR"> <!-- L1 -->
+			<Text>Se indicado em uma Cidade-Estado, fornece uma cópia adicional de seus recursos de luxo.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_NAME" Language="pt_BR"> <!-- L2 -->
+			<Text>Queda de Pata de Jaguar</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_DESC" Language="pt_BR"> <!-- L2 -->
+			<Text>Se indicado em uma Cidade-Estado para a qual você envia uma [ICON_TRADEROUTE] Rota Comercial, os [ICON_ENVOY] Emissários enviados contam como dois. +25% de [ICON_PRODUCTION] Produção para edifícios de Centros Comerciais em cidades num raio de 15 casas.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_NAME" Language="pt_BR"> <!-- R1 -->
+			<Text>Expedição à Petén</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_DESC" Language="pt_BR"> <!-- R1 -->
+			<Text>+10 de [ICON_STRENGTH] Força de Combate para a guarnição desta cidade.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_NAME" Language="pt_BR"> <!-- R2 -->
+			<Text>Ataque à Uaxactun</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_DESC" Language="pt_BR"> <!-- R2 -->
+			<Text>+5 de [ICON_STRENGTH] Força de Combate para unidades recrutadas num raio de 10 paineis.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_NAME" Language="pt_BR"> <!-- R2 -->
+			<Text>+5 de [ICON_STRENGTH] Força de Combate para unidades recrutadas (Ataque a Uaxactun)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_DESC" Language="pt_BR"> <!-- R2 -->
+			<Text>+5 de [ICON_STRENGTH] Força de Combate para unidades recrutadas (Ataque a Uaxactun)</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_NAME" Language="pt_BR"> <!-- M3 -->
+			<Text>Guardião dos Reis</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_DESC" Language="pt_BR"> <!-- M3 -->
+			<Text>+2 de [ICON_FAVOR] Favor Diplomático por Cidade-Estado vassala.</Text>
+		</Replace>		
 
 
 
@@ -5139,6 +5395,26 @@
 		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_NERF_DESC" Language="pt_BR">
 			<Text>[ICON_STRENGTH] Força de combate -3 para as unidades da classe de promoção escolhida.</Text>
 		</Replace>
+		
+		<!-- === RESSOURCES === -->
+		<Replace Tag="LOC_RESOURCE_P0K_PENGUINS_NAME" Language="pt_BR"> <!-- BBG extended -->
+			<Text>Pinguins</Text>
+		</Replace>
+		<Replace Tag="LOC_RESOURCE_CVS_POMEGRANATES_NAME" Language="pt_BR"> <!-- BBG extended -->
+			<Text>Romã</Text>
+		</Replace>
+		<Replace Tag="LOC_RESOURCE_P0K_PAPYRUS_NAME" Language="pt_BR"> <!-- BBG extended -->
+			<Text>Papiro</Text>
+		</Replace>
+		<Replace Tag="LOC_RESOURCE_P0K_MAPLE_NAME" Language="pt_BR"> <!-- BBG extended -->
+			<Text>Xarope de Bordo</Text>
+		</Replace>
+		<Replace Tag="LOC_RESOURCE_P0K_OPAL_NAME" Language="pt_BR"> <!-- BBG extended -->
+			<Text>Opala</Text>
+		</Replace>
+		<Replace Tag="LOC_RESOURCE_P0K_PLUMS_NAME" Language="pt_BR"> <!-- BBG extended -->
+			<Text>Ameixa</Text>
+		</Replace>		
 
 
 
@@ -5157,6 +5433,1380 @@
 		
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CITIES_16_CHAPTER_CONTENT_PARA_1" Language="pt_BR">
 			<Text>A felicidade representa a satisfação da [ICON_CITIZEN] População de uma cidade e depende do número de [ICON_AMENITIES] Serviço dessa cidade. É necessário 1 [ICON_AMENITIES] Serviço para cada 2 [ICON_CITIZEN] Cidadãos. Uma cidade satisfeita não recebe nenhum modificador. Uma cidade feliz vê seu crescimento e rendimentos aumentarem em 8%, enquanto uma cidade eufórica vê seu crescimento e rendimentos aumentarem em 16%. Por outro lado, uma cidade que não possui Serviço suficientes [ICON_AMENITIES] para seus [ICON_CITIZEN] Cidadãos vê seu crescimento e rendimentos diminuírem. Se o descontentamento se tornar uma fonte de agitação, o crescimento para e partidários refratários podem surgir na cidade.</Text>
+		</Replace>
+			
+		<!-- == Airã == -->
+		<Replace Tag ="LOC_LEADER_LIME_PHOE_AHIRAM_NAME" Language="pt_BR">
+			<Text>Airã</Text>
+		</Replace>	
+		<Replace Tag="LOC_LOADING_INFO_LEADER_LIME_PHOE_AHIRAM" Language="pt_BR">
+			<Text>Melqart lhe concede prosperidade, Airã, pois poucos são tão ricos quanto você. Use seu domínio sobre os mares para aumentar sua própria riqueza, mas não a guarde apenas para si. Construa obras suntuosas em todos os seus domínios e inspire o comércio e os negócios a prosperar em suas colônias, pois riqueza gera riqueza. Em um mundo de mendigos, use o ouro e a prata de Biblos e além para construir grandes cidades - e sim, uma civilização - que resistirão ao teste do tempo.</Text>
+		</Replace>
+		<Replace Tag="LOC_AGENDA_LIME_PHOE_AHIRAM_BE_HUMBLED_NAME" Language="pt_BR">
+			<Text>Venha e seja humilde</Text>
+		</Replace>
+		<Replace Tag="LOC_AGENDA_LIME_PHOE_AHIRAM_BE_HUMBLED_DESCRIPTION" Language="pt_BR">
+			<Text>Não gosta de belicistas, mas aprecia aqueles que lhe enviam rotas comerciais.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LIME_PHOE_AHIRAM_BE_HUMBLED_REASON_ANY" Language="pt_BR">
+			<Text>(Você é um belicista, mas pelo menos comercia com ele)</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_LEADER_LIME_PHOE_AHIRAM_BE_HUMBLED_KUDO" Language="pt_BR">
+			<Text>Airã está encantado por ter alguém com suas qualidades em seu círculo</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Olá, e qual será seu prazer? Fale claramente - farei um escriba registrar isso hoje mesmo!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_VISIT_RECIPIENT_LEADER_LIME_PHOE_AHIRAM_AN" Language="pt_BR">
+			<Text>Estaria interessado em um acordo comercial preliminar? Talvez pudesse visitar um projeto em uma de minhas cidades próximas</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Meus mercadores estarão lá imediatamente.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NO_MANS_INFO_EXCHANGE_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Venha, admire a majestade de Biblos! Não se esqueça de trazer algo para trocar, pois há muitos mercadores para conhecer!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_GREETING_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Posso ajudá-lo?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DELEGATION_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Enviei algumas amostras de nossas muitas riquezas. Que tal falarmos sobre algumas joias de ouro e rubi? Um copo de vinho, dois, três?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DELEGATION_FROM_HUMAN_LEADER_LIME_PHOE_AHIRAM_AN" Language="pt_BR">
+			<Text>Sua delegação não será permitida, mas talvez eu possa interessá-lo em algumas bugigangas? A preços acessíveis?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DELEGATION_FROM_HUMAN_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Seus delegados serão bem tratados e respeitados, garanto-lhe.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_MAKE_DEAL_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Acredito que precisaremos fazer alguns ajustes.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_MAKE_DEAL_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Excelente! Farei redigir imediatamente.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_EXIT_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>A guerra não é propícia para lucros. Exceto, é claro, se for contra belicistas.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_KUDO_EXIT_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Nunca deixo que bons modos atrapalhem bons negócios. E graças a Astarte, temos bons negócios.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Talvez não.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Maravilhoso!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Talvez eu possa tentá-lo com uma declaração de amizade por escrito?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Isso não parece ser um empreendimento mutuamente benéfico.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Consideremos isso resolvido!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Chegou a hora de expandir nossa parceria! Tem sido bastante lucrativo para mim, de qualquer forma.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_OPEN_BORDERS_FROM_HUMAN_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Concordo! Estou ansioso para ouvir sobre as fabulosas riquezas de suas terras.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_OPEN_BORDERS_FROM_HUMAN_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Não, acho que não faremos isso.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_OPEN_BORDERS_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Tenho uma proposta que acredito criará oportunidades entre nós.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_TOO_MANY_TROOPS_NEAR_ME_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Recebi relatos de tropas se reunindo perto de minha fronteira, ostentando sua bandeira. Você tem algo a dizer? Talvez um pedido de misericórdia?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DENOUNCE_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Nunca negociei com alguém tão terrível quanto você - até suas moedas são corruptas!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DENOUNCE_FROM_HUMAN_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>A loucura sempre nasce da mente dos gananciosos.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>O preço da paz tornou-se alto demais. É hora de trazer a tempestade de Ba'al sobre você!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_HUMAN_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Você também será humilhado diante dos muros de Biblos!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Acredito que isso esteja resolvido, então.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_LEADER_LIME_PHOE_AHIRAM_AN" Language="pt_BR">
+			<Text>Não estou disposto a pagar um preço tão ridículo por uma paz sem valor.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Talvez seja hora de reconsiderar nossas circunstâncias. Claro, há algo que eu poderia lhe oferecer?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DEFEAT_FROM_HUMAN_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Que mil maldições caiam sobre você e seus filhos, e que nunca conheçam a paz enquanto reinarem, e que Resheph espalhe seus fogos sobre vocês!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DEFEAT_FROM_AI_LEADER_LIME_PHOE_AHIRAM_ANY" Language="pt_BR">
+			<Text>Nosso negócio está encerrado. Espero que não tenha reclamações, mas para ser honesto, isso realmente não me preocupa.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_PHOE_AHIRAM_QUOTE" Language="pt_BR">
+			<Text>Se um rei se opuser a esta cidade, que seu cetro judicial seja quebrado, que seu trono real seja derrubado e que a paz e a tranquilidade se afastem de Biblos.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LIME_PHOE_AHIRAM_TITLE" Language="pt_BR">
+			<Text>Airã</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LIME_PHOE_AHIRAM_SUBTITLE" Language="pt_BR">
+			<Text>Rei de Biblos</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_PHOE_AHIRAM_CHAPTER_CAPSULE_BODY" Language="pt_BR">
+			<Text>Airã se especializa em construir cidades primitivas a baixo custo e usa essas aquisições para gerar grandes mercadores. Use essas cidades distantes para comprar muitos novos edifícios a partir da economia que a base da Fenícia construiu. Melhor ainda, compre Túmulos Reais para gerar muita ciência e obter uma vitória científica muito rica.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_PHOE_AHIRAM_CHAPTER_DETAILED_BODY" Language="pt_BR">
+			<Text>A Fenícia está intrinsecamente direcionada para um jogo costeiro muito econômico e vasto, com muitas pequenas cidades espalhadas por vastas extensões de litoral, gerando ouro através de uma vasta rede de rotas comerciais que partem de Cothons. Airã usa essa riqueza para acumular muitos pontos de Grande Mercador, que têm uma grande variedade de usos. Airã também oferece o edifício único do Túmulo Real, projetado para gerar ainda mais ouro de todos esses Grandes Mercadores, mas também para impulsionar a construção e compra de edifícios científicos. O uso do governador Financeiro também ajudará a Fenícia, embora as compras de distritos não gerem pontos de Grande Mercador.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_PHOE_AHIRAM_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Pouco se sabe sobre Airã de Biblos; até mesmo o período de seu reinado é desconhecido, com a estimativa atual sendo por volta de 1000 a.C. Também não se sabe ao certo se ele era rei, embora os historiadores suspeitem que sim, ou pelo menos que ele era de uma linhagem digna da realeza. O que se sabe é que seu filho, Itobaal (não aquele na Wikipédia, tenho quase certeza que esse link redireciona para outro Itobaal? Mas não tenho certeza, é realmente confuso) certamente havia um rei de Biblos, e Airã era sem dúvida incrivelmente rico. Rico o suficiente para ser enterrado em um túmulo digno de um rei: um sarcófago em uma tumba real com poço.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_PHOE_AHIRAM_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>É possível extrapolar disso que Airã provavelmente era um mercador ou rei muito rico em um momento muito oportuno: o fim do mundo. Por volta de 1000 a.C., o colapso da Idade do Bronze Tardia havia passado. Babilônia, Micenas e Ugarit jaziam em cinzas fumegantes, e os grandes impérios da época - Assíria, Elam e o todo-poderoso Egito - estavam mortos ou morrendo. A alfabetização havia sido praticamente erradicada, e o caos geral havia perturbado praticamente toda a rede de rotas comerciais em que o Oriente Próximo era construído. Em suma, as coisas não estavam ótimas.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_PHOE_AHIRAM_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>Acontece que o apocalipse é excelente para os negócios. Airã tornou-se uma pessoa importante na antiga cidade de Biblos - outrora um assentamento do Egito, mas o Egito não era realmente capaz de coisas como integridade territorial naquele momento. Biblos tornou-se a principal cidade da Fenícia, que emergiu após o colapso da Idade do Bronze como uma coalizão poderosa e influente de cidades-estados mercantis. Como todas as outras grandes potências ainda estavam em vários graus de inferno, o poder fenício era praticamente incontestável, dando-lhe carta branca para negociar em todo o Mediterrâneo e Europa em um mundo pós-apocalíptico e mal alfabetizado. Melhor ainda, Biblos estava localizada perto de vastas florestas de cedro, e a madeira era um recurso do qual o Egito, sendo um deserto, notavelmente carecia. De fato, Airã tinha muitos fatores a seu favor para garantir que literalmente não houvesse maneira de ele não se tornar incrivelmente rico.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_PHOE_AHIRAM_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>Um efeito colateral agradável do enriquecimento intenso - como o Possivelmente-Rei Airã pode ter feito - foi que o alfabeto usado pelos fenícios se espalhou pelas civilizações renascentes. Este novo alfabeto era muito mais simples de aprender do que os anteriores, o cuneiforme e os hieróglifos, tornando-o muito popular entre os estados que não tinham mais a capacidade ou interesse em sustentar as necessidades de um exército de escribas. Este novo alfabeto popular formaria a base do alfabeto latino moderno, cujo primeiro exemplo autêntico é encontrado em nada menos que uma maldição inscrita no sarcófago de Airã.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_PHOE_AHIRAM_CHAPTER_HISTORY_PARA_5" Language="pt_BR">
+			<Text>Airã provavelmente usou sua riqueza incrível para financiar a construção na cidade. Sua riqueza também é provavelmente a razão pela qual seu filho, Itobaal, mais tarde se tornou rei de Biblos. Também provavelmente lhe valeu uma boa posição no conselho de Anciãos de Biblos, se ele próprio não fosse o rei de Biblos.</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_PHOE_AHIRAM_GMERCHANT_DROPTEXT" Language="pt_BR">
+			<Text>Pontos de Grande Mercador +{1_Num}</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_BUILDINGS_PAGE_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Restam muito poucos vestígios da arquitetura fenícia. Não resta muito mesmo desta civilopedia.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_BUILDINGS_PAGE_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>...</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_BUILDINGS_PAGE_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>Certo, claro. As práticas funerárias fenícias variavam de cidade para cidade, sendo a Fenícia mais um termo genérico para um conjunto de cidades marítimas que adoravam os mesmos deuses e tinham estruturas comerciais e governamentais semelhantes. Um tipo de tumba comumente observado nos assentamentos fenícios é a tumba com poço, frequentemente usada para membros da realeza. A maior parte da tumba é subterrânea, com um sarcófago colocado em uma galeria subterrânea. Então, esta tumba é selada com uma laje de cobertura, até que um arqueólogo perdido a descubra milênios depois. A tumba de Airã, junto com outros quatro sarcófagos muito importantes, foi descoberta em um deslizamento de terra na moderna Biblos, resultando em sérios danos ao seu sarcófago. O sarcófago de Airã, em particular, estava gravado com uma maldição destinada a proteger Biblos, mas é óbvio que não protegeu sua tumba contra o saque cego dos ladrões de túmulos.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_BUILDINGS_PAGE_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>Acredita-se que os fenícios, sendo originalmente colônias do Egito, possam ter desenvolvido esses estilos de enterro como uma versão mais econômica do enterro faraônico no Egito (porque quem pode realmente se dar ao luxo de construir pirâmides gigantescas em todos os lugares?). Parece que os fenícios influenciaram os egípcios por sua vez, pois tumbas egípcias posteriores também apresentavam poços e sepultamentos subterrâneos.</Text>
+		</Replace>
+		
+		<!-- == Suaíli == -->
+		<Replace Tag="LOC_CIVILIZATION_SUK_SWAHILI_NAME" Language="pt_BR">
+			<Text>Suaíli</Text>
+			<Plurality>2</Plurality>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_SUK_SWAHILI_DESCRIPTION" Language="pt_BR">
+			<Text>Império Suaíli</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_SUK_SWAHILI_ADJECTIVE" Language="pt_BR">
+			<Text>Suaíli|Suaílis</Text>
+			<Plurality>1|2</Plurality>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_SUK_SWAHILI_DESCRIPTION_JFD_CIVILIZATION" Language="pt_BR">
+			<Text>Civilização Suaíli</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_SUK_SWAHILI_LOCATION" Language="pt_BR">
+			<Text>África</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_SUK_SWAHILI_SIZE" Language="pt_BR">
+			<Text>Aproximadamente 1.104,3 km²</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_SUK_SWAHILI_POPULATION" Language="pt_BR">
+			<Text>Cerca de 99,4 milhões (2015)</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_SUK_SWAHILI_CAPITAL" Language="pt_BR">
+			<Text>Não era um Estado unificado com capital, mas as principais cidades incluíam Kilwa, Malindi, Mombaça, Pate, Sofala e Zanzibar.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_SWAHILI_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Os sítios medievais ao longo da costa suaíli representam uma tradição cultural única com diversas tradições locais que remontam ao século IX, considerada como tendo evoluído para a cultura suaíli moderna. Atualmente, 173 assentamentos identificados prosperaram ao longo da costa suaíli e ilhas vizinhas do século IX ao XVII, incluindo os sítios de Kilwa, Malindi, Gedi, Pate, Comores e Zanzibar.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_SWAHILI_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>Wa-swahili, ou "povo da costa", refere-se aos habitantes da costa leste africana e significa principalmente uma cultura com uma língua comum, o kiswahili, e a mesma religião, o islã. Geógrafos árabes e persas referiam-se aos habitantes da costa leste africana como Zanj. Foi no início do século XIX que o termo "suaíli" foi usado pela primeira vez, quando colonizadores tentavam classificar e diferenciar as diversas populações da África. Os suaílis se definiram como tal desde a era colonial, mas se diferenciam entre si de acordo com sua região, ilha ou cidade de origem. Apesar de alguns pontos em comum, a identidade suaíli permanece múltipla, incorporando populações de origens diversas, tanto cuchítica quanto bantu.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_SWAHILI_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>No início do primeiro milênio da era comum, a descoberta dos ventos de monção e dos meios de utilizá-los criou uma revolução náutica, permitindo cruzar as águas para a Índia e Ceilão. Desde o século IX, geógrafos muçulmanos mencionam relações comerciais regulares com a África Oriental, Zanzibar, Pemba e Sofala. Essas fontes indicam que já existiam, no século IX, rotas marítimas importantes entre a Ásia e a África.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_SWAHILI_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>Como resultado desse comércio em expansão, a transição entre os séculos XI e XII foi um período de mudança. Vários centros urbanos da África Oriental desenvolveram-se nessa época, assim como a arquitetura em pedra, usada para edifícios públicos, mesquitas e muralhas. As cidades-estado suaílis foram estabelecidas. No século XIII, desenvolveu-se um novo equilíbrio de poder. A costa suaíli foi dividida em vários sultanatos independentes, incluindo Kilwa, Mombaça, Malindi, Pate e Mogadíscio.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_SWAHILI_CHAPTER_HISTORY_PARA_5" Language="pt_BR">
+			<Text>Kilwa era supostamente uma das cidades mais belas do mundo, com casas de pedra cobertas por telhados de folhas de palmeira ou makuti; apenas algumas mesquitas e o palácio tinham telhados planos de alvenaria. Do século XIV ao XV, Kilwa continuou a deter o monopólio do ouro, trocando ouro proveniente de Yufi, localizado a um mês de caminhada da costa. Sofala, vassala da cidade de Kilwa, mantinha relações comerciais com o reino shona do Grande Zimbabwe; o auge do Grande Zimbabwe estava intimamente ligado ao comércio de ouro com os povos islamizados.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_SWAHILI_CHAPTER_HISTORY_PARA_6" Language="pt_BR">
+			<Text>A chegada do explorador português Vasco da Gama em 1498 marcou o início de uma nova era de domínio estrangeiro sobre a costa suaíli. Como parte de uma missão para controlar economicamente e cristianizar a costa suaíli, os portugueses atacaram Kilwa em 1505, e depois outras cidades. Devido à resistência dos suaílis, a tentativa portuguesa de estabelecer controle comercial nunca teve sucesso. No final do século XVII, a autoridade portuguesa sobre a costa suaíli começou a declinar. Com a ajuda dos árabes de Omã, a presença portuguesa foi eliminada em 1729. A costa suaíli acabou se tornando parte do Sultanato de Omã. O comércio recuperou-se, mas não atingiu os níveis anteriores.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_SWAHILI_CHAPTER_HISTORY_PARA_7" Language="pt_BR">
+			<Text>A civilização suaíli encontra-se na periferia dos mundos muçulmano e africano, o que deu origem a uma cultura costeira única baseada no comércio. De fato, sua posição marginal está ligada à nossa visão do Oceano Índico, que separa a África, a Arábia e a Ásia. Mas o oceano também oferece uma ligação entre essas culturas muito diferentes: os suaílis são assim atores dinâmicos, em pé de igualdade com os mercadores árabes, persas e indianos. A arqueologia suaíli encontra-se na encruzilhada da arqueologia islâmica e da arqueologia africana.</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_RIVER_RUVUMA_NAME" Language="pt_BR">
+			<Text>Rio Rovuma</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_RIVER_RUFIJI_NAME" Language="pt_BR">
+			<Text>Rio Rufiji</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_RIVER_TANA_NAME" Language="pt_BR">
+			<Text>Rio Tana</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_RIVER_PANGANI_NAME" Language="pt_BR">
+			<Text>Rio Pangani</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_RIVER_SHEBELLE_NAME" Language="pt_BR">
+			<Text>Rio Shabelle</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_USAMBARA_NAME" Language="pt_BR">
+			<Text>Montanhas Usambara</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_NGURU_NAME" Language="pt_BR">
+			<Text>Montanhas Nguru</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_ULUGURU_NAME" Language="pt_BR">
+			<Text>Montanhas Uluguru</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_VOLCANO_KARTHALA_NAME" Language="pt_BR">
+			<Text>Monte Karthala</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_LAKE_MALAWI_NAME" Language="pt_BR">
+			<Text>Lago Malawi</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_SEA_SOMALI_NAME" Language="pt_BR">
+			<Text>Mar da Somália</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_SEA_OF_ZANJ_NAME" Language="pt_BR">
+			<Text>Mar de Zanj</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_SEA_MENAI_BAY_NAME" Language="pt_BR">
+			<Text>Baía de Menai</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_SEA_CHAKE_CHAKE_BAY_NAME" Language="pt_BR">
+			<Text>Baía de Chake-Chake</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_SEA_CHWAKA_BAY_NAME" Language="pt_BR">
+			<Text>Baía de Chwaka</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_SEA_MANZA_BAY_NAME" Language="pt_BR">
+			<Text>Baía de Manza</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_SEA_WINAM_GULF_NAME" Language="pt_BR">
+			<Text>Golfo de Winam</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_UNITS_PAGE_UNIT_SUK_JAHAZI_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>O jahazi, que é o maior veleiro tradicional usado ao largo da costa da África Oriental, mede até 20 m de comprimento e suas grandes velas infladas são uma visão característica ao largo de Zanzibar e outros portos tradicionais. Com capacidade para cerca de cem passageiros, o jahazi é usado principalmente para transporte de mercadorias e passageiros em longas distâncias ou em mar aberto, por exemplo entre Dar es Salaam e Zanzibar. Desconsiderando modificações menores feitas durante os períodos português e omanense, o design do jahazi moderno é praticamente idêntico ao de navios similares usados no mar durante a Idade Média e antes. O nome jahazi é geralmente aplicado a barcos com proa oca e popa quadrada construídos em Zanzibar e regiões vizinhas do continente.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_BUILDINGS_PAGE_BUILDING_SUK_PILLAR_TOMB_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Uma das formas arquitetônicas mais distintas e enigmáticas associadas aos suaílis eram as estruturas relacionadas a sepulturas. Os vestígios de estruturas de tumbas monumentais ainda pontilham as regiões costeiras e marcam muitos centros da vida suaíli há muito desaparecidos. As estruturas de tumba mais simples eram cercados retangulares delimitados por quatro paredes baixas, de tamanhos e escalas variáveis. A característica mais distintiva e incomum de muitas tumbas suaílis medievais era a adição de uma estrutura alta em forma de coluna, formando um tipo de edifício característico ao longo da costa leste africana, chamado tumba de pilar. Esses pilares vêm em muitos tamanhos e formas, desde redondos, quadrados, multiformes ou canelados, e se elevam a diferentes alturas. Esses pilares, e às vezes partes das paredes circundantes, eram frequentemente decorados com tigelas de porcelana ou cerâmica esmaltada importadas do sul da Arábia, Pérsia e até China, adicionando um toque de cor para contrastar com as superfícies de gesso branco brilhante, formando uma tradição decorativa distinta única da costa medieval da África Oriental.</Text>
+		</Replace>
+		<!-- == Al-Hasan ibn Sulaiman == -->
+		<Replace Tag="LOC_LOADING_INFO_LEADER_SUK_AL_HASAN" Language="pt_BR">
+			<Text>Sultão al-Hassan ibn Sulaiman, o seu é um império de pescadores modestos e mercadores orgulhosos, e graças aos seus esforços, suas costas estarão repletas de portos movimentados e cidades prósperas. Guie-os para grandes feitos desde seu palácio de Husuni Kubwa, e em breve os maiores homens da época virão contemplar as cidades de coral brilhante dos suaílis, e prestarão homenagem a você; seu magnífico sultão.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Dou-lhe as boas-vindas a Kilwa, viajante cansado. Eu sou seu Sultão al-Hasan, Pai dos Presentes. Você veio por um presente também?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_VISIT_RECIPIENT_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Junte-se a mim para a oração de sexta-feira, gostaria de lhe mostrar nossa grande mesquita.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Que Deus o abençoe por sua hospitalidade.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NO_MANS_INFO_EXCHANGE_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Kilwa tem um palácio esplêndido e uma mesquita maravilhosa, ambos construídos em coral e decorados com porcelana. Sua capital é comparável?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_KUDO_EXIT_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Aprendi com os grandes homens do mundo que suas cidades rivalizam com as minhas. Realmente impressionante.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_EXIT_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Você realmente acredita que seja possível abrigar as maiores mentes que o mundo já conheceu em condições tão deploráveis? Você não pensa no conforto deles?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_HUMAN_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Um tirano não pode ser negociado! Muito bem, as espadas bastarão para as palavras.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>A guerra é uma perturbação lamentável do comércio, mas neste caso parece necessária.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Excelente, podemos voltar a questões mais importantes. O comércio, por exemplo.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Não. Esta oferta ainda não é aceitável para mim.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>A guerra é um comércio tão desagradável, não é? Talvez seja hora de buscar a paz?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DEFEAT_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Que Deus queira que meu povo não sofra. Seja mais gentil com eles do que foi comigo.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Uma amizade entre nossas nações só pode trazer harmonia e prosperidade. O que você acha?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Bem. Acredito que isso será muito propício para o comércio.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Que pena.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Você é um amigo de Kilwa, e Kilwa é uma amiga para você.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>É muito cedo para eu tomar tal decisão.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DELEGATION_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Eu sou o Pai dos Presentes, e devo corresponder a essa reputação. Enviei emissários com halwa para você.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DELEGATION_FROM_HUMAN_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Eles ficarão em meu palácio como convidados reais. Devo dizer que é agradável estar do outro lado do presente por uma vez.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DELEGATION_FROM_HUMAN_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Infelizmente não posso receber visitantes no momento, talvez outra hora?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DENOUNCE_FROM_HUMAN_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Você me desrespeitaria? Prometo que se arrependerá dessas palavras.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DENOUNCE_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>O que ele diz que até eu não posso suportar? (Denuncia você).</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Uma aliança entre nós certamente garantirá nossa prosperidade mútua!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_GREETING_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Saudações</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_MAKE_DEAL_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Não acredito que possa aceitar isso.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_MAKE_DEAL_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Você negocia com firmeza! Concordo!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_OPEN_BORDERS_FROM_AI_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Você permitirá que nossas unidades atravessem seu território?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_OPEN_BORDERS_FROM_HUMAN_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Sim, você pode atravessar nossas terras, desde que permaneçam sendo nossas terras. Prefiro sempre esse compromisso à guerra.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_OPEN_BORDERS_FROM_HUMAN_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Não posso confiar que seus homens mantenham a paz, então devo recusar.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_TOO_MANY_TROOPS_NEAR_ME_LEADER_SUK_AL_HASAN_ANY" Language="pt_BR">
+			<Text>Espero que seus soldados estejam apreciando as paisagens. A menos que você tenha intenções mais nefastas?</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_SUK_AL_HASAN_QUOTE" Language="pt_BR">
+			<Text>Quando fui estabelecido, vinguei meu pai sobre o povo de Mafia, lutei contra eles e os derrotei.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_SUK_AL_HASAN_TITLE" Language="pt_BR">
+			<Text>Al-Hasan ibn Sulaiman</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_SUK_AL_HASAN_SUBTITLE" Language="pt_BR">
+			<Text>Sultão de Kilwa</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_CAPSULE_BODY" Language="pt_BR">
+			<Text>Embora talvez não sejam mestres da guerra naval, os suaílis se destacam em prosperar na costa. As habilidades de Al-Hasan reforçam o distrito mais importante dos suaílis: o porto.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_DETAILED_BODY" Language="pt_BR">
+			<Text>Ao contrário da Inglaterra, Noruega e Espanha, os suaílis quase não têm bônus para melhorar seu poder naval. O que eles têm é o potencial de uma base econômica sólida e versátil que outras civilizações navais invejariam. Construa suas cidades na costa e mantenha-as compactas para maximizar os benefícios que você obtém de sua habilidade única e do Túmulo de Pilar. Sob al-Hasan, você também não precisará se preocupar com água doce: seus portos podem servir como excelentes substitutos e ainda trazer cultura! Se você estiver com falta de [ICON_Production] Produção em suas cidades costeiras, treine ou compre Jahazis e envie-os para onde forem necessários. É importante não negligenciar sua marinha, caso contrário suas cidades podem cair nas mãos da Noruega.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Sultão al-Hasan ibn Sulaiman, frequentemente referido como "Abu'l-Mawahib" ("pai dos presentes"), foi o governante da cidade-estado de Kilwa, de 1310 a 1333. Muito do que sabemos sobre al-Hasan e sobre a própria Kilwa nos vem dos escritos de Ibn Battuta, um estudioso muçulmano extremamente viajado.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>Ibn Battuta registrou sua visita à cidade por volta de 1331 e fez comentários favoráveis sobre a humildade e religiosidade de al-Hasan. Sultão al-Hasan ibn Sulaiman teria sido um homem generoso e inteligente. Passou vários anos estudando ciências (ilm) em Meca, onde se tornou "erudito e sábio". Ibn Battuta ficou extremamente impressionado com a generosidade do sultão, observando que ele se sentava e jantava com mendigos, e era muito liberal na distribuição de presentes a todos (incluindo o próprio Ibn Batutta) que vinham vê-lo. É por causa dessa generosidade que al-Hasan ganhou o epíteto de "Pai dos Presentes".</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>Ibn Battuta também ficou particularmente impressionado com o planejamento da cidade e acreditava que essa era a razão do sucesso de Kilwa ao longo da costa. Durante o reinado de al-Hasan, Kilwa viu a construção do palácio de Husuni Kubwa. O local, construído com blocos irregulares de coral chamados "coral rag", agora só é acessível por uma escada desgastada esculpida no penhasco que sobe da água. Sua ruína inclui elementos tradicionais suaílis, como um pátio de recepção em degraus ladeado por quartos para mercadores visitantes, e elementos emprestados de outros palácios islâmicos, como uma piscina octogonal, um grande salão de audiências e uma residência com cerca de 100 cômodos. Mas o sultão havia ido longe demais em sua ambição: o palácio foi ocupado por pouco tempo antes de ser abandonado, inacabado.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>Ainda durante seu reinado, o sultão fez uma extensão importante da Grande Mesquita de Kilwa, que era feita de pedras de coral, a maior mesquita desse tipo. Ele construiu uma extensão a partir da parede leste da sala de oração norte, que se enrola para formar um grande pátio aberto. Um corredor abobadado em forma de barril muito estreito, composto por 30 vãos completos com painéis de coral esculpidos e apoiados por colunas de coral, estendia-se diretamente para o sul. Esta extensão avança ligeiramente para o leste, criando uma asa que se desvia do plano ortogonal. No espaço onde a parede se desvia, duas pequenas salas irregulares eram precedidas por um pequeno pórtico contendo um reservatório cheio de seixos de quartzo lisos, um esfregão de arenito para os pés e um banco. Atrás desse conjunto de pequenas salas há uma sala um pouco maior, simplesmente abobadada. Esta sala longa leva a uma sala quadrada de quatro metros de largura que suporta a grande cúpula. Esta cúpula, mencionada na Crônica de Kilwa, é considerada a primeira cúpula autêntica na costa leste da África. Era sustentada por trompas e decorada com painéis de coral esculpido. Após sua visita em 1331, Ibn Battuta comentou sobre o esplendor da cúpula, que foi, até o século XIX, a maior cúpula da costa leste africana.</Text>
+		</Replace>
+		<Replace Tag="LOC_AGENDA_SUK_FATHER_OF_GIFTS_NAME" Language="pt_BR">
+			<Text>Pai dos Presentes</Text>
+		</Replace>
+		<Replace Tag="LOC_AGENDA_SUK_FATHER_OF_GIFTS_DESCRIPTION" Language="pt_BR">
+			<Text>Odeia civilizações que competem por Grandes Personalidades se não desenvolverem suas cidades. Admira civilizações que mantêm o maior número de distritos na maioria das cidades e abrigam muitas Grandes Personalidades.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_SUK_AL_HASAN_REASON_ANY" Language="pt_BR">
+			<Text>(Você tem cidades bem desenvolvidas com muitas Grandes Personalidades.)</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_SUK_FATHER_OF_GIFTS_KUDO" Language="pt_BR">
+			<Text>Al Hasan está irritado por você amontoar suas Grandes Personalidades em cidades subdesenvolvidas</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_SUK_AL_HASAN_REASON_ANY" Language="pt_BR">
+			<Text>(Você compete por Grandes Personalidades, mas ignorou o desenvolvimento da cidade.)</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_SUK_FATHER_OF_GIFTS_WARNING" Language="pt_BR">
+			<Text>Al Hasan admira suas cidades desenvolvidas e seus Grandes Personalidades</Text>
+		</Replace>
+		
+		<!--== Thule ==-->
+		<Replace Tag="LOC_CIVILIZATION_LIME_THULE_NAME" Language="pt_BR">
+			<Text>Thule</Text>
+			<Plurality>2</Plurality>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_LIME_THULE_DESCRIPTION" Language="pt_BR">
+			<Text>Nação Thule</Text>
+			<Gender>feminine</Gender>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_LIME_THULE_ADJECTIVE" Language="pt_BR">
+			<Text>Thule|Thules</Text>
+			<Plurality>1|2</Plurality>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_LIME_THULE_DESCRIPTION_JFD_CIVILIZATION" Language="pt_BR">
+			<Text>Civilização Thule</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_LIME_THULE_LOCATION" Language="pt_BR">
+			<Text>Norte do Canadá, Norte do Alasca, Arquipélago Ártico, Groenlândia</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_LIME_THULE_POPULATION" Language="pt_BR">
+			<Text>Estimados 55 mil</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_LIME_THULE_SIZE" Language="pt_BR">
+			<Text>Estimados 15,5 milhões de km² (6 milhões de milhas quadradas)</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_LIME_THULE_CAPITAL" Language="pt_BR">
+			<Text>Qilakitsoq</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_THULE_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Os povos Thule (pronunciado 'Tu-le') foram ancestrais dos inuítes modernos que habitavam os territórios do norte do atual Canadá, Alasca e Groenlândia. Desenvolvendo-se primeiro no Alasca no século X, expandiram-se pelo Canadá e Groenlândia nos 300 anos seguintes, deslocando e dominando as culturas Dorset anteriores.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_THULE_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>Embora tenham começado a prosperar verdadeiramente no século X, a Tradição Thule começou aproximadamente em 200 a.C. no Estreito de Bering, embora essa estimativa varie muito. A forte tradição de caçadores marítimos e artística dos Thule tomou forma primeiro aqui, no que ficou conhecido como estágio do Mar de Bering Antigo da tradição Thule. Pontas de arpão de marfim decoradas e restos de Umiaks (grandes barcos de pele usados para caça à baleia), e várias outras ferramentas feitas de marfim e ardósia polida são descobertas dessa época. Especificamente, inovações na forma de picadores de gelo montados em arpões, arpão de articulação, ferramentas sofisticadas para caça de focas e morsas, e seu domínio sobre cães ajudaram os primeiros Thule.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_THULE_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>Após o estágio do Mar de Bering Antigo veio o estágio Punuk, onde os Thule foram capazes de dominar a cultura Dorset devido a suas tecnologias mais avançadas. Os Thule prosperaram em seus vastos novos territórios, e a sociedade focada em focas e morsas transformou-se na cultura centrada na caça às baleias pela qual os Thule se tornaram conhecidos. A presa ideal era a baleia-da-groenlândia, principalmente devido ao nado lento e ao hábito de dormir perto da superfície. A gordura, carne, ossos e peles da baleia tornaram-se importantes e eventualmente essenciais para a vida Thule. Esses recursos necessários eram transformados nas ferramentas necessárias para a caça, nas estruturas de suas casas de ossos de baleia e em seus belos artefatos.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_THULE_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>A cultura Thule entrou em um ciclo de inverno em grandes casas semi-subterrâneas feitas de madeira e ossos de baleia, para a vida de verão em cabanas de pele. Equipes de baleeiros experientes em múltiplos umiaks, liderados por um capitão veterano prestigiado conhecido como umialik, saíam para caçar baleias em canais estreitos de gelo e depois em mar aberto durante o outono. Embora a caça à baleia em mar aberto fosse perigosa, os caçadores e barqueiros especializados desenvolveram armaduras de osso, arco e flecha, ferramentas de caça ainda mais avançadas e técnicas especializadas para mitigar os perigos.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_THULE_CHAPTER_HISTORY_PARA_5" Language="pt_BR">
+			<Text>Por volta do ano 800 d.C., a cultura Thule dividiu-se na metade ocidental no Alasca e no Canadá continental, e na metade oriental na Groenlândia e nos Mares Árticos. A metade oriental ficou conhecida como estágio Birnirk, que evoluiu por conta própria através dos estágios Birnirk Inicial, Médio e Tardio. Gradualmente, os estilos de pontas de arpão e flecha mudaram de pontos de marfim altamente decorados para versões sem adornos feitas de chifre.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_THULE_CHAPTER_HISTORY_PARA_6" Language="pt_BR">
+			<Text>Enquanto isso, o Punuk oriental entrou na era Thule Clássica dos anos 1100 a 1400 d.C. Começaram a usar ferramentas de ferro derivadas de recursos meteóricos ou comércio com os nórdicos, mas acabaram tendo um suprimento muito limitado de ferro. O metal era usado para escultura, mas as tendências artísticas dos Thule continuaram a declinar.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_THULE_CHAPTER_HISTORY_PARA_7" Language="pt_BR">
+			<Text>A fé Thule desenvolveu-se em uma forma de Animismo e Xamanismo. Sacerdotes-curandeiros conhecidos como Angakkuit ajudavam as comunidades em tempos de crise, especialmente durante a caça às baleias e escassez de recursos marinhos. A dureza da vida no norte gelado fazia com que o povo vivesse em constante medo de forças invisíveis e sobrenaturais, com alguns motivos girando em torno de protetores ou guardiões, e outros sobre superar obstáculos sobrenaturais. Eles também acreditavam que todas as coisas tinham um anirniq - um espírito - que é emprestado do céu ao seu redor, e persiste após a morte e está livre para se vingar.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_THULE_CHAPTER_HISTORY_PARA_8" Language="pt_BR">
+			<Text>O período Thule Pós-Clássico foi de declínio devido a mudanças climáticas e falta de baleias - os assentamentos foram forçados a usar estratégias de subsistência baseadas em caça terrestre ou pesca. As temperaturas decrescentes da Pequena Idade do Gelo fizeram com que a temporada de caça às baleias encurtasse e os esforços de caça às baleias foram finalmente abandonados no século XVII.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_THULE_CHAPTER_HISTORY_PARA_9" Language="pt_BR">
+			<Text>A tradição Thule fez contato com a sociedade europeia antes de seu desaparecimento. Embora já tivessem contatado os nórdicos, que os chamavam de skrælingr, encontraram baleeiros bascos e posteriormente exploradores franceses e ingleses. Pragas mataram os Thule em massa, e a riqueza material perturbou o modo de vida Thule enquanto eles começavam a se transformar na sociedade inuíte. Durante um tempo em que sua principal fonte de alimento estava se esgotando rapidamente, o impacto da colonização europeia foi devastador e finalmente letal para a cultura. Os últimos vestígios da cultura Thule desapareceram por volta de 1850, sendo totalmente substituídos pelos inuítes modernos nas colônias britânicas canadenses.</Text>
+		</Replace>
+		<!--Kiviuq-->
+		<Replace Tag="LOC_AGENDA_LIME_THULE_DAVE_ALWAYS_ROAMING_NAME" Language="pt_BR">
+			<Text>Sempre Ansiando por Explorar</Text>
+		</Replace>
+		<Replace Tag="LOC_AGENDA_LIME_THULE_DAVE_ALWAYS_ROAMING_DESCRIPTION" Language="pt_BR">
+			<Text>Gosta de civilizações que enviam exploradores. Não gosta de civilizações que não exploram.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_KUDOS_LEADER_LIME_THULE_DAVE_ALWAYS_ROAMING_EXPLORERPHILE_POSITIVE" Language="pt_BR">
+			<Text>(Você enviou muitos exploradores)</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_LEADER_LIME_THULE_DAVE_ALWAYS_ROAMING_EXPLORERPHILE_POSITIVE" Language="pt_BR">
+			<Text>Kiviuq o considera um companheiro explorador</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LIME_THULE_DAVE_ALWAYS_ROAMING_EXPLORERPHILE_NEGATIVE" Language="pt_BR">
+			<Text>(Você negligenciou a exploração)</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_LEADER_LIME_THULE_DAVE_ALWAYS_ROAMING_EXPLORERPHILE_NEGATIVE" Language="pt_BR">
+			<Text>Kiviuq acha que você é mente fechada e tem medo de aventuras</Text>
+		</Replace>
+		<Replace Tag="LOC_LOADING_INFO_LEADER_LIME_THULE_DAVE" Language="pt_BR">
+			<Text>Um vasto horizonte se abre diante de você, heróico Kiviuq, eterno explorador. Seu povo é piedoso e culto, com relíquias incomparáveis e lendas além da crença. Envie seus caçadores para caçar baleias, e deixe seus Angakkuit duelarem com Sedna para que você tenha boa sorte. Mas não se esqueça de explorar, e conduza seus batedores até os confins do horizonte. Lute com força e supere as adversidades, e acima de tudo não deixe seu coração se transformar em pedra.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_TITLE" Language="pt_BR">
+			<Text>Kiviuq</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_SUBTITLE" Language="pt_BR">
+			<Text>Herói do Norte</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_QUOTE" Language="pt_BR">
+			<Text>Os anciãos dizem que ele está em sua última vida agora, em uma aventura em algum lugar. Porém, antes de morrer ele retornará para ver seu povo.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Kiviuq, ou Qivioq, é um herói lendário dos Thule e depois dos Inuit que aparece em muitos unipkaaqs (sagas épicas que ocorreram em um passado indefinido chamado taimmani). Ele é um eterno aventureiro, sempre viajando pela terra a pé, de trenó puxado por cães, umiak, ou por peixes gigantes. Ele usa seus poderes sobrenaturais para superar espíritos arnirniit, deuses, gigantes, canibais, ursos e monstros marinhos, além de inúmeros outros obstáculos durante suas viagens.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>Uma lenda bem conhecida de Kiviuq conta sobre sua amizade com o neto de uma velha. Todos maltratam e zombam do menino, exceto Kiviuq. A velha decide se vingar. Ela transforma seu neto em uma foca e o faz nadar para o mar. Os homens seguem a foca, pretendendo caçá-la. Porém, antes que os caçadores a alcancem, a velha cria uma tempestade e afoga todos, exceto a foca e Kiviuq. A foca nada em segurança de volta à costa, onde a velha o transforma novamente em menino.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>Dizem que Kiviuq lutou contra a tempestade por vários dias, e acabou à deriva em seu caiaque continuando suas aventuras e vivendo com povos de muitas terras estrangeiras. Mas durante essa luta, ele lentamente começou a se transformar em pedra. Nos tempos modernos, acredita-se que metade de seu rosto se transformou em pedra, e que o mundo acabará quando seu coração finalmente parar de bater. Os povos do Alasca lhe deram um novo epíteto - Qajartuarungnertoq, significando 'Aquele que sempre ansiará por vagabundear em seu caiaque'.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>A tradição oral preservou muitas versões do ciclo de histórias de Kiviuq, e hoje, uma nova geração de contadores de histórias está trazendo os contos à vida em forma escrita ou gráfica. O ressurgimento da cultura esquimó chamou atenção novamente para Kiviuq, e no ano 2000 uma lua de Saturno foi nomeada em sua homenagem, embora uma pequena e não esférica. A lenda de Kiviuq continua a crescer cada vez mais, e agora até o levou às estrelas.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_CAPSULE_BODY" Language="pt_BR">
+			<Text>As habilidades de Kiviuq incentivam grande exploração, enquanto os Thule básicos são capazes de construir rapidamente uma forte base cultural e religiosa em uma paisagem que seria inabitável.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_DETAILED_BODY" Language="pt_BR">
+			<Text>Os Thule eram um povo altamente religioso e artístico cujo modo de vida dependia em grande parte da caça às baleias-da-groenlândia. Os Angakkuit permitem que os Thule transformem uma região polar em um ambiente habitável através da caça às baleias, enquanto a habilidade "Caça à Baleia-da-Groenlândia" e o distrito único Casa de Ossos de Baleia transformam essas baleias em uma Vitória Religiosa ou Cultural. A habilidade "Um Coração Não Feito de Pedra" de Kiviuq ajudará os Thule a explorar bons lugares para se estabelecer e auxiliará diretamente no aumento da geração de fé.</Text>
+		</Replace>
+		<!--Diplomacia-->
+		<!--PRIMEIRO ENCONTRO-->
+		<!--Primeira fala da IA-->
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Salve, companheiro aventureiro! Eu sou Kiviuq, e minha tribo é do povo Thule. Você também tem o coração de um vagabundo?</Text>
+		</Replace>
+		<!--Convite da IA para visitar cidade próxima-->
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_VISIT_RECIPIENT_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>A estação está propícia para caçar baleias-da-groenlândia, e eu vou em uma expedição de caça. Gostaria de se juntar?</Text>
+		</Replace>
+		<!--IA aceita convite humano-->
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Concordo.</Text>
+		</Replace>
+		<!--Convite da IA para trocar informações sobre capitais-->
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NO_MANS_INFO_EXCHANGE_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>A vida está cheia de chances para aventuras. Você faria a jornada para ver minhas terras natais?</Text>
+		</Replace>
+		<!--SAUDAÇÕES-->
+		<Replace Tag="LOC_DIPLO_GREETING_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Saudações.</Text>
+		</Replace>
+		<!--DELEGAÇÃO-->
+		<!--IA Aceita-->
+		<Replace Tag="LOC_DIPLO_ACCEPT_DELEGATION_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Obrigado, esta oferenda está bem decorada. Certificarei de visitar suas terras algum dia.</Text>
+		</Replace>
+		<!--IA Rejeita-->
+		<Replace Tag="LOC_DIPLO_REJECT_DELEGATION_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Receio que seja tirigusuusiit. Não devo concordar.</Text>
+		</Replace>
+		<!--Pedido da IA -->
+		<Replace Tag="LOC_DIPLO_DELEGATION_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Enviei batedores às suas terras trazendo presentes de carne de baleia e facas de caça decoradas. Você permitiria que vissem suas cidades e contassem seus unipkaaqs?</Text>
+		</Replace>
+		<!--FRONTEIRAS ABERTAS-->
+		<!--IA aceita do humano-->
+		<Replace Tag="LOC_DIPLO_ACCEPT_OPEN_BORDERS_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Excelente! Tantas novas terras vastas para explorar.</Text>
+		</Replace>
+		<!--IA rejeita do humano-->
+		<Replace Tag="LOC_DIPLO_REJECT_OPEN_BORDERS_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Ah, você não pode explorar em outro lugar?</Text>
+		</Replace>
+		<!--Pedido da IA ao humano-->
+		<Replace Tag="LOC_DIPLO_OPEN_BORDERS_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Ouvi muitas lendas de seu reino. Eu poderia viajar até lá e ver se são verdadeiras?</Text>
+		</Replace>
+		<!--DECLARAR AMIZADE-->
+		<!--IA aceita do humano-->
+		<Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Eu teria orgulho de te chamar de amigo.</Text>
+		</Replace>
+		<!--IA Rejeita do humano -->
+		<Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Receio que meu caminho vá para outro lugar.</Text>
+		</Replace>
+		<!--Pedido de amizade da IA ao humano-->
+		<Replace Tag="LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>É piqujait! Eu ficarei feliz em me juntar a você.</Text>
+		</Replace>
+		<!--Humano aceita pedido da IA, IA responde-->
+		<Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Obrigado.</Text>
+		</Replace>
+		<!--Humano rejeita pedido da IA, IA responde-->
+		<Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>É tolice ir sozinho - Amaruq caça viajantes solitários. Eu posso superá-lo, mas temo por você.</Text>
+		</Replace>
+		<!--ALIANÇA-->
+		<!--Pedido de aliança da IA ao humano-->
+		<Replace Tag="LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Você não é diferente de um Agloolik. Estaria interessado em ir em uma aventura?</Text>
+		</Replace>
+		<!--ELOGIOS & ADVERTÊNCIAS-->
+		<!--Elogios da IA-->
+		<Replace Tag="LOC_DIPLO_KUDO_EXIT_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Vá longe, e que suas viagens sejam cheias de eventos.</Text>
+		</Replace>
+		<!--Advertências da IA-->
+		<Replace Tag="LOC_DIPLO_WARNING_EXIT_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Você não é um viajante. Apenas um obstáculo, que eu superarei.</Text>
+		</Replace>
+		<!--IA alerta jogador por tropas na fronteira-->
+		<Replace Tag="LOC_DIPLO_WARNING_TOO_MANY_TROOPS_NEAR_ME_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Aqueles não parecem aventureiros em minha fronteira. Ou caçadores. Na verdade, parecem invasores. Meus olhos ainda não são de pedra.</Text>
+		</Replace>
+		<!--COMÉRCIO-->
+		<!--IA Aceita Acordo-->
+		<Replace Tag="LOC_DIPLO_ACCEPT_MAKE_DEAL_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>{LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY}</Text>
+		</Replace>
+		<!--IA Rejeita Acordo-->
+		<Replace Tag="LOC_DIPLO_REJECT_MAKE_DEAL_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>{LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY}</Text>
+		</Replace>
+		<!--DENUNCIAR-->
+		<!--Do Humano-->
+		<Replace Tag="LOC_DIPLO_DENOUNCE_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Você arrisca enfurecer Sedna! Você pretende nos arrastar todos pelo seu caminho?</Text>
+		</Replace>
+		<!--Da IA-->
+		<Replace Tag="LOC_DIPLO_DENOUNCE_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Se você não vê o mundo, como mais pode proteger nosso povo?! Como mais pode se aproximar do destino?!</Text>
+		</Replace>
+		<!--Racional-->
+		<Replace Tag="LOC_DIPLO_DENOUNCE_REASON_FROM_AI_LEADER_ANY_REASON_LIME_THULE_DAVE_ALWAYS_ROAMING_EXPLORERPHILE_NEGATIVE" Language="pt_BR">
+			<Text>(Você não está explorando.)</Text>
+		</Replace>
+		<!--DECLARAR GUERRA-->
+		<!--Humano Declara Guerra-->
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Isso não é uma guerra. Isso é uma aventura! Uma que fará uma bela história de como agressores sempre serão derrotados.</Text>
+		</Replace>
+		<!--IA Declara Guerra-->
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Você é atrasado, fraco de vontade e com medo do selvagem. Agora você vê o que isso lhe traz. Agora você encontra a tempestade.</Text>
+		</Replace>
+		<!--FAZER PAZ-->
+		<!--IA aceita do humano-->
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Muito bem. Os Angakkuit pedirão a Sedna para nos perdoar.</Text>
+		</Replace>
+		<!--IA recusa humano-->
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Eu não sou tolo, e o Vento Norte ainda não embotou minha inteligência.</Text>
+		</Replace>
+		<!--Pedido de paz da IA ao humano-->
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>O inverno está chegando, ambos deveríamos estar nos preparando para ele. Podemos concordar com esta trégua?</Text>
+		</Replace>
+		<!--DERROTA-->
+		<!--IA é Derrotada-->
+		<Replace Tag="LOC_DIPLO_DEFEAT_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Suponho que seja isso. Minha última aventura. O último obstáculo que não pude superar, foi você no final. Posso sentir meu coração batendo mais devagar, e agora me transformo em pedra. Sinto frio... tanto frio...</Text>
+		</Replace>
+		<!--Humano é Derrotado (verá isso no hotseat)-->
+		<Replace Tag="LOC_DIPLO_DEFEAT_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="pt_BR">
+			<Text>Você não precisava ser meu inimigo; eu só queria explorar. Na verdade, de certa forma eu te invejo - agora você faz essa jornada para Adlivun, uma que eu nunca tive a chance de fazer.</Text>
+		</Replace>
+		
+		<!-- == TEOTIHUACAN ==-->
+		<Replace Tag="LOC_CIVILIZATION_LIME_TEOTIHUACAN_NAME" Language="pt_BR">
+			<Text>Teotihuacan</Text>
+			<Plurality>2</Plurality>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_LIME_TEOTIHUACAN_DESC" Language="pt_BR">
+			<Text>Império Teotihuacano</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_LIME_TEOTIHUACAN_ADJECTIVE" Language="pt_BR">
+			<Text>Teotihuacano|Teotihuacana|Teotihuacanos|Teotihuacanas</Text>
+			<Gender>masculine|feminine|masculine|feminine</Gender>
+			<Plurality>1|1|2|2</Plurality>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_LIME_TEOTIHUACAN_DESCRIPTION_JFD_CIVILIZATION" Language="pt_BR">
+			<Text>Civilização Teotihuacana</Text>
+			<Gender>feminine</Gender>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_LIME_TEOTIHUACAN_CAPITAL" Language="pt_BR">
+			<Text>Teotihuacan</Text>
+		</Replace>
+		<Replace Tag="LOC_CITY_NAME_TEOTIHUACAN" Language="pt_BR">
+			<Text>Teotihuacan</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_NAMED_MOUNTAIN_CERRO_TLALOC" Language="pt_BR">
+			<Text>Monte Tlaloc</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_NAMED_MOUNTAIN_SIERRA_MADRE" Language="pt_BR">
+			<Text>Montanhas Sierra Madre</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_NAMED_LAKE_LAKE_ILOPANGO" Language="pt_BR">
+			<Text>Lago Ilopango</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_NAMED_LAKE_LAKE_XALTOCAN" Language="pt_BR">
+			<Text>Lago Xaltocan</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_NAMED_VOLCANO_TAJUMULCO_NAME" Language="pt_BR">
+			<Text>Vulcão Tajumulco</Text>
+		</Replace>
+		<Replace Tag="NAMED_RIVER_LIME_TEO_SAN_PEDRO_RIVER" Language="pt_BR">
+			<Text>Rio San Pedro</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_LIME_TEOTIHUACAN_LOCATION" Language="pt_BR">
+			<Text>Nordeste da Cidade do México</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_LIME_TEOTIHUACAN_POPULATION" Language="pt_BR">
+			<Text>200.000</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_LIME_TEOTIHUACAN_SIZE" Language="pt_BR">
+			<Text>20 km² (8 milhas quadradas)</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Pouco se sabe sobre a enigmática cidade agora chamada Teotihuacán - nem mesmo seu nome real. O termo em si veio dos astecas que lá se estabeleceram, significando "Lugar onde os Homens se tornam Deuses" ou "Berço dos Deuses" (na verdade, nem isso é 100% claro. É possível que o nome do lugar em náuatle seja "Teohuacán", que pode significar "Cidade do Sol" ou "Berço do Sol"). A identidade de seus verdadeiros fundadores se perdeu na história, e tudo o que resta são as ruínas monumentais da enorme cidade que construíram e uma lenda ainda maior que isso. Como advertência, o que se seguirá será incrivelmente complicado, longo e representa um buraco de coelho (ou buraco no chão?) de cinco anos no qual caí, e ainda não consigo entender muito disso. Além disso, ainda há muitos estudos em andamento, e com minha sorte vai haver alguma descoberta na semana que vem ou algo assim que mude tudo. Então, sim. Divirta-se.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>A história do assentamento remonta a 600 a.C., embora realmente comece a ganhar força por volta de 200 a.C. Também pode ser dividida em quatro ou cinco fases... embora também houvesse uma pré-fase. Em suas origens, parece que Teotihuacán estava envolvida em uma disputa de poder com algumas outras cidades, principalmente Cuicuilco. Durante o período de cerca de 600 a.C. a 200 a.C., tanto Cuicuilco quanto Teotihuacán tinham uma população comparável de cerca de 20.000 habitantes cada. Mas parece que uma série de erupções dos vulcões Xitle e Popocatépetl cobriram as terras agrícolas de Teotihuacán com uma camada de cinzas férteis, mas Cuicuilco e suas terras agrícolas com uma camada de lava muito infértil. Os sobreviventes migraram para Teotihuacán e suas nascentes, o que ajudou a impulsionar o desenvolvimento da cidade.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>O que nos leva ao Período I, de 200 a.C. até a virada do milênio. Aqui na linha do tempo, Teotihuacán evoluiu de um assentamento agrícola para uma verdadeira cidade. Os primeiros edifícios da cidade datam dessa era, e muitas etnias da Mesoamérica começaram a notar a cidade. Acredita-se que foi quando grande parte da fé da cidade começou a se enraizar, dando origem às primeiras formas do Deus da Tempestade (Tlaloc primitivo), da Serpente Emplumada (Quetzalcóatl primitivo), da Serpente da Guerra (também Quetzalcóatl?), do Deus Esfolado (Xipe Totec) e a principal divindade, a Grande Deusa (não clara, mas associada a aranhas).</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>A primeira metade do período II, às vezes chamada de fase Tzacualli, é quando as coisas realmente começaram a decolar, variando de 1 d.C. até cerca de 150 d.C. O atrativo econômico da cidade trouxe novos imigrantes e crescimento, o que fez a população da cidade explodir para 80.000 pessoas. Essas pessoas permitiram a construção dos primeiros grandes monumentos, especialmente o Templo da Serpente Emplumada e o complexo da Ciudadela. Estudiosos acreditam que este complexo era uma espécie de monumento à guerra e à autocracia (o que também não faz sentido para mim? Explicação seguirá no próximo parágrafo), onde sacrifícios ocorriam. Mais de duzentos sacrifícios humanos foram identificados, todos presumivelmente sendo as elites e guerreiros de Teotihuacán em vez de cativos de exércitos opostos. Esta é também a aparição mais antiga de Quetzalcóatl em toda a Mesoamérica. Sob esta pirâmide há um túnel que teve que ser investigado por robô em 2010, que levou (depois de muita exploração) a uma subcâmara que PODE representar um microcosmo do universo teotihuacano, ou talvez uma representação do submundo ou algo assim. Foi muito estranho e confuso e quase todas as teorias sobre isso são pura especulação.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_5" Language="pt_BR">
+			<Text>A segunda metade do período II, às vezes chamada de fase Miccaotli de 150 d.C. a 377 d.C., foi de reorganização e mais construção de monumentos. Parece que o Templo da Serpente Emplumada perdeu importância durante este período, o que alguns estudiosos interpretaram como significando que a cidade havia sido reorganizada governamentalmente para ser menos militante e mais coletiva e burocrática. Outros estudiosos acreditam que isso é bobagem e é resultado dos primeiros estudiosos projetando suas próprias esperanças e sonhos no passado. Esta teoria também afirma que os habitantes do Complexo da Serpente Emplumada foram exilados de Teotihuacán e foram conquistar os maias duzentos anos depois... mas, novamente, isso é improvável.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_6" Language="pt_BR">
+			<Text>No entanto, conforme a cidade se expandia, é muito provável que alguma reorganização política fosse necessária! É provável que o Templo da Serpente Emplumada tenha perdido importância em comparação com novas construções por volta do início dos anos 300 d.C. A fase Miccaotli viu a construção das Pirâmides do Sol e da Lua, bem como o já mencionado Miccaotli - a famosa Avenida dos Mortos. Este boulevard foi alinhado de tal forma que correspondia ao calendário de 260 dias da Mesoamérica, mas também se alinhava com o Cerro Gordo, uma montanha com significado para o Deus da Tempestade. Durante este período, as rotas comerciais da Mesoamérica começaram a convergir para Teotihuacán - uma cidade de 100.000 é um excelente lugar para fazer negócios, e o ponto final de uma peregrinação é ainda melhor.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_7" Language="pt_BR">
+			<Text>O ano de 378 mudou tudo, mas a evidência disso vem não de Teotihuacán, mas do mundo maia a cerca de 1000 quilômetros de distância. 378 foi o ano inicial de quando Siyaj K'ak', também conhecido como Fogo Nasce, foi supostamente enviado pela Coruja Lança-Dardos para conquistar os maias. Tikal foi derrubada, e o filho da Coruja Lança-Dardos foi colocado no lugar, e várias outras cidades ao redor caíram em um período de dois anos. Pelo menos, é assim que a história é contada. Mais sobre isso na Civilopedia da Coruja Lança-Dardos, mas é por isso que Teotihuacán se tornar menos militante em vez de mais não parece fazer muito sentido. 378 parece ser o primeiro ano do Período III, quando Teotihuacán entra em seu período clássico e realmente começa a flexionar seus músculos.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_8" Language="pt_BR">
+			<Text>O Período Clássico durou da Campanha do Fogo Nasce (terminando em 380 d.C.) até cerca do ano 650. Foi quando a cidade atingiu seu máximo absoluto em termos de população - entre 125.000 e 200.000 pessoas - aproximadamente metade de todos no vale do México viviam dentro de suas fronteiras. Este período também viu renovações de monumentos antigos com novas decorações - revestidos em vermelho vinho brilhante e jade, cobertos com magníficos mas misteriosos murais (e infelizmente completamente sem anotações em qualquer tipo de escrita), e com a icônica arquitetura talud-tablero de Teotihuacán, imitada frequentemente nos sítios maias que subjugou. O exército de Teotihuacán foi usado para garantir que outras cidades-estado enviassem seus tributos para Teotihuacán, e que o comércio fosse devidamente direcionado para esta cidade. No entanto, parece que este período também teve um aumento na desigualdade. A estrutura de classes da cidade parece ter se estratificado em três grupos - altas elites, elites intermediárias e trabalhadores. Esses trabalhadores não eram apenas os agricultores, mas também os artesãos qualificados, e viviam nas partes externas da cidade. Parece que durante este período, a maior parte do centro da cidade foi gentrificada. Essas partes externas também estavam associadas a uma mortalidade infantil incrivelmente alta. É uma história tão antiga quanto o tempo: a grande cidade tinha problemas ainda maiores, e sua idade de ouro não era tão dourada para todos.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_9" Language="pt_BR">
+			<Text>O que finalmente nos leva ao último período, Período IV. Não está claro em que ordem as catástrofes ocorreram para Teotihuacán, mas foi nessa época que muitos dos edifícios da cidade foram queimados, e muitas de suas esculturas destruídas. A teoria mais proeminente é que o que desencadeou isso foi uma série de secas e mudanças climáticas que ocorreram em 535-536 que realmente deram início às coisas. Engraçado o suficiente, essas mudanças podem ter sido desencadeadas pela mesma coisa que causou a ascensão de Teotihuacán em primeiro lugar - uma erupção vulcânica, desta vez do vulcão Ilopango. Teotihuacán foi incapaz de sustentar adequadamente seu exército e, portanto, houve um recuo dos exércitos de Teotihuacán, seguido por uma lenta degradação de seus poderes comerciais. Isso poderia ter resultado em desnutrição, agitação e fome. Vendo fraqueza, novos centros emergentes de Cholula, Xochicalco e Cacaxtla começaram a disputar status no vazio de poder. Eles podem até ter se aliado e conspirado para enfraquecer ainda mais Teotihuacán. Enquanto isso, Teotihuacán passava fome. A queda finalmente veio em algum momento entre 650 e 750, quando os principais centros cívicos ao longo da Avenida dos Mortos foram queimados e saqueados. Teotihuacán foi abandonada logo depois.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_10" Language="pt_BR">
+			<Text>Mas o legado de Teotihuacán nunca morreu verdadeiramente - suas ruínas monumentais permaneceram, pairando sobre os primeiros astecas. Teotihuacán foi lembrada pela alcunha de Tollan, a maior cidade do mundo. Além disso, foi possivelmente imortalizada na Lenda dos Cinco Sóis como o quarto mundo - aquele que precedeu o mundo dos astecas, governado por uma Deusa da Magia, Água e Vida. Sua arquitetura, artes, religião e estilo militar foram emulados pelos maias, astecas e outros grupos mesoamericanos, a ponto de permanecer desconhecido quanto é original deles e quanto foi imposto a eles pelos teotihuacanos. O local permaneceu habitado por eremitas e xamãs nahua, um santuário para deuses derrubados, eventualmente sendo semi-repovoado por astecas e caindo sob a influência da nascente Tríplice Aliança. Mesmo quando os espanhóis chegaram, não puderam deixar de ficar maravilhados com a majestade da cidade morta.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_TEOTIHUACAN_CHAPTER_HISTORY_PARA_11" Language="pt_BR">
+			<Text>Recentemente, Teotihuacán tem sido ameaçada pelo desenvolvimento da Cidade do México. Felizmente, operações policiais puseram um fim a isso, e escavações continuam para tentar desvendar os mistérios insondáveis do Berço dos Deuses.</Text>
+		</Replace>
+		<!--==Coruja Lança-Lança==-->
+		<Replace Tag="LOC_LEADER_LIME_TEO_OWL_NAME" Language="pt_BR">
+			<Text>Coruja Lança-Lança</Text>
+		</Replace>
+		<!-- == Coruja Lança-Lança == -->
+		<Replace Tag="LOC_LOADING_INFO_LEADER_LIME_TEO_OWL" Language="pt_BR">
+			<Text>Teotihuacan tem fome. Seus exércitos estão prontos para dobrar o mundo à sua vontade. Deixe o fogo consumir todos os reis rebeldes e insolentes para que você possa tomar o que Teotihuacan exige - riqueza, poder, sangue. Lance sua sombra divina sobre o mundo. Não deixe ninguém ficar fora dela.</Text>
+		</Replace>
+		<!-- Citações e Títulos -->
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_TEO_OWL_QUOTE" Language="pt_BR">
+			<Text>Aqui jaz um deus derrubado - [NEWLINE]Sua queda não foi pequena.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LIME_TEO_OWL_TITLE" Language="pt_BR">
+			<Text>Coruja Lança-Lança</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LIME_TEO_OWL_SUBTITLE" Language="pt_BR">
+			<Text>Senhor do Oeste</Text>
+		</Replace>
+		<!-- Resumo -->
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_TEO_OWL_CHAPTER_CAPSULE_BODY" Language="pt_BR">
+			<Text>Coruja Lança-Lança é um líder preocupado apenas em tornar sua capital o maior possível - todas as outras vitórias podem fluir através dela. Para esse propósito, ele tem Fogo Nasce. Use-o para conquistar as cidades-estado que não puder obter pelos meios teotihuacanos normais, e através disso faça Teotihuacan crescer para ser a metrópole que precisa ser. Certifique-se de manter algumas Cidades-Estado, pois você ainda precisará das mais maleáveis para seus Bônus de Suserania e Tipo.</Text>
+		</Replace>
+		<!-- Descrição Detalhada -->
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_TEO_OWL_CHAPTER_DETAILED_BODY" Language="pt_BR">
+			<Text>Teotihuacan é um império sombrio que se concentra em ser o primeiro entre cidades-estado, o que requer duas coisas - uma capital grande e saudável e uma infinidade de tributários para sustentá-la. Usando o Enclave Pochteca, o jogador teotihuacano pode gerar recursos para suprir o Império através de suas cidades-estado subservientes, adquiridas por meios pacíficos através da religião e comércio, e mais forçosamente através do Portador de Ehuatl. Outra observação sobre o Portador de Ehuatl - ele chega cedo, para que você possa conquistar cidades-estado rapidamente ou influenciá-las antes de qualquer outro. Coruja Lança-Lança se concentra em fazer a capital crescer o máximo possível, permitindo que você contorne a limitação de uma cidade conquistando as cidades necessárias. Cuidado para não conquistar todas as cidades-estado - isso prejudicaria outros elementos únicos da Civilização! Fogo Nasce é um governador bastante militarista, mas também capaz de explorar e subjugar Cidades-Estado através de subterfúgios, e permite que você fortaleça seus vassalos conquistados.</Text>
+		</Replace>
+		<!-- História -->
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_TEO_OWL_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Se Teotihuacan é um mistério, então o indivíduo chamado Coruja Lança-Lança é o enigma que está envolto nele. Muito menos se sabe sobre ele, e o que se sabe nem sequer foi encontrado na cidade que ele supostamente governou - apenas a mil quilômetros de distância, no mundo maia. Um glifo aparece em algumas cidades da península de Yucatán, com uma coruja segurando um lançador de dardos. Daí, arqueólogos e mayanistas o apelidaram de Atlatl Cauac em náuatle, Jatz'om Kuy em maia, ou em inglês, simplesmente Coruja Lança-Lança.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_TEO_OWL_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>O que se sabe é que em janeiro de 378, um senhor da guerra chamado Fogo Nasce invadiu o mundo maia, e ao longo daquele ano e do seguinte, tornou todas as últimas cidades maias subservientes à cidade de Teotihuacan. O Monumento Marcador, erguido em Tikal logo após Fogo Nasce conquistá-la, menciona que um governante chamado Coruja Lança-Lança ascendeu ao trono de algum reino distante do oeste (não menciona especificamente Teotihuacan, mas o que mais poderia ser?) em 4 de maio de 374, quase quatro anos antes da invasão teotihuacana. Ele teria que ter sido adulto na época, com algumas datas de nascimento sendo dadas por volta de 364 ou até antes. Uma estela diferente em Tikal afirma que Nariz Enrolada, filho do augusto rei-guerreiro Coruja Lança-Lança, ascendeu ao trono de Tikal em 379. A última menção em Tikal afirma que este glorioso imperador morreu em 9 de junho de 439 após um reinado maior que a vida de 65 anos. Durante seu reinado, ele presidiu o período de maior prosperidade e influência de Teotihuacan, seja política, militar, cultural, econômica ou religiosa.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_TEO_OWL_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>Há alguns problemas com isso.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_TEO_OWL_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>Não há evidências de que Teotihuacan tenha sido governada por qualquer rei, especialmente durante o período (suspeitamente longo) em que Coruja Lança-Lança teria vivido. Não há tumbas reais, não há palácios reais (apenas nobres, nenhum deles se destacando acima dos outros), e não há representação real de nenhum indivíduo em particular em Teotihuacan, com apenas uma exceção (chegaremos a isso, mas também é estranho). Talvez os teotihuacanos não estivessem interessados em registrar seus líderes políticos, mas isso não ajuda muito o caso de Coruja Lança-Lança. A única exceção a isso é um complexo residencial em Teotihuacan, que tem um mural que se refere a um lugar conhecido como 'Colina da Coruja Lança-Lança', o que sugere que talvez Coruja Lança-Lança não tenha sido nenhum indivíduo, mas uma divindade patrona marcial da cidade - talvez até a forma mais primitiva de Huitzilopochtli, embora isso possa ser especulação sem base. Outro estudioso sugeriu que Coruja Lança-Lança poderia ser um título de um cargo, talvez posteriormente deificado. Outro monumento em Tikal faz referência a celebrar o aniversário da morte de Coruja Lança-Lança 'conjurando o sagrado'.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_TEO_OWL_CHAPTER_HISTORY_PARA_5" Language="pt_BR">
+			<Text>Além desses problemas, nenhum dos supostos restos de soldados ou governantes teotihuacanos é realmente do Vale do México. Análises de estrôncio deram resultados interessantes - muitos, se não todos esses governantes que alegavam relação com Coruja Lança-Lança eram na verdade de Teotihuacan. Tudo isso torna a narrativa de Coruja Lança-Lança um tanto duvidosa.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_TEO_OWL_CHAPTER_HISTORY_PARA_6" Language="pt_BR">
+			<Text>Mas não é improvável que haja um grão de verdade nessa história. A política de Teotihuacan e de toda a Mesoamérica deve ter sido complexa, e assim como Roma e China tiveram grandes estadistas, Teotihuacan também poderia ter tido. Talvez Coruja Lança-Lança tenha sido originalmente um nobre na cidade com grande perspicácia e poder político, cujo nome então se tornou um cargo, e depois um deus. Seja como for, e existindo ou não, Coruja Lança-Lança lançou uma longa sombra sobre a região, e seu nome e feitos ecoam através do tempo - mesmo que fracamente ouvidos hoje.</Text>
+		</Replace>
+		<!--== TIBETE ==-->
+		<Replace Tag="LOC_CIVILIZATION_SUK_TIBET_NAME" Language="pt_BR">
+		<Text>Tibete</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_SUK_TIBET_DESCRIPTION" Language="pt_BR">
+		<Text>Império Tibetano</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_SUK_TIBET_ADJECTIVE" Language="pt_BR">
+		<Text>Tibetano|Tibetana|Tibetanos|Tibetanas</Text>
+		<Gender>masculine|feminine|masculine|feminine</Gender>
+		<Plurality>1|1|2|2</Plurality>
+		</Replace>
+		<Replace Tag="LOC_CIVILIZATION_SUK_TIBET_DESCRIPTION_JFD_CIVILIZATION" Language="pt_BR">
+		<Text>Civilização Tibetana</Text>
+		</Replace>
+		<!-- == Rios do Tibete == -->
+		<Replace Tag="LOC_NAMED_RIVER_YARLUNG_TSANGPO_NAME" Language="pt_BR">
+			<Text>Rio Yarlung Tsangpo</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_RIVER_PARLUNG_TSANGPO_NAME" Language="pt_BR">
+			<Text>Rio Parlung Tsangpo</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_RIVER_LHASA_NAME" Language="pt_BR">
+			<Text>Rio Lhasa</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_RIVER_NYANG_NAME" Language="pt_BR">
+			<Text>Rio Nyang</Text>
+		</Replace>
+		<!-- == Montanhas do Tibete == -->
+		<Replace Tag="LOC_NAMED_MOUNTAIN_DANGLA_NAME" Language="pt_BR">
+			<Text>Montanhas Dangla</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_TANIANTAWENG_NAME" Language="pt_BR">
+			<Text>Montanhas Taniantaweng</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_NYENCHEN_TANGLHA_NAME" Language="pt_BR">
+			<Text>Montanhas Nyenchen Tanglha</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_NALAKANKAR_HIMAL_NAME" Language="pt_BR">
+			<Text>Himal Nalakankar</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_ROLWALING_HIMAL_NAME" Language="pt_BR">
+			<Text>Himal Rolwaling</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_GANESH_HIMAL_NAME" Language="pt_BR">
+			<Text>Himal Ganesh</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_NAMCHA_BARWA_HIMAL_NAME" Language="pt_BR">
+			<Text>Himal Namcha Barwa</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_MAHALANGUR_HIMAL_NAME" Language="pt_BR">
+			<Text>Himal Mahalangur</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_MOUNTAIN_KANGRI_GARPO_NAME" Language="pt_BR">
+			<Text>Kangri Garpo</Text>
+		</Replace>
+		<!-- == Vulcões do Tibete == -->
+		<Replace Tag="LOC_NAMED_VOLCANO_ASHIKULE_VOLCANIC_FIELD_NAME" Language="pt_BR">
+			<Text>Campo Vulcânico Ashikule</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_VOLCANO_BAMAOQIONGZONG_NAME" Language="pt_BR">
+			<Text>Vulcão Bamaoqiongzong</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_VOLCANO_YONGBOHU_NAME" Language="pt_BR">
+			<Text>Vulcão Yongbohu</Text>
+		</Replace>
+		<Replace Tag="LOC_NAMED_VOLCANO_QIANGBAQIAN_NAME" Language="pt_BR">
+			<Text>Vulcão Qiangbaqian</Text>
+		</Replace>
+		<!-- == Informações sobre o Tibete == -->
+		<Replace Tag="LOC_CIVINFO_SUK_TIBET_LOCATION" Language="pt_BR">
+			<Text>Ásia</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_SUK_TIBET_SIZE" Language="pt_BR">
+			<Text>Est. 474 mil milhas quadradas (1,228 milhão de km²)</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_SUK_TIBET_POPULATION" Language="pt_BR">
+			<Text>Est. 3,18 milhões (Dez 2014)</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVINFO_SUK_TIBET_CAPITAL" Language="pt_BR">
+			<Text>Lhasa</Text>
+		</Replace>
+		<!-- == História do Tibete == -->
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>A história de um Tibete unificado começa com o reinado de Songtsen Gampo (604-650 d.C.), que unificou partes do Vale do Rio Yarlung e fundou o Império Tibetano. Ele também introduziu muitas reformas, e o poder tibetano se expandiu rapidamente, criando um império vasto e poderoso. Tradicionalmente considera-se que sua primeira esposa foi a Princesa do Nepal, Bhrikuti, e que ela teve um grande papel no estabelecimento do budismo no Tibete. Em 640, ele se casou com a Princesa Wencheng, sobrinha do poderoso imperador chinês Taizong da dinastia Tang, que também era budista. A fé cresceu quando um influxo de budistas da Ásia Central chegou ao Tibete no início do século VIII, fugindo dos exércitos avançantes de árabes e cazaques muçulmanos. Os descendentes de Songtsen Gampo também conquistariam a vasta região que hoje compreende as províncias chinesas de Qinghai, Gansu e Xinjiang entre 663 e 692. O controle dessas regiões fronteiriças mudaria de mãos repetidamente nos séculos seguintes.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>O poder chinês se fortaleceu nas primeiras décadas do século VIII, e as forças imperiais sob o comando do General Gao Xianzhi conquistaram grande parte da Ásia Central, até sua derrota para árabes e carlucos na Batalha do Rio Talas em 751. O poder da China rapidamente diminuiu, e o Tibete retomou o controle de grande parte da Ásia Central. Liderados por Trisong Detsen, os tibetanos em ascensão pressionaram sua vantagem, conquistando grande parte do norte da Índia e até mesmo tomando a capital chinesa da dinastia Tang, Chang'an (atual Xi'an), em 763. Tibete e China assinaram um tratado de paz em 821 ou 822, que delimitou a fronteira entre os dois impérios. O Império Tibetano se concentraria em seus domínios na Ásia Central nas décadas seguintes, antes de se dividir em vários pequenos reinos conflituosos.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>Hábeis políticos, os tibetanos se aliaram a Gengis Khan justamente quando o líder mongol conquistava o mundo conhecido no início do século XIII. Como resultado, embora os tibetanos tenham pagado tributo aos mongóis após as hordas terem conquistado a China, eles receberam muito mais autonomia do que outras terras conquistadas pelos mongóis. Com o tempo, o Tibete passou a ser considerado uma das treze províncias da China Yuan, governada pelos mongóis. Durante esse período, os tibetanos ganharam um alto grau de influência sobre os mongóis na corte. O grande líder espiritual tibetano, Sakya Pandita, tornou-se representante dos mongóis no Tibete. O sobrinho de Sakya, Chana Dorje, casou-se com uma das filhas do imperador mongol Kublai Khan. Os tibetanos transmitiram sua fé budista para os mongóis orientais; o próprio Kublai Khan estudou as crenças tibetanas com o grande mestre Drogon Chogyal Phagpa.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>Quando o Império Yuan dos mongóis caiu em 1368 para os chineses han da dinastia Ming, o Tibete reafirmou sua independência e se recusou a pagar tributo ao novo imperador. Em 1474, o abade de um importante mosteiro budista tibetano, Gendun Drup, faleceu. Uma criança nascida dois anos depois foi reconhecida como a reencarnação do abade e foi criada para ser a próxima líder daquela seita, Gendun Gyatso. Após suas mortes, os dois homens foram chamados de Primeiro e Segundo Dalai Lamas. Sua seita, a Gelug ou "Chapéus Amarelos", tornou-se a forma dominante do budismo tibetano. O Terceiro Dalai Lama, Sonam Gyatso (1543-1588), foi o primeiro a ser assim chamado durante sua vida. Ele foi responsável por converter os mongóis ao budismo tibetano Gelug, e foi o governante mongol Altan Khan quem provavelmente deu o título "Dalai Lama" a Sonam Gyatso. Enquanto o recém-nomeado Dalai Lama consolidava o poder de sua posição espiritual, a Dinastia Gtsang-pa assumiu o trono real do Tibete em 1562. Os reis governariam o lado secular da vida tibetana pelos próximos 80 anos.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_5" Language="pt_BR">
+			<Text>Durante a década de 1630, a China estava envolvida em lutas pelo poder entre os mongóis, os chineses han da decadente dinastia Ming e o povo manchu do nordeste da China (Manchúria). Os manchus acabariam por derrotar os han em 1644 e estabelecer a última dinastia imperial da China, a Qing (1644-1912). O Tibete foi arrastado para esse turbilhão quando o senhor da guerra mongol Ligdan Khan, um budista tibetano Kagyu, decidiu invadir o Tibete e destruir os Chapéus Amarelos em 1634. Ligdan Khan morreu no caminho, mas seu seguidor Tsogt Taij assumiu a causa. O grande general Gushi Khan, dos mongóis Oirad, lutou contra Tsogt Taij e o derrotou em 1637. O Khan também matou o Príncipe Gtsang-pa de Tsang. Com o apoio de Gushi Khan, o Quinto Dalai Lama, Lobsang Gyatso, conseguiu assumir tanto o poder espiritual quanto temporal sobre todo o Tibete em 1642.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_6" Language="pt_BR">
+			<Text>O Palácio de Potala em Lhasa foi construído como um símbolo dessa nova síntese de poder. O Dalai Lama fez uma visita de estado ao segundo imperador da dinastia Qing, Shunzhi, em 1653. Os dois líderes se saudaram como iguais; o Dalai Lama não fez a kowtow (reverência tradicional chinesa). Cada homem concedeu honras e títulos ao outro, e o Dalai Lama foi reconhecido como a autoridade espiritual do Império Qing. Lobsang Gyatso morreu em 1682, mas seu primeiro-ministro ocultou a morte do Dalai Lama até 1696 para que o Palácio de Potala pudesse ser concluído e o poder do cargo do Dalai Lama consolidado.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_7" Language="pt_BR">
+			<Text>Em 1697, quinze anos após a morte de Lobsang Gyatso, o Sexto Dalai Lama foi finalmente entronizado. Tsangyang Gyatso (1683-1706) era um inconformista que rejeitava a vida monástica, deixando seu cabelo crescer, bebendo vinho e desfrutando da companhia feminina. Ele também escreveu grande poesia, parte da qual ainda é recitada hoje no Tibete. O estilo de vida não convencional do Dalai Lama levou Lobsang Khan dos mongóis Khoshud a depô-lo em 1705. Lobsang Khan assumiu o controle do Tibete, nomeou-se rei, enviou Tsangyang Gyatso para Pequim (ele "misteriosamente" morreu no caminho) e instalou um Dalai Lama impostor.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_8" Language="pt_BR">
+			<Text>O Rei Lobsang governaria por 12 anos, até que os mongóis Dzungar invadiram e tomaram o poder. Eles mataram o impostor no trono do Dalai Lama, para alegria do povo tibetano, mas então começaram a saquear mosteiros ao redor de Lhasa. Esse vandalismo provocou uma rápida resposta do Imperador Qing Kangxi, que enviou tropas ao Tibete. Os Dzungar destruíram o batalhão imperial chinês perto de Lhasa em 1718. Em 1720, o furioso Kangxi enviou outra força maior ao Tibete, que esmagou os Dzungar. O exército Qing também trouxe o legítimo Sétimo Dalai Lama, Kelzang Gyatso (1708-1757) para Lhasa. A China Qing teve dificuldades para controlar o Tibete. O Imperador enviou um comissário a Lhasa, mas ele foi morto em 1750. O Exército Imperial então derrotou os rebeldes, mas o Imperador reconheceu que teria que governar através do Dalai Lama em vez de diretamente. As decisões do dia a dia seriam tomadas localmente.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_9" Language="pt_BR">
+			<Text>O poder da China Qing diminuiu ao longo do século XVIII, como evidenciado por sua derrota nas Guerras do Ópio com a Grã-Bretanha (1839-1842 e 1856-1860), bem como na Rebelião Taiping (1850-1864) e na Rebelião dos Boxers (1899-1901). A relação real entre China e Tibete havia sido incerta desde os primeiros dias da Dinastia Qing, e as perdas da China em casa tornaram o status do Tibete ainda mais incerto. A ambiguidade do controle sobre o Tibete levou a problemas. Em 1893, os britânicos na Índia concluíram um tratado comercial e de fronteira com Pequim sobre o limite entre Sikkim e Tibete. No entanto, os tibetanos rejeitaram veementemente os termos do tratado. Os britânicos invadiram o Tibete em 1903 com 10.000 homens e tomaram Lhasa no ano seguinte. Concluíram então outro tratado com os tibetanos, assim como com representantes chineses, nepaleses e butaneses, que deu aos próprios britânicos algum controle sobre os assuntos do Tibete.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_10" Language="pt_BR">
+			<Text>O 13º Dalai Lama, Thubten Gyatso, fugiu do país em 1904 a pedido de seu discípulo russo, Agvan Dorzhiev. Ele foi primeiro para a Mongólia, depois seguiu para Pequim. Os chineses declararam que o Dalai Lama havia sido deposto assim que deixou o Tibete e reivindicaram soberania total não apenas sobre o Tibete, mas também sobre Nepal e Butão. O Dalai Lama foi a Pequim discutir a situação com o Imperador Guangxu, mas recusou-se veementemente a fazer a kowtow (reverência) ao Imperador. Ele retornou a Lhasa em 1909, decepcionado com as políticas chinesas em relação ao Tibete. A China enviou uma força de 6.000 soldados ao Tibete, e o Dalai Lama fugiu para Darjeeling, na Índia, no final daquele mesmo ano. A Revolução Chinesa varreu a Dinastia Qing em 1911, e os tibetanos prontamente expulsaram todas as tropas chinesas de Lhasa. O Dalai Lama retornou ao Tibete em 1912.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_11" Language="pt_BR">
+			<Text>Representantes da Grã-Bretanha, da China e do Tibete se reuniram em 1914 para negociar um tratado que delimitasse as linhas de fronteira entre a Índia e seus vizinhos ao norte. A China se retirou da conferência sem assinar o tratado depois que a Grã-Bretanha reivindicou a área de Tawang, no sul do Tibete, que hoje faz parte do estado indiano de Arunachal Pradesh. O Tibete e a Grã-Bretanha assinaram o tratado. Logo, a China estaria ocupada demais para se preocupar com a questão do Tibete. O novo governo da República da China manteria o poder nominal sobre a maior parte do território chinês por apenas quatro anos, antes que a guerra eclodisse entre várias facções armadas. Nessas circunstâncias, os chineses demonstraram pouco interesse pelo Tibete. O 13º Dalai Lama governou um Tibete independente em paz até sua morte em 1933.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_12" Language="pt_BR">
+			<Text>Após a morte de Thubten Gyatso, a nova reencarnação do Dalai Lama nasceu em Amdo, em 1935. Tenzin Gyatso, o atual Dalai Lama, foi levado a Lhasa em 1937 para iniciar seu treinamento como líder do Tibete. Em 1950, a recém-formada República Popular da China invadiu o Tibete. Com a estabilidade restabelecida em Pequim pela primeira vez em décadas, Mao Zedong buscou afirmar o direito da China de governar também o Tibete. O Exército de Libertação Popular impôs uma derrota rápida e total ao pequeno exército tibetano, e a China redigiu o “Acordo dos Dezessete Pontos”, incorporando o Tibete como uma região autônoma da República Popular da China. Representantes do governo do Dalai Lama assinaram o acordo sob protesto, e os tibetanos repudiaram o acordo nove anos depois.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SUK_TIBET_CHAPTER_HISTORY_PARA_13" Language="pt_BR">
+			<Text>Em 1º de março de 1959, o Dalai Lama recebeu um estranho convite para assistir a uma apresentação teatral no quartel-general do Exército de Libertação Popular (ELP) próximo a Lhasa. Oficiais do ELP notificaram os guarda-costas do Dalai Lama de que eles não o acompanhariam ao evento, nem deveriam informar ao povo tibetano que ele sairia do palácio. (Normalmente, o povo de Lhasa se alinhava nas ruas para saudar o Dalai Lama sempre que ele saía.) Os guardas imediatamente tornaram pública essa tentativa mal disfarçada de sequestro, e no dia seguinte uma multidão estimada em 300 mil tibetanos cercou o Palácio de Potala para proteger seu líder. O ELP posicionou artilharia ao alcance dos principais monastérios e do palácio de verão do Dalai Lama, Norbulingka. Ambos os lados começaram a se preparar para o confronto, embora o exército tibetano fosse muito menor e mal armado. Tropas tibetanas conseguiram garantir uma rota para que o Dalai Lama escapasse para a Índia em 17 de março. Os combates reais começaram em 19 de março e duraram apenas dois dias antes que as tropas tibetanas fossem derrotadas.</Text>
+		</Replace>
+		<Replace Tag="LOC_LOADING_INFO_LEADER_SUK_TRISONG_DETSEN" Language="pt_BR">
+			<Text>Você governa os estepes varridos pelo vento, Trisong Detsen. Você governa as montanhas elevadas. Que os sinos toquem nos mosteiros das alturas enquanto os monges oram por sua glória. Que a terra trema com a cavalgada de seus guerreiros. Senhor Iluminado, que você encontre sabedoria no Dharma e força no arco, para que o Tibete ascenda à eternidade.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Uma pena.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Que nossa amizade floresça!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Una-se a mim na amizade! Juntos, seremos um exemplo espiritual para o mundo!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Não. Não creio que seja o momento.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Sim, essa é uma proposta digna.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Meus cavaleiros esmagarão seus campos. Prepare-se para a ruína!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_HUMAN_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Certamente nossos arcos e nossa devoção ao Dharma nos protegerão! Não o tememos.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DEFEAT_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Não temo o fim. Meu bom Karma garantirá um renascimento auspicioso.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DELEGATION_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Enviei uma delegação comercial. Eles trazem chá com manteiga. Beba!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DELEGATION_FROM_HUMAN_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Ah, seu momento foi infeliz. Estou ocupado supervisionando a construção de uma Estupa. Talvez da próxima vez.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DELEGATION_FROM_HUMAN_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Obrigado pelos generosos presentes. Nós os apreciaremos.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DENOUNCE_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Verdadeiramente patético. Sem brilho espiritual, sem conquistas mundanas dignas de nota.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DENOUNCE_FROM_HUMAN_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Palavras vis. Revelam o que há de podre em seu coração.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Bênçãos, e bem-vindo ao Tibete. Sou Trisong Detsen, senhor e imperador destas terras.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_VISIT_RECIPIENT_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Um renomado monge dará uma palestra sobre o Dharma. Junte-se a nós.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Agradeço por sua hospitalidade.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NO_MANS_INFO_EXCHANGE_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Minha capital está oculta, nas alturas das montanhas. Direi mais se você também me falar da sua.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_GREETING_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Bem-vindo.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_EXIT_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Sem devoção e sem ambição. Como pode alguém governar sem excelência espiritual ou mundana?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_KUDO_EXIT_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Suas conquistas neste mundo são, sem dúvida, frutos do seu grande Karma. Dignas de louvor.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Reluto em amarrar o Tibete a outras nações, mas este parece ser um caminho sábio para nós dois. O que me diz?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_MAKE_DEAL_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Isso é inaceitável.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_MAKE_DEAL_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Farei com que meus monges abençoem este acordo.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Paz. E um alívio para tanta morte.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Não! O Tibete não está pronto para a paz.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Meus monges sugerem que eu busque a paz pelo bem-estar espiritual do nosso povo.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_OPEN_BORDERS_FROM_HUMAN_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Você pode passar. Boa sorte ao atravessar nossas montanhas.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_OPEN_BORDERS_FROM_HUMAN_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>A passagem pelo Tibete continuará fechada para você.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_OPEN_BORDERS_FROM_AI_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Que nossas fronteiras se abram mutuamente! O que me diz?</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_TOO_MANY_TROOPS_NEAR_ME_LEADER_SUK_TRISONG_DETSEN_ANY" Language="pt_BR">
+			<Text>Observamos seus soldados de nossos Dzongs. Há algo que deseja nos dizer?</Text>
+		</Replace>
+		<Replace Tag="LOC_AGENDA_SUK_ENLIGHTENED_LORD_NAME" Language="pt_BR">
+			<Text>Grande Senhor Iluminado, Milagroso e Divino</Text>
+		</Replace>
+		<Replace Tag="LOC_AGENDA_SUK_ENLIGHTENED_LORD_DESCRIPTION" Language="pt_BR">
+			<Text>Busca alcançar Eras Douradas e altos níveis de [ICON_Faith] Fé, e respeita aqueles que fazem o mesmo. Desgosta de civilizações em Era Sombria ou com pouca [ICON_Faith] Fé.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_SUK_ENLIGHTENED_LORD_KUDO" Language="pt_BR">
+			<Text>Trisong Detsen admira sua grande Fé e sua Era Dourada.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_SUK_ENLIGHTENED_LORD_WARNING" Language="pt_BR">
+			<Text>Trisong Detsen despreza sua falta de Fé e ambição.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_SUK_TRISONG_DETSEN_QUOTE" Language="pt_BR">
+			<Text>Um bom pastor é pai do rebanho, um bom cavalo é a confiança do senhor.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_SUK_TRISONG_DETSEN_TITLE" Language="pt_BR">
+			<Text>Trisong Detsen</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_SUK_TRISONG_DETSEN_SUBTITLE" Language="pt_BR">
+			<Text>Imperador do Tibete</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_TRISONG_DETSEN_CHAPTER_CAPSULE_BODY" Language="pt_BR">
+			<Text>Cidades montanhosas compactas e densas: é assim que o Tibete deve ser construído. E com a ajuda de um pouco de devoção religiosa, elas prosperarão. Trisong Detsen transforma a infraestrutura religiosa do Tibete em preparação para a guerra.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_TRISONG_DETSEN_CHAPTER_DETAILED_BODY" Language="pt_BR">
+			<Text>O Tibete é uma nação de fortalezas montanhosas e mosteiros: construir distritos próximos às montanhas não só fornece rendimentos extras, como também permite comprar edifícios nesses distritos com [ICON_Faith] Fé. Com a ajuda dos seus [ICON_Governor] Governadores e dos seus Dzongs, você terá Fé suficiente para fazer isso. Trisong Detsen transforma a poderosa infraestrutura religiosa do Tibete em uma força militar. Construa distritos de Encampamento onde houver Dzongs para ganhar [ICON_GreatGeneral] Grandes Generais mais rapidamente e treinar unidades mais fortes.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_TRISONG_DETSEN_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Entre as figuras mais celebradas da história do Tibete estão os "Reis do Dharma" (Chögyal, em tibetano), que apoiaram o budismo e ajudaram-no a se enraizar no país. E provavelmente o mais importante de todos os Reis do Dharma foi Trisong Detsen. O império tibetano que o jovem Trisong Detsen herdou estava em grave declínio. Após o glorioso reinado do rei Songtsen Gampo, o primeiro Rei do Dharma, o império se fragmentava: o Tibete perdeu diversas cidades no Turquestão, o Nepal se envolveu em rebelião e os árabes avançavam pela fronteira ocidental do império tibetano.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_TRISONG_DETSEN_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>Trisong Detsen reverteu essa maré e iniciou campanhas militares para garantir a expansão do Tibete. Em 763, ele enviou um exército de 200.000 homens à fronteira com a China Tang, derrotando as forças locais e marchando até tomar Chang'an, capital chinesa, forçando o imperador Daizong a fugir. Em 783, um tratado de paz foi assinado entre China e Tibete, concedendo ao Tibete todas as terras de Qinghai. Trisong Detsen também expandiu a oeste, alcançando o rio Amu Darya e ameaçando o califa abássida Harun al-Rashid. Preocupado, o califa formou uma aliança com o imperador chinês. Trisong Detsen acabaria focando nas guerras contra os árabes no oeste, aliviando a pressão sobre seus adversários chineses até o fim de seu governo em 797.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_TRISONG_DETSEN_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>No entanto, ele é mais lembrado pelas gerações posteriores de budistas tibetanos por seu grande patrocínio ao budismo. Quando Trisong Detsen se tornou imperador em 755, convidou Padmasambhava, Śāntarakṣita, Vimalamitra e diversos outros mestres indianos para difundir os ensinamentos mais recentes no Tibete. Os dois panditas começaram fundando Samye, o primeiro mosteiro budista tibetano. Diversos tibetanos foram posteriormente ordenados monges, e um vasto projeto de tradução foi iniciado para converter os textos budistas do sânscrito ao tibetano clássico.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_TRISONG_DETSEN_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>Não foi apenas o budismo indiano que chegou ao Tibete durante o reinado de Trisong Detsen. A primeira disseminação documentada do budismo Chan no Tibete, registrada nos chamados Relatos da Família Sba, ocorreu por volta de 761, quando Trisong Detsen enviou uma comitiva à região de Yizhou para receber os ensinamentos do mestre coreano Kim Hwasang, encontrado em Sichuan. O grupo recebeu ensinamentos e três textos chineses de Kim, que faleceu logo após. Trisong Detsen patrocinou uma segunda comitiva em 763, liderada por um ministro de alto escalão, Sba Gsalsnan. Há controvérsias acadêmicas sobre quem Gsalsnan encontrou em Yizhou: inicialmente se pensava que fora Kim, mas hoje considera-se que foi Baotang Wuzhu (714–774), fundador do Mosteiro Baotang, em Chengdu.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_TRISONG_DETSEN_CHAPTER_HISTORY_PARA_5" Language="pt_BR">
+			<Text>As duas correntes do budismo acabaram entrando em confronto. Trisong Detsen organizou um famoso debate que durou dois anos, entre 792 e 794, conhecido na historiografia ocidental como o "Concílio de Lhasa" (apesar de ter ocorrido em Samye, a alguma distância da capital). Ele patrocinou o debate entre o mestre Chan Moheyan, representando a terceira onda de difusão do Chan no Tibete, e o erudito Kamalaśīla, discípulo de Śāntarakṣita. O debate foi, na prática, um embate entre as tradições budistas chinesa e indiana presentes no Tibete. As fontes divergem quanto à natureza do debate e ao vencedor.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_TRISONG_DETSEN_CHAPTER_HISTORY_PARA_6" Language="pt_BR">
+			<Text>Trisong Detsen se retirou para viver no palácio de Zungkar e passou o poder a seu segundo filho, Muné Tsenpo, em 797. A partir daí, há muita confusão nas fontes históricas. Ao que tudo indica, houve uma disputa sucessória após a morte de Trisong Detsen. Não está claro quando ele morreu ou quanto tempo Muné Tsenpo reinou. O Testamento de Ba, um texto histórico tibetano possivelmente datado do século IX, afirma que Muné Tsenpo exigiu que o funeral de seu pai fosse realizado segundo os ritos budistas, e não os tradicionais.</Text>
+		</Replace>
+		<!-- == Olímpia da Macedônia == -->
+		<Replace Tag="LOC_LEADER_JFD_OLYMPIAS_NAME" Language="pt_BR">
+			<Text>Olímpia</Text>
+		</Replace>
+		<!--Agenda-->
+		<Replace Tag="LOC_AGENDA_JFD_ORACLE_CHTONICS_NAME" Language="pt_BR">
+			<Text>Oráculo dos Ctônicos</Text>
+		</Replace>
+		<Replace Tag="LOC_AGENDA_JFD_ORACLE_CHTONICS_DESCRIPTION" Language="pt_BR">
+			<Text>Garante que ela tenha alta [ICON_FAITH] Fé e pontos de [ICON_GREATPROPHET] Grande Profeta enquanto compete por Cidades-Estado, e prefere que outras civilizações tenham baixa [ICON_FAITH] Fé se estiverem competindo pelas mesmas Cidades-Estado. Ela despreza civilizações com alta [ICON_FAITH] Fé que competem pelas mesmas Cidades-Estado.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_JFD_OLYMPIAS_REASON_LAGS_FAITH_AND_COMPETING_MINORS" Language="pt_BR">
+			<Text>(Você está competindo pelas mesmas Cidades-Estado e é fraco em Fé.)</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_AGENDA_JFD_ORACLE_CHTONICS_LAGS_FAITH_AND_COMPETING_MINORS" Language="pt_BR">
+			<Text>Olímpia está satisfeita que você não seja uma ameaça na competição por Cidades-Estado</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_JFD_OLYMPIAS_REASON_LEADS_FAITH_AND_COMPETING_MINORS" Language="pt_BR">
+			<Text>(Você está competindo pelas mesmas Cidades-Estado e é forte em Fé.)</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_AGENDA_JFD_ORACLE_CHTONICS_LEADS_FAITH_AND_COMPETING_MINORS" Language="pt_BR">
+			<Text>Olímpia se sente ameaçada por sua competição por Cidades-Estado</Text>
+		</Replace>
+		<!--DOM-->
+		<Replace Tag="LOC_LOADING_INFO_LEADER_JFD_OLYMPIAS" Language="pt_BR">
+			<Text>Você teve uma visão, Rainha Olímpia - de um raio caindo sobre seu ventre e dos fogos de Zeus se espalhando por seu corpo. Você foi abençoada. Um filho nascerá para tomar o trono do mundo e tudo o que há nele. E você deve ser sua arauto.</Text>
+		</Replace>
+		<!--Notificações-->
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_ENVOY_NOTIFICATION" Language="pt_BR">
+			<Text>Nos regozijamos no esplendor dos Deuses. Receba +{1_Num} [COLOR_GREEN][ICON_ENVOY] Enviado[ENDCOLOR].</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_POINTS_NOTIFICATION" Language="pt_BR">
+			<Text>Outros ouviram nossa visão do filho de Zeus. Receba +{1_Num} [COLOR_GREEN][ICON_GREATGENERAL] Pontos de Grande General[ENDCOLOR] e +{2_Num} [COLOR_GREEN][ICON_GREATPROPHET] Pontos de Grande Profeta[ENDCOLOR].</Text>
+		</Replace>
+		<!--Civilopedia-->
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_TITLE" Language="pt_BR">
+			<Text>Olímpia</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_SUBTITLE" Language="pt_BR">
+			<Text>Rainha da Macedônia</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_QUOTE" Language="pt_BR">
+			<Text>Olímpia disse a Alexandre que seu verdadeiro pai não era Filipe, mas Zeus.</Text>
+		</Replace>
+		<!-- História (parágrafos 1-11) -->
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Alexandre, o Grande, deve muito à influência de seus pais: de seu pai, Filipe II, ele aprendeu a arte da guerra, mas de longe a pessoa mais influente em sua vida foi sua mãe, Olímpia. Dela ele herdou não apenas seu amor pelo aprendizado, mas também seu temperamento ardente, força de caráter e, como disse um historiador - "sua sede de sangue". Olímpia foi a força motriz por trás da ascensão de Alexandre ao trono da Macedônia e ela era, como um historiador a descreveu, "... arrogante, teimosa e intrometida".</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>Olímpia, cujo nome de nascimento era na verdade Mirtilo, era filha de Neoptólemo, o falecido rei do Epiro, um reino a sudoeste da Macedônia. Seus ancestrais, os molossos, alegavam descender de Molasso, filho de Andrômaca e Neoptólemo - um filho de Aquiles - que havia matado o rei Príamo de Troia durante a Guerra de Troia. Embora os historiadores discordem sobre como Filipe e Olímpia se conheceram, a história mais amplamente aceita é que eles se encontraram em Samotrácia, uma ilha no Mar Egeu situada entre a Macedônia e Troia. A ilha era conhecida como o centro religioso dos deuses gêmeos Cabeiri. Embora Filipe possa ter participado das cerimônias religiosas, ele estava realmente lá para promover uma aliança. Quando viu a jovem Olímpia, uma mulher ruiva com beleza intoxicante e temperamento ardente, foi amor à primeira vista. Plutarco escreveu: "...depois que Filipe foi iniciado em Samotrácia junto com Olímpia, ele se apaixonou por ela, e embora fosse apenas um jovem adulto e ela fosse uma órfã, ele logo a pediu em casamento..."</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>Não era incomum que um rei se casasse mais de uma vez, e no caso de Filipe, muitos de seus casamentos tinham como único propósito formar alianças. Foi assim com Olímpia, que seria sua segunda esposa. Em 357 a.C., eles se casaram; Olímpia tinha cerca de dezoito anos na época e Filipe cerca de vinte e oito. Historiadores discutiram os muitos presságios que cercaram a noite de núpcias do jovem casal. Em suas Vidas Gregas, Plutarco escreveu: "Na noite anterior a serem trancados juntos na câmara nupcial, a noiva teve um sonho em que, após um trovão, seu ventre foi atingido por um raio, iniciando um fogo vigoroso que então irrompeu em chamas e se espalhou por todo o lugar antes de se extinguir." Junto com o sonho de Filipe onde "...ele estava pressionando um selo no ventre de sua esposa, e que o emblema no selo era a figura de um leão...", o futuro de seu grande filho foi predito. Filipe e Olímpia teriam dois filhos, Alexandre e uma filha, Cleópatra, mas depois que Filipe viu sua esposa dormindo com cobras; seus dias de visitar o quarto acabaram. Olímpia há muito era devota do culto a Dionísio, algo que irritava muitos dos macedônios, e ela pode até ter introduzido a prática de manusear cobras no culto.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>Em 20 de julho de 356 a.C., Olímpia provou seu valor para Filipe ao lhe dar um herdeiro em Alexandre. Sem um herdeiro, ela só teria sido benéfica para Filipe e a Macedônia como uma aliança com o Epiro. Na verdade, havia outro possível herdeiro ao trono - um meio-irmão mais novo, Filipe Arrideu, cuja mãe era uma plebeia chamada Filina. No entanto, existem evidências de que a sempre ciumenta Olímpia o envenenou com uma droga que acabou "confundindo seus sentidos", para que ele nunca fosse uma ameaça à ascensão de Alexandre ao trono. Plutarco escreveu: "...sua mente ficou arruinada quando foi envenenado por Olímpia."</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_5" Language="pt_BR">
+			<Text>Três grandes eventos ocorreram na vida de Filipe no dia do nascimento do futuro rei. No momento do nascimento de Alexandre, Filipe estava ausente em batalha em Potideia. Naquele dia, ele recebeu a boa notícia de que um de seus comandantes, Parmênio, havia vencido uma batalha decisiva contra os ilírios. Em segundo lugar, seu cavalo de corrida havia vencido nos Jogos Olímpicos (foi quando Mirtilo se tornou Olímpia), e por último, seu filho e herdeiro nasceu. Um adivinho mais tarde afirmaria que o nascimento de Alexandre, coincidindo com os outros eventos, significava que o jovem cresceria para ser invencível.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_6" Language="pt_BR">
+			<Text>Após a chegada de Alexandre, o principal objetivo de vida de sua mãe era torná-lo rei. Olímpia mimava o jovem Alexandre, contando-lhe constantemente sobre sua linhagem nobre e seus laços com Aquiles. Essa história teve um efeito poderoso sobre Alexandre (ele até carregava uma cópia da Ilíada consigo). Quando cruzou o Helesponto para a Ásia Menor, um dos primeiros lugares que visitou foram os restos de Troia, prestando homenagem a seu ancestral Aquiles. Para cuidar de sua educação inicial, Olímpia trouxe um parente, o severo Leônidas do Epiro, para atuar como tutor e mentor do futuro rei. Posteriormente, Aristóteles seria convocado de Atenas para completar sua educação.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_7" Language="pt_BR">
+			<Text>Uma situação real, no entanto, logo surgiria que poderia ameaçar Olímpia e sua busca por entronizar seu filho - o casamento de Filipe com a sobrinha de Átalo, Cleópatra-Eurídice. De acordo com aqueles ao redor de Filipe, Alexandre era apenas meio macedônio e a pressão estava sobre o rei para se casar com alguém de sangue puro. Assim, Filipe divorciou-se de Olímpia, acusando-a de adultério, e até mesmo alegando que Alexandre não era seu filho. O casamento de Filipe com Cleópatra-Eurídice, combinado com sua gravidez, colocou Olímpia em uma situação precária. Se o bebê fosse um menino e, portanto, um herdeiro legítimo do trono, Alexandre não se tornaria rei. Isso foi ainda mais complicado quando o irmão de Olímpia, Alexandre, que Filipe colocara no trono do Epiro, ficou noivo de sua filha (e sua sobrinha), Cleópatra. Com este casamento, ela não serviria mais nem mesmo como um laço diplomático com o Epiro.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_8" Language="pt_BR">
+			<Text>No banquete de casamento de Filipe e Cleópatra-Eurídice, Átalo (um dos comandantes de Filipe) fez um comentário depreciativo sobre Alexandre - chamando-o de bastardo - "...ele pediu aos macedônios que orassem aos deuses por um herdeiro legítimo para o trono." Após este ataque verbal, Alexandre levantou-se furioso, zombando da incapacidade de seu pai bêbado de atravessar a sala. Plutarco escreveu: "Filipe levantou-se para atacar Alexandre e sacou sua espada, mas felizmente para ambos, sua raiva e o vinho que havia bebido o fizeram tropeçar e cair... Após esta briga de bêbados, Alexandre levou Olímpia e a instalou no Epiro, enquanto ele permaneceu entre os ilírios." Possivelmente, o propósito de Olímpia ao retornar ao Epiro não era apenas afastá-la da ira de Filipe, mas também convencer seu irmão a declarar guerra a Filipe. Depois que Filipe arranjou a reconciliação através de Demarato de Corinto, Alexandre e Olímpia foram autorizados a retornar a Pela.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_9" Language="pt_BR">
+			<Text>Em 336 a.C., no banquete de casamento do irmão de Olímpia, Alexandre, com sua filha Cleópatra, Filipe foi assassinado pelo descontente Pausânias de Orestis, que havia sido repreendido por Filipe depois de pedir retribuição contra Átalo. A suspeita recaiu imediatamente sobre Olímpia, que alguns acreditavam ter encorajado Pausânias a buscar vingança e matar Filipe. Plutarco escreveu: "Quando Pausânias, que havia sido agredido a mando de Átalo e Cleópatra, assassinou Filipe por não compensá-lo, a maior parte da culpa recaiu sobre Olímpia, com base em que ela havia encorajado o jovem em sua raiva e o incitado a cometer o ato..." Há até evidências de que ela tinha cavalos esperando pelo assassino para sua fuga. Após a morte de Filipe e a ascensão de Alexandre ao trono, Cleópatra-Eurídice e sua jovem filha (pode também ter havido um filho) foram executadas por ordem de Olímpia - alguns afirmam que foram queimadas até a morte, enquanto outros dizem que Cleópatra foi forçada a se enforcar. Com isso feito, o futuro de Olímpia estava seguro - ela era a mãe do rei.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_10" Language="pt_BR">
+			<Text>Quando Alexandre se preparava para cruzar o Helesponto e entrar na Ásia Menor, sua mãe o chamou e disse-lhe que seu verdadeiro pai não era Filipe, mas Zeus; portanto, ele deveria agir com coragem, algo adequado à sua origem divina. Ele nunca mais veria sua terra natal ou sua mãe. Durante suas viagens pela Ásia, ele e sua mãe correspondiam-se frequentemente - ela oferecia conselhos e ele os ignorava. Deixado para governar a Macedônia e a Grécia estava Antípatro. As cartas entre Alexandre e Antípatro, assim como aquelas entre Alexandre e Olímpia, estavam cheias de queixas e acusações - Antípatro a chamava, entre outras coisas, de megera, enquanto ela dizia que ele era mais como um rei do que um governador. Para resolver a disputa, Alexandre mandou chamar Antípatro para encontrá-lo na Babilônia (alguns dizem que foi apenas para afastá-lo de Olímpia), mas Antípatro enviou seu filho Cassandro em seu lugar, algo que irritou Alexandre.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_HISTORY_PARA_11" Language="pt_BR">
+			<Text>Após a morte de Alexandre em 323 a.C. e o início das Guerras dos Diádocos pelo herdeiro de seu reino, Olímpia mandou chamar Roxana, esposa de Alexandre, para vir a Pela, onde ela e seu filho, o futuro Alexandre IV, estariam seguros. Após a morte de Antípatro em 319 a.C., um dos comandantes de Alexandre, Poliperconte, foi nomeado o novo regente; no entanto, ele foi expulso por Cassandro, fugindo para o Epiro com Roxana e o jovem Alexandre. Embora inicialmente tenha tentado permanecer neutra, Olímpia percebeu que seu neto nunca poderia ser rei enquanto Cassandro fosse regente, então ela se uniu a seu primo Eácides (Rei do Epiro) e ao restante do exército de Poliperconte e invadiu a Macedônia. Por ordem de Olímpia, o meio-irmão de Alexandre, Filipe (que na verdade havia sido rei apenas nominalmente), sua esposa Eurídice e centenas de macedônios selecionados leais a Cassandro foram executados em 317 a.C. No entanto, a invasão de Olímpia falhou; Cassandro a capturou em Pidna e, embora inicialmente tenha prometido poupar sua vida, mudou de ideia e a executou em 316 a.C. Infelizmente, o sonho de Olímpia de seu neto herdar o trono de Alexandre nunca se realizaria, e Roxana e o jovem Alexandre IV teriam o mesmo destino que Olímpia em 310 a.C.</Text>
+		</Replace>
+		<!-- Corpo da Civilopedia -->
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_CAPSULE_BODY" Language="pt_BR">
+			<Text>A Macedônia de Olímpia é a única civilização preparada para perseguir a diplomacia durante todo o jogo. Sabendo que seu destino está em suas alianças, Olímpia buscará a influência de tantas Cidades-Estado quanto puder.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_DETAILED_BODY" Language="pt_BR">
+			<Text>A diplomacia de Olímpia é algo admirável. Ao delegar os Enviados da Macedônia àqueles que acreditam em seu destino, ela pode acumular rapidamente Grandes Generais e Grandes Profetas com os quais marchar para a guerra ou fundar uma religião. Se suas unidades forem treinadas no Basilikoi Paides, a Macedônia avança em tecnologia sem precisar gastar tempo desenvolvendo um campus. Com uma fé forte, Olímpia pode garantir a lealdade das Cidades-Estado vizinhas, que por sua vez podem alimentar seus exércitos e sua fé, permitindo que a Macedônia busque tanto uma Vitória por Dominação quanto uma Vitória Religiosa à vontade.</Text>
+		</Replace>
+		<!--Diplomacia-->
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_LEADER_JFD_OLYMPIAS_ANY" Language="pt_BR">
+			<Text>À vista do grande Monte Olimpo, eu te saúdo. Eu sou Olímpia, filha de Neoptólemo.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_VISIT_RECIPIENT_LEADER_JFD_OLYMPIAS_ANY" Language="pt_BR">
+			<Text>Estamos perto da minha casa. Ofereço minha hospitalidade a você.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_LEADER_JFD_OLYMPIAS_ANY" Language="pt_BR">
+			<Text>Sou agraciada com tanta bondade e graça.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NO_MANS_INFO_EXCHANGE_LEADER_JFD_OLYMPIAS_ANY" Language="pt_BR">
+			<Text>Convido você a me falar sobre sua Capital, e eu faria o mesmo.</Text>
+		</Replace>
+		<!--DECLARAÇÃO DE GUERRA-->
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_JFD_OLYMPIAS_ANY" Language="pt_BR">
+			<Text>Os Deuses me dão força. Marchamos para a guerra.</Text>
+		</Replace>
+		<!--DERROTA-->
+		<Replace Tag="LOC_DIPLO_DEFEAT_FROM_AI_LEADER_JFD_OLYMPIAS_ANY" Language="pt_BR">
+			<Text>Que Hades te leve.</Text>
+		</Replace>
+		<!--Te Knich-->
+		<!-- Agenda Principal -->
+		<Replace Tag="LOC_AGENDA_LIME_MAYA_TE_KINICH_LORD_WATER_NAME" Language="pt_BR">
+			<Text>Senhor Água</Text>
+		</Replace>
+		<Replace Tag="LOC_AGENDA_LIME_MAYA_TE_KINICH_LORD_WATER_DESC" Language="pt_BR">
+			<Text>Respeitará sua civilização enquanto você tiver mais população que ele, mas invadirá sem piedade caso contrário.</Text>
+		</Replace>
+		<!-- Diplomatia - Elogios -->
+		<Replace Tag="LOC_DIPLO_MODIFIER_LEADER_LL_TEKINICH_II_MOD_AGENDA_LIME_TE_KINICH_LIKES" Language="pt_BR">
+			<Text>Te' K'inich II considera seu império grande o suficiente para merecer respeito</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_KUDO_EXIT_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Seu reino foi claramente abençoado com colheitas abundantes e bons presságios. Seria tolice agir contra você.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>(Você tem uma grande população)</Text>
+		</Replace>
+		<!-- Diplomatia - Avisos -->
+		<Replace Tag="LOC_DIPLO_MODIFIER_LEADER_LL_TEKINICH_II_MOD_AGENDA_LIME_TE_KINICH_HATES" Language="pt_BR">
+			<Text>Te' K'inich II considera seu império pouco populoso e, portanto, fraco</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_EXIT_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Meus sacerdotes questionam por que Oxhuitzá deveria reconhecer seus caprichos. Não vejo razão para isso.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MODIFIER_LEADER_LL_TEKINICH_II_MOD_ANY" Language="pt_BR">
+			<Text>(Sua população é menor que a dele)</Text>
+		</Replace>
+		<!-- Agendas Aleatórias -->
+		<!-- 2. AGENDA_CITY_STATE_ALLY -->
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LL_TEKINICH_II_AGENDA_MODIFIER_NOT_COMPETING_MINORS" Language="pt_BR">
+			<Text>Você não interferiu com meus vassalos. É mais do que posso dizer sobre outros.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_MODIFIER_COMPETING_MINORS" Language="pt_BR">
+			<Text>Essas cidades-estado devem servir ao soberano superior. É óbvio quem é.</Text>
+		</Replace>
+		<!-- 3. AGENDA_CITY_STATE_PROTECTOR -->
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LL_TEKINICH_II_REASON_AGENDA_HIGH_PROTECT_CITY_STATES" Language="pt_BR">
+			<Text>Você pode conduzir seus planos sem minha interferência. Vejo que não interferiram nos meus.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_HIGH_ATTACK_CITY_STATES" Language="pt_BR">
+			<Text>Suas conquistas revelam seus esquemas. Mostram um soberano inseguro e mesquinho, indigno de respeito.</Text>
+		</Replace>
+		<!-- 7. AGENDA_DEMAGOGUE -->
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LL_TEKINICH_II_REASON_AGENDA_HIGH_FAVOR" Language="pt_BR">
+			<Text>Seu nome pode não ser tão reverenciado quanto o meu, mas saiba que seu lugar e serviço são valorizados.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_LOW_FAVOR" Language="pt_BR">
+			<Text>Não tente me superar. Oxhuitzá não será negada!</Text>
+		</Replace>
+		<!-- 11. AGENDA_EXPANSIONIST -->
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LL_TEKINICH_II_REASON_AGENDA_EXPANSIONIST" Language="pt_BR">
+			<Text>Um império tão vasto e forte como o seu é claramente digno de respeito.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_EXPANSIONIST" Language="pt_BR">
+			<Text>Oxhuitzá é uma cidade soberana e requer subordinados. Prove sua força, ou se tornará um.</Text>
+		</Replace>
+		<!-- 16. AGENDA_GOSSIP -->
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LL_TEKINICH_II_REASON_AGENDA_GOSSIP_POSITIVE" Language="pt_BR">
+			<Text>Os governantes precisam ter cuidado, para que seus planos não sejam vistos por você. Se eu os tivesse, precisaria trabalhar duro para escondê-los de você.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_GOSSIP_NEGATIVE" Language="pt_BR">
+			<Text>Sua cegueira é lendária. Você não saberia que foi traído até ter seu coração arrancado do peito.</Text>
+		</Replace>
+		<!-- 21. AGENDA_INTOLERANT -->
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_INTOLERANT_ENCROACHING_RELIGIONT" Language="pt_BR">
+			<Text>Os deuses exigem oferendas, e meus sacerdotes sugeriram sua cabeça. Eu concordo com eles.</Text>
+		</Replace>
+		<!-- 22. AGENDA_LIBERTARIAN -->
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LL_TEKINICH_II_REASON_AGENDA_HIGH_DIPLOVP" Language="pt_BR">
+			<Text>Respeito sua independência assim como você respeita a minha.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_LOW_DIPLOVP" Language="pt_BR">
+			<Text>Não aceitarei nenhum soberano. Não se presuma como o meu.</Text>
+		</Replace>
+		<!-- 29. AGENDA_SYCOPHANT -->
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LL_TEKINICH_II_REASON_AGENDA_SYCOPHANT_GOLDEN_AGE" Language="pt_BR">
+			<Text>As estrelas brilham intensamente sobre seu império. Seus vassalos devem ser muito leais.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_SYCOPHANT_DARK_AGE" Language="pt_BR">
+			<Text>Seus servos rezam por um mestre mais digno. Um soberano como Oxhuitzá seria bem-vindo por eles.</Text>
+		</Replace>
+		<!-- 30. AGENDA_SYMPATHIZER -->
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LL_TEKINICH_II_REASON_AGENDA_SYMPATHIZER_DARK_AGE" Language="pt_BR">
+			<Text>As estrelas brilham mais intensamente no escuro. Prepare-se. Nossa oportunidade está próxima.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_SYMPATHIZER_GOLDEN_AGE" Language="pt_BR">
+			<Text>Sua arrogância só é rivalizada pela de Tikal, e você está destinado ao mesmo fim.</Text>
+		</Replace>
+		<!-- 31. AGENDA_TECHNOPHILE -->
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LL_TEKINICH_II_REASON_AGENDA_HIGH_SCIENCE" Language="pt_BR">
+			<Text>Seus sacerdotes sabem tanto quanto os meus, e por isso sua terra prospera. Claramente, os deuses favorecem você.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_TECHNOPHILE" Language="pt_BR">
+			<Text>Sua estupidez e atraso não me ofendem. Pelo contrário, você me presenteou com uma oportunidade!</Text>
+		</Replace>
+		<!-- 33. AGENDA_WONDER_ADVOCATE -->
+		<Replace Tag="LOC_DIPLO_KUDO_LEADER_LL_TEKINICH_II_REASON_AGENDA_WONDER_ADVOCATE" Language="pt_BR">
+			<Text>Os monumentos de Oxhuitzá mostram seu grande prestígio. Você não tentou ofuscar meu nome.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_LEADER_LL_TEKINICH_II_REASON_AGENDA_WONDER_ADVOCATE" Language="pt_BR">
+			<Text>Oxhuitzá é claramente favorecida. Seus esforços insignificantes apenas a fazem parecer maior por comparação.</Text>
+		</Replace>
+		<!-- Primeiros Encontros -->
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Um recém-chegado. Sua chegada não foi pressagiada. Eu sou o Senhor de Oxhuitzá e estou curioso sobre o que você traz.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_VISIT_RECIPIENT_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Um vassalo leal meu não está longe - podemos usá-lo para nos encontrarmos.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Eu me juntarei, com astrólogos de olhos claros e guerreiros de braços fortes.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_FIRST_MEET_NO_MANS_INFO_EXCHANGE_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Você ainda não me falou sobre sua cidade. Desejo saber que grandes monumentos foram construídos em seu nome e que estrelas você vê.</Text>
+		</Replace>
+		<!-- Delegações -->
+		<Replace Tag="LOC_DIPLO_DELEGATION_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Enviei um embaixador para sua cidade. Hospede-o conforme seu prestígio exige, mas não precisa fornecer servos - ele traz os seus.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DELEGATION_FROM_HUMAN_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Seu delegado receberá um novo complexo e será presenteado com servos e guardas que eu mesmo escolhi. É uma honra.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DELEGATION_FROM_HUMAN_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Ainda não construímos a residência adequada para seu delegado. Talvez mais tarde.</Text>
+		</Replace>
+		<!-- Fronteiras Abertas -->
+		<Replace Tag="LOC_DIPLO_OPEN_BORDERS_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Peço livre movimento através de suas fronteiras. Isso ajudaria a eliminar ameaças, e farei as oferendas necessárias.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_OPEN_BORDERS_FROM_HUMAN_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Seus soldados são permitidos e serão guiados por guerreiros cerimoniais. Como convém à sua posição.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_OPEN_BORDERS_FROM_HUMAN_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Não recebi as oferendas costumeiras. A fronteira permanecerá fechada.</Text>
+		</Replace>
+		<!-- Amizade -->
+		<Replace Tag="LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Meus sacerdotes concordam que as estrelas estão favoráveis. Oxhuitzá pede sua amizade.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Não vejo razão para negar.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>A Grande Estrela está desalinhada. Qualquer amizade jurada hoje seria mal-aventurada.</Text>
+		</Replace>
+		<!-- Denúncias -->
+		<Replace Tag="LOC_DIPLO_DENOUNCE_FROM_HUMAN_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Uma jogada pobre e mal cronometrada. Você não ganhou nada.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DENOUNCE_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>É óbvio para todos sua inutilidade e falta de respeito. E ainda assim sinto que devo contar ao mundo novamente. (Denuncia Você)</Text>
+		</Replace>
+		<!-- Acordos Comerciais -->
+		<Replace Tag="LOC_DIPLO_ACCEPT_MAKE_DEAL_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Aceito.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_REJECT_MAKE_DEAL_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Isso não está certo.</Text>
+		</Replace>
+		<!-- Outros Diplomatas -->
+		<Replace Tag="LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Seríamos mais fortes juntos do que separados. As estrelas e a política estão favoráveis para uma aliança.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_WARNING_TOO_MANY_TROOPS_NEAR_ME_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Seus esquemas são tão tolos quanto transparentes. Você não tem vantagem. Recue.</Text>
+		</Replace>
+		<!-- Guerra e Paz -->
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_HUMAN_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>A Estrela Vermelha não está a seu favor, e a Grande Estrela não derrama água. Isso não vai demorar.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Você é um governante cego. Você não conseguiu ver as estrelas, nem meus exércitos, nem meus planos se desenrolando. Agora, a Grande Estrela clama por guerra!</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Esta guerra acabou. Veremos como esta paz se sai.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_REJECT_DEAL_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>A Grande Estrela exige sangue. Estou obrigado a não aceitar nada menos.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_MAKE_PEACE_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>A estação da guerra chegou ao fim. É o momento adequado para um tratado.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DEFEAT_FROM_HUMAN_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Este resultado era previsível. Para quem tem olhos, claro.</Text>
+		</Replace>
+		<Replace Tag="LOC_DIPLO_DEFEAT_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="pt_BR">
+			<Text>Parece que julguei mal as estrelas e julguei mal você. Este é simplesmente o preço.</Text>
+		</Replace>
+		<!-- Informações de Carregamento -->
+		<Replace Tag="LOC_LOADING_INFO_LEADER_LL_TEKINICH_II" Language="pt_BR">
+			<Text>As estrelas estão alinhadas, Te' K'inich II, perfeitas para seu governo. Aproveite as oportunidades conforme surgirem e derrube cidades-estado rivais no momento oportuno. Reivindique os espólios de guerra de suas conquistas, para que seu reino possa crescer mais forte e vasto. Observe como os próprios deuses o recompensam por levar seu reino ao ápice! Regozije-se na glória dos deuses, Yajaw, pois sua hora chegou.</Text>
+		</Replace>
+		<!-- Citações e Títulos -->
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LL_TEKINICH_II_QUOTE" Language="pt_BR">
+			<Text>ENTÃO também houve o massacre das nações. Eles foram tomados desta maneira.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LL_TEKINICH_II_TITLE" Language="pt_BR">
+			<Text>Te' K'inich II</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LL_TEKINICH_II_SUBTITLE" Language="pt_BR">
+			<Text>Ajaw de Caracol</Text>
+		</Replace>
+		<!-- Corpo da Página -->
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LL_TEKINICH_II_CHAPTER_CAPSULE_BODY" Language="pt_BR">
+			<Text>Te' K'inich II expande o jogo científico dos Maias com foco em conquistas. Até cercos malsucedidos resultam em ganhos para ele, obtendo ciência dos ataques. Mas cronometre corretamente e você não perderá muitas batalhas, com o avanço tecnológico levando suas tropas à vitória.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LL_TEKINICH_II_CHAPTER_DETAILED_BODY" Language="pt_BR">
+			<Text>Os Maias são, naturalmente, uma civilização altamente científica e centrada no crescimento - usar suas habilidades básicas resultará em uma civilização rica e tecnologicamente avançada. Mas onde está a diversão nisso? Te' K'inich II traz a conquista para a mesa - ele ganha ciência de todo dano causado a cidades, independentemente de a cidade ser conquistada ou não. Isso certamente resultaria em muitas baixas, não fosse por outro aspecto de suas habilidades: a descoberta de uma tecnologia cura todas as unidades. Dessa forma, você mantém a máquina de guerra funcionando até chegar à capital. A cereja do bolo é o bônus de eureka ao reivindicar uma capital original. A maneira mais fácil de reivindicar todos esses bônus é atacar cidades-estado durante a era antiga: elas contam para todos os bônus e o ajudarão a obter facilmente essas primeiras tecnologias e começar seu jogo com força.</Text>
+		</Replace>
+		<!-- História -->
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LL_TEKINICH_II_CHAPTER_HISTORY_PARA_1" Language="pt_BR">
+			<Text>Yajaw Te' K'inich II, conhecido como Senhor Água e, academicamente, como Governante III, foi um rei do estado maia de Caracol no que é hoje o país de Belize. Ele era filho do rei K'an I e da Lady K'al K'inich, e recebeu o nome de seu avô paterno e predecessor de seu pai, Yajaw Te' K'inich I. Seu reinado durou de 553 d.C. a 593 d.C.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LL_TEKINICH_II_CHAPTER_HISTORY_PARA_2" Language="pt_BR">
+			<Text>A região de Caracol foi ocupada desde 1200 a.C., mas seu núcleo central só surgiu após 650 a.C., persistindo até 950 d.C. Durante o Período Clássico Inicial (250-550 d.C.), Caracol integrou-se a extensas redes comerciais e sistemas ideológicos das terras baixas, criando uma economia regional unificada. Fundada oficialmente em 331 d.C. por Te' K'ab Chaak, foi inicialmente um estado vassalo de Tikal, até que o poder desta enfraqueceu em meados do século VI, perdendo o controle de Naranjo.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LL_TEKINICH_II_CHAPTER_HISTORY_PARA_3" Language="pt_BR">
+			<Text>Te' K'inich II assumiu o poder em 553 d.C. sob tutela de Wak Chan K'awiil (Senhor Pássaro Duplo) de Tikal. Em 556 d.C., Tikal declarou uma guerra ch'ak (ritual de machado) e derrotou Caracol. Em resposta, Te' K'inich II iniciou a primeira "guerra estelar" registrada em 562 d.C., derrotando decisivamente Wak Chan K'awiil.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LL_TEKINICH_II_CHAPTER_HISTORY_PARA_4" Language="pt_BR">
+			<Text>Esta guerra estelar causou o Hiato do Clássico Médio de Tikal (documentado arqueologicamente), caracterizado por: declínio populacional, interrupção na construção de monumentos e destruição de estruturas na Grande Praça. Durante os 120 anos deste hiato, Caracol floresceu - sua população cresceu e suas construções monumentais multiplicaram-se. Curiosamente, quando Tikal retomou suas edificações, adotou características arquitetônicas de Caracol. Te' K'inich II foi sucedido por seu filho primogênito, Knot Ajaw.</Text>
+		</Replace>
+		<!--Vircengetorix-->
+		<!-- INFORMAÇÕES DO LÍDER -->
+		<Replace Tag="LOC_LEADER_SUK_VERCINGETORIX_NAME_DLC" Language="pt_BR">
+			<Text>Vercingetorix</Text>
+		</Replace>
+		<Replace Tag="LOC_LOADING_INFO_LEADER_SUK_VERCINGETORIX_DLC" Language="pt_BR">
+			<Text>Orgulhoso Vercingetorix, mantenha-se vigilante contra ameaças à Gália. Una seu povo disperso e mobilize seus fiéis guerreiros. Fortifique suas cidades e assentamentos, deixando suas muralhas imponentes. Proteja seu povo com prosperidade, e seu nome viverá em lendas.</Text>
 		</Replace>
 
 		<!-- Distrito residencial -->
@@ -5214,6 +6864,8 @@
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CITIES_11_CHAPTER_CONTENT_PARA_18" Language="pt_BR">
 			<Text> • -1 para cada painel de mina, pedreira, poço de petróleo, plataforma petrolífera ou pista de pouso adjacente.</Text>
 		</Replace>
+		
+		
 
 
 
