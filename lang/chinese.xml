@@ -19,27 +19,30 @@
 		</Row>
 		<!-- = leader ability (Bull Moose)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_ANTIQUES_AND_PARKS_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>“法典”市政后：与自然奇观或山脉相邻时，魅力值为“惊艳”的单元格+1 [ICON_SCIENCE] 科技值，研究“天文学”后翻倍；与自然奇观或树林相邻时，魅力值为“惊艳”的单元格+1 [ICON_CULTURE] 文化值，解锁“启蒙运动”后翻倍。[NEWLINE]如拥有国家公园，城市的所有单元格+1魅力。拥有“中世纪集市”市政后即可栽种树林。</Text>
+			<Text>“法典”市政后：与自然奇观或山脉相邻时，魅力值为“惊艳”的单元格+1 [ICON_SCIENCE] 科技值，研究“天文学”后翻倍；与自然奇观或树林相邻时，魅力值为“惊艳”的单元格+1 [ICON_CULTURE] 文化值，解锁“启蒙运动”后翻倍。[NEWLINE]拥有“中世纪集市”市政后即可栽种树林。</Text>
 		</Replace>
 		<!-- = leader ability (Rough Rider)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_ROOSEVELT_COROLLARY_ROUGH_RIDER_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>每通过科技或市政进入一个新时代，单位+1 [ICON_Strength] 战斗力（从古典时期开始，上限至现代+5）。如与城邦之间存在 [ICON_TradeRoute] 贸易路线，派往此处的1位 [ICON_Envoy] 使者将视为2位。研究完“弹道学”科技解锁莽骑兵。</Text>
+			<Text>每通过科技或市政进入一个新时代，单位+1 [ICON_Strength] 战斗力（从远古时期开始，上限至工业+5）。如与城邦之间存在 [ICON_TradeRoute] 贸易路线，派往此处的1位 [ICON_Envoy] 使者将视为2位。研究完“弹道学”科技解锁莽骑兵。</Text>
 		</Replace>
+		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_ANCIENT" Language="zh_Hans_CN">
+			<Text>进入远古时代+1 [ICON_Strength] 战斗力 (罗斯福推论)</Text>
+		</Row>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_CLASSICAL" Language="zh_Hans_CN">
-			<Text>进入古典时期+1 [ICON_Strength] 战斗力（罗斯福推论）</Text>
+			<Text>进入古典时代+2 [ICON_Strength] 战斗力（罗斯福推论）</Text>
 		</Row>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_MEDIEVAL" Language="zh_Hans_CN">
-			<Text>进入中世纪+2 [ICON_Strength] 战斗力（罗斯福推论）</Text>
+			<Text>进入中世纪时代+3 [ICON_Strength] 战斗力（罗斯福推论）</Text>
 		</Row>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_RENAISSANCE" Language="zh_Hans_CN">
-			<Text>进入文艺复兴时期+3 [ICON_Strength] 战斗力（罗斯福推论）</Text>
+			<Text>进入文艺复兴时代+4 [ICON_Strength] 战斗力（罗斯福推论）</Text>
 		</Row>
 		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_INDUSTRIAL" Language="zh_Hans_CN">
-			<Text>进入工业时代+4 [ICON_Strength] 战斗力（罗斯福推论）</Text>
+			<Text>进入工业时代+5 [ICON_Strength] 战斗力（罗斯福推论）</Text>
 		</Row>
-		<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_MODERN" Language="zh_Hans_CN">
+		<!-- =<Row Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_MODERN" Language="zh_Hans_CN">
 			<Text>进入现代+5 [ICON_Strength] 战斗力（罗斯福推论）</Text>
-		</Row>
+		</Row>= -->
 		<!-- = leader ability (Abraham Lincoln)= -->
 		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>建造工业区、水渠时+100% [ICON_PRODUCTION] 生产力。工业区+2 [ICON_Amenities] 宜居度。建造工业区和其建筑后获得1个免费近战单位。免费单位的生成或维护不需要资源。</Text>
@@ -88,7 +91,7 @@
 		</Replace>
 		<!-- = leader ability (Saladin Sultan) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SALADIN_ALT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>玩家可以使用平时 [ICON_Faith] 信仰值消耗的9/10 来购买他们的军营和学院建筑。使徒使一环内的陆地单位获得+5[ICON_Strength]战斗力。每回合、每单位维护费用减少1 [Icon_Gold] 金币。</Text>
+			<Text>玩家可以使用平时 [ICON_Faith] 信仰值消耗的9/10 来购买他们的军营和学院建筑。使徒使一环内的军事单位获得+5[ICON_Strength]战斗力。每回合、每单位维护费用减少1 [Icon_Gold] 金币。</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_SULTAN_COMBAT_ADJACENT_APOSTLE_ABILITY_NAME" Language="zh_Hans_CN">
 			<Text>圣战</Text>
@@ -265,7 +268,7 @@
 		</Replace>
 		<!-- = leader ability (Wu Zetian) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_WU_ZETIAN_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>进攻性间谍的行动效果提升1级。进攻性间谍任务成功时，获得目标城市该回合[ICON_Faith] 信仰值、[ICON_Culture] 文化值和 [ICON_SCIENCE] 科技值的100%。解锁“行政部门”市政后获得1名免费间谍（和一个额外的间谍容量）。可以使用[ICON_Faith] 信仰值购买间谍。[NEWLINE][NEWLINE]商人与间谍+2视野，“机械”科技后侦察单位+1视野。位于侦察单位3单元格范围的陆地单位+3 [ICON_Strength] 战斗力。[NEWLINE][NEWLINE]建成市政广场建筑或外交区建筑时获得一项随机 [ICON_TechBoosted] 尤里卡和 [ICON_CivicBoosted] 鼓舞（如可用）。长城获得1点 [ICON_Science] 科技值</Text>
+			<Text>进攻性间谍的行动效果提升1级。进攻性间谍任务成功时，获得目标城市该回合[ICON_Faith] 信仰值、[ICON_Culture] 文化值和 [ICON_SCIENCE] 科技值的100%。解锁“行政部门”市政后获得1名免费间谍（和一个额外的间谍容量）。可以使用[ICON_Faith] 信仰值购买间谍。[NEWLINE][NEWLINE]位于侦察单位3单元格范围的陆地单位+3 [ICON_Strength] 战斗力。[NEWLINE][NEWLINE]建成市政广场建筑或外交区建筑时获得一项随机 [ICON_TechBoosted] 尤里卡和 [ICON_CivicBoosted] 鼓舞（如可用）。长城获得1点 [ICON_Science] 科技值</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_WUZETIAN_COMBAT_FROM_SPY_ABILITY_PREVIEW" Language="zh_Hans_CN">
 			<Text>+2 [ICON_STRENGTH] 位于间谍3单元格内（罗织经）</Text>
@@ -492,7 +495,7 @@
 		<!-- == ETHIOPIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ETHIOPIA_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>埃塞俄比亚的国际贸易路线起点处每拥有一种资源，其提供的 [ICON_Faith] 信仰值便+0.5。改良后的资源+1 [ICON_Faith] 信仰值。可用信仰值购买考古博物馆和考古学家。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3草原丘陵与平原丘陵。</Text>
+			<Text>埃塞俄比亚的国际贸易路线起点处每拥有一种资源，其提供的 [ICON_Faith] 信仰值便+0.5。政治哲学市政后，改良后的资源+1 [ICON_Faith] 信仰值。可用信仰值购买考古博物馆和考古学家。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3草原丘陵与平原丘陵。</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MENELIK_DESCRIPTION" Language="zh_Hans_CN">
@@ -527,7 +530,7 @@
 		</Replace>
 		<!-- = leader ability (Magnificence) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MAGNIFICENCES_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>“技艺”市政后，改良资源额外+1 [ICON_CULTURE] 文化值，与剧院广场区域相邻的改良资源额外+1 [ICON_CULTURE] 文化值。与法国特色城堡相邻的奢侈品提供+1 [ICON_Amenities] 宜居度。幸福度为快乐的城市额外+5% [ICON_CULTURE] 文化值。快乐的城市中每个剧院+1 [ICON_GreatWriter] 大作家点数、 [ICON_GreatArtist] 大艺术家点数、 [ICON_GreatMusician] 大音乐家点数；欣喜若狂的城市获得的加成将加倍。解锁“军事学”科技后增加1个间谍容量。“中世纪集市”市政后，可在拥有剧院广场区域的任意城市中开展“宫廷盛会”项目。</Text>
+			<Text>“技艺”市政后，改良资源额外+1 [ICON_CULTURE] 文化值，与剧院广场区域相邻的改良资源额外+1 [ICON_CULTURE] 文化值。与法国特色城堡相邻的已改良奢侈品为该城市提供+1 [ICON_Amenities] 宜居度。幸福度为快乐的城市额外+5% [ICON_CULTURE] 文化值。快乐的城市中每个剧院+1 [ICON_GreatWriter] 大作家点数；欣喜若狂的城市获得额外+1 [ICON_GreatArtist] 大艺术家点数。解锁“军事学”科技后增加1个间谍容量。“中世纪集市”市政后，可在拥有剧院广场区域的任意城市中开展“宫廷盛会”项目。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_FRENCH_GARDE_IMPERIALE_DESCRIPTION" Language="zh_Hans_CN">
@@ -551,11 +554,11 @@
 		<!-- == GAUL == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>矿山为所有区域提供少量相邻加成、并在“铸铜术”科技后+1 [ICON_CULTURE] 文化值。特色区域与其他区域相邻时不会获得少量相邻加成；特色区域也无法建在市中心旁。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3铁、T5采石场资源、T5矿山奢侈品与加成资源。</Text>
+			<Text>矿山为所有区域提供少量相邻加成。采石场为所有区域提供标准相邻加成。特色区域与其他区域相邻时不会获得少量相邻加成；特色区域也无法建在市中心旁。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3铁、T5采石场资源、T5矿山奢侈品与加成资源。</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>每与1个友方陆地战斗单位相邻，近战和抗骑兵单位便+1 [ICON_Strength] 战斗力。</Text>
+			<Text>解锁“铸铜术”科技后，生产出一个军事单位时，您的文明将获得等同于该单位成本25%的 [ICON_Culture] 文化值。每与1个军事单位相邻，近战和抗骑兵单位便+1 [ICON_Strength] 战斗力。</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>每个相邻的友方陆地战斗单位提供+1 [ICON_Strength] 战斗力（厄勃隆尼斯之王）</Text>
@@ -660,7 +663,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RAVEN_KING_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>征集单位+1 [ICON_Movement] 移动力，+3 [ICON_Strength] 战斗力。升级征集单位花费的 [ICON_GOLD] 金币和资源减少75%。征集城邦单位时可在该城邦增加1名 [ICON_ENVOY] 使者。研究“城堡”科技后获得特色单位黑军。</Text>
+			<Text>征集单位+1 [ICON_Movement] 移动力。升级征集单位花费的 [ICON_GOLD] 金币和资源减少75%。征集城邦单位时可在该城邦增加1名 [ICON_ENVOY] 使者。研究“城堡”科技后获得特色单位黑军。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_HUNGARY_BLACK_ARMY_DESCRIPTION" Language="zh_Hans_CN">
@@ -1035,7 +1038,7 @@
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = -->
  		<Replace Tag="LOC_BUILDING_ORDU_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>蒙古特色建筑。其所在城市生产的轻重骑兵单位在平坦地形上+1[ICON_MOVEMENT] 移动力。其城市生产的所有骑兵类和攻城类单位+25%战斗经验。[NEWLINE] 解锁后每回合+2 [ICON_RESOURCE_HORSES] 马。[NEWLINE]战略资源储备+10（标准速度下）。[NEWLINE] [NEWLINE]  不能建造在已拥有兵营的军营区域中。</Text>
+			<Text>蒙古特色建筑。其所在城市生产的轻重骑兵单位在平坦地形上+1[ICON_MOVEMENT] 移动力。其城市生产的所有骑兵类和攻城类单位+25%战斗经验。[NEWLINE] 每回合+2 [ICON_RESOURCE_HORSES] 马。[NEWLINE]战略资源储备+10（标准速度下）。[NEWLINE] [NEWLINE]  不能建造在已拥有兵营的军营区域中。</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_ORDU_INCREASED_MOVEMENT_DESCRIPTION" Language="zh_Hans_CN">
  			<Text>在平坦地形上+1[ICON_MOVEMENT] 移动力。</Text>
@@ -1057,7 +1060,7 @@
 			<Text>生产所有海军近战单位+25% [ICON_PRODUCTION] 生产力，且海军近战单位可以掠夺海岸单元格。</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>生产所有海军近战单位+25% [ICON_PRODUCTION] 生产力，且海军近战单位可以掠夺海岸单元格。掠夺矿山除 [ICON_GOLD] 金币还将获得 [ICON_SCIENCE] 科技值。掠夺采石场，牧场，种植园除 [ICON_FAITH] 信仰值还将获得 [ICON_CULTURE] 文化值。挪威海军近战单位+3 [ICON_Strength] 战斗力。</Text>
+			<Text>生产所有海军近战单位+25% [ICON_PRODUCTION] 生产力，且海军近战单位可以掠夺海岸单元格。掠夺矿山除 [ICON_GOLD] 金币还将获得 [ICON_SCIENCE] 科技值。掠夺采石场，牧场，种植园除 [ICON_FAITH] 信仰值还将获得 [ICON_CULTURE] 文化值。挪威海军近战单位+3 [ICON_Strength] 战斗力。挪威的龙骨船不受区域控制影响。</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY_NAME" Language="zh_Hans_CN">
 			<Text>挪威海军近战单位+3 [ICON_Strength] 战斗力。</Text>
@@ -1175,7 +1178,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>在城市中完成特色项目后，可将原始 [ICON_Capital] 首都迁至任意拥有U型港的城市（必须为本方建立）。每个市政广场建筑+1 [ICON_TradeRoute] 贸易路线容量。在拥有市政广场的城市中建造 [ICON_DISTRICT] 区域时+50% [ICON_Production] 生产力。</Text>
+			<Text>每个市政广场建筑+1 [ICON_TradeRoute] 贸易路线容量。在拥有市政广场的城市中建造 [ICON_DISTRICT] 区域时+50% [ICON_Production] 生产力。</Text>
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="zh_Hans_CN">
@@ -1221,7 +1224,7 @@
 		</Replace>
 		<!-- = leader ability (Julius Caesar) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>首次征服一座城市或从蛮族哨站获得[ICON_GOLD] 金币时 +150 [ICON_GOLD] 金币。研究完“金属铸造”之后，两者提供的 [ICON_GOLD] 金币数量变为250，研究完“钢铁”之后，变为350（标准速度下）。当目标为蛮族时，获得+5 [ICON_Strength] 战斗力且总是获得正常经验值。[NEWLINE][NEWLINE]“法典”市政后，首都获得一个免费的勇士。除首都外，建立新城市时获得一个免费的近战单位。占领并保留至少一个城市时（该城市必须由任意主要文明建立，且被占领时属于主要文明），每种 [ICON_Government] 政体获得一个额外的通配符槽位。[NEWLINE][NEWLINE]所有单位获得+50%战斗经验值，通过科技或市政进入中世纪后提升至+100%。</Text>
+			<Text>首次征服一座城市或从蛮族哨站获得[ICON_GOLD] 金币时 +150 [ICON_GOLD] 金币。研究完“金属铸造”之后，两者提供的 [ICON_GOLD] 金币数量变为250，研究完“钢铁”之后，变为350（标准速度下）。当目标为蛮族时，获得+5 [ICON_Strength] 战斗力且总是获得正常经验值。[NEWLINE][NEWLINE]“法典”市政后，首都获得一个免费的勇士。除首都外，建立新城市时获得一个免费的近战单位。占领并保留至少一个城市时（该城市必须由任意主要文明建立，且被占领时属于主要文明），每种 [ICON_Government] 政体获得一个额外的通配符槽位。[NEWLINE][NEWLINE]所有单位获得+50%战斗经验值，通过科技或市政进入中世纪后提升至+100%。浴场获得+1 [ICON AMENITIES] 宜居度。</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_XP_BONUS_BASE_MODIFIER_NAME" Language="zh_Hans_CN">
 			<Text>+50%战斗经验值。（我来，我见，我征服）</Text>
@@ -1234,6 +1237,10 @@
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_XP_BONUS_MEDIEVAL_MODIFIER_DESC" Language="zh_Hans_CN">
 			<Text>+100%战斗经验值。（我来，我见，我征服）</Text>
+		</Replace>
+		<!-- = unique district = -->
+		<Replace Tag="LOC_DISTRICT_BATH_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>促进城市发展的罗马特色区域。取代水渠，建造费用更低。[NEWLINE][NEWLINE] 从相邻河流、湖泊、绿洲或山脉引水，为该城市提供淡水资源。尚未拥有淡水资源的城市最多获得6个 [ICON_Housing] 住房。已有淡水资源的城市则+2 [ICON_Housing] 住房。若与地热裂缝相邻，提供+1 [ICON AMENITIES] 宜居度。在任何情况下，浴场都能额外提供+2 [ICON_Housing] 住房。干旱时可防止 [ICON_Food] 食物损失。每相邻两个区域获得+1 [ICON_CULTURE] 。必须修建在与市中心相邻的单元格中。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_ROMAN_LEGION_DESCRIPTION" Language="zh_Hans_CN"> <!-- charge icon -->
@@ -2014,34 +2021,34 @@
 		</Replace>
 		<!-- == ENCAMPMENT - CAMPEMENT == -->
  		<Replace Tag="LOC_BUILDING_BARRACKS_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>其城市生产的所有近战，抗骑兵和远程陆地单位+25%战斗经验。[NEWLINE] 战略资源储备+10（标准速度下）。[NEWLINE] 解锁后每回合+2 [ICON_RESOURCE_IRON] 铁。[NEWLINE] [NEWLINE]  不能建造在已拥有马厩的军营区域中。</Text>
+			<Text>其城市生产的所有近战，抗骑兵和远程陆地单位+25%战斗经验。[NEWLINE] 战略资源储备+10（标准速度下）。[NEWLINE] 每回合+2 [ICON_RESOURCE_IRON] 铁。[NEWLINE] [NEWLINE]  不能建造在已拥有马厩的军营区域中。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_STABLE_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>其城市生产的所有骑兵类和攻城类单位+25%战斗经验。[NEWLINE] 战略资源储备+10（标准速度下）。[NEWLINE] 解锁后每回合+2 [ICON_RESOURCE_HORSES] 马。[NEWLINE] [NEWLINE]  不能建造在已拥有兵营的军营区域中。</Text>
+			<Text>其城市生产的所有骑兵类和攻城类单位+25%战斗经验。[NEWLINE] 战略资源储备+10（标准速度下）。[NEWLINE] 每回合+2 [ICON_RESOURCE_HORSES] 马。[NEWLINE] [NEWLINE]  不能建造在已拥有兵营的军营区域中。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_ARMORY_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>该城市中训练的所有陆地单位+25%战斗经验值获取。解锁后每回合+1 [ICON_RESOURCE_NITER] 硝石。</Text>
+			<Text>该城市中训练的所有陆地单位+25%战斗经验值获取。每回合+1 [ICON_RESOURCE_NITER] 硝石。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_ARMORY_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>该城市中训练的所有陆地单位+25%战斗经验值获取。[NEWLINE]战略资源储备+10（标准速度下）。[NEWLINE]解锁后每回合+1 [ICON_RESOURCE_NITER] 硝石。</Text>
+			<Text>该城市中训练的所有陆地单位+25%战斗经验值获取。[NEWLINE]战略资源储备+10（标准速度下）。[NEWLINE] 每回合+1 [ICON_RESOURCE_NITER] 硝石。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SHOPPING_MALL_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>+20 [ICON_Tourism] 旅游业绩。只能在城市中建造一个，即使城市拥有多个社区也同样如此。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_HANGAR_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>当前城市训练的空中单位+25%战斗经验值。航空港区域+1空中单位槽位。解锁后每回合+2 [ICON_RESOURCE_ALUMINUM] 铝。</Text>
+			<Text>当前城市训练的空中单位+25%战斗经验值。航空港区域+1空中单位槽位。每回合+2 [ICON_RESOURCE_ALUMINUM] 铝。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_AIRPORT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>该城市训练的空中单位+50%战斗经验值获取。航空港+2空中单位槽位。紧急部署市政解锁后，可以在带有机场的航空港之间空运陆地单位。解锁后每回合+1 [ICON_RESOURCE_ALUMINUM] 铝、+1 [ICON_RESOURCE_URANIUM] 铀。</Text>
+			<Text>该城市训练的空中单位+50%战斗经验值获取。航空港+2空中单位槽位。紧急部署市政解锁后，可以在带有机场的航空港之间空运陆地单位。每回合+1 [ICON_RESOURCE_ALUMINUM] 铝。若已解锁 [ICON_RESOURCE_URANIUM] 铀，每回合+1 [ICON_RESOURCE_URANIUM] 铀。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_MILITARY_ACADEMY_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>此城中训练的所有陆地单位+25%战斗经验值获取。[NEWLINE]战略资源储备+10（标准速度下）。[NEWLINE]解锁后每回合+2 [ICON_RESOURCE_OIL] 石油。[NEWLINE]解锁相应的市政后即可直接生产 [ICON_Corps] 军团和 [ICON_Army] 军队，并使 [ICON_Corps] 军团和 [ICON_Army] 军队生产费用降低25%。</Text>
+			<Text>此城中训练的所有陆地单位+25%战斗经验值获取。[NEWLINE]战略资源储备+10（标准速度下）。[NEWLINE] 若已解锁 [ICON_RESOURCE_OIL] 石油，每回合+2 [ICON_RESOURCE_OIL] 石油。[NEWLINE]解锁相应的市政后即可直接生产 [ICON_Corps] 军团和 [ICON_Army] 军队，并使 [ICON_Corps] 军团和 [ICON_Army] 军队生产费用降低25%。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_WATER_MILL_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>农场改良设施+1 [ICON_PRODUCTION] 生产力。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SHIPYARD_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>此城中生产的所有海军单位+25%战斗经验值。[ICON_Production] 生产力加成等于港口区域的相邻加成。此城所有未改良的海岸和湖泊单元格提供的 [ICON_Production] 生产力+1。为城市中渔场+1 [ICON_Production] 生产力。工业化解锁后每回合+1 [ICON_RESOURCE_COAL] 煤。</Text>
+			<Text>此城中生产的所有海军单位+25%战斗经验值。[ICON_Production] 生产力加成等于港口区域的相邻加成。此城所有未改良的海岸和湖泊单元格提供的 [ICON_Production] 生产力+1。为城市中渔场+1 [ICON_Production] 生产力。若已解锁 [ICON_RESOURCE_COAL] 煤，每回合+1 [ICON_RESOURCE_COAL] 煤。</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_BUILDING_BANK_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>为该城市出发的 [ICON_TRADEROUTE] 贸易路线提供+2 [ICON_GOLD] 金币。[NEWLINE]为通往该城市的 [ICON_TRADEROUTE] 贸易路线提供+1 [ICON_GOLD] 金币。</Text>
@@ -2284,7 +2291,7 @@
 			<Text>所有传教士、使徒、上师+2 [ICON_Movement] 移动力（圣索菲亚大教堂）。</Text>
 		</Row>
 		<Replace Tag="LOC_BUILDING_MEENAKSHI_TEMPLE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>获得2名使徒。帝国中所有树林和雨林单元格+2 [ICON FAITH] 信仰值。[NEWLINE][NEWLINE]必须建在圣地旁，同时必须已创立宗教。</Text>
+			<Text>获得2名使徒。帝国中所有树林和雨林单元格+1 [ICON FAITH] 信仰值。[NEWLINE][NEWLINE]必须建在圣地旁，同时必须已创立宗教。</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_MONT_ST_MICHEL_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>帝国内所有泛滥平原单元格+1 [ICON_Culture] 文化值、+1 [ICON_FOOD] 食物。您创建的所有使徒除了拥有第二个您通常选择的能力外，还获得了殉教能力。[NEWLINE][NEWLINE]必须建在泛滥平原上或沼泽上。</Text>
@@ -2303,6 +2310,9 @@
 		</Replace>
 		<Replace Tag="LOC_BUILDING_COLOSSUS_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>+1 [ICON_TradeRoute] 贸易路线容量。获得1个商人单位。到该城市的国外 [ICON_TradeRoute] 贸易路线为双方城市+2 [ICON_Gold] 金币。必须建在邻近陆地和港口的海岸上。</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_SYDNEY_OPERA_HOUSE_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>获得两个摇滚乐队。+8 [ICON_Culture] 文化值。每回合+5大 [ICON_GreatMusician] 音乐家点数。+3 [ICON_GreatWork_MUSIC] 音乐剧作槽位。 </Text>
 		</Replace>
 
 
@@ -2515,41 +2525,28 @@
 
 
 		<!-- === AGES === -->
-		<Replace Tag="LOC_MOMENT_CATEGORY_MILITARY_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
-			<Text>“全民皆兵”黄金时代：[NEWLINE]解锁特殊战争借口，谴责之后可立刻宣战，且好战程度-75%。生产军事单位+15% [ICON_Production] 生产力，军事单位对阵区域防御时+10 [ICON_Strength] 战斗力。</Text>
+		<!-- == Free Inquiry == -->
+		<Replace Tag="LOC_MOMENT_CATEGORY_SCIENTIFIC_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
+			<Text>“自由探索”黄金时代：[NEWLINE][ICON_TechBoosted]尤里卡额外提供5%科技开销。商业中心和港口区域的 [ICON_GOLD] 金币相邻加成也提供 [ICON_Science] 科技值。</Text>
 		</Replace>
-		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_9" Language="zh_Hans_CN">
-			<Text>“全民皆兵”：在战斗中每击杀1个非蛮族 [ICON_Corps] 军团+1时代得分，或是击杀1一个非蛮族 [ICON_Army] 军队+2时代得分。如果在黄金时代开始选择此着力点，则解锁特殊战争借口，谴责之后可立刻宣战，且好战程度-75%。生产军事单位+15% [ICON_Production] 生产力，军事单位对城市+10 [ICON_Strength] 战斗力。可在文艺复兴到原子能时代之间选择。</Text>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
+			<Text>自由探索”：每次触发 [ICON_TechBoosted] 尤里卡+1时代得分。建造以科技值为基础产出的建筑+1时代得分。在黄金时代开始时选择此着力点后，[ICON_TechBoosted] 尤里卡额外提供5%科技开销。商业中心和港口区域的 [ICON_GOLD] 金币相邻加成也提供 [ICON_Science] 科技值。可在古典和中世纪时代中选择。</Text>
 		</Replace>
-		<Row Tag="LOC_MILITARY_GA_BUFF_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>对城市+10 [ICON_STRENGTH] 战斗力（“全民皆兵”黄金时代着力点）</Text>
-		</Row>
-		<Row Tag="LOC_ABILITY_MILITARY_GA_BUFF_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>对城市+10 [ICON_STRENGTH] 战斗力（“全民皆兵”黄金时代着力点）</Text>
-		</Row>
-		<Replace Tag="LOC_MOMENT_CATEGORY_INFRASTRUCTURE_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
-			<Text>“雄伟壮丽”黄金时代：[NEWLINE]所有建造者+2 [ICON_Movement] 移动力。可用 [ICON_Faith] 信仰值购买平民单位。用 [ICON_FAITH] 信仰值和 [ICON_GOLD] 金币购买建造者和开拓者的费用降低10%。</Text>
-		</Replace>
-		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_5" Language="zh_Hans_CN">
-			<Text>“雄伟壮丽”：每修建1座新特色区域则+1时代得分。在黄金时代开始时选择此着力点后，所有建造者+2 [ICON_Movement] 移动力。可用 [ICON_Faith] 信仰值购买平民单位。用 [ICON_FAITH] 信仰值和 [ICON_GOLD] 金币购买建造者和开拓者的费用降低10%。</Text>
-		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_EXPLORATION_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
-			<Text>“此处有龙”黄金时代：[NEWLINE]新城市+3初始 [ICON_Citizen] 人口。海上单位与移民+2 [ICON_Movement] 移动力。城市前两个区域+100% [ICON_PRODUCTION] 生产力。和原始 [ICON_Capital] 首都不在同一个大陆的城市每回合+2忠诚度。</Text>
-		</Replace>
-		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_6" Language="zh_Hans_CN">
-			<Text>“此处有龙”：每次发现新大陆或者新自然奇观+3时代得分。战斗中击杀1个非蛮族海军单位+1时代得分。在黄金时代开始选择此着力点后，新建城市+3 [ICON_Citizen] 人口。海上单位与移民+2 [ICON_Movement] 移动力。城市前两个区域+100% [ICON_PRODUCTION] 生产力。不在 [ICON_Capital] 首都大陆上的城市每回合+2忠诚度。可在文艺复兴时代选择。</Text>
-		</Replace>
+
+		<!-- == Pen, Brush, and Voice == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_CULTURAL_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
 			<Text>“百花齐放”黄金时代：[NEWLINE][ICON_CivicBoosted]鼓舞提供额外10%市政开销。城市每拥有1处特色区域，则+2 [ICON_Culture] 文化值、+1 [ICON_Gold] 金币。</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_3" Language="zh_Hans_CN">
-			<Text>“百花齐放”：每次触发 [ICON_CivicBoosted] 鼓舞+1时代得分。建成拥有巨作槽位的建筑时+1时代得分。在黄金时代开始选择此着力点后，[ICON_CivicBoosted] 鼓舞提供额外10%市政开销。城市每拥有1处特色区域，则+2 [ICON_Culture] 文化值、+1 [ICON_Gold] 金币。</Text>
+			<Text>“百花齐放”：每次触发 [ICON_CivicBoosted] 鼓舞+1时代得分。建成拥有巨作槽位的建筑时+1时代得分。在黄金时代开始选择此着力点后，[ICON_CivicBoosted] 鼓舞提供额外10%市政开销。城市每拥有1处特色区域，则+2 [ICON_Culture] 文化值、+1 [ICON_Gold] 金币。可在古典和中世纪时代中选择。</Text>
 		</Replace>
+
+		<!-- == Exodus of the Evangelists (Drums of War) == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS" Language="zh_Hans_CN">
 			<Text>鼓噪而进</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
-			<Text>“鼓噪而进”黄金时代：[NEWLINE]每回合获得额外2点已解锁的战略资源。生产军事单位时+15% [ICON_PRODUCTION] 生产力。每回合、每单位的单位维护费用减少1点 [ICON_Gold] 金币。军营和其中的建筑+1 [ICON_PRODUCTION] 生产力。战斗胜利后，获得等同于被击杀单位 [ICON_Strength] 战斗力40%的 [ICON_Culture] 文化值（联机速度下）。</Text>
+			<Text>“鼓噪而进”黄金时代：[NEWLINE]每回合获得额外2点已解锁的战略资源。生产军事单位时+15% [ICON_PRODUCTION] 生产力。每回合、每单位的单位维护费用减少1点 [ICON_Gold] 金币。军营和其中的建筑+1 [ICON_PRODUCTION] 生产力。战斗胜利后，获得等同于被击杀单位 [ICON_Strength] 战斗力40%的 [ICON_Culture] 文化值（联机速度下）。如果已解锁，提供每回合2点 [ICON_RESOURCE_HORSES] 马、 [ICON_RESOURCE_IRON] 铁和 [ICON_RESOURCE_NITER] 硝石。</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="zh_Hans_CN">
 			<Text>“鼓噪而进”着力点加成：[NEWLINE]每次招募伟人+1时代得分。</Text>
@@ -2558,16 +2555,130 @@
 			<Text>“鼓噪而进”着力点加成：[NEWLINE]每次招募伟人+1时代得分。</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="zh_Hans_CN">
-			<Text>“鼓噪而进”：每次招募伟人+1时代得分。在黄金时代开始时选择此着力点后，每回合获得额外2点已解锁的战略资源。生产军事单位时+15% [ICON_PRODUCTION] 生产力。每回合、每单位的单位维护费用减少1点 [ICON_Gold] 金币。军营和其中的建筑+1 [ICON_PRODUCTION] 生产力。战斗胜利后，获得等同于被击杀单位 [ICON_Strength] 战斗力40%的 [ICON_Culture] 文化值（联机速度下）。</Text>
+			<Text>“鼓噪而进”：每次招募伟人+1时代得分。在黄金时代开始时选择此着力点后，每回合获得额外2点已解锁的战略资源。生产军事单位时+15% [ICON_PRODUCTION] 生产力。每回合、每单位的单位维护费用减少1点 [ICON_Gold] 金币。军营和其中的建筑+1 [ICON_PRODUCTION] 生产力。战斗胜利后，获得等同于被击杀单位 [ICON_Strength] 战斗力40%的 [ICON_Culture] 文化值（联机速度下）。如果已解锁，提供每回合2点 [ICON_RESOURCE_HORSES] 马、 [ICON_RESOURCE_IRON] 铁和 [ICON_RESOURCE_NITER] 硝石。可在古典和中世纪时代中选择。</Text>
 		</Replace>
-		<Replace Tag="LOC_MOMENT_CATEGORY_SCIENTIFIC_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
-			<Text>“自由探索”黄金时代：[NEWLINE][ICON_TechBoosted]尤里卡额外提供5%科技开销。商业中心和港口区域的 [ICON_GOLD] 金币相邻加成也提供 [ICON_Science] 科技值。</Text>
+
+		<!-- == Monumentality == -->
+		<Replace Tag="LOC_MOMENT_CATEGORY_INFRASTRUCTURE_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
+			<Text>“雄伟壮丽”黄金时代：[NEWLINE]所有建造者+2 [ICON_Movement] 移动力。可用 [ICON_Faith] 信仰值购买平民单位。用 [ICON_FAITH] 信仰值和 [ICON_GOLD] 金币购买建造者和开拓者的费用降低10%。</Text>
 		</Replace>
-		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
-			<Text>自由探索”：每次触发 [ICON_TechBoosted] 尤里卡+1时代得分。建造以科技值为基础产出的建筑+1时代得分。在黄金时代开始时选择此着力点后，[ICON_TechBoosted]尤里卡额外提供5%科技开销。商业中心和港口区域的 [ICON_GOLD] 金币相邻加成也提供 [ICON_Science] 科技值。可在古典和中世纪时代中选择。</Text>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_5" Language="zh_Hans_CN">
+			<Text>“雄伟壮丽”：每修建1座新特色区域则+1时代得分。在黄金时代开始时选择此着力点后，所有建造者+2 [ICON_Movement] 移动力。可用 [ICON_Faith] 信仰值购买平民单位。用 [ICON_FAITH] 信仰值和 [ICON_GOLD] 金币购买建造者和开拓者的费用降低10%。可在古典和中世纪时代中选择。</Text>
+		</Replace>
+
+		<!-- == Hic Sunt Dracones == -->
+		<Replace Tag="LOC_MOMENT_CATEGORY_EXPLORATION_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
+			<Text>“此处有龙”黄金时代：[NEWLINE]新城市+3初始 [ICON_Citizen] 人口。海上单位与移民+2 [ICON_Movement] 移动力。城市前两个区域+100% [ICON_PRODUCTION] 生产力。和原始 [ICON_Capital] 首都不在同一个大陆的城市每回合+2忠诚度。</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_6" Language="zh_Hans_CN">
+			<Text>“此处有龙”：每次发现新大陆或者新自然奇观+3时代得分。战斗中击杀1个非蛮族海军单位+1时代得分。在黄金时代开始选择此着力点后，新建城市+3 [ICON_Citizen] 人口。海上单位与移民+2 [ICON_Movement] 移动力。城市前两个区域+100% [ICON_PRODUCTION] 生产力。不在 [ICON_Capital] 首都大陆上的城市每回合+2忠诚度。可在文艺复兴时代选择。</Text>
+		</Replace>
+
+		<!-- == Reform the Coinage == -->
+		<Replace Tag="LOC_MOMENT_CATEGORY_ECONOMIC_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
+			<Text>“货币改革”黄金时代：[NEWLINE]商人无法被掠夺。 外国城市中每拥有1个特色区域，国际 [ICON_TradeRoute] 贸易路线提供的 [ICON_GOLD] 金币+3。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_ECONOMIC_BONUS_NORMAL_AGE" Language="zh_Hans_CN">
+			<Text>“货币改革”着力点加成：[NEWLINE]每成功建立一条 [ICON_TradeRoute] 贸易路线+1时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_ECONOMIC_BONUS_DARK_AGE" Language="zh_Hans_CN">
+			<Text>“货币改革”着力点加成：[NEWLINE]每成功建立一条 [ICON_TradeRoute] 贸易路线+1时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_7" Language="zh_Hans_CN">
+			<Text>“货币改革”：每成功建立一条 [ICON_TradeRoute] 贸易路线+1时代得分。在黄金时代开始时选择此着力点后，商人无法被掠夺。 外国城市中每拥有1个特色区域，国际 [ICON_TradeRoute] 贸易路线提供的 [ICON_GOLD] 金币+3。可在文艺复兴时代选择。</Text>
 		</Replace>
 
 
+		<!-- == Heartbeat of Steam == -->
+		<Replace Tag="LOC_MOMENT_CATEGORY_INDUSTRIAL_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
+			<Text>“滚滚蒸汽”黄金时代：[NEWLINE]建造工业时代或以后奇观时+10% [ICON_PRODUCTION] 生产力。学院区域的科技值相邻加成也可提供 [ICON_PRODUCTION] 生产力。 城市项目+25% [ICON_PRODUCTION] 生产力。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_INDUSTRIAL_BONUS_NORMAL_AGE" Language="zh_Hans_CN">
+			<Text>“滚滚蒸汽”着力点加成：[NEWLINE]每建造1座工业时代或以后得建筑+2时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_INDUSTRIAL_BONUS_DARK_AGE" Language="zh_Hans_CN">
+			<Text>“滚滚蒸汽”着力点加成：[NEWLINE]每建造1座工业时代或以后得建筑+2时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_8" Language="zh_Hans_CN">
+			<Text>“滚滚蒸汽”：每建造1座工业时代或以后得建筑+2时代得分。在黄金时代开始时选择此着力点后，建造工业时代或以后奇观时+10% [ICON_PRODUCTION] 生产力。学院区域的科技值相邻加成也可提供 [ICON_PRODUCTION] 生产力。 城市项目+25% [ICON_PRODUCTION] 生产力。可在文艺复兴时代选择。</Text>
+		</Replace>
+
+		<!-- == To Arms! == -->		
+		<Replace Tag="LOC_MOMENT_CATEGORY_MILITARY_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
+			<Text>“全民皆兵”黄金时代：[NEWLINE]解锁特殊战争借口，谴责之后可立刻宣战，且好战程度-75%。生产军事单位+15% [ICON_Production] 生产力，军事单位对阵区域防御时+10 [ICON_Strength] 战斗力。战斗胜利后，获得等同于被击杀单位 [ICON_Strength] 战斗力50%的 [ICON_GOLD] 金币（联机速度下）。如果已解锁，提供每回合2点 [ICON_RESOURCE_NITER] 硝石、[ICON_RESOURCE_OIL] 石油和 [ICON_RESOURCE_COAL] 煤。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_MILITARY_BONUS_NORMAL_AGE" Language="zh_Hans_CN">
+			<Text>“全民皆兵”着力点加成：[NEWLINE]在战斗中每击杀1个非蛮族 [ICON_Corps] 军团+1时代得分，或是击杀1一个非蛮族 [ICON_Army] 军队+2时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_MILITARY_BONUS_DARK_AGE" Language="zh_Hans_CN">
+			<Text>“全民皆兵”着力点加成：[NEWLINE]在战斗中每击杀1个非蛮族 [ICON_Corps] 军团+1时代得分，或是击杀1一个非蛮族 [ICON_Army] 军队+2时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_9" Language="zh_Hans_CN">
+			<Text>“全民皆兵”：在战斗中每击杀1个非蛮族 [ICON_Corps] 军团+1时代得分，或是击杀1一个非蛮族 [ICON_Army] 军队+2时代得分。如果在黄金时代开始选择此着力点，则解锁特殊战争借口，谴责之后可立刻宣战，且好战程度-75%。生产军事单位+15% [ICON_Production] 生产力，军事单位对城市+10 [ICON_Strength] 战斗力。战斗胜利后，获得等同于被击杀单位 [ICON_Strength] 战斗力50%的 [ICON_GOLD] 金币（联机速度下）。如果已解锁，提供每回合2点 [ICON_RESOURCE_NITER] 硝石、[ICON_RESOURCE_OIL] 石油和 [ICON_RESOURCE_COAL] 煤。可在文艺复兴时代和工业时代中选择。</Text>
+		</Replace>
+		<Row Tag="LOC_MILITARY_GA_BUFF_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>对城市+10 [ICON_STRENGTH] 战斗力（“全民皆兵”黄金时代着力点）</Text>
+		</Row>
+		<Row Tag="LOC_ABILITY_MILITARY_GA_BUFF_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>对城市+10 [ICON_STRENGTH] 战斗力（“全民皆兵”黄金时代着力点）</Text>
+		</Row>
+
+		<!-- == Bodyguard of Lies == -->
+		<Replace Tag="LOC_MOMENT_CATEGORY_ESPIONAGE_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
+			<Text>“兵不厌诈”黄金时代：[NEWLINE]间谍部署到敌方城市不消耗时间。完成所有进攻性间谍任务的时间缩短25%。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_ESPIONAGE_BONUS_NORMAL_AGE" Language="zh_Hans_CN">
+			<Text>“兵不厌诈”着力点加成：[NEWLINE]每次进攻性间谍行动成功后+1时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_ESPIONAGE_BONUS_DARK_AGE" Language="zh_Hans_CN">
+			<Text>“兵不厌诈”着力点加成：[NEWLINE]每次进攻性间谍行动成功后+1时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_10" Language="zh_Hans_CN">
+			<Text>“兵不厌诈”：每次进攻性间谍行动成功后+1时代得分。在黄金时代开始时选择此着力点后，间谍部署到敌方城市不消耗时间。完成所有进攻性间谍任务的时间缩短25%。可在工业时代及之后的时代中选择。</Text>
+		</Replace>
+
+		<!-- == Wish You Were Here == -->
+		<Replace Tag="LOC_MOMENT_CATEGORY_TOURISM_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
+			<Text>“愿你在此”黄金时代：[NEWLINE]拥有 [ICON_Governor] 总督的城市中的世界奇观所产出的 [ICON_Tourism] 旅游业绩+50%。拥有国家公园的城市单元格+1魅力。每个城市每回合+2 [ICON_GREATMUSICIAN] 大音乐家点数，当有广播中心时双倍。 </Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_TOURISM_BONUS_NORMAL_AGE" Language="zh_Hans_CN">
+			<Text>“愿你在此”着力点加成：[NEWLINE]每挖掘一件文物+1时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_TOURISM_BONUS_DARK_AGE" Language="zh_Hans_CN">
+			<Text>“愿你在此”着力点加成：[NEWLINE]每挖掘一件文物+1时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_11" Language="zh_Hans_CN">
+			<Text>愿你在此”：每挖掘一件文物+1时代得分。在黄金时代开始时选择此着力点后，拥有 [ICON_Governor] 总督的城市中的世界奇观所产出的 [ICON_Tourism] 旅游业绩+50%。拥有国家公园的城市单元格+1魅力。每个城市每回合+2 [ICON_GREATMUSICIAN] 大音乐家点数，当有广播中心时双倍。可在工业时代及之后的时代中选择。 </Text>
+		</Replace>
+
+		<!-- == Sky and Stars == -->
+		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL_BONUS_EXPANSION2_GOLDEN_AGE" Language="zh_Hans_CN">
+			<Text>“漫天繁星”黄金时代：[NEWLINE]解锁外形任务和智能材料的 [ICON_TechBoosted] 尤里卡。所有空中单位获取经验值+100% 。每回合收集的铝矿资源+2。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL_BONUS_NORMAL_AGE" Language="zh_Hans_CN">
+			<Text>“漫天繁星”着力点加成：[NEWLINE]每建造一座航空港建筑+1时代得分。每获得或购买一名 [ICON_GreatPerson] 伟人+1时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL_BONUS_DARK_AGE" Language="zh_Hans_CN">
+			<Text>“漫天繁星”着力点加成：[NEWLINE]每建造一座航空港建筑+1时代得分。每获得或购买一名 [ICON_GreatPerson] 伟人+1时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_12" Language="zh_Hans_CN">
+			<Text>“漫天繁星”：每建造一座航空港建筑+1时代得分。每获得或购买一名 [ICON_GreatPerson] 伟人+1时代得分。在黄金时代开始时选择此着力点将解锁外形任务和智能材料的 [ICON_TechBoosted] 尤里卡。所有空中单位获取经验值+100% 。每回合收集的铝矿资源+2。可在工业时代及之后的时代中选择。</Text>
+		</Replace>
+		
+		<!-- == Automaton Warefare == -->
+		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
+			<Text>“机器人大战”黄金时代：[NEWLINE]解锁“机器人技术”科技后，首都将出现一个末日机甲。生产末日机甲+25% [ICON_Production] 生产力。每回合获得3点 [ICON_RESOURCE_URANIUM] 铀。每回合收集的 [ICON_RESOURCE_URANIUM] 铀资源+1。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_NORMAL_AGE" Language="zh_Hans_CN">
+			<Text>“机器人大战”着力点加成：[NEWLINE]每用末日机甲击杀1个非蛮族单位，便+1时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_DARK_AGE" Language="zh_Hans_CN">
+			<Text>“机器人大战”着力点加成：[NEWLINE]每用末日机甲击杀1个非蛮族单位，便+1时代得分。</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_13" Language="zh_Hans_CN">
+			<Text>“机器人大战”：每用末日机甲击杀1个非蛮族单位，便+1时代得分。在黄金时代开始选择此着力点后，解锁“机器人技术”科技后，首都将出现一个末日机甲。生产末日机甲+25% [ICON_Production] 生产力。每回合获得3点 [ICON_RESOURCE_URANIUM] 铀。每回合收集的 [ICON_RESOURCE_URANIUM] 铀资源+1。可在现代及之后的时代中选择。</Text>
+		</Replace>
 
 		<!-- === SCIENCE TREE DESCRIPTIONS === -->
 		<Replace Tag="LOC_TECH_CASTLES_DESCRIPTION" Language="zh_Hans_CN">
@@ -2581,6 +2692,15 @@
 		</Replace>
 		<Replace Tag="LOC_BOOST_TRIGGER_STEEL" Language="zh_Hans_CN">
 			<Text>建造文艺复兴城墙。</Text>
+		</Replace>
+		<Replace Tag="LOC_BOOST_TRIGGER_GUIDANCE_SYSTEMS" Language="zh_Hans_CN">
+			<Text>使用战斗机击杀一个单位。</Text>
+		</Replace>
+		<Replace Tag="BBG_LOC_TECH_MILITARY_SCIENCE_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>+1间谍容量。</Text>
+		</Replace>
+		<Replace Tag="LOC_TECH_MILITARY_SCIENCE_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>长城+1文化值。</Text>
 		</Replace>
 		<Replace Tag="LOC_TECH_COMPUTERS_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>可以额外招募一个间谍。在帝国全境内+50% [ICON_Tourism] 旅游业绩。</Text>
@@ -2615,10 +2735,19 @@
 		<Replace Tag="BBG_LOC_TECH_BALLISTICS_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>伐木场改良设施+1 [ICON_Production] 生产力。</Text>
 		</Replace>
-
+		
 
 
 		<!-- === CULTURE TREE DESCRIPTIONS === -->
+		<Replace Tag="LOC_BOOST_TRIGGER_CRAFTSMANSHIP" Language="zh_Hans_CN">
+			<Text>改良两个单元格。</Text>
+		</Replace>
+		<Replace Tag="LOC_BOOST_TRIGGER_FOREIGN_TRADE" Language="zh_Hans_CN">
+			<Text>拥有一个侦察兵。</Text>
+		</Replace>
+		<Replace Tag="LOC_BOOST_TRIGGER_HUMANISM" Language="zh_Hans_CN">
+			<Text>拥有两个古罗马剧场。</Text>
+		</Replace>
 		<Replace Tag="LOC_CIVIC_ENVIRONMENTALISM_DESCRIPTION" Language="zh_Hans_CN">
 			<Text>在帝国全境内+25% [ICON_Tourism] 旅游业绩。</Text>
 		</Replace>
@@ -3460,5 +3589,342 @@
 		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_2_DESC" Language="zh_Hans_CN">
 			<Text>确保平坦市中心拥有+3 [ICON_FOOD] +1 [ICON_PRODUCTION]。[NEWLINE]确保丘陵市中心拥有+2 [ICON_FOOD] +2 [ICON_PRODUCTION]。[NEWLINE]市中心有确保产出与原本去除地貌后产出中的最大值。</Text>
 		</Row>
+
+
+		<!-- Better Balanced Game New Civs and Leaders6.5 (expanded) -->
+		<!-- == GAUL == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="en_US">
+			<Text>Quarries provide a standard adjacency for all [ICON_DISTRICT] districts (doubled for the Oppidum), mines provide a minor adjacency bonus for all [ICON_DISTRICT] districts. Specialty [ICON_DISTRICT] districts do not receive a minor adjacency for being adjacent to another district and these districts cannot be built adjacent to the City Center.[NEWLINE][ICON_BULLET]Bias: T3 Iron, T4 Quarry Resources, T5 Minable Resources.</Text>
+		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="en_US">
+			<Text>Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength for each adjacent unit.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="en_US">
+			<Text>Receive +1 [ICON_STRENGTH] Combat Strength for each adjacent unit (King of the Eburones)</Text>
+		</Replace>
+        	<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_NAME" Language="zh_Hans_CN">
+			<Text>高卢联盟</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION" Language="en_US">
+			<Text>[ICON_CULTURE] Culture +1 for mines with Bronze Working.[NEWLINE][NEWLINE][ICON_INFLUENCEPERTURN] Influence per turn +1 per Workshop and Recruiting a [ICON_GREATENGINEER] Great Engineer grants 1 [ICON_ENVOY] envoy.[NEWLINE][NEWLINE][ICON_STRENGTH] Combat Strength +1 per type of vassalized City-State.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION_DLC" Language="en_US">
+			<Text>[ICON_CULTURE] Culture +1 for mines with Bronze Working.[NEWLINE][NEWLINE][ICON_INFLUENCEPERTURN] Influence per turn +1 per Workshop and Recruiting a [ICON_GREATENGINEER] Great Engineer grants 1 [ICON_ENVOY] envoy.[NEWLINE][NEWLINE][ICON_STRENGTH] Combat Strength +1 per type of vassalized City-State.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_GALLIC_WAR_COMBAT_DESCRIPTION" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength +1 per type of vassalized City-State.</Text>
+		</Replace>
+		<!-- = unique district = -->
+		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="en_US">
+			<Text>A district unique to Gaul that is cheaper and available earlier than the district it replaces, the Industrial Zone. The Oppidum district is defensible with a ranged attack.[NEWLINE][NEWLINE]+2 [ICON_PRODUCTION] Production adjacency bonus from Quarries and Strategic resources. Triggers a Culture Bomb of unowned territory when completed.</Text>
+		</Replace>
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_ABILITY_GAESATAE_DESCRIPTION" Language="en_US">
+			<Text>+10 [ICON_STRENGTH] Combat Strength against units with a higher base Combat Strength.[NEWLINE][ICON_BULLET] +5 [ICON_STRENGTH] Combat Strength vs. district defenses.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="en_US">
+			<Text>King of the Éburons</Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
+		</Replace>
+
+		<!-- == MACEDON == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_DESCRIPTION" Language="en_US">
+			<Text>Receive boosts upon city conquest: +20% [ICON_PRODUCTION] Production in all cities for 10 [ICON_TURN] turns, as well as a [ICON_TechBoosted] Eureka for each Encampment or Campus in the conquered city and an [ICON_CivicBoosted] Inspiration for each Holy Site or Theater Square.[NEWLINE][ICON_BULLET]Bias: None.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_EXPANSION1_DESCRIPTION" Language="en_US">
+			<Text>Receive boosts upon city conquest: +20% [ICON_PRODUCTION] Production in all cities for 10 [ICON_TURN] turns, as well as a [ICON_TechBoosted] Eureka for each Encampment or Campus in the conquered city and an [ICON_CivicBoosted] Inspiration for each Holy Site or Theater Square.[NEWLINE][ICON_BULLET]Bias: None.</Text>
+		</Replace>
+		<!-- = leader ability (Alexander) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_TO_WORLDS_END_DESCRIPTION" Language="en_US">
+			<Text>Combat victories provide [ICON_SCIENCE] Science equal to 20% of the [ICON_STRENGTH] Combat Strength of the defeated unit (on Online speed). Cities do not incur war weariness. All military units heal completely when this player captures a city with a world wonder. Gain the Hetairoi unique unit when they research the Horseback Riding technology.</Text>
+		</Replace>
+        <!-- = leader ability (Olympia) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_DESCRIPTION" Language="en_US">
+			<Text>Receives an [ICON_ENVOY] envoy from founding a Pantheon. Assigning [ICON_ENVOY] envoys to city states grants [ICON_GreatGeneral] great general and [ICON_GreatProphet] prophet points, doubling if militaristic or religious. [NEWLINE]Cities with a Basilikoi and following Olympia's [ICON_RELIGION] religion give 1 [ICON_SCIENCE] science per [ICON_CITIZEN] population and get 1 [ICON_ENVOY] envoy. +2 [ICON_STRENGTH] Combat Strength in attack per suzed city state for melee and heavy cavalry units.</Text>
+        </Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_NAME" Language="en_US">
+		<Text>Cabeiri Mysteries</Text>
+        </Replace>
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="en_US">
+			<Text>Macedonian unique melee unit that replaces the Swordsman. +10 [ICON_STRENGTH] Combat Strength when besieging districts. Receives +50% Additional Support Bonus.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_HYPASPIST_DESCRIPTION" Language="en_US">
+			<Text>+10 [ICON_STRENGTH] Combat Strength when besieging districts.[NEWLINE][ICON_BULLET] +50% Support Bonus.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_HYPASPIST_SIEGE_BONUS_DESCRIPTION" Language="en_US">
+			<Text>+10 [ICON_STRENGTH] Combat Strength when besieging a district</Text>
+		</Replace>
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="en_US">
+			<Text>Macedonian unique classical era heavy cavalry unit unlocked at Horseback Riding when Alexander is their leader. Additional +5 [ICON_STRENGTH] Combat Strength when adjacent to a [ICON_GREATGENERAL] Great General from any era. +5 [ICON_GREATGENERAL] Great General points when killing an enemy unit. Starts with [ICON_PROMOTION] free Promotion.</Text>
+		</Replace>
+		<!-- = unique building = -->
+		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_DESCRIPTION" Language="en_US">
+			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 20% of the unit's [ICON_PRODUCTION] Production cost when a non-civilian unit is trained in this city.[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 20% of the unit's [ICON_PRODUCTION] Production cost when a non-civilian unit is trained in this city.[NEWLINE][NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed).[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.[NEWLINE][NEWLINE]+2 [ICON_RESOURCE_IRON] Iron per turn once discovered.</Text>
+		</Replace>
+
+		<!-- == MAYA == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAYAB_DESCRIPTION" Language="en_US">
+			<Text>Settling adjacent to Fresh Water and Coast does not provide extra [ICON_HOUSING] Housing. The Palace receives +1 [ICON_HOUSING] Housing. +1 [ICON_AMENITIES] Amenity for every Luxury adjacent to the City Center.[NEWLINE][NEWLINE]Farms provides an additional +1 [ICON_HOUSING] Housing, +1 [ICON_PRODUCTION] Production for every adjacent Observatory, and +1 [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Plantations provide +1 [ICON_SCIENCE] Science for each adjacent Observatory and an additional +1 [ICON_SCIENCE] Science with Education.[NEWLINE][NEWLINE][ICON_BULLET]Bias: T3 Plantation Luxuries, T4 Bananas. Special "Hydrophobic".</Text>
+		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="en_US">
+			<Text>Non-capital cities within 6 tiles of the [ICON_CAPITAL] Capital gain +5% to all yields. Other non-capital cities receive -10% to all yields.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL_DESCRIPTION" Language="en_US">
+			<Text>+3 [ICON_STRENGTH] Combat Strength to units within 6 tiles of the [ICON_CAPITAL] Capital</Text>
+		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_DESC" Language="en_US">
+			<Text>Receive -2 [ICON_STRENGTH] combat strength for all units within six tiles of its [ICON_CAPITAL] capital. Units outside of this circle receive +4 [ICON_STRENGTH] combat strength. Units heal 5hp and gain 2 experience points upon completing an [ICON_TechBoosted] eureka.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_NAME" Language="en_US">
+            <Text>Wrath of Venus</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_NAME" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength -2 (Wrath of Venus)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_DESC" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength -2 (Wrath of Venus)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_NAME" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength +4 (Wrath of Venus)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_DESC" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength +4 (Wrath of Venus)</Text>
+		</Replace>
+		<!-- = unique district = -->
+		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="en_US">
+
+			<Text>A district unique to Maya that replaces the Campus and has unique adjacencies.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science for each adjacent Plantation.[NEWLINE]+1 [ICON_SCIENCE] Science for every two adjacent Farm or district tiles.[NEWLINE]+2 [ICON_SCIENCE] Science for each adjacent Geothermal Fissure.[NEWLINE]+1 [ICON_HOUSING] Housing.</Text>
+		</Replace>
+
+		<!-- == PHOENICIA == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="en_US">
+			<Text>Begin the game with the Writing technology [ICON_TechBoosted] Eureka. Coastal cities founded by Phoenicia and located on the same continent as the Phoenician [ICON_CAPITAL] Capital are 100% Loyal. Settlers gain +2 [ICON_MOVEMENT] Movement and +2 sight range while embarked. Settlers ignore additional [ICON_MOVEMENT] Movement costs from embarking and disembarking.[NEWLINE][ICON_BULLET]Bias: T1 Coast.</Text>
+		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_TRADEROUTE] Trade Route capacity for each Government Plaza building. +50% [ICON_PRODUCTION] Production toward [ICON_DISTRICT] districts in the city with the Government Plaza.</Text>
+		</Replace>
+        <!-- = leader ability = -->
+        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_DESCRIPTION" Language="en_US">
+            <Text>International [ICON_TRADEROUTE] trade routes provides +0.5 [ICON_PRODUCTION] Production  and +2 [ICON_GOLD] Gold for each Luxury resource in the originating Phoenician city. Unlock the Royal Tomb unique building.</Text>
+        </Replace>
+        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_NAME" Language="en_US">
+		<Text>Merchant Princes</Text>
+        </Replace>
+		<!-- = unique district = -->
+		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="en_US">
+			<Text>A district unique to Phoenicia for naval activity in your city. Replaces the Harbor district and cheaper to build. Must be built on Coast or Lake Terrain adjacent to land.[NEWLINE][NEWLINE]+25% [ICON_PRODUCTION] Production towards naval units and Settlers in this city.</Text>
+		</Replace>
+        <!-- = unique building = -->
+        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_DESCRIPTION" Language="en_US">
+            <Text>Replaces the Library. +2 base [ICON_SCIENCE] Science, Provides bonus [ICON_GOLD] Gold equal to the adjacency [ICON_SCIENCE] Science bonus of its district. [NEWLINE] Doesn't cost maintenance.</Text>
+	    </Replace>
+        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_NAME" Language="en_US">
+	        <Text>Royal Tomb</Text>
+        </Replace>
+
+		<!-- == SWAHILI == -->
+		<!-- = Civilization ability -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_NAME" Language="en_US">
+			<Text>Coral Construction</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION" Language="en_US">
+			<Text>Coastal cities gain +25% [ICON_PRODUCTION] Production for districts.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 for unimproved reefs with Sailing.[NEWLINE][NEWLINE]Bias: T1 Coast.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION_XP1" Language="en_US">
+			<Text>Coastal cities gain +25% [ICON_PRODUCTION] Production for districts.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 for unimproved reefs with Sailing.[NEWLINE][NEWLINE]Bias: T1 Coast.</Text>
+		</Replace>
+		<!-- = Leader ability -->
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_NAME" Language="en_US">
+			<Text>Palace of Husuni Kubwa</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_DESCRIPTION" Language="en_US">
+			<Text>[ICON_TRADEROUTE] Trade route capacity +1 for each Harbor adjacent to a World Wonder.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_XP2_DESCRIPTION" Language="en_US">
+			<Text>[ICON_TRADEROUTE] Trade route capacity +1 for each Harbor adjacent to a World Wonder.</Text>
+		</Replace>
+		<!-- = Unique unit -->
+		<Replace Tag="LOC_UNIT_SUK_JAHAZI_NAME" Language="en_US">
+			<Text>Jahazi</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_SUK_JAHAZI_DESCRIPTION" Language="en_US">
+			<Text>Exclusive to the Swahili, this ancient era support naval unit can set up a fishing boat, which will provide +3 [ICON_GOLD] Gold (2 [ICON_CHARGES] Charges). Units embarked within 2 tiles gain 1 [ICON_MOVEMENT] Movement Point and ignore terrain costs. Can be captured.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_NAME" Language="en_US">
+			<Text>[ICON_MOVEMENT] Movement Point +1</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_DESCRIPTION" Language="en_US">
+			<Text>[ICON_MOVEMENT] Movement Point +1</Text>
+		</Replace>
+		<!-- = Unique building -->
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_NAME" Language="en_US">
+			<Text>Pillar Tomb</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_DESCRIPTION" Language="en_US">
+			<Text>This building replaces the Monument.[NEWLINE][NEWLINE]Loyalty +1. If Loyalty is already at maximum, [ICON_CULTURE] Culture +1.[NEWLINE][ICON_GOLD] Gold +2 and [ICON_SCIENCE] Science +1 for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 6 districts).</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_XP1_DESCRIPTION" Language="en_US">
+			<Text>This building replaces the Monument.[NEWLINE][NEWLINE]Loyalty +1. If Loyalty is already at maximum, [ICON_CULTURE] Culture +1.[NEWLINE][ICON_GOLD] Gold +2 and [ICON_SCIENCE] Science +1 for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 6 districts).</Text>
+		</Replace>
+<!-- = TEOTIHUACAN = -->
+		<!-- = Civilization ability -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_NAME" Language="en_US">
+			<Text>Where Men Become Gods</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_DESC" Language="en_US">
+			<Text>International [ICON_TRADEROUTE] trade routes receive additional yields based on the type of your vassalized City-States.[NEWLINE]+1 [ICON_FOOD] Food for Religious, +1 [ICON_PRODUCTION] for Millitaristic and Industrial, +3 [ICON_GOLD] golds for Commercial, +1 [ICON_SCIENCE] Science for Scientific, +1 [ICON_CULTURE] Culture for Cultural. [NEWLINE]Tripled if you are the suzerain of 2 City-States of the same type.</Text>
+		</Replace>
+		<!-- = Leader ability -->
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_NAME" Language="en_US">
+			<Text>Lord of the West</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="en_US">
+			<Text>[ICON_TRADEROUTE]Trade route capacity +1 for the Pochtecatl Enclave and the Chancellery. Unlocks the unique [ICON_GOVERNOR]Governor Fire is Born.</Text>
+		</Replace>
+		<!-- = Unique unit -->
+		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="en_US">
+			<Text>Ehuatl Wearer</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_DESC" Language="en_US">
+			<Text>Unique Swordsman unlocked at Political Philosophy,+1 base vision and doesn't need [ICON_RESOURCE_IRON] iron.</Text>
+		</Replace>
+		<!-- = Unique district -->
+		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_NAME" Language="en_US">
+			<Text>Pochteca Enclave</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_DESC" Language="en_US">
+			<Text>Unlocked at Political Philosophy, replacing the Diplomatic Quarter.[NEWLINE][NEWLINE]Does not count towards district limit based on [ICON_CITIZEN] population and does not provide yields on internal [ICON_TRADEROUTE] trade routes.</Text>
+		</Replace>
+        <!-- == FIRE IS BORN == -->
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_NAME" Language="en_US">
+			<Text>Fire is Born</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_TITLE" Language="en_US">
+			<Text>The Emissary</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_SHORT_TITLE" Language="en_US">
+			<Text>The Emissary</Text>
+		</Replace>		
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_NAME" Language="en_US"> <!-- M0 -->
+			<Text>Arrival of Strangers</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_DESC" Language="en_US"> <!-- M0 -->
+			<Text>May be assigned to a City-State, where it provides 1 [ICON_ENVOY] envoy. Friendly units inside this City-State borders gain +5 [ICON_STRENGTH] Combat strength.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_NAME" Language="en_US"> <!-- L1 -->
+			<Text>Waka Outpost</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_DESC" Language="en_US"> <!-- L1 -->
+			<Text>While established in a City State, provides a tradeable copy of its Luxury resources.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_NAME" Language="en_US"> <!-- L2 -->
+			<Text>Fall of Jaguar Paw</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_DESC" Language="en_US"> <!-- L2 -->
+			<Text>If you're sending a [ICON_TRADEROUTE] traderoute to this City-State, [ICON_ENVOY] envoys sent count as two.[NEWLINE][ICON_PRODUCTION] Production +25% for Commercial Hub buildings in your cities within a 15-tile radius.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_NAME" Language="en_US"> <!-- R1 -->
+			<Text>Petén Expedition</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_DESC" Language="en_US"> <!-- R1 -->
+			<Text>[ICON_STRENGTH] Combat Strength +10 for this City-state's garrison.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_NAME" Language="en_US"> <!-- R2 -->
+			<Text>Assault on Uaxactun</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_DESC" Language="en_US"> <!-- R2 -->
+			<Text>Levied units within 10 tiles of this City-state receive +5 [ICON_STRENGTH] Combat Strength.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_NAME" Language="en_US"> <!-- R2 -->
+			<Text>[ICON_STRENGTH] Combat Strength +5 for levied units (Assault on Uaxactun)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_DESC" Language="en_US"> <!-- R2 -->
+			<Text>[ICON_STRENGTH] Combat Strength +5 for levied units (Assault on Uaxactun)</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_NAME" Language="en_US"> <!-- M3 -->
+			<Text>Overseer of Kings</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_DESC" Language="en_US"> <!-- M3 -->
+			<Text>[ICON_FAVOR] Diplomatic Favor +2 per vassaliszed City-State.</Text>
+		</Replace>
+<!-- = THULE = -->
+		<!-- = Civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_NAME" Language="en_US">
+			<Text>Hunting of the Bowhead</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_DESCRIPTION" Language="en_US">
+			<Text>Hunter's House provide additional yields to adjacent tiles.[NEWLINE][ICON_FOOD] Food +1 for Tundra tiles (doubled for snow), [ICON_FOOD] Food +1 and [ICON_PRODUCTION] Production +1 for Camps and Fishing Boats.[NEWLINE][NEWLINE]Builders can consume one [ICON_CHARGES] Charge and one [ICON_CITIZEN] Citizen to create a [ICON_RESOURCE_WHALES] Whales tile.[NEWLINE][NEWLINE]Bias: T2 Coast / T1 Tundra.</Text>
+		</Replace>
+		<!-- = Leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_NAME" Language="en_US">
+			<Text>Heart not stone</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_DESCRIPTION" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength +5 and [ICON_MOVEMENT] Movement +1 for Recon units starting their turn on Tundra or Snow tiles.</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_RECON_ABILITY_NAME" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength +5 (Heart not stone)</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_RECON_ABILITY_DESCRIPTION" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength +5 (Heart not stone)</Text>
+		</Replace>
+		<!-- = Unique unit = -->
+		<Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_NAME" Language="en_US">
+			<Text>Dogsled Hunter</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_DESCRIPTION" Language="en_US">
+			<Text>Thule unique Ancient era ranged Recon unit, replacing the Scout.[NEWLINE][NEWLINE]Has 1 [ICON_CHARGES] Charge to establish a Hunter's House.</Text>
+		</Replace>
+		<!-- = Unique improvement = -->
+		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_NAME" Language="en_US">
+			<Text>Hunter's House</Text>
+		</Replace>
+		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_DESCRIPTION" Language="en_US">
+			<Text>Unique improvement for Thule, unlocked at Sailing.[NEWLINE][NEWLINE][ICON_FOOD] Food +1 if built on a Tundra tile (doubled on snow), [ICON_CULTURE] Culture +1 and [ICON_FAITH] Faith +1 for each adjacent sea resource and Camp tile.[NEWLINE]Must be built adjacent to a resource tile. Can be placed on forests.</Text>
+		</Replace>
+<!-- = TIBET = -->
+		<!-- = Civilization ability -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_NAME_XP2" Language="en_US">
+			<Text>Roof of the World</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_DESCRIPTION_XP2" Language="en_US">
+			<Text>Citizens may work mountain tiles. Mountain tiles gain additional yields for each district within 2 tiles:[NEWLINE][ICON_FOOD] Food +2 per City Center, [ICON_PRODUCTION] Production +1 per Industrial Zone, [ICON_GOLD] Gold +1 per Harbor and Commercial Hub, [ICON_SCIENCE] Science +1 per Campus, [ICON_CULTURE] Culture +1 per Theater Square, [ICON_FAITH] Faith +1 per Holy Site.[NEWLINE][NEWLINE]Can purchase buildings in specialty districts adjacent to a mountain tile with [ICON_FAITH] Faith.[NEWLINE][NEWLINE][ICON_FAITH] Faith +5% in cities with a [ICON_GOVERNOR] governor for each promotion it has.[NEWLINE][NEWLINE]Bias: T3 Mountains (plain, grassland, and tundra).</Text>
+		</Replace>
+		<!-- = Leader ability -->
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_NAME" Language="en_US">
+			<Text>Capture of Chang'an</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_DESCRIPTION" Language="en_US">
+			<Text>Founding a [ICON_RELIGION] religion grants a [ICON_GOVERNOR] governor title.[NEWLINE][NEWLINE]Land military units trained in a city with an Encampment and a Temple start with a [ICON_PROMOTION] promotion.</Text>
+		</Replace>
+		<!-- = Unique unit -->
+		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_NAME" Language="en_US">
+			<Text>Rta Pa</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_DESCRIPTION" Language="en_US">
+			<Text>Tibet unique Renaissance era ranged cavalry unit unlocked at Astronomy.[NEWLINE][NEWLINE][ICON_RANGE] Range: +1, can move after attacking, no movement penalty on hills.</Text>
+		</Replace>
+		<!-- = Unique district -->
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_NAME" Language="en_US">
+			<Text>Dzong</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION" Language="en_US">
+			<Text>A district unique to Tibet that replaces the [ICON_DISTRICT_HOLYSITE] Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Occupying units receives +5 [ICON_STRENGTH] Defensive Combat Strength.[NEWLINE]Buildings in the Dzong are 20% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION_XP2" Language="en_US">
+			<Text>A district unique to Tibet that replaces the [ICON_DISTRICT_HOLYSITE] Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Occupying units receives +5 [ICON_STRENGTH] Defensive Combat Strength.[NEWLINE]Buildings in the Dzong are 20% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith.</Text>
+		</Replace>
 	</LocalizedText>
 </GameData>
