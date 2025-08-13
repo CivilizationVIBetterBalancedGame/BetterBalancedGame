@@ -106,9 +106,9 @@
 			<Text>+5 [ICON_Strength] боевой мощи за достижение Промышленной эры (Поправка Рузвельта).</Text>
 		</Replace>
 		<!-- 
-<Replace Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_MODERN" Language="ru_RU">
-<Text>+5 [ICON_Strength] боевой мощи за достижение Нового времени (Поправка Рузвельта).</Text>
-</Replace>
+		<Replace Tag="LOC_BBG_TEDDY_COMBAT_BONUS_IN_MODERN" Language="ru_RU">
+		<Text>+5 [ICON_Strength] боевой мощи за достижение Нового времени (Поправка Рузвельта).</Text>
+		</Replace>
 		-->
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_AMERICAN_ROUGH_RIDER_DESCRIPTION" Language="ru_RU">
@@ -1286,7 +1286,17 @@
 		</Replace>
 
 		<!-- == PHOENICIA == -->
-		<!-- AHIRAM -->
+		
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="ru_RU">
+			<Text>Начинает игру с [ICON_TechBoosted] озарением для технологии «Письменность». В городах на побережье, основанных финикийцами на одном континенте со [ICON_CAPITAL] столицей, лояльность составляет 100%. Поселенцы получают +2 [ICON_MOVEMENT] к очкам передвижения и +2 к обзору на корабле. Поселенцы не получают штрафа к [ICON_MOVEMENT] перемещению от погрузки и выгрузки с корабля.[NEWLINE][ICON_BULLET]Привязка: T1 побережье.</Text>
+		</Replace>
+		<!-- = leader ability (Dido) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="ru_RU">
+			<Text>Может перенести первоначальную [ICON_Capital] столицу в любой основанный карфагенянами город, в котором есть котон, выполнив в этом городе уникальный проект.[NEWLINE]+1 к максимуму [ICON_TradeRoute] торговых путей за каждое здание в правительственной площади. +50% [ICON_Production] производства при строительстве [ICON_DISTRICT] районов в городе с площадью правительства.</Text>
+		</Replace>
+		
+		<!-- leader ability (Ahiram) -->
 		<Replace Tag="LOC_LEADER_LIME_PHOE_AHIRAM_NAME" Language="ru_RU">
 			<Text>Ахирам</Text>
 		</Replace>
@@ -1299,22 +1309,14 @@
 		<Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_DESCRIPTION" Language="ru_RU">
 			<Text>Международные торговые пути приносят +0.5 [ICON_PRODUCTION] производства и +2 [ICON_GOLD] золота за каждый редкий ресурс в исходном городе Финикии. Разблокирует уникальное здание: Королевская усыпальница.</Text>
 		</Replace>
-		<!-- Royal Tomb -->
+		<!-- unique building (Ahiram) -->
 		<Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_NAME" Language="ru_RU">
 			<Text>Королевская усыпальница</Text>
 		</Replace>
 		<Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_DESCRIPTION" Language="ru_RU">
 			<Text>Заменяет библиотеку. +2 [ICON_SCIENCE] науки, приносит дополнительное [ICON_GOLD] золото равное бонусу соседства кампуса. Не требует золота на содержание.</Text>
 		</Replace>
-
-		<!-- = civilization ability = -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="ru_RU">
-			<Text>Начинает игру с [ICON_TechBoosted] озарением для технологии «Письменность». В городах на побережье, основанных финикийцами на одном континенте со [ICON_CAPITAL] столицей, лояльность составляет 100%. Поселенцы получают +2 [ICON_MOVEMENT] к очкам передвижения и +2 к обзору на корабле. Поселенцы не получают штрафа к [ICON_MOVEMENT] перемещению от погрузки и выгрузки с корабля.[NEWLINE][ICON_BULLET]Привязка: T1 побережье.</Text>
-		</Replace>
-		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="ru_RU">
-			<Text>Может перенести первоначальную [ICON_Capital] столицу в любой основанный карфагенянами город, в котором есть котон, выполнив в этом городе уникальный проект.[NEWLINE]+1 к максимуму [ICON_TradeRoute] торговых путей за каждое здание в правительственной площади. +50% [ICON_Production] производства при строительстве [ICON_DISTRICT] районов в городе с площадью правительства.[NEWLINE][ICON_BULLET]Привязка: Т1 побережье.</Text>
-		</Replace>
+		
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="ru_RU">
 			<Text>Уникальный район Финикии, база флота в вашем городе. Заменяет собой гавань, дешевле в строительстве. Можно построить только на побережье или клетках озера, прилегающих к суше.[NEWLINE][NEWLINE]+25% к [ICON_PRODUCTION] производству морских юнитов и поселенцев в этом городе.</Text>
@@ -1637,7 +1639,7 @@
 			<Text>Властитель Запада</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="ru_RU">
-			<Text>Получает +1 ячейку [ICON_TRADEROUTE] торгового пути при завершении уникального района и канцелярии. Доступен уникальный губернатор "Огнерожденный".</Text>
+			<Text>Получает +1 ячейку [ICON_TRADEROUTE] торгового пути при завершении строительства уникального района и канцелярии. Доступен уникальный губернатор "Огнерожденный".</Text>
 		</Replace>
 		<!-- Unique district-->
 		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_NAME" Language="ru_RU">
@@ -1909,7 +1911,7 @@
 			<Text>Рта'Па</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_DESCRIPTION" Language="ru_RU">
-			<Text>Уникальный Тибетский дальнобойный кавалерийский юнит эпохи Возрождения. Имеет [ICON_Range] дальнобойную атаку в радиусе 1 клетки, но может двигаться после атаки. Не получает штраф к передвижннию по холмам. Разблокируется после изучения Астрономии.</Text>
+			<Text>Уникальный Тибетский дальнобойный кавалерийский юнит эпохи Возрождения. Имеет [ICON_Range] дальнобойную атаку в радиусе 1 клетки, но может двигаться после атаки. Не получает штраф к передвижению по холмам. Разблокируется после изучения Астрономии.</Text>
 		</Replace>
 
 
@@ -2886,59 +2888,6 @@
 
 		<!-- === THEOTIHUACAN === -->
 		
-		<!-- == Fire is born (Bbg extended) == -->
-		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_NAME" Language="ru_RU">
-			<Text>Огнерожденный</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_DESC" Language="ru_RU">
-			<Text>Филин-копьеметатель требует поддержания порядка в вассальных городах-государствах, и «Огнерожденный» идеально подходит для этой задачи. Сочетая завоевания, шпионаж, дипломатию и эксплуатацию, он способен быстро, умело и навсегда добиться выполнения требований своего благодетеля. Эти своенравные вассалы больше никогда не покинут империю.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_TITLE" Language="ru_RU">
-			<Text>Эмиссар Филина-Копьеносца</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_SHORT_TITLE" Language="ru_RU">
-			<Text>Эмиссар</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_NAME" Language="ru_RU">
-			<Text>Прибытие путешественников</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_DESC" Language="ru_RU">
-			<Text>Может быть назначен в город-государство. Дружественные юниты, защищающие этот город, получают +5 [ICON_Strength] боевой мощи. Дает 1 [ICON_ENVOY] посла в городе-государстве. 3 хода для прибытия.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_NAME" Language="ru_RU">
-			<Text>Аванпост Вака</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_DESC" Language="ru_RU">
-			<Text>Если назначен в город-государство, предоставляет копию ресурсов этого города-государства.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_NAME" Language="ru_RU">
-			<Text>Удар лапы ягуара</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_DESC" Language="ru_RU">
-			<Text>Если с городом-государством есть активный торговый путь, то отправленные послы удваиваются. +25% к производству зданий в Центрах коммерции в радиусе 15 клеток. </Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_NAME" Language="ru_RU">
-			<Text>Экспедиция к Петен</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_DESC" Language="ru_RU">
-			<Text>+10 к обороноспособности гарнизона этого города.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_NAME" Language="ru_RU">
-			<Text>Атака на Уашактун</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_DESC" Language="ru_RU">
-			<Text>Нанятые юниты в пределах 10 клеток получают +5 к боевой мощи.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_DESC" Language="ru_RU">
-			<Text>+5 [ICON_STRENGTH] в радиусе 10 клеток от Огнерожденного.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_NAME" Language="ru_RU">
-			<Text>Инспектор королей</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_DESC" Language="ru_RU">
-			<Text>Каждый город-государство под вашим контролем дает +2 очка дипломатического влияния в ход.</Text>
-		</Replace>
-
 		<!-- Spearthrower Owl-->
 		<Replace Tag="LOC_LOADING_INFO_LEADER_LIME_TEO_OWL" Language="ru_RU">
 			<Text>Теотихуакан жаждет. Твои армии готовы покорить мир. Пусть огонь поглотит всех дерзких и мятежных царей, чтобы ты мог взять всё, в чём нуждается Теотихуакан — богатство, силу, кровь. Брось свою божественную тень на землю. Пусть никто не укроется за её пределами.</Text>
@@ -4788,7 +4737,7 @@
 			<Text>+2 [ICON_PRODUCTION] производства для мастерской, +4 [ICON_PRODUCTION] производства для фабрики и +7 [ICON_PRODUCTION] производства для электростанции и +4 [ICON_POWER] к выработке энергии в этом городе.</Text>
 		</Replace>
 
-		<!-- == Ibrahim == -->
+		<!-- == Ibrahim  == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_PASHA_DESCRIPTION" Language="ru_RU">
 			<Text>+25% к [ICON_Production] производству всех боевых юнитов в этом городе, если он принадлежит Османам. Если работает в [ICON_Capital] столице государства-союзника, то приносит дополнительно 0,5 очка союза за ход.</Text>
 		</Replace>
@@ -4808,7 +4757,64 @@
 			<Text>+5 [ICON_Housing] жилья и +5 [ICON_Amenities] довольства в этом городе.</Text>
 		</Replace>
 
-				
+		<!-- == Fire is born (Bbg extended) == -->
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_NAME" Language="ru_RU">
+			<Text>Огнерожденный</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_DESC" Language="ru_RU">
+			<Text>Филин-копьеметатель требует поддержания порядка в вассальных городах-государствах, и «Огнерожденный» идеально подходит для этой задачи. Сочетая завоевания, шпионаж, дипломатию и эксплуатацию, он способен быстро, умело и навсегда добиться выполнения требований своего благодетеля. Эти своенравные вассалы больше никогда не покинут империю.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_TITLE" Language="ru_RU">
+			<Text>Эмиссар Филина-Копьеносца</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_SHORT_TITLE" Language="ru_RU">
+			<Text>Эмиссар</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_NAME" Language="ru_RU"> <!-- M0 -->
+			<Text>Прибытие путешественников</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_DESC" Language="ru_RU"> 
+			<Text>Может быть назначен в город-государство. Дружественные юниты, защищающие этот город, получают +5 [ICON_Strength] боевой мощи. Дает 1 [ICON_ENVOY] посла в городе-государстве. 3 хода для прибытия.</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_NAME" Language="ru_RU"> <!-- L1 -->
+			<Text>Аванпост Вака</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_DESC" Language="ru_RU"> 
+			<Text>Пока с городом-государством есть активный [ICON_TradeRoute] торговый путь, отправленные в него послы удваиваются. +25% к [ICON_PRODUCTION] производству центров коммерции в радиусе 15 клеток.</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_NAME" Language="ru_RU"> <!-- L2 -->
+			<Text>Удар лапы ягуара</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_DESC" Language="ru_RU"> 
+			<Text>+25% к [ICON_PRODUCTION] производству зданий в центрах коммерции и центрах городов в радиусе 15 клеток.</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_NAME" Language="ru_RU"> <!-- R1 -->
+			<Text>Экспедиция к Петен</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_DESC" Language="ru_RU"> 
+			<Text>+10 к обороноспособности гарнизона этого города.</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_NAME" Language="ru_RU"> <!-- R2 -->
+			<Text>Атака на Уашактун</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_DESC" Language="ru_RU"> 
+			<Text>Нанятые юниты в пределах 10 клеток получают +5 к боевой мощи.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_DESC" Language="ru_RU">
+			<Text>+5 [ICON_STRENGTH] в радиусе 10 клеток от Огнерожденного.</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_NAME" Language="ru_RU"> <!-- M3 -->
+			<Text>Инспектор королей</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_DESC" Language="ru_RU">
+			<Text>Каждый город-государство под вашим контролем дает +2 очка дипломатического влияния в ход.</Text>
+		</Replace>		
 		
 		<!-- === PANTHEONS - ПАНТЕОНЫ === -->
 		<Replace Tag="LOC_BELIEF_RELIGIOUS_IDOLS_DESCRIPTION" Language="ru_RU">
