@@ -28,7 +28,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_SWAHILI_DISTRICT_COASTAL_CITY', 'Amount', 25);
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION', 'BBG_SWAHILI_DISTRICT_COASTAL_CITY');
-
+DELETE FROM UnitAbilityModifiers WHERE ModifierId='SUK_JAHAZI_IGNORE_TERRAIN';
 
 -- ==========================================================
 -- =                        JAHAZI                          =
