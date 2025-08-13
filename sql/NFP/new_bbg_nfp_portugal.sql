@@ -85,10 +85,14 @@ UPDATE Buildings SET Cost=800 WHERE BuildingType='BUILDING_TORRE_DE_BELEM';
 -- Give one promotion to every naval units (Terracotta no longer work on naval units)
 DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_TORRE_DE_BELEM';
 
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_UNIT_IS_NAVAL_REQUIREMENT', 'REQUIREMENT_UNIT_DOMAIN_MATCHES');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_UNIT_IS_NAVAL_REQUIREMENT', 'UnitDomain', 'DOMAIN_SEA');
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_UNIT_IS_NAVAL_REQSET', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_UNIT_IS_NAVAL_REQSET', 'UNIT_IS_NAVAL_REQUIREMENT');
+    ('BBG_UNIT_IS_NAVAL_REQSET', 'BBG_UNIT_IS_NAVAL_REQUIREMENT');
 INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent, SubjectRequirementSetId) VALUES
     ('BBG_TORRE_LEVEL_UP_NAVAL', 'MODIFIER_PLAYER_UNITS_ADJUST_GRANT_EXPERIENCE', 1, 1, 'BBG_UNIT_IS_NAVAL_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
