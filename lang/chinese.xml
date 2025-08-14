@@ -901,7 +901,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TO_WORLDS_END_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>战斗胜利获得被击败单位20% [ICON_Strength] 战斗力的 [ICON_Science] 科技值（联机速度下）。城市不会产生厌战情绪。占领拥有世界奇观的城市时，所有的军事单位的体力值将完全恢复。</Text>
+			<Text>战斗胜利获得被击败单位20% [ICON_Strength] 战斗力的 [ICON_Science] 科技值（联机速度下）。城市不会产生厌战情绪。占领拥有世界奇观的城市时，所有的军事单位的体力值将完全恢复。解锁“骑马”科技之后将获得特色单位 “伙友骑兵”。</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="zh_Hans_CN">
@@ -2654,7 +2654,7 @@
 
 		<!-- == Sky and Stars == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL_BONUS_EXPANSION2_GOLDEN_AGE" Language="zh_Hans_CN">
-			<Text>“漫天繁星”黄金时代：[NEWLINE]解锁外形任务和智能材料的 [ICON_TechBoosted] 尤里卡。所有空中单位获取经验值+100% 。每回合收集的铝矿资源+2。</Text>
+			<Text>“漫天繁星”黄金时代：[NEWLINE]解锁外星任务和智能材料的 [ICON_TechBoosted] 尤里卡。所有空中单位获取经验值+100% 。每回合收集的铝矿资源+2。</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_AERONAUTICAL_BONUS_NORMAL_AGE" Language="zh_Hans_CN">
 			<Text>“漫天繁星”着力点加成：[NEWLINE]每建造一座航空港建筑+1时代得分。每获得或购买一名 [ICON_GreatPerson] 伟人+1时代得分。</Text>
@@ -2663,7 +2663,7 @@
 			<Text>“漫天繁星”着力点加成：[NEWLINE]每建造一座航空港建筑+1时代得分。每获得或购买一名 [ICON_GreatPerson] 伟人+1时代得分。</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_12" Language="zh_Hans_CN">
-			<Text>“漫天繁星”：每建造一座航空港建筑+1时代得分。每获得或购买一名 [ICON_GreatPerson] 伟人+1时代得分。在黄金时代开始时选择此着力点将解锁外形任务和智能材料的 [ICON_TechBoosted] 尤里卡。所有空中单位获取经验值+100% 。每回合收集的铝矿资源+2。可在工业时代及之后的时代中选择。</Text>
+			<Text>“漫天繁星”：每建造一座航空港建筑+1时代得分。每获得或购买一名 [ICON_GreatPerson] 伟人+1时代得分。在黄金时代开始时选择此着力点将解锁外星任务和智能材料的 [ICON_TechBoosted] 尤里卡。所有空中单位获取经验值+100% 。每回合收集的铝矿资源+2。可在工业时代及之后的时代中选择。</Text>
 		</Replace>
 		
 		<!-- == Automaton Warefare == -->
@@ -3594,222 +3594,142 @@
 		<!-- Better Balanced Game New Civs and Leaders6.5 (expanded) -->
 		<!-- == GAUL == -->
 		<!-- = civilization ability = -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="en_US">
-			<Text>Quarries provide a standard adjacency for all [ICON_DISTRICT] districts (doubled for the Oppidum), mines provide a minor adjacency bonus for all [ICON_DISTRICT] districts. Specialty [ICON_DISTRICT] districts do not receive a minor adjacency for being adjacent to another district and these districts cannot be built adjacent to the City Center.[NEWLINE][ICON_BULLET]Bias: T3 Iron, T4 Quarry Resources, T5 Minable Resources.</Text>
-		</Replace>
-		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="en_US">
-			<Text>Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength for each adjacent unit.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="en_US">
-			<Text>Receive +1 [ICON_STRENGTH] Combat Strength for each adjacent unit (King of the Eburones)</Text>
-		</Replace>
         	<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_NAME" Language="zh_Hans_CN">
-			<Text>高卢联盟</Text>
+			<Text>高卢邦联</Text>
 		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION" Language="en_US">
-			<Text>[ICON_CULTURE] Culture +1 for mines with Bronze Working.[NEWLINE][NEWLINE][ICON_INFLUENCEPERTURN] Influence per turn +1 per Workshop and Recruiting a [ICON_GREATENGINEER] Great Engineer grants 1 [ICON_ENVOY] envoy.[NEWLINE][NEWLINE][ICON_STRENGTH] Combat Strength +1 per type of vassalized City-State.</Text>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>解锁“铸铜术”科技后，矿山+1 [ICON_CULTURE] 文化值。每个工作坊+1 [ICON_InfluencePerTurn] 影响力，招募 [ICON_GreatEngineer] 大工程师时获得1 [ICON_ENVOY] 使者。每宗主一个城邦，所有军事单位获得+1 [ICON_Strength] 战斗力。</Text>
 		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION_DLC" Language="en_US">
-			<Text>[ICON_CULTURE] Culture +1 for mines with Bronze Working.[NEWLINE][NEWLINE][ICON_INFLUENCEPERTURN] Influence per turn +1 per Workshop and Recruiting a [ICON_GREATENGINEER] Great Engineer grants 1 [ICON_ENVOY] envoy.[NEWLINE][NEWLINE][ICON_STRENGTH] Combat Strength +1 per type of vassalized City-State.</Text>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION_DLC" Language="zh_Hans_CN">
+			<Text>解锁“铸铜术”科技后，矿山+1 [ICON_CULTURE] 文化值。每个工作坊+1 [ICON_InfluencePerTurn] 影响力，招募 [ICON_GreatEngineer] 大工程师时获得1 [ICON_ENVOY] 使者。每宗主一个城邦，所有军事单位获得+1 [ICON_Strength] 战斗力。</Text>
 		</Replace>
-		<Replace Tag="LOC_ABILITY_SUK_GALLIC_WAR_COMBAT_DESCRIPTION" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength +1 per type of vassalized City-State.</Text>
-		</Replace>
-		<!-- = unique district = -->
-		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Gaul that is cheaper and available earlier than the district it replaces, the Industrial Zone. The Oppidum district is defensible with a ranged attack.[NEWLINE][NEWLINE]+2 [ICON_PRODUCTION] Production adjacency bonus from Quarries and Strategic resources. Triggers a Culture Bomb of unowned territory when completed.</Text>
-		</Replace>
-		<!-- = unique unit = -->
-		<Replace Tag="LOC_ABILITY_GAESATAE_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_STRENGTH] Combat Strength against units with a higher base Combat Strength.[NEWLINE][ICON_BULLET] +5 [ICON_STRENGTH] Combat Strength vs. district defenses.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="en_US">
-			<Text>King of the Éburons</Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
+		<Replace Tag="LOC_ABILITY_SUK_GALLIC_WAR_COMBAT_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>每宗主一个城邦，所有军事单位获得+1 [ICON_Strength] 战斗力。</Text>
 		</Replace>
 
 		<!-- == MACEDON == -->
-		<!-- = civilization ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_DESCRIPTION" Language="en_US">
-			<Text>Receive boosts upon city conquest: +20% [ICON_PRODUCTION] Production in all cities for 10 [ICON_TURN] turns, as well as a [ICON_TechBoosted] Eureka for each Encampment or Campus in the conquered city and an [ICON_CivicBoosted] Inspiration for each Holy Site or Theater Square.[NEWLINE][ICON_BULLET]Bias: None.</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_EXPANSION1_DESCRIPTION" Language="en_US">
-			<Text>Receive boosts upon city conquest: +20% [ICON_PRODUCTION] Production in all cities for 10 [ICON_TURN] turns, as well as a [ICON_TechBoosted] Eureka for each Encampment or Campus in the conquered city and an [ICON_CivicBoosted] Inspiration for each Holy Site or Theater Square.[NEWLINE][ICON_BULLET]Bias: None.</Text>
-		</Replace>
-		<!-- = leader ability (Alexander) = -->
-		<Replace Tag="LOC_TRAIT_LEADER_TO_WORLDS_END_DESCRIPTION" Language="en_US">
-			<Text>Combat victories provide [ICON_SCIENCE] Science equal to 20% of the [ICON_STRENGTH] Combat Strength of the defeated unit (on Online speed). Cities do not incur war weariness. All military units heal completely when this player captures a city with a world wonder. Gain the Hetairoi unique unit when they research the Horseback Riding technology.</Text>
-		</Replace>
-        <!-- = leader ability (Olympia) = -->
-		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_DESCRIPTION" Language="en_US">
-			<Text>Receives an [ICON_ENVOY] envoy from founding a Pantheon. Assigning [ICON_ENVOY] envoys to city states grants [ICON_GreatGeneral] great general and [ICON_GreatProphet] prophet points, doubling if militaristic or religious. [NEWLINE]Cities with a Basilikoi and following Olympia's [ICON_RELIGION] religion give 1 [ICON_SCIENCE] science per [ICON_CITIZEN] population and get 1 [ICON_ENVOY] envoy. +2 [ICON_STRENGTH] Combat Strength in attack per suzed city state for melee and heavy cavalry units.</Text>
-        </Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_NAME" Language="en_US">
-		<Text>Cabeiri Mysteries</Text>
-        </Replace>
-		<!-- = unique unit = -->
-		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="en_US">
-			<Text>Macedonian unique melee unit that replaces the Swordsman. +10 [ICON_STRENGTH] Combat Strength when besieging districts. Receives +50% Additional Support Bonus.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_HYPASPIST_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_STRENGTH] Combat Strength when besieging districts.[NEWLINE][ICON_BULLET] +50% Support Bonus.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_HYPASPIST_SIEGE_BONUS_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_STRENGTH] Combat Strength when besieging a district</Text>
-		</Replace>
-		<!-- = unique unit = -->
-		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="en_US">
-			<Text>Macedonian unique classical era heavy cavalry unit unlocked at Horseback Riding when Alexander is their leader. Additional +5 [ICON_STRENGTH] Combat Strength when adjacent to a [ICON_GREATGENERAL] Great General from any era. +5 [ICON_GREATGENERAL] Great General points when killing an enemy unit. Starts with [ICON_PROMOTION] free Promotion.</Text>
-		</Replace>
-		<!-- = unique building = -->
-		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_DESCRIPTION" Language="en_US">
-			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 20% of the unit's [ICON_PRODUCTION] Production cost when a non-civilian unit is trained in this city.[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 20% of the unit's [ICON_PRODUCTION] Production cost when a non-civilian unit is trained in this city.[NEWLINE][NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed).[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.[NEWLINE][NEWLINE]+2 [ICON_RESOURCE_IRON] Iron per turn once discovered.</Text>
-		</Replace>
-
+		<!-- = leader ability (Olympia) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>创建万神殿后获得一个 [ICON_ENVOY] 使者。派遣 [ICON_ENVOY] 使者到城邦后可获得10点 [ICON_GreatGeneral] 大将军点数和 [ICON_GreatProphet] 大预言家点数（联机速度下），若城邦为军事城邦或者宗教城邦则翻倍。拥有皇家学堂并且信仰奥林匹亚 [ICON_RELIGION] 宗教的城市每个人口+1 [ICON_SCIENCE] 科技值并获得1[ICON_ENVOY] 使者。每宗主一个城邦可为近战和重骑兵单位+2 [ICON_STRENGTH] 战斗力。</Text>
+        	</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_NAME" Language="zh_Hans_CN">
+			<Text>众卡比洛斯之秘仪</Text>
+        	</Replace>
+		
 		<!-- == MAYA == -->
-		<!-- = civilization ability = -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAYAB_DESCRIPTION" Language="en_US">
-			<Text>Settling adjacent to Fresh Water and Coast does not provide extra [ICON_HOUSING] Housing. The Palace receives +1 [ICON_HOUSING] Housing. +1 [ICON_AMENITIES] Amenity for every Luxury adjacent to the City Center.[NEWLINE][NEWLINE]Farms provides an additional +1 [ICON_HOUSING] Housing, +1 [ICON_PRODUCTION] Production for every adjacent Observatory, and +1 [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Plantations provide +1 [ICON_SCIENCE] Science for each adjacent Observatory and an additional +1 [ICON_SCIENCE] Science with Education.[NEWLINE][NEWLINE][ICON_BULLET]Bias: T3 Plantation Luxuries, T4 Bananas. Special "Hydrophobic".</Text>
-		</Replace>
 		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="en_US">
-			<Text>Non-capital cities within 6 tiles of the [ICON_CAPITAL] Capital gain +5% to all yields. Other non-capital cities receive -10% to all yields.</Text>
+		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_DESC" Language="zh_Hans_CN">
+			<Text>首都6环内的军事单位-2 [ICON_STRENGTH] 战斗力。首都6环外的军事单位+4 [ICON_STRENGTH] 战斗力。每启动一个 [ICON_TechBoosted] 尤里卡时刻。所有军事单位回复5点生命值并获得2点经验值</Text>
 		</Replace>
-		<Replace Tag="LOC_ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL_DESCRIPTION" Language="en_US">
-			<Text>+3 [ICON_STRENGTH] Combat Strength to units within 6 tiles of the [ICON_CAPITAL] Capital</Text>
+		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_NAME" Language="zh_Hans_CN">
+            		<Text>维纳斯之怒</Text>
 		</Replace>
-		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_DESC" Language="en_US">
-			<Text>Receive -2 [ICON_STRENGTH] combat strength for all units within six tiles of its [ICON_CAPITAL] capital. Units outside of this circle receive +4 [ICON_STRENGTH] combat strength. Units heal 5hp and gain 2 experience points upon completing an [ICON_TechBoosted] eureka.</Text>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_NAME" Language="zh_Hans_CN">
+			<Text>维纳斯之怒：-2 [ICON_STRENGTH] 战斗力</Text>
 		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_NAME" Language="en_US">
-            <Text>Wrath of Venus</Text>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_DESC" Language="zh_Hans_CN">
+			<Text>维纳斯之怒：-2 [ICON_STRENGTH] 战斗力</Text>
 		</Replace>
-		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_NAME" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength -2 (Wrath of Venus)</Text>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_NAME" Language="zh_Hans_CN">
+			<Text>维纳斯之怒：+4 [ICON_STRENGTH] 战斗力</Text>
 		</Replace>
-		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_DESC" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength -2 (Wrath of Venus)</Text>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_DESC" Language="zh_Hans_CN">
+			<Text>维纳斯之怒：+4 [ICON_STRENGTH] 战斗力</Text>
 		</Replace>
-		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_NAME" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength +4 (Wrath of Venus)</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_DESC" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength +4 (Wrath of Venus)</Text>
-		</Replace>
-		<!-- = unique district = -->
-		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="en_US">
-
-			<Text>A district unique to Maya that replaces the Campus and has unique adjacencies.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science for each adjacent Plantation.[NEWLINE]+1 [ICON_SCIENCE] Science for every two adjacent Farm or district tiles.[NEWLINE]+2 [ICON_SCIENCE] Science for each adjacent Geothermal Fissure.[NEWLINE]+1 [ICON_HOUSING] Housing.</Text>
-		</Replace>
-
+		
 		<!-- == PHOENICIA == -->
-		<!-- = civilization ability = -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="en_US">
-			<Text>Begin the game with the Writing technology [ICON_TechBoosted] Eureka. Coastal cities founded by Phoenicia and located on the same continent as the Phoenician [ICON_CAPITAL] Capital are 100% Loyal. Settlers gain +2 [ICON_MOVEMENT] Movement and +2 sight range while embarked. Settlers ignore additional [ICON_MOVEMENT] Movement costs from embarking and disembarking.[NEWLINE][ICON_BULLET]Bias: T1 Coast.</Text>
+        	<!-- = leader ability = -->
+        	<Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>国际 [ICON_TradeRoute] 贸易路线从起源于腓尼基城市里的每一个奢侈品资源获得+0.5 [ICON_PRODUCTION] 生产力和2 [ICON_GOLD] 金币。在解锁“写作”科技之后可建造特色建筑“皇家陵墓”。</Text>
+        	</Replace>
+        	<Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_NAME" Language="zh_Hans_CN">
+			<Text>商贸王子</Text>
+        	</Replace>
+        	<!-- = unique building = -->
+        	<Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>替代图书馆，+2点基础 [ICON_SCIENCE] 科技值，提供等同于该区域相邻加成的 [ICON_GOLD] 金币。 [NEWLINE] 没有维护费。</Text>
 		</Replace>
-		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_TRADEROUTE] Trade Route capacity for each Government Plaza building. +50% [ICON_PRODUCTION] Production toward [ICON_DISTRICT] districts in the city with the Government Plaza.</Text>
-		</Replace>
-        <!-- = leader ability = -->
-        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_DESCRIPTION" Language="en_US">
-            <Text>International [ICON_TRADEROUTE] trade routes provides +0.5 [ICON_PRODUCTION] Production  and +2 [ICON_GOLD] Gold for each Luxury resource in the originating Phoenician city. Unlock the Royal Tomb unique building.</Text>
-        </Replace>
-        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_NAME" Language="en_US">
-		<Text>Merchant Princes</Text>
-        </Replace>
-		<!-- = unique district = -->
-		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Phoenicia for naval activity in your city. Replaces the Harbor district and cheaper to build. Must be built on Coast or Lake Terrain adjacent to land.[NEWLINE][NEWLINE]+25% [ICON_PRODUCTION] Production towards naval units and Settlers in this city.</Text>
-		</Replace>
-        <!-- = unique building = -->
-        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_DESCRIPTION" Language="en_US">
-            <Text>Replaces the Library. +2 base [ICON_SCIENCE] Science, Provides bonus [ICON_GOLD] Gold equal to the adjacency [ICON_SCIENCE] Science bonus of its district. [NEWLINE] Doesn't cost maintenance.</Text>
-	    </Replace>
-        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_NAME" Language="en_US">
-	        <Text>Royal Tomb</Text>
-        </Replace>
+        	<Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_NAME" Language="zh_Hans_CN">
+	        	<Text>皇家陵墓</Text>
+        	</Replace>
 
 		<!-- == SWAHILI == -->
 		<!-- = Civilization ability -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_NAME" Language="en_US">
-			<Text>Coral Construction</Text>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_NAME" Language="zh_Hans_CN">
+			<Text>仿珊瑚式建造</Text>
 		</Replace>
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION" Language="en_US">
-			<Text>Coastal cities gain +25% [ICON_PRODUCTION] Production for districts.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 for unimproved reefs with Sailing.[NEWLINE][NEWLINE]Bias: T1 Coast.</Text>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>沿海城市建造区域+25% [ICON_PRODUCTION] 生产力。[NEWLINE] Coastal cities gain +25% [ICON_PRODUCTION] Production for districts.[NEWLINE][NEWLINE] 解锁“航海术”科技后，未改良的礁石+1 [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T1海岸。</Text>
 		</Replace>
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION_XP1" Language="en_US">
-			<Text>Coastal cities gain +25% [ICON_PRODUCTION] Production for districts.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 for unimproved reefs with Sailing.[NEWLINE][NEWLINE]Bias: T1 Coast.</Text>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION_XP1" Language="zh_Hans_CN">
+			<Text>沿海城市建造区域+25% [ICON_PRODUCTION] 生产力。[NEWLINE] Coastal cities gain +25% [ICON_PRODUCTION] Production for districts.[NEWLINE][NEWLINE] 解锁“航海术”科技后，未改良的礁石+1 [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T1海岸。</Text>
 		</Replace>
 		<!-- = Leader ability -->
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_NAME" Language="en_US">
-			<Text>Palace of Husuni Kubwa</Text>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_NAME" Language="zh_Hans_CN">
+			<Text>千廊之殿</Text>
 		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_DESCRIPTION" Language="en_US">
-			<Text>[ICON_TRADEROUTE] Trade route capacity +1 for each Harbor adjacent to a World Wonder.</Text>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>相邻奇观的港口区域获得+1 [ICON_TradeRoute] 贸易路线容量。</Text>
 		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_XP2_DESCRIPTION" Language="en_US">
-			<Text>[ICON_TRADEROUTE] Trade route capacity +1 for each Harbor adjacent to a World Wonder.</Text>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_XP2_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>相邻奇观的港口区域获得+1 [ICON_TradeRoute] 贸易路线容量。</Text>
 		</Replace>
 		<!-- = Unique unit -->
-		<Replace Tag="LOC_UNIT_SUK_JAHAZI_NAME" Language="en_US">
-			<Text>Jahazi</Text>
+		<Replace Tag="LOC_UNIT_SUK_JAHAZI_NAME" Language="zh_Hans_CN">
+			<Text>方舟</Text>
 		</Replace>
-		<Replace Tag="LOC_UNIT_SUK_JAHAZI_DESCRIPTION" Language="en_US">
-			<Text>Exclusive to the Swahili, this ancient era support naval unit can set up a fishing boat, which will provide +3 [ICON_GOLD] Gold (2 [ICON_CHARGES] Charges). Units embarked within 2 tiles gain 1 [ICON_MOVEMENT] Movement Point and ignore terrain costs. Can be captured.</Text>
+		<Replace Tag="LOC_UNIT_SUK_JAHAZI_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>斯瓦西里远古时代特色海军支援单位，可建造渔船并使其获得+3 [ICON_GOLD] 金币，拥有两次建造次数。2格范围内的单位获得+1 [ICON_MOVEMENT] 移动力并且无视地形惩罚。可以被俘获。</Text>
 		</Replace>
-		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_NAME" Language="en_US">
-			<Text>[ICON_MOVEMENT] Movement Point +1</Text>
+		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_NAME" Language="zh_Hans_CN">
+			<Text>+1 [ICON_MOVEMENT] 移动力，无视地形惩罚</Text>
 		</Replace>
-		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_DESCRIPTION" Language="en_US">
-			<Text>[ICON_MOVEMENT] Movement Point +1</Text>
+		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>+1 [ICON_MOVEMENT] 移动力，无视地形惩罚</Text>
 		</Replace>
 		<!-- = Unique building -->
-		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_NAME" Language="en_US">
-			<Text>Pillar Tomb</Text>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_NAME" Language="zh_Hans_CN">
+			<Text>柱墓</Text>
 		</Replace>
-		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_DESCRIPTION" Language="en_US">
-			<Text>This building replaces the Monument.[NEWLINE][NEWLINE]Loyalty +1. If Loyalty is already at maximum, [ICON_CULTURE] Culture +1.[NEWLINE][ICON_GOLD] Gold +2 and [ICON_SCIENCE] Science +1 for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 6 districts).</Text>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>斯瓦西里特色市中心建筑，替代“纪念碑”。+1忠诚度。若忠诚度已满，则获得+1 [ICON_CULTURE] 文化值。若城市拥有此建筑，每两个市中心二环内区域（最多6个区域）可为该城市的每条国际 [ICON_TradeRoute] 贸易路线提供+2 [ICON_GOLD] 金币和+1 [ICON_SCIENCE] 科技值。</Text>
 		</Replace>
-		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_XP1_DESCRIPTION" Language="en_US">
-			<Text>This building replaces the Monument.[NEWLINE][NEWLINE]Loyalty +1. If Loyalty is already at maximum, [ICON_CULTURE] Culture +1.[NEWLINE][ICON_GOLD] Gold +2 and [ICON_SCIENCE] Science +1 for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 6 districts).</Text>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_XP1_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>斯瓦西里特色市中心建筑，替代“纪念碑”。+1忠诚度。若忠诚度已满，则获得+1 [ICON_CULTURE] 文化值。若城市拥有此建筑，每两个市中心二环内区域（最多6个区域）可为该城市的每条国际 [ICON_TradeRoute] 贸易路线提供+2 [ICON_GOLD] 金币和+1 [ICON_SCIENCE] 科技值。</Text>
 		</Replace>
-<!-- = TEOTIHUACAN = -->
+
+		<!-- = TEOTIHUACAN = -->
 		<!-- = Civilization ability -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_NAME" Language="en_US">
-			<Text>Where Men Become Gods</Text>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_NAME" Language="zh_Hans_CN">
+			<Text>众人成神之地</Text>
 		</Replace>
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_DESC" Language="en_US">
-			<Text>International [ICON_TRADEROUTE] trade routes receive additional yields based on the type of your vassalized City-States.[NEWLINE]+1 [ICON_FOOD] Food for Religious, +1 [ICON_PRODUCTION] for Millitaristic and Industrial, +3 [ICON_GOLD] golds for Commercial, +1 [ICON_SCIENCE] Science for Scientific, +1 [ICON_CULTURE] Culture for Cultural. [NEWLINE]Tripled if you are the suzerain of 2 City-States of the same type.</Text>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_DESC" Language="zh_Hans_CN">
+			<Text>国际 [ICON_TradeRoute] 贸易路线会根据所宗主城邦类型获得额外产出：[NEWLINE] 宗主宗教城邦则获得+1 [ICON_FOOD] 食物。[NEWLINE]宗主军事或工业城邦则获得+1 [ICON_PRODUCTION] 生产力。[NEWLINE]宗主贸易城邦则获得+3 [ICON_GOLD] 金币。[NEWLINE]宗主科技城邦则获得+1 [ICON_SCIENCE] 科技值。[NEWLINE]宗主文化城邦则获得+1 [ICON_CULTURE] 文化值。[NEWLINE]若宗主两个同样类型城邦，则额外产出增至三倍。</Text>
 		</Replace>
 		<!-- = Leader ability -->
-		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_NAME" Language="en_US">
-			<Text>Lord of the West</Text>
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_NAME" Language="zh_Hans_CN">
+			<Text>西境领主</Text>
 		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="en_US">
-			<Text>[ICON_TRADEROUTE]Trade route capacity +1 for the Pochtecatl Enclave and the Chancellery. Unlocks the unique [ICON_GOVERNOR]Governor Fire is Born.</Text>
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="zh_Hans_CN">
+			<Text>建造完波奇特卡聚集地和大使馆建筑分别获得+1 [ICON_TradeRoute] 贸易路线容量。解锁特色 [ICON_GOVERNOR] 总督：“火之伊始”。</Text>
 		</Replace>
 		<!-- = Unique unit -->
-		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="en_US">
-			<Text>Ehuatl Wearer</Text>
+		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="zh_Hans_CN">
+			<Text>羽甲战士</Text>
 		</Replace>
-		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_DESC" Language="en_US">
-			<Text>Unique Swordsman unlocked at Political Philosophy,+1 base vision and doesn't need [ICON_RESOURCE_IRON] iron.</Text>
+		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_DESC" Language="zh_Hans_CN">
+			<Text>特奧蒂瓦坎特色古典时期近战单位，替代“剑士”，解锁于“政治哲学”市政。+1视野并且生产时不消耗[ICON_RESOURCE_IRON] 铁资源。</Text>
 		</Replace>
 		<!-- = Unique district -->
-		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_NAME" Language="en_US">
-			<Text>Pochteca Enclave</Text>
+		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_NAME" Language="zh_Hans_CN">
+			<Text>波奇特卡聚集区</Text>
 		</Replace>
-		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_DESC" Language="en_US">
-			<Text>Unlocked at Political Philosophy, replacing the Diplomatic Quarter.[NEWLINE][NEWLINE]Does not count towards district limit based on [ICON_CITIZEN] population and does not provide yields on internal [ICON_TRADEROUTE] trade routes.</Text>
+		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_DESC" Language="zh_Hans_CN">
+			<Text>特奧蒂瓦坎特色区域，替代外交区，解锁于“政治哲学”市政。 可以无视人口要求建造，不提供国内贸易路线加成。</Text>
 		</Replace>
-        <!-- == FIRE IS BORN == -->
+        	<!-- == FIRE IS BORN == -->
 		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_NAME" Language="en_US">
-			<Text>Fire is Born</Text>
+			<Text>火之伊始</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_TITLE" Language="en_US">
 			<Text>The Emissary</Text>
@@ -3827,13 +3747,13 @@
 			<Text>Waka Outpost</Text>
 		</Replace>
 		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_DESC" Language="en_US"> <!-- L1 -->
-			<Text>While established in a City State, provides a tradeable copy of its Luxury resources.</Text>
+			<Text>If you're sending a [ICON_TRADEROUTE] traderoute to this City-State, [ICON_ENVOY] envoys sent count as two.[NEWLINE][ICON_PRODUCTION] Production +25% for Commercial Hub in your cities within a 15-tile radius.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_NAME" Language="en_US"> <!-- L2 -->
 			<Text>Fall of Jaguar Paw</Text>
 		</Replace>
 		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_DESC" Language="en_US"> <!-- L2 -->
-			<Text>If you're sending a [ICON_TRADEROUTE] traderoute to this City-State, [ICON_ENVOY] envoys sent count as two.[NEWLINE][ICON_PRODUCTION] Production +25% for Commercial Hub buildings in your cities within a 15-tile radius.</Text>
+			<Text>[ICON_PRODUCTION] Production +25% for Commercial Hub and City Center buildings in your cities within a 15-tile radius.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_NAME" Language="en_US"> <!-- R1 -->
 			<Text>Petén Expedition</Text>

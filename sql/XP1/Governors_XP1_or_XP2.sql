@@ -300,7 +300,7 @@ INSERT INTO GovernorPromotionModifiers(GovernorPromotionType, ModifierId) VALUES
 -- 06/07/23 RI Industrialist: +25% Production toward Industrial Zone buildings in the city. Settlers trained in the city do not consume a Citizen Population. 
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOVERNOR_PROMOTION_RESOURCE_MANAGER_INDUSTRIALIST';
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('BBG_GOVERNOR_MAGNUS_PROD_IZ', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
+    ('BBG_GOVERNOR_MAGNUS_PROD_IZ', 'MODIFIER_SINGLE_CITY_ADJUST_BUILDING_PRODUCTION');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_GOVERNOR_MAGNUS_PROD_IZ', 'DistrictType', 'DISTRICT_INDUSTRIAL_ZONE'),
     ('BBG_GOVERNOR_MAGNUS_PROD_IZ', 'Amount', 25);

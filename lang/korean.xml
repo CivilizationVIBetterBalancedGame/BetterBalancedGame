@@ -548,12 +548,12 @@
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="ko_KR">
 			<Text>인접한 아군 지상 전투 유닛마다 근접, 대기병 유닛이 [ICON_Strength] 전투력 +1을 얻습니다.</Text>
 		</Replace>
-		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="ko_KR">
+		<!-- <Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="ko_KR">
 			<Text>인접한 아군 지상 전투 유닛마다 [ICON_Strength] 전투력 +1을 제공합니다(에부로네스의 왕).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="ko_KR">
-			<Text>인접 아군</Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
-		</Replace>
+			<Text>인접 아군</Text>  This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit
+		</Replace> -->
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_ABILITY_GAESATAE_DESCRIPTION" Language="ko_KR">
 			<Text>기본 전투력이 높은 유닛 상대 시 [ICON_Strength] 전투력 +10을 얻습니다.[NEWLINE][ICON_Bullet]특수지구 방어군 상대 시 [ICON_Strength] 전투력 +5를 얻습니다.</Text>
@@ -3746,5 +3746,441 @@
 		<Replace Tag="LOC_IMPROVEMENT_ROMAN_FORT_DESCRIPTION" Language="ko_KR"> <!-- kr add -->
 			<Text>로마 특유의 로마 요새를 지을 수 있는 로마 군단병의 능력을 잠금 해제합니다.[NEWLINE][NEWLINE]점유 유닛의 시야가 +1 증가하며, [ICON_Strength] 방어력 +4를 획득하고, 자동으로 2턴의 방어 태세를 얻습니다.</Text>
 		</Replace>
+
+
+
+
+
+		<!-- == BBG EXPANDED == -->
+		<!-- == GAUL == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="ko_KR">
+            <Text>광산은 약간의 모든 특수지구 [ICON_DISTRICT] 에 약간의 인접 보너스와 청동기술을 연구하면 문화 [ICON_CULTURE] +1을 받습니다. 전문 특수지구 [ICON_DISTRICT] 는 다른 특수지구와 인접해 있어도 약간의 인접 보너스를 얻지 못하며, 전문특수지구는 도심부 근처에 건설할 수 없습니다. [NEWLINE][ICON_BULLET] Bias: T3 Iron, T4 Quarry Resources, T5 Minable Resources.</Text>
+        </Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="ko_KR">
+            <Text>근접 및 대기병 유닛은 인접한 지상 유닛당 +1 [ICON_STRENGTH] 공격력을 얻습니다. </Text>
+        </Replace>
+		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="ko_KR">
+			<Text>인접한 유닛당 +1 [ICON_STRENGTH] 공격력을 얻습니다 (에부로네스왕).</Text>
+		</Replace>
+        <Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_NAME" Language="ko_KR">
+			<Text>갈리아 연맹</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION" Language="ko_KR">
+			<Text>청동 기술 연구 시 +1[ICON_CULTURE] 문화를 얻습니다.[NEWLINE][NEWLINE][ICON_INFLUENCEPERTURN] 매 작업장당 +1의 영향력을 얻으며, [ICON_GREATENGINEER] 위대한 기술자를 모집하면 1명의 [ICON_ENVOY] 사절을 얻습니다.[NEWLINE][NEWLINE][ICON_STRENGTH] 종속 도시 국가의 유형당 +1의 전투력을 얻습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_GALLIC_WAR_COMBAT_DESCRIPTION" Language="ko_KR">
+			<Text>종주한 도시국가 종류당 +1 [ICON_STRENGTH] 전투력을 얻습니다.</Text>
+		</Replace>
+		<!-- = unique district = -->
+		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="ko_KR">
+			<Text>산업단지를 대체하는 골의 고유 특수지구 입니다. 방어가능하며 성벽을 지으면 원거리 공격이 가능합니다.[NEWLINE][NEWLINE]전략자원과 채석장 마다 +2[ICON_PRODUCTION] 생산 인접 보너스를 제공하며 완공 시 인접 지역에 문화폭탄을 발생시킵니다.</Text>
+		</Replace>
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_ABILITY_GAESATAE_DESCRIPTION" Language="ko_KR">
+			<Text>기본 공격력보다 높은 적유닛에 대항시 +10 [ICON_STRENGTH] 전투력을 얻습니다. [NEWLINE][ICON_BULLET] +5 [ICON_STRENGTH] 전투력 vs. 지구 방어.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="ko_KR">
+			<Text>에부로네스 왕</Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
+		</Replace>
+<!-- == MACEDON == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_DESCRIPTION" Language="ko_KR">
+			<Text>도시 정복 보상: +20% [ICON_PRODUCTION] 생산력을 모든 도시에서 10 [ICON_TURN] 턴 동안 제공합니다. 정복한 도시의 각 주둔지 와 캠퍼스마다 [ICON_TechBoosted] 유레카를 제공하고, 각 성소 또는 원형극장 마다 [ICON_CivicBoosted] 영감을 제공합니다.[NEWLINE][ICON_BULLET]Bias: None.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_EXPANSION1_DESCRIPTION" Language="ko_KR">
+			<Text>도시 정복 보상: +20% [ICON_PRODUCTION] 생산력을 모든 도시에서 10 [ICON_TURN] 턴 동안 제공합니다. 정복한 도시의 각 주둔지 와 캠퍼스마다 [ICON_TechBoosted] 유레카를 제공하고, 각 성소 또는 원형극장 마다 [ICON_CivicBoosted] 영감을 제공합니다.[NEWLINE][ICON_BULLET]Bias: None.</Text>
+		</Replace>
+		<!-- = leader ability (Alexander) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_TO_WORLDS_END_DESCRIPTION" Language="ko_KR">
+			<Text>Combat victories provide [ICON_SCIENCE] Science equal to 20% of the [ICON_STRENGTH] Combat Strength of the defeated unit (on Online speed). Cities do not incur war weariness. All military units heal completely when this player captures a city with a world wonder. Gain the Hetairoi unique unit when they research the Horseback Riding technology.</Text>
+		</Replace>
+        <!-- = leader ability (Olympia) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_DESCRIPTION" Language="ko_KR">
+			<Text>종교관을 얻으면 사절 1개[ICON_ENVOY] 를 얻습니다. Assigning [ICON_ENVOY] envoys to city states grants [ICON_GreatGeneral] great general and [ICON_GreatProphet] prophet points, doubling if militaristic or religious. [NEWLINE]Cities with a Basilikoi and following Olympia's [ICON_RELIGION] religion give 1 [ICON_SCIENCE] science per [ICON_CITIZEN] population and get 1 [ICON_ENVOY] envoy. +2 [ICON_STRENGTH] Combat Strength in attack per suzed city state for melee and heavy cavalry units.</Text>
+        </Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_NAME" Language="ko_KR">
+			<Text>카베이리 수수께끼</Text>
+        </Replace>
+		<!-- = unique unit = -->  
+		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="ko_KR">
+			<Text>마케도니아의 고유 근접 유닛으로, 검사를 대체합니다. 특수지구를 공격할 때 +10 [ICON_STRENGTH] 전투력을 얻습니다. +50% 추가 지원 보너스를 받습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_HYPASPIST_DESCRIPTION" Language="ko_KR">
+			<Text>특수 지구를 공격 할 때 +10 [ICON_STRENGTH] 전투력을 얻습니다.[NEWLINE][ICON_BULLET] +50% 추가 지원 보너스를 받습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_HYPASPIST_SIEGE_BONUS_DESCRIPTION" Language="ko_KR">
+			<Text>특수 지구를 포위할 때 +10 [ICON_STRENGTH] 전투력을 얻습니다.</Text>
+		</Replace>
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="ko_KR">
+			<Text>마케도니아의 고유한 고전 시대 중기병 유닛으로, 알렉산더가 지도자인 경우 기마술이 필요합니다. +5 [ICON_STRENGTH] 전투력을 얻습니다. 적 유닛을 처치할 때 +5 [ICON_GREATGENERAL] 장군 점수를 얻습니다. [ICON_PROMOTION] 무료 진급을 얻습니다.</Text>
+		</Replace>
+		<!-- = unique building = -->
+		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_DESCRIPTION" Language="ko_KR">
+			<Text>마케도니아의 고유 건물입니다. 이 도시에 훈련된 모든 근접, 원거리 유닛 및 헤타이로이에 대해 +25% 전투 경험을 제공합니다. 비민간 유닛이 이 도시에서 훈련될 때 유닛의 [ICON_PRODUCTION] 생산 비용의 20%에 해당하는 [ICON_SCIENCE] 과학을 얻습니다.[NEWLINE][NEWLINE]이미 마구간이 있는 캠프 지구에는 건설할 수 없습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_EXPANSION2_DESCRIPTION" Language="ko_KR">
+			<Text>마케도니아의 고유 건물입니다. 이 도시에 훈련된 모든 근접, 원거리 유닛 및 헤타이로이에 대해 +25% 전투 경험을 제공합니다. 비민간 유닛이 이 도시에서 훈련될 때 유닛의 [ICON_PRODUCTION] 생산 비용의 20%에 해당하는 [ICON_SCIENCE] 과학을 얻습니다.[NEWLINE][NEWLINE]이미 마구간이 있는 캠프 지구에는 건설할 수 없습니다.</Text>
+		</Replace>
+<!-- == MAYA == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAYAB_DESCRIPTION" Language="ko_KR">
+			<Text>담수 옆에 세운 도시가 추가 [ICON_HOUSING] 주거를 제공하지 않습니다. 궁전은 +1 [ICON_HOUSING] 주거를 받습니다. 도심부에 인접한 사치자원마다 +1 [ICON_AMENITIES] 쾌적도를 받습니다.[NEWLINE][NEWLINE]농장은 인접한 관측소마다 +1 [ICON_HOUSING] 주거, +1 [ICON_PRODUCTION] 생산을 제공하며, +1 [ICON_GOLD] 금을 제공합니다.[NEWLINE][NEWLINE]재배지는 각 인접한 천문대마다 +1 [ICON_SCIENCE] 과학을 제공하며, 교육과 함께 추가로 +1 [ICON_SCIENCE] 과학을 제공합니다.[NEWLINE][NEWLINE][ICON_BULLET]편향: T3 재배지 사치품, T4 바나나. 특별 "비담수".</Text>
+		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_DESC" Language="ko_KR">
+			<Text>수도의 6타일 이내에 있는 모든 유닛의 전투력이 -2 감소합니다. 이 구역을 벗어난 유닛은 전투력이 +4 증가합니다. 유레카 조건을 충족 할 때 마다 유닛은 체력 5를 회복하고 2 경험치를 얻습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_NAME" Language="ko_KR">
+            <Text>비너스의 분노</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_NAME" Language="ko_KR">
+			<Text>[ICON_STRENGTH] 전투력 -2 (비너스의 분노)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_DESC" Language="ko_KR">
+			<Text>[ICON_STRENGTH] 전투력 -2 (비너스의 분노)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_NAME" Language="ko_KR">
+			<Text>[ICON_STRENGTH] 전투력 +4 (비너스의 분노)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_DESC" Language="ko_KR">
+			<Text>[ICON_STRENGTH] 전투력 +4 (비너스의 분노)</Text>
+		</Replace>
+		<!-- = unique district = -->
+		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="ko_KR">
+			<Text>과학 +1 [ICON_SCIENCE]을 인접한 재배지로부터 받습니다.[NEWLINE]과학 +1 [ICON_SCIENCE]을 인접한 2개의 농장 또는 특수 지구 타일 2개마다 받습니다.[NEWLINE]과학 +2 [ICON_SCIENCE]을 인접한 지열 열하마다 받습니다.[NEWLINE]+1 [ICON_HOUSING] 주거를 획득합니다.</Text>
+		</Replace>
+<!-- == PHOENICIA == -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="ko_KR">
+			<Text>문자 [ICON_TechBoosted] 유레카를 보유한 상태로 게임을 시작합니다. 페니키아가 정착한 수도 [ICON_CAPITAL] 도시와 같은 대륙에 위치한 모든 도시는 항상 충성도 100%를 유지합니다. 개척자는 +2 [ICON_MOVEMENT] 이동력과 +2 시야 범위를 얻습니다. 개척자는 승선 및 하선 시 추가 [ICON_MOVEMENT] 이동 비용을 무시합니다.[NEWLINE][ICON_BULLET]Bias: T1 Coast.</Text>
+		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="ko_KR">
+			<Text>+1 [ICON_TRADEROUTE] 교역로 한계가 정부 청사 건물마다 추가됩니다. 정부 청사가 있는 도시의 [ICON_DISTRICT] 특수 지구 건설에 +50% [ICON_PRODUCTION] 생산력을 제공합니다.</Text>
+		</Replace>
+        <!-- = leader ability = -->
+        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_DESCRIPTION" Language="ko_KR">
+            <Text>외부 [ICON_TRADEROUTE] 교역로는 출발지 페니키아 도시의 각 사치 자원에 대해 +0.5 [ICON_PRODUCTION] 생산력과 +2 [ICON_GOLD] 금을 제공합니다. 왕릉 고유 건물이 해금됩니다.</Text>
+        </Replace>
+        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_NAME" Language="ko_KR">
+		<Text>상인 왕자</Text>
+        </Replace>
+		<!-- = unique district = -->
+		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="ko_KR">
+			<Text>페니키아의 항만을 대체하는 특수지구 이며 더 싼 비용으로 지을 수 있습니다. Replaces the Harbor district and cheaper to build. Must be built on Coast or Lake Terrain adjacent to land.[NEWLINE][NEWLINE]+25% [ICON_PRODUCTION] Production towards naval units and Settlers in this city.</Text>
+		</Replace>
+        <!-- = unique building = -->
+        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_DESCRIPTION" Language="ko_KR">
+            <Text>도서관을 대체하고, 기본 과학 +2를 획득합니다. 도심부의 인접 [ICON_Science] 과학만큼 [ICON_Gold] 골드를 생산하고, 유지비가 없습니다. +1 [ICON_Science] 과학만큼 [ICON_GreatMerchant] 위대한 상인 점수를 얻습니다.</Text>
+	    </Replace>
+        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_NAME" Language="ko_KR">
+	        <Text>왕릉</Text>
+        </Replace>
+<!-- == SWAHILI == -->
+		<!-- = Civilization ability -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_NAME" Language="ko_KR">
+			<Text>산호초 건설자</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION" Language="ko_KR">
+			<Text>해안 도시는 특수지구 건설에 대해 +25% [ICON_PRODUCTION] 생산보너스를 받습니다.[NEWLINE][NEWLINE]항해 기술이 해급되면 미개발 산호초에 [ICON_PRODUCTION] 생산 +1을 제공합니다.[NEWLINE][NEWLINE]Bias: T1 Coast.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION_XP1" Language="ko_KR">
+			<Text>해안 도시는 특수지구 건설에 대해 +25% [ICON_PRODUCTION] 생산보너스를 받습니다.[NEWLINE][NEWLINE]항해 기술이 해급되면 미개발 산호초에 [ICON_PRODUCTION] 생산 +1을 제공합니다.[NEWLINE][NEWLINE]Bias: T1 Coast.</Text>
+		</Replace>
+		<!-- = Leader ability -->
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_NAME" Language="ko_KR">
+			<Text>후수니 쿠브와 궁전</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_DESCRIPTION" Language="ko_KR">
+			<Text>세계 불가사의에 인접한 항만을 지으면 [ICON_TRADEROUTE] 교역로 한계 +1 보너스가 제공됩니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_XP2_DESCRIPTION" Language="ko_KR">
+			<Text>세계 불가사의에 인접한 항만을 지으면 [ICON_TRADEROUTE] 교역로 한계 +1 보너스가 제공됩니다.</Text>
+		</Replace>
+		<!-- = Unique unit -->
+		<Replace Tag="LOC_UNIT_SUK_JAHAZI_NAME" Language="ko_KR">
+			<Text>자하지</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_SUK_JAHAZI_DESCRIPTION" Language="ko_KR">
+            <Text>스와힐리 고유 해상 지원 유닛. 2타일 내의 유닛은 승선 및 상륙 패널티가 없고, +1 [ICON_Movement] 이동력을 획득합니다. 고유 어선 시설을 2회 [ICON_Charges] 건설할 수 있고, 자하지가 건설한 어선은 +1 [ICON_Production] 생산력 +2 [ICON_Gold] 골드를 부여합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_NAME" Language="ko_KR">
+			<Text>[ICON_MOVEMENT] 이동력 +1</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_DESCRIPTION" Language="ko_KR">
+			<Text>[ICON_MOVEMENT] 이동력 +1</Text>
+		</Replace>
+		<!-- = Unique building -->
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_NAME" Language="ko_KR">
+			<Text>기둥식 무덤</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_DESCRIPTION" Language="ko_KR">
+			<Text>스와힐리 고유의 건물입니다. 기념비를 대체하고 더 저렴합니다. +2 [ICON_Culture] 문화를 획득합니다. 이 도시에서 출발하는 국제 교역로 [ICON_TradeRoute] 마다 +1 [ICON_Gold] 골드 +1 [ICON_Culture] 문화를 이 도심부의 2 타일 이내의 특수지구 2개마다 부여합니다.(최대 6개)</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_XP1_DESCRIPTION" Language="ko_KR">
+			<Text>스와힐리 고유의 건물입니다. 기념비를 대체하고 더 저렴합니다. +2 [ICON_Culture] 문화를 획득합니다. 이 도시에서 출발하는 국제 교역로 [ICON_TradeRoute] 마다 +1 [ICON_Gold] 골드 +1 [ICON_Culture] 문화를 이 도심부의 2 타일 이내의 특수지구 2개마다 부여합니다.(최대 6개)</Text>
+		</Replace>
+<!-- = TEOTIHUACAN = -->
+		<!-- = Civilization ability -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_NAME" Language="ko_KR">
+			<Text>신이 되는 곳 </Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_DESC" Language="ko_KR">
+			<Text>외부 [ICON_TRADEROUTE] 교역로는 당신이 종주한 속국 도시 국가의 유형에 따라 추가 수확량을 받습니다.[NEWLINE]+1 [ICON_FOOD] 음식 (종교 도시국가), +1 [ICON_PRODUCTION] 생산 (군사 및 산업 도시국가), +3 [ICON_GOLD] 금 (상업 도시국가), +1 [ICON_SCIENCE] 과학 (과학 도시국가), +1 [ICON_CULTURE] 문화 (문화 도시국가). [NEWLINE]같은 유형의 도시 국가 2개를 종주국으로 두고 있다면 해당 효과가 3배가 됩니다.</Text>
+		</Replace>
+		<!-- = Leader ability -->
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_NAME" Language="ko_KR">
+			<Text>서방의 군주</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="ko_KR">
+			<Text>포치테카 거주지와 상법부가 완공 될 때 마다 [ICON_TRADEROUTE]교역로 한계가 +1 증가합니다. 고유 정부청사 지구인  [ICON_GOVERNOR]시야 카야크.</Text>
+		</Replace>
+		<!-- = Unique unit -->
+		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="ko_KR">
+			<Text>부엉이 전사</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_DESC" Language="ko_KR">
+			<Text>정치 철학에서 잠금 해제되는 고유한 검사 유닛으로, 기본 시야가 +1이며 [ICON_RESOURCE_IRON] 철이 필요하지 않습니다.</Text>
+		</Replace>
+		<!-- = Unique district -->
+		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_NAME" Language="ko_KR">
+			<Text>포치테카 거주지</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_DESC" Language="ko_KR">
+			<Text>정치 철학에서 잠금 해제되며, 외교 구역을 대체합니다.[NEWLINE][NEWLINE]시민 [ICON_CITIZEN] 인구에 따른 전문특수지구 제한에 포함되지 않으며 내부 [ICON_TRADEROUTE] 교역로에서 수확량을 제공하지 않습니다.</Text>
+		</Replace>
+        <!-- == FIRE IS BORN == -->
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_NAME" Language="ko_KR">
+            <Text>시야 카아크</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_TITLE" Language="ko_KR">
+            <Text>사절</Text>
+        </Replace>
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_SHORT_TITLE" Language="ko_KR">
+			<Text>사절</Text>
+		</Replace>		
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_NAME" Language="ko_KR"> <!-- M0 -->
+			<Text>낯선 자의 도착</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_DESC" Language="ko_KR"> <!-- M0 -->
+			<Text>도시 국가에 배정될 수 있으며, 1명의 [ICON_ENVOY] 사절을 제공합니다. 이 도시 국가의 경계 내에 있는 아군 유닛은 +5 [ICON_STRENGTH] 전투력을 얻습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_NAME" Language="ko_KR"> <!-- L1 -->
+			<Text>와카 전초기지</Text>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_DESC" Language="ko_KR"> <!-- L1 -->
+			<Text>해당 도시국가로 교역로[ICON_TRADEROUTE]를 보내면 사절이 두개로 계산됩니다. 15타일 반경내의 상업중심지에 대한 생산력이[ICON_PRODUCTION] 25%증가합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_NAME" Language="ko_KR"> <!-- L2 -->
+			<Text>재규어 발의 몰락</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_DESC" Language="ko_KR"> <!-- L2 -->
+			<Text>15타일 내의 자국 도시 도심부 내부 건물과 상업중심지 건물에 대한 [ICON_PRODUCTION]생산력이 25%증가합니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_NAME" Language="ko_KR"> <!-- R1 -->
+			<Text>페텐 원정대</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_DESC" Language="ko_KR"> <!-- R1 -->
+			<Text>도시국가에 주둔한 유닛에 [ICON_STRENGTH] 전투력 +10이 부여됩니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_NAME" Language="ko_KR"> <!-- R2 -->
+			<Text>왁삭툰 돌격</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_DESC" Language="ko_KR"> <!-- R2 -->
+			<Text>이 도시 국가의 10타일 이내에 있는 징집된 유닛은 +5 [ICON_STRENGTH] 전투력을 얻습니다.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_NAME" Language="ko_KR"> <!-- R2 -->
+			<Text>징집된 유닛에 [ICON_STRENGTH] 전투력 +5 (왁삭툰 돌격)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_DESC" Language="ko_KR"> <!-- R2 -->
+			<Text>징집된 유닛에 [ICON_STRENGTH] 전투력 +5 (왁삭툰 돌격)</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_NAME" Language="ko_KR"> <!-- M3 -->
+			<Text>왕의 감독관</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_DESC" Language="ko_KR"> <!-- M3 -->
+			<Text>[ICON_FAVOR] 외교 영향력 +2를 각 종주 도시 국가로부터 얻습니다.</Text>
+		</Replace>
+	    <!-- = CITY NAMES= -->
+		<Replace Tag="LOC_CITY_NAME_CACAXTLA" Language="ko_KR">
+            <Text>카칵스틀라</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_CANTONA" Language="ko_KR">
+            <Text>칸토나</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_CUICUILCO" Language="ko_KR">
+            <Text>쿠이쿠일코</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_MONTE_ALBAN" Language="ko_KR">
+            <Text>몬테_알반</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_YAGUL" Language="ko_KR">
+            <Text>야굴</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_ZAACHILA" Language="ko_KR">
+            <Text>자칠라</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_TEOTENANGO" Language="ko_KR">
+            <Text>테오테난고</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_CALIXTLAHUACA" Language="ko_KR">
+            <Text>칼릭스틀라후아카</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_HUAMANGO" Language="ko_KR">
+            <Text>우아망고</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_XOCHITECATL" Language="ko_KR">
+            <Text>소치테카틀</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_TZINTZUNTZAN" Language="ko_KR">
+            <Text>트신트순트산</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_PATZCUARO" Language="ko_KR">
+            <Text>파트스쿠아로</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_TINGUINDIN" Language="ko_KR">
+            <Text>팅귄딘</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_IHUATZIO" Language="ko_KR">
+            <Text>이후앗치오</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_TZACAPU" Language="ko_KR">
+            <Text>짜카푸</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_TINGAMBATO" Language="ko_KR">
+            <Text>팅감바토</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_HUANDACAREO" Language="ko_KR">
+            <Text>후안다카레오</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_ZINAPECUARO" Language="ko_KR">
+            <Text>지나페쿠아로</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_COYOACAN" Language="ko_KR">
+            <Text>코요아칸</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_TLATELOLCO" Language="ko_KR">
+            <Text>틀라텔롤코</Text>
+        </Replace>
+
+		<Replace Tag="LOC_CITY_NAME_TLACOCHCALCO" Language="ko_KR">
+            <Text>틀라코첼코</Text>
+        </Replace>
+
+
+<!-- = THULE = -->
+		<!-- = Civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_NAME" Language="ko_KR">
+			<Text>북극고래 사냥</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_DESCRIPTION" Language="ko_KR">
+			<Text>고래뼈집은 인접타일에 추가 산출량을 제공합니다.툰드라 타일엔 [NEWLINE][ICON_FOOD] 식량 +1 (설원일 경우 두배),야영지와 어선 타일에 [ICON_FOOD] 식량 +1 과 [ICON_PRODUCTION] 생산 +1 을 제공합니다.[NEWLINE][NEWLINE]Builders can consume one [ICON_CHARGES] Charge and one [ICON_CITIZEN] Citizen to create a [ICON_RESOURCE_WHALES] Whales tile.[NEWLINE][NEWLINE]Bias: T2 Coast / T1 Tundra.</Text>
+		</Replace>
+		<!-- = Leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_NAME" Language="ko_KR">
+			<Text>얼어붙지 않은 마음</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_DESCRIPTION" Language="ko_KR">
+			<Text>[ICON_STRENGTH] 전투력 +5 및 [ICON_MOVEMENT] 이동력 +1 (툰드라 또는 설원 타일에서 턴을 시작하는 정찰 유닛에 대해)</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_RECON_ABILITY_NAME" Language="ko_KR">
+			<Text>[ICON_STRENGTH] 전투력 +5 (얼어붙지 않은 마음)</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_RECON_ABILITY_DESCRIPTION" Language="ko_KR">
+			<Text>[ICON_STRENGTH] 전투력 +5 (얼어붙지 않은 마음)</Text>
+		</Replace>
+		<!-- = Unique unit = -->
+		<Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_NAME" Language="ko_KR">
+			<Text>개썰매 사냥꾼</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_DESCRIPTION" Language="ko_KR">
+			<Text>툴레의 고대시대 원거리 정찰병 유닛이며 기존의 정찰병을 대체합니다.[NEWLINE][NEWLINE]1회의 [ICON_CHARGES] 건설횟수를 소비하여 고래뼈집을 건설 할 수 있습니다.</Text>
+		</Replace>
+		<!-- = Unique improvement = -->
+		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_NAME" Language="ko_KR">
+			<Text>고래뼈 집</Text>
+		</Replace>
+		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_DESCRIPTION" Language="ko_KR">
+			<Text>항해에서 해금되는 툴레의 고유한 시설입니다.[NEWLINE][NEWLINE]툰드라 타일 위에서 건설되면 [ICON_FOOD] 식량 +1 (설원에선 두배), 인접한 해양자원과 야영지에 [ICON_CULTURE] 문화 +1 및 [ICON_FAITH] 신앙 +1을 제공합니다.[NEWLINE]자원 타일에 인접하여 건설해야 합니다. 숲 위에 배치할 수 있습니다.</Text>
+		</Replace>
+<!-- = TIBET = -->
+		<!-- = Civilization ability -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_NAME_XP2" Language="ko_KR">
+			<Text>세계의 지붕</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_DESCRIPTION_XP2" Language="ko_KR">
+            <Text>시민을 산 타일에 배치할 수 있습니다. 산 타일은 2타일 내에 도심부가 존재하는 경우 식량 [ICON_Food] +2, 전문 특수지구가 존재하는 경우 해당 특수지구에 해당하는 산출 +1 을 얻습니다. 산 옆에 지은 특수지구의 건물을 신앙 [ICON_Faith] 으로 구매할 수 있습니다. 총독이 배치된 도시는 총독 진급당 5%의 신앙 [ICON_Faith] 을 추가로 얻습니다.</Text>
+		</Replace>
+		<!-- = Leader ability -->
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_NAME" Language="ko_KR">
+            <Text>장안의 화제</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_DESCRIPTION" Language="ko_KR">
+            <Text>주둔지와 종이 같이 지어진 도시에서 +1의 위대한 장군 [ICON_GreatGeneral] 점수를 추가로 얻습니다. 또한 이 도시에 예배건물이 있을 경우 생산된 지상 유닛은 한 개의 추가진급을 얻습니다.</Text>
+		</Replace>
+		<!-- = Unique unit -->
+		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_NAME" Language="ko_KR">
+			<Text>티벳 기병</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_DESCRIPTION" Language="ko_KR">
+			<Text>티베트 문명의 르네상스시대 고유 원거리 기병유닛입니다. 사정거리 [ICON_Range] +1, 공격 후 이동이 가능합니다. 언덕 타일의 이동력 페널티가 없습니다. 천문학을 연구하면 생산할 수 있습니다.</Text>
+		</Replace>
+		<!-- = Unique district -->
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_NAME" Language="ko_KR">
+			<Text>종</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION" Language="ko_KR">
+			<Text>성지를 대체하는 티베트의 고유 특수지구입니다. [NEWLINE][NEWLINE] 성지보다 생산비용이 저렴합니다. 이 특수지구에 대한 건물을 골드 [ICON_GOLD] 혹은 신앙 [ICON_FAITH] 으로 구매할 시 20% 더 저렴합니다. [NEWLINE][NEWLINE] 이 타일 위에 있는 유닛은 방어할 때 +5의 전투력 [ICON_Strength]  보너스를 얻습니다. </Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION_XP2" Language="ko_KR">
+			<Text>성지를 대체하는 티베트의 고유 특수지구입니다. [NEWLINE][NEWLINE] 성지보다 생산비용이 저렴합니다. 이 특수지구에 대한 건물을 골드 [ICON_GOLD] 혹은 신앙 [ICON_FAITH] 으로 구매할 시 20% 더 저렴합니다. [NEWLINE][NEWLINE] 이 타일 위에 있는 유닛은 방어할 때 +5의 전투력 [ICON_Strength]  보너스를 얻습니다. </Text>
+		</Replace>
+
+<!-- = LUXUIRES = -->	
+		<Replace Tag="LOC_RESOURCE_P0K_PENGUINS_NAME" Language="ko_KR">
+            <Text>펭귄</Text>
+        </Replace>
+
+		<Replace Tag="LOC_RESOURCE_CVS_POMEGRANATES_NAME" Language="ko_KR">
+            <Text>석류</Text>
+        </Replace>
+
+		<Replace Tag="LOC_RESOURCE_P0K_PAPYRUS_NAME" Language="ko_KR">
+            <Text>파피루스</Text>
+        </Replace>
+
+		<Replace Tag="LOC_RESOURCE_P0K_MAPLE_NAME" Language="ko_KR">
+            <Text>메이플시럽</Text>
+        </Replace>
+
+		<Replace Tag="LOC_RESOURCE_P0K_OPAL_NAME" Language="ko_KR">
+            <Text>오팔</Text>
+        </Replace>
+
+		<Replace Tag="LOC_RESOURCE_P0K_PLUMS_NAME" Language="ko_KR">
+            <Text>자두</Text>
+        </Replace>
+
 	</LocalizedText>
 </GameData>

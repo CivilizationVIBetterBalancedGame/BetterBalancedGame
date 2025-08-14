@@ -83,7 +83,10 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) SELECT
 -- ==========================================================
 
 -- 30/07/25 Unlock at Political, doesn't require population, doesn't give internal yields
-UPDATE Districts SET PrereqCivic='CIVIC_POLITICAL_PHILOSOPHY', AllowsHolyCity=0, RequiresPopulation=0 WHERE DistrictType='DISTRICT_LIME_TEO_TOLLAN';
+UPDATE Districts SET PrereqCivic='CIVIC_POLITICAL_PHILOSOPHY', AllowsHolyCity=0, RequiresPopulation=0, PlunderType='PLUNDER_CULTURE' WHERE DistrictType='DISTRICT_LIME_TEO_TOLLAN';
+DELETE FROM District_GreatPersonPoints WHERE DistrictType='DISTRICT_LIME_TEO_TOLLAN' AND GreatPersonClassType='GREAT_PERSON_CLASS_PROPHET';
+DELETE FROM District_Adjacencies WHERE YieldChangeId LIKE 'TeotihuacanTollan%';
+
 
 -- ==========================================================
 -- =                   EHUATL WEARER                        =
@@ -132,21 +135,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
     ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL', 'BBG_FIREISBORN_BASE_ENVOY');
 
--- L1 : While established in a City State, provides a copy of its Luxury resources.
-
--- R1 : This city garrison gains +10 combat strength.
-DELETE FROM GovernorPromotionModifiers WHERE ModifierId='MOD_LIME_TEO_OWL_EMISSARY_EXPEDITION_SAP_WALLS_ATTACH';
-UPDATE ModifierArguments SET Value=10 WHERE ModifierId='MOD_LIME_TEO_OWL_EMISSARY_ARRIVAL_FORTIFY_UNITS';
-
--- L2 : Envoy send to this city state are doubled, cities 15 tiles from the city gets +25% production toward hub building
-DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL';
-
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_DUPLICATE_ENVOY_IF_TRADER', 'MODIFIER_PLAYER_ADJUST_DUPLICATE_INFLUENCE_TOKEN_WHEN_TRADE_ROUTE_TO', NULL);
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_DUPLICATE_ENVOY_IF_TRADER', 'Amount', 1);
-INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
-    ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL', 'BBG_DUPLICATE_ENVOY_IF_TRADER');
+-- L1 : Envoy send to this city state are doubled if it receives a trade route, cities 15 tiles from the city gets +25% production toward hub
+DELETE FROM GovernorPromotionModifiers WHERE ModifierId='MOD_LIME_TEO_OWL_EMISSARY_OUTPOST_CLONE_LUXES';
 
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
     ('BBG_PLOT_15_TILES_MAX_REQUIREMENT', 'REQUIREMENT_PLOT_ADJACENT_TO_OWNER');
@@ -158,13 +148,38 @@ INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_PLOT_15_TILES_MAX_REQSET', 'BBG_PLOT_15_TILES_MAX_REQUIREMENT');
 
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_DUPLICATE_ENVOY_IF_TRADER', 'MODIFIER_PLAYER_ADJUST_DUPLICATE_INFLUENCE_TOKEN_WHEN_TRADE_ROUTE_TO', NULL);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_DUPLICATE_ENVOY_IF_TRADER', 'Amount', 1);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST', 'BBG_DUPLICATE_ENVOY_IF_TRADER');
 
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_HUB_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION', 'BBG_PLOT_15_TILES_MAX_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_HUB_PRODUCTION', 'DistrictType', 'DISTRICT_COMMERCIAL_HUB'),
+    ('BBG_HUB_PRODUCTION', 'Amount', 25);
+INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST', 'BBG_HUB_PRODUCTION');
+    
+-- R1 : This city garrison gains +10 combat strength.
+DELETE FROM GovernorPromotionModifiers WHERE ModifierId='MOD_LIME_TEO_OWL_EMISSARY_EXPEDITION_SAP_WALLS_ATTACH';
+UPDATE ModifierArguments SET Value=10 WHERE ModifierId='MOD_LIME_TEO_OWL_EMISSARY_ARRIVAL_FORTIFY_UNITS';
+
+-- L2 : Cities 15 tiles from the city gets +25% production toward hub and city center building
+DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL';
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_CITY_CENTER_BUILDING_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION', 'BBG_PLOT_15_TILES_MAX_REQSET'),
     ('BBG_HUB_BUILDING_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION', 'BBG_PLOT_15_TILES_MAX_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_CITY_CENTER_BUILDING_PRODUCTION', 'DistrictType', 'DISTRICT_CITY_CENTER'),
+    ('BBG_CITY_CENTER_BUILDING_PRODUCTION', 'Amount', 25),
     ('BBG_HUB_BUILDING_PRODUCTION', 'DistrictType', 'DISTRICT_COMMERCIAL_HUB'),
     ('BBG_HUB_BUILDING_PRODUCTION', 'Amount', 25);
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL', 'BBG_CITY_CENTER_BUILDING_PRODUCTION'),
     ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL', 'BBG_HUB_BUILDING_PRODUCTION');
 
 

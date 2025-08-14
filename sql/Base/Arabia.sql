@@ -26,7 +26,7 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_RIGHTEOUSNESS_OF_FAITH', 'BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_FAITH'),
     ('TRAIT_LEADER_RIGHTEOUSNESS_OF_FAITH', 'BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_SCIENCE');
 
---==========Arabia(Civ)==========--
+-- ==========Arabia(Civ)==========--
 -- Arabia gets +1 Great Prophet point per turn after researching astrology
 INSERT OR IGNORE INTO Modifiers (ModifierId , ModifierType, SubjectRequirementSetId)
     VALUES ('TRAIT_BONUS_GREAT_PROPHET_POINT_CPLMOD' , 'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS' , 'PLAYER_HAS_ASTROLOGY_REQUIREMENTS_CPLMOD');
