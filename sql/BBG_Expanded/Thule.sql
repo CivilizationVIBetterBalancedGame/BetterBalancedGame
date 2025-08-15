@@ -145,6 +145,8 @@ INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
     ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_CULTURE_CAMP'),
     ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_FAITH_CAMP');
 
+UPDATE Improvement_Tourism SET PrereqTech='TECH_FLIGHT' WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
+
 -- ========================================================================
 -- =                             KIVIUQ                                   =
 -- ========================================================================
