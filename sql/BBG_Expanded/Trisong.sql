@@ -35,13 +35,14 @@ UPDATE Units SET RangedCombat=58, BaseMoves=4 WHERE UnitType='UNIT_SUK_TIBET_RTA
 DELETE FROM TraitModifiers WHERE ModifierId='SUK_CAPTURE_OF_CHANGAN_GREAT_GENERAL_POINTS';
 
 -- Land combat units in cities with a temple and an encampment get a free promotion (from worship building)
-INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'SUK_CAPTURE_OF_CHANGAN_HAS_DZONG'),
-	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIRES_CITY_HAS_ENCAMPMENT'),
-	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIRES_CITY_HAS_TEMPLE');
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET' WHERE ModifierId='SUK_CAPTURE_OF_CHANGAN_FREE_PROMOTION';
+-- 17/08/25: free promotion is only granted if the city has a worship building
+-- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+-- 	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIREMENTSET_TEST_ALL');
+-- INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+-- 	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'SUK_CAPTURE_OF_CHANGAN_HAS_DZONG'),
+-- 	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIRES_CITY_HAS_ENCAMPMENT'),
+-- 	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIRES_CITY_HAS_TEMPLE');
+-- UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET' WHERE ModifierId='SUK_CAPTURE_OF_CHANGAN_FREE_PROMOTION';
 
 -- Get 1 governor title  when funding a religion
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
