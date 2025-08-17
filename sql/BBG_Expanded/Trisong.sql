@@ -45,9 +45,10 @@ DELETE FROM TraitModifiers WHERE ModifierId='SUK_CAPTURE_OF_CHANGAN_GREAT_GENERA
 -- UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET' WHERE ModifierId='SUK_CAPTURE_OF_CHANGAN_FREE_PROMOTION';
 
 -- Get 1 governor title  when funding a religion
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-	('BBG_TRISONG_GOVERNOR_RELIGION', 'MODIFIER_PLAYER_ADJUST_GOVERNOR_POINTS', 'BBG_PLAYER_FOUNDED_RELIGION_REQSET');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-	('BBG_TRISONG_GOVERNOR_RELIGION', 'Delta', 1);
-INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
-	('TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN', 'BBG_TRISONG_GOVERNOR_RELIGION');
+-- 17/08/25: no longer grants a free governor title upon founding a religion
+-- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+-- 	('BBG_TRISONG_GOVERNOR_RELIGION', 'MODIFIER_PLAYER_ADJUST_GOVERNOR_POINTS', 'BBG_PLAYER_FOUNDED_RELIGION_REQSET');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+-- 	('BBG_TRISONG_GOVERNOR_RELIGION', 'Delta', 1);
+-- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+-- 	('TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN', 'BBG_TRISONG_GOVERNOR_RELIGION');
