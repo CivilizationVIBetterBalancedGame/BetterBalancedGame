@@ -75,47 +75,48 @@ end
 local player_HasTrait = Game_GetPlayersWithTrait("TRAIT_LEADER_JFD_CABEIRI_MYSTERIES") 
 ----------------------------------------------------------------------------------------------------------------------------
 --JFD_MacedonOlympias_OnPlayerGaveInfluenceToken
-local unitGreatPersonClassGeneralID = GameInfo.GreatPersonClasses["GREAT_PERSON_CLASS_GENERAL"].Index	  
-local unitGreatPersonClassProphetID = GameInfo.GreatPersonClasses["GREAT_PERSON_CLASS_PROPHET"].Index	 
-local unitGreatPersonClassTheologian = GameInfo.GreatPersonClasses["GREAT_PERSON_CLASS_JFD_THEOLOGIAN"] 
-local unitGreatPersonClassTheologianID = nil
-if unitGreatPersonClassTheologian then
-	unitGreatPersonClassTheologianID = unitGreatPersonClassTheologian.Index	
-end
-function JFD_MacedonOlympias_OnPlayerGaveInfluenceToken(playerID, otherPlayerID, numEnvoys)
-	local player = Players[playerID]
-	local playerConfig = PlayerConfigurations[playerID]
-	local leaderType = playerConfig:GetLeaderTypeName()
+-- 17/08/25: no longer grants GGP and GPP when spending envoys
+-- local unitGreatPersonClassGeneralID = GameInfo.GreatPersonClasses["GREAT_PERSON_CLASS_GENERAL"].Index	  
+-- local unitGreatPersonClassProphetID = GameInfo.GreatPersonClasses["GREAT_PERSON_CLASS_PROPHET"].Index	 
+-- local unitGreatPersonClassTheologian = GameInfo.GreatPersonClasses["GREAT_PERSON_CLASS_JFD_THEOLOGIAN"] 
+-- local unitGreatPersonClassTheologianID = nil
+-- if unitGreatPersonClassTheologian then
+-- 	unitGreatPersonClassTheologianID = unitGreatPersonClassTheologian.Index	
+-- end
+-- function JFD_MacedonOlympias_OnPlayerGaveInfluenceToken(playerID, otherPlayerID, numEnvoys)
+-- 	local player = Players[playerID]
+-- 	local playerConfig = PlayerConfigurations[playerID]
+-- 	local leaderType = playerConfig:GetLeaderTypeName()
 	
-	--CABEIRI MYSTERIES
-	if (not player_HasTrait[playerID]) then return end
+-- 	--CABEIRI MYSTERIES
+-- 	if (not player_HasTrait[playerID]) then return end
 
-	local eraID = player:GetEras():GetEra()+1
-	local numGGP = (5*numEnvoys)
-	local numGPP = (5*numEnvoys)
-	local otherLeaderType = PlayerConfigurations[otherPlayerID]:GetLeaderTypeName()
-	local otherLeaderInfo = GameInfo.Leaders[otherLeaderType]
-	if (otherLeaderType == "LEADER_MINOR_CIV_RELIGIOUS" 
-	or otherLeaderInfo.InheritFrom == "LEADER_MINOR_CIV_RELIGIOUS"
-	or otherLeaderInfo.InheritFrom == "LEADER_MINOR_CIV_MILITARISTIC" 
-	or otherLeaderType == "LEADER_MINOR_CIV_MILITARISTIC") then 
-		numGGP = numGGP*2
-		numGPP = numGPP*2
-	end
-	player:GetGreatPeoplePoints():ChangePointsTotal(unitGreatPersonClassGeneralID, numGGP)
-	player:GetGreatPeoplePoints():ChangePointsTotal(unitGreatPersonClassProphetID, numGPP)
-	if unitGreatPersonClassTheologian then
-		player:GetGreatPeoplePoints():ChangePointsTotal(unitGreatPersonClassTheologianID, numGPP)
-	end
-	if Player_IsLocalPlayer(playerID) then
-		local capital = player:GetCities():GetCapitalCity()
-		Game.AddWorldViewText(playerID, Locale.Lookup("[COLOR_FLOAT_FOOD]+{1_Num} Great General Points[ENDCOLOR]", numGGP), capital:GetX(), capital:GetY(), 0)	
-		Game.AddWorldViewText(playerID, Locale.Lookup("[COLOR_FLOAT_FOOD]+{1_Num} Great Prophet Points[ENDCOLOR]", numGPP), capital:GetX(), capital:GetY(), 0)
+-- 	local eraID = player:GetEras():GetEra()+1
+-- 	local numGGP = (5*numEnvoys)
+-- 	local numGPP = (5*numEnvoys)
+-- 	local otherLeaderType = PlayerConfigurations[otherPlayerID]:GetLeaderTypeName()
+-- 	local otherLeaderInfo = GameInfo.Leaders[otherLeaderType]
+-- 	if (otherLeaderType == "LEADER_MINOR_CIV_RELIGIOUS" 
+-- 	or otherLeaderInfo.InheritFrom == "LEADER_MINOR_CIV_RELIGIOUS"
+-- 	or otherLeaderInfo.InheritFrom == "LEADER_MINOR_CIV_MILITARISTIC" 
+-- 	or otherLeaderType == "LEADER_MINOR_CIV_MILITARISTIC") then 
+-- 		numGGP = numGGP*2
+-- 		numGPP = numGPP*2
+-- 	end
+-- 	player:GetGreatPeoplePoints():ChangePointsTotal(unitGreatPersonClassGeneralID, numGGP)
+-- 	player:GetGreatPeoplePoints():ChangePointsTotal(unitGreatPersonClassProphetID, numGPP)
+-- 	if unitGreatPersonClassTheologian then
+-- 		player:GetGreatPeoplePoints():ChangePointsTotal(unitGreatPersonClassTheologianID, numGPP)
+-- 	end
+-- 	if Player_IsLocalPlayer(playerID) then
+-- 		local capital = player:GetCities():GetCapitalCity()
+-- 		Game.AddWorldViewText(playerID, Locale.Lookup("[COLOR_FLOAT_FOOD]+{1_Num} Great General Points[ENDCOLOR]", numGGP), capital:GetX(), capital:GetY(), 0)	
+-- 		Game.AddWorldViewText(playerID, Locale.Lookup("[COLOR_FLOAT_FOOD]+{1_Num} Great Prophet Points[ENDCOLOR]", numGPP), capital:GetX(), capital:GetY(), 0)
 		
-		Game.AddWorldViewText(ReportingStatusTypes.DEFAULT, Locale.Lookup("LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_POINTS_NOTIFICATION", numGGP, numGPP), -1, -1, -1)
-	end
-end
-GameEvents.OnPlayerGaveInfluenceToken.Add(JFD_MacedonOlympias_OnPlayerGaveInfluenceToken);
+-- 		Game.AddWorldViewText(ReportingStatusTypes.DEFAULT, Locale.Lookup("LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_POINTS_NOTIFICATION", numGGP, numGPP), -1, -1, -1)
+-- 	end
+-- end
+-- GameEvents.OnPlayerGaveInfluenceToken.Add(JFD_MacedonOlympias_OnPlayerGaveInfluenceToken);
 ----------------------------------------------------------------------------------------------------------------------------
 --JFD_MacedonOlympias_PantheonFounded
 function JFD_MacedonOlympias_PantheonFounded(playerID)
