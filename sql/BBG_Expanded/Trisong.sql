@@ -27,6 +27,8 @@ UPDATE Districts SET Appeal=1 WHERE DistrictType='DISTRICT_SUK_DZONG';
 
 -- Tibetan unique Renaissance era ranged cavalry, has a range of 1 but can move after attacking, no movement penalty in hill terrain. Unlock with Astronomy.
 UPDATE Units SET RangedCombat=58, BaseMoves=4 WHERE UnitType='UNIT_SUK_TIBET_RTA_PA';
+-- 17/08/25: -5/-5 nerf to combat and ranged strength
+UPDATE Units SET Combat=50,RangedCombat=53 WHERE UnitType='UNIT_SUK_TIBET_RTA_PA';
 
 -- ========================================================================
 -- =                             TRISONG                                  =
