@@ -19,6 +19,7 @@ UPDATE StartBiasTerrains SET Tier=3 WHERE CivilizationType='CIVILIZATION_SUK_TIB
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='SUK_DZONG_DEFENSE_STRENGTH';
 UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_SUK_DZONG';
 DELETE FROM District_ValidTerrains WHERE DistrictType='DISTRICT_SUK_DZONG';
+UPDATE Districts SET Appeal=1 WHERE DistrictType='DISTRICT_SUK_DZONG';
 
 -- ==========================================================
 -- =                        RTA PA                          =
