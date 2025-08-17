@@ -51,7 +51,9 @@ UPDATE UNITS SET Cost=40, CostProgressionModel='COST_PROGRESSION_PREVIOUS_COPIES
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_SUK_PILLAR_TOMB', 'MONUMENT_CULTURE_AT_FULL_LOYALTY');
 
-UPDATE Buildings SET Cost=50 WHERE BuildingType='BUILDING_SUK_PILLAR_TOMB';
+-- UPDATE Buildings SET Cost=50 WHERE BuildingType='BUILDING_SUK_PILLAR_TOMB';
+-- 17/08/25: Pillar Tomb cost increased to 60 (standard speed)
+UPDATE Buildings SET Cost=60 WHERE BuildingType='BUILDING_SUK_PILLAR_TOMB';
 
 
 -- 10/03/24 Autocracy gives 1 food and production to monument if the city have at least one district
