@@ -38,7 +38,9 @@ INSERT INTO UnitCaptures (CapturedUnitType, BecomesUnitType) VALUES
     ('UNIT_SUK_JAHAZI', 'UNIT_SUK_JAHAZI');
 
 UPDATE ModifierArguments SET Value='YIELD_GOLD' WHERE Name='YieldType' AND ModifierId='SUK_JAHAZI_YIELD_BONUS';
-UPDATE ModifierArguments SET Value=3 WHERE Name='Amount' AND ModifierId='SUK_JAHAZI_YIELD_BONUS';
+-- UPDATE ModifierArguments SET Value=3 WHERE Name='Amount' AND ModifierId='SUK_JAHAZI_YIELD_BONUS';
+-- 17/08/25: jahazi gold bonus nerfed to +2
+UPDATE ModifierArguments SET Value=2 WHERE Name='Amount' AND ModifierId='SUK_JAHAZI_YIELD_BONUS';
 
 UPDATE UNITS SET Cost=40, CostProgressionModel='COST_PROGRESSION_PREVIOUS_COPIES', CostProgressionParam1=4 WHERE UnitType='UNIT_SUK_JAHAZI';
 
