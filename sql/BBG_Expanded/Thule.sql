@@ -147,6 +147,9 @@ INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
 
 UPDATE Improvement_Tourism SET PrereqTech='TECH_FLIGHT' WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
 
+-- cannot be placed next to each other
+UPDATE Improvements SET SameAdjacentValid=0 WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
+
 -- ========================================================================
 -- =                             KIVIUQ                                   =
 -- ========================================================================
