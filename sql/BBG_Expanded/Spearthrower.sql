@@ -83,7 +83,8 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) SELECT
 -- ==========================================================
 
 -- 30/07/25 Unlock at Political, doesn't require population, doesn't give internal yields
-UPDATE Districts SET PrereqCivic='CIVIC_POLITICAL_PHILOSOPHY', AllowsHolyCity=0, RequiresPopulation=0, PlunderType='PLUNDER_CULTURE' WHERE DistrictType='DISTRICT_LIME_TEO_TOLLAN';
+-- 19/08/25 Unlock at State Workshop
+UPDATE Districts SET AllowsHolyCity=0, RequiresPopulation=0, PlunderType='PLUNDER_CULTURE' WHERE DistrictType='DISTRICT_LIME_TEO_TOLLAN';
 DELETE FROM District_GreatPersonPoints WHERE DistrictType='DISTRICT_LIME_TEO_TOLLAN' AND GreatPersonClassType='GREAT_PERSON_CLASS_PROPHET';
 DELETE FROM District_Adjacencies WHERE YieldChangeId LIKE 'TeotihuacanTollan%';
 
