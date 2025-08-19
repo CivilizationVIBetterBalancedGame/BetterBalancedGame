@@ -18,7 +18,7 @@
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
 		<Version>7000</Version>
-		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, Calcifer, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FaelSCCP, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Moumoulax, Onyxum, OSCAR., priz, robal, seed.of.apricot, Sent Kurokawa, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, Yenaleesternberg, ZhenjaMax, 3JIO6HbIU_Kycb</SpecialThanks>
+		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, Calcifer, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FaelSCCP, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Moumoulax, Onyxum, OSCAR., priz, robal, seed.of.apricot, Sent Kurokawa, _vadya_queen, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, Yenaleesternberg, ZhenjaMax, 3JIO6HbIU_Kycb</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
 	
@@ -318,6 +318,15 @@
 			<File>config/config.xml</File>
 			<File>config/config.sql</File>
 		</UpdateDatabase>
+
+		<UpdateColors id="Colors">
+		    <Properties>
+		    	<LoadOrder>10001</LoadOrder>
+		    </Properties>
+		    <File>sql/colors.sql</File>
+	    </UpdateColors>
+
+
 	</FrontEndActions>
 
 	<!-- defines modifications to games (requires any LocalizedText from Settings above, and must import files before modifying any SQL tables) -->
@@ -372,6 +381,16 @@
 			<File>lang/italian.xml</File>
 			<File>lang/spanish.xml</File>
 		</UpdateText>
+
+
+		<!-- colors -->
+		<UpdateColors id="Colors">
+		    <Properties>
+		    	<LoadOrder>10000</LoadOrder>
+		    </Properties>
+		    <File>sql/colors.sql</File>
+	    </UpdateColors>
+
 		<!-- -->
 		<UpdateDatabase id="bbg_preload_db_updated">
 			<Properties>
@@ -1201,6 +1220,8 @@
 		<File>lang/chinese.xml</File>
 		<File>lang/italian.xml</File>
 		<File>lang/spanish.xml</File>
+		<!-- utils -->
+	    <File>sql/colors.sql</File>
 		<!-- utils -->
 		<File>sql/_utils.sql</File>
 		<!--Base -->
