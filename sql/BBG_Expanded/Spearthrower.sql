@@ -88,13 +88,27 @@ UPDATE Districts SET AllowsHolyCity=0, RequiresPopulation=0, PlunderType='PLUNDE
 DELETE FROM District_GreatPersonPoints WHERE DistrictType='DISTRICT_LIME_TEO_TOLLAN' AND GreatPersonClassType='GREAT_PERSON_CLASS_PROPHET';
 DELETE FROM District_Adjacencies WHERE YieldChangeId LIKE 'TeotihuacanTollan%';
 
+INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('BBG_PLAYER_HAS_ENCLAVE_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('BBG_PLAYER_HAS_ENCLAVE_REQSET', 'BBG_REQUIRES_PLAYER_HAS_ENCLAVE');
+INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+    ('BBG_REQUIRES_PLAYER_HAS_ENCLAVE', 'REQUIREMENT_PLAYER_HAS_DISTRICT');
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('BBG_REQUIRES_PLAYER_HAS_ENCLAVE', 'DistrictType', 'DISTRICT_LIME_TEO_TOLLAN');
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_ENCLAVE_GRANT_GOVERNOR_POINT', 'MODIFIER_ALL_PLAYERS_ADJUST_GOVERNOR_POINTS', 'BBG_PLAYER_HAS_ENCLAVE_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_ENCLAVE_GRANT_GOVERNOR_POINT', 'Delta', 1),
+
 
 -- ==========================================================
 -- =                   EHUATL WEARER                        =
 -- ==========================================================
 
 -- +1 base vision, unlock at political and doesn't need iron
-UPDATE Units SET BaseSightRange=3, Cost=90, PrereqCivic='CIVIC_POLITICAL_PHILOSOPHY', PurchaseYield='YIELD_GOLD', Maintenance=2 WHERE UnitType='UNIT_LIME_TEO_OWL_WARRIOR';
+UPDATE Units SET BaseSightRange=3, Cost=90, PrereqCivic='CIVIC_POLITICAL_PHILOSOPHY', MandatoryObsoleteTech='TECH_GUNPOWDER', PurchaseYield='YIELD_GOLD', Maintenance=2 WHERE UnitType='UNIT_LIME_TEO_OWL_WARRIOR';
 
 -- ========================================================================
 -- =                           SPEARTHROWER                               =
@@ -127,6 +141,7 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 -- ==========================================================
 -- =                     FIRE IS BORN                       =
 -- ==========================================================
+
 
 -- Base : May be assigned to a City State. Friendly Units defending this city gain +5 Combat Strength. Give 1 envoy to the city state
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
@@ -164,9 +179,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
     ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST', 'BBG_HUB_PRODUCTION');
     
--- R1 : This city garrison gains +10 combat strength.
+-- R1 : Units in this city gains +5 combat strength.
 DELETE FROM GovernorPromotionModifiers WHERE ModifierId='MOD_LIME_TEO_OWL_EMISSARY_EXPEDITION_SAP_WALLS_ATTACH';
-UPDATE ModifierArguments SET Value=10 WHERE ModifierId='MOD_LIME_TEO_OWL_EMISSARY_ARRIVAL_FORTIFY_UNITS';
 
 -- L2 : Cities 15 tiles from the city gets +25% production toward hub and city center building
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL';
