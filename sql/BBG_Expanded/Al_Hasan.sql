@@ -38,7 +38,6 @@ INSERT INTO UnitCaptures (CapturedUnitType, BecomesUnitType) VALUES
     ('UNIT_SUK_JAHAZI', 'UNIT_SUK_JAHAZI');
 
 UPDATE ModifierArguments SET Value='YIELD_GOLD' WHERE Name='YieldType' AND ModifierId='SUK_JAHAZI_YIELD_BONUS';
--- UPDATE ModifierArguments SET Value=3 WHERE Name='Amount' AND ModifierId='SUK_JAHAZI_YIELD_BONUS';
 -- 17/08/25: jahazi gold bonus nerfed to +2
 UPDATE ModifierArguments SET Value=2 WHERE Name='Amount' AND ModifierId='SUK_JAHAZI_YIELD_BONUS';
 
@@ -51,29 +50,8 @@ UPDATE UNITS SET Cost=40, CostProgressionModel='COST_PROGRESSION_PREVIOUS_COPIES
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_SUK_PILLAR_TOMB', 'MONUMENT_CULTURE_AT_FULL_LOYALTY');
 
--- UPDATE Buildings SET Cost=50 WHERE BuildingType='BUILDING_SUK_PILLAR_TOMB';
 -- 17/08/25: Pillar Tomb cost increased to 60 (standard speed)
 UPDATE Buildings SET Cost=60 WHERE BuildingType='BUILDING_SUK_PILLAR_TOMB';
-
-
--- 10/03/24 Autocracy gives 1 food and production to monument if the city have at least one district
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_PILLARTOMB_FOOD_AUTOCRACY_1_DISTRICT', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_YIELD_CHANGE', 'CITY_HAS_1_SPECIALTY_DISTRICT'),
-    ('BBG_PILLARTOMB_PRODUCTION_AUTOCRACY_1_DISTRICT', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_YIELD_CHANGE', 'CITY_HAS_1_SPECIALTY_DISTRICT');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_PILLARTOMB_FOOD_AUTOCRACY_1_DISTRICT', 'BuildingType', 'BUILDING_SUK_PILLAR_TOMB'),
-    ('BBG_PILLARTOMB_FOOD_AUTOCRACY_1_DISTRICT', 'YieldType', 'YIELD_FOOD'),
-    ('BBG_PILLARTOMB_FOOD_AUTOCRACY_1_DISTRICT', 'Amount', 1),
-    ('BBG_PILLARTOMB_PRODUCTION_AUTOCRACY_1_DISTRICT', 'BuildingType', 'BUILDING_SUK_PILLAR_TOMB'),
-    ('BBG_PILLARTOMB_PRODUCTION_AUTOCRACY_1_DISTRICT', 'YieldType', 'YIELD_PRODUCTION'),
-    ('BBG_PILLARTOMB_PRODUCTION_AUTOCRACY_1_DISTRICT', 'Amount', 1);
-INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
-    ('GOVERNMENT_AUTOCRACY', 'BBG_PILLARTOMB_FOOD_AUTOCRACY_1_DISTRICT'),
-    ('GOVERNMENT_AUTOCRACY', 'BBG_PILLARTOMB_PRODUCTION_AUTOCRACY_1_DISTRICT');
-INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
-    ('POLICY_GOV_AUTOCRACY', 'BBG_PILLARTOMB_FOOD_AUTOCRACY_1_DISTRICT'),
-    ('POLICY_GOV_AUTOCRACY', 'BBG_PILLARTOMB_PRODUCTION_AUTOCRACY_1_DISTRICT');
-
 
 -- ========================================================================
 -- =                             AL HASAN                                 =
