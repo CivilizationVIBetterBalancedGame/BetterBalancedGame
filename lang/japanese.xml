@@ -786,7 +786,7 @@
     </Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION" Language="ja_JP">
-			<Text>キャンパスを代替する韓国固有の区域。丘陵タイルに建設されなければならない。基本隣接ボーナスとして[ICON_SCIENCE]科学力+2。隣接する鉱山2つにつき [ICON_SCIENCE] 科学力+1。建設によって文化爆弾を発動する。この区域で働く専門家から追加で [ICON_Food] 食料+1。隣接する地熱孔1つにつき [ICON_Science] 科学力+2。</Text>
+			<Text>キャンパスを代替する韓国固有の区域。丘陵タイルに建設されなければならない。基本隣接ボーナスとして[ICON_SCIENCE]科学力+1。隣接する鉱山2つにつき [ICON_SCIENCE] 科学力+1。建設によって文化爆弾を発動する。この区域で働く専門家から追加で [ICON_Food] 食料+1。隣接する地熱孔1つにつき [ICON_Science] 科学力+2。</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION_ADJACENCY" Language="ja_JP">
 			<Text>隣接する鉱山2つにつき [ICON_SCIENCE] 科学力+1。劇場広場以外の隣接する区域1つにつき [ICON_SCIENCE] 科学力-1、隣接する劇場区域1つにつき [ICON_SCIENCE] 科学力+1。隣接する劇場区域の [ICON_CULTURE] 文化力+2。隣接する地熱孔1つにつき [ICON_Science] 科学力+2。</Text>
@@ -933,7 +933,7 @@
 		<!-- == MAYA == -->
     <!-- = civilization ability = -->
     <Replace Tag="LOC_TRAIT_CIVILIZATION_MAYAB_DESCRIPTION" Language="ja_JP">
-      <Text>真水や沿岸に隣接したタイルに都市を築いても追加の [ICON_HOUSING] 住宅を得られないが、各農場がさらに [ICON_HOUSING] 住宅+1、隣接する観測所ごとに [ICON_PRODUCTION] 生産力+1、 [ICON_GOLD] ゴールド+1をもたらす。都心に隣接する高級資源1つにつき [ICON_Amenities] 快適性+1。隣接する観測所1つにつきプランテーションの [ICON_Science] 科学力+1、教育の発明後は [ICON_Science] 科学力+2に強化される。首都から6タイル以内においてユニットの [ICON_Strength] 戦闘力+3。</Text>
+      <Text>真水や沿岸に隣接したタイルに都市を築いても追加の [ICON_HOUSING] 住宅を得られないが、各農場がさらに [ICON_HOUSING] 住宅+1、隣接する観測所ごとに [ICON_PRODUCTION] 生産力+1、 [ICON_GOLD] ゴールド+1をもたらす。都心に隣接する高級資源1つにつき [ICON_Amenities] 快適性+1。隣接する観測所1つにつきプランテーションの [ICON_Science] 科学力+1、教育の発明後は [ICON_Science] 科学力+2に強化される。宮殿の[ICON_HOUSING]住宅+1。</Text>
     </Replace>
     <!-- = unique district = -->
     <Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="ja_JP">
@@ -941,7 +941,7 @@
     </Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="ja_JP">
-			<Text>[ICON_Capital] 首都から6タイル以内にある首都以外の都市は、すべての産出量+5%。その他の首都以外の都市は産出量-10%。首都の[ICON_HOUSING]住宅+1。</Text>
+			<Text>[ICON_Capital] 首都から6タイル以内にある首都以外の都市は、すべての産出量+5%。その他の首都以外の都市は産出量-10%。首都から6タイル以内においてユニットの [ICON_Strength] 戦闘力+3。</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL_DESCRIPTION" Language="ja_JP">
 			<Text>[ICON_Capital]首都から6タイル以内のユニットの[ICON_Strength]戦闘力+3。(イシュ・ムタル・アハウ)</Text>
@@ -1080,9 +1080,13 @@
 		</Replace>
 
 		<!-- == PHOENICIA == -->
+    <!-- = civilization ability = -->
+    <Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="ja_JP">
+      <Text>筆記の科学技術に [ICON_Techboosted] ひらめきが発動した状態でスタートする。フェニキアが沿岸に建設し、かつフェニキアの [ICON_Capital]首都と同じ大陸にある都市の忠誠心が100%になる。</Text>
+    </Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="ja_JP">
-			<Text>政府複合施設の建造物1つにつき [ICON_TradeRoute] 交易路の上限+1。政府複合施設のある都市では、区域に対する [ICON_Production] 生産力+50%。</Text>
+			<Text>政府複合施設の建造物1つにつき [ICON_TradeRoute] 交易路の上限+1。政府複合施設のある都市では、区域に対する [ICON_Production] 生産力+50%。乗船中の開拓者の [ICON_Movement] 移動力+2、視界+2。開拓者の乗船と下船に追加の [ICON_Movement] 移動コストが不要となる。</Text>
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="ja_JP">
@@ -3413,7 +3417,7 @@
     </Replace>
 
     <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_DESCRIPTION" Language="ja_JP">
-      <Text>アヒラムが指導者の時に建設可能な、図書館を代替する建造物。キャンパスの隣接ボーナスに等しい[ICON_Gold]ゴールドを産出する。</Text>
+      <Text>アヒラムが指導者の時に建設可能な、図書館を代替する建造物。アヒラムが採用した大提督１人につき追加で [ICON_Science] 科学力+1。</Text>
     </Replace>
 
 
@@ -3609,7 +3613,7 @@
     </Replace>
 
     <Replace Tag="LOC_UNIT_SUK_JAHAZI_DESCRIPTION" Language="ja_JP">
-      <Text>スワヒリ固有の海洋支援ユニット。チャージ2を持ち、労働者のように地形を改善できる。漁船を建設した際は、更にそのタイルの[ICON_Gold]ゴールド+3。捕獲されうる。２タイル以内の乗船したユニットは地形コストを無視して移動できるようになり、[ICON_Movement]移動力+1。</Text>
+      <Text>スワヒリ固有の海洋支援ユニット。チャージ2を持ち、労働者のように地形を改善できる。漁船を建設した際は、更にそのタイルの[ICON_Gold]ゴールド+2。捕獲されうる。２タイル以内の乗船したユニットは地形コストを無視して移動できるようになり、[ICON_Movement]移動力+1。</Text>
     </Replace>
 
     <Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_NAME" Language="ja_JP">
@@ -3649,6 +3653,9 @@
 
     <Replace Tag="LOC_LEADER_LIME_THULE_DAVE_NAME" Language="ja_JP">
       <Text>キビウク</Text>
+    </Replace>
+    <Replace Tag="LOC_CITY_NAME_LIME_THULE_DAVE_QILAKITSOQ" Language="ja_JP">
+      <Text>キラキツォク</Text>
     </Replace>
 
     <Replace Tag="LOC_CITY_NAME_LIME_THULE_2" Language="ja_JP">
@@ -3760,14 +3767,14 @@
     </Replace>
     
     <Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_DESCRIPTION" Language="ja_JP">
-      <Text>資源に隣接するタイルに建設しなければならない。森林タイルにも建設可能。隣接する海洋資源またはキャンプ1つにつき[ICON_Faith]信仰力+1、[ICON_Culture]文化力+1。ツンドラに建設された場合[ICON_Food]食料+1、雪原に建設された場合[ICON_Food]食料+2。</Text>
+      <Text>資源に隣接するタイルに建設しなければならない。森林タイルにも建設可能。隣接する海洋資源またはキャンプ1つにつき[ICON_Faith]信仰力+1、[ICON_Culture]文化力+1。ツンドラに建設された場合[ICON_Food]食料+1、雪原に建設された場合[ICON_Food]食料+2。狩人の小屋の隣には建設できない。</Text>
     </Replace>
     
     <Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_NAME" Language="ja_JP">
       <Text>犬ぞり猟師</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_DESCRIPTION" Language="ja_JP">
-      <Text>トゥーレ固有の斥候を代替するユニット。より安価で、遠隔攻撃できる。狩人の小屋を建設するためのチャージを1つ持つ。</Text>
+      <Text>トゥーレ固有の斥候を代替するユニット。狩人の小屋を建設するためのチャージを1つ持つ。</Text>
     </Replace>
     
     <!-- = Leader ability = -->
@@ -3799,7 +3806,7 @@
     </Replace>
 
     <Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_DESCRIPTION" Language="ja_JP">
-      <Text>パンテオン信仰を創始すると[ICON_ENVOY]代表団を1つ獲得する。都市国家に対する[ICON_ENVOY]代表団を派遣すると大将軍ポイントと大預言者ポイントを5獲得し、軍事都市国家または宗教都市国家なら両方10獲得する。バシリコイ・パイデスが建設されていて自文明の宗教を信奉する都市は、[ICON_ENVOY]代表団を1つもたらし、人口1につき[ICON_SCIENCE]科学力+1。宗主国となっている都市国家1つにつき近接ユニットと重騎兵ユニットの[ICON_Strength]戦闘力+2。</Text>
+      <Text>パンテオン信仰を創始すると[ICON_ENVOY]代表団を1つ獲得する。バシリコイ・パイデスが建設されていて自文明の宗教を信奉する都市は、[ICON_ENVOY]代表団を1つもたらし、人口1につき[ICON_SCIENCE]科学力+1。宗主国となっている都市国家1つにつき近接ユニットと重騎兵ユニットの[ICON_Strength]戦闘力+2。</Text>
     </Replace>
 
 
@@ -3912,7 +3919,7 @@
     </Replace>
 
     <Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_DESC" Language="ja_JP">
-      <Text>テオティワカン固有の外交街を代替する区域。政治哲学で解禁される。建設に人口を必要としない(区域建設枠を消費しない)が、国内交易路の産出も増加させない。</Text>
+      <Text>テオティワカン固有の外交街を代替する区域。労働徴発の社会制度で解禁される。建設に [ICON_CITIZEN] 人口を必要としない(区域建設枠を消費しない)が、 [ICON_TRADEROUTE] 国内交易路の産出も増加させない。[ICON_Governor] 総督の称号+1。[NEWLINE]他文明から送られている使節や大使館ごとに自文明の [ICON_Favor] 外交的支持+1。都心に隣接して建設すると [ICON_Envoy] 代表団+1。この区域とその隣接区域を狙う敵のスパイ活動は通常より2レベル下がる。同時に存在できるのは1つの文明につき1つに限られる。</Text>
     </Replace>
 
     <Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_NAME" Language="ja_JP">
@@ -4091,13 +4098,18 @@
     <Replace Tag="LOC_LEADER_LL_TEKINICH_II_NAME" Language="ja_JP">
       <Text>テ・キニチ２世</Text>
     </Replace>
+    
+    <Replace Tag="LOC_CITY_NAME_LIME_TE_KINICH_CARACOL" Language="ja_JP">
+      <Text>オシュイツァ</Text>
+    </Replace>
+    
 
     <Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_NAME" Language="ja_JP">
       <Text>金星の怒り</Text>
     </Replace>
 
     <Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_DESC" Language="ja_JP">
-      <Text>首都から6タイル以内のすべてのユニットの[ICON_Strength]戦闘力-2、その外側では[ICON_Strength]戦闘力+4。[ICON_TECHBOOSTED]ひらめきを獲得するたび、ユニットの体力が5回復し、経験値を2獲得する。</Text>
+      <Text>[ICON_TECHBOOSTED]ひらめきを獲得するたび、ユニットの体力が5回復し、経験値を2獲得する。古典時代以降、首都から6タイル以内のすべてのユニットの[ICON_Strength]戦闘力-2、その外側では[ICON_Strength]戦闘力+4。</Text>
     </Replace>
 
     <Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_NAME" Language="ja_JP">
@@ -4122,7 +4134,7 @@
     <!-- = Trisong Detsen  ティソン・デツェン  = -->
 
     <Replace Tag="LOC_CIVILIZATION_SUK_TIBET_NAME" Language="ja_JP">
-      <Text>チベット帝国</Text>
+      <Text>チベット</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_SUK_TIBET_DESCRIPTION" Language="ja_JP">
       <Text>チベット帝国</Text>
@@ -4277,7 +4289,7 @@
     </Replace>
 
     <Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_DESCRIPTION" Language="ja_JP">
-      <Text>[ICON_RELIGION]宗教を創始した際、[ICON_GOVERNOR]総督の称号を1つ得る。神殿と兵営のある都市で生産された陸上戦闘ユニットは無償の昇進を得る。</Text>
+      <Text>崇拝の建造物と兵営のある都市で生産・購入された陸上戦闘ユニットは無償の昇進を得る。</Text>
     </Replace>
 
     <Replace Tag="LOC_DISTRICT_SUK_DZONG_NAME" Language="ja_JP">
@@ -4285,11 +4297,11 @@
     </Replace>
 
     <Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION" Language="ja_JP">
-      <Text>チベット固有の、聖地を代替する区域。占領しているユニットの防御時[ICON_Strength]戦闘力+5。ゾンの建造物は20%安く[ICON_Faith]信仰力または[ICON_Gold]ゴールドで購入できる。</Text>
+      <Text>チベット固有の、聖地を代替する区域。占領しているユニットの防御時[ICON_Strength]戦闘力+5。ゾンの建造物を[ICON_Faith]信仰力または[ICON_Gold]ゴールドで購入するコストは20%安くなる。</Text>
     </Replace>
 
     <Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION_XP2" Language="ja_JP">
-      <Text>チベット固有の、聖地を代替する区域。占領しているユニットの防御時[ICON_Strength]戦闘力+5。ゾンの建造物は20%安く[ICON_Faith]信仰力または[ICON_Gold]ゴールドで購入できる。</Text>
+      <Text>チベット固有の、聖地を代替する区域。占領しているユニットの防御時[ICON_Strength]戦闘力+5。ゾンの建造物を[ICON_Faith]信仰力または[ICON_Gold]ゴールドで購入するコストは20%安くなる。</Text>
     </Replace>
 
     <Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_NAME" Language="ja_JP">
@@ -4297,7 +4309,7 @@
     </Replace>
 
     <Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_DESCRIPTION" Language="ja_JP">
-      <Text>天文学で解禁される、チベット固有のルネサンス時代の長距離攻撃騎兵ユニット。[ICON_Range]射程1を持ち、攻撃後に移動できる。</Text>
+      <Text>天文学で解禁される、チベット固有のルネサンス時代の長距離攻撃騎兵ユニット。[ICON_Range]射程1を持ち、攻撃後に移動できる。丘陵の移動ペナルティを無視する。</Text>
     </Replace>
 
 
@@ -4315,11 +4327,11 @@
     </Replace>
 
     <Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION" Language="ja_JP">
-      <Text>青銅器の研究後、鉱山の[ICON_Culture]文化力+1。大技術者を採用すると[ICON_Envoy]代表団を1つ得る。工房から[ICON_InfluencePerTurn]影響力ポイント+1。あなたが宗主国になっている都市国家のタイプ1つにつき、全ユニットの[ICON_Strength]戦闘力+1。</Text>
+      <Text>青銅器の研究後、鉱山の[ICON_Culture]文化力+1。大技術者を採用すると[ICON_Envoy]代表団を1つ得る。工房から[ICON_InfluencePerTurn]影響力ポイント+1。</Text>
     </Replace>
 
     <Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION_DLC" Language="ja_JP">
-      <Text>青銅器の研究後、鉱山の[ICON_Culture]文化力+1。大技術者を採用すると[ICON_Envoy]代表団を1つ得る。工房から[ICON_InfluencePerTurn]影響力ポイント+1。宗主国になっている都市国家のタイプ1つにつき、全ユニットの[ICON_Strength]戦闘力+1。</Text>
+      <Text>青銅器の研究後、鉱山の[ICON_Culture]文化力+1。大技術者を採用すると[ICON_Envoy]代表団を1つ得る。工房から[ICON_InfluencePerTurn]影響力ポイント+1。</Text>
     </Replace>
 
     <Replace Tag="LOC_ABILITY_SUK_GALLIC_WAR_COMBAT_DESCRIPTION" Language="ja_JP">

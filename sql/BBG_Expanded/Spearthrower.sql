@@ -100,7 +100,7 @@ INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_ENCLAVE_GRANT_GOVERNOR_POINT', 'MODIFIER_ALL_PLAYERS_ADJUST_GOVERNOR_POINTS', 'BBG_PLAYER_HAS_ENCLAVE_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_ENCLAVE_GRANT_GOVERNOR_POINT', 'Delta', 1),
+    ('BBG_ENCLAVE_GRANT_GOVERNOR_POINT', 'Delta', 1);
 
 
 -- ==========================================================
