@@ -101,6 +101,8 @@ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_ENCLAVE_GRANT_GOVERNOR_POINT', 'MODIFIER_ALL_PLAYERS_ADJUST_GOVERNOR_POINTS', 'BBG_PLAYER_HAS_ENCLAVE_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_ENCLAVE_GRANT_GOVERNOR_POINT', 'Delta', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS', 'BBG_ENCLAVE_GRANT_GOVERNOR_POINT');
 
 
 -- ==========================================================
