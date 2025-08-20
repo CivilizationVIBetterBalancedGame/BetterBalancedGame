@@ -156,3 +156,5 @@ UPDATE Improvements SET SameAdjacentValid=0 WHERE ImprovementType='IMPROVEMENT_L
 -- ========================================================================
 
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='LIME_RECON_STRONG' AND Name='Amount';
+
+DELETE FROM UnitPromotionModifiers WHERE ModifierId='LIME_RECON_FAITH';

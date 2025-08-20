@@ -26,7 +26,8 @@ UPDATE Districts SET Appeal=1 WHERE DistrictType='DISTRICT_SUK_DZONG';
 -- ==========================================================
 
 -- Tibetan unique Renaissance era ranged cavalry, has a range of 1 but can move after attacking, no movement penalty in hill terrain. Unlock with Astronomy.
-UPDATE Units SET RangedCombat=58, BaseMoves=4 WHERE UnitType='UNIT_SUK_TIBET_RTA_PA';
+-- 17/08/25: -5/-5 nerf to combat and ranged strength
+UPDATE Units SET Combat=50, RangedCombat=53 BaseMoves=4 WHERE UnitType='UNIT_SUK_TIBET_RTA_PA';
 
 -- ========================================================================
 -- =                             TRISONG                                  =
@@ -35,18 +36,20 @@ UPDATE Units SET RangedCombat=58, BaseMoves=4 WHERE UnitType='UNIT_SUK_TIBET_RTA
 DELETE FROM TraitModifiers WHERE ModifierId='SUK_CAPTURE_OF_CHANGAN_GREAT_GENERAL_POINTS';
 
 -- Land combat units in cities with a temple and an encampment get a free promotion (from worship building)
-INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'SUK_CAPTURE_OF_CHANGAN_HAS_DZONG'),
-	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIRES_CITY_HAS_ENCAMPMENT'),
-	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIRES_CITY_HAS_TEMPLE');
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET' WHERE ModifierId='SUK_CAPTURE_OF_CHANGAN_FREE_PROMOTION';
+-- 17/08/25: free promotion is only granted if the city has a worship building
+-- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+-- 	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIREMENTSET_TEST_ALL');
+-- INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+-- 	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'SUK_CAPTURE_OF_CHANGAN_HAS_DZONG'),
+-- 	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIRES_CITY_HAS_ENCAMPMENT'),
+-- 	('BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET', 'REQUIRES_CITY_HAS_TEMPLE');
+-- UPDATE Modifiers SET SubjectRequirementSetId='BBG_CITY_HAS_TEMPLE_AND_ENCAMPMENT_REQSET' WHERE ModifierId='SUK_CAPTURE_OF_CHANGAN_FREE_PROMOTION';
 
 -- Get 1 governor title  when funding a religion
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-	('BBG_TRISONG_GOVERNOR_RELIGION', 'MODIFIER_PLAYER_ADJUST_GOVERNOR_POINTS', 'BBG_PLAYER_FOUNDED_RELIGION_REQSET');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-	('BBG_TRISONG_GOVERNOR_RELIGION', 'Delta', 1);
-INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
-	('TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN', 'BBG_TRISONG_GOVERNOR_RELIGION');
+-- 17/08/25: no longer grants a free governor title upon founding a religion
+-- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+-- 	('BBG_TRISONG_GOVERNOR_RELIGION', 'MODIFIER_PLAYER_ADJUST_GOVERNOR_POINTS', 'BBG_PLAYER_FOUNDED_RELIGION_REQSET');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+-- 	('BBG_TRISONG_GOVERNOR_RELIGION', 'Delta', 1);
+-- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+-- 	('TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN', 'BBG_TRISONG_GOVERNOR_RELIGION');
