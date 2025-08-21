@@ -92,8 +92,12 @@ DELETE FROM UnitUpgrades WHERE Unit='UNIT_LIME_THULE_DOGSLED';
 INSERT INTO UnitUpgrades (Unit, UpgradeUnit) VALUES
     ('UNIT_LIME_THULE_DOGSLED', 'UNIT_SKIRMISHER');
 
-UPDATE Units SET Combat=10, RangedCombat=10, Range=1, Cost=24, BuildCharges=1, Maintenance=0, PrereqTech=NULL WHERE UnitType='UNIT_LIME_THULE_DOGSLED';
+-- 17/08/25 No longer has ranged attack
+UPDATE Units SET BaseSightRange=2, Combat=10, RangedCombat=0, Range=0, Cost=30, BuildCharges=1, Maintenance=0, PrereqTech=NULL WHERE UnitType='UNIT_LIME_THULE_DOGSLED';
 DELETE FROM UnitAbilityModifiers WHERE UnitAbilityType='ABIL_LIME_THULE_DOGSLED';
+DELETE FROM UnitAbilities WHERE UnitAbilityType='ABIL_LIME_THULE_DOGSLED';
+DELETE FROM TypeTags WHERE Type='ABIL_LIME_THULE_DOGSLED' AND Tag='CLASS_LIME_THULE_DOGSLED';
+DELETE FROM Types WHERE Type='ABIL_LIME_THULE_DOGSLED';
 
 INSERT INTO Improvement_ValidBuildUnits (ImprovementType, UnitType) VALUES
     ('IMPROVEMENT_LIME_THULE_WBH', 'UNIT_LIME_THULE_DOGSLED');
@@ -142,8 +146,15 @@ INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
     ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_CULTURE_CAMP'),
     ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_FAITH_CAMP');
 
+UPDATE Improvement_Tourism SET PrereqTech='TECH_FLIGHT' WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
+
+-- cannot be placed next to each other
+UPDATE Improvements SET SameAdjacentValid=0 WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
+
 -- ========================================================================
 -- =                             KIVIUQ                                   =
 -- ========================================================================
 
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='LIME_RECON_STRONG' AND Name='Amount';
+
+DELETE FROM UnitPromotionModifiers WHERE ModifierId='LIME_RECON_FAITH';
