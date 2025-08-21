@@ -141,7 +141,7 @@
 		<!-- == AUSTRALIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LAND_DOWN_UNDER_DESCRIPTION" Language="en_US">
-			<Text>+3 [ICON_HOUSING] Housing in coastal cities. +1 [ICON_PRODUCTION] Production on Pastures at Political Philosophy. Pastures trigger a Culture Bomb.[NEWLINE][NEWLINE]City Centers gain +1 [ICON_AMENITIES] Amenity if they are Charming, doubled if Breathtaking.[NEWLINE]Campuses, Theater Squares, Commercial Hubs, and Holy Sites receive +1 Adjacency in tiles with Charming Appeal, +3 in Breathtaking.[NEWLINE][ICON_BULLET]Bias:T1 Coast, T4 Horse, Cattle, Sheep, -T2 Floodplains, -T4 Rainforest. Special "I am Salty", may spawn coastal without freshwater.</Text>
+			<Text>+3 [ICON_HOUSING] Housing in coastal cities. +1 [ICON_PRODUCTION] Production on Pastures at Political Philosophy. Pastures trigger a Culture Bomb.[NEWLINE][NEWLINE]Unlocked at Early Empire, City Centers gain +1 [ICON_AMENITIES] Amenity if they are Charming, doubled if Breathtaking.[NEWLINE]Campuses, Theater Squares, Commercial Hubs, and Holy Sites receive +1 Adjacency in tiles with Charming Appeal, +3 in Breathtaking.[NEWLINE][ICON_BULLET]Bias:T1 Coast, T4 Horse, Cattle, Sheep, -T2 Floodplains, -T4 Rainforest. Special "I am Salty", may spawn coastal without freshwater.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CITADEL_CIVILIZATION_EXPANSION2_DESCRIPTION" Language="en_US">
@@ -259,7 +259,7 @@
 		<!-- == CANADA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_FACES_OF_PEACE_DESCRIPTION" Language="en_US">
-			<Text>Cannot declare war on City-States or surprise wars. Surprise wars cannot be declared on Canada.[NEWLINE][NEWLINE]For every 100 [ICON_TOURISM] Tourism per turn earn 1 [ICON_FAVOR] Diplomatic Favor per turn. Receive +100% [ICON_FAVOR] Diplomatic Favor from successfully completing an Emergency or Scored Competition.[NEWLINE][ICON_BULLET]Bias: T1 Tundra.</Text>
+			<Text>Cannot declare war on City-states or surprise wars. Surprise wars cannot be declared on Canada.[NEWLINE][NEWLINE]For every 100 [ICON_TOURISM] Tourism per turn earn 1 [ICON_FAVOR] Diplomatic Favor per turn. Receive +100% [ICON_FAVOR] Diplomatic Favor from successfully completing an Emergency or Scored Competition.[NEWLINE][ICON_BULLET]Bias: T1 Tundra.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LAST_BEST_WEST_DESCRIPTION" Language="en_US">
@@ -520,7 +520,7 @@
 		<!-- == ETHIOPIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_ETHIOPIA_DESCRIPTION" Language="en_US">
-			<Text>Ethiopia's International Trade Routes grant +0.5 [ICON_FAITH] Faith per resource at the origin. Improved Resources provide +1 [ICON_FAITH] Faith. Can purchase Archaeological Museums and Archaeologists with [ICON_FAITH] Faith.[NEWLINE][ICON_BULLET]Bias: T3 Grassland and Plains Hills.</Text>
+			<Text>Ethiopia's International Trade Routes grant +0.5 [ICON_FAITH] Faith per resource at the origin. Improved Resources provide +1 [ICON_FAITH] Faith after unlocking Political Philosophy. Can purchase Archaeological Museums and Archaeologists with [ICON_FAITH] Faith.[NEWLINE][ICON_BULLET]Bias: T3 Grassland and Plains Hills.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MENELIK_DESCRIPTION" Language="en_US">
@@ -555,7 +555,7 @@
 		</Replace>
 		<!-- = leader ability (Magnificence) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_MAGNIFICENCES_DESCRIPTION" Language="en_US">
-			<Text>Improved resources receive +1 [ICON_CULTURE] Culture after researching Craftsmanship. Chateau adjacent to a luxury resource receive +1 [ICON_AMENITIES] Amenity. Happy cities gain +5% Culture and grant +1 [ICON_GreatWriter] Great Writer, [ICON_GreatArtist] Great Artist, and [ICON_GreatMusician] Great Musician point from Theater Squares, these numbers are doubled if ecstatic. May initiate the Court Festival unique project in any city with a Theater Square district.</Text>
+			<Text>Improved resources receive +1 [ICON_CULTURE] Culture after researching Craftsmanship. Chateau adjacent to a luxury resource receive +1 [ICON_AMENITIES] Amenity. Happy cities gain +5% Culture, doubled if the city is ecstatic. Happy cities grant +1 [ICON_GreatWriter] Great Writer point if they have a Theater Square and +1 [ICON_GreatArtist] Great Artist point if the city is ecstatic and has a Theater Square. May initiate the Court Festival unique project in any city with a Theater Square district.</Text>
 		</Replace>
 		<!-- = unique project (Magnificence) = -->
 		<Replace Tag="LOC_PROJECT_ECOURT_FESTIVAL_DESCRIPTION" Language="en_US">
@@ -576,19 +576,33 @@
 			<Text>French unique builder improvement unlocked at Feudalism. Cannot be built adjacent to another Chateau.[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food, +1 [ICON_CULTURE] Culture, +1 [ICON_GOLD] Gold[NEWLINE]+1 [ICON_HOUSING] Housing and +1 Appeal to adjacent tiles.[NEWLINE]+1 [ICON_CULTURE] Culture for each adjacent wonder, increasing to +2 [ICON_CULTURE] Culture with the Flight technology.[NEWLINE]+1 [ICON_CULTURE] Culture and +1 [ICON_GOLD] Gold for each adjacent Luxury resource.[NEWLINE]+2 [ICON_GOLD] Gold if built next to River.[NEWLINE][NEWLINE]Provides [ICON_TOURISM] Tourism after researching Flight.</Text>
 		</Replace>
 
+
 		<!-- == GAUL == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="en_US">
-			<Text>Mines provide a minor adjacency bonus for all [ICON_DISTRICT] districts and receive +1 [ICON_CULTURE] Culture with Bronze Working. Specialty [ICON_DISTRICT] districts do not receive a minor adjacency for being adjacent to another district and these districts cannot be built adjacent to the City Center.[NEWLINE][ICON_BULLET]Bias: T3 Iron, T4 Quarry Resources, T5 Minable Resources.</Text>
+			<Text>Quarries grant a standard adjacency bonus for all [ICON_DISTRICT] districts (doubled for the Oppidum) and Mines grant a minor adjacency bonus for all [ICON_DISTRICT] districts. Specialty [ICON_DISTRICT] districts do not receive a minor adjacency for being adjacent to another district and these districts cannot be built adjacent to the City Center.[NEWLINE][ICON_BULLET]Bias: T3 Iron, T4 Quarry Resources, T5 Minable Resources.</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability (Ambiorix) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="en_US">
-			<Text>Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength on attack for each of your adjacent land military units (does not count air or naval units).</Text>
+			<Text>Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength for each adjacent military unit. Receive culture equal to 25% of the production cost of all military units you train after unlocking Bronze Working.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="en_US">
-			<Text>Receive +1 [ICON_STRENGTH] Combat Strength on attack for each adjacent unit (King of the Eburones)</Text>
+			<Text>Receive +1 [ICON_STRENGTH] Combat Strength for each adjacent unit (King of the Eburones)</Text>
 		</Replace>
-		<!-- = unique district = -->
+		<!-- = leader ability (Vercingetorix) = -->
+        <Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_NAME" Language="en_US">
+			<Text>Gallic Confederation</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_CULTURE] Culture on mines after unlocking Bronze Working.[NEWLINE][NEWLINE]Workshops grant +1 [ICON_INFLUENCEPERTURN] Influence per turn. Recruiting a [ICON_GREATENGINEER] Great Engineer grants +1 [ICON_ENVOY] Envoy.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION_DLC" Language="en_US">
+			<Text>[ICON_CULTURE] Culture +1 for mines with Bronze Working.[NEWLINE][NEWLINE][ICON_INFLUENCEPERTURN] Influence per turn +1 per Workshop and Recruiting a [ICON_GREATENGINEER] Great Engineer grants 1 [ICON_ENVOY] envoy.[NEWLINE][NEWLINE][ICON_STRENGTH] Combat Strength +1 per type of vassalized City-state.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_GALLIC_WAR_COMBAT_DESCRIPTION" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength +1 per type of vassalized City-state.</Text>
+		</Replace>
+		<!-- = unique district (Oppidum) = -->
 		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="en_US">
 			<Text>A district unique to Gaul that is cheaper and available earlier than the district it replaces, the Industrial Zone. The Oppidum district is defensible with a ranged attack.[NEWLINE][NEWLINE]+2 [ICON_PRODUCTION] Production adjacency bonus from Quarries and Strategic resources. Triggers a Culture Bomb of unowned territory when completed.</Text>
 		</Replace>
@@ -599,6 +613,7 @@
 		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="en_US">
 			<Text>King of the Éburons</Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
 		</Replace>
+
 
 		<!-- == GEORGIA == -->
 		<!-- = civilization ability = -->
@@ -631,7 +646,7 @@
 		</Replace>
 		<!-- = leader ability (Frederick Barbarossa) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HOLY_ROMAN_EMPEROR_DESCRIPTION" Language="en_US"> <!-- add icon -->
-			<Text>One extra Military policy slot in any [ICON_GOVERNMENT] government.[NEWLINE]+7 [ICON_STRENGTH] Combat Strength when attacking city-states.</Text>
+			<Text>One extra Military policy slot in any [ICON_GOVERNMENT] government.[NEWLINE]+7 [ICON_STRENGTH] Combat Strength when attacking City-states.</Text>
 		</Replace>
 		<!-- = leader ability (Ludwig II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LUDWIG_DESCRIPTION" Language="en_US"> <!-- add icon -->
@@ -777,7 +792,7 @@
 		<!-- == INDONESIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_INDONESIA_NUSANTARA_DESCRIPTION" Language="en_US">
-			<Text>Harbor buildings can be purchased with faith.  Districts next to Coast and Lakes provide +1 [ICON_FAITH] Faith, and receive an additional +1 [ICON_FAITH] Faith when Shipbuilding is unlocked. Coast and Lake tiles provide a minor adjacency bonus for Campus, Theater Square, Holy Site, and Industrial Zone districts. +1 [ICON_AMENITIES] Amenity from entertainment to each Entertainment Complex adjacent to a Coast or Lake tile.[NEWLINE][ICON_BULLET]Bias: T1 Coast.</Text>
+			<Text>Harbor buildings can be purchased with faith.  City Centers next to Coast and Lake provide +2 [ICON_FAITH] Faith. Other Districts next to Coast and Lakes provide +1 [ICON_FAITH] Faith, increasing to +2 [ICON_FAITH] Faith when Shipbuilding is unlocked. Coast and Lake tiles provide a minor adjacency bonus for Campus, Theater Square, Holy Site, and Industrial Zone districts. +1 [ICON_AMENITIES] Amenity from entertainment to each Entertainment Complex adjacent to a Coast or Lake tile.[NEWLINE][ICON_BULLET]Bias: T1 Coast.</Text>
 		</Replace>
 		<!-- = leader ability (Gitarja) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_EXALTED_GODDESS_DESCRIPTION" Language="en_US">
@@ -917,17 +932,30 @@
 		
 		<!-- == MACEDON == -->
 		<!-- = civilization ability = -->
-		<!-- <Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_DESCRIPTION" Language="en_US">
+		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_DESCRIPTION" Language="en_US">
 			<Text>Receive boosts upon city conquest: +20% [ICON_PRODUCTION] Production in all cities for 10 [ICON_TURN] turns, as well as a [ICON_TechBoosted] Eureka for each Encampment or Campus in the conquered city and an [ICON_CivicBoosted] Inspiration for each Holy Site or Theater Square.[NEWLINE][ICON_BULLET]Bias: None.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_EXPANSION1_DESCRIPTION" Language="en_US">
 			<Text>Receive boosts upon city conquest: +20% [ICON_PRODUCTION] Production in all cities for 10 [ICON_TURN] turns, as well as a [ICON_TechBoosted] Eureka for each Encampment or Campus in the conquered city and an [ICON_CivicBoosted] Inspiration for each Holy Site or Theater Square.[NEWLINE][ICON_BULLET]Bias: None.</Text>
-		</Replace> -->
+		</Replace>
 		<!-- = leader ability (Alexander) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_TO_WORLDS_END_DESCRIPTION" Language="en_US">
-			<Text>Combat victories provide [ICON_SCIENCE] Science equal to 20% of the [ICON_STRENGTH] Combat Strength of the defeated unit (on Online speed). Cities do not incur war weariness. All military units heal completely when this player captures a city with a world wonder.</Text>
+			<Text>Combat victories provide [ICON_SCIENCE] Science equal to 20% of the [ICON_STRENGTH] Combat Strength of the defeated unit (on Online speed). Cities do not incur war weariness. All military units heal completely when this player captures a city with a world wonder. Gain the Hetairoi unique unit after unlocking Horseback Riding.</Text>
 		</Replace>
-		<!-- = unique unit = -->
+		<!-- = unique unit (Hetairoi) = -->
+		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="en_US">
+			<Text>Macedonian unique heavy cavalry unit. Additional +5 [ICON_STRENGTH] Combat Strength when adjacent to a [ICON_GREATGENERAL] Great General from any era. +5 [ICON_GREATGENERAL] Great General points when killing an enemy unit. Starts with [ICON_PROMOTION] free Promotion.</Text>
+		</Replace>
+        <!-- = leader ability (Olympia) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_DESCRIPTION" Language="en_US">
+			<Text>Receives an [ICON_ENVOY] Envoy when founding a Pantheon.[NEWLINE]Cities with a Basilikoi and following Olympia's [ICON_RELIGION] religion give 1 [ICON_SCIENCE] science per [ICON_CITIZEN] population and gain +1 [ICON_ENVOY] envoy at the time these conditions are met. +2 [ICON_STRENGTH] Combat Strength when attacking for melee and heavy cavalry units per City-state you are Suzerain of.</Text>
+        </Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_NAME" Language="en_US">
+			<Text>Cabeiri Mysteries</Text>
+        </Replace>
+
+
+		<!-- = unique unit (Hypaspist) = -->
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="en_US">
 			<Text>Macedonian unique melee unit that replaces the Swordsman. +10 [ICON_STRENGTH] Combat Strength when besieging districts. Receives +50% Additional Support Bonus.</Text>
 		</Replace>
@@ -937,10 +965,7 @@
 		<Replace Tag="LOC_ABILITY_HYPASPIST_SIEGE_BONUS_DESCRIPTION" Language="en_US">
 			<Text>+10 [ICON_STRENGTH] Combat Strength when besieging a district</Text>
 		</Replace>
-		<!-- = unique unit = -->
-		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="en_US">
-			<Text>Macedonian unique heavy cavalry unit. Additional +5 [ICON_STRENGTH] Combat Strength when adjacent to a [ICON_GREATGENERAL] Great General from any era. +5 [ICON_GREATGENERAL] Great General points when killing an enemy unit. Starts with [ICON_PROMOTION] free Promotion.</Text>
-		</Replace>
+
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_DESCRIPTION" Language="en_US">
 			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 20% of the unit's [ICON_PRODUCTION] Production cost when a non-civilian unit is trained in this city.[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.</Text>
@@ -1009,6 +1034,7 @@
 			<Text>Maori unique improvement built by the Toa.[NEWLINE][NEWLINE]Occupying units receive +1 Sight and +4 [ICON_STRENGTH] Defense Strength, and automatically gains 2 turns of fortification. A Māori unit occupying a Pā heals even if they just moved or attacked. Must be built on a Hill tile.</Text>
 		</Replace>
 		
+
 		<!-- == MAPUCHE == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAPUCHE_TOQUI_DESCRIPTION" Language="en_US">
@@ -1033,25 +1059,44 @@
 			<Text>Mapuche unique builder improvement unlocked with Craftsmanship. Requires a minimum Appeal of Breathtaking (+4 Appeal).[NEWLINE][NEWLINE]+1 [ICON_PRODUCTION] Production.[NEWLINE][ICON_CULTURE] Culture equal to 75% of the tile's Appeal.[NEWLINE]+1 [ICON_PRODUCTION] Production with Civil Service.[NEWLINE][NEWLINE]Provides [ICON_TOURISM] Tourism after researching Flight.</Text>
 		</Replace>
 
+
 		<!-- == MAYA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAYAB_DESCRIPTION" Language="en_US">
-			<Text>Settling adjacent to Fresh Water and Coast does not provide extra [ICON_HOUSING] Housing. The Palace receives +1 [ICON_HOUSING] Housing. +1 [ICON_AMENITIES] Amenity for every Luxury adjacent to the City Center. +3 [ICON_STRENGTH] Combat Strength for units within 6 tiles of your [ICON_CAPITAL] capital.[NEWLINE][NEWLINE]Farms provides an additional +1 [ICON_HOUSING] Housing, +1 [ICON_PRODUCTION] Production for every adjacent Observatory, and +1 [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Plantations provide +1 [ICON_SCIENCE] Science for each adjacent Observatory and an additional +1 [ICON_SCIENCE] Science with Education.[NEWLINE][NEWLINE][ICON_BULLET]Bias: T3 Plantation Luxuries, T4 Bananas. Special "Hydrophobic".</Text>
+			<Text>Settling adjacent to Fresh Water and Coast does not provide extra [ICON_HOUSING] Housing. The Palace receives +1 [ICON_HOUSING] Housing. +1 [ICON_AMENITIES] Amenity for every Luxury adjacent to the City Center.[NEWLINE][NEWLINE]Farms provides an additional +1 [ICON_HOUSING] Housing, +1 [ICON_PRODUCTION] Production for every adjacent Observatory, and +1 [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Plantations provide +1 [ICON_SCIENCE] Science for each adjacent Observatory and an additional +1 [ICON_SCIENCE] Science with Education.[NEWLINE][NEWLINE][ICON_BULLET]Bias: T3 Plantation Luxuries, T4 Bananas. Special "Hydrophobic".</Text>
 		</Replace>
-		<!-- = leader ability = -->
-		<!-- <Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="en_US">
-			<Text>Non-capital cities within 6 tiles of the [ICON_CAPITAL] Capital gain +5% to all yields. Other non-capital cities receive -10% to all yields.</Text>
-		</Replace> -->
+		<!-- = leader ability (Lady Six Sky) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="en_US">
+			<Text>Non-capital cities within 6 tiles of the [ICON_CAPITAL] Capital gain +5% to all yields. Other non-capital cities receive -10% to all yields.[NEWLINE][NEWLINE]+3 [ICON_STRENGTH] Combat Strength for units within 6 tiles of your [ICON_CAPITAL] capital.</Text>
+		</Replace>
 		<Replace Tag="LOC_ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL_DESCRIPTION" Language="en_US">
 			<Text>+3 [ICON_STRENGTH] Combat Strength to units within 6 tiles of the [ICON_CAPITAL] Capital</Text>
 		</Replace>
-		<!-- = unique district = -->
+		<!-- = leader ability (Te' K'inich II) (BBG Expanded) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_DESC" Language="en_US">
+			<Text>Once you enter the classical era, receive -2 [ICON_STRENGTH] combat strength for all units within six tiles of your [ICON_CAPITAL] capital. Units beyond 6 tiles receive +4 [ICON_STRENGTH] combat strength. Units heal 5hp and gain 2 experience points upon completing an [ICON_TechBoosted] eureka.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_NAME" Language="en_US">
+            <Text>Wrath of Venus</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_NAME" Language="en_US">
+			<Text>Wrath of Venus</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_DESC" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength -2 (Wrath of Venus)</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_NAME" Language="en_US">
+			<Text>Wrath of Venus</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_DESC" Language="en_US">
+			<Text>[ICON_STRENGTH] Combat Strength +4 (Wrath of Venus)</Text>
+		</Replace>
+		<!-- = unique district (Observatory) = -->
 		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="en_US">
-
 			<Text>A district unique to Maya that replaces the Campus and has unique adjacencies.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science for each adjacent Plantation.[NEWLINE]+1 [ICON_SCIENCE] Science for every two adjacent Farm or district tiles.[NEWLINE]+2 [ICON_SCIENCE] Science for each adjacent Geothermal Fissure.[NEWLINE]+1 [ICON_HOUSING] Housing.</Text>
 		</Replace>
 
-		
+
 		<!-- == MONGOLIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MONGOLIAN_ORTOO_DESCRIPTION" Language="en_US">
@@ -1082,7 +1127,7 @@
 			<Text>+3 [ICON_STRENGTH] Combat Strength and +25% [ICON_PRODUCTION] Production to Naval Melee Units. Naval Melee units can perform coastal raids.[NEWLINE][NEWLINE]Units gain the ability to enter Ocean tiles after researching the Shipbuilding technology.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>+25% [ICON_PRODUCTION] Production to Naval Melee Units. Naval Melee units can perform coastal raids. Receive additional yields from pillaging or performing coastal raids: [ICON_SCIENCE] Science from Mines, [ICON_CULTURE] Culture from Quarries, Pastures, Plantations, and Camps.</Text>
+			<Text>+3 [ICON_STRENGTH] Combat Strength and +25% [ICON_PRODUCTION] Production to Naval Melee Units. Naval Melee units can perform coastal raids. Receive additional yields from pillaging or performing coastal raids: [ICON_SCIENCE] Science from Mines, [ICON_CULTURE] Culture from Quarries, Pastures, Plantations, and Camps.[NEWLINE][NEWLINE]Units gain the ability to enter Ocean tiles after researching the Shipbuilding technology.</Text>
 		</Replace>
 		<!-- = unique unit (Longship) = -->
 		<Replace Tag="LOC_UNIT_NORWEGIAN_LONGSHIP_DESCRIPTION" Language="en_US">
@@ -1096,7 +1141,7 @@
 		</Row>
 		<!-- = leader ability (Varangian) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HARALD_ALT_XP_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_STRENGTH] Combat Strength on naval units when attacking per city-state you are suzerain of. 75% Discount on Levying units and levied units receive [ICON_SCIENCE] Science, [ICON_CULTURE] Culture, and [ICON_FAITH] Faith from kills equal to 50% of the opponent's [ICON_STRENGTH] Combat Strength. +1 Movement to levied units.[NEWLINE][NEWLINE]+25% production to [ICON_DISTRICT_HOLYSITE] Holy Site buildings. Stave Church generates +1 [ICON_InfluencePerTurn] Influence point. +10 [ICON_SCIENCE] Science and +10 [ICON_CULTURE] Culture (standard speed) per population when converting a city to your religion for the first time using a religious unit.</Text>
+			<Text>+1 [ICON_STRENGTH] Combat Strength on naval units when attacking per City-state you are suzerain of. 75% Discount on Levying units and levied units receive [ICON_SCIENCE] Science, [ICON_CULTURE] Culture, and [ICON_FAITH] Faith from kills equal to 50% of the opponent's [ICON_STRENGTH] Combat Strength. +1 Movement to levied units.[NEWLINE][NEWLINE]+25% production to [ICON_DISTRICT_HOLYSITE] Holy Site buildings. Stave Church generates +1 [ICON_InfluencePerTurn] Influence point. +10 [ICON_SCIENCE] Science and +10 [ICON_CULTURE] Culture (standard speed) per population when converting a city to your religion for the first time using a religious unit.</Text>
 		</Replace>
 		<!-- = unique unit (Berserker) = -->
 		<Replace Tag="LOC_UNIT_NORWEGIAN_BERSERKER_DESCRIPTION" Language="en_US">
@@ -1123,6 +1168,23 @@
 		<Replace Tag="LOC_IMPROVEMENT_PYRAMID_DESCRIPTION" Language="en_US">
 			<Text>Nubian unique builder improvement unlocked at Craftsmanship and limited to 1 per city. Nubian Districts receive standard adjacency from Nubian Pyramids. Can be built on any flat tile or desert hill. Cannot be built next to another Nubian Pyramid.[NEWLINE][NEWLINE]+2 [ICON_FOOD] Food and +2 [ICON_FAITH] Faith.[NEWLINE][NEWLINE]Receives additional yields from adjacent districts:[NEWLINE]+1 [ICON_FOOD] Food for the City Center.[NEWLINE]+1 [ICON_SCIENCE] Science per adjacent Campus.[NEWLINE]+1 [ICON_CULTURE] Culture per adjacent Theater Square.[NEWLINE]+1 [ICON_FAITH] Faith per adjacent Holy Site.[NEWLINE]+1 [ICON_GOLD] Gold per adjacent Commercial Hub and Harbor.[NEWLINE]+1 [ICON_PRODUCTION] Production per adjacent Industrial Zone, Encampment, and Aerodrome.[NEWLINE]+1 [ICON_CULTURE] Culture and +2 [ICON_GOLD] Gold per adjacent Government Plaza and Diplomatic Quarter.</Text>
 		</Replace>
+		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_SCIENCE_DESC" Language="en_US">
+			<Text>+1 [ICON_SCIENCE] Science from adjacent Campus.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_CULTURE_DESC" Language="en_US">
+			<Text>+1 [ICON_CULTURE] Culture from adjacent Theater Square, Government Plaza, or Diplomatic Quarter.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_PRODUCTION_DESC" Language="en_US">
+			<Text>+1 [ICON_PRODUCTION] Production from adjacent Industrial Zone, Encampment, and Aerodrome.</Text>
+		</Replace>
+
+		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_FAITH_DESC" Language="en_US">
+			<Text>+1 [ICON_FAITH] Faith from adjacent Holy Site</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_GOLD_DESC" Language="en_US">
+			<Text>+1 [ICON_GOLD] Gold from adjacent Commercial Hub or Harbor. +2 [ICON_GOLD] Gold per adjacent Government Plaza and Diplomatic Quarter.</Text>
+		</Replace>
+
 
 		<!-- == OTTOMANS == -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GREAT_TURKISH_BOMBARD_DESCRIPTION" Language="en_US">
@@ -1190,16 +1252,35 @@
 		<!-- == PHOENICIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="en_US">
-			<Text>Begin the game with the Writing technology [ICON_TechBoosted] Eureka. Coastal cities founded by Phoenicia and located on the same continent as the Phoenician [ICON_CAPITAL] Capital are 100% Loyal. Settlers gain +2 [ICON_MOVEMENT] Movement and +2 sight range while embarked. Settlers ignore additional [ICON_MOVEMENT] Movement costs from embarking and disembarking.[NEWLINE][ICON_BULLET]Bias: T1 Coast.</Text>
+			<Text>Begin the game with the Writing technology [ICON_TechBoosted] Eureka. Coastal cities founded by Phoenicia and located on the same continent as the Phoenician [ICON_CAPITAL] Capital are 100% Loyal.[NEWLINE][ICON_BULLET]Bias: T1 Coast.</Text>
 		</Replace>
-		<!-- = leader ability = -->
+		<!-- = leader ability (Dido old)= -->
 		<!-- <Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="en_US">
 			<Text>Can move their original [ICON_CAPITAL] Capital to any city with a Cothon they founded by completing a unique project in that city. +1 [ICON_TRADEROUTE] Trade Route capacity for each Government Plaza building. +50% [ICON_PRODUCTION] Production toward [ICON_DISTRICT] districts in the city with the Government Plaza.</Text>
 		</Replace> -->
-		<!-- = unique district = -->
+		<!-- = leader ability (Dido) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="en_US">
+			<Text>Settlers gain +2 [ICON_MOVEMENT] Movement and +2 sight range while embarked. Settlers ignore additional [ICON_MOVEMENT] Movement costs from embarking and disembarking.[NEWLINE]+1 [ICON_TRADEROUTE] Trade Route capacity for each Government Plaza building. +50% [ICON_PRODUCTION] Production toward [ICON_DISTRICT] districts in the city with the Government Plaza.</Text>
+		</Replace>
+        <!-- = leader ability (Ahiram) (BBG Expanded) = -->
+        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_DESCRIPTION" Language="en_US">
+            <Text>International [ICON_TRADEROUTE] trade routes provides +0.5 [ICON_PRODUCTION] Production and +2 [ICON_GOLD] Gold for each Luxury resource in the origin city. Unlock the Royal Tomb unique building.</Text>
+        </Replace>
+        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_NAME" Language="en_US">
+			<Text>Merchant Princes</Text>
+        </Replace>
+        <!-- = unique building (Royal Tomb) = -->
+        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_NAME" Language="en_US">
+	        <Text>Royal Tomb</Text>
+        </Replace>        
+        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_DESCRIPTION" Language="en_US">
+            <Text>Replaces the Library. +1 [ICON_SCIENCE] Science per Great Admiral recruited by Ahiram.[NEWLINE] Doesn't cost maintenance.</Text>
+	    </Replace>
+		<!-- = unique district (Cothon) = -->
 		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="en_US">
 			<Text>A district unique to Phoenicia for naval activity in your city. Replaces the Harbor district and cheaper to build. Must be built on Coast or Lake Terrain adjacent to land.[NEWLINE][NEWLINE]+25% [ICON_PRODUCTION] Production towards naval units and Settlers in this city.</Text>
 		</Replace>
+
 
 		<!-- == POLAND == -->
 		<!-- = civilization ability = -->
@@ -1211,6 +1292,7 @@
 			<Text>[ICON_DISTRICT_HOLYSITE]Holy Sites gain standard Faith adjacency from adjacent [ICON_DISTRICT] Districts.[NEWLINE]All [ICON_GreatWork_Relic] Relics generate an additional +2 [ICON_FAITH] Faith, +2 [ICON_CULTURE] Culture, and +4 [ICON_GOLD] Gold. Receive a [ICON_GreatWork_Relic] Relic when founding and when completing a Religion.[NEWLINE][NEWLINE]The Religion founded by Poland becomes the majority in an adjacent city that loses a tile to a Polish Culture Bomb.</Text>
 		</Replace>
 
+
 		<!-- == PORTUGAL == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_PORTUGAL_DESCRIPTION" Language="en_US">
@@ -1218,7 +1300,7 @@
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_JOAO_III_DESCRIPTION" Language="en_US">
-			<Text>All units receive +1 Sight. +1 [ICON_TRADEROUTE] Trade Route capacity when entering a new era (ancient era included). Open Borders with all City-States.</Text>
+			<Text>All units receive +1 Sight. +1 [ICON_TRADEROUTE] Trade Route capacity when entering a new era (ancient era included). Open Borders with all City-states.</Text>
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_PORTUGUESE_NAU_DESCRIPTION" Language="en_US">
@@ -1228,6 +1310,7 @@
 		<Replace Tag="LOC_IMPROVEMENT_FEITORIA_DESCRIPTION" Language="en_US">
 			<Text>Portuguese unique improvement built by the Nau. Can only be built adjacent to Luxury or Bonus resources in territory belonging to other Civilizations or City-states that you have Open Borders with. Must be built on a Coast or Lake tile adjacent to land and not adjacent to another Feitoria. Feitorias cannot be removed.[NEWLINE][NEWLINE]+4 [ICON_GOLD] Gold and +1 [ICON_PRODUCTION] Production.[NEWLINE]Trade routes sent to this city from Portugal gain +2 [ICON_GOLD] Gold and +1 [ICON_PRODUCTION] Production.</Text>
 		</Replace>
+
 
 		<!-- == ROME == -->
 		<!-- = civilization ability = -->
@@ -1257,6 +1340,7 @@
 			<Text>Roman unique Classical era melee unit that replaces the Swordsman. Has 1 [ICON_CHARGES] charge to build a Roman Fort.</Text>
 		</Replace>
 
+
 		<!-- == RUSSIA == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MOTHER_RUSSIA_EXPANSION2_DESCRIPTION" Language="en_US">
@@ -1270,6 +1354,7 @@
 		<Replace Tag="LOC_DISTRICT_LAVRA_DESCRIPTION" Language="en_US">
 			<Text>A district unique to Russia that replaces the [ICON_DISTRICT_HOLYSITE] Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Your city border grows by one tile each time a [ICON_GreatPerson] Great Person is used in one of this city's [ICON_DISTRICT] districts. The [ICON_DISTRICT_LAVRA] Lavra provides +1 [ICON_GreatWriter] Great Writer point per turn with a Temple and +1 [ICON_GreatArtist] Great Artist point per turn with a Worship building.</Text>
 		</Replace>
+
 
 		<!-- == SCOTLAND == -->
 		<!-- = civilization ability = -->
@@ -1291,6 +1376,7 @@
 		<Replace Tag="LOC_IMPROVEMENT_GOLF_COURSE_XP2_DESCRIPTION" Language="en_US">
 			<Text>Scottish unique builder improvement unlocked with Games and Recreation. Cannot be placed on Desert or Desert Hills. One per City. Tiles with Golf Courses cannot be swapped.[NEWLINE][NEWLINE]+1 [ICON_CULTURE] Culture, +2 [ICON_GOLD] Gold, +1 [ICON_AMENITIES] Amenity.[NEWLINE]+1 [ICON_CULTURE] Culture and +1 [ICON_GOLD] Gold if adjacent to a City Center.[NEWLINE]+1 [ICON_CULTURE] Culture and +1 [ICON_AMENITIES] Amenity if adjacent to an Entertainment Complex.[NEWLINE]+1 [ICON_CULTURE] Culture and +1 [ICON_GOLD] Gold with Enlightenment.[NEWLINE]+1 [ICON_AMENITIES] Amenity with Guilds.[NEWLINE]+1 [ICON_HOUSING] Housing with Globalization.[NEWLINE]+1 Appeal to adjacent tiles</Text>
 		</Replace>
+
 
 		<!-- == SCYTHIA == -->
 		<!-- = civilization ability = -->
@@ -1314,6 +1400,7 @@
 			<Text>Scythian unique builder improvement unlocked with Animal Husbandry.[NEWLINE][NEWLINE]+1 [ICON_FAITH] Faith and +3 [ICON_GOLD] Gold.[NEWLINE]+1 [ICON_FAITH] Faith for each adjacent Pasture, increasing to +2 [ICON_FAITH] Faith for each adjacent Pasture with Stirrups.[NEWLINE]+1 [ICON_PRODUCTION] Production for each adjacent Pasture.[NEWLINE][NEWLINE]Provides [ICON_TOURISM] Tourism from [ICON_FAITH] Faith after researching Flight.</Text>
 		</Replace>
 		
+
 		<!-- == SPAIN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_TREASURE_FLEET_EXPANSION2_DESCRIPTION" Language="en_US">
@@ -1343,6 +1430,7 @@
 		<Replace Tag="LOC_IMPROVEMENT_MISSION_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>Spanish unique builder improvement unlocked with Theology. Cannot be built next to another Mission.[NEWLINE][NEWLINE]+2 [ICON_FAITH] Faith.[NEWLINE]+1 [ICON_HOUSING] Housing if built 7 tiles or less from current [ICON_CAPITAL] Capital.[NEWLINE]+1 [ICON_FAITH] Faith and +1 [ICON_PRODUCTION] Production if built 8 tiles or more from current [ICON_CAPITAL] Capital.[NEWLINE]+1 [ICON_SCIENCE] Science for every adjacent Campus and Holy Site district.[NEWLINE]+2 [ICON_SCIENCE] Science with Enlightenment.</Text>
 		</Replace>
+
 
 		<!-- == SUMERIA == -->
 		<!-- = civilization ability = -->
@@ -1392,6 +1480,53 @@
 			<Text>Sumerian unique builder improvement available from the start of the game. Cannot be built on Hills or adjacent to another Ziggurat.[NEWLINE][NEWLINE]+2 [ICON_SCIENCE] Science and +1 [ICON_HOUSING] Housing.[NEWLINE]+1 [ICON_CULTURE] Culture if built next to River.[NEWLINE]+1 [ICON_FAITH] Faith after Early Empire for each adjacent district or for every 2 adjacent Farms.</Text>
 		</Replace>
 
+
+		<!-- == SWAHILI (BBG Expanded) == -->
+		<!-- = Civilization ability -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_NAME" Language="en_US">
+			<Text>Coral Construction</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION" Language="en_US">
+			<Text>Coastal cities gain +25% [ICON_PRODUCTION] Production toward districts.[NEWLINE][NEWLINE]+1 [ICON_PRODUCTION] Production for unimproved reef tiles with Sailing.[NEWLINE][NEWLINE]Bias: T1 Coast.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION_XP1" Language="en_US">
+			<Text>Coastal cities gain +25% [ICON_PRODUCTION] Production toward districts.[NEWLINE][NEWLINE]+1 [ICON_PRODUCTION] Production for unimproved reef tiles with Sailing.[NEWLINE][NEWLINE]Bias: T1 Coast.</Text>
+		</Replace>
+		<!-- = Leader ability -->
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_NAME" Language="en_US">
+			<Text>Palace of Husuni Kubwa</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_TRADEROUTE] Trade Route capacity for each Harbor adjacent to a World Wonder.</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_XP2_DESCRIPTION" Language="en_US">
+			<Text>[ICON_TRADEROUTE] Trade Route capacity +1 for each Harbor adjacent to a World Wonder.</Text>
+		</Replace>
+		<!-- = Unique unit -->
+		<Replace Tag="LOC_UNIT_SUK_JAHAZI_NAME" Language="en_US">
+			<Text>Jahazi</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_SUK_JAHAZI_DESCRIPTION" Language="en_US">
+			<Text>Swahili unique ancient era support naval unit can set up a fishing boat, which will provide +2 [ICON_GOLD] Gold (2 [ICON_CHARGES] Charges). Units embarked within 2 tiles gain 1 [ICON_MOVEMENT] Movement Point and ignore terrain costs. Can be captured.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_NAME" Language="en_US">
+			<Text>Jahazi</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_MOVEMENT] Movement Point</Text>
+		</Replace>
+		<!-- = Unique building -->
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_NAME" Language="en_US">
+			<Text>Pillar Tomb</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_DESCRIPTION" Language="en_US">
+			<Text>Replaces the Monument.[NEWLINE][NEWLINE]+1 Culture,[NEWLINE]+1 Loyalty. If Loyalty is already at maximum, +1 [ICON_CULTURE] Culture.[NEWLINE]+2 [ICON_GOLD] Gold and +1 [ICON_SCIENCE] Science for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 6 districts).</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_XP1_DESCRIPTION" Language="en_US">
+			<Text>Replaces the Monument.[NEWLINE][NEWLINE]+1 Culture,[NEWLINE]+1 Loyalty. If Loyalty is already at maximum, +1 [ICON_CULTURE] Culture.[NEWLINE]+2 [ICON_GOLD] Gold and +1 [ICON_SCIENCE] Science for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 6 districts).</Text>
+		</Replace>
+
+
 		<!-- == SWEDEN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="en_US">
@@ -1401,10 +1536,164 @@
 		<Replace Tag="LOC_BUILDING_QUEENS_BIBLIOTHEQUE_DESCRIPTION" Language="en_US">
 			<Text>A building unique to Sweden. +6 Great Work slots (any type). This building is not mutually exclusive with other buildings in Government Plaza.[NEWLINE]Awards +1 [Icon_Governor] Governor Title.</Text>
 		</Replace>
-
 		<Replace Tag="LOC_IMPROVEMENT_OPEN_AIR_MUSEUM_DESCRIPTION" Language="en_US">
 			<Text>Swedish unique builder improvement unlocked with Diplomatic Service. Limited to one per city. Tiles with Open-Air Museums cannot be swapped.[NEWLINE][NEWLINE]+2 [ICON_CULTURE] Culture and +2 [ICON_TOURISM] Tourism for each type of terrain (Snow, Tundra, Desert, Plains or Grassland) in which at least one Swedish city is founded.[NEWLINE]+2 Loyalty per turn in this city.</Text>
 		</Replace>
+
+
+		<!-- = TEOTIHUACAN (BBG Expanded) = -->
+		<!-- = civilization ability -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_NAME" Language="en_US">
+			<Text>Where Men Become Gods</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_DESC" Language="en_US">
+			<Text>When you are Suzerain of a City-state, international [ICON_TRADEROUTE] trade routes receive additional yields based on the type.  If you are suzerain to 2 or more City-states of that type, triple these yields.[NEWLINE]+1 [ICON_FOOD] Food for Religious[NEWLINE]+1 [ICON_PRODUCTION] Production for Millitaristic and Industrial[NEWLINE]+3 [ICON_GOLD] Gold for Commercial[NEWLINE]+1 [ICON_SCIENCE] Science for Scientific[NEWLINE]+1 [ICON_CULTURE] Culture for Cultural.[NEWLINE][ICON_BULLET]Bias: None.</Text>
+		</Replace>
+		<!-- = Leader ability -->
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_NAME" Language="en_US">
+			<Text>Lord of the West</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="en_US">
+			<Text>+1 [ICON_TRADEROUTE]Trade route capacity when completing the Pochteca Enclave and the Chancery. Unlock the unique [ICON_GOVERNOR]Governor, Fire is Born.</Text>
+		</Replace>
+		<!-- = Unique unit -->
+		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="en_US">
+			<Text>Ehuatl Wearer</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_DESC" Language="en_US">
+			<Text>Unique Swordsman unlocked at Political Philosophy, +1 sight range and does not require strategic resources.</Text>
+		</Replace>
+		<!-- = Unique district -->
+		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_NAME" Language="en_US">
+			<Text>Pochteca Enclave</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_DESC" Language="en_US">
+			<Text>Unlocked at State Workforce and replaces the Diplomatic Quarter. Grants a [ICON_GOVERNOR] Governor Title when first completed.[NEWLINE][NEWLINE]Does not count towards district limit based on [ICON_CITIZEN] population and does not provide yields on internal [ICON_TRADEROUTE] trade routes.</Text>
+		</Replace>
+        <!-- == FIRE IS BORN == -->
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_NAME" Language="en_US">
+			<Text>Fire is Born</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_TITLE" Language="en_US">
+			<Text>The Emissary</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_SHORT_TITLE" Language="en_US">
+			<Text>The Emissary</Text>
+		</Replace>		
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_NAME" Language="en_US"> <!-- M0 -->
+			<Text>Arrival of Strangers</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_DESC" Language="en_US"> <!-- M0 -->
+			<Text>May be assigned to a City-state, where it provides 1 [ICON_ENVOY] envoy. Friendly units inside this City-state's borders gain +5 [ICON_STRENGTH] Combat strength.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_NAME" Language="en_US"> <!-- L1 -->
+			<Text>Waka Outpost</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_DESC" Language="en_US"> <!-- L1 -->
+			<Text>While established in a City-state, provides a tradeable copy of its Luxury resources.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_NAME" Language="en_US"> <!-- L2 -->
+			<Text>Fall of Jaguar Paw</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_DESC" Language="en_US"> <!-- L2 -->
+			<Text>Envoys sent to this City-state count as two [ICON_ENVOY] Envoys if you have an active [ICON_TRADEROUTE] Traderoute to this City-state.[NEWLINE]+25% [ICON_PRODUCTION] Production for Commercial Hub buildings in your cities within 15 tiles.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_NAME" Language="en_US"> <!-- R1 -->
+			<Text>Petén Expedition</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_DESC" Language="en_US"> <!-- R1 -->
+			<Text>+10 [ICON_STRENGTH] Combat Strength for this City-state's garrison.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_NAME" Language="en_US"> <!-- R2 -->
+			<Text>Assault on Uaxactun</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_DESC" Language="en_US"> <!-- R2 -->
+			<Text>Levied units within 10 tiles of this City-state receive +5 [ICON_STRENGTH] Combat Strength.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_NAME" Language="en_US"> <!-- R2 -->
+			<Text>Assault on Uaxactun</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_DESC" Language="en_US"> <!-- R2 -->
+			<Text>+5 [ICON_STRENGTH] Combat Strength for levied units (Assault on Uaxactun)</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_NAME" Language="en_US"> <!-- M3 -->
+			<Text>Overseer of Kings</Text>
+		</Replace>
+		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_DESC" Language="en_US"> <!-- M3 -->
+			<Text>+2 [ICON_FAVOR] Diplomatic Favor per City-state you are Suzerain of.</Text>
+		</Replace>
+
+
+		<!-- = THULE (BBG Expanded) = -->
+		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_NAME" Language="en_US">
+			<Text>Hunting of the Bowhead</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_DESCRIPTION" Language="en_US">
+			<Text>Builders can consume one [ICON_CHARGES] Charge and one [ICON_CITIZEN] Citizen to create a [ICON_RESOURCE_WHALES] Whales tile.[NEWLINE][NEWLINE]Bias: T1 Tundra, T2 Coast.</Text>
+		</Replace>
+		<!-- = leader ability = -->
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_NAME" Language="en_US">
+			<Text>Heart Not Stone</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_DESCRIPTION" Language="en_US">
+			<Text>+5 [ICON_STRENGTH] Combat Strength and +1 [ICON_MOVEMENT] Movement for Recon units starting their turn on Tundra or Snow tiles.</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_RECON_ABILITY_NAME" Language="en_US">
+			<Text>Heart Not Stone</Text>
+		</Replace>
+		<Replace Tag="LOC_LIME_RECON_ABILITY_DESCRIPTION" Language="en_US">
+			<Text>+5 [ICON_STRENGTH] Combat Strength (Heart not stone)</Text>
+		</Replace>
+		<!-- = unique unit = -->
+		<Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_NAME" Language="en_US">
+			<Text>Dogsled Hunter</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_DESCRIPTION" Language="en_US">
+			<Text>Thule unique Ancient era ranged Recon unit, replaces the Scout.[NEWLINE][NEWLINE]Has 1 [ICON_CHARGES] Charge to establish a Hunter's House.</Text>
+		</Replace>
+		<!-- = unique improvement = -->
+		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_NAME" Language="en_US">
+			<Text>Hunter's House</Text>
+		</Replace>
+		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_DESCRIPTION" Language="en_US">
+			<Text>Unique improvement for Thule, unlocked at Sailing.[NEWLINE]+1 [ICON_FOOD] Food if built on a Tundra tile (doubled on snow)[NEWLINE]+1 [ICON_CULTURE] Culture and [ICON_FAITH] Faith +1 for each adjacent sea resource and Camp tile.[NEWLINE][NEWLINE]Hunter's House provides additional yields to adjacent tiles.[NEWLINE]+1 [ICON_FOOD] Food for Tundra tiles (doubled for snow).[NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production for Camps and Fishing Boats.[NEWLINE][NEWLINE]Must be built adjacent to a resource tile. Can be placed on forests. Cannot be placed next to another Hunter's House.</Text>
+		</Replace>
+
+
+		<!-- = TIBET (BBG Expanded) = -->
+		<!-- = civilization ability -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_NAME_XP2" Language="en_US">
+			<Text>Roof of the World</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_DESCRIPTION_XP2" Language="en_US">
+			<Text>Citizens may work mountain tiles. Mountain tiles gain additional yields for each district within 2 tiles:[NEWLINE]+2 [ICON_FOOD] Food per City Center,[NEWLINE]+1 [ICON_PRODUCTION] Production per Industrial Zone,[NEWLINE]+1 [ICON_GOLD] Gold per Harbor and Commercial Hub,[NEWLINE]+1 [ICON_SCIENCE] Science per Campus,[NEWLINE]+1 [ICON_CULTURE] Culture per Theater Square,[NEWLINE]+1 [ICON_FAITH] Faith +1 per Holy Site.[NEWLINE][NEWLINE]Can purchase buildings in specialty districts adjacent to a mountain tile with [ICON_FAITH] Faith.[NEWLINE][NEWLINE]+5% [ICON_FAITH] Faith in cities with a [ICON_GOVERNOR] Governor for each promotion it has.[NEWLINE]Bias: T3 Mountains (plain, grassland, and tundra).</Text>
+		</Replace>
+		<!-- = leader ability -->
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_NAME" Language="en_US">
+			<Text>Capture of Chang'an</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_DESCRIPTION" Language="en_US">
+			<Text>Land military units trained in a city with an Encampment and a Worship Building start with a [ICON_PROMOTION] Promotion.</Text>
+		</Replace>
+		<!-- = unique unit (Rta Pa) -->
+		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_NAME" Language="en_US">
+			<Text>Rta Pa</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_DESCRIPTION" Language="en_US">
+			<Text>Tibet unique Renaissance era ranged cavalry unit unlocked at Astronomy.[NEWLINE][NEWLINE]Has a ranged attack with 1 [ICON_RANGE] Range, can move after attacking, no movement penalty on hills.</Text>
+		</Replace>
+		<!-- = unique district (dzong) -->
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_NAME" Language="en_US">
+			<Text>Dzong</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION" Language="en_US">
+			<Text>A district unique to Tibet that replaces the Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Occupying units receives +5 [ICON_STRENGTH] Defensive Combat Strength.[NEWLINE]Buildings in the Dzong are 20% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION_XP2" Language="en_US">
+			<Text>A district unique to Tibet that replaces the Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Occupying units receives +5 [ICON_STRENGTH] Defensive Combat Strength.[NEWLINE]Buildings in the Dzong are 20% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith.</Text>
+		</Replace>
+
 
 		<!-- == VIETNAM == -->
 		<!-- = civilization ability = -->
@@ -1721,7 +2010,7 @@
 			<Text>+1 [ICON_FAVOR] Diplomatic Favor and +1 [ICON_InfluencePerTurn] Influence per turn for each tier of Government Plaza building constructed.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_PUPPETEER_DESCRIPTION" Language="en_US">
-			<Text>While established in a city-state, double the number of envoys you have there.</Text>
+			<Text>While established in a City-state, double the number of envoys you have there.</Text>
 		</Replace>
 		<!-- = Unused
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_AMBASSADOR_EMISSARY_DESCRIPTION" Language="en_US">
@@ -2218,7 +2507,7 @@
 		</Replace>
 		<!-- == Harbor Buildings == -->
 		<Replace Tag="LOC_BUILDING_LIGHTHOUSE_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>+25% combat experience for all naval units trained in this city. +1 [ICON_FOOD] Food on all Coast and Lake tiles for this city. +2 [ICON_HOUSING] Housing if this city is adjacent to coast. +1 [ICON_TRADEROUTE] Trade Route capacity, if this city does not yet have a Market building.</Text>
+			<Text>+25% combat experience for all naval units trained in this city. +1 [ICON_FOOD] Food on all Coast and Lake tiles for this city. +1 [ICON_HOUSING] Housing if this city is adjacent to coast. +1 [ICON_TRADEROUTE] Trade Route capacity, if this city does not yet have a Market building.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SHIPYARD_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for all naval units trained in this city. Bonus [ICON_PRODUCTION] Production equal to the adjacency bonus of the Harbor district. +1 [ICON_PRODUCTION] Production on all fisheries and unimproved Coast and Lake tiles for this city. +1 [ICON_RESOURCE_COAL] Coal per turn once discovered.</Text>
@@ -2295,13 +2584,13 @@
 			<Text>+1 [ICON_AMENITIES] Amenity from entertainment for each Lake tile within one tile of Huey Teocalli. +1 [ICON_FOOD] Food, +1 [ICON_PRODUCTION] Production, +2 [ICON_CULTURE] Culture for each Lake tile in your empire.[NEWLINE][NEWLINE]Must be built on a Lake tile adjacent to land.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_JEBEL_BARKAL_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Awards 6 [ICON_RESOURCE_IRON] Iron per turn. Improved strategic resources within 4 tiles of this wonder provides +1 [ICON_AMENITIES] Amenity.[NEWLINE][NEWLINE]Must be built on Desert Hills.</Text>
+			<Text>Awards 6 [ICON_RESOURCE_IRON] Iron per turn. Improved strategic resources within 4 tiles of this wonder provides +1 [ICON_AMENITIES] Amenity.[NEWLINE][NEWLINE]Must be built on a Hill adjacent to an Iron Mine.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_KOTOKU_IN_DESCRIPTION" Language="en_US">
 			<Text>+20% [ICON_FAITH] Faith in this city. Grants 4 Warrior Monks. Allows purchasing of Warrior Monks in this city regardless of city's Religion.[NEWLINE][NEWLINE]Must be built adjacent to a Holy Site district with a Temple.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_MEENAKSHI_TEMPLE_DESCRIPTION" Language="en_US">
-			<Text>Grants 2 Apostles. +2 [ICON_FAITH] Faith to all Forest and Rainforest tiles in your empire.[NEWLINE][NEWLINE]Must be built adjacent to a Holy Site and you must have founded a Religion.</Text>
+			<Text>Grants 2 Apostles. +1 [ICON_FAITH] Faith to all Forest and Rainforest tiles in your empire.[NEWLINE][NEWLINE]Must be built adjacent to a Holy Site and you must have founded a Religion.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_MONT_ST_MICHEL_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_CULTURE] Culture and +1 [ICON_FOOD] Food to all Floodplains tiles in your empire. All Apostles you create gain the Martyr ability in addition to a second ability you chose normally.[NEWLINE][NEWLINE]Must be built on Floodplains or Marsh.</Text>
@@ -2320,6 +2609,9 @@
 		</Replace>
 		<Replace Tag="LOC_BUILDING_STATUE_OF_ZEUS_DESCRIPTION" Language="en_US">
 			<Text>Grants 3 Archers, 3 Spearmen, and a Battering Ram. +35% [ICON_PRODUCTION] Production towards anti-cavalry units.[NEWLINE][NEWLINE]Must be built on flat land adjacent to an Encampment district with a Barracks.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_SYDNEY_OPERA_HOUSE_DESCRIPTION" Language="en_US">
+			<Text>Grants 2 Rock Bands. Must be built on the Coast, adjacent to land and a Harbor district.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_TAJ_MAHAL_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_GLORY_GOLDEN_AGE] Era Score from Historic Moment earned after this wonder is complete if that Moment is usually worth 2 or more [ICON_GLORY_GOLDEN_AGE] Era Score. All your cities gain +10% [ICON_GOLD] Gold when you are in [ICON_GLORY_GOLDEN_AGE] Golden or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age.[NEWLINE][NEWLINE]Must be built next to a River.</Text>
@@ -2619,10 +2911,10 @@
 		</Replace>
 		<!-- = Kumasi = -->
 		<Replace Tag="LOC_CIVILIZATION_KUMASI_BONUS" Language="en_US">
-			<Text>Your [ICON_TRADEROUTE] Trade Routes to any city-state provide +2 [ICON_CULTURE] Culture and also +1 [ICON_CULTURE] Culture and +1 [ICON_GOLD] Gold for every specialty district in the origin city.</Text>
+			<Text>Your [ICON_TRADEROUTE] Trade Routes to any City-state provide +2 [ICON_CULTURE] Culture and also +1 [ICON_CULTURE] Culture and +1 [ICON_GOLD] Gold for every specialty district in the origin city.</Text>
 		</Replace>
 		<Replace Tag="LOC_LEADER_TRAIT_KUMASI_DESCRIPTION" Language="en_US">
-			<Text>Your [ICON_TRADEROUTE] Trade Routes to any city-state provide +2 [ICON_CULTURE] Culture and +1 [ICON_GOLD] Gold for every specialty district in the origin city.</Text>
+			<Text>Your [ICON_TRADEROUTE] Trade Routes to any City-state provide +2 [ICON_CULTURE] Culture and +1 [ICON_GOLD] Gold for every specialty district in the origin city.</Text>
 		</Replace>
 		<!-- = Rapa Nui = -->		
 		<Replace Tag="LOC_CIVILIZATION_NAN_MADOL_BONUS" Language="en_US">
@@ -2736,7 +3028,7 @@
 			<Text>Drums of War</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="en_US">
-			<Text>Drums of War Golden Age:[NEWLINE]+2 Strategic Resources of each type discovered per turn. +15% [ICON_PRODUCTION] Production toward military units. Unit maintenance reduced by 1 [ICON_GOLD] Gold per turn. +1 [ICON_PRODUCTION] Production for Encampments and their Buildings. Combat victories provide [ICON_CULTURE] Culture equal to 40% of the [ICON_STRENGTH] Combat Strength of the defeated unit.</Text>
+			<Text>Drums of War Golden Age:[NEWLINE]+2 Horses, Iron, and Niter per turn once discovered. +15% [ICON_PRODUCTION] Production toward military units. Unit maintenance reduced by 1 [ICON_GOLD] Gold per turn. +1 [ICON_PRODUCTION] Production for Encampments and their Buildings. Combat victories provide [ICON_CULTURE] Culture equal to 40% of the [ICON_STRENGTH] Combat Strength of the defeated unit.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="en_US">
 			<Text>Drums of War Normal Age:[NEWLINE]Gain +1 Era Score each time you recruit a Great Person.</Text>
@@ -2806,7 +3098,7 @@
 
 		<!-- == To Arms! == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_MILITARY_BONUS_GOLDEN_AGE" Language="en_US">
-			<Text>To Arms! Golden Age:[NEWLINE]+15% [ICON_PRODUCTION] Production towards military units. All military units gain +10 [ICON_STRENGTH] Combat Strength against cities.</Text>
+			<Text>To Arms! Golden Age:[NEWLINE]+2 Niter, Oil, and Coal per turn once discovered. +15% [ICON_PRODUCTION] Production towards military units. All military units gain +10 [ICON_STRENGTH] Combat Strength against cities. Combat victories provide [ICON_GOLD] Gold equal to 50% of the [ICON_STRENGTH] Combat Strength of the defeated unit.</Text>
 		</Replace>
 		<!-- == OLD VERSION	<Replace Tag="LOC_MOMENT_CATEGORY_MILITARY_BONUS_GOLDEN_AGE" Language="en_US">
 			<Text>To Arms! Golden Age:[NEWLINE]Unlock a special Casus Belli which gives 75% less warmonger penalties than Formal War and can be used immediately after Denouncing the target. +15% [ICON_PRODUCTION] Production towards military units. All military units gain +10 [ICON_STRENGTH] Combat Strength against cities.</Text>
@@ -2871,7 +3163,7 @@
 
 		<!-- == Automaton Warefare == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_GOLDEN_AGE" Language="en_US">
-			<Text>Automaton Warfare Golden Age:[NEWLINE]Gain a Giant Death Robot in your capital. Receive 3 [ICON_Resource_Uranium] Uranium per turn. [ICON_Resource_Uranium] Uranium mines accumulate +1 more resource per turn.</Text>
+			<Text>Automaton Warfare Golden Age:[NEWLINE]Gain a Giant Death Robot in your capital if you have unlocked Robotics. +25% [ICON_PRODUCTION] Production toward GDRs. Receive 3 [ICON_Resource_Uranium] Uranium per turn. [ICON_Resource_Uranium] Uranium mines accumulate +1 more resource per turn.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_NORMAL_AGE" Language="en_US">
 			<Text>Automaton Warfare Dedication Bonus:[NEWLINE]Gain +1 Era Score each time you kill a non-Barbarian unit with a Giant Death Robot.</Text>
@@ -2961,7 +3253,7 @@
 			<Text>Own 2 Amphitheaters.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVIC_IDEOLOGY_DESCRIPTION" Language="en_US">
-				<Text>Grants the ability to construct an additional Spy. Grants open borders with all city-states.</Text>
+				<Text>Grants the ability to construct an additional Spy. Grants open borders with all City-states.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVIC_MEDIEVAL_FAIRES_DESCRIPTION" Language="en_US">
 			<Text>Plantation improvements now gain +1 [ICON_FOOD] Food.</Text>
@@ -3265,11 +3557,11 @@
 		</Replace>
 		<!-- = Containment = -->	
 		<Replace Tag="LOC_POLICY_CONTAINMENT_DESCRIPTION" Language="en_US">
-			<Text>Each [ICON_ENVOY] Envoy you send to a city-state counts as two, if its Suzerain has a different [ICON_GOVERNMENT] government than you.</Text>
+			<Text>Each [ICON_ENVOY] Envoy you send to a City-state counts as two, if its Suzerain has a different [ICON_GOVERNMENT] government than you.</Text>
 		</Replace>
 		<!-- = Gunboat Diplomacy = -->
 		<Replace Tag="LOC_POLICY_GUNBOAT_DIPLOMACY_DESCRIPTION" Language="en_US">
-			<Text>+4 [ICON_InfluencePerTurn] Influence Points per turn and +1 [ICON_GOLD] Gold from each of your [ICON_ENVOY] Envoys at city-states.</Text>
+			<Text>+4 [ICON_InfluencePerTurn] Influence Points per turn and +1 [ICON_GOLD] Gold from each of your [ICON_ENVOY] Envoys at City-states.</Text>
 		</Replace>
 		<!-- = Machiavellianism = -->
 		<Replace Tag="LOC_POLICY_MACHIAVELLIANISM_DESCRIPTION" Language="en_US">
@@ -3285,18 +3577,18 @@
 		</Replace>
 		<!-- = Raj = -->
 		<Replace Tag="LOC_POLICY_RAJ_DESCRIPTION_XP2" Language="en_US">
-			<Text>[ICON_TRADEROUTE] Trade Routes to city-states provide: +1 [ICON_FOOD] Food and [ICON_PRODUCTION] Production; +2 [ICON_SCIENCE] Science, [ICON_CULTURE] Culture, [ICON_FAITH] Faith, and [ICON_GOLD] Gold.</Text>
+			<Text>[ICON_TRADEROUTE] Trade Routes to City-states provide: +1 [ICON_FOOD] Food and [ICON_PRODUCTION] Production; +2 [ICON_SCIENCE] Science, [ICON_CULTURE] Culture, [ICON_FAITH] Faith, and [ICON_GOLD] Gold.</Text>
 		</Replace>
 		<!-- = Sovereign State added by BBG6.2 = -->
 		<Row Tag="LOC_POLICY_SOVEREIGN_STATE_NAME" Language="en_US">
 			<Text>Sovereign State</Text>
 		</Row>
 		<Row Tag="LOC_POLICY_SOVEREIGN_STATE_DESCRIPTION" Language="en_US">
-			<Text>Open borders with all city-states</Text>
+			<Text>Open borders with all City-states</Text>
 		</Row>
 		<!-- = Wisselbanken = -->
 		<Replace Tag="LOC_POLICY_WISSELBANKEN_DESCRIPTION" Language="en_US">
-			<Text>Your [ICON_TRADEROUTE] Trade Routes to an Ally's city or vassal city-state provide +2 [ICON_FOOD] Food and +2 [ICON_PRODUCTION] Production for both cities. +0.25 Alliance Points per turn for all Alliances.</Text>
+			<Text>Your [ICON_TRADEROUTE] Trade Routes to an Ally's city or vassal City-state provide +2 [ICON_FOOD] Food and +2 [ICON_PRODUCTION] Production for both cities. +0.25 Alliance Points per turn for all Alliances.</Text>
 		</Replace>
 		<!-- == Wild Policies == -->
 		<!-- = Hallyu = -->
@@ -3864,337 +4156,5 @@
 			<Text>Guaranteed +3 [ICON_FOOD] +1 [ICON_PRODUCTION] for flat City Center.[NEWLINE]Guaranteed +2 [ICON_FOOD] +2 [ICON_PRODUCTION] for hills City Center.[NEWLINE]City Centers gain maximum between guaranteed yield and tile yield after removal of removable features.</Text>
 		</Row>
 
-
-		<!-- == GAUL == -->
-		<!-- = civilization ability = -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="en_US">
-			<Text>Quarries provide a standard adjacency for all [ICON_DISTRICT] districts (doubled for the Oppidum), mines provide a minor adjacency bonus for all [ICON_DISTRICT] districts. Specialty [ICON_DISTRICT] districts do not receive a minor adjacency for being adjacent to another district and these districts cannot be built adjacent to the City Center.[NEWLINE][ICON_BULLET]Bias: T3 Iron, T4 Quarry Resources, T5 Minable Resources.</Text>
-		</Replace>
-		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="en_US">
-			<Text>Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength for each adjacent unit.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="en_US">
-			<Text>Receive +1 [ICON_STRENGTH] Combat Strength for each adjacent unit (King of the Eburones)</Text>
-		</Replace>
-        <Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_NAME" Language="en_US">
-			<Text>Gallic Confederation</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION" Language="en_US">
-			<Text>[ICON_CULTURE] Culture +1 for mines with Bronze Working.[NEWLINE][NEWLINE][ICON_INFLUENCEPERTURN] Influence per turn +1 per Workshop and Recruiting a [ICON_GREATENGINEER] Great Engineer grants 1 [ICON_ENVOY] envoy.[NEWLINE][NEWLINE][ICON_STRENGTH] Combat Strength +1 per type of vassalized City-State.</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION_DLC" Language="en_US">
-			<Text>[ICON_CULTURE] Culture +1 for mines with Bronze Working.[NEWLINE][NEWLINE][ICON_INFLUENCEPERTURN] Influence per turn +1 per Workshop and Recruiting a [ICON_GREATENGINEER] Great Engineer grants 1 [ICON_ENVOY] envoy.[NEWLINE][NEWLINE][ICON_STRENGTH] Combat Strength +1 per type of vassalized City-State.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_SUK_GALLIC_WAR_COMBAT_DESCRIPTION" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength +1 per type of vassalized City-State.</Text>
-		</Replace>
-		<!-- = unique district = -->
-		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Gaul that is cheaper and available earlier than the district it replaces, the Industrial Zone. The Oppidum district is defensible with a ranged attack.[NEWLINE][NEWLINE]+2 [ICON_PRODUCTION] Production adjacency bonus from Quarries and Strategic resources. Triggers a Culture Bomb of unowned territory when completed.</Text>
-		</Replace>
-		<!-- = unique unit = -->
-		<Replace Tag="LOC_ABILITY_GAESATAE_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_STRENGTH] Combat Strength against units with a higher base Combat Strength.[NEWLINE][ICON_BULLET] +5 [ICON_STRENGTH] Combat Strength vs. district defenses.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="en_US">
-			<Text>King of the Éburons</Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
-		</Replace>
-<!-- == MACEDON == -->
-		<!-- = civilization ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_DESCRIPTION" Language="en_US">
-			<Text>Receive boosts upon city conquest: +20% [ICON_PRODUCTION] Production in all cities for 10 [ICON_TURN] turns, as well as a [ICON_TechBoosted] Eureka for each Encampment or Campus in the conquered city and an [ICON_CivicBoosted] Inspiration for each Holy Site or Theater Square.[NEWLINE][ICON_BULLET]Bias: None.</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_HELLENISTIC_FUSION_EXPANSION1_DESCRIPTION" Language="en_US">
-			<Text>Receive boosts upon city conquest: +20% [ICON_PRODUCTION] Production in all cities for 10 [ICON_TURN] turns, as well as a [ICON_TechBoosted] Eureka for each Encampment or Campus in the conquered city and an [ICON_CivicBoosted] Inspiration for each Holy Site or Theater Square.[NEWLINE][ICON_BULLET]Bias: None.</Text>
-		</Replace>
-		<!-- = leader ability (Alexander) = -->
-		<Replace Tag="LOC_TRAIT_LEADER_TO_WORLDS_END_DESCRIPTION" Language="en_US">
-			<Text>Combat victories provide [ICON_SCIENCE] Science equal to 20% of the [ICON_STRENGTH] Combat Strength of the defeated unit (on Online speed). Cities do not incur war weariness. All military units heal completely when this player captures a city with a world wonder. Gain the Hetairoi unique unit when they research the Horseback Riding technology.</Text>
-		</Replace>
-        <!-- = leader ability (Olympia) = -->
-		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_DESCRIPTION" Language="en_US">
-			<Text>Receives an [ICON_ENVOY] envoy from founding a Pantheon. Assigning [ICON_ENVOY] envoys to city states grants [ICON_GreatGeneral] great general and [ICON_GreatProphet] prophet points, doubling if militaristic or religious. [NEWLINE]Cities with a Basilikoi and following Olympia's [ICON_RELIGION] religion give 1 [ICON_SCIENCE] science per [ICON_CITIZEN] population and get 1 [ICON_ENVOY] envoy. +2 [ICON_STRENGTH] Combat Strength in attack per suzed city state for melee and heavy cavalry units.</Text>
-        </Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_NAME" Language="en_US">
-		<Text>Cabeiri Mysteries</Text>
-        </Replace>
-		<!-- = unique unit = -->
-		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="en_US">
-			<Text>Macedonian unique melee unit that replaces the Swordsman. +10 [ICON_STRENGTH] Combat Strength when besieging districts. Receives +50% Additional Support Bonus.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_HYPASPIST_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_STRENGTH] Combat Strength when besieging districts.[NEWLINE][ICON_BULLET] +50% Support Bonus.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_HYPASPIST_SIEGE_BONUS_DESCRIPTION" Language="en_US">
-			<Text>+10 [ICON_STRENGTH] Combat Strength when besieging a district</Text>
-		</Replace>
-		<!-- = unique unit = -->
-		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="en_US">
-			<Text>Macedonian unique classical era heavy cavalry unit unlocked at Horseback Riding when Alexander is their leader. Additional +5 [ICON_STRENGTH] Combat Strength when adjacent to a [ICON_GREATGENERAL] Great General from any era. +5 [ICON_GREATGENERAL] Great General points when killing an enemy unit. Starts with [ICON_PROMOTION] free Promotion.</Text>
-		</Replace>
-		<!-- = unique building = -->
-		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_DESCRIPTION" Language="en_US">
-			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 20% of the unit's [ICON_PRODUCTION] Production cost when a non-civilian unit is trained in this city.[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>A building unique to Macedon. +25% combat experience for all melee, ranged land units, and Hetairoi trained in this city. Gain [ICON_SCIENCE] Science equal to 20% of the unit's [ICON_PRODUCTION] Production cost when a non-civilian unit is trained in this city.[NEWLINE][NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed).[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.[NEWLINE][NEWLINE]+2 [ICON_RESOURCE_IRON] Iron per turn once discovered.</Text>
-		</Replace>
-<!-- == MAYA == -->
-		<!-- = civilization ability = -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAYAB_DESCRIPTION" Language="en_US">
-			<Text>Settling adjacent to Fresh Water and Coast does not provide extra [ICON_HOUSING] Housing. The Palace receives +1 [ICON_HOUSING] Housing. +1 [ICON_AMENITIES] Amenity for every Luxury adjacent to the City Center.[NEWLINE][NEWLINE]Farms provides an additional +1 [ICON_HOUSING] Housing, +1 [ICON_PRODUCTION] Production for every adjacent Observatory, and +1 [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Plantations provide +1 [ICON_SCIENCE] Science for each adjacent Observatory and an additional +1 [ICON_SCIENCE] Science with Education.[NEWLINE][NEWLINE][ICON_BULLET]Bias: T3 Plantation Luxuries, T4 Bananas. Special "Hydrophobic".</Text>
-		</Replace>
-		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="en_US">
-			<Text>Non-capital cities within 6 tiles of the [ICON_CAPITAL] Capital gain +5% to all yields. Other non-capital cities receive -10% to all yields.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL_DESCRIPTION" Language="en_US">
-			<Text>+3 [ICON_STRENGTH] Combat Strength to units within 6 tiles of the [ICON_CAPITAL] Capital</Text>
-		</Replace>
-		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_DESC" Language="en_US">
-			<Text>Receive -2 [ICON_STRENGTH] combat strength for all units within six tiles of its [ICON_CAPITAL] capital. Units outside of this circle receive +4 [ICON_STRENGTH] combat strength. Units heal 5hp and gain 2 experience points upon completing an [ICON_TechBoosted] eureka.</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_NAME" Language="en_US">
-            <Text>Wrath of Venus</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_NAME" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength -2 (Wrath of Venus)</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_DESC" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength -2 (Wrath of Venus)</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_NAME" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength +4 (Wrath of Venus)</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_DESC" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength +4 (Wrath of Venus)</Text>
-		</Replace>
-		<!-- = unique district = -->
-		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="en_US">
-
-			<Text>A district unique to Maya that replaces the Campus and has unique adjacencies.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science for each adjacent Plantation.[NEWLINE]+1 [ICON_SCIENCE] Science for every two adjacent Farm or district tiles.[NEWLINE]+2 [ICON_SCIENCE] Science for each adjacent Geothermal Fissure.[NEWLINE]+1 [ICON_HOUSING] Housing.</Text>
-		</Replace>
-<!-- == PHOENICIA == -->
-		<!-- = civilization ability = -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_MEDITERRANEAN_COLONIES_DESCRIPTION" Language="en_US">
-			<Text>Begin the game with the Writing technology [ICON_TechBoosted] Eureka. Coastal cities founded by Phoenicia and located on the same continent as the Phoenician [ICON_CAPITAL] Capital are 100% Loyal. Settlers gain +2 [ICON_MOVEMENT] Movement and +2 sight range while embarked. Settlers ignore additional [ICON_MOVEMENT] Movement costs from embarking and disembarking.[NEWLINE][ICON_BULLET]Bias: T1 Coast.</Text>
-		</Replace>
-		<!-- = leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_FOUNDER_CARTHAGE_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_TRADEROUTE] Trade Route capacity for each Government Plaza building. +50% [ICON_PRODUCTION] Production toward [ICON_DISTRICT] districts in the city with the Government Plaza.</Text>
-		</Replace>
-        <!-- = leader ability = -->
-        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_DESCRIPTION" Language="en_US">
-            <Text>International [ICON_TRADEROUTE] trade routes provides +0.5 [ICON_PRODUCTION] Production  and +2 [ICON_GOLD] Gold for each Luxury resource in the originating Phoenician city. Unlock the Royal Tomb unique building.</Text>
-        </Replace>
-        <Replace Tag="LOC_TRAIT_LEADER_LIME_PHOE_AHIRAM_MERCHANT_PRINCES_NAME" Language="en_US">
-		<Text>Merchant Princes</Text>
-        </Replace>
-		<!-- = unique district = -->
-		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Phoenicia for naval activity in your city. Replaces the Harbor district and cheaper to build. Must be built on Coast or Lake Terrain adjacent to land.[NEWLINE][NEWLINE]+25% [ICON_PRODUCTION] Production towards naval units and Settlers in this city.</Text>
-		</Replace>
-        <!-- = unique building = -->
-        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_DESCRIPTION" Language="en_US">
-            <Text>Replaces the Library. +2 base [ICON_SCIENCE] Science, Provides bonus [ICON_GOLD] Gold equal to the adjacency [ICON_SCIENCE] Science bonus of its district. [NEWLINE] Doesn't cost maintenance.</Text>
-	    </Replace>
-        <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_NAME" Language="en_US">
-	        <Text>Royal Tomb</Text>
-        </Replace>
-<!-- == SWAHILI == -->
-		<!-- = Civilization ability -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_NAME" Language="en_US">
-			<Text>Coral Construction</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION" Language="en_US">
-			<Text>Coastal cities gain +25% [ICON_PRODUCTION] Production for districts.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 for unimproved reefs with Sailing.[NEWLINE][NEWLINE]Bias: T1 Coast.</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_CORAL_CONSTRUCTION_DESCRIPTION_XP1" Language="en_US">
-			<Text>Coastal cities gain +25% [ICON_PRODUCTION] Production for districts.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 for unimproved reefs with Sailing.[NEWLINE][NEWLINE]Bias: T1 Coast.</Text>
-		</Replace>
-		<!-- = Leader ability -->
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_NAME" Language="en_US">
-			<Text>Palace of Husuni Kubwa</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_DESCRIPTION" Language="en_US">
-			<Text>[ICON_TRADEROUTE] Trade route capacity +1 for each Harbor adjacent to a World Wonder.</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_HUSUNI_KUBWA_XP2_DESCRIPTION" Language="en_US">
-			<Text>[ICON_TRADEROUTE] Trade route capacity +1 for each Harbor adjacent to a World Wonder.</Text>
-		</Replace>
-		<!-- = Unique unit -->
-		<Replace Tag="LOC_UNIT_SUK_JAHAZI_NAME" Language="en_US">
-			<Text>Jahazi</Text>
-		</Replace>
-		<Replace Tag="LOC_UNIT_SUK_JAHAZI_DESCRIPTION" Language="en_US">
-			<Text>Exclusive to the Swahili, this ancient era support naval unit can set up a fishing boat, which will provide +3 [ICON_GOLD] Gold (2 [ICON_CHARGES] Charges). Units embarked within 2 tiles gain 1 [ICON_MOVEMENT] Movement Point and ignore terrain costs. Can be captured.</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_NAME" Language="en_US">
-			<Text>[ICON_MOVEMENT] Movement Point +1</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_DESCRIPTION" Language="en_US">
-			<Text>[ICON_MOVEMENT] Movement Point +1</Text>
-		</Replace>
-		<!-- = Unique building -->
-		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_NAME" Language="en_US">
-			<Text>Pillar Tomb</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_DESCRIPTION" Language="en_US">
-			<Text>This building replaces the Monument.[NEWLINE][NEWLINE]Loyalty +1. If Loyalty is already at maximum, [ICON_CULTURE] Culture +1.[NEWLINE][ICON_GOLD] Gold +2 and [ICON_SCIENCE] Science +1 for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 6 districts).</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_XP1_DESCRIPTION" Language="en_US">
-			<Text>This building replaces the Monument.[NEWLINE][NEWLINE]Loyalty +1. If Loyalty is already at maximum, [ICON_CULTURE] Culture +1.[NEWLINE][ICON_GOLD] Gold +2 and [ICON_SCIENCE] Science +1 for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 6 districts).</Text>
-		</Replace>
-<!-- = TEOTIHUACAN = -->
-		<!-- = Civilization ability -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_NAME" Language="en_US">
-			<Text>Where Men Become Gods</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_DESC" Language="en_US">
-			<Text>International [ICON_TRADEROUTE] trade routes receive additional yields based on the type of your vassalized City-States.[NEWLINE]+1 [ICON_FOOD] Food for Religious, +1 [ICON_PRODUCTION] for Millitaristic and Industrial, +3 [ICON_GOLD] golds for Commercial, +1 [ICON_SCIENCE] Science for Scientific, +1 [ICON_CULTURE] Culture for Cultural. [NEWLINE]Tripled if you are the suzerain of 2 City-States of the same type.</Text>
-		</Replace>
-		<!-- = Leader ability -->
-		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_NAME" Language="en_US">
-			<Text>Lord of the West</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="en_US">
-			<Text>[ICON_TRADEROUTE]Trade route capacity +1 for the Pochtecatl Enclave and the Chancellery. Unlocks the unique [ICON_GOVERNOR]Governor Fire is Born.</Text>
-		</Replace>
-		<!-- = Unique unit -->
-		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="en_US">
-			<Text>Ehuatl Wearer</Text>
-		</Replace>
-		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_DESC" Language="en_US">
-			<Text>Unique Swordsman unlocked at Political Philosophy,+1 base vision and doesn't need [ICON_RESOURCE_IRON] iron.</Text>
-		</Replace>
-		<!-- = Unique district -->
-		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_NAME" Language="en_US">
-			<Text>Pochteca Enclave</Text>
-		</Replace>
-		<Replace Tag="LOC_DISTRICT_LIME_TEO_TOLLAN_DESC" Language="en_US">
-			<Text>Unlocked at Political Philosophy, replacing the Diplomatic Quarter.[NEWLINE][NEWLINE]Does not count towards district limit based on [ICON_CITIZEN] population and does not provide yields on internal [ICON_TRADEROUTE] trade routes.</Text>
-		</Replace>
-        <!-- == FIRE IS BORN == -->
-		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_NAME" Language="en_US">
-			<Text>Fire is Born</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_TITLE" Language="en_US">
-			<Text>The Emissary</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVERNOR_LIME_TEO_OWL_EMISSARY_SHORT_TITLE" Language="en_US">
-			<Text>The Emissary</Text>
-		</Replace>		
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_NAME" Language="en_US"> <!-- M0 -->
-			<Text>Arrival of Strangers</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_DESC" Language="en_US"> <!-- M0 -->
-			<Text>May be assigned to a City-State, where it provides 1 [ICON_ENVOY] envoy. Friendly units inside this City-State borders gain +5 [ICON_STRENGTH] Combat strength.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_NAME" Language="en_US"> <!-- L1 -->
-			<Text>Waka Outpost</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_DESC" Language="en_US"> <!-- L1 -->
-			<Text>While established in a City State, provides a tradeable copy of its Luxury resources.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_NAME" Language="en_US"> <!-- L2 -->
-			<Text>Fall of Jaguar Paw</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_DESC" Language="en_US"> <!-- L2 -->
-			<Text>If you're sending a [ICON_TRADEROUTE] traderoute to this City-State, [ICON_ENVOY] envoys sent count as two.[NEWLINE][ICON_PRODUCTION] Production +25% for Commercial Hub buildings in your cities within a 15-tile radius.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_NAME" Language="en_US"> <!-- R1 -->
-			<Text>Petén Expedition</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_DESC" Language="en_US"> <!-- R1 -->
-			<Text>[ICON_STRENGTH] Combat Strength +10 for this City-state's garrison.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_NAME" Language="en_US"> <!-- R2 -->
-			<Text>Assault on Uaxactun</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OVERSEER_DESC" Language="en_US"> <!-- R2 -->
-			<Text>Levied units within 10 tiles of this City-state receive +5 [ICON_STRENGTH] Combat Strength.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_NAME" Language="en_US"> <!-- R2 -->
-			<Text>[ICON_STRENGTH] Combat Strength +5 for levied units (Assault on Uaxactun)</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_LEVIED_UNIT_COMBAT_ABILITY_DESC" Language="en_US"> <!-- R2 -->
-			<Text>[ICON_STRENGTH] Combat Strength +5 for levied units (Assault on Uaxactun)</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_NAME" Language="en_US"> <!-- M3 -->
-			<Text>Overseer of Kings</Text>
-		</Replace>
-		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_HEGEMONY_DESC" Language="en_US"> <!-- M3 -->
-			<Text>[ICON_FAVOR] Diplomatic Favor +2 per vassaliszed City-State.</Text>
-		</Replace>
-<!-- = THULE = -->
-		<!-- = Civilization ability = -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_NAME" Language="en_US">
-			<Text>Hunting of the Bowhead</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_DESCRIPTION" Language="en_US">
-			<Text>Hunter's House provide additional yields to adjacent tiles.[NEWLINE][ICON_FOOD] Food +1 for Tundra tiles (doubled for snow), [ICON_FOOD] Food +1 and [ICON_PRODUCTION] Production +1 for Camps and Fishing Boats.[NEWLINE][NEWLINE]Builders can consume one [ICON_CHARGES] Charge and one [ICON_CITIZEN] Citizen to create a [ICON_RESOURCE_WHALES] Whales tile.[NEWLINE][NEWLINE]Bias: T2 Coast / T1 Tundra.</Text>
-		</Replace>
-		<!-- = Leader ability = -->
-		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_NAME" Language="en_US">
-			<Text>Heart not stone</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_DESCRIPTION" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength +5 and [ICON_MOVEMENT] Movement +1 for Recon units starting their turn on Tundra or Snow tiles.</Text>
-		</Replace>
-		<Replace Tag="LOC_LIME_RECON_ABILITY_NAME" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength +5 (Heart not stone)</Text>
-		</Replace>
-		<Replace Tag="LOC_LIME_RECON_ABILITY_DESCRIPTION" Language="en_US">
-			<Text>[ICON_STRENGTH] Combat Strength +5 (Heart not stone)</Text>
-		</Replace>
-		<!-- = Unique unit = -->
-		<Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_NAME" Language="en_US">
-			<Text>Dogsled Hunter</Text>
-		</Replace>
-		<Replace Tag="LOC_UNIT_LIME_THULE_DOGSLED_DESCRIPTION" Language="en_US">
-			<Text>Thule unique Ancient era ranged Recon unit, replacing the Scout.[NEWLINE][NEWLINE]Has 1 [ICON_CHARGES] Charge to establish a Hunter's House.</Text>
-		</Replace>
-		<!-- = Unique improvement = -->
-		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_NAME" Language="en_US">
-			<Text>Hunter's House</Text>
-		</Replace>
-		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_DESCRIPTION" Language="en_US">
-			<Text>Unique improvement for Thule, unlocked at Sailing.[NEWLINE][NEWLINE][ICON_FOOD] Food +1 if built on a Tundra tile (doubled on snow), [ICON_CULTURE] Culture +1 and [ICON_FAITH] Faith +1 for each adjacent sea resource and Camp tile.[NEWLINE]Must be built adjacent to a resource tile. Can be placed on forests.</Text>
-		</Replace>
-<!-- = TIBET = -->
-		<!-- = Civilization ability -->
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_NAME_XP2" Language="en_US">
-			<Text>Roof of the World</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_DESCRIPTION_XP2" Language="en_US">
-			<Text>Citizens may work mountain tiles. Mountain tiles gain additional yields for each district within 2 tiles:[NEWLINE][ICON_FOOD] Food +2 per City Center, [ICON_PRODUCTION] Production +1 per Industrial Zone, [ICON_GOLD] Gold +1 per Harbor and Commercial Hub, [ICON_SCIENCE] Science +1 per Campus, [ICON_CULTURE] Culture +1 per Theater Square, [ICON_FAITH] Faith +1 per Holy Site.[NEWLINE][NEWLINE]Can purchase buildings in specialty districts adjacent to a mountain tile with [ICON_FAITH] Faith.[NEWLINE][NEWLINE][ICON_FAITH] Faith +5% in cities with a [ICON_GOVERNOR] governor for each promotion it has.[NEWLINE][NEWLINE]Bias: T3 Mountains (plain, grassland, and tundra).</Text>
-		</Replace>
-		<!-- = Leader ability -->
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_NAME" Language="en_US">
-			<Text>Capture of Chang'an</Text>
-		</Replace>
-		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_DESCRIPTION" Language="en_US">
-			<Text>Founding a [ICON_RELIGION] religion grants a [ICON_GOVERNOR] governor title.[NEWLINE][NEWLINE]Land military units trained in a city with an Encampment and a Temple start with a [ICON_PROMOTION] promotion.</Text>
-		</Replace>
-		<!-- = Unique unit -->
-		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_NAME" Language="en_US">
-			<Text>Rta Pa</Text>
-		</Replace>
-		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_DESCRIPTION" Language="en_US">
-			<Text>Tibet unique Renaissance era ranged cavalry unit unlocked at Astronomy.[NEWLINE][NEWLINE][ICON_RANGE] Range: +1, can move after attacking, no movement penalty on hills.</Text>
-		</Replace>
-		<!-- = Unique district -->
-		<Replace Tag="LOC_DISTRICT_SUK_DZONG_NAME" Language="en_US">
-			<Text>Dzong</Text>
-		</Replace>
-		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Tibet that replaces the [ICON_DISTRICT_HOLYSITE] Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Occupying units receives +5 [ICON_STRENGTH] Defensive Combat Strength.[NEWLINE]Buildings in the Dzong are 20% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith.</Text>
-		</Replace>
-		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION_XP2" Language="en_US">
-			<Text>A district unique to Tibet that replaces the [ICON_DISTRICT_HOLYSITE] Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Occupying units receives +5 [ICON_STRENGTH] Defensive Combat Strength.[NEWLINE]Buildings in the Dzong are 20% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith.</Text>
-		</Replace>
-		
 	</LocalizedText>
 </GameData>
