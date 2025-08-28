@@ -117,6 +117,7 @@ UPDATE Units SET BaseSightRange=3, Cost=90, PrereqCivic='CIVIC_POLITICAL_PHILOSO
 -- ========================================================================
 
 DELETE FROM DistrictModifiers WHERE ModifierId IN ('MOD_LIME_TOLLAN_ATTACH_TRADE_ROUTE', 'MOD_LIME_TOLLAN_ATTACH_DISTRICT_ROUTE');
+DELETE FROM BuildingModifiers WHERE ModifierId IN ('MOD_LIME_TOLLAN_ATTACH_WONDER_ROUTE');
 
 -- 30/07/25 UD & Chancery give trader capacity
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
