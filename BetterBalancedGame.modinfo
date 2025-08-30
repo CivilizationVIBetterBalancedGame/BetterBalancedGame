@@ -349,6 +349,14 @@
 			<Criteria>NO_BBGTS</Criteria>
 			<File>scripts/bbg_uitogameplay.xml</File>
 		</AddUserInterfaces>
+
+		<AddUserInterfaces id="bbg_uitogameplay_fireisborn_dummy_xml">
+			<Properties>
+				<Context>InGame</Context>
+			</Properties>
+			<Criteria>NO_BBGTS</Criteria>
+			<File>scripts/bbg_uitogameplayfireisborn.xml</File>
+		</AddUserInterfaces>
 		
 		<!-- BBCC-->
 		<!-- Script is integrated in BBG beta at the moment for performance increase
@@ -361,6 +369,11 @@
 		<ImportFiles id="bbg_uitogameplay_lua">
 			<Criteria>NO_BBGTS</Criteria>
 			<File>scripts/bbg_uitogameplay.lua</File>
+		</ImportFiles>
+
+		<ImportFiles id="bbg_uitogameplay_fireisborn_lua">
+			<Criteria>NO_BBGTS</Criteria>
+			<File>scripts/bbg_uitogameplayfireisborn.lua</File>
 		</ImportFiles>
 
 		<!-- -->
@@ -1195,6 +1208,7 @@
       		<File>lua/BBG_Expanded/Te_Kinich.lua</File>
       		<File>lua/BBG_Expanded/Al_Hasan.lua</File>
       		<File>lua/BBG_Expanded/Olympia.lua</File>
+			<File>lua/BBG_Expanded/Spearthrower.lua</File>
     	</AddGameplayScripts>
 	</InGameActions>
 
@@ -1203,6 +1217,8 @@
 		<!--ui to gameplay mechanism-->
 		<File>scripts/bbg_uitogameplay.xml</File>
 		<File>scripts/bbg_uitogameplay.lua</File>
+		<File>scripts/bbg_uitogameplayfireisborn.xml</File>
+		<File>scripts/bbg_uitogameplayfireisborn.lua</File>
 
 		<File>scripts/bbg_script.lua</File>
 		<!-- Integrated in BBG beta inside bbg script
@@ -1408,6 +1424,7 @@
       	<File>lua/BBG_Expanded/Te_Kinich.lua</File>
       	<File>lua/BBG_Expanded/Al_Hasan.lua</File>
       	<File>lua/BBG_Expanded/Olympia.lua</File>
+		<File>lua/BBG_Expanded/Spearthrower.lua</File>
 		<!-- -->
 		<File>sql/Secret_Societies.sql</File>
 		<!-- -->
