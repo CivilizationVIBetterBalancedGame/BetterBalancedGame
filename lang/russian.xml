@@ -13,25 +13,26 @@
 		<!-- === COMBAT DESCRIPTIONS - ОПИСАНИЕ БОЕВЫХ БОНУСОВ === -->
 		<!-- === GOVERNORS - ГУБЕРНАТОРЫ === -->
 		<!-- === PANTHEONS - ПАНТЕОНЫ === -->
-		<!-- === RELIGIOUS BELIEFS === -->
-		<!-- === IMPROVEMENTS === -->
+		<!-- === RELIGIOUS BELIEFS - РЕЛИГИОЗНЫЕ ВЕРОВАНИЯ === -->
+		<!-- === IMPROVEMENTS - УЛУЧШЕНИЯ === -->
 		<!-- === DISTRICTS - РАЙОНЫ === -->
 		<!-- === BUILDINGS - ЗДАНИЯ === -->
-		<!-- === WORLD WONDERS === -->
-		<!-- === NATURAL WONDERS === -->
-		<!-- === CITY-STATES === -->
+		<!-- === NATURAL WONDERS - ЧУДЕСА ПРИРОДЫ === -->
+		<!-- === WORLD WONDERS - ЧУДЕСА СВЕТА === -->
+		<!-- === CITY-STATES - ГОРОДА-ГОСУДАРСТВА === -->
 		<!-- === AGES - ЗОЛОТЫЕ ВЕКА === -->
-		<!-- === SCIENCE TREE DESCRIPTIONS === -->
-		<!-- === CULTURE TREE DESCRIPTIONS === -->
+		<!-- === SCIENCE TREE DESCRIPTIONS - ОПИСАНИЯ ДРЕВА ТЕХНОЛОГИЙ === -->
+		<!-- === CULTURE TREE DESCRIPTIONS - ОПИСАНИЕ ДРЕВА СОЦ. ИНСТИТУТОВ === -->
 		<!-- === GOVERNMENTS - ПРАВИТЕЛЬСТВА === -->
 		<!-- === POLICIES - КАРТЫ ПОЛИТИКИ === -->
-		<!-- === GREAT PEOPLE === -->
-		<!-- === ALLIANCES === -->
-		<!-- === WORLD CONGRESS === -->
-		<!-- === SPLASH TEXT === -->
-		<!-- === CIVILOPEDIA === -->
+		<!-- === GREAT PERSONS - ВЕЛИКИЕ ЛЮДИ === -->
+		<!-- === ALLIANCES - СОЮЗЫ === -->
+		<!-- === WORLD CONGRESS - ВСЕМИРНЫЙ КОНГРЕСС === -->
+		<!-- === SPLASH TEXT - РАЗНЫЕ ТЕКСТЫ === -->
 		<!-- === RESOURCES - РЕСУРСЫ === -->
+		<!-- === CUSTOM CITIES - КАСТОМНЫЕ ГОРОДА === -->
 		<!-- === FRONTEND, MENU, AND VICTORIES === -->
+		<!-- === CIVILOPEDIA === -->
 		<!-- === BETTER CITY YIELDS (BCY) === -->
 
 
@@ -1697,7 +1698,7 @@
 			<Text>Туле</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVILIZATION_LIME_THULE_DESCRIPTION" Language="ru_RU">
-			<Text>Традиции Туле</Text>
+			<Text>Туле</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVILIZATION_LIME_THULE_ADJECTIVE" Language="ru_RU">
 			<Text>Туле</Text>
@@ -1717,10 +1718,10 @@
 		</Replace>
 		<!-- Civilization ability -->
 		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_NAME" Language="ru_RU">
-			<Text>Сердце - не камень</Text>
+			<Text>Сердце - не из камня</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_DESCRIPTION" Language="ru_RU">
-			<Text>Юниты разведки, начинающие ход в тундре, получают +1 [ICON_MOVEMENT] очко передвижения и +5 [ICON_STRENGTH] боевой мощи. </Text>
+			<Text>Юниты разведки, начинающие ход на клетке тундры или снега, получают +1 [ICON_MOVEMENT] очко передвижения и +5 [ICON_STRENGTH] боевой мощи.[NEWLINE][ICON_BULLET]Привязка: T1 — тундра, Т2 - побережье.</Text>
 		</Replace>
 		<!-- Hunter's house-->
 		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_NAME" Language="ru_RU">
@@ -1740,7 +1741,7 @@
 			<Text>Сердце - не из камня</Text>
 		</Replace>
 		<Replace Tag="LOC_LIME_RECON_ABILITY_DESCRIPTION" Language="ru_RU">
-			<Text>Разведовательные юниты имеют +1 [ICON_MOVEMENT] передвижение и +5 [ICON_STRENGTH] боевой мощи на Тундре и Снеге (включая холмы)</Text>
+			<Text>+1 [ICON_MOVEMENT] очко передвижения и +5 [ICON_STRENGTH] боевой мощи, если ход начат на клетках тундры или снега (Сердце - не из камня)</Text>
 		</Replace>
 
 		<!-- == VIETNAM == -->.
@@ -4448,7 +4449,7 @@
 		<Replace Tag="LOC_PROMOTION_AMBUSH_DESCRIPTION" Language="ru_RU">
 			<Text>+15 [ICON_Strength] боевой мощи во всех ситуациях.</Text>
 		</Replace>
-		<!-- == Наземынй ближний бой == -->
+		<!-- == Наземный ближний бой == -->
 		<Replace Tag="LOC_ABILITY_ANTI_SPEAR_DESCRIPTION" Language="ru_RU">
 			<Text>+10 к [ICON_Strength] Боевой мощи против антикавалерийских юнитов.</Text>
 		</Replace>
@@ -4486,6 +4487,9 @@
 			<Text>+5 [ICON_Strength] к боевой мощи против морских юнитов.</Text>
 		</Replace>
 		<!-- == Морской дальний бой == -->
+		<Replace Tag="LOC_PROMOTION_LINE_OF_BATTLE_DESCRIPTION" Language="en_US">
+			<Text>+5 [ICON_Strength] к боевой мощи против морских юнитов.</Text>
+		</Replace>
 		<!-- == Морские рейдеры == -->
 		<Replace Tag="LOC_PROMOTION_BOARDING_DESCRIPTION" Language="ru_RU">
 			<Text>Получает [ICON_Gold] золото, равное 50% [ICON_Strength] боевой мощи побежденного морского юнита (на сетевой скорости).</Text>
@@ -4860,7 +4864,7 @@
 
 
 
-		<!-- === BELIEFS === -->
+		<!-- === RELIGIOUS BELIEFS - РЕЛИГИОЗНЫЕ ВЕРОВАНИЯ === -->
 		<Replace Tag="LOC_BELIEF_FEED_THE_WORLD_EXPANSION2_DESCRIPTION" Language="ru_RU">
 			<Text>Святилища приносят +2 [ICON_FOOD] пищи и +1 [ICON_HOUSING] жилья, храмы приносят +4 [ICON_FOOD] пищи и +1 [ICON_HOUSING] жилья.</Text>
 		</Replace>
@@ -4970,7 +4974,7 @@
 
 
 
-		<!-- === IMPROVEMENTS === -->
+		<!-- === IMPROVEMENTS - УЛУЧШЕНИЯ === -->
 		<Replace Tag="LOC_IMPROVEMENT_PLANTATION_DESCRIPTION" Language="ru_RU">
 			<Text>Позволяет строителям строить плантации.[NEWLINE][NEWLINE]+2 [ICON_Gold] золота. +1 [ICON_PRODUCTION] если построена на плоской клетке.[NEWLINE][NEWLINE]Если построена на ресурсе роскоши, город начнёт получать единицу этого ресурса.</Text>
 		</Replace>
@@ -5121,7 +5125,7 @@
 
 
 
-		<!-- === NATURAL WONDERS === -->
+		<!-- === NATURAL WONDERS - ЧУДЕСА ПРИРОДЫ === -->
 		<Replace Tag="LOC_FEATURE_BERMUDA_TRIANGLE_DESCRIPTION" Language="ru_RU">
 			<Text>Чудо природы на три клетки. Входящие юниты переносятся к далекому океану. Если это морские юниты, они получают способность "Загадочные течения" (+1 к [ICON_Movement] перемещению).</Text>
 		</Replace>
@@ -5236,7 +5240,7 @@
 
 
 
-		<!-- === WORLD WONDERS === -->
+		<!-- === WORLD WONDERS - ЧУДЕСА СВЕТА === -->
 		<Replace Tag="LOC_BUILDING_BROADWAY_DESCRIPTION" Language="ru_RU">
 			<Text>+20% [ICON_Culture] культуры в этом городе. 1 бесплатное [ICON_CivicBoosted] вдохновение Эпохи атома. Можно построить только на ровном участке, рядом с театральной площадью.</Text>
 		</Replace>
@@ -5323,10 +5327,9 @@
 		</Replace>
 
 
-
-		<!-- === CITY-STATES === -->
-		<!-- Cultural -->
-		<!-- AYUTTHAYA -->
+		<!-- === CITY-STATES - ГОРОДА-ГОСУДАРСТВА === -->
+		<!-- Культурные -->
+		<!-- Ayutthaya -->
 		<Replace Tag="LOC_LEADER_TRAIT_AYUTTHAYA_DESCRIPTION" Language="ru_RU">
 			<Text>После постройки зданий дает [ICON_CULTURE] культуру в объеме 20% от стоимости строительства.</Text>
 		</Replace>
@@ -5361,7 +5364,8 @@
 		<Replace Tag="LOC_LEADER_TRAIT_RAPA_NUI_DESCRIPTION" Language="ru_RU">
 			<Text>Теперь ваши строители могут строить моаи.[NEWLINE][NEWLINE]Моаи дает +1 [ICON_Culture] к культуре. +1 [ICON_Culture] к культуре за каждые 2 соседних моаи. +2 [ICON_Culture] к культуре на клетках вулканической почвы или рядом с ними. +1 [ICON_Culture] к культуре рядом с клетками побережья или озера. Дополнительная [ICON_Culture] культура и [ICON_Tourism] туризм по мере продвижения по дереву технологий и социальных институтов. Можно построить на равнинах и лугах (с холмами или без них), а также на вулканической почве.</Text>
 		</Replace>
-		<!-- Industrial -->
+		
+		<!-- Промышленные -->
 		<!-- = Auckland = -->
 		<Replace Tag="LOC_CIVILIZATION_AUCKLAND_BONUS" Language="ru_RU">
 			<Text>Принадлежащие вам обработанные клетки мелководья дают +1 [ICON_Production] производства. Еще +1 по достижении Промышленной эры.</Text>
@@ -5397,7 +5401,8 @@
 		<Replace Tag="LOC_LEADER_TRAIT_SINGAPORE_DESCRIPTION" Language="ru_RU">
 			<Text>Ваши международные [ICON_TradeRoute] торговые пути приносят +2 [ICON_PRODUCTION] производства.</Text>
 		</Replace>
-		<!-- Religious -->
+		
+		<!-- Религиозные -->
 		<!-- Armagh -->
 		<Replace Tag="LOC_CIVILIZATION_ARMAGH_BONUS_XP2" Language="ru_RU">
 			<Text>Теперь ваши строители могут строить монастыри.[NEWLINE][NEWLINE]Монастыри дают +3 [ICON_Faith] веры, +1 [Icon_Food] пищи и +1 [ICON_Housing] жилья. +1 [ICON_Faith] Веры за каждые 2 соседних района (повышается до каждого района после открытия "Реформации"). Дружественный религиозный юнит на этой клетке восстанавливает +15 ОЗ, если на этом ходу не был атакован. Нельзя построить рядом с другим монастырем.</Text>
@@ -5431,14 +5436,15 @@
 		<Replace Tag="LOC_IMPROVEMENT_COLOSSAL_HEAD_EXPANSION2_DESCRIPTION" Language="ru_RU">
 			<Text>Позволяет строителям создавать гигантские головы.[NEWLINE][NEWLINE]+2 [ICON_Faith] веры, +1 [Icon_Food] пищи и +1 [ICON_HOUSING] жилья. +1 [ICON_Faith] веры за каждые 2 соседние клетки тропических лесов, а после открытия гуманизма – за каждую клетку. +1 [ICON_Faith] веры за каждые 2 соседние клетки леса, а после открытия гуманизма – за каждую клетку. [ICON_TOURISM] Туризм за [ICON_FAITH] веру после исследования авиации. Нельзя строить в снегах и на заснеженных холмах.</Text>
 		</Replace>
-		<!-- VATICAN -->
+		<!-- Vatican -->
 		<Replace Tag="LOC_LEADER_TRAIT_VATICAN_CITY_DESCRIPTION" Language="ru_RU">
 			<Text>При активации [ICON_GreatPerson] великого человека он распространяет 400 влияния вашей религии (основанной вами или преобладающей) на города в радиусе 6 клеток.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVILIZATION_VATICAN_CITY_BONUS" Language="ru_RU">
 			<Text>При активации [ICON_GreatPerson] великого человека он распространяет 400 влияния вашей религии (основанной вами или преобладающей) на города в радиусе 6 клеток.</Text>
 		</Replace>
-		<!-- Scientific -->
+		
+		<!-- Научные -->
 		<!-- FEZ -->
 		<Replace Tag="LOC_CIVILIZATION_FEZ_BONUS" Language="ru_RU">
 			<Text>При первом обращении города религиозным юнитом в свою религию вы получаете 10 [ICON_SCIENCE] науки за каждого [ICON_Citizen] жителя.</Text>
@@ -5460,7 +5466,8 @@
 		<Replace Tag="LOC_LEADER_TRAIT_HATTUSA_EXPANSION2_DESCRIPTION" Language="ru_RU">
 			<Text>Дает за ход 2 ед. каждого из изученных стратегических ресурсов.</Text>
 		</Replace>
-		<!-- Militaristic -->
+		
+		<!-- Военные -->
 		<!-- = Granada = -->
 		<Replace Tag="LOC_CIVILIZATION_GRANADA_BONUS_XP2" Language="ru_RU">
 			<Text>Теперь ваши строители могут строить алькасары.[NEWLINE][NEWLINE]Алькасар приносит +2 [ICON_Culture] ед. культуры и +1 [ICON_Production] производства. +1 [ICON_Culture] культуры за каждый соседний военный лагерь. Дает [ICON_SCIENCE] науку в количестве, равном 50% престижа клетки. Находящийся здесь юнит получает +4 к [ICON_Strength] обороноспособности и автоматически получает укрепление на 2 хода. Дает [ICON_TOURISM] туризм после исследования авиации. Нельзя построить рядом с другим алькасаром.</Text>
@@ -5478,7 +5485,7 @@
 		<Replace Tag="LOC_CIVILIZATION_LAHORE_BONUS" Language="ru_RU">
 			<Text>Теперь в городах можно создавать нихангов.[NEWLINE][NEWLINE]Юнит с уникальным деревом повышений. Можно приобрести за [ICON_Faith] веру. Получает +12 [ICON_Strength] боевой мощи за каждое построенное здание в военном лагере в городе, в котором он был создан. Получает бонусы от [ICON_GREATGENERAL] Великого Генерала любой эпохи.</Text>
 		</Replace>
-		<!-- NGAZARGAMU -->
+		<!-- Ngazargamu -->
 		<Replace Tag="LOC_LEADER_TRAIT_NGAZARGAMU_DESCRIPTION" Language="ru_RU">
 			<Text>Стоимость покупки наземных юнитов и юнитов поддержки за [ICON_GOLD] золото и [ICON_Faith] веру уменьшена на 10% за каждое здание в военном лагере в этом городе.</Text>
 		</Replace>
@@ -5492,7 +5499,8 @@
 		<Replace Tag="LOC_CIVILIZATION_PRESLAV_BONUS_XP1" Language="ru_RU">
 			<Text>Ваши города получают +40 Лояльности за ход.</Text>
 		</Replace>
-		<!-- Trade -->
+		
+		<!-- Торговые -->
 		<!-- = Bandar Brunei = -->
 		<Replace Tag="LOC_CIVILIZATION_JAKARTA_BONUS" Language="ru_RU">
 			<Text>Ваши [ICON_TradingPost] торговые посты в иностранных городах дают +1 [ICON_Gold] золота вашим [ICON_TradeRoute] торговым путям, проходящим через или ведущим к этим городам. Ваши международные [ICON_TradeRoute] торговые пути приносят +2 [ICON_Gold] золота.</Text>
@@ -5530,7 +5538,6 @@
 		</Replace>
 
 		<!-- === AGES - ЗОЛОТЫЕ ВЕКА === -->
-
 		<!-- == Free Inquiry - Вольнодумство == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_SCIENTIFIC" Language="ru_RU">
 			<Text>Вольнодумство</Text>
@@ -5582,7 +5589,6 @@
 		</Replace>
 
 		<!-- == Hic Sunt Dracones - Здесь живут драконы == -->
-
 		<Replace Tag="LOC_MOMENT_CATEGORY_EXPLORATION_BONUS_GOLDEN_AGE" Language="ru_RU">
 			<Text>Здесь живут драконы - золотой век:[NEWLINE]+3 ед. [ICON_Citizen] населения в новых городах. +2 [ICON_Movement] ОП для морских и находящихся на борту судна юнитов. При строительстве первых двух районов [ICON_Production] производство в городе увеличивается на 100%.</Text>
 		</Replace>
@@ -5597,7 +5603,6 @@
 		</Replace>
 
 		<!-- == Heartbeat of Steam  - Пульс паровой машины == -->
-
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_5" Language="ru_RU">
 			<Text>«Пульс паровой машины»: каждое построенное здание Промышленной эры или более поздней эпохи прибавляет +2 очка к счету эпохи. Если выбрано в начале золотого века, то дает +10% [ICON_Production] производства при строительстве чудес света Промышленной эры и более поздних эпох. Бонус за соседство кампуса дает не только [ICON_SCIENCE] науку, но и [ICON_PRODUCTION] производство. При выполнении городских проектов [ICON_Production] производство в городах увеличивается на 25%.</Text>
 		</Replace>
@@ -5615,7 +5620,6 @@
 		</Replace>
 
 		<!-- == To Arms! - К Оружию! == -->
-
 		<Replace Tag="LOC_MOMENT_CATEGORY_MILITARY_BONUS_GOLDEN_AGE" Language="ru_RU">
 			<Text>К оружию! - золотой век:[NEWLINE]Дает доступ к особому поводу для войны, за который вам предъявляется на 75% претензий меньше по сравнению с официальной войной. Объявить войну можно сразу после осуждения противника. +2 ед. [ICON_RESOURCE_NITER] селитры, [ICON_RESOURCE_COAL] угля и [ICON_RESOURCE_OIL] нефти в ход после их изучения. +15% [ICON_Production] производства при создании военных юнитов. Военные юниты получают +10 [ICON_Strength] против городов. Каждый поверженный боевой юнит приносит [ICON_GOLD] золото, равное 50% [ICON_Strength] боевой мощи побежденного юнита (на обычной скорости). От Промышленной эпохи до эпохи Атома.</Text>
 		</Replace>
@@ -5630,7 +5634,6 @@
 
 
 		<!-- == Wish You Were Here - Жаль, что тебя здесь нет == -->
-
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_12" Language="ru_RU">
 			<Text>«Жаль, что тебя здесь нет»: каждый обнаруженный артефакт прибавляет +1 очко к счету эпохи. Города с [ICON_Governor] губернаторами получают +50% [ICON_Tourism] туризма от чудес света. Каждый город производит +2 очка [ICON_GreatMusician] Великого Музыканта, число удваивается, если в городе есть Центр вещания. Города с национальным парком получают +1 престижа на всех клетках.</Text>
 		</Replace>
@@ -5649,7 +5652,6 @@
 
 
 		<!-- == Bodyguard of Lies - Под охраной лжи == -->
-
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_11" Language="ru_RU">
 			<Text>«Под охраной лжи»: каждая успешная шпионская операция в городе других цивилизаций прибавляет 1 очко к счету эпохи. Шпионы мгновенно обосновываются во всех вражеских городах. Время выполнения операций против врагов сокращается на 25%.</Text>
 		</Replace>
@@ -5667,7 +5669,6 @@
 		</Replace>
 
 		<!-- == Sky and Stars - Небо и звезды == -->
-
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_10" Language="ru_RU">
 			<Text>«Небо и звезды»: каждый построенный аэродром прибавляет +1 очко к счету эпохи. Каждый нанятый (заработанный или приобретенный) [ICON_GreatPerson] великий человек прибавляет +1 очко к счету эпохи.При выборе в начале золотого века открывает [ICON_TechBoosted] озарения для исследования Умных материалов и Межпланетного полета. +100% очков опыта для всех воздушных юнитов. Алюминиевые рудники приносят на 2 [Icon_RESOURCE_ALUMINUM] алюминия больше.</Text>
 		</Replace>
@@ -5686,13 +5687,13 @@
 
 		<!-- == Automaton Warfare  - Война роботов == -->
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_13" Language="ru_RU">
-			<Text>«Война роботов»: каждый юнит (кроме варваров), уничтоженный с помощью ОБР, прибавляет 1 очко к счету эпохи. При выборе в начале золотого века даёт ОБР в столице, если изучена технология Роботехника. +25% [Icon_Production] производства при создании ОБР. Дает 3 [ICON_Resource_Uranium] ед. урана за ход. [ICON_Resource_Uranium] Урановые рудники дают +1 ед. ресурса за ход. Информационная эра и Эпоха будущего.</Text>
+			<Text>«Война роботов»: каждый юнит (кроме варваров), уничтоженный с помощью ОБР, прибавляет 1 очко к счету эпохи. При выборе в начале золотого века даёт ОБР в столице, если изучена технология Робототехника. +25% [Icon_Production] производства при создании ОБР. Дает 3 [ICON_Resource_Uranium] ед. урана за ход. [ICON_Resource_Uranium] Урановые рудники дают +1 ед. ресурса за ход. Информационная эра и Эпоха будущего.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON" Language="ru_RU">
 			<Text>Война роботов</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_GOLDEN_AGE" Language="ru_RU">
-			<Text>«Война роботов» в золотом веке:[NEWLINE]Создает ОБР в столице, если изучена технология Роботехника. +25% [Icon_Production] производства при создании ОБР. 3 ед. [ICON_Resource_Uranium] урана за ход. [ICON_Resource_Uranium] Урановые рудники дают +1 ед. ресурса за ход.</Text>
+			<Text>«Война роботов» в золотом веке:[NEWLINE]Создает ОБР в столице, если изучена технология Робототехника. +25% [Icon_Production] производства при создании ОБР. 3 ед. [ICON_Resource_Uranium] урана за ход. [ICON_Resource_Uranium] Урановые рудники дают +1 ед. ресурса за ход.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_AUTOMATON_BONUS_NORMAL_AGE" Language="ru_RU">
 			<Text>Бонус устремления «Война роботов»:[NEWLINE]Каждый уничтоженный с помощью ОБР юнит, кроме варваров, прибавляет 1 очко к счету эпохи.</Text>
@@ -5701,7 +5702,7 @@
 			<Text>Бонус устремления «Война роботов»:[NEWLINE]Каждый уничтоженный с помощью ОБР юнит, кроме варваров, прибавляет 1 очко к счету эпохи.</Text>
 		</Replace>
 
-		<!-- === SCIENCE TREE DESCRIPTIONS === -->
+		<!-- === SCIENCE TREE DESCRIPTIONS - ОПИСАНИЯ ДРЕВА ТЕХНОЛОГИЙ === -->
 		<Replace Tag="LOC_TECH_CASTLES_DESCRIPTION" Language="ru_RU">
 			<Text>Бонус к [ICON_Culture] культуре от соседства с Великой стеной. Играя за Францию, вы получаете бесплатного шпиона.</Text>
 		</Replace>
@@ -5752,14 +5753,14 @@
 		</Replace>
 
 
-		<!-- === CULTURE TREE DESCRIPTIONS === -->
+		<!-- === CULTURE TREE DESCRIPTIONS - ОПИСАНИЕ ДРЕВА СОЦ. ИНСТИТУТОВ === -->
 		<!-- == Мастерство == -->
 		<Replace Tag="LOC_BOOST_TRIGGER_CRAFTSMANSHIP" Language="ru_RU">
 			<Text>Обработайте 2 клетки.</Text>
 		</Replace>
 		<!-- == Международная торговля == -->
 		<Replace Tag="LOC_BOOST_TRIGGER_FOREIGN_TRADE" Language="ru_RU">
-			<Text>Создайте скаута.</Text>
+			<Text>Создайте юнита разведки.</Text>
 		</Replace>
 		<!-- == Военная традиция == -->
 		<Replace Tag="LOC_CIVIC_MILITARY_TRADITION_DESCRIPTION" Language="ru_RU">
@@ -5789,8 +5790,6 @@
 		<Replace Tag="BBG_LOC_CIVIC_CULTURAL_HEGEMONY_DESCRIPTION" Language="ru_RU">
 			<Text>+25% к [ICON_Tourism] туризму от любых источников.</Text>
 		</Replace>
-
-
 
 
 		<!-- === GOVERNMENTS - ПРАВИТЕЛЬСТВА === -->
@@ -6088,7 +6087,7 @@
 		</Replace>
 
 
-		<!-- === GREAT PERSONS	 === -->
+		<!-- === GREAT PERSONS - ВЕЛИКИЕ ЛЮДИ === -->
 		<!-- Generals -->
 		<Replace Tag="LOC_GREATPERSON_BOUDICA_ACTIVE" Language="ru_RU">
 			<Text>Создаёт Военного Инженера в вашей [Icon_Capital] столице.</Text>
@@ -6165,7 +6164,7 @@
 		</Replace>
 
 
-		<!-- === ALLIANCES === -->
+		<!-- === ALLIANCES - СОЮЗЫ === -->
 		<Replace Tag="LOC_ALLIANCE_LV1_RESEARCH_EFFECT_2" Language="ru_RU">
 			<Text>+2 [ICON_SCIENCE] науки от [ICON_TradeRoute] торговых путей от вашего союзника</Text>
 		</Replace>
@@ -6196,7 +6195,7 @@
 
 
 
-		<!-- === WORLD CONGRESS === -->
+		<!-- === WORLD CONGRESS - ВСЕМИРНЫЙ КОНГРЕСС === -->
 		<Replace Tag="LOC_WORLD_CONGRESS_IMPROVE_TRADE_WTH_PLAYER_DESC" Language="ru_RU">
 			<Text>Международные [ICON_TradeRoute] Торговые Пути, отправленные к выбранному игроку, приносят +4 [ICON_Gold] Золота отправителю. Выбранный игрок получает +1 [ICON_TradeRoute] ячейку торгового пути.</Text>
 		</Replace>
@@ -6223,13 +6222,12 @@
 		</Replace>
 
 
-		<!-- === SPLASH TEXT === -->
+		<!-- === SPLASH TEXT - РАЗНЫЕ ТЕКСТЫ === -->
 		<Replace Tag="LOC_BBG_METOR_GOODIES_FREE_TECH_DESC" Language="ru_RU">
 			<Text>[COLOR_FLOAT_SCIENCE]2 бесплатных ускорения технологий![ENDCOLOR]</Text>
 		</Replace>
 
 		<!-- === RESOURCES - РЕСУРСЫ === -->
-
 		<Replace Tag="LOC_RESOURCE_P0K_PENGUINS_NAME" Language="ru_RU">
 			<Text>Пингвины</Text>
 		</Replace>
@@ -6247,6 +6245,23 @@
 		</Replace>
 		<Replace Tag="LOC_RESOURCE_P0K_PLUMS_NAME" Language="ru_RU">
 			<Text>Чернослив</Text>
+		</Replace>
+		
+		<!-- === CUSTOM CITIES - КАСТОМНЫЕ ГОРОДА === -->
+		<Replace Tag="LOC_CITY_NAME_KARKAR" Language="ru_RU">
+			<Text>Каркарик|Каркарика|Каркарику|Каркарик|Каркариком|Каркарике</Text>
+			<Gender>masculine</Gender>
+			<Plurality>1</Plurality>
+		</Replace>
+		<Replace Tag="LOC_CITY_NAME_QUSQU" Language="ru_RU">
+			<Text>Кусько|Кусько|Кусько|Кусько|Кусько|Кусько</Text>
+			<Gender>neuter</Gender>
+			<Plurality>1</Plurality>
+        </Replace>
+		<Replace Tag="LOC_CITY_NAME_DEBRECEN" Language="ru_RU">
+			<Text>Добрецен|Добрецена|Добрецену|Добрецен|Добреценом|Добрецене</Text>
+			<Gender>masculine</Gender>
+			<Plurality>1</Plurality>
 		</Replace>
 
 		<!-- === FRONTEND, MENU AND VICTORIES === -->
@@ -6556,29 +6571,12 @@
 			<Text>Чтобы достичь [COLOR:ResMilitaryLabelCS]Военной[ENDCOLOR] победы, вам нужно захватить оригинальные [ICON_Capital] столицы всех других цивилизаций.[NEWLINE][NEWLINE]Рекомендуется иметь сильную армию.</Text>
 		</Replace>
 
-		<Replace Tag="LOC_CITY_NAME_KARKAR" Language="ru_RU">
-			<Text>Каркарик|Каркарика|Каркарику|Каркарик|Каркариком|Каркарике</Text>
-			<Gender>masculine</Gender>
-			<Plurality>1</Plurality>
-		</Replace>
-		<Replace Tag="LOC_CITY_NAME_QUSQU" Language="ru_RU">
-			<Text>Кусько|Кусько|Кусько|Кусько|Кусько|Кусько</Text>
-			<Gender>neuter</Gender>
-			<Plurality>1</Plurality>
-        </Replace>
-		<Replace Tag="LOC_CITY_NAME_DEBRECEN" Language="ru_RU">
-			<Text>Добрецен|Добрецена|Добрецену|Добрецен|Добреценом|Добрецене</Text>
-			<Gender>masculine</Gender>
-			<Plurality>1</Plurality>
-		</Replace>
-
-
 		<!-- Beta -->
 		<Replace Tag="LOC_BBG_FRONT_BETA_BAN_TRADE_TREATY_NAME" Language="ru_RU">
 			<Text>[COLOR_GREEN]Договор о запрете торговли [ENDCOLOR]</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_FRONT_BETA_BAN_TRADE_TREATY_DESC" Language="ru_RU">
-			<Text>Временная опция :[NEWLINE]Убирает резолюцию о запрете торговли из Мирового Конгресса.[NEWLINE](Эта резолюция будет изменена в версии 4.8 и данная опцияя будет удалена!)</Text>
+			<Text>Временная опция :[NEWLINE]Убирает резолюцию о запрете торговли из Мирового Конгресса.[NEWLINE](Эта резолюция будет изменена в версии 4.8 и данная опция будет удалена!)</Text>
 		</Replace>
 
 		<!-- Settler capturing settings -->
@@ -6597,12 +6595,13 @@
 		<Replace Tag="LOC_BBG_SETTLER_CONFIG_CHILL_DESC" Language="ru_RU">
 			<Text>При захвате поселенец возвращается в ближайший город</Text>
 		</Replace>
+		
 		<!-- Better Balanced City Centers (BBCC) -->
 		<Replace Tag="BBCC_SETTING_NAME" Language="ru_RU">
 			<Text>[COLOR:47,216,92]Повышенная доходность[NEWLINE]центров городов[ENDCOLOR]</Text>
 		</Replace>
 		<Replace Tag="BBCC_SETTING_DESC" Language="ru_RU">
-			<Text>Which City Centers should be affected?</Text>
+			<Text>На какие центры городов должна влиять эта настройка?</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_FRONT_BBCC_SETTING_M1_NAME" Language="ru_RU">
 			<Text>Отключено</Text>
