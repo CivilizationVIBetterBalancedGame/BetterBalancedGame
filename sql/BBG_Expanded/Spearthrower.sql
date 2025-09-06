@@ -110,7 +110,7 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 -- ==========================================================
 
 -- +1 base vision, unlock at political and doesn't need iron
-UPDATE Units SET BaseSightRange=3, Cost=90, PrereqCivic='CIVIC_POLITICAL_PHILOSOPHY', MandatoryObsoleteTech='TECH_GUNPOWDER', PurchaseYield='YIELD_GOLD', Maintenance=2 WHERE UnitType='UNIT_LIME_TEO_OWL_WARRIOR';
+UPDATE Units SET Combat=36, BaseSightRange=3, Cost=90, PrereqCivic='CIVIC_POLITICAL_PHILOSOPHY', MandatoryObsoleteTech='TECH_GUNPOWDER', PurchaseYield='YIELD_GOLD', Maintenance=2 WHERE UnitType='UNIT_LIME_TEO_OWL_WARRIOR';
 
 -- ========================================================================
 -- =                           SPEARTHROWER                               =
