@@ -93,7 +93,7 @@ INSERT INTO UnitUpgrades (Unit, UpgradeUnit) VALUES
     ('UNIT_LIME_THULE_DOGSLED', 'UNIT_SKIRMISHER');
 
 -- 17/08/25 No longer has ranged attack
-UPDATE Units SET BaseSightRange=2, Combat=10, RangedCombat=0, Range=0, Cost=30, BuildCharges=1, Maintenance=0, PrereqTech=NULL WHERE UnitType='UNIT_LIME_THULE_DOGSLED';
+UPDATE Units SET BaseSightRange=2, Combat=10, RangedCombat=0, Range=0, Cost=30, BuildCharges=1, Maintenance=0, PrereqTech=NULL, ZoneOfControl=1 WHERE UnitType='UNIT_LIME_THULE_DOGSLED';
 DELETE FROM UnitAbilityModifiers WHERE UnitAbilityType='ABIL_LIME_THULE_DOGSLED';
 DELETE FROM UnitAbilities WHERE UnitAbilityType='ABIL_LIME_THULE_DOGSLED';
 DELETE FROM TypeTags WHERE Type='ABIL_LIME_THULE_DOGSLED' AND Tag='CLASS_LIME_THULE_DOGSLED';
