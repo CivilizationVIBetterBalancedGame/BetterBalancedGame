@@ -101,6 +101,8 @@ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_ENCLAVE_GRANT_GOVERNOR_POINT', 'MODIFIER_ALL_PLAYERS_ADJUST_GOVERNOR_POINTS', 'BBG_PLAYER_HAS_ENCLAVE_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_ENCLAVE_GRANT_GOVERNOR_POINT', 'Delta', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS', 'BBG_ENCLAVE_GRANT_GOVERNOR_POINT');
 
 
 -- ==========================================================
@@ -108,13 +110,14 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 -- ==========================================================
 
 -- +1 base vision, unlock at political and doesn't need iron
-UPDATE Units SET BaseSightRange=3, Cost=90, PrereqCivic='CIVIC_POLITICAL_PHILOSOPHY', MandatoryObsoleteTech='TECH_GUNPOWDER', PurchaseYield='YIELD_GOLD', Maintenance=2 WHERE UnitType='UNIT_LIME_TEO_OWL_WARRIOR';
+UPDATE Units SET Combat=36, BaseSightRange=3, Cost=90, PrereqCivic='CIVIC_POLITICAL_PHILOSOPHY', MandatoryObsoleteTech='TECH_GUNPOWDER', PurchaseYield='YIELD_GOLD', Maintenance=2 WHERE UnitType='UNIT_LIME_TEO_OWL_WARRIOR';
 
 -- ========================================================================
 -- =                           SPEARTHROWER                               =
 -- ========================================================================
 
 DELETE FROM DistrictModifiers WHERE ModifierId IN ('MOD_LIME_TOLLAN_ATTACH_TRADE_ROUTE', 'MOD_LIME_TOLLAN_ATTACH_DISTRICT_ROUTE');
+DELETE FROM BuildingModifiers WHERE ModifierId IN ('MOD_LIME_TOLLAN_ATTACH_WONDER_ROUTE');
 
 -- 30/07/25 UD & Chancery give trader capacity
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
