@@ -3,7 +3,7 @@
 	<LocalizedText>
 
 		<!-- Author : platypus -->
-		<!-- BBG 7.1.1 -->		
+		<!-- BBG 7.2 -->		
 		<!-- With the help of Apeul, Chuck, BBG Bug Reports, and CPL Players-->
 		<!-- Special thanks to Ybanca, Calcifer, and ZhenjaMax -->
 		<!-- Based on the work of ZhenjaMax, who took care of the English translation before me -->
@@ -599,7 +599,7 @@
 		</Replace>
 		<!-- = leader ability (Ambiorix) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="en_US">
-			<Text>Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength for each adjacent military unit. Receive [ICON_CULTURE] culture equal to 25% of the production cost of all military units you train after unlocking Bronze Working.</Text>
+			<Text>Mines trigger a culture bomb when built, claiming surrounding unowned tiles.[NEWLINE][NEWLINE]Melee and anti-cavalry units receive +1 [ICON_STRENGTH] Combat Strength for each adjacent military unit. Receive [ICON_CULTURE] culture equal to 25% of the production cost of all military units you train after unlocking Bronze Working.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="en_US">
 			<Text>Receive +1 [ICON_STRENGTH] Combat Strength for each adjacent unit (King of the Eburones)</Text>
@@ -612,7 +612,7 @@
 			<Text>+1 [ICON_CULTURE] Culture on mines after unlocking Bronze Working.[NEWLINE][NEWLINE]Workshops grant +1 [ICON_INFLUENCEPERTURN] Influence per turn. Recruiting a [ICON_GREATENGINEER] Great Engineer grants +1 [ICON_ENVOY] Envoy.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_DESCRIPTION_DLC" Language="en_US">
-			<Text>[ICON_CULTURE] Culture +1 for mines with Bronze Working.[NEWLINE][NEWLINE][ICON_INFLUENCEPERTURN] Influence per turn +1 per Workshop and Recruiting a [ICON_GREATENGINEER] Great Engineer grants 1 [ICON_ENVOY] envoy.[NEWLINE][NEWLINE][ICON_STRENGTH] Combat Strength +1 per type of vassalized City-state.</Text>
+			<Text>[ICON_CULTURE] Culture +1 for mines with Bronze Working.[NEWLINE][NEWLINE][ICON_INFLUENCEPERTURN] Influence per turn +1 per Workshop and Recruiting a [ICON_GREATENGINEER] Great Engineer grants 1 [ICON_ENVOY] envoy.[NEWLINE][NEWLINE]+1 [ICON_STRENGTH] Combat Strength per type of City-state you are Suzerain of.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_SUK_GALLIC_WAR_COMBAT_DESCRIPTION" Language="en_US">
 			<Text>[ICON_STRENGTH] Combat Strength +1 per type of vassalized City-state.</Text>
@@ -929,7 +929,7 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Korea that replaces the Campus and has unique adjacencies. Culture bombs adjacent tiles when completed. Science Specialists grant +1 [ICON_FOOD] Food. Must be built on hills.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science base adjacency.[NEWLINE]+1 [ICON_SCIENCE] Science for every 2 adjacent mines.[NEWLINE]+2 [ICON_SCIENCE] Science for each adjacent Geothermal Fissure.</Text>
+			<Text>A district unique to Korea that replaces the Campus and has unique adjacencies. Culture bombs adjacent tiles when completed. Science Specialists grant +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]+1 [ICON_SCIENCE] Science base adjacency.[NEWLINE]+1 [ICON_SCIENCE] Science for every 2 adjacent mines.[NEWLINE]+2 [ICON_SCIENCE] Science for each adjacent Geothermal Fissure.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SEOWON_DESCRIPTION_ADJACENCY" Language="en_US">
 			<Text>Adjacency: +1 [ICON_SCIENCE] Science for every 2 adjacent mines. +2 [ICON_SCIENCE] Science for each adjacent Geothermal Fissure.</Text>
@@ -969,11 +969,11 @@
 		</Replace>
 		<!-- = unique unit (Hetairoi) = -->
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="en_US">
-			<Text>Macedonian unique heavy cavalry unit. Additional +5 [ICON_STRENGTH] Combat Strength when adjacent to a [ICON_GREATGENERAL] Great General from any era. +5 [ICON_GREATGENERAL] Great General points when killing an enemy unit. Starts with [ICON_PROMOTION] free Promotion.</Text>
+			<Text>A unique heavy cavalry unit when Macedon is lead by Alexander. Additional +5 [ICON_STRENGTH] Combat Strength when adjacent to a [ICON_GREATGENERAL] Great General from any era. +5 [ICON_GREATGENERAL] Great General points when killing an enemy unit. Starts with [ICON_PROMOTION] free Promotion.</Text>
 		</Replace>
-        <!-- = leader ability (Olympia) = -->
+        <!-- = leader ability (Olympias) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_DESCRIPTION" Language="en_US">
-			<Text>Receives an [ICON_ENVOY] Envoy when founding a Pantheon.[NEWLINE]Cities with a Basilikoi and following Olympia's [ICON_RELIGION] religion give 1 [ICON_SCIENCE] science per [ICON_CITIZEN] population and gain +1 [ICON_ENVOY] envoy at the time these conditions are met. +2 [ICON_STRENGTH] Combat Strength when attacking for melee and heavy cavalry units per City-state you are Suzerain of.</Text>
+			<Text>[NEWLINE]Cities with a Basilikoi and Holy Site give 1 [ICON_SCIENCE] science per [ICON_CITIZEN] population.  +1 [ICON_ENVOY] envoy when a city first has both a Basilikoi and Holy Site. +2 [ICON_STRENGTH] Combat Strength when attacking for melee and heavy cavalry units per City-state you are Suzerain of.</Text>
         </Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_NAME" Language="en_US">
 			<Text>Cabeiri Mysteries</Text>
@@ -1299,7 +1299,7 @@
 	        <Text>Royal Tomb</Text>
         </Replace>        
         <Replace Tag="LOC_LEADER_BUILDING_LIME_PHOE_AHIRAM_TOMB_DESCRIPTION" Language="en_US">
-            <Text>Replaces the Library. +1 [ICON_SCIENCE] Science per Great Admiral recruited by Ahiram.[NEWLINE] Doesn't cost maintenance.</Text>
+            <Text>Replaces the Library. +1 [ICON_SCIENCE] Science per Great Admiral recruited by Ahiram after this city was founded or conquered.[NEWLINE] Doesn't cost maintenance.</Text>
 	    </Replace>
 		<!-- = unique district (Cothon) = -->
 		<Replace Tag="LOC_DISTRICT_COTHON_DESCRIPTION" Language="en_US">
@@ -1545,7 +1545,7 @@
 			<Text>Pillar Tomb</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_DESCRIPTION" Language="en_US">
-			<Text>Replaces the Monument.[NEWLINE][NEWLINE]+1 Culture,[NEWLINE]+1 Loyalty. If Loyalty is already at maximum, +1 [ICON_CULTURE] Culture.[NEWLINE]+2 [ICON_GOLD] Gold and +1 [ICON_SCIENCE] Science for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 6 districts).</Text>
+			<Text>Replaces the Monument.[NEWLINE][NEWLINE]+1 Culture,[NEWLINE]+1 Loyalty. If Loyalty is already at maximum, +1 [ICON_CULTURE] Culture.[NEWLINE]+2 [ICON_GOLD] Gold and +1 [ICON_SCIENCE] Science for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 4 districts).</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SUK_PILLAR_TOMB_XP1_DESCRIPTION" Language="en_US">
 			<Text>Replaces the Monument.[NEWLINE][NEWLINE]+1 Culture,[NEWLINE]+1 Loyalty. If Loyalty is already at maximum, +1 [ICON_CULTURE] Culture.[NEWLINE]+2 [ICON_GOLD] Gold and +1 [ICON_SCIENCE] Science for outgoing International [ICON_TRADEROUTE] Trade Routes for every 2 districts within 2 tiles of the City Center (maximum 6 districts).</Text>
@@ -1630,7 +1630,7 @@
 			<Text>Hunter's House</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_DESCRIPTION" Language="en_US">
-			<Text>Unique improvement for Thule, unlocked at Sailing.[NEWLINE]+1 [ICON_FOOD] Food if built on a Tundra tile (doubled on snow)[NEWLINE]+1 [ICON_CULTURE] Culture and [ICON_FAITH] Faith +1 for each adjacent sea resource and Camp tile.[NEWLINE][NEWLINE]Hunter's House provides additional yields to adjacent tiles.[NEWLINE]+1 [ICON_FOOD] Food for Tundra tiles (doubled for snow).[NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production for Camps and Fishing Boats.[NEWLINE][NEWLINE]Must be built adjacent to a resource tile. Can be placed on forests. Cannot be placed next to another Hunter's House.</Text>
+			<Text>Unique improvement for Thule, unlocked at Sailing.[NEWLINE]+1 [ICON_FOOD] Food if built on a Tundra tile (doubled on snow)[NEWLINE]+1 [ICON_CULTURE] Culture and [ICON_FAITH] Faith +1 for each adjacent sea resource and Camp tile after Foreign Trade.[NEWLINE][NEWLINE]Hunter's House provides additional yields to adjacent tiles.[NEWLINE]+1 [ICON_FOOD] Food for Tundra tiles (doubled for snow).[NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production for Camps and Fishing Boats.[NEWLINE][NEWLINE]Must be built adjacent to a resource tile. Can be placed on forests. Cannot be placed next to another Hunter's House.</Text>
 		</Replace>
 
 
@@ -1640,7 +1640,7 @@
 			<Text>Roof of the World</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_SUK_DHARMA_KINGS_DESCRIPTION_XP2" Language="en_US">
-			<Text>Citizens may work mountain tiles. Mountain tiles gain additional yields for each district within 2 tiles:[NEWLINE]+2 [ICON_FOOD] Food per City Center,[NEWLINE]+1 [ICON_PRODUCTION] Production per Industrial Zone,[NEWLINE]+1 [ICON_GOLD] Gold per Harbor and Commercial Hub,[NEWLINE]+1 [ICON_SCIENCE] Science per Campus,[NEWLINE]+1 [ICON_CULTURE] Culture per Theater Square,[NEWLINE]+1 [ICON_FAITH] Faith +1 per Holy Site.[NEWLINE][NEWLINE]Can purchase buildings in specialty districts adjacent to a mountain tile with [ICON_FAITH] Faith.[NEWLINE][NEWLINE]+5% [ICON_FAITH] Faith in cities with a [ICON_GOVERNOR] Governor for each promotion it has.[NEWLINE]Bias: T3 Mountains (plain, grassland, and tundra).</Text>
+			<Text>Citizens may work mountain tiles. Mountain tiles gain additional yields for each district within 2 tiles:[NEWLINE]+2 [ICON_FOOD] Food per City Center,[NEWLINE]+1 [ICON_PRODUCTION] Production per Industrial Zone,[NEWLINE]+1 [ICON_GOLD] Gold per Harbor and Commercial Hub,[NEWLINE]+1 [ICON_SCIENCE] Science per Campus,[NEWLINE]+1 [ICON_CULTURE] Culture per Theater Square,[NEWLINE]+1 [ICON_FAITH] Faith +1 per Holy Site.[NEWLINE][NEWLINE]Can purchase buildings in specialty districts adjacent to a mountain tile with [ICON_FAITH] Faith, excluding the Government Plaza district.[NEWLINE][NEWLINE]+5% [ICON_FAITH] Faith in cities with a [ICON_GOVERNOR] Governor for each promotion it has.[NEWLINE]Bias: T3 Mountains (plain, grassland, and tundra).</Text>
 		</Replace>
 		<!-- = leader ability -->
 		<Replace Tag="LOC_TRAIT_LEADER_SUK_CAPTURE_OF_CHANGAN_NAME" Language="en_US">
@@ -1654,17 +1654,17 @@
 			<Text>Rta Pa</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_SUK_TIBET_RTA_PA_DESCRIPTION" Language="en_US">
-			<Text>Tibet unique Renaissance era ranged cavalry unit unlocked at Astronomy.[NEWLINE][NEWLINE]Has a ranged attack with 1 [ICON_RANGE] Range, can move after attacking, no movement penalty on hills.</Text>
+			<Text>Tibet unique Renaissance era ranged cavalry unit unlocked at Astronomy.[NEWLINE][NEWLINE]Has a ranged attack with 1 [ICON_RANGE] Range, can move after attacking.</Text>
 		</Replace>
 		<!-- = unique district (dzong) -->
 		<Replace Tag="LOC_DISTRICT_SUK_DZONG_NAME" Language="en_US">
 			<Text>Dzong</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Tibet that replaces the Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Occupying units receives +5 [ICON_STRENGTH] Defensive Combat Strength.[NEWLINE]Buildings in the Dzong are 20% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith.</Text>
+			<Text>A district unique to Tibet that replaces the Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Occupying units receives +5 [ICON_STRENGTH] Defensive Combat Strength.[NEWLINE]Buildings in the Dzong are 10% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SUK_DZONG_DESCRIPTION_XP2" Language="en_US">
-			<Text>A district unique to Tibet that replaces the Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Occupying units receives +5 [ICON_STRENGTH] Defensive Combat Strength.[NEWLINE]Buildings in the Dzong are 20% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith.</Text>
+			<Text>A district unique to Tibet that replaces the Holy Site district and is cheaper to build.[NEWLINE][NEWLINE]Occupying units receives +5 [ICON_STRENGTH] Defensive Combat Strength.[NEWLINE]Buildings in the Dzong are 10% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith.</Text>
 		</Replace>
 
 
@@ -2184,7 +2184,7 @@
 		
 		<!-- == Victor == -->
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_REDOUBT_DESCRIPTION" Language="en_US">
-			<Text>Increase city garrison [ICON_STRENGTH] Combat Strength by 5. Establishes in 3 turns.</Text>
+			<Text>Increase city garrison [ICON_STRENGTH] Combat Strength by 5. Provides an additional +6 Loyalty to this city (14 total). Establishes in 3 turns.</Text>
 		</Replace>		
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_GARRISON_COMMANDER_DESCRIPTION" Language="en_US">
 			<Text>Units defending within the city's territory get +3 [ICON_STRENGTH] Combat Strength. Your other cities within 9 tiles gain +4 Loyalty per turn toward your civilization.</Text>
@@ -2337,7 +2337,7 @@
 		</Replace> == -->
 		<!-- == BBG 6.4 Religious Communities == -->
 		<Replace Tag="LOC_BELIEF_RELIGIOUS_COMMUNITY_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Shrines provide +6 [ICON_GOLD] Gold. Temples provide +12 [ICON_GOLD] Gold.</Text>
+			<Text>Shrines provide +5 [ICON_GOLD] Gold. Temples provide +10 [ICON_GOLD] Gold.</Text>
 		</Replace>
 		<!-- == Founder Beliefs == -->
 		<Replace Tag="LOC_BELIEF_PILGRIMAGE_EXPANSION2_DESCRIPTION" Language="en_US">
@@ -2754,7 +2754,7 @@
 			<Text>Two tile impassable natural wonder. It appears as a Mountain. Doubles the terrain yields of all adjacent tiles.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_ZHANGYE_DANXIA_DESCRIPTION" Language="en_US">
-			<Text>Three tile impassable natural wonder. It appears as a Mountain and provides 2 [ICON_GREATGENERAL] Great General points and 2 [ICON_GREATMERCHANT] Great Merchant points if you own at least one of these tiles.</Text>
+			<Text>Three tile impassable natural wonder. It appears as a Mountain and provides +1 [ICON_GREATGENERAL] Great General points and +1 [ICON_GREATMERCHANT] Great Merchant points per game era starting in the Ancient Era, if you own at least one of these tiles.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_FOUNTAIN_OF_YOUTH_DESCRIPTION" Language="en_US">
 			<Text>One tile natural wonder. It appears as an Oasis and provides +4 [ICON_SCIENCE] Science and +4 [ICON_FAITH] Faith. Land combat units that enter it receive the ability 'Water of Life' (+10 HP healing in any territory).</Text>
@@ -3225,7 +3225,7 @@
 		<Replace Tag="BBG_LOC_TECH_MILITARY_ENGINEERING_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_PRODUCTION] Production from the Quarry improvement.</Text>
 		</Replace>
-		<Replace Tag="LOC_TECH_MILITARY_SCIENCE_DESCRIPTION" Language="en_US">
+		<Replace Tag="BBG_LOC_TECH_MILITARY_SCIENCE_DESCRIPTION" Language="en_US">
 			<Text>+1 Spy Capacity.</Text>
 		</Replace>
 		<Replace Tag="LOC_TECH_ROCKETRY_DESCRIPTION" Language="en_US">
@@ -3730,25 +3730,25 @@
 
 		<!-- === ALLIANCES === -->
 		<Replace Tag="LOC_ALLIANCE_LV1_RESEARCH_EFFECT_2" Language="en_US">
-			<Text>+2 [ICON_SCIENCE] Science from [ICON_TRADEROUTE] Trade Routes from your ally</Text>
+			<Text>+2 [ICON_SCIENCE] Science on [ICON_TRADEROUTE] Trade Routes between allies.</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_CULTURAL_EFFECT_2" Language="en_US">
-			<Text>+2 [ICON_CULTURE] Culture from [ICON_TRADEROUTE] Trade Routes from your ally</Text>
+			<Text>+2 [ICON_CULTURE] Culture on [ICON_TRADEROUTE] Trade Routes between allies.</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_ECONOMIC_EFFECT_1" Language="en_US">
-			<Text>+6 [ICON_GOLD] Gold and +1 [ICON_PRODUCTION] Production from [ICON_TRADEROUTE] Trade Routes to your ally</Text>
+			<Text>+6 [ICON_GOLD] Gold on [ICON_TRADEROUTE] Trade Routes between allies.</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_ECONOMIC_EFFECT_2" Language="en_US">
-			<Text>+6 [ICON_GOLD] Gold and +1 [ICON_PRODUCTION] Production from [ICON_TRADEROUTE] Trade Routes from your ally</Text>
+			<Text>+6 [ICON_GOLD] Gold on [ICON_TRADEROUTE] Trade Routes between allies.</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV2_ECONOMIC_EFFECT_1" Language="en_US">
-			<Text>+1 [ICON_InfluencePerTurn] Influence Point per turn per City-state your ally is the Suzerain of</Text>
+			<Text>+1 [ICON_InfluencePerTurn] Influence Point per turn per City-state your ally is the Suzerain of and +1 [ICON_PRODUCTION] Production on [ICON_TRADEROUTE] Trade Routes between allies.</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_RELIGIOUS_EFFECT_1" Language="en_US">
-			<Text>+1 [ICON_FOOD] Food and +4 [ICON_FAITH] Faith from [ICON_TRADEROUTE] Trade Routes to your ally</Text>
+			<Text>+1 [ICON_FOOD] Food and +4 [ICON_FAITH] Faith on [ICON_TRADEROUTE] Trade Routes between allies.</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV1_RELIGIOUS_EFFECT_2" Language="en_US">
-			<Text>+1 [ICON_FOOD] Food and +4 [ICON_FAITH] Faith from [ICON_TRADEROUTE] Trade Routes from your ally</Text>
+			<Text>+1 [ICON_FOOD] Food and +4 [ICON_FAITH] Faith on [ICON_TRADEROUTE] Trade Routes between allies.</Text>
 		</Replace>
 		<Replace Tag="LOC_ALLIANCE_LV2_RELIGIOUS_EFFECT_1" Language="en_US">
 			<Text>+10 [ICON_RELIGION] Religious Combat Strength against non-ally Religions</Text>
@@ -3799,6 +3799,9 @@
 			<Text>Loyalty is a city’s measure of its devotion to your civilization. Every city has a Loyalty value from 0 to 100, which reflects how much the Citizens of the city want to stay as part of your civilization.[NEWLINE][NEWLINE]As long as the Loyalty is at least 76 (Loyal), there's no penalty to growth and yields. When the Loyalty drops below 76 (Wavering Loyalty), the city’s yields and growth are penalized 25%. When the Loyalty drops below 51 (Disloyal), the city’s yields are penalized 50% and growth is penalized 75%. When the Loyalty drops below 26 (Unrest), the city’s yields and growth are penalized 100%. When Loyalty reaches 0, the city revolts against its owner and becomes a Free City.[NEWLINE][NEWLINE]Free Cities belong to no civilization and will seek to defend themselves from military intrusion. If a Free City’s Loyalty drops to 0, its experiment of independence fails, and they seek to join a civilization. Which civilization they request to join depends on who exerted the most pressure on the Free City during their independence. In this way, a Free City may be peacefully brought into your civilization (or brought back into your civilization).</Text>
 		</Replace>
 
+		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_ALLIANCES_1_CHAPTER_CONTENT_PARA_1" Language="en_US">
+			<Text>Alliances are a relationship between two different civilizations, a mutual agreement to work together in some way. To enter into an Alliance, you must first be Declared Friends with the civilization, and both civilizations must have researched the Civil Service civic.[NEWLINE][NEWLINE]There are several Alliance types, each one provides different mutual benefits according to its type. The effects of these levels are cumulative, so if you are in a Level 3 Alliance, you also gain the Level 1 and Level 2 effects. When you are in an Alliance with another Player, you gain Alliance Points every turn.  Collecting enough increases your Alliance Level, resulting in more benefits from your Alliances.  You can increase the rate at which you gain Alliance Points by trading with your Ally.[NEWLINE][NEWLINE]Every Alliance, regardless of its type, provides Open Borders and a Defensive Pact to both parties. Members of an Alliance cannot declare war on each other.[NEWLINE][NEWLINE]You may have only one kind of alliance with another civilization, and once you have created that alliance, you cannot have it with another civilization, although you might have another kind of alliance with them. For example, you might have a Research Alliance with Korea, so you cannot make a new Research Alliance with the Cree. You might create a Military, Cultural, Religious, or Economic Alliance with the Cree, however. Note that this limits you to five total Alliances in a game.[NEWLINE][NEWLINE]Research Alliance[NEWLINE][ICON_BULLET]Level 1: [ICON_TradeRoute] Trade Routes between allies grant additional [ICON_Science] Science.[NEWLINE][ICON_BULLET]Level 2: Allies share 1 Tech Boost every 30 turns (on Standard Speed).[NEWLINE][ICON_BULLET]Level 3: Gives bonus [ICON_Science] Science when studying the same technology as your ally or one that your ally has completed, and while your ally is researching a tech you have completed.[NEWLINE][NEWLINE]Cultural Alliance[NEWLINE][ICON_BULLET]Level 1: Allies do not exert Loyalty pressure on each other, and [ICON_TradeRoute] Trade Routes between allies grant additional [ICON_CULTURE] Culture.[NEWLINE][ICON_BULLET]Level 2: When your cities have [ICON_TradeRoute] Trade Routes with your ally, gain additional [ICON_GreatPerson] Great Person points in the origin cities based off of the districts in those cities.[NEWLINE][ICON_BULLET]Level 3: You gain a portion of your ally’s [ICON_Tourism] Tourism and [ICON_CULTURE] Culture from cities.[NEWLINE][NEWLINE]Military Alliance[NEWLINE][ICON_BULLET]Level 1: Allies gain bonus [ICON_Strength] Combat Strength against civilizations on whom both allies have declared war.[NEWLINE][ICON_BULLET]Level 2: Allies share visibility and gain bonus [ICON_Production] Production toward military units when either ally is at war.[NEWLINE][ICON_BULLET]Level 3: Units start with a bonus promotion.[NEWLINE][NEWLINE]Religious Alliance[NEWLINE][ICON_BULLET]Level 1: Ally cities do not exert Religious pressure on each other, and [ICON_TradeRoute] Trade Routes between allies grant additional [ICON_FOOD] Food and [ICON_FAITH] Faith.[NEWLINE][ICON_BULLET]Level 2: Allies gain [ICON_Religion] religious Combat Strength against Religions not founded by either ally.[NEWLINE][ICON_BULLET]Level 3: You gain Faith based on the number of your [ICON_Citizen] Citizens following your ally’s Religion, and bonus Religious Pressure in cities with no followers of your ally's Religion.[NEWLINE][NEWLINE]Economic Alliance[NEWLINE][ICON_BULLET]Level 1: [ICON_TradeRoute] Trade Routes between allies grant additional [ICON_Gold] Gold.[NEWLINE][ICON_BULLET]Level 2: Gain an [ICON_ENVOY] Envoy point for every City-State with your Ally as Suzerain and additional Production [ICON_PRODUCTION] on [ICON_TradeRoute] Trade Routes between allies.[NEWLINE][ICON_BULLET]Level 3: Allies share the Suzerain bonus of all city-states of which they are Suzerain.</Text>
+		</Replace>
 
 		
 		<!-- === SPLASH TEXT === -->
