@@ -12,6 +12,9 @@
 DELETE FROM StartBiasTerrains WHERE CivilizationType='CIVILIZATION_SUK_TIBET' AND TerrainType IN ('TERRAIN_DESERT_MOUNTAIN', 'TERRAIN_SNOW_MOUNTAIN', 'TERRAIN_TUNDRA_MOUNTAIN');
 UPDATE StartBiasTerrains SET Tier=3 WHERE CivilizationType='CIVILIZATION_SUK_TIBET';
 
+-- 30/09/25: Can no longer purchase buildings on govplaza with faith
+DELETE FROM TraitModifiers WHERE ModifierId='SUK_DHARMA_KINGS_DISTRICT_GOVERNMENT_FAITH_PURCHASE_MODIFIER';
+
 -- ==========================================================
 -- =                         DZONG                          =
 -- ==========================================================
@@ -21,6 +24,9 @@ UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_SUK_DZONG';
 DELETE FROM District_ValidTerrains WHERE DistrictType='DISTRICT_SUK_DZONG';
 UPDATE Districts SET Appeal=1 WHERE DistrictType='DISTRICT_SUK_DZONG';
 
+-- 30/09/25: Dzong buildings now only have 10% discount with faith/gold (instead of 20%)
+UPDATE ModifierArguments SET Value=10 WHERE Name='Amount' AND ModifierId LIKE 'SUK_DZONG_BUILDING_%';
+
 -- ==========================================================
 -- =                        RTA PA                          =
 -- ==========================================================
@@ -28,6 +34,9 @@ UPDATE Districts SET Appeal=1 WHERE DistrictType='DISTRICT_SUK_DZONG';
 -- Tibetan unique Renaissance era ranged cavalry, has a range of 1 but can move after attacking, no movement penalty in hill terrain. Unlock with Astronomy.
 -- 17/08/25: -5/-5 nerf to combat and ranged strength
 UPDATE Units SET Combat=50, RangedCombat=53, BaseMoves=4 WHERE UnitType='UNIT_SUK_TIBET_RTA_PA';
+
+-- 30/09/25: Rta Pa no longer ignores hills
+DELETE FROM UnitAbilityModifiers WHERE ModifierId='SUK_RTA_PA_IGNORE_HILLS';
 
 -- ========================================================================
 -- =                             TRISONG                                  =
