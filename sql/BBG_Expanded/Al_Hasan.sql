@@ -41,7 +41,8 @@ UPDATE ModifierArguments SET Value='YIELD_GOLD' WHERE Name='YieldType' AND Modif
 -- 17/08/25: jahazi gold bonus nerfed to +2
 UPDATE ModifierArguments SET Value=2 WHERE Name='Amount' AND ModifierId='SUK_JAHAZI_YIELD_BONUS';
 
-UPDATE UNITS SET Cost=40, CostProgressionModel='COST_PROGRESSION_PREVIOUS_COPIES', CostProgressionParam1=4 WHERE UnitType='UNIT_SUK_JAHAZI';
+-- 30/09/25: Jahazi cost increased to 60 (standard speed) and cost progression increased to 10
+UPDATE UNITS SET Cost=60, CostProgressionModel='COST_PROGRESSION_PREVIOUS_COPIES', CostProgressionParam1=10 WHERE UnitType='UNIT_SUK_JAHAZI';
 
 -- ==========================================================
 -- =                     PILLAR TOMB                        =
@@ -52,6 +53,9 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 -- 17/08/25: Pillar Tomb cost increased to 60 (standard speed)
 UPDATE Buildings SET Cost=60 WHERE BuildingType='BUILDING_SUK_PILLAR_TOMB';
+
+-- 30/09/25 Limit is now 4 districts (from 6)
+DELETE FROM BuildingModifiers WHERE ModifierId LIKE 'SUK_PILLAR_TOMB_6%';
 
 -- ========================================================================
 -- =                             AL HASAN                                 =
