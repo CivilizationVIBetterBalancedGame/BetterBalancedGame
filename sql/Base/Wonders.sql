@@ -560,3 +560,16 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('BBG_OPERA_SYDNEY_ROCKBAND', 'Amount', 2);
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_SYDNEY_OPERA_HOUSE', 'BBG_OPERA_SYDNEY_ROCKBAND');
+
+
+-- 17/12/25 Big Ben moved from Economics to Capitalism
+UPDATE Buildings SET PrereqCivic='CIVIC_CAPITALISM' WHERE BuildingType='BUILDING_BIG_BEN';
+UPDATE Buildings SET PrereqTech=NULL WHERE BuildingType='BUILDING_BIG_BEN';
+
+-- 17/12/25 Eiffel Tower reduces tourism from other players by 25%
+-- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+-- 	('BBG_EIFFEL_TOURISM_REDUCTION', 'MODIFIER_PLAYER_ADJUST_OVERALL_TOURISM_REDUCTION');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+-- 	('BBG_EIFFEL_TOURISM_REDUCTION', 'Amount', 25);
+-- INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+-- 	('BUILDING_EIFFEL_TOWER', 'BBG_EIFFEL_TOURISM_REDUCTION');
