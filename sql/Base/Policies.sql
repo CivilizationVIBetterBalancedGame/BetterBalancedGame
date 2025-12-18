@@ -183,6 +183,10 @@ INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
 	('POLICY_MILITARY_FIRST', 'BBG_MILITARYFIRST_ATOMIC_RECON_PRODUCTION'),
 	('POLICY_MILITARY_FIRST', 'BBG_MILITARYFIRST_INFORMATION_RECON_PRODUCTION');
 
+-- 30/09/25 Fixed a bug where Classical Ranged units (Saka) didn't get production boosted from 
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+	('POLICY_FEUDAL_CONTRACT', 'AGOGE_CLASSICAL_RANGED_PRODUCTION');
+
 -- 10/03/24 Medina +1 housing per district
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 	('BBG_MEDINA_HOUSING_DISTRICT', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_HOUSING', 'BBG_IS_SPECIALTY_DISTRICT');
