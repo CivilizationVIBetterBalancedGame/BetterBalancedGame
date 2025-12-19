@@ -327,6 +327,11 @@ UPDATE Technologies SET Description='BBG_LOC_TECH_MILITARY_SCIENCE_DESCRIPTION' 
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
     ('TECH_NUCLEAR_FUSION', 'TECH_COMPOSITES');
 
+-- 18/12/25 Composite requires Nuclear Fission
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_COMPOSITES', 'TECH_NUCLEAR_FISSION');
+
+
 
 --=======================================================================
 --******                       AMENITIES                           ******
