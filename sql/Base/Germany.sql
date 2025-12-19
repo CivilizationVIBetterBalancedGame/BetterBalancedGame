@@ -9,11 +9,11 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , Requirement
     VALUES ('PLAYER_HAS_GUILDS_REQUIREMENTS' , 'REQUIRES_PLAYER_HAS_GUILDS');
 UPDATE Modifiers SET SubjectRequirementSetId='PLAYER_HAS_GUILDS_REQUIREMENTS' WHERE ModifierId='TRAIT_EXTRA_DISTRICT_EACH_CITY';
 
---10/03/2024 plat co culture bomb
-INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-	('BBG_HUB_CULTURE_BOMB', 'MODIFIER_PLAYER_ADD_CULTURE_BOMB_TRIGGER');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-	('BBG_HUB_CULTURE_BOMB', 'DistrictType', 'DISTRICT_COMMERCIAL_HUB'),
-	('BBG_HUB_CULTURE_BOMB', 'CaptureOwnedTerritory', 0);
-INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
-	('TRAIT_CIVILIZATION_DISTRICT_HANSA', 'BBG_HUB_CULTURE_BOMB');
+-- 19/12/25 Barbarossa excluded from hansa chub adjacency, only Ludwig gets it
+INSERT INTO ExcludedAdjacencies (TraitType, YieldChangeId) VALUES
+    ('TRAIT_LEADER_HOLY_ROMAN_EMPEROR', 'Commerical_Hub_Production');
+
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict) VALUES
+    ('BBG_BARBAROSSA_HANSA_ENCAMPMENT_PROD', 'LOC_BBG_BARBAROSSA_HANSA_ENCAMPMENT_PROD_DESC', 'YIELD_PRODUCTION', 2, 1, 'DISTRICT_ENCAMPMENT');
+INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
+    ('DISTRICT_HANSA', 'BBG_BARBAROSSA_HANSA_ENCAMPMENT_PROD');
