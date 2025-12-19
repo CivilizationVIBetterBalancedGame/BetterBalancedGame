@@ -119,6 +119,16 @@ INSERT OR IGNORE INTO BeliefModifiers (BeliefType, ModifierId) VALUES
     ('BELIEF_GOD_OF_WAR', 'GOD_OF_WAR_AND_PLUNDER_HARBOR'),
     ('BELIEF_GOD_OF_WAR', 'GOD_OF_WAR_AND_PLUNDER_ENCAMP');
 
+
+
+
+--==========================
+--*      FIRE GODDESS      *
+--==========================  
+
+UPDATE ModifierArguments SET Value='3' WHERE ModifierId='GODDESS_OF_FIRE_FEATURES_FAITH_MODIFIER' AND Name='Amount';
+
+
 --==========================
 --*     FERTILITY RITES    *
 --==========================  
@@ -148,6 +158,24 @@ UPDATE BeliefModifiers SET ModifierID='FERTILITY_RITES_TAG_FOOD' WHERE BeliefTyp
 -- 11/09/23 Fertility remove builder
 DELETE FROM BeliefModifiers WHERE ModifierID='FERTILITY_RITES_BUILDER';
 
+
+-- 18/12/25 Fertility Rites give +2 Housing to non fresh cities
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_PLOT_IS_NON_FRESH_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_PLOT_IS_NON_FRESH_REQSET', 'BBG_PLOT_IS_NON_FRESH_REQUIREMENT');
+INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES 
+    ('BBG_PLOT_IS_NON_FRESH_REQUIREMENT', 'REQUIREMENT_PLOT_IS_FRESH_WATER', 1);
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_FERTILITY_HOUSING_GIVER', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
+    ('BBG_FERTILITY_HOUSING_MODIFIER', 'MODIFIER_CITY_OWNER_ADJUST_BUILDING_HOUSING', 'BBG_PLOT_IS_NON_FRESH_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_FERTILITY_HOUSING_GIVER','ModifierId', 'BBG_FERTILITY_HOUSING_MODIFIER'),
+    ('BBG_FERTILITY_HOUSING_MODIFIER','Amount', 2);
+INSERT INTO BeliefModifiers (BeliefType, ModifierId) VALUES
+    ('BELIEF_FERTILITY_RITES', 'BBG_FERTILITY_HOUSING_GIVER');
+
 --==========================
 --*      SACRED PATH       *
 --==========================
@@ -174,7 +202,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 --==========================
 --*  GODDESS OF THE HUNT   *
 --==========================
---04/10/22 goddess of the hunt nerf from 1p/1f to 1p/2g
+-- 04/10/22 goddess of the hunt nerf from 1p/1f to 1p/2g
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
     ('BBG_GODDESS_OF_THE_HUNT_CAMP_GOLD_MODIFIER', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'PLOT_HAS_CAMP_REQUIREMENTS');
@@ -206,6 +234,19 @@ INSERT INTO BeliefModifiers(BeliefType, ModifierID) VALUES
 -- 15/12/24 Prophet points to +2
 -- 30/06/25 back to 1
 UPDATE ModifierArguments SET Value=1 WHERE Name='Amount' AND ModifierId='DIVINE_SPARK_HOLY_SITE_MODIFIER';
+
+--==========================
+--*   GOD OF CRAFTSMEN     *
+--==========================
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_GODS_OF_CRAFTSMEN_RESOURCES_GIVER', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
+    ('BBG_GODS_OF_CRAFTSMEN_RESOURCES_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_EXTRA_ACCUMULATION', NULL);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_GODS_OF_CRAFTSMEN_RESOURCES_MODIFIER', 'Amount', 1),
+    ('BBG_GODS_OF_CRAFTSMEN_RESOURCES_GIVER', 'ModifierId', 'BBG_GODS_OF_CRAFTSMEN_RESOURCES_MODIFIER');
+INSERT INTO BeliefModifiers (BeliefType, ModifierId) VALUES
+    ('BELIEF_GOD_OF_CRAFTSMEN', 'BBG_GODS_OF_CRAFTSMEN_RESOURCES_GIVER');
 
 
 
@@ -293,9 +334,10 @@ DELETE FROM AbstractModifiers WHERE ParentObjectID IN ('BELIEF_LADY_OF_THE_REEDS
 
 -- Earth Godess +1 faith on appeal
 UPDATE Modifiers SET SubjectRequirementSetId='PLOT_CHARMING_APPEAL' WHERE ModifierId='EARTH_GODDESS_APPEAL_FAITH_MODIFIER';
+-- 18/12/25 no longer work on city center
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('PLOT_CHARMING_APPEAL', 'BBG_REQUIRES_DISTRICT_IS_NOT_CITY_CENTER');
 
--- Fire Goddess +3
-UPDATE ModifierArguments SET Value='3' WHERE ModifierId='GODDESS_OF_FIRE_FEATURES_FAITH_MODIFIER' AND Name='Amount';
 
 
 -- Religious settlement: +20% production towards settler and 3 free tiles
