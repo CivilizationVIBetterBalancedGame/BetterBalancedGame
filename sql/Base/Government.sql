@@ -5,8 +5,8 @@
 UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_ATTACK_BUFF';
 UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_LEGACY_ATTACK_BUFF';
 
--- 17/12/25 intolerance to -20 for every gov.
-UPDATE Governments SET OtherGovernmentIntolerance=-20 WHERE GovernmentType='GOVERNMENT_DEMOCRACY';
+-- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
+UPDATE Governments SET OtherGovernmentIntolerance=0 WHERE GovernmentType='GOVERNMENT_DEMOCRACY';
 UPDATE Governments SET OtherGovernmentIntolerance=-20 WHERE GovernmentType='GOVERNMENT_FASCISM';
 UPDATE Governments SET OtherGovernmentIntolerance=-20 WHERE GovernmentType='GOVERNMENT_COMMUNISM';
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='COLLECTIVIZATION_INTERNAL_TRADE_PRODUCTION' AND Name='Amount';
@@ -103,7 +103,12 @@ UPDATE ModifierArguments SET Value=10 WHERE ModifierId='MARTIALLAW_GARRISONIDENT
 -- Legacy Effect : +5 Combat Strength outside of your home territory (from everywhere). (removed war weariness reduction)
 DELETE FROM GovernmentModifiers WHERE ModifierId='FASCISM_WAR_WEARINESS';
 DELETE FROM PolicyModifiers WHERE ModifierId='FASCISM_WAR_WEARINESS';
-UPDATE Modifiers SET SubjectRequirementSetId='NOT_IN_OWNER_TERRITORY_REQUIREMENTS' WHERE ModifierId IN ('FASCISM_ATTACK_BUFF', 'FASCISM_LEGACY_ATTACK_BUFF');
+
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_UNIT_NOT_IN_TERRITORY_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_NOT_IN_TERRITORY_REQSET', 'REQUIRES_UNIT_NOT_IN_OWNER_TERRITORY');
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_NOT_IN_TERRITORY_REQSET' WHERE ModifierId IN ('FASCISM_ATTACK_BUFF', 'FASCISM_LEGACY_ATTACK_BUFF');
 -- Government bonus : +50% Production on units. (no change)
 
 
