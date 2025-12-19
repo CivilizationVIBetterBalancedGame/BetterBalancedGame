@@ -56,6 +56,17 @@ INSERT INTO TraitModifiers (TraitType, ModifierId)
         ('LEADER_MINOR_CIV_CULTURAL', 'LEADER_MINOR_CIV_INDUSTRIAL', 'LEADER_MINOR_CIV_MILITARISTIC',
         'LEADER_MINOR_CIV_RELIGIOUS', 'LEADER_MINOR_CIV_SCIENTIFIC', 'LEADER_MINOR_CIV_TRADE');
 
+
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, OtherDistrictAdjacent, AdjacentWonder, AdjacentDistrict) VALUES
+    ('BBG_PERICLES_ACCROPOLIS_WONDER_PROD', 'LOC_BBG_PERICLES_ACCROPOLIS_WONDER_PROD_DESC', 'YIELD_PRODUCTION', 2, 1, 0, 1, NULL),
+    ('BBG_PERICLES_ACCROPOLIS_DISTRICT_PROD', 'LOC_DISTRICT_DISTRICT_PRODUCTION', 'YIELD_PRODUCTION', 1, 2, 1, 0, NULL);
+INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
+    ('DISTRICT_ACROPOLIS', 'BBG_PERICLES_ACCROPOLIS_WONDER_PROD'),
+    ('DISTRICT_ACROPOLIS', 'BBG_PERICLES_ACCROPOLIS_DISTRICT_PROD');
+INSERT INTO ExcludedAdjacencies (TraitType, YieldChangeId) VALUES
+    ('CULTURE_KILLS_TRAIT', 'BBG_PERICLES_ACCROPOLIS_WONDER_PROD'),
+    ('CULTURE_KILLS_TRAIT', 'BBG_PERICLES_ACCROPOLIS_DISTRICT_PROD');
+
 --==============================================================================================
 --******            GORGO                         ******
 --==============================================================================================
