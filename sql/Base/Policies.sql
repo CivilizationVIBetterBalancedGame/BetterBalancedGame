@@ -377,7 +377,7 @@ INSERT INTO ModifierStrings (ModifierId, Context, Text) VALUES
 -- Natural Philosophy : Now give +50% (from +100%) Campus adjacency and +1 base (from +0). Obsolete at Civil Engineering.
 UPDATE ModifierArguments SET Value=50 WHERE ModifierId='NATURALPHILOSOPHY_DISTRICTSCIENCE' AND Name='Amount';
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_NATURAL_PHILOSOPHY_FLAT_SCIENCE', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_YIELD_CHANGE', 'DISTRICT_IS_CAMPUS');
+    ('BBG_NATURAL_PHILOSOPHY_FLAT_SCIENCE', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'BBG_CITY_HAS_DISTRICT_CAMPUS');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_NATURAL_PHILOSOPHY_FLAT_SCIENCE', 'Amount', 1),
     ('BBG_NATURAL_PHILOSOPHY_FLAT_SCIENCE', 'YieldType', 'YIELD_SCIENCE');
@@ -404,7 +404,7 @@ INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
 -- Craftsmen : Now give +50% (from +100%) IZ adjacency and +2 base (from +0). Obsolete at Nationalism.
 UPDATE ModifierArguments SET Value=50 WHERE ModifierId='CRAFTSMEN_DISTRICTPRODUCTION' AND Name='Amount';
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_CRAFTSMEN_FLAT_PROD', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_YIELD_CHANGE', 'DISTRICT_IS_INDUSTRIAL_ZONE');
+    ('BBG_CRAFTSMEN_FLAT_PROD', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'BBG_CITY_HAS_DISTRICT_INDUSTRIAL_ZONE');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_CRAFTSMEN_FLAT_PROD', 'Amount', 2),
     ('BBG_CRAFTSMEN_FLAT_PROD', 'YieldType', 'YIELD_PRODUCTION');
@@ -431,7 +431,7 @@ INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
 -- Town Charters : Now give +50% (from +100%) CHubs adjacency and +2 base (from +0). Obsolete at Civil Engineering (no change cause Economic Union is moved there).
 UPDATE ModifierArguments SET Value=50 WHERE ModifierId='TOWNCHARTERS_DISTRICTGOLD' AND Name='Amount';
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_TOWNCHARTERS_FLAT_GOLD', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_YIELD_CHANGE', 'DISTRICT_IS_COMMERCIAL_HUB');
+    ('BBG_TOWNCHARTERS_FLAT_GOLD', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'BBG_CITY_HAS_DISTRICT_COMMERCIAL_HUB');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_TOWNCHARTERS_FLAT_GOLD', 'Amount', 2),
     ('BBG_TOWNCHARTERS_FLAT_GOLD', 'YieldType', 'YIELD_GOLD');
@@ -440,7 +440,7 @@ INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
 -- Naval Infrastructure : Now give +50% (from +100%) Harbors adjacency and +2 base (from +0). Obsolete at Civil Engineering.
 UPDATE ModifierArguments SET Value=50 WHERE ModifierId='NAVALINFRASTRUCTURE_HARBORGOLD' AND Name='Amount';
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_NAVAL_INFRASTRUCTURE_FLAT_GOLD', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_YIELD_CHANGE', 'DISTRICT_IS_HARBOR');
+    ('BBG_NAVAL_INFRASTRUCTURE_FLAT_GOLD', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 'BBG_CITY_HAS_DISTRICT_HARBOR');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_NAVAL_INFRASTRUCTURE_FLAT_GOLD', 'Amount', 2),
     ('BBG_NAVAL_INFRASTRUCTURE_FLAT_GOLD', 'YieldType', 'YIELD_GOLD');
