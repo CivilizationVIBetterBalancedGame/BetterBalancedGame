@@ -2506,7 +2506,7 @@
 			<Text>+25% combat experience for all cavalry and siege class units trained in this city. May not be built in an Encampment district that already has a Barracks.[NEWLINE][NEWLINE]+2 [ICON_RESOURCE_HORSES] Horses per turn once discovered.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_ARMORY_DESCRIPTION" Language="en_US">
-			<Text>+25% combat experience for all land units trained in this city. +1 [ICON_RESOURCE_NITER] Niter per turn once discovered.</Text>
+			<Text>+25% combat experience for all land units trained in this city. +2 [ICON_RESOURCE_NITER] Niter per turn once discovered.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_ARMORY_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for all land units trained in this city.[NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed). +1 [ICON_RESOURCE_NITER] Niter per turn once discovered.</Text>
@@ -2549,9 +2549,6 @@
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SHIPYARD_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for all naval units trained in this city. Bonus [ICON_PRODUCTION] Production equal to the adjacency bonus of the Harbor district. +1 [ICON_PRODUCTION] Production on all fisheries and unimproved Coast and Lake tiles for this city. +1 [ICON_RESOURCE_COAL] Coal per turn once discovered.</Text>
-		</Replace>
-		<Replace Tag="LOC_BUILDING_SEAPORT_DESCRIPTION" Language="en_US">
-			<Text>+25% combat experience for all naval units trained in this city. Once required Civics are unlocked, allows [ICON_CORPS] Fleets or [ICON_ARMY] Armadas to be trained directly and their costs reduced by 25%. +2 [ICON_GOLD] Gold on all Coast and Lake tiles for this city.</Text>
 		</Replace>
 		<!-- == Holy Site Buildings == -->
 		<Replace Tag="LOC_BUILDING_SHRINE_DESCRIPTION" Language="en_US">
@@ -3376,10 +3373,10 @@
 			<Text>+50% [ICON_PRODUCTION] Production toward Classical era and earlier melee, recon, anti-cavalry, and ranged units.</Text>
 		</Replace>
 		<!-- = Arms Race (BBG) = -->
-		<Row Tag="LOC_POLICY_ARMS_RACE_NAME" Language="en_US">
-			<Text>Arms Race</Text>
+		<Row Tag="LOC_POLICY_MILITARY_COMMAND_CENTER_NAME" Language="en_US">
+			<Text>Military Command Center</Text>
 		</Row>
-		<Row Tag="LOC_POLICY_ARMS_RACE_DESCRIPTION" Language="en_US">
+		<Row Tag="LOC_POLICY_MILITARY_COMMAND_CENTER_DESCRIPTION" Language="en_US">
 			<Text>[ICON_DISTRICT_ENCAMPMENT] [ICON_DISTRICT_HARBOR] [ICON_DISTRICT_AERODROME] +30% [ICON_PRODUCTION] Production toward Encampment districts, Harbor districts, Aerodrome districts, and buildings for these districts.</Text>
 		</Row>
 		<!-- = Bastions = -->
@@ -3494,7 +3491,10 @@
 		</Replace>
 		<!-- = Collectivization = -->
 		<Replace Tag="LOC_POLICY_COLLECTIVIZATION_DESCRIPTION_XP2" Language="en_US">
-			<Text>+4 [ICON_PRODUCTION] Production and +4 [ICON_FOOD] Food from domestic [ICON_TRADEROUTE] Trade Routes. +4 [ICON_GOLD] Gold from all Trade Routes.</Text>
+			<Text>+4 [ICON_PRODUCTION] Production and +4 [ICON_FOOD] Food from domestic [ICON_TRADEROUTE] Trade Routes.</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_COLLECTIVIZATION_NAME" Language="en_US">
+			<Text>Protectionism</Text>
 		</Replace>
 		<!-- = Economic Union = -->	
 		<Replace Tag="LOC_POLICY_ECONOMIC_UNION_DESCRIPTION" Language="en_US">
@@ -4197,6 +4197,73 @@
 			<Text>Guaranteed +3 [ICON_FOOD] +1 [ICON_PRODUCTION] for flat City Center.[NEWLINE]Guaranteed +2 [ICON_FOOD] +2 [ICON_PRODUCTION] for hills City Center.[NEWLINE]City Centers gain maximum between guaranteed yield and tile yield after removal of removable features.</Text>
 		</Row>
 
+
+
+
+		<Row Tag="LOC_BUILDING_RESEARCH_LAB_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>Receive +3 [ICON_SCIENCE] Science once you reach Nuclear Program Civic</Text>
+		</Row>
+		<Row Tag="LOC_CIVIC_NUCLEAR_PROGRAM_DESCRIPTION" Language="en_US">
+			<Text>Grant +3 [ICON_SCIENCE] Science to all Research Labs in your empire.</Text>
+		</Row>
+		<Replace Tag="LOC_BUILDING_SEAPORT_DESCRIPTION" Language="en_US">
+			<Text>+25% combat experience for all naval units trained in this city. Once required Civics are unlocked, allows [ICON_CORPS] Fleets or [ICON_ARMY] Armadas to be trained directly and their costs reduced by 25%. +2 [ICON_GOLD] Gold on all Coast and Lake tiles for this city. +2 [ICON_RESOURCE_OIL] Oil per turn once discovered.</Text>
+		</Replace>
+
+		<!-- Democracy -->
+		<Replace Tag="LOC_POLICY_PROSPERITY_PACT_NAME" Language="en_US">
+			<Text>Prosperity Pact</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_PROSPERITY_PACT_DESCRIPTION" Language="en_US">
+			<Text>+2 Alliance Points per turn for all Alliances.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_DEMOCRACY_XP2" Language="en_US">
+			<Text>Your [ICON_TRADEROUTE] Trade Routes to an Ally's city or vassal City-state provide +4 [ICON_FOOD] Food and +8 [ICON_GOLD] Gold for both cities.</Text>
+		</Replace>
+
+		<!-- Fascism -->
+		<Replace Tag="LOC_POLICY_MARTIAL_LAW_DESCRIPTION_XP2" Language="en_US">
+			<Text></Text>
+		</Replace>
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_FASCISM_XP1" Language="en_US">
+			<Text></Text>
+		</Replace>
+
+		<!-- Communism -->
+		<Replace Tag="LOC_POLICY_KOLKHOZ_NAME" Language="en_US">
+			<Text>Kolkhoz</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_KOLKHOZ_DESCRIPTION" Language="en_US">
+			<Text>a</Text>
+		</Replace>
+
+
+
+		<Replace Tag="LOC_POLICY_SCIENTIFIC_VANGUARD_NAME" Language="en_US">
+			<Text>Scientific Vanguard</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_SCIENTIFIC_VANGUARD_DESCRIPTION" Language="en_US">
+			<Text>a</Text>
+		</Replace>
+
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
+			<Text>ce qui devient la legacy (c'est le même texte que pour la carte de legacy)</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_COMMUNISM_XP2" Language="en_US">
+			<Text>pas legacy</Text>
+		</Replace>
+
+
+
+		<Replace Tag="LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
+			<Text>+5 Combat Strength from Communism when fighting in or adjacent to its home territory.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
+			<Text>+5 Combat Strength from Communism when fighting in or adjacent to its home territory.</Text>
+		</Replace>
+
+
+		
 
 	</LocalizedText>
 </GameData>
