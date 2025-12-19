@@ -3309,9 +3309,6 @@
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_FASCISM_XP1" Language="en_US">
 			<Text>+50% [ICON_PRODUCTION] Production toward Units.</Text>
 		</Replace>		
-		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
-			<Text>+1 [ICON_PRODUCTION] Production per [ICON_CITIZEN] Citizen in cities with [ICON_GOVERNOR] Governors. -10% Gov't Tourism Modifier.</Text> <!-- 5.2.9 REVERTED +1 yield to specialists of the respective district yield. -->
-		</Replace>
 		<!-- == Tier 4 Governments == -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="en_US">
 			<Text>Commercial Hubs provide +25% Gold.  If the city has a Harbor, Encampment, or Aerodrome, it receives +50% production on units.</Text>
@@ -4214,11 +4211,22 @@
 			<Text>Cities with a Governor receive +10% [ICON_SCIENCE] Science and [ICON_PRODUCTION] Production but also -2 amenities.</Text>
 		</Replace>
 
+
+		<!-- OLD ONE
+
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
-			<Text>ce qui devient la legacy (c'est le même texte que pour la carte de legacy)</Text>
+			<Text>+1 [ICON_PRODUCTION] Production per [ICON_CITIZEN] Citizen in cities with [ICON_GOVERNOR] Governors. -10% Gov't Tourism Modifier.</Text> <!-- 5.2.9 REVERTED +1 yield to specialists of the respective district yield. -->
+		<!-- </Replace> --> -->
+
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
+			<Text>+5 Combat Strength when fighting in or adjacent to home territory </Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_COMMUNISM_XP2" Language="en_US">
-			<Text>pas legacy</Text>
+			<Text>+.6 [ICON_PRODUCTION] Production per [ICON_CITIZEN] Citizen in cities with a [ICON_GOVERNOR] governor.</Text>
+		</Replace>
+
+		<Replace Tag="LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
+			<Text>+5 Combat Strength from Fascism</Text>
 		</Replace>
 
 
@@ -4228,6 +4236,11 @@
 		</Replace>
 		<Replace Tag="LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
 			<Text>+5 Combat Strength from Communism when fighting in or adjacent to its home territory.</Text>
+		</Replace>
+
+
+		<Replace Tag="LOC_BBG_CORPORATE_LIBERALISM_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
+			<Text>+5 Combat Strength from Corporate Liberalism.</Text>
 		</Replace>
 
 
@@ -4347,6 +4360,8 @@
 		<Replace Tag="LOC_POLICY_MILITARY_RESEARCH_EXPANSION1_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_Science] Science from Armories, Shipyards, and Medieval Walls. +2 [ICON_Science] Science from Military Academies, Seaports, and Renaissance Walls.</Text>
 		</Replace>
+
+
 
 	</LocalizedText>
 </GameData>
