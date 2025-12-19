@@ -1,6 +1,7 @@
 --=======Saladin Viezier(Vanilla)=======--
 -- Arabia's Worship Building Bonus increased from 10% to 20%
 -- 26/02/25 reduced to 10% base, 20% at reformed church
+-- 19/12/25 Reduced to 10% base 15%  at reformed church
 -- UPDATE ModifierArguments SET Value=20 WHERE ModifierId='TRAIT_RELIGIOUS_BUILDING_MULTIPLIER_CULTURE' AND Name='Multiplier';
 -- UPDATE ModifierArguments SET Value=20 WHERE ModifierId='TRAIT_RELIGIOUS_BUILDING_MULTIPLIER_FAITH' AND Name='Multiplier';
 -- UPDATE ModifierArguments SET Value=20 WHERE ModifierId='TRAIT_RELIGIOUS_BUILDING_MULTIPLIER_SCIENCE' AND Name='Multiplier';
@@ -12,13 +13,13 @@ INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
 
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_CULTURE', 'YieldType', 'YIELD_CULTURE'),
-    ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_CULTURE', 'Multiplier', 10),
+    ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_CULTURE', 'Multiplier', 5),
     ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_CULTURE', 'Founder', 1),
     ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_FAITH', 'YieldType', 'YIELD_FAITH'),
-    ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_FAITH', 'Multiplier', 10),
+    ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_FAITH', 'Multiplier', 5),
     ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_FAITH', 'Founder', 1),
     ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_SCIENCE', 'YieldType', 'YIELD_SCIENCE'),
-    ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_SCIENCE', 'Multiplier', 10),
+    ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_SCIENCE', 'Multiplier', 5),
     ('BBG_ARABIA_MULTIPLIER_REFORMED_CHURCH_SCIENCE', 'Founder', 1);
 
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES

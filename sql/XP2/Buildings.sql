@@ -21,23 +21,24 @@ INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSet
     ('BBG_HANGAR_EXTRA_ALUMINIUM', 'MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION', 'BBG_PLAYER_CAN_SEE_RESOURCE_ALUMINUM_REQSET'),
     ('BBG_AIRPORT_EXTRA_ALUMINIUM', 'MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION', NULL),
     ('BBG_AIRPORT_EXTRA_URANIUM', 'MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION', 'BBG_PLAYER_CAN_SEE_RESOURCE_URANIUM_REQSET');
+-- 17/12/25 Armory niter increased to +2 from +1
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('NITER_FROM_ARMORY_BBG', 'ResourceType', 'RESOURCE_NITER'),
-    ('NITER_FROM_ARMORY_BBG', 'Amount', '1'),
+    ('NITER_FROM_ARMORY_BBG', 'Amount', 2),
     ('BBG_HANGAR_EXTRA_ALUMINIUM' , 'ResourceType', 'RESOURCE_ALUMINUM'),
-    ('BBG_HANGAR_EXTRA_ALUMINIUM' , 'Amount', '1'),
+    ('BBG_HANGAR_EXTRA_ALUMINIUM' , 'Amount', 1),
     ('BBG_AIRPORT_EXTRA_ALUMINIUM' , 'ResourceType', 'RESOURCE_ALUMINUM'),
-    ('BBG_AIRPORT_EXTRA_ALUMINIUM' , 'Amount', '1'),
+    ('BBG_AIRPORT_EXTRA_ALUMINIUM' , 'Amount', 1),
     ('BBG_AIRPORT_EXTRA_URANIUM' , 'ResourceType', 'RESOURCE_URANIUM'),
-    ('BBG_AIRPORT_EXTRA_URANIUM' , 'Amount', '1');
+    ('BBG_AIRPORT_EXTRA_URANIUM' , 'Amount', 1);
 -- +2 oil from mil acadamies
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-    ('BUILDING_MILITARY_ACADEMY', 'OIL_FROM_MIL_ACAD_BBG');
+    ('BUILDING_MILITARY_ACADEMY', 'BBG_OIL_MILITARY_ACADEMY_BONUS');
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('OIL_FROM_MIL_ACAD_BBG', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_RESOURCE_OIL_REQSET');
+    ('BBG_OIL_MILITARY_ACADEMY_BONUS', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_RESOURCE_OIL_REQSET');
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('OIL_FROM_MIL_ACAD_BBG', 'ResourceType', 'RESOURCE_OIL'),
-    ('OIL_FROM_MIL_ACAD_BBG', 'Amount', '2');
+    ('BBG_OIL_MILITARY_ACADEMY_BONUS', 'ResourceType', 'RESOURCE_OIL'),
+    ('BBG_OIL_MILITARY_ACADEMY_BONUS', 'Amount', '2');
 -- +1 coal from shipyard
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
     ('BUILDING_SHIPYARD', 'COAL_FROM_SHIPYARD_BBG');
@@ -47,6 +48,14 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('COAL_FROM_SHIPYARD_BBG', 'ResourceType', 'RESOURCE_COAL'),
     ('COAL_FROM_SHIPYARD_BBG', 'Amount', '1');
 
+-- 17/12/25 Seaport now give +2 oil per turn
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+    ('BUILDING_SEAPORT', 'BBG_OIL_SEAPORT_BONUS');
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_OIL_SEAPORT_BONUS', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_RESOURCE_OIL_REQSET');
+INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_OIL_SEAPORT_BONUS', 'ResourceType', 'RESOURCE_OIL'),
+    ('BBG_OIL_SEAPORT_BONUS', 'Amount', '2');
 
 
 -- 08/04/25 Barracks and Stables get +2 Iron/Horses
@@ -75,6 +84,20 @@ UPDATE Building_YieldChangesBonusWithPower SET YieldChange=12 WHERE BuildingType
 -- 14/10/23 Reduced by 15% from base game
 UPDATE Buildings SET Cost=320 WHERE BuildingType='BUILDING_HANGAR';
 UPDATE Buildings SET Cost=400 WHERE BuildingType='BUILDING_AIRPORT';
+
+-- 16/12/25 Research Lab Science when powered reduced to 3 from 5
+UPDATE Building_YieldChangesBonusWithPower SET YieldChange=3 WHERE BuildingType='BUILDING_RESEARCH_LAB' AND YieldType='YIELD_SCIENCE';
+-- 16/12/25 Research Lab Science receive +3 Science once reaching Nuclear Program Civic
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+    ('BUILDING_RESEARCH_LAB', 'BBG_RESEARCH_LAB_SCIENCE_NUCLEAR_PROGRAM_BONUS');
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_RESEARCH_LAB_SCIENCE_NUCLEAR_PROGRAM_BONUS', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_YIELD_CHANGE', 'BBG_UTILS_PLAYER_HAS_CIVIC_NUCLEAR_PROGRAM_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_RESEARCH_LAB_SCIENCE_NUCLEAR_PROGRAM_BONUS', 'YieldType', 'YIELD_SCIENCE'),
+    ('BBG_RESEARCH_LAB_SCIENCE_NUCLEAR_PROGRAM_BONUS', 'Amount', '3'),
+    ('BBG_RESEARCH_LAB_SCIENCE_NUCLEAR_PROGRAM_BONUS', 'BuildingType', 'BUILDING_RESEARCH_LAB');
+UPDATE Buildings SET Description='LOC_BUILDING_RESEARCH_LAB_EXPANSION2_DESCRIPTION' WHERE BuildingType='BUILDING_RESEARCH_LAB';
+UPDATE Civics SET Description='LOC_CIVIC_NUCLEAR_PROGRAM_DESCRIPTION' WHERE CivicType='CIVIC_NUCLEAR_PROGRAM';
 
 --==============================================================
 --*****                  WONDERS(Built)                   ******

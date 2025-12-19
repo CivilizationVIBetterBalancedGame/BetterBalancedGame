@@ -95,11 +95,12 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId , Requirement
 --=               CLEOPATRA                   =
 --=============================================
 
---14/07/2022: Egypt 6 golds per international traderoutes instead of 4
+-- 14/07/2022: Egypt 6 golds per international traderoutes instead of 4
 -- 02/12/24 reverted
--- UPDATE ModifierArguments SET Value='6' WHERE ModifierId='TRAIT_INTERNATIONAL_TRADE_GAIN_GOLD' AND Name='Amount';
 -- 02/12/24 food reduced to 1
+-- 19/12/25 Gold increased to 6
 UPDATE ModifierArguments SET Value=1 WHERE ModifierId='TRAIT_INCOMING_TRADE_OFFER_FOOD' AND Name='Amount';
+UPDATE ModifierArguments SET Value=6 WHERE ModifierId='TRAIT_INTERNATIONAL_TRADE_GAIN_GOLD' AND Name='Amount';
 
 -- 02/12/24 bonus production doubled when city is settled on river for com hub and iz
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES

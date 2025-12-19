@@ -276,9 +276,12 @@ UPDATE Improvements SET PrereqTech='TECH_REFINING' WHERE ImprovementType='IMPROV
 UPDATE Projects SET Cost=1500 WHERE ProjectType='PROJECT_MANHATTAN_PROJECT';
 UPDATE Projects SET Cost=1000 WHERE ProjectType='PROJECT_OPERATION_IVY';
 UPDATE Projects SET Cost=1200 WHERE ProjectType='PROJECT_BUILD_NUCLEAR_DEVICE';
-UPDATE Projects SET Cost=1500 WHERE ProjectType='PROJECT_BUILD_THERMONUCLEAR_DEVICE';
+-- 18/12/25 Thermos increased to 850 from 750
+UPDATE Projects SET Cost=1700 WHERE ProjectType='PROJECT_BUILD_THERMONUCLEAR_DEVICE';
 UPDATE Project_ResourceCosts SET StartProductionCost=15 WHERE ProjectType='PROJECT_BUILD_NUCLEAR_DEVICE';
 UPDATE Project_ResourceCosts SET StartProductionCost=30 WHERE ProjectType='PROJECT_BUILD_THERMONUCLEAR_DEVICE';
+
+UPDATE Projects SET RequiredBuilding='BUILDING_RESEARCH_LAB' WHERE ProjectType IN ('PROJECT_MANHATTAN_PROJECT', 'PROJECT_OPERATION_IVY');
 
 --=======================================================================
 --******               Wonder+Terrain/Feature                      ******

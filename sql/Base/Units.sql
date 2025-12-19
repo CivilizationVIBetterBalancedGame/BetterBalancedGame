@@ -47,6 +47,8 @@ UPDATE Units SET Combat=65, RangedCombat=75 WHERE UnitType='UNIT_BATTLESHIP';
 UPDATE Units SET BaseMoves=5 WHERE UnitType='UNIT_HELICOPTER';
 -- 20/12/23 movement from 2 to 3 machine gun
 UPDATE Units SET BaseMoves=3 WHERE UnitType='UNIT_MACHINE_GUN';
+-- 18/12/25 Machine gun get aa
+UPDATE Units SET AntiAirCombat=80 WHERE UnitType='UNIT_MACHINE_GUN';
 
 -- 02/07/24 UNIT_AIRCRAFT_CARRIER CS to 80 from 70
 UPDATE Units SET Combat=80 WHERE UnitType='UNIT_AIRCRAFT_CARRIER';

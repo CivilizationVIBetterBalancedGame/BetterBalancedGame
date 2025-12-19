@@ -145,7 +145,7 @@ INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
     ('BBG_TILE_HAS_ANY_IMPROVEMENT', 'REQUIREMENT_PLOT_HAS_ANY_IMPROVEMENT');
 
---modifier types
+-- modifier types
 INSERT INTO Types(Type, Kind) VALUES
     ('MODIFIER_SINGLE_PLAYER_ATTACH_MODIFIER', 'KIND_MODIFIER'),
     ('MODIFIER_PLAYER_DISTRICTS_ATTACH_MODIFIER', 'KIND_MODIFIER');

@@ -1,4 +1,7 @@
 
+UPDATE GlobalParameters SET Value=75 WHERE Name='LOYALTY_AFTER_TRANSFERRED_BY_COMBAT_OWNER_BEFORE_OCCUPATION';
+
+
 UPDATE GlobalParameters SET Value=2 WHERE Name='FORTIFY_BONUS_PER_TURN';
 
 
@@ -263,6 +266,10 @@ UPDATE GoodyHutSubTypes SET Turn=30 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RE
 -- 30/06/25 Governor titles delayed to turn 25. Free technology delayed to turn 31.
 UPDATE GoodyHutSubTypes SET Turn=50 WHERE ModifierID='GOODY_DIPLOMACY_GRANT_GOVERNOR_TITLE';
 UPDATE GoodyHutSubTypes SET Turn=62 WHERE ModifierID='GOODY_SCIENCE_GRANT_ONE_TECH';
+-- 18/12/25 Pop and Builder delayed to turn 10
+UPDATE GoodyHutSubTypes SET Turn=20 WHERE ModifierID='GOODY_SURVIVORS_ADD_POPULATION';
+UPDATE GoodyHutSubTypes SET Turn=20 WHERE ModifierID='GOODY_SURVIVORS_GRANT_BUILDER';
+
 
 --=======================================================================
 --******                       DISTRICTS                          ******
@@ -315,6 +322,16 @@ UPDATE Technologies SET UITreeRow=1 WHERE TechnologyType='TECH_GUIDANCE_SYSTEMS'
 INSERT INTO TechnologyModifiers (TechnologyType, ModifierId) VALUES
     ('TECH_MILITARY_SCIENCE', 'CIVIC_GRANT_SPY');
 UPDATE Technologies SET Description='BBG_LOC_TECH_MILITARY_SCIENCE_DESCRIPTION' WHERE TechnologyType='TECH_MILITARY_SCIENCE';
+
+-- 18/12/25 Nuclear Fusion requires Composite
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_NUCLEAR_FUSION', 'TECH_COMPOSITES');
+
+-- 18/12/25 Composite requires Nuclear Fission
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_COMPOSITES', 'TECH_NUCLEAR_FISSION');
+
+
 
 --=======================================================================
 --******                       AMENITIES                           ******
