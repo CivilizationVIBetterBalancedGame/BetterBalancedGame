@@ -147,8 +147,8 @@ UPDATE Buildings SET Cost=120 WHERE BuildingType='BUILDING_AMPHITHEATER';
 
 -- 17/12/25 Seaport advanced to Steam Power
 UPDATE Buildings SET PrereqTech='TECH_STEAM_POWER' WHERE BuildingType='BUILDING_SEAPORT';
--- 17/12/25 Sea Port production cost reduced to 180 (from 220)
-UPDATE Buildings SET Cost=180 WHERE BuildingType='BUILDING_SEAPORT';
+-- 17/12/25 Sea Port production cost reduced to 360 (from 440)
+UPDATE Buildings SET Cost=360 WHERE BuildingType='BUILDING_SEAPORT';
 
 -- 17/12/25 Stable production cost reduced to 90 (from 120)
 UPDATE Buildings SET Cost=90 WHERE BuildingType='BUILDING_STABLE';
