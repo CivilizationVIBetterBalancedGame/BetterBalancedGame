@@ -4,7 +4,7 @@
 
 		<!-- Author : platypus -->
 
-		<!-- BBG 7.2 -->		
+		<!-- BBG 7.3 last updated by platypus 12/22/2025-->		
 
 		<!-- With the help of Apeul, Chuck, BBG Bug Reports, and CPL Players-->
 		<!-- Special thanks to Ybanca, Calcifer, and ZhenjaMax -->
@@ -23,6 +23,7 @@
 			<!-- === IMPROVEMENTS === -->
 			<!-- === DISTRICTS === -->
 			<!-- === BUILDINGS === -->
+			<!-- === CITY PROJECTS === -->
 			<!-- === WORLD WONDERS === -->
 			<!-- === NATURAL WONDERS === -->
 			<!-- === CITY-STATES === -->
@@ -139,6 +140,12 @@
 		</Row>
 		<Row Tag="LOC_BBG_SULTAN_COMBAT_ADJACENT_APOSTLE_ABILITY_DESC" Language="en_US">
 			<Text>+5 [ICON_STRENGTH] Combat Strength for adjacent apostle.</Text>
+		</Row>
+		<Row Tag="LOC_BBG_SULTAN_APOSTLE_GRANT_COMBATSTRENGTH_ABILITY_NAME" Language="en_US">
+			<Text>Jihad</Text>
+		</Row>
+		<Row Tag="LOC_BBG_SULTAN_APOSTLE_GRANT_COMBATSTRENGTH_ABILITY_DESC" Language="en_US">
+			<Text>+5 [ICON_STRENGTH] Combat Strength for units within 2 tiles.</Text>
 		</Row>
 
 
@@ -270,7 +277,9 @@
 			<Text>Cannot declare war on City-states or surprise wars. Surprise wars cannot be declared on Canada.[NEWLINE][NEWLINE]For every 100 [ICON_TOURISM] Tourism per turn earn 1 [ICON_FAVOR] Diplomatic Favor per turn. Receive +100% [ICON_FAVOR] Diplomatic Favor from successfully completing an Emergency or Scored Competition.[NEWLINE][ICON_BULLET]Bias: T1 Tundra.</Text>
 		</Replace>
 		<!-- = leader ability = -->
-
+		<Replace Tag="LOC_TRAIT_LEADER_LAST_BEST_WEST_DESCRIPTION" Language="en_US">
+			<Text>City Centers in Tundra receive +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]Farms can be constructed in Tundra. After Civil Engineering is unlocked, Farms can be built on Tundra Hills. Improvements in Tundra and Snow receive the following bonuses: Mines and Lumber Mills +2 [ICON_PRODUCTION] Production, Farms and Camps +2 [ICON_FOOD] Food, Pastures +1 [ICON_FOOD] Food. Receive double the normal accumulation rate for Strategic Resources improved in tundra and snow. -50% of the normal cost to purchase Snow and Tundra tiles.</Text>
+		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_CANADA_MOUNTIE_DESCRIPTION" Language="en_US">
 			<Text>Canadian unique Modern era unit. Has Sight of 4. Can create 2 National Parks. +5 [ICON_STRENGTH] Combat Strength when fighting within 4 tiles of a National Park. Additional +5 [ICON_STRENGTH] Combat Strength when fighting within 4 tiles of an Owned National Park.</Text>
@@ -307,7 +316,7 @@
 		</Replace>
 		<!-- = leader ability (Qin Shi Huang, Unifier) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_QIN_ALT_DESCRIPTION" Language="en_US">
-			<Text>Melee units receive the Convert Barbarians action, which consumes the melee unit.[NEWLINE][NEWLINE]+50% [ICON_PRODUCTION] Production towards Encampment buildings. +1 [ICON_GreatWriter] Great Writer point from Encampment districts. Barracks buildings provide 2 slots for [ICON_GreatWork_WRITING] Great Works of Writing. Great Works of Writing provide +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]When recruiting a Great General or Great Writer receive a random [ICON_TechBoosted] Eureka and [ICON_CivicBoosted] Inspiration.</Text>
+			<Text>Melee units receive the Convert Barbarians action, which consumes the melee unit.[NEWLINE][NEWLINE]+50% [ICON_PRODUCTION] Production towards Encampment buildings. +1 [ICON_GreatWriter] Great Writer point from Encampment districts. Barracks and Stable buildings provide 2 slots for [ICON_GreatWork_WRITING] Great Works of Writing. Great Works of Writing provide +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]When recruiting a Great General or Great Writer receive a random [ICON_TechBoosted] Eureka and [ICON_CivicBoosted] Inspiration.</Text>
 		</Replace>
 		<!-- = leader ability (Yongle) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_YONGLE_XP_DESCRIPTION" Language="en_US">
@@ -656,6 +665,34 @@
 
 		<!-- == GERMANY == -->
 		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_IMPERIAL_FREE_CITIES_DESCRIPTION" Language="en_US">
+			<Text>After unlocking Guilds, each city can build one more [ICON_DISTRICT] District than usual (exceeding the normal limit based on [ICON_CITIZEN] Population). [NEWLINE][ICON_BULLET]Bias: T3 Rivers.</Text>
+		</Replace>
+		<!-- = leader ability (Frederick Barbarossa) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_HOLY_ROMAN_EMPEROR_DESCRIPTION" Language="en_US"> <!-- add icon -->
+			<Text>One extra Military policy slot in any [ICON_GOVERNMENT] government.[NEWLINE]+7 [ICON_STRENGTH] Combat Strength when attacking City-states.[NEWLINE]Hansa receives major adjacency bonus from Encampments.[NEWLINE]Gain the Tiger I unique unit when Combustion is researched.</Text>
+		</Replace>
+		<!-- = unique unit (Tiger I Tank) = -->
+		<Replace Tag="LOC_UNIT_GERMAN_PANZER_NAME" Language="en_US">
+			<Text>Tiger I</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_GERMAN_PANZER_DESCRIPTION" Language="en_US">
+			<Text>German unique Modern era Tank replacement that has +3 [ICON_Strength] Combat Strength and +3 [ICON_Strength] Combat Strength when not adjacent to another Tiger I.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_PANZER_CS_NOT_ADJACENT_PANZER_DESC" Language="en_US">
+			<Text>+3 [ICON_STRENGTH] Combat Strength when not adjacent to another Tiger I</Text>
+		</Replace>
+
+
+		<!-- = leader ability (Ludwig II) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_LUDWIG_DESCRIPTION" Language="en_US"> <!-- add icon -->
+			<Text>Wonders (complete and incomplete) receive +1 [ICON_CULTURE] Culture for every adjacent [ICON_DISTRICT] District as adjacency bonus. All [ICON_CULTURE] Culture adjacencies provide [ICON_TOURISM] Tourism with Castles. [NEWLINE]Culture bomb adjacent tiles when completing a Commercial Hub.[NEWLINE]Hansa receives major adjacency bonus from Commercial Hubs.</Text>
+		</Replace>
+		<!-- = unique district (Hansa) = -->
+		<Replace Tag="LOC_DISTRICT_HANSA_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>A district unique to Germany for industrial activity. Replaces the Industrial Zone district and cheaper to build.[NEWLINE][NEWLINE]+ 2[ICON_Production] Production bonus for each adjacent Aqueduct, Canal, and Dam district. +1 [ICON_Production] Production bonus for each adjacent resource. +1 [ICON_Production] Production bonus for every two adjacent district tiles.</Text>
+		</Replace>
+
 
 		<!-- == GREECE == -->
 		<!-- = civilization ability = -->
@@ -676,7 +713,12 @@
 			<Text>+{1_Value} [ICON_STRENGTH] Combat Strength from Alhambra Military policy slot</Text>
 		</Row>
 		<!-- = leader ability (Pericles) = -->
-
+		<Replace Tag="LOC_TRAIT_LEADER_SURROUNDED_BY_GLORY_DESCRIPTION" Language="en_US">
+			<Text>+5% [ICON_CULTURE] Culture and +5% [ICON_TOURISM] Tourism per City-state you are Suzerain of.[NEWLINE]Awards 1 [ICON_ENVOY] envoy when an Amphitheater is completed.[NEWLINE][NEWLINE]Acropolis receives major production adjacency from wonders and minor production adjacency from districts.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_PERICLES_ACROPOLIS_WONDER_PROD_DESC" Language="en_US">
+			<Text>+2 [ICON_PRODUCTION] Production from adjacent wonder.</Text>
+		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_GREEK_HOPLITE_DESCRIPTION" Language="en_US">
 			<Text>Greek unique Ancient era anti-cavalry unit that replaces the Spearman. +7 [ICON_STRENGTH] Combat Strength if there is at least one adjacent Hoplite unit.</Text>
@@ -684,7 +726,7 @@
 		<Replace Tag="LOC_ABILITY_HOPLITE_DESCRIPTION" Language="en_US">
 			<Text>+7 [ICON_STRENGTH] Combat Strength if there is at least one Hoplite adjacent.</Text>
 		</Replace>
-		<!-- = unique district = -->
+		<!-- = unique district (Acropolis) = -->
 		<Replace Tag="LOC_DISTRICT_ACROPOLIS_DESCRIPTION" Language="en_US">
 			<Text>A district unique to Greece that replaces the Theater Square district and is cheaper to build. Can only be built on Hills.[NEWLINE][NEWLINE]+1 [ICON_CULTURE] Culture for each adjacent district.[NEWLINE]+1 [ICON_CULTURE] Culture for an adjacent City Center.[NEWLINE]+2 [ICON_CULTURE] Culture bonus for each adjacent wonder.</Text>
 		</Replace>	
@@ -833,13 +875,15 @@
 			<Text>+3 [ICON_STRENGTH] Combat Strength on coastal land</Text>
 		</Replace>
 		<!-- = leader ability (Tokugawa) = -->
-
+		<Replace Tag="LOC_TRAIT_LEADER_TOKUGAWA_XP_DESCRIPTION" Language="en_US">
+			<Text>International [ICON_TRADEROUTE] Trade Routes receive -25% Yields and [ICON_TOURISM] Tourism, but Domestic [ICON_TRADEROUTE] Trade Routes provide +0.5 [ICON_CULTURE] Culture increasing to +1 with Humanism, and +0.5 [ICON_SCIENCE] Science increasing to +1 with Education for every Specialty District at the Destination. Cities within 6 tiles of Japan's capital receive 100% Loyalty and after researching Flight receive +1 [ICON_TOURISM] Tourism for every District.</Text>
+		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_ABILITY_SAMURAI_DESCRIPTION" Language="en_US">
 			<Text>This unit does not suffer combat penalties when damaged.</Text>
 		</Replace>
 		<!-- = unique building = -->
-		<Replace Tag="LOC_BUILDING_ELECTRONICS_FACTORY_DESCRIPTION2" Language="en_US">
+		<Replace Tag="LOC_BUILDING_ELECTRONICS_FACTORY_DESCRIPTION" Language="en_US">
 			<Text>A building unique to Japan. +3 [ICON_Production] Production to all city centers within 6 tiles. This building provides an additional +5 [ICON_Culture] Culture to its city. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses.</Text>
 		</Replace>
 		
@@ -870,6 +914,20 @@
 
 		<!-- == KONGO == -->
 		<!-- = civilization ability = -->
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_NKISI_DESCRIPTION" Language="en_US">
+			<Text>[ICON_GreatWork_Artifact] Artifacts, [ICON_GreatWork_Sculpture] Sculptures, and [ICON_GreatWork_Relic] Relics grant +2 [ICON_FOOD] Food, +2 [ICON_PRODUCTION] Production, +4 [ICON_GOLD] Gold and +2 [ICON_FAITH] Faith. Palace has slots for 5 Great Works. Receive a [ICON_GreatWork_Relic] Relic when completing each Government Plaza building.[NEWLINE][NEWLINE]Receive 50% more [ICON_GreatWriter] Great Writer, [ICON_GreatArtist] Great Artist, and [ICON_GreatMusician] Great Musician points. +100% [ICON_PRODUCTION] Production to Archaeologists.[NEWLINE][ICON_BULLET]Bias: T3 Rainforest, T5 Woods.</Text>
+		</Replace>
+		<!-- = leader ability (Mvemba a Nzinga) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_RELIGIOUS_CONVERT_DESCRIPTION" Language="en_US">
+			<Text>May not build Holy Site districts, gain [ICON_GreatProphet] Great Prophets, or found Religions. Receives +0.2 [ICON_CULTURE] Culture and +1 [ICON_GOLD] Gold per citizen in a city following any religion. Receives an Apostle (of that city's majority Religion) each time he finishes a Mbanza or Theater Square district.[NEWLINE][NEWLINE]Once you enter the classical era, all land combat units and [ICON_GreatGeneral] Great Generals ignore the Rainforest and Woods [ICON_MOVEMENT] Movement penalty.[NEWLINE][NEWLINE]Receive 50% more [ICON_GreatGeneral] Great General points. Rainforest and Woods tiles adjacent to an Encampment receive +1 [ICON_PRODUCTION] Production.</Text>
+		</Replace>
+		<Row Tag="LOC_BBG_IGNORE_WOODS_ABILITY_DESCRIPTION" Language="en_US">
+			<Text>Ignores Rainforest and Woods [ICON_MOVEMENT] Movement penalty (Mvemba a Nzinga).</Text>
+		</Row>
+		<!-- = leader ability (Nzinga Mbande) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_NZINGA_MBANDE_DESCRIPTION" Language="en_US">
+			<Text>+15% [ICON_GOLD] Gold and 15% [ICON_CULTURE] Culture in cities with a Mbanza (does not stack with multiples). Mbanza provides +2 adjacency to Theater Squares and Commercial Hubs. Archaeologists are 50% cheaper to purchase.[NEWLINE][NEWLINE]All civilian units ignore the Rainforest and Woods [ICON_MOVEMENT] Movement penalty.[NEWLINE][NEWLINE]Receive 50% more [ICON_GreatMerchant] Great Merchant points.</Text>
+		</Replace>
 		<Row Tag="BBG_LOC_MBANDE_COMMERCIAL_MBANZA" Language="en_US">
 			<Text>+{1_num} [ICON_GOLD] Gold per adjacent Mbanza.</Text>
 		</Row>
@@ -986,7 +1044,7 @@
 		</Replace>
 		<!-- = leader ability (Sundiata) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SUNDIATA_KEITA_DESCRIPTION" Language="en_US">
-			<Text>Patronage of [ICON_GREATPERSON] Great People costs 30% less [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Theater Squares grant standard adjacency to  Sugubas. Cities with a Theater Square and Suguba receive +1 [ICON_GreatWriter] Great Writer point. Markets gain 2 slots for [ICON_GREATWORK_WRITING] Great Works of Writing in cities founded by Sundiata. [ICON_GREATWORK_WRITING] Great Works of Writing grant +2 [ICON_CULTURE] Culture and +4 [ICON_GOLD] Gold.</Text>
+			<Text>Patronage of [ICON_GREATPERSON] Great People costs 30% less [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Cities with a Theater Square and Suguba receive +1 [ICON_GreatWriter] Great Writer point. Markets gain 2 slots for [ICON_GREATWORK_WRITING] Great Works of Writing in cities founded by Sundiata. [ICON_GREATWORK_WRITING] Great Works of Writing grant +2 [ICON_CULTURE] Culture and +4 [ICON_GOLD] Gold.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_SUGUBA_THEATER_SUNDIATA" Language="en_US">
 			<Text>Theater adjacency: +{1_num} [ICON_GOLD] Gold (Sogolon).</Text>
@@ -1038,8 +1096,9 @@
 			<Text>Cities with an Established [ICON_Governor] Governor provide +5% [ICON_CULTURE] Culture, +5% [ICON_Production] Production, and +10% experience in combat towards all units trained in this city. These numbers are tripled in cities not founded by the Mapuche. All cities within 9 tiles of a city with your  [ICON_Governor] Governor gain +4 Loyalty per turn towards your civilization.[NEWLINE][ICON_BULLET]Bias: T4 Grassland and Plains Mountain, -T3 Floodplains.</Text>
 		</Replace>
 		<!-- = leader ability = -->
-
-
+		<Replace Tag="LOC_TRAIT_LEADER_LAUTARO_ABILITY_DESCRIPTION_ALT" Language="en_US">
+			<Text>+3 [ICON_STRENGTH] Combat Strength when fighting Free Cities or civilizations that are in a [ICON_GLORY_GOLDEN_AGE] Golden or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age. Defeating an enemy unit within the borders of an enemy city causes that city to lose 15 Loyalty, doubled if that civilization is in a [ICON_GLORY_GOLDEN_AGE] Golden or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age.[NEWLINE][NEWLINE]Tiles in cities with an Encampment receive +1 Appeal.</Text>
+		</Replace>
 		<Row Tag="LOC_PREVIEW_MAPUCHE_COMBAT_BONUS_TOQUI_VS_GOLDEN_AGE_CIV" Language="en_US">
 			<Text>+{1_num} vs. Free Cities or Golden/Heroic Age</Text>
 		</Row>
@@ -1098,6 +1157,11 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MONGOLIAN_ORTOO_DESCRIPTION" Language="en_US">
 			<Text>All Mongolian units double the usual [ICON_STRENGTH] Combat Bonus for having a higher level of [ICON_VisLimited] Diplomatic Visibility than their opponent. Starting a [ICON_TRADEROUTE] Trade Route immediately creates a [ICON_TRADINGPOST] Trading Post in the destination city.[NEWLINE][ICON_BULLET]Bias: T4 Horses.</Text>
 		</Replace>
+		<!-- = leader ability (Genghis Khan) = -->
+		<Replace Tag="LOC_TRAIT_LEADER_GENGHIS_KHAN_ABILITY_DESCRIPTION" Language="en_US">
+			<Text>Light cavalry units and Keshig gain +3 [ICON_Strength] Combat Strength and a chance to capture defeated enemy cavalry class units.</Text>
+		</Replace>
+		<!-- = leader ability (Kublai Khan: See Kublai in the 'K' Section) = -->
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_ORDU_DESCRIPTION" Language="en_US">
 			<Text>A building unique to Mongolia. Grants an ability that gives +1 [ICON_MOVEMENT] Movement when starting on flat terrain to Heavy and Light Cavalry trained in this city. +25% combat experience for all cavalry and siege class units trained in this city. May not be built in an Encampment district that already has a Barracks.[NEWLINE][NEWLINE]+2 [ICON_RESOURCE_HORSES] Horses per turn once discovered.</Text>
@@ -1329,6 +1393,12 @@
 		<Replace Tag="LOC_BBG_CAESAR_DOUBLE_XP_BONUS_MODIFIER_DESC" Language="en_US">
 			<Text>+100% Combat Experience (Veni, Vidi, Vici)</Text>
 		</Replace>
+		<Replace Tag="LOC_UNIT_ROMAN_ONAGER_NAME" Language="en_US">
+			<Text>Onager</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_ROMAN_ONAGER_DESCRIPTION" Language="en_US">
+			<Text>Roman unique Classical era Catapult replacement when Rome is lead by Trajan. Can move and attack on the same turn.</Text>
+		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_BATH_DESCRIPTION" Language="en_US">
 			<Text>A district unique to Rome for city growth. Replaces the Aqueduct district and cheaper to build.[NEWLINE][NEWLINE]It provides this city with a source of fresh water from an adjacent River, Lake, Oasis, or Mountain. Cities that do not yet have existing fresh water receive up to 6 [ICON_Housing] Housing. Cities that already have existing fresh water will instead get +2 [ICON_Housing] Housing. Must be built adjacent to the City Center. In either case, the Bath provides an additional bonus of +2 [ICON_Housing] Housing. Receives +1 [ICON_CULTURE] Culture for every 2 adjacent districts. Must be built adjacent to the City Center.</Text>
@@ -1545,7 +1615,7 @@
 			<Text>Where Men Become Gods</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_DESC" Language="en_US">
-			<Text>When you are Suzerain of a City-state, international and domestic [ICON_TRADEROUTE] trade routes receive additional yields based on the type.  If you are suzerain to 2 or more City-states of that type, triple these yields.[NEWLINE]+1 [ICON_FOOD] Food for Religious[NEWLINE]+1 [ICON_PRODUCTION] Production for Millitaristic and Industrial[NEWLINE]+3 [ICON_GOLD] Gold for Commercial[NEWLINE]+1 [ICON_SCIENCE] Science for Scientific[NEWLINE]+1 [ICON_CULTURE] Culture for Cultural.[NEWLINE][ICON_BULLET]Bias: None.</Text>
+			<Text>When you are Suzerain of a City-state, all [ICON_TRADEROUTE] Trade Routes receive additional yields based on the type of City-state.  If you are suzerain to 2 or more City-states of that type, triple these yields.[NEWLINE]+1 [ICON_FOOD] Food for Religious[NEWLINE]+1 [ICON_PRODUCTION] Production for Millitaristic and Industrial[NEWLINE]+3 [ICON_GOLD] Gold for Commercial[NEWLINE]+1 [ICON_SCIENCE] Science for Scientific[NEWLINE]+1 [ICON_CULTURE] Culture for Cultural.[NEWLINE][ICON_BULLET]Bias: None.</Text>
 		</Replace>
 		<!-- = Leader ability -->
 		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_NAME" Language="en_US">
@@ -1576,7 +1646,7 @@
 			<Text>Hunting of the Bowhead</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_THULE_HUNTING_BOWHEAD_DESCRIPTION" Language="en_US">
-			<Text>Builders can consume one [ICON_CHARGES] Charge and one [ICON_CITIZEN] Citizen to create a [ICON_RESOURCE_WHALES] Whales tile.[NEWLINE][NEWLINE]Bias: T1 Tundra, T2 Coast.</Text>
+			<Text>Builders can consume one [ICON_CHARGES] Charge and one [ICON_CITIZEN] Citizen to create a [ICON_RESOURCE_WHALES] Whales tile.[NEWLINE][NEWLINE]Tundra tiles adjacent to a Hunter's House receive +1 [ICON_FOOD] Food (doubled for snow). Adjacent Camps and Fishing boats receive +1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production. A tile may only benefit from a single Hunter's House.[NEWLINE][NEWLINE]Bias: T1 Tundra, T2 Coast.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LIME_THULE_DAVE_HEART_NOT_STONE_NAME" Language="en_US">
@@ -1606,7 +1676,7 @@
 			<Text>Hunter's House</Text>
 		</Replace>
 		<Replace Tag="LOC_IMPROVEMENT_LIME_THULE_WBH_DESCRIPTION" Language="en_US">
-			<Text>Unique improvement for Thule, unlocked at Sailing.[NEWLINE]+1 [ICON_HOUSING] Housing[NEWLINE]+1 [ICON_FOOD] Food if built on a Tundra tile (doubled on snow)[NEWLINE]+1 [ICON_CULTURE] Culture and [ICON_FAITH] Faith +1 for each adjacent sea resource and Camp tile after Foreign Trade.[NEWLINE][NEWLINE]Hunter's House provides additional yields to adjacent tiles.[NEWLINE]+1 [ICON_FOOD] Food for Tundra tiles (doubled for snow).[NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production for Camps and Fishing Boats.[NEWLINE][NEWLINE]Must be built adjacent to a resource tile. Can be placed on forests. Cannot be placed next to another Hunter's House.</Text>
+			<Text>Unique improvement for Thule, unlocked at Sailing.[NEWLINE]+1 [ICON_HOUSING] Housing[NEWLINE]+1 [ICON_FOOD] Food if built on a Tundra tile (doubled on snow)[NEWLINE]+1 [ICON_CULTURE] Culture and +1 [ICON_FAITH] Faith for each adjacent sea resource and Camp tile after Foreign Trade.[NEWLINE][NEWLINE]Must be built adjacent to a resource tile. Can be placed on forests. Cannot be placed next to another Hunter's House.</Text>
 		</Replace>
 		<Replace Tag="LOC_RESOURCE_WHALES_DESCRIPTION" Language="en_US">
 			<Text>Unlocks the ability for builders to create a Whale tile by sacrificing a population from the city.  Unique to Thule.</Text>
@@ -1680,7 +1750,7 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_IKANDA_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Zulu which replaces the Encampment. Provides +1 [ICON_HOUSING] Housing. Buildings in the Ikanda receive +2 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE]Once required Civics are unlocked, allows [ICON_CORPS] Corps or [ICON_ARMY] Armies to be trained directly and their costs reduced by 25%.</Text>
+			<Text>A district unique to Zulu which replaces the Encampment. Provides +1 [ICON_HOUSING] Housing. Buildings in the Ikanda receive +2 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture.[NEWLINE]Once required Civics are unlocked, allows [ICON_CORPS] Corps or [ICON_ARMY] Armies to be trained directly and their costs are reduced by 5%.</Text>
 		</Replace>
 		
 		
@@ -1744,6 +1814,10 @@
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_ATTACKING_UNFRIENDLY_DESC" Language="en_US">
 			<Text>+5 [ICON_STRENGTH] Combat Strength when attacking outside friendly territory.</Text>
+		</Replace>
+		<!-- == Ranged Units == -->
+		<Replace Tag="LOC_UNIT_MACHINE_GUN_DESCRIPTION" Language="en_US">
+			<Text>Modern era ranged unit. Provides cover from air attacks up to 1 hex away from the unit.</Text>
 		</Replace>
 		<!-- == Naval Units == -->
 		<!-- = Quadrireme = -->
@@ -1984,19 +2058,19 @@
 			<Text>Arrival of Strangers</Text>
 		</Replace>
 		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL_DESC" Language="en_US"> <!-- M0 -->
-			<Text>May be assigned to a City-State, where it provides two [ICON_ENVOY] envoy. Friendly units inside this City-State borders gain +5 [ICON_STRENGTH] Combat strength.</Text>
+			<Text>May be assigned to a City-State, where it provides 2 [ICON_ENVOY] Envoys. Friendly units inside this City-State borders gain +5 [ICON_STRENGTH] Combat strength.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_NAME" Language="en_US"> <!-- L1 -->
 			<Text>Waka Outpost</Text>
 		</Replace>
 		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST_DESC" Language="en_US"> <!-- L1 -->
-			<Text>Envoys sent to this City-state count as two [ICON_ENVOY] Envoys. When established in any city or City-state, envoys sent to City-states count as two if you have an active [ICON_TRADEROUTE] Traderoute to that City-state.[NEWLINE]+25% [ICON_PRODUCTION] Production for Commercial Hubs and Harbors in your cities within a 15-tile radius.</Text>
+			<Text>Envoys sent to this City-state count as two [ICON_ENVOY] Envoys. When established in any city or City-state, envoys sent to City-states count as two if you have an active [ICON_TRADEROUTE] Trade Route to that City-state.[NEWLINE]+25% [ICON_PRODUCTION] Production for Commercial Hubs and Harbors in your cities within a 15-tile radius.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_NAME" Language="en_US"> <!-- L2 -->
 			<Text>Fall of Jaguar Paw</Text>
 		</Replace>
 		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL_DESC" Language="en_US"> <!-- L2 -->
-			<Text>+25% [ICON_PRODUCTION] Production for Commercial Hub, Harbors, and City Center buildings in your cities within a 15-tile radius.</Text>
+			<Text>+25% [ICON_PRODUCTION] Production for Commercial Hub, Harbor, and City Center buildings in your cities within a 15-tile radius.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOV_PROMO_LIME_TEO_OWL_EMISSARY_EXPEDITION_NAME" Language="en_US"> <!-- R1 -->
 			<Text>Petén Expedition</Text>
@@ -2181,8 +2255,7 @@
 			<Text>+25 [ICON_ANTIAIR_LARGE] Combat Strength to anti-air support units within the city's territory when defending against aircraft and ICBMs.</Text>
 		</Replace>
 
-		
-		
+				
 		<!-- === PANTHEONS === -->
 		<!-- == City Patron Goddess == -->
 		<Replace Tag="LOC_BELIEF_CITY_PATRON_GODDESS_DESCRIPTION" Language="en_US">
@@ -2205,10 +2278,14 @@
 		</Replace>
 		<!-- == Fertility Rites == -->
 		<Replace Tag="LOC_BELIEF_FERTILITY_RITES_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_FOOD] Food for [ICON_RESOURCE_CATTLE] Cattle, [ICON_RESOURCE_RICE] Rice, and [ICON_RESOURCE_WHEAT] Wheat tiles. Cities that do not gain housing from fresh water receive +2 Housing.</Text>
+			<Text>+1 [ICON_FOOD] Food for [ICON_RESOURCE_CATTLE] Cattle, [ICON_RESOURCE_RICE] Rice, and [ICON_RESOURCE_WHEAT] Wheat tiles. Cities that do not gain housing from fresh water receive +2 [ICON_HOUSING] Housing.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_FERTILITY_RITES_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_FOOD] Food for [ICON_RESOURCE_CATTLE] Cattle, [ICON_RESOURCE_RICE] Rice, [ICON_RESOURCE_WHEAT] Wheat, and [ICON_RESOURCE_MAIZE] Maize resources.</Text>
+		</Replace>
+		<!-- == God of Craftsmen == -->
+		<Replace Tag="LOC_BELIEF_GOD_OF_CRAFTSMEN_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_Production] Production and +1 [ICON_Faith] Faith from improved Strategic resources. All improved Strategic resources yield +1 additional resource per turn.</Text>
 		</Replace>
 		<!-- == God of the Forge == -->
 		<Replace Tag="LOC_BELIEF_GOD_OF_THE_FORGE_DESCRIPTION" Language="en_US">
@@ -2448,6 +2525,10 @@
 		<Replace Tag="LOC_BUILDING_HANGAR_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for air units trained in this city. +1 air unit slot in Aerodrome district. +1 [ICON_RESOURCE_ALUMINUM] Aluminum per turn once discovered.</Text>
 		</Replace>
+		<!-- == Campus == -->
+		<Row Tag="LOC_BUILDING_RESEARCH_LAB_EXPANSION2_DESCRIPTION" Language="en_US">
+			<Text>Receive +3 [ICON_SCIENCE] Science after unlocking Nuclear Program</Text>
+		</Row>
 		<!-- == City Center Buildings == -->
 		<Replace Tag="LOC_BUILDING_WATER_MILL_DESCRIPTION" Language="en_US">
 			<Text>Farms gain +1 [ICON_PRODUCTION] Production.</Text>
@@ -2467,17 +2548,14 @@
 			<Text>+2 [ICON_InfluencePerTurn] Influence Points per turn. Enemy Spy's level is reduced by 1 when targeting this city or cities with Encampments.</Text>
 		</Replace>
 		<!-- == Encampment Buildings == -->
-		<Replace Tag="LOC_BUILDING_BARRACKS_DESCRIPTION" Language="en_US">
+		<Replace Tag="LOC_BUILDING_BARRACKS_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for all melee and ranged land units trained in this city.[NEWLINE][NEWLINE]May not be built in an Encampment district that already has a Stable.[NEWLINE][NEWLINE]+2 [ICON_RESOURCE_IRON] Iron per turn once discovered.</Text>
 		</Replace>
-		<Replace Tag="LOC_BUILDING_STABLE_DESCRIPTION" Language="en_US">
+		<Replace Tag="LOC_BUILDING_STABLE_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for all cavalry and siege class units trained in this city. May not be built in an Encampment district that already has a Barracks.[NEWLINE][NEWLINE]+2 [ICON_RESOURCE_HORSES] Horses per turn once discovered.</Text>
 		</Replace>
-		<Replace Tag="LOC_BUILDING_ARMORY_DESCRIPTION" Language="en_US">
-			<Text>+25% combat experience for all land units trained in this city. +2 [ICON_RESOURCE_NITER] Niter per turn once discovered.</Text>
-		</Replace>
 		<Replace Tag="LOC_BUILDING_ARMORY_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>+25% combat experience for all land units trained in this city.[NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed). +1 [ICON_RESOURCE_NITER] Niter per turn once discovered.</Text>
+			<Text>+25% combat experience for all land units trained in this city.[NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed). +2 [ICON_RESOURCE_NITER] Niter per turn once discovered.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_MILITARY_ACADEMY_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for all land units trained in this city.[NEWLINE]Strategic Resource Stockpiles increased +10 (on Standard speed). +2 [ICON_RESOURCE_OIL] Oil per turn once discovered.[NEWLINE]Once required Civics are unlocked, allows [ICON_CORPS] Corps or [ICON_ARMY] Armies to be trained directly and their costs reduced by 25%.</Text>
@@ -2518,6 +2596,9 @@
 		<Replace Tag="LOC_BUILDING_SHIPYARD_EXPANSION2_DESCRIPTION" Language="en_US">
 			<Text>+25% combat experience for all naval units trained in this city. Bonus [ICON_PRODUCTION] Production equal to the adjacency bonus of the Harbor district. +1 [ICON_PRODUCTION] Production on all fisheries and unimproved Coast and Lake tiles for this city. +1 [ICON_RESOURCE_COAL] Coal per turn once discovered.</Text>
 		</Replace>
+		<Replace Tag="LOC_BUILDING_SEAPORT_DESCRIPTION" Language="en_US">
+			<Text>+25% combat experience for all naval units trained in this city. Once required Civics are unlocked, allows [ICON_CORPS] Fleets or [ICON_ARMY] Armadas to be trained directly and their costs reduced by 25%. +2 [ICON_GOLD] Gold on all Coast and Lake tiles for this city. +2 [ICON_RESOURCE_OIL] Oil per turn once discovered.</Text>
+		</Replace>
 		<!-- == Holy Site Buildings == -->
 		<Replace Tag="LOC_BUILDING_SHRINE_DESCRIPTION" Language="en_US">
 			<Text>Allows the purchasing of Missionaries, and with the proper belief, Warrior Monks. These units can only be purchased with [ICON_FAITH] Faith.</Text>
@@ -2545,6 +2626,20 @@
 		</Replace>
 
 
+		<!-- === CITY PROJECTS === -->
+		<Replace Tag="LOC_PROJECT_LAUNCH_MOON_LANDING_DESCRIPTION" Language="en_US">
+			<Text>Space Race project which launches a large rocket to land a human on the moon. Grants a [ICON_CULTURE] Culture bonus equal to 5 times your [ICON_SCIENCE] Science per turn, and marks the second step towards the Science Victory.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROJECT_LAUNCH_MOON_LANDING_POPUP" Language="en_US">
+			<Text>You successfully land a person on the moon! Grants a [ICON_CULTURE] Culture bonus equal to 5 times your [ICON_SCIENCE] Science per turn, and marks the second step towards the Science Victory.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROJECT_MANHATTAN_PROJECT_DESCRIPTION" Language="en_US">
+			<Text>Allows for the creation of Nuclear Devices. Requires a Research Lab in this city.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROJECT_OPERATION_IVY_DESCRIPTION" Language="en_US">
+			<Text>Allows for the creation of Thermonuclear Devices. Requires a Research Lab in this city.</Text>
+		</Replace>
+
 
 		<!-- === WORLD WONDERS === -->
 		<Replace Tag="LOC_BUILDING_AMUNDSEN_SCOTT_RESEARCH_STATION_DESCRIPTION" Language="en_US">
@@ -2564,6 +2659,9 @@
 		</Replace>
 		<Replace Tag="LOC_BUILDING_CRISTO_REDENTOR_DESCRIPTION" Language="en_US">
 			<Text>Awards 1 Relic [ICON_GreatWork_Relic]. Holy City and [ICON_GreatWork_Relic] Relic [ICON_TOURISM] Tourism is not diminished by other civilizations who have researched The Enlightenment civic. +100% [ICON_TOURISM] Tourism from Seaside Resorts across your civilization.[NEWLINE][NEWLINE]Must be built on Hills.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_EIFFEL_TOWER_DESCRIPTION" Language="en_US">
+			<Text>All tiles in your civilization gain +2 Appeal. Tourism other players receive against you is reduced by 25% versus your civilization. Must be built on flat land adjacent to the City Center.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_ETEMENANKI_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_SCIENCE] Science and +1 [ICON_PRODUCTION] Production to all Marsh tiles in your empire. +1 [ICON_PRODUCTION] Production on all Floodplains in this city. +1 [ICON_SCIENCE] Science on Floodplains improved with a Farm for this city.[NEWLINE][NEWLINE]Must be built on Floodplains or Marsh.</Text>
@@ -3180,6 +3278,15 @@
 
 
 		<!-- === SCIENCE TREE DESCRIPTIONS === -->
+		<!-- === Technology Eurekas === -->
+		<Replace Tag="LOC_BOOST_TRIGGER_STEEL" Language="en_US">
+			<Text>Build Renaissance Walls.</Text>
+		</Replace>
+		<Replace Tag="LOC_BOOST_TRIGGER_GUIDANCE_SYSTEMS" Language="en_US">
+			<Text>Kill a unit with a Fighter.</Text>
+		</Replace>
+
+		<!-- === Technology Abilities === -->		
 		<Replace Tag="BBG_LOC_TECH_BALLISTICS_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_PRODUCTION] Production from the Lumber Mill improvement.</Text>
 		</Replace>
@@ -3191,9 +3298,6 @@
 		</Replace>
 		<Replace Tag="LOC_TECH_FLIGHT_DESCRIPTION" Language="en_US">
 			<Text>Receive [ICON_Tourism] Tourism on tile improvements equivalent to their [ICON_Culture] Culture output.  Amount of [ICON_Tourism] Tourism generated is equivalent to the improvement's [ICON_Culture] Culture output.</Text>
-		</Replace>
-		<Replace Tag="LOC_BOOST_TRIGGER_GUIDANCE_SYSTEMS" Language="en_US">
-			<Text>Kill a unit with a Fighter.</Text>
 		</Replace>
 		<Replace Tag="LOC_TECH_GUNPOWDER_DESCRIPTION" Language="en_US">
 			<Text>Unlocks a [ICON_GOVERNOR] Governor title for Suleiman (Kanuni).</Text>
@@ -3210,9 +3314,6 @@
 		<Replace Tag="LOC_TECH_STEAM_POWER_DESCRIPTION" Language="en_US">
 			<Text>+2 [ICON_MOVEMENT] Movement for embarked units. +50% [ICON_TOURISM] Tourism for Great Works of Art.</Text>
 		</Replace>
-		<Replace Tag="LOC_BOOST_TRIGGER_STEEL" Language="en_US">
-			<Text>Build Renaissance Walls.</Text>
-		</Replace>
 		<Replace Tag="LOC_TECH_STEEL_DESCRIPTION" Language="en_US">
 			<Text>Unlocks Urban Defenses, giving all of your cities an automatic 300 Fortification Strength and the ability to perform a ranged attack. All previous wall improvements become obsolete and siege support units are no longer effective.</Text>
 		</Replace>
@@ -3228,18 +3329,24 @@
 		<Replace Tag="LOC_TECH_ADVANCED_AI_DESCRIPTION" Language="en_US">
 			<Text>Unlocks Giant Death Robot upgrade: Drone Air Defense[NEWLINE]+140 [ICON_ANTIAIR_LARGE] Anti-Air Strength.</Text>
 		</Replace>
-		<Replace Tag="LOC_PROJECT_LAUNCH_MOON_LANDING_DESCRIPTION" Language="en_US">
-			<Text>Space Race project which launches a large rocket to land a human on the moon. Grants a [ICON_CULTURE] Culture bonus equal to 5 times your [ICON_SCIENCE] Science per turn, and marks the second step towards the Science Victory.</Text>
-		</Replace>
-		<Replace Tag="LOC_PROJECT_LAUNCH_MOON_LANDING_POPUP" Language="en_US">
-			<Text>You successfully land a person on the moon! Grants a [ICON_CULTURE] Culture bonus equal to 5 times your [ICON_SCIENCE] Science per turn, and marks the second step towards the Science Victory.</Text>
-		</Replace>
 
 
 		<!-- === CULTURE TREE DESCRIPTIONS === -->
+		<!-- === Civic Inspirations === -->
 		<Replace Tag="LOC_BOOST_TRIGGER_CRAFTSMANSHIP" Language="en_US">
 			<Text>Improve 2 tiles.</Text>
 		</Replace>
+		<Replace Tag="LOC_BOOST_TRIGGER_FOREIGN_TRADE" Language="en_US">
+			<Text>Own 1 Scout.</Text>
+		</Replace>
+		<Replace Tag="LOC_BOOST_TRIGGER_HUMANISM" Language="en_US">
+			<Text>Own 2 Amphitheaters.</Text>
+		</Replace>
+		<Replace Tag="LOC_BOOST_TRIGGER_NATIONALISM" Language="en_US">
+			<Text>Own a land combat unit with 3 promotions.</Text>
+		</Replace>
+
+		<!-- === Civic Abilities === -->
 		<Replace Tag="BBG_LOC_CIVIC_CULTURAL_HEGEMONY_DESCRIPTION" Language="en_US">
 			<Text>+25% [ICON_TOURISM] Tourism across your empire.</Text>
 		</Replace>		
@@ -3249,85 +3356,190 @@
 		<Replace Tag="LOC_CIVIC_FEUDALISM_DESCRIPTION" Language="en_US">
 			<Text>Farm improvements now gain +1 [ICON_FOOD] Food from every 2 adjacent Farm improvements.</Text>
 		</Replace>
-		<Replace Tag="LOC_BOOST_TRIGGER_FOREIGN_TRADE" Language="en_US">
-			<Text>Own 1 Scout.</Text>
+		<Replace Tag="LOC_CIVIC_IDEOLOGY_DESCRIPTION" Language="en_US">
+			<Text>Grants the ability to construct an additional Spy. Grants open borders with all City-states. If you have unlocked Reformed Church, military units receive +4 [ICON_STRENGTH] Combat Strength against civilizations following another Religion.</Text>
 		</Replace>
-		<Replace Tag="LOC_BOOST_TRIGGER_HUMANISM" Language="en_US">
-			<Text>Own 2 Amphitheaters.</Text>
-		</Replace>
-
-
 		<Replace Tag="LOC_CIVIC_MEDIEVAL_FAIRES_DESCRIPTION" Language="en_US">
 			<Text>Plantation improvements now gain +1 [ICON_FOOD] Food.</Text>
 		</Replace>
 		<Replace Tag="LOC_CIVIC_MILITARY_TRADITION_DESCRIPTION" Language="en_US">
 			<Text>Grants flanking and support combat bonuses to all combat units except land ranged and naval ranged units.</Text>
-		</Replace>
-		<Replace Tag="LOC_BOOST_TRIGGER_NATIONALISM" Language="en_US">
-			<Text>Own a land combat unit with 3 promotions.</Text>
-		</Replace>
+		</Replace>		
+		<Row Tag="LOC_CIVIC_NUCLEAR_PROGRAM_DESCRIPTION" Language="en_US">
+			<Text>Grant +3 [ICON_SCIENCE] Science to all Research Labs in your empire.</Text>
+		</Row>
 		<Replace Tag="LOC_CIVIC_OPERA_BALLET_DESCRIPTION" Language="en_US">
 			<Text>Awards 2 [ICON_ENVOY] Envoys. Great Works of Writing receive an additional +2 [ICON_TOURISM] Tourism.</Text>
 		</Replace>
-
+		<Replace Tag="LOC_CIVIC_RAPID_DEPLOYMENT_DESCRIPTION" Language="en_US">
+			<Text>Allows for the transport of land units between Aerodrome districts that contain Airports. Allows units to promote and move in the same turn.</Text>
+		</Replace>
 		
 
 		<!-- === GOVERNMENTS === -->
 		<Replace Tag="LOC_GOVERNMENT_INHERENT_BONUS" Language="en_US">
-			<Text>Legacy effect</Text>
+			<Text>Legacy Effect</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNMENT_ACCUMULATED_BONUS" Language="en_US">
-			<Text>Government bonus</Text>
+			<Text>Government Bonus</Text>
 		</Replace>
+
 		<!-- == Tier 1 Governments == -->
+		<!-- == AUTOCRACY == -->
+		<!-- = Government = -->		
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_AUTOCRACY_XP1" Language="en_US">
 			<Text>+10% [ICON_PRODUCTION] Production toward Wonders.</Text>
 		</Replace>
+		<!-- = Legacy = -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="en_US">
 			<Text>+1 to all yields for each Palace, Government Plaza, Diplomatic Quarter and buildings within these districts. Monuments provide +1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production in cities with a Specialty District.</Text>
 		</Replace>
+		<!-- == CLASSICAL REPUBLIC == -->
+		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CLASSREP_XP1" Language="en_US">
 			<Text>+15% [ICON_GreatPerson] Great Person points.</Text>
 		</Replace>
+		<!-- = Legacy = -->		
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CLASSREP_XP1" Language="en_US">
 			<Text>+1 [ICON_HOUSING] Housing and +1 [ICON_AMENITIES] Amenity in all cities with at least 1 [ICON_DISTRICT] specialty district.</Text>
 		</Replace>
+
 		<!-- == Tier 2 Governments == -->
+		<!-- == MONARCHY == -->
+		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_MONARCHY_XP1" Language="en_US">
 			<Text>+50% [ICON_InfluencePerTurn] Influence Points.</Text>
 		</Replace>
+		<!-- = Legacy = -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_MONARCHY_XP1" Language="en_US">
 			<Text>+1 [ICON_HOUSING] Housing per level of Walls. +2 [ICON_CULTURE] Culture for every Renaissance Walls.</Text>
 		</Replace>
+		<!-- == MERCHANT REPUBLIC == -->
+		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_MERCHREP_XP1" Language="en_US">
 			<Text>+15% [ICON_PRODUCTION] Production toward [ICON_DISTRICT] Districts.</Text>
 		</Replace>
+		<!-- == THEOCRACY == -->
+		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_THEOCRACY_XP1" Language="en_US">
 			<Text>15% Discount on purchases with [ICON_FAITH] Faith.</Text>
 		</Replace>
+
 		<!-- == Tier 3 Governments == -->
+		<!-- == COMMUNISM == -->
+		<!-- = Government = -->
+		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_COMMUNISM_XP2" Language="en_US">
+			<Text>+.6 [ICON_PRODUCTION] Production per [ICON_CITIZEN] Citizen in cities with a [ICON_GOVERNOR] Governor.</Text>
+		</Replace>
+		<!-- = Legacy = -->
+		<!-- OLD VERSION <Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
+			<Text>+1 [ICON_PRODUCTION] Production per [ICON_CITIZEN] Citizen in cities with [ICON_GOVERNOR] Governors. -10% Gov't Tourism Modifier.</Text>
+		</Replace> -->
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
+			<Text>+5 Combat Strength when fighting in or adjacent to home territory </Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
+			<Text>+5 Combat Strength from Communism when fighting in or adjacent to its home territory.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
+			<Text>+5 Combat Strength from Communism Legacy when fighting in or adjacent to its home territory.</Text>
+		</Replace>
+		<!-- = Unique Policy Cards = -->
+		<!-- = Kolkhoz (Yellow) = -->
+		<Replace Tag="LOC_POLICY_KOLKHOZ_NAME" Language="en_US">
+			<Text>Kolkhoz</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_KOLKHOZ_DESCRIPTION" Language="en_US">
+			<Text>[ICON_DISTRICT_CAMPUS] [ICON_DISTRICT_INDUSTRIAL_ZONE] +3 Production and +3 Food for Industrial Zone and Campus.</Text>
+		</Replace>
+		<!-- = Scientific Vanguard (Wild) = -->
+		<Replace Tag="LOC_POLICY_SCIENTIFIC_VANGUARD_NAME" Language="en_US">
+			<Text>Scientific Vanguard</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_SCIENTIFIC_VANGUARD_DESCRIPTION" Language="en_US">
+			<Text>Cities with a Governor receive +10% [ICON_SCIENCE] Science and [ICON_PRODUCTION] Production but also -2 amenities.</Text>
+		</Replace>
+
+		<!-- == DEMOCRACY == -->
+		<!-- = Government = -->
+		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DEMOCRACY_XP1" Language="en_US">
+			<Text>15% Discount on Purchases with [ICON_Gold] Gold.</Text>
+		</Replace>
+		<!-- = Legacy = -->
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_DEMOCRACY_XP2" Language="en_US">
+			<Text>Your [ICON_TRADEROUTE] Trade Routes to an Ally's city or City-state you are Suzerain of provide +4 [ICON_FOOD] Food and +8 [ICON_GOLD] Gold for both cities.</Text>
+		</Replace>
+		<!-- = Unique Policy Cards = -->		
+		<!-- = Prosperity Pact (Green) = -->
+		<Replace Tag="LOC_POLICY_PROSPERITY_PACT_NAME" Language="en_US">
+			<Text>Prosperity Pact</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_PROSPERITY_PACT_DESCRIPTION" Language="en_US">
+			<Text>+2 Alliance Points per turn for all Alliances.</Text>
+		</Replace>
+		<!-- = New Deal (Wild) = -->
+		<Replace Tag="LOC_POLICY_NEW_DEAL_DESCRIPTION" Language="en_US">
+			<Text>+4 [ICON_HOUSING] Housing, +2 [ICON_AMENITIES] Amenities, -8 [ICON_GOLD] Gold to all cities with at least 3 [ICON_DISTRICT] specialty districts.</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_NEW_DEAL_DESCRIPTION_XP2" Language="en_US">
+			<Text>+4 [ICON_HOUSING] Housing and +2 [ICON_AMENITIES] Amenities to all cities with at least 3 [ICON_DISTRICT] specialty districts.</Text>
+		</Replace>
+
+		<!-- == FACISM == -->
+		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_FASCISM_XP1" Language="en_US">
 			<Text>+50% [ICON_PRODUCTION] Production toward Units.</Text>
-		</Replace>		
+		</Replace>
+		<!-- = Legacy = -->
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_FASCISM_XP1" Language="en_US">
+			<Text>All units gain +5 [ICON_Strength] Combat Strength oustide your territory.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
+			<Text>+5 Combat Strength from Fascism</Text>
+		</Replace>
+		<!-- = Unique Policy Cards = -->
+		<!-- = Third Alternative (Red) = -->
+		<Replace Tag="LOC_POLICY_THIRD_ALTERNATIVE_DESCRIPTION" Language="en_US">
+			<Text>+4 [ICON_Gold] Gold from each Research Lab, Military Academy, and Power Plant.</Text>
+		</Replace>
+		<!-- = Martial Law (Wild) = -->
+		<Replace Tag="LOC_POLICY_MARTIAL_LAW_DESCRIPTION_XP2" Language="en_US">
+			<Text>Accumulate 50% less war weariness than usual. Cities with a garrisoned unit get +10 Loyalty per turn.</Text>
+		</Replace>
+
 		<!-- == Tier 4 Governments == -->
+		<!-- == CORPORATE LIBERTARIANISM == -->
+		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="en_US">
 			<Text>Commercial Hubs provide +25% Gold.  If the city has a Harbor, Encampment, or Aerodrome, it receives +50% production on units.</Text>
 		</Replace>
+		<!-- = Legacy = -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CORPORATE_LIBERTARIANISM" Language="en_US">
-			<Text>Gain +5 Oil, Aluminum, and Uranium per turn. +5 Combat Strength on all units.</Text>
+			<Text>Gain +5 Oil, Aluminum, and Uranium per turn. Accumulating resources from improvements provide +1 per turn. +5 Combat Strength on all units.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_CORPORATE_LIBERALISM_COMBAT_STRENGTH_ABILITY_NAME" Language="en_US">
+			<Text>Corporate Libertarianism</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CORPORATE_LIBERALISM_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
-			<Text>+5 Combat Strength from Corporate Liberalism.</Text>
+			<Text>+5 Combat Strength from Corporate Libertarianism.</Text>
 		</Replace>
+
+		<!-- == DIGITAL DEMOCRACY == -->
+		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_DIGITAL_DEMOCRACY" Language="en_US">
 			<Text>+2 [ICON_AMENITIES] Amenities in all cities and +2 [ICON_CULTURE] Culture per [ICON_DISTRICT] Specialty District.</Text>
 		</Replace>
+		<!-- = Legacy = -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DIGITAL_DEMOCRACY" Language="en_US">
 			<Text>+2 [ICON_TOURISM] Tourism per Specialty District. Tourism from other players is reduced by 50% versus your civilization.</Text>
 		</Replace>
+
+		<!-- == SYNTHETIC TECHNOCRACY == -->
+		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_SYNTHETIC_TECHNOCRACY" Language="en_US">
 			<Text>+10 [ICON_POWER] Power in all cities, and +50% [ICON_PRODUCTION] Production towards space projects.</Text>
 		</Replace>
+		<!-- = Legacy = -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_SYNTHETIC_TECHNOCRACY" Language="en_US">
 			<Text>+100% production toward Spaceports if the city has an Industrial Zone and a Campus</Text>
 		</Replace>
@@ -3346,6 +3558,13 @@
 		<Row Tag="LOC_POLICY_MILITARY_COMMAND_CENTER_DESCRIPTION" Language="en_US">
 			<Text>[ICON_DISTRICT_ENCAMPMENT] [ICON_DISTRICT_HARBOR] [ICON_DISTRICT_AERODROME] +30% [ICON_PRODUCTION] Production toward Encampment districts, Harbor districts, Aerodrome districts, and buildings for these districts.</Text>
 		</Row>
+		<!-- = Arms Race (BBG) = -->
+		<Replace Tag="LOC_POLICY_ARMS_RACE_NAME" Language="en_US">
+			<Text>Arms Race</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_ARMS_RACE_DESCRIPTION" Language="en_US">
+			<Text>+25% Production toward nuclear weapon projects</Text>
+		</Replace>
 		<!-- = Bastions = -->
 		<Replace Tag="LOC_POLICY_BASTIONS_DESCRIPTION" Language="en_US">
 			<Text>+6 City [ICON_STRENGTH] Defense Strength.</Text>
@@ -3361,6 +3580,13 @@
 		<Replace Tag="LOC_POLICY_CRAFTSMEN_DESCRIPTION" Language="en_US">
 			<Text>[ICON_DISTRICT_INDUSTRIAL_ZONE] +50% Industrial Zone district adjacency bonus. Cities with an Industrial Zone receive +2 [ICON_PRODUCTION] Production</Text>
 		</Replace>
+		<!-- = Deployable Infrastructure (repurposed Communism card) = -->
+        <Replace Tag="LOC_POLICY_DEFENSE_OF_MOTHERLAND_NAME" Language="En_US">
+            <Text>Deployable Infrastructure</Text>
+        </Replace>
+		<Replace Tag="LOC_POLICY_DEFENSE_OF_MOTHERLAND_DESCRIPTION_XP2" Language="En_US">
+            <Text>+100% [ICON_Production] Production for Modern, Atomic, and Information era support units.</Text>
+        </Replace>
 		<!-- = Discipline = -->
 		<Replace Tag="LOC_POLICY_DISCIPLINE_DESCRIPTION" Language="en_US">
 			<Text>+10 [ICON_STRENGTH] Unit Combat Strength when fighting [ICON_BARBARIAN] Barbarians.</Text>
@@ -3407,6 +3633,10 @@
 		<Replace Tag="LOC_POLICY_MILITARY_FIRST_DESCRIPTION" Language="en_US">
 			<Text>+50% [ICON_PRODUCTION] Production toward all melee, recon, anti-cavalry, and ranged units.</Text>
 		</Replace>
+		<!-- = Military Research = -->
+		<Replace Tag="LOC_POLICY_MILITARY_RESEARCH_EXPANSION1_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_SCIENCE] Science from Armories, Shipyards, and Medieval Walls. +2 [ICON_SCIENCE] Science from Military Academies, Seaports, Hangers, and Renaissance Walls.</Text>
+		</Replace>
 		<!-- = Press Gangs = -->
 		<Replace Tag="LOC_POLICY_PRESS_GANGS_DESCRIPTION" Language="en_US">
 			<Text>+100% [ICON_PRODUCTION] Production toward Industrial era and earlier naval units.</Text>
@@ -3451,21 +3681,22 @@
 		<Replace Tag="LOC_POLICY_VETERANCY_DESCRIPTION_XP2" Language="en_US">
 			<Text>[ICON_DISTRICT_ENCAMPMENT] [ICON_DISTRICT_HARBOR] +30% [ICON_PRODUCTION] Production toward Encampment and Harbor districts and buildings.</Text>
 		</Replace>
+
 		<!-- == Economic Policies == -->	
 		<!-- = Aesthetics = -->	
 		<Replace Tag="LOC_POLICY_AESTHETICS_DESCRIPTION" Language="en_US">
 			<Text>[ICON_DISTRICT_THEATER] +100% Theater Square district adjacency bonus.</Text>
 		</Replace>
-		<!-- = Collectivization = -->
-		<Replace Tag="LOC_POLICY_COLLECTIVIZATION_DESCRIPTION_XP2" Language="en_US">
-			<Text>+4 [ICON_PRODUCTION] Production and +4 [ICON_FOOD] Food from domestic [ICON_TRADEROUTE] Trade Routes.</Text>
-		</Replace>
-		<Replace Tag="LOC_POLICY_COLLECTIVIZATION_NAME" Language="en_US">
-			<Text>Protectionism</Text>
-		</Replace>
 		<!-- = Economic Union = -->	
 		<Replace Tag="LOC_POLICY_ECONOMIC_UNION_DESCRIPTION" Language="en_US">
 			<Text>[ICON_DISTRICT_COMMERCIAL_HUB] [ICON_DISTRICT_HARBOR] +100% Commercial Hub and Harbor district adjacency bonus.</Text>
+		</Replace>
+		<!-- = Empirical Method (BBG) = -->
+		<Replace Tag="LOC_POLICY_EMPIRICAL_METHOD_NAME" Language="en_US">
+			<Text>Empirical Method</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_EMPIRICAL_METHOD_DESCRIPTION" Language="en_US">
+			<Text>[ICON_DISTRICT_CAMPUS] +100% Campus district adjacency bonus</Text>
 		</Replace>
 		<!-- = Five Year Plan = -->	
 		<Replace Tag="LOC_POLICY_FIVE_YEAR_PLAN_DESCRIPTION" Language="en_US">
@@ -3491,6 +3722,13 @@
 		<Replace Tag="LOC_POLICY_LIBERALISM_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_AMENITIES] Amenity to all cities with at least 2 [ICON_DISTRICT] specialty districts.</Text>
 		</Replace>
+		<!-- = Master Artisans (BBG) = -->
+		<Replace Tag="LOC_POLICY_MASTER_ARTISANS_NAME" Language="en_US">
+			<Text>Master Artisans</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_MASTER_ARTISANS_DESCRIPTION" Language="en_US">
+			<Text>[ICON_DISTRICT_INDUSTRIAL_ZONE] +100% Industrial Zone district adjacency bonus</Text>
+		</Replace>
 		<!-- = Medina Quarter = -->
 		<Replace Tag="LOC_POLICY_MEDINA_QUARTER_DESCRIPTION" Language="en_US">
 			<Text>+1 [ICON_HOUSING] Housing for each [ICON_DISTRICT] Specialty District.</Text>
@@ -3503,12 +3741,12 @@
 		<Replace Tag="LOC_POLICY_NAVAL_INFRASTRUCTURE_DESCRIPTION" Language="en_US">
 			<Text>[ICON_DISTRICT_HARBOR] +50% Harbor district adjacency bonus. Cities with a Harbor receive +2 [ICON_GOLD] Gold.</Text>
 		</Replace>
-		<!-- = New Deal = -->
-		<Replace Tag="LOC_POLICY_NEW_DEAL_DESCRIPTION" Language="en_US">
-			<Text>+4 [ICON_HOUSING] Housing, +2 [ICON_AMENITIES] Amenities, -8 [ICON_GOLD] Gold to all cities with at least 3 [ICON_DISTRICT] specialty districts.</Text>
+		<!-- = Protectionism (repurposed Collectivization Policy) = -->
+		<Replace Tag="LOC_POLICY_COLLECTIVIZATION_NAME" Language="en_US">
+			<Text>Protectionism</Text>
 		</Replace>
-		<Replace Tag="LOC_POLICY_NEW_DEAL_DESCRIPTION_XP2" Language="en_US">
-			<Text>+4 [ICON_HOUSING] Housing and +2 [ICON_AMENITIES] Amenities to all cities with at least 3 [ICON_DISTRICT] specialty districts.</Text>
+		<Replace Tag="LOC_POLICY_COLLECTIVIZATION_DESCRIPTION_XP2" Language="en_US">
+			<Text>+4 [ICON_PRODUCTION] Production and +4 [ICON_FOOD] Food from domestic [ICON_TRADEROUTE] Trade Routes.</Text>
 		</Replace>
 		<!-- = Public Transportation = -->
 		<Replace Tag="LOC_POLICY_PUBLIC_TRANSPORT_DESCRIPTION_XP2" Language="en_US">
@@ -3535,7 +3773,9 @@
 			<Text>Extra [ICON_FAITH] Faith from buildings in Holy Sites: +50% if city [ICON_CITIZEN] population is 13 or higher, +50% if district has at least +3 adjacency bonus.</Text>
 		</Replace>
 		<!-- = Sports Media = -->		
-
+		<Replace Tag="LOC_POLICY_SPORTS_MEDIA_DESCRIPTION" Language="en_US">
+			<Text>[ICON_DISTRICT_THEATER] +100% Theater Square district adjacency bonus, and cities receive +1 [ICON_AMENITIES] Amenity.</Text>
+		</Replace>
 		<!-- = Town Charters = -->	
 		<Replace Tag="LOC_POLICY_TOWN_CHARTERS_DESCRIPTION" Language="en_US">
 			<Text>[ICON_DISTRICT_COMMERCIAL_HUB] +50% Commercial Hub district adjacency bonus. Cities with a Commercial Hub receive +2 [ICON_GOLD] Gold.</Text>
@@ -3593,6 +3833,7 @@
 		<Replace Tag="LOC_POLICY_WISSELBANKEN_DESCRIPTION" Language="en_US">
 			<Text>Your [ICON_TRADEROUTE] Trade Routes to an Ally's city or vassal City-state provide +2 [ICON_FOOD] Food and +2 [ICON_PRODUCTION] Production for both cities. +0.25 Alliance Points per turn for all Alliances.</Text>
 		</Replace>
+
 		<!-- == Wild Policies == -->
 		<!-- = Hallyu = -->
 		<Replace Tag="LOC_POLICY_FUTURE_VICTORY_CULTURE_DESCRIPTION" Language="en_US">
@@ -3736,33 +3977,82 @@
 
 
 		<!-- === WORLD CONGRESS === -->
-		<Replace Tag="LOC_WORLD_CONGRESS_IMPROVE_TRADE_WTH_PLAYER_DESC" Language="en_US">
-			<Text>International [ICON_TRADEROUTE] Trade Routes sent to the chosen player provide +4 [ICON_GOLD] Gold to the sender. The chosen player receives +1 [ICON_TRADEROUTE] Trade Route capacity.</Text>
-		</Replace>
-		<Replace Tag="LOC_WORLD_CONGRESS_BAN_TRADE_WITH_PLAYER_DESC" Language="en_US">
-			<Text>International [ICON_TRADEROUTE] Trade Routes sent to the chosen player or from the chosen player provide -4 [ICON_GOLD] Gold (can be negative).</Text>
-		</Replace>
-		<Replace Tag="LOC_WORLD_CONGRESS_EMPOWER_RELIGION_DESC" Language="en_US">
-			<Text>+10 [ICON_RELIGION] Religious Strength for all religious units of this [ICON_RELIGION] Religion.</Text>
-		</Replace>
-		<Replace Tag="LOC_WORLD_CONGRESS_BAN_PRODUCTION_YIELD_DESC" Language="en_US">
-			<Text>The cost to produce or purchase military units using the chosen currency type is increased by 50% until the next World Congress.</Text>
-		</Replace>
-		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_PRODUCTION_YIELD_DESC" Language="en_US">
-			<Text>The cost to produce or purchase military units using the chosen currency type is reduced by 25% until the next World Congress.</Text>
-		</Replace>
-		<Replace Tag="LOC_WORLD_CONGRESS_NO_CULTURE_BORDER_GROWTH_DESC" Language="en_US">
-			<Text>This player's borders will not grow via [ICON_CULTURE] Culture.</Text>
-		</Replace>
+		<!-- == Border Control Treaty == -->		
+		<!-- = Vote A = -->
 		<Replace Tag="LOC_WORLD_CONGRESS_DISTRICTS_CULTURE_BOMB_DESC" Language="en_US">
 			<Text>Tiles bought by this player are 50% cheaper.</Text>
 		</Replace>
+		<!-- = Vote B = -->
+		<Replace Tag="LOC_WORLD_CONGRESS_NO_CULTURE_BORDER_GROWTH_DESC" Language="en_US">
+			<Text>This player's borders will not grow via [ICON_CULTURE] Culture.</Text>
+		</Replace>
+
+		<!-- == Heritage Organization == -->
+		<!-- = Vote A = -->			
+		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_WORK_TOURISM_DESC" Language="en_US">
+			<Text>[ICON_Tourism] Tourism from Great Works of this type is doubled.</Text>
+		</Replace>
+		<!-- = Vote B = -->	
+		<Replace Tag="LOC_WORLD_CONGRESS_NO_WORK_TOURISM_DESC" Language="en_US">
+			<Text>-50% [ICON_Tourism] Tourism from Great Works of this type.</Text>
+		</Replace>
+
+		<!-- == Mercenary Companies == -->
+		<!-- = Vote A = -->	
+		<Replace Tag="LOC_WORLD_CONGRESS_BAN_PRODUCTION_YIELD_DESC" Language="en_US">
+			<Text>The cost to produce or purchase military units using the chosen currency type is increased by 50% until the next World Congress.</Text>
+		</Replace>
+		<!-- = Vote B = -->
+		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_PRODUCTION_YIELD_DESC" Language="en_US">
+			<Text>The cost to produce or purchase military units using the chosen currency type is reduced by 25% until the next World Congress.</Text>
+		</Replace>
+	
+		<!-- == Military Advisory == -->		
+		<!-- = Vote A = -->	
 		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_BUFF_DESC" Language="en_US">
 			<Text>Units of the chosen promotion class gain 3 [ICON_STRENGTH] Combat Strength.</Text>
 		</Replace>
+		<!-- = Vote B = -->		
 		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_NERF_DESC" Language="en_US">
 			<Text>Units of the chosen promotion class lose 3 [ICON_STRENGTH] Combat Strength.</Text>
 		</Replace>
+
+		<!-- == Sovereignty == -->
+		<!-- = Vote A = -->
+		<Replace Tag="LOC_WORLD_CONGRESS_FAVOR_FROM_TRADE_AND_ENVOYS_WITH_MINORS_DESC" Language="en_US">
+			<Text>+6 [ICON_GOLD] Gold, +2 [ICON_FOOD] Food, +2 [ICON_PRODUCTION] Production when sending [ICON_TradeRoute] Trade Routes to a City-State of this type.</Text>
+		</Replace>
+		<!-- = Vote B = -->
+		<Replace Tag="LOC_WORLD_CONGRESS_NO_SUZERAIN_BONUS_DESC" Language="en_US">
+			<Text>City-States of this type do not provide their unique Suzerain bonus.</Text>
+		</Replace>
+	
+		<!-- == Trade Policy == -->
+		<!-- = Vote A = -->
+		<Replace Tag="LOC_WORLD_CONGRESS_IMPROVE_TRADE_WTH_PLAYER_DESC" Language="en_US">
+			<Text>International [ICON_TRADEROUTE] Trade Routes sent to the chosen player provide +4 [ICON_GOLD] Gold to the sender and +2 [ICON_Gold] Gold to the chosen player. The chosen player receives +1 [ICON_TRADEROUTE] Trade Route capacity.</Text>
+		</Replace>
+		<!-- = Vote B = -->
+		<Replace Tag="LOC_WORLD_CONGRESS_BAN_TRADE_WITH_PLAYER_DESC" Language="en_US">
+			<Text>International [ICON_TRADEROUTE] Trade Routes sent to the chosen player or from the chosen player provide -4 [ICON_GOLD] Gold (can be negative).</Text>
+		</Replace>
+
+		<!-- == Urban Development == -->
+		<!-- = Vote A = -->			
+		<Replace Tag="LOC_WORLD_CONGRESS_DISTRICT_BUILDING_PRODUCTION_DESC" Language="en_US">
+			<Text>+100% [ICON_Production] Production toward buildings in this district.</Text>
+		</Replace>
+		<!-- = Vote B = -->	
+		<Replace Tag="LOC_WORLD_CONGRESS_NO_DISTRICT_BUILDING_DESC" Language="en_US">
+			<Text>-50% [ICON_PRODUCTION] Production toward buildings in this district.</Text>
+		</Replace>
+
+		<!-- == World Religion == -->
+		<!-- = Vote A = -->
+		<Replace Tag="LOC_WORLD_CONGRESS_EMPOWER_RELIGION_DESC" Language="en_US">
+			<Text>+10 [ICON_RELIGION] Religious Strength for all religious units of this [ICON_RELIGION] Religion.</Text>
+		</Replace>
+		<!-- = Vote B = -->
 
 		
 
@@ -4161,212 +4451,5 @@
 		<Row Tag="LOC_BBG_FRONT_BBCC_SETTING_YIELD_2_DESC" Language="en_US">
 			<Text>Guaranteed +3 [ICON_FOOD] +1 [ICON_PRODUCTION] for flat City Center.[NEWLINE]Guaranteed +2 [ICON_FOOD] +2 [ICON_PRODUCTION] for hills City Center.[NEWLINE]City Centers gain maximum between guaranteed yield and tile yield after removal of removable features.</Text>
 		</Row>
-
-
-
-
-		<Row Tag="LOC_BUILDING_RESEARCH_LAB_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Receive +3 [ICON_SCIENCE] Science once you reach Nuclear Program Civic</Text>
-		</Row>
-		<Row Tag="LOC_CIVIC_NUCLEAR_PROGRAM_DESCRIPTION" Language="en_US">
-			<Text>Grant +3 [ICON_SCIENCE] Science to all Research Labs in your empire.</Text>
-		</Row>
-		<Replace Tag="LOC_BUILDING_SEAPORT_DESCRIPTION" Language="en_US">
-			<Text>+25% combat experience for all naval units trained in this city. Once required Civics are unlocked, allows [ICON_CORPS] Fleets or [ICON_ARMY] Armadas to be trained directly and their costs reduced by 25%. +2 [ICON_GOLD] Gold on all Coast and Lake tiles for this city. +2 [ICON_RESOURCE_OIL] Oil per turn once discovered.</Text>
-		</Replace>
-
-		<!-- Democracy -->
-		<Replace Tag="LOC_POLICY_PROSPERITY_PACT_NAME" Language="en_US">
-			<Text>Prosperity Pact</Text>
-		</Replace>
-		<Replace Tag="LOC_POLICY_PROSPERITY_PACT_DESCRIPTION" Language="en_US">
-			<Text>+2 Alliance Points per turn for all Alliances.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVT_INHERENT_BONUS_DEMOCRACY_XP2" Language="en_US">
-			<Text>Your [ICON_TRADEROUTE] Trade Routes to an Ally's city or vassal City-state provide +4 [ICON_FOOD] Food and +8 [ICON_GOLD] Gold for both cities.</Text>
-		</Replace>
-
-		<!-- Fascism -->
-		<Replace Tag="LOC_POLICY_MARTIAL_LAW_DESCRIPTION_XP2" Language="en_US">
-			<Text>Accumulate 50% less war weariness than usual. Cities with a garrisoned unit get +10 Loyalty per turn.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVT_INHERENT_BONUS_FASCISM_XP1" Language="en_US">
-			<Text>All units gain +5 [ICON_Strength] Combat Strength oustide your territory.</Text>
-		</Replace>
-
-		<!-- Communism -->
-		<Replace Tag="LOC_POLICY_KOLKHOZ_NAME" Language="en_US">
-			<Text>Kolkhoz</Text>
-		</Replace>
-		<Replace Tag="LOC_POLICY_KOLKHOZ_DESCRIPTION" Language="en_US">
-			<Text>[ICON_DISTRICT_CAMPUS] [ICON_DISTRICT_INDUSTRIAL_ZONE] +3 Production and +3 Food for Industrial Zone and Campus.</Text>
-		</Replace>
-
-
-
-		<Replace Tag="LOC_POLICY_SCIENTIFIC_VANGUARD_NAME" Language="en_US">
-			<Text>Scientific Vanguard</Text>
-		</Replace>
-		<Replace Tag="LOC_POLICY_SCIENTIFIC_VANGUARD_DESCRIPTION" Language="en_US">
-			<Text>Cities with a Governor receive +10% [ICON_SCIENCE] Science and [ICON_PRODUCTION] Production but also -2 amenities.</Text>
-		</Replace>
-
-
-		<!-- OLD ONE
-
-		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
-			<Text>+1 [ICON_PRODUCTION] Production per [ICON_CITIZEN] Citizen in cities with [ICON_GOVERNOR] Governors. -10% Gov't Tourism Modifier.</Text> <!-- 5.2.9 REVERTED +1 yield to specialists of the respective district yield. -->
-		<!-- </Replace> --> -->
-
-		<Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
-			<Text>+5 Combat Strength when fighting in or adjacent to home territory </Text>
-		</Replace>
-		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_COMMUNISM_XP2" Language="en_US">
-			<Text>+.6 [ICON_PRODUCTION] Production per [ICON_CITIZEN] Citizen in cities with a [ICON_GOVERNOR] governor.</Text>
-		</Replace>
-
-		<Replace Tag="LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
-			<Text>+5 Combat Strength from Fascism</Text>
-		</Replace>
-
-
-
-		<Replace Tag="LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
-			<Text>+5 Combat Strength from Communism when fighting in or adjacent to its home territory.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
-			<Text>+5 Combat Strength from Communism when fighting in or adjacent to its home territory.</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_BBG_CORPORATE_LIBERALISM_COMBAT_STRENGTH_ABILITY_DESC" Language="en_US">
-			<Text>+5 Combat Strength from Corporate Liberalism.</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_NKISI_DESCRIPTION" Language="en_US">
-			<Text>[ICON_GreatWork_Artifact] Artifacts, [ICON_GreatWork_Sculpture] Sculptures, and [ICON_GreatWork_Relic] Relics grant +2 [ICON_FOOD] Food, +2 [ICON_PRODUCTION] Production, +4 [ICON_GOLD] Gold and +2 [ICON_FAITH] Faith. Palace has slots for 5 Great Works. Receive a [ICON_GreatWork_Relic] Relic when completing each Government Plaza building.[NEWLINE][NEWLINE]Receive 50% more [ICON_GreatWriter] Great Writer, [ICON_GreatArtist] Great Artist, and [ICON_GreatMusician] Great Musician. +100% [ICON_PRODUCTION] Production to Archaeologists.[NEWLINE][ICON_BULLET]Bias: T3 Rainforest, T5 Woods.</Text>
-		</Replace>
-		<!-- = leader ability (Mvemba a Nzinga) = -->
-		<Replace Tag="LOC_TRAIT_LEADER_RELIGIOUS_CONVERT_DESCRIPTION" Language="en_US">
-			<Text>May not build Holy Site districts, gain [ICON_GreatProphet] Great Prophets, or found Religions. Receives +0.2 [ICON_CULTURE] Culture and +1 [ICON_GOLD] Gold per citizen in a city following any religion. Receives an Apostle (of that city's majority Religion) each time he finishes a Mbanza or Theater Square district.[NEWLINE][NEWLINE]Once you enter the classical era, all land combat units and [ICON_GreatGeneral] Great Generals ignore the Rainforest and Woods [ICON_MOVEMENT] Movement penalty.[NEWLINE][NEWLINE]Receive 50% more [ICON_GreatGeneral] Great General points. Rainforest and Woods tiles adjacent to an Encampment receive +1 [ICON_PRODUCTION] Production.</Text>
-		</Replace>
-		<Row Tag="LOC_BBG_IGNORE_WOODS_ABILITY_DESCRIPTION" Language="en_US">
-			<Text>Ignores Rainforest and Woods [ICON_MOVEMENT] Movement penalty (Mvemba a Nzinga).</Text>
-		</Row>
-		<!-- = leader ability (Nzinga Mbande) = -->
-		<Replace Tag="LOC_TRAIT_LEADER_NZINGA_MBANDE_DESCRIPTION" Language="en_US">
-			<Text>+15% [ICON_GOLD] Gold and 15% [ICON_CULTURE] Culture in cities with a Mbanza (does not stack with multiples). Mbanza provides +2 adjacency to Theater Squares and Commercial Hubs. Archaeologists are 50% cheaper to purchase.[NEWLINE][NEWLINE]All civilian units ignore the Rainforest and Woods [ICON_MOVEMENT] Movement penalty.[NEWLINE][NEWLINE]Receive 50% more [ICON_GreatMerchant] Great Merchant points.</Text>
-		</Replace>
-		
-
-		<Replace Tag="LOC_TRAIT_CIVILIZATION_IMPERIAL_FREE_CITIES_DESCRIPTION" Language="en_US">
-			<Text>After unlocking Guilds, each city can build one more [ICON_DISTRICT] District than usual (exceeding the normal limit based on [ICON_CITIZEN] Population). [NEWLINE][ICON_BULLET]Bias: T3 Rivers.</Text>
-		</Replace>
-		<!-- = leader ability (Frederick Barbarossa) = -->
-		<Replace Tag="LOC_TRAIT_LEADER_HOLY_ROMAN_EMPEROR_DESCRIPTION" Language="en_US"> <!-- add icon -->
-			<Text>One extra Military policy slot in any [ICON_GOVERNMENT] government.[NEWLINE]+7 [ICON_STRENGTH] Combat Strength when attacking City-states.[NEWLINE]Hansa receive major adjacency bonus from Encampments. Gain the Tiger I unique unit when Combustion is researched.</Text>
-		</Replace>
-		<!-- = leader ability (Ludwig II) = -->
-		<Replace Tag="LOC_TRAIT_LEADER_LUDWIG_DESCRIPTION" Language="en_US"> <!-- add icon -->
-			<Text>Wonders (complete and incomplete) receive +1 [ICON_CULTURE] Culture for every adjacent [ICON_DISTRICT] District as adjacency bonus. All [ICON_CULTURE] Culture adjacencies provide [ICON_TOURISM] Tourism with Castles. [NEWLINE]Culture bomb adjacent tiles when completing a Commercial Hub.[NEWLINE]Hansa receive major adjacency bonus from Commercial Hubs.</Text>
-		</Replace>
-
-		<Replace Tag="LOC_DISTRICT_HANSA_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Germany for industrial activity. Replaces the Industrial Zone district and cheaper to build.[NEWLINE][NEWLINE]+ 2[ICON_Production] Production bonus for each adjacent Aqueduct, Canal, and Dam districts. +1 [ICON_Production] Production bonus for each adjacent resource. +1 [ICON_Production] Production bonus for every two adjacent district tiles.</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_TRAIT_LEADER_GENGHIS_KHAN_ABILITY_DESCRIPTION" Language="en_US">
-			<Text>Light cavalry units and Keshig gain +3 [ICON_Strength] Combat Strength and a chance to capture defeated enemy cavalry class units.</Text>
-		</Replace>
-
-		<Replace Tag="LOC_TRAIT_LEADER_LAUTARO_ABILITY_DESCRIPTION_ALT" Language="en_US">
-			<Text>+3 [ICON_STRENGTH] Combat Strength when fighting Free Cities or civilizations that are in a [ICON_GLORY_GOLDEN_AGE] Golden or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age. Defeating an enemy unit within the borders of an enemy city causes that city to lose 15 Loyalty, doubled if that civilization is in a [ICON_GLORY_GOLDEN_AGE] Golden or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age.[NEWLINE][NEWLINE]Tiles from cities with an Encampment receive +1 Appeal.</Text>
-		</Replace>
-
-
-
-		<Replace Tag="LOC_TRAIT_LEADER_SURROUNDED_BY_GLORY_DESCRIPTION" Language="en_US">
-			<Text>+5% [ICON_CULTURE] Culture and +5% [ICON_TOURISM] Tourism per City-state you are the Suzerain of.[NEWLINE]Awards 1 [ICON_ENVOY] envoy when an Amphitheater is completed.[NEWLINE][NEWLINE]Acropolis receives major production adjacency from wonders and minor production adjacency from districts.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_PERICLES_ACROPOLIS_WONDER_PROD_DESC" Language="en_US">
-			<Text>+2 [ICON_PRODUCTION] from adjacent wonder.</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_TRAIT_LEADER_TOKUGAWA_XP_DESCRIPTION" Language="en_US">
-			<Text>International [ICON_TRADEROUTE] Trade Routes receive -25% Yield and [ICON_TOURISM] Tourism, but Domestic [ICON_TRADEROUTE] Trade Routes provide +0.5 [ICON_CULTURE] Culture increasing to +1 with Humanism, and +0.5 [ICON_SCIENCE] Science increasing to +1 with Education for every Specialty District at the Destination. Cities within 6 tiles of Japan's capital receive 100% Loyalty and after researching Flight receive +1 [ICON_TOURISM] Tourism for every District.</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_TRAIT_LEADER_LAST_BEST_WEST_DESCRIPTION" Language="en_US">
-			<Text>City Centers in Tundra receive +1 [ICON_FOOD] Food.[NEWLINE][NEWLINE]Farms can be constructed in Tundra. After Civil Engineering is unlocked, Farms can be built on Tundra Hills. Improvements in Tundra and Snow receive the following bonuses: Mines and Lumber Mills +2 [ICON_PRODUCTION] Production, Farms and Camps +2 [ICON_FOOD] Food, Pastures +1 [ICON_FOOD] Food. Receive double the normal accumulation rate for Strategic Resources improved in tundra and snow. -50% of the normal cost to purchase Snow and Tundra tiles.</Text>
-		</Replace>
-
-
-
-		<Replace Tag="LOC_BELIEF_GOD_OF_CRAFTSMEN_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_Production] Production and +1 [ICON_Faith] Faith from improved Strategic resources. All improved Strategic resources yield +1 additional resource per turn.</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_POLICY_ARMS_RACE_NAME" Language="en_US">
-			<Text>Arm's Race</Text>
-		</Replace>
-		<Replace Tag="LOC_POLICY_ARMS_RACE_DESCRIPTION" Language="en_US">
-			<Text>+25% Production toward nuclear weapon projects</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_CIVIC_RAPID_DEPLOYMENT_DESCRIPTION" Language="en_US">
-			<Text>Allows for the transport of land units between Aerodrome districts that contain Airports. Allows units to promote and move in the same turn.</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_POLICY_DEFENSE_OF_MOTHERLAND_DESCRIPTION_XP2" Language="En_US">
-            <Text>+100% [ICON_Production] Production for Modern, Atomic, and Information era support units.</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_DEFENSE_OF_MOTHERLAND_NAME" Language="En_US">
-            <Text>Deployable Infrastructure</Text>
-        </Replace>
-
-
-		<Replace Tag="LOC_POLICY_SPORTS_MEDIA_DESCRIPTION" Language="en_US">
-			<Text>[ICON_DISTRICT_THEATER] +100% Theater Square district adjacency bonus, and cities receive +1 [ICON_AMENITIES] Amenity.</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_POLICY_EMPIRICAL_METHOD_NAME" Language="en_US">
-			<Text>Empirical Method</Text>
-		</Replace>
-		<Replace Tag="LOC_POLICY_EMPIRICAL_METHOD_DESCRIPTION" Language="en_US">
-			<Text>[ICON_DISTRICT_CAMPUS] +100% Campus district adjacency bonus</Text>
-		</Replace>
-
-		<Replace Tag="LOC_POLICY_MASTER_ARTISANS_NAME" Language="en_US">
-			<Text>Master Artisans</Text>
-		</Replace>
-		<Replace Tag="LOC_POLICY_MASTER_ARTISANS_DESCRIPTION" Language="en_US">
-			<Text>[ICON_DISTRICT_INDUSTRIAL_ZONE] +100% Industrial Zone district adjacency bonus</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_CIVIC_IDEOLOGY_DESCRIPTION" Language="en_US">
-			<Text>Grants the ability to construct an additional Spy. Grants open borders with all City-states. If you have unlocked Reformed Church, receives +4 combat strength against other religions.</Text>
-		</Replace>
-
-
-		<Replace Tag="LOC_POLICY_MILITARY_RESEARCH_EXPANSION1_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_Science] Science from Armories, Shipyards, and Medieval Walls. +2 [ICON_Science] Science from Military Academies, Seaports, and Renaissance Walls.</Text>
-		</Replace>
-
-		<Replace Tag="LOC_UNIT_GERMAN_PANZER_DESCRIPTION" Language="en_US">
-			<Text>German unique Tank replacement that has +3 [ICON_Strength] Combat Strength compared to Tanks and +3 [ICON_Strength] Combat Strength when not adjacent to another Tiger I.</Text>
-		</Replace>
-		
-
-
-
 	</LocalizedText>
 </GameData>
