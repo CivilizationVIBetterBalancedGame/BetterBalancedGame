@@ -267,8 +267,9 @@ UPDATE GoodyHutSubTypes SET Turn=30 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RE
 UPDATE GoodyHutSubTypes SET Turn=50 WHERE ModifierID='GOODY_DIPLOMACY_GRANT_GOVERNOR_TITLE';
 UPDATE GoodyHutSubTypes SET Turn=62 WHERE ModifierID='GOODY_SCIENCE_GRANT_ONE_TECH';
 -- 18/12/25 Pop and Builder delayed to turn 10
+-- 02/01/25 Builder reverted to turn 1
 UPDATE GoodyHutSubTypes SET Turn=20 WHERE ModifierID='GOODY_SURVIVORS_ADD_POPULATION';
-UPDATE GoodyHutSubTypes SET Turn=20 WHERE ModifierID='GOODY_SURVIVORS_GRANT_BUILDER';
+-- UPDATE GoodyHutSubTypes SET Turn=20 WHERE ModifierID='GOODY_SURVIVORS_GRANT_BUILDER';
 
 
 --=======================================================================
