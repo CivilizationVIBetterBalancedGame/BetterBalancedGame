@@ -2,7 +2,7 @@
 -- Arabia's Worship Building Bonus increased from 10% to 20%
 -- 26/02/25 reduced to 10% base, 20% at reformed church
 -- 19/12/25 Reduced to 10% base 15%  at reformed church
--- 02/01/25 Reduced to 5% base 10%  at reformed church
+-- 02/01/26 Reduced to 5% base 10%  at reformed church
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='TRAIT_RELIGIOUS_BUILDING_MULTIPLIER_CULTURE' AND Name='Multiplier';
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='TRAIT_RELIGIOUS_BUILDING_MULTIPLIER_FAITH' AND Name='Multiplier';
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='TRAIT_RELIGIOUS_BUILDING_MULTIPLIER_SCIENCE' AND Name='Multiplier';
