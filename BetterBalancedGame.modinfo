@@ -3,13 +3,13 @@
 <!-- Maybe change Expanded Criteria ? -->
 
 <!-- Release ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="7020"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="7030"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="7020"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="7030"> -->
 
 <!-- WIP ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="7020">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="7030">
 	<Properties>
 		<Name>Better Balanced Game WIP</Name>
 		<Description>
@@ -17,8 +17,8 @@
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>7020</Version>
-		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, Calcifer, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FaelSCCP, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Moumoulax, Onyxum, OSCAR., priz, robal, seed.of.apricot, Sent Kurokawa, _vadya_queen, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, Yenaleesternberg, ZhenjaMax, 3JIO6HbIU_Kycb</SpecialThanks>
+		<Version>7030</Version>
+		<SpecialThanks>abstr, acsess, Apeul, Bastik, Bobnotarobot, Calcifer, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FaelSCCP, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Moumoulax, Onyxum, OSCAR., priz, robal, seed.of.apricot, Sent Kurokawa, _vadya_queen, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, Yenaleesternberg, ZhenjaMax, 3JIO6HbIU_Kycb</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
 	
@@ -290,6 +290,14 @@
 			<!-- Release -->
 			<ModInUse>2a0aa96a-a31c-4ce2-87ec-09152f6f3e00</ModInUse>
 		</Criteria>
+
+
+		<Criteria id="ModManager">
+			<!-- Release -->
+			<ModInUse>47dccacd-f1d0-4f25-bb02-deb2b528c833</ModInUse>
+		</Criteria>
+
+
 	</ActionCriteria>
 
 	<!-- defines pre-game mods (e.g. menus, visual, text, etc..) -->
@@ -318,6 +326,11 @@
 			<File>config/config.xml</File>
 			<File>config/config.sql</File>
 		</UpdateDatabase>
+
+		<UpdateText id="UpdateText">
+			<Criteria>ModManager</Criteria>
+			<File>mod_filter.sql</File>
+		</UpdateText>
 
 		<UpdateColors id="Colors">
 		    <Properties>
@@ -1263,6 +1276,10 @@
 		<File>lang/chinese.xml</File>
 		<File>lang/italian.xml</File>
 		<File>lang/spanish.xml</File>
+
+
+		<!-- mod filter -->
+		<File>mod_filter.sql</File>
 		<!-- utils -->
 	    <File>sql/colors.sql</File>
 		<!-- utils -->

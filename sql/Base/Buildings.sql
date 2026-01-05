@@ -144,6 +144,7 @@ UPDATE ModifierArguments SET Value=15 WHERE Name='STADIUM_10_POPULATION_TOURISM'
 
 -- 16/15/25 Amphiteater production cost reduced to 60 (120 normal speed) from 75 (150)
 UPDATE Buildings SET Cost=120 WHERE BuildingType='BUILDING_AMPHITHEATER';
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_AMPHITHEATER' AND YieldType='YIELD_CULTURE';
 
 -- 17/12/25 Seaport advanced to Steam Power
 UPDATE Buildings SET PrereqTech='TECH_STEAM_POWER' WHERE BuildingType='BUILDING_SEAPORT';

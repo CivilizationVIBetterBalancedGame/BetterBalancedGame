@@ -92,7 +92,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 
 -- Caesar 100% bonus xp
 -- 26/02/25 50% base scaling at +100% in medieval era
--- Changed to only heavy cav, melee and siege
+-- 19/12/25 Changed to only heavy cav, melee and siege
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_CAESAR', 'BBG_CAESAR_XP_BASE_TRAIT');
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
@@ -154,10 +154,10 @@ DELETE FROM TraitModifiers WHERE ModifierId IN ('TRAIT_CAESAR_GOLD_CAPTURED_CITY
 --  ('DISTRICT_BATH', 'BBG_BATH_AMENITY_CAESAR');
 
 INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId)
-    SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_LEADER_JULIUS_CAESAR_REQSET' FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY');
+    SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_LEADER_JULIUS_CAESAR_REQSET' FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
 INSERT INTO ModifierArguments (ModifierId, Name, Value)
-    SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'Amount', 1 FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY');
+    SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'Amount', 1 FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
 INSERT INTO UnitPromotionModifiers (UnitPromotionType, ModifierId)
-    SELECT UnitPromotions.UnitPromotionType, 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY');
+    SELECT UnitPromotions.UnitPromotionType, 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
 INSERT INTO ModifierStrings (ModifierId, Context, Text)
-    SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'Preview', '+{1_Amount} {'||UnitPromotions.Name||'}' FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY');
+    SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'Preview', '+{1_Amount} {'||UnitPromotions.Name||'}' FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');

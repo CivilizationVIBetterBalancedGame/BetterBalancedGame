@@ -13,6 +13,11 @@ INSERT INTO Colors (Type, Color) VALUES
     ('COLOR_STANDARD_BBG_KBLUE_DK', "0,70,240,255"),
     ('COLOR_STANDARD_BBG_PINK_DK', "153,0,76,255"); 
 
+
+-- Al Hasan 
+-- So it doesn't clash with Cree
+UPDATE PlayerColors SET Alt3PrimaryColor='COLOR_STANDARD_BBG_GREEN_MD' WHERE Type='LEADER_SUK_AL_HASAN';
+
 -- Amanitore Nubia
 UPDATE PlayerColors SET Alt1PrimaryColor='COLOR_STANDARD_BBG_PINK_DK', Alt1SecondaryColor='COLOR_STANDARD_BBG_GOLD_DK' WHERE Type='LEADER_AMANITORE';
 UPDATE PlayerColors SET Alt3PrimaryColor='COLOR_STANDARD_BBG_GOLD_DK', Alt3SecondaryColor='COLOR_STANDARD_BBG_KBLUE_DK' WHERE Type='LEADER_AMANITORE';
