@@ -73,7 +73,7 @@ INSERT INTO ModifierStrings(ModifierId, Context, Text)
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_SCIENCE_POP_OLYMPIA', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_PER_POPULATION', 'BBG_HAVE_BASILIKOI_AND_HOLY_SITE_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_SCIENCE_POP_OLYMPIA', 'Amount', 1),
+    ('BBG_SCIENCE_POP_OLYMPIA', 'Amount', '0.5'),
     ('BBG_SCIENCE_POP_OLYMPIA', 'YieldType', 'YIELD_SCIENCE');
 
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES

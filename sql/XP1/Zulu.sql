@@ -108,3 +108,7 @@ UPDATE ModifierArguments SET Value='YIELD_CULTURE' WHERE Name='YieldType' AND Mo
 
 -- citizen yields
 UPDATE District_CitizenYieldChanges SET YieldChange=2 WHERE YieldType='YIELD_PRODUCTION'    AND DistrictType='DISTRICT_IKANDA';
+
+
+-- 19/12/25 % prod reduction for corps/armies reduced to 5%.
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='IKANDA_TRAINED_CORPS_ARMY_DISCOUNT' AND Name='Amount';
