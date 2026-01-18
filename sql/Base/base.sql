@@ -153,7 +153,7 @@ UPDATE Improvement_BonusYieldChanges SET BonusYieldChange=2 WHERE Id=13;
 DELETE FROM Improvement_BonusYieldChanges WHERE Id=231;
 UPDATE Technologies SET Description=NULL WHERE TechnologyType='TECH_PREDICTIVE_SYSTEMS';
 
---****		REQUIREMENTS		****--
+-- ****		REQUIREMENTS		****--
 INSERT OR IGNORE INTO Requirements
 	(RequirementId , RequirementType)
 	VALUES
@@ -329,9 +329,10 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
     ('TECH_NUCLEAR_FUSION', 'TECH_COMPOSITES');
 
 -- 18/12/25 Composite requires Nuclear Fission
+-- 18/01/26 Composite requires Combined Arms instead (also moved nuclear fusion one line up)
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
-    ('TECH_COMPOSITES', 'TECH_NUCLEAR_FISSION');
-
+    ('TECH_COMPOSITES', 'TECH_COMBINED_ARMS');
+UPDATE Technologies SET UITreeRow=0 WHERE TechnologyType='TECH_NUCLEAR_FISSION';
 
 
 --=======================================================================
@@ -348,6 +349,14 @@ UPDATE Improvements SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE'
 -- District pillage value to 40/20
 UPDATE Districts SET PlunderAmount=40 WHERE PlunderType='PLUNDER_GOLD';
 UPDATE Districts SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', 'PLUNDER_CULTURE', 'PLUNDER_FAITH');
+
+-- 18/01/26 Create new happiness level for Democracy and Scotland
+-- Have to reuse a negative else it doesn't appear in the happiness menu of the cities (unless lua and i don't want to do it rn)
+-- Will show as a red arrow but everything else will be fine
+UPDATE Happinesses SET MaximumAmenityScore=7 WHERE HappinessType='HAPPINESS_ECSTATIC';
+UPDATE Happinesses SET MaximumAmenityScore=-4 WHERE HappinessType='HAPPINESS_UNREST';
+UPDATE Happinesses SET MinimumAmenityScore=-3 WHERE HappinessType='HAPPINESS_DISPLEASED';
+UPDATE Happinesses SET MinimumAmenityScore=8, MaximumAmenityScore=NULL, GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_UNHAPPY';
 
 
 --=======================================================================
