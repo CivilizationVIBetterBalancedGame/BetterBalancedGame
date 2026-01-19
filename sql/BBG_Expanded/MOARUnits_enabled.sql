@@ -5,3 +5,4 @@ UPDATE EnabledUniqueUnits SET OwnerType='LEADER_BARBAROSSA' WHERE Type='UNIT_GER
 UPDATE EnabledUniqueUnits SET OwnerType='LEADER_JULIUS_CAESAR' WHERE Type='UNIT_ROMAN_ONAGER';
 
 INSERT INTO LeaderTraits (LeaderType, TraitType) SELECT OwnerType, 'TRAIT_CIVILIZATION_'||Type FROM EnabledUniqueUnits WHERE Enabled = 1;
+

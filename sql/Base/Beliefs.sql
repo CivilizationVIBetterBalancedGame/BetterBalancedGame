@@ -184,12 +184,12 @@ DELETE FROM RequirementSetRequirements WHERE RequirementSetId='PLOT_HAS_GODDES_F
 
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_TILE_ADJACENT_TO_VOLCANO_REQSET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_TILE_ADJACENT_TO_VOLCANO_REQSET', 'BBG_TILE_ADJACENT_TO_VOLCANO');
-INSERT INTO Requirements (RequirementId, RequirementType) VALUES
-    ('BBG_TILE_ADJACENT_TO_VOLCANO', 'REQUIREMENT_PLOT_ADJACENT_FEATURE_TYPE_MATCHES');
-INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES 
-    ('BBG_TILE_ADJACENT_TO_VOLCANO', 'FeatureType', 'FEATURE_VOLCANO');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) 
+    SELECT 'BBG_TILE_ADJACENT_TO_VOLCANO_REQSET', 'BBG_TILE_ADJACENT_TO_' || FeatureType FROM Features_XP2 WHERE Features_XP2.Volcano=1;
+INSERT INTO Requirements (RequirementId, RequirementType)
+    SELECT 'BBG_TILE_ADJACENT_TO_' || FeatureType, 'REQUIREMENT_PLOT_ADJACENT_FEATURE_TYPE_MATCHES' FROM Features_XP2 WHERE Features_XP2.Volcano=1;
+INSERT INTO RequirementArguments (RequirementId, Name, Value)
+    SELECT 'BBG_TILE_ADJACENT_TO_' || FeatureType, 'FeatureType', FeatureType FROM Features_XP2 WHERE Features_XP2.Volcano=1;
 
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_FIRE_GODDESS_NEXT_VOLCANO_GIVER', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
@@ -499,7 +499,13 @@ UPDATE BeliefModifiers SET ModifierID='OPEN_SEA_FISHINGBOATS_CULTURE' WHERE Beli
 --==============================================================================================
 
 -- DOF nerf
-UPDATE ModifierArguments SET Value='3' WHERE ModifierId='DEFENDER_OF_FAITH_COMBAT_BONUS_MODIFIER' AND Name='Amount';
+UPDATE ModifierArguments SET Value=3 WHERE ModifierId='DEFENDER_OF_FAITH_COMBAT_BONUS_MODIFIER' AND Name='Amount';
+-- 18/01/26 Defender now only work in defense
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_UNIT_IS_DEFENDER_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_IS_DEFENDER_REQSET', 'PLAYER_IS_DEFENDER_REQUIREMENTS');
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_IS_DEFENDER_REQSET' WHERE ModifierId='DEFENDER_OF_FAITH_COMBAT_BONUS_MODIFIER';
 -- Crusade nerf to +5
 UPDATE ModifierArguments SET Value='5' WHERE ModifierId='JUST_WAR_COMBAT_BONUS_MODIFIER' AND Name='Amount';
 
