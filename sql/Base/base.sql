@@ -340,7 +340,6 @@ UPDATE Technologies SET UITreeRow=0 WHERE TechnologyType='TECH_NUCLEAR_FISSION';
 --=======================================================================
 
 UPDATE Happinesses SET GrowthModifier=8, NonFoodYieldModifier=8 WHERE HappinessType='HAPPINESS_HAPPY';
-UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_ECSTATIC';
 
 -- 30/11/24 Pillage nerf
 -- Improvement pillage value to 35/20
@@ -353,10 +352,10 @@ UPDATE Districts SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', '
 -- 18/01/26 Create new happiness level for Democracy and Scotland
 -- Have to reuse a negative else it doesn't appear in the happiness menu of the cities (unless lua and i don't want to do it rn)
 -- Will show as a red arrow but everything else will be fine
-UPDATE Happinesses SET MaximumAmenityScore=7 WHERE HappinessType='HAPPINESS_ECSTATIC';
 UPDATE Happinesses SET MaximumAmenityScore=-4 WHERE HappinessType='HAPPINESS_UNREST';
 UPDATE Happinesses SET MinimumAmenityScore=-3 WHERE HappinessType='HAPPINESS_DISPLEASED';
 UPDATE Happinesses SET MinimumAmenityScore=8, MaximumAmenityScore=NULL, GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_UNHAPPY';
+UPDATE Happinesses_XP1 SET IdentityPerTurnChange=6 WHERE HappinessType='HAPPINESS_UNHAPPY';
 
 
 --=======================================================================
