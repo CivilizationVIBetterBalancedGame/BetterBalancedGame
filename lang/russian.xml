@@ -5872,63 +5872,147 @@
 
         <!-- === GOVERNMENTS - ПРАВИТЕЛЬСТВА === -->
         <!-- == Тир 1 == -->
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_AUTOCRACY_XP1" Language="ru_RU">
+        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_AUTOCRACY_XP1" Language="ru_RU"> <!-- Main government bonus, when in this gov -->
             <Text>+10% [ICON_Production] производства при строительстве Чудес Света.</Text>
         </Replace>
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="ru_RU">
+        <Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="ru_RU"> <!-- Top bonus (like legacy in gov description) -->
             <Text>+1 ко всем видам продукции за каждую правительственную площадь и здания в ней, дипломатический квартал и здания в нём и дворец в городе.[NEWLINE]Монументы приносят +1 [ICON_PRODUCTION] производства и +1 [ICON_FOOD] пищи, если в городе есть [ICON_DISTRICT] специализированный район.</Text>
         </Replace>
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CLASSREP_XP1" Language="ru_RU">
+        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CLASSREP_XP1" Language="ru_RU"> <!-- Main government bonus, when in this gov -->
             <Text>+15% [ICON_GreatPerson] Очков Великих Людей.</Text>
         </Replace>
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_CLASSREP_XP1" Language="ru_RU">
+        <Replace Tag="LOC_GOVT_INHERENT_BONUS_CLASSREP_XP1" Language="ru_RU"> <!-- Legacy bonus + current while in gov-->
             <Text>Все города с [ICON_DISTRICT] районом получают +1 [ICON_Housing] жилья и +1 [ICON_Amenities] довольства.</Text>
         </Replace>
         <!-- == Тир 2 == -->
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_MONARCHY_XP1" Language="ru_RU">
+        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_MONARCHY_XP1" Language="ru_RU"> <!-- Main government bonus, when in this gov -->
             <Text>+50% [ICON_InfluencePerTurn] очков влияния.</Text>
         </Replace>
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_MONARCHY_XP1" Language="ru_RU">
+        <Replace Tag="LOC_GOVT_INHERENT_BONUS_MONARCHY_XP1" Language="ru_RU"> <!-- Legacy bonus + current while in gov-->
             <Text>Дает [ICON_HOUSING] жилье за каждый уровень стен. +2 [ICON_CULTURE] культуры за каждую стену Возрождения.</Text>
         </Replace>
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_MERCHREP_XP1" Language="ru_RU">
+        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_MERCHREP_XP1" Language="ru_RU"> <!-- Main government bonus, when in this gov -->
             <Text>+15% [ICON_Production] производства при создании [ICON_DISTRICT] районов.</Text>
         </Replace>
         <!-- <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_THEOCRACY_XP1" Language="ru_RU"> -->
         <!-- <Text>Скидка 10% на все покупки за [ICON_Faith] веру.</Text> -->
         <!-- </Replace> -->
+
         <!-- == Тир 3 == -->
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_FASCISM_XP1" Language="ru_RU">
+        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_FASCISM_XP1" Language="ru_RU"> <!-- Main government bonus, when in this gov -->
             <Text>+50% [ICON_Production] производства при создании юнитов.</Text>
         </Replace>
-        <Replace Tag="LOC_POLICY_COLLECTIVIZATION_DESCRIPTION_XP2" Language="ru_RU">
+        <!-- <Replace Tag="LOC_POLICY_COLLECTIVIZATION_DESCRIPTION_XP2" Language="ru_RU">           in Beta 7.3 changed
             <Text>+4 [ICON_Production] производства, +4 [ICON_Food] пищи для внутренних [ICON_TradeRoute] торговых путей и +4 [Icon_GOLD] золота для всех [ICON_TradeRoute] торговых путей.</Text>
-        </Replace>
+        </Replace> -->
         <!-- <Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="ru_RU"> -->
         <!-- <Text>+1 [ICON_Production] производства на единицу [ICON_Citizen] населения в городах с [ICON_Governor] губернаторами.</Text> -->
         <!-- </Replace> -->
+        <!-- Democracy-->
+        <Replace Tag="LOC_POLICY_PROSPERITY_PACT_NAME" Language="ru_RU">
+            <Text>Пакт процветания</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_PROSPERITY_PACT_DESCRIPTION" Language="ru_RU">
+            <Text>Дополнительно приносит +5 очков союза за ход со всеми союзниками.</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_ARSENAL_OF_DEMOCRACY_DESCRIPTION" Language="ru_RU"> <!-- Legacy bonus + current while in gov-->
+            <Text>Ваши [ICON_TradeRoute] торговые пути к городу союзника или вассальному городу-государству дают +4 [ICON_Food] пищи и +8 [ICON_Gold] золота обоим городам. Прирост очков союза для всех союзов увеличивается на 0,25 за ход.</Text>
+        </Replace>
+        <Replace Tag="LOC_GOVT_INHERENT_BONUS_DEMOCRACY_XP2" Language="ru_RU"> <!-- Legacy bonus + current while in gov-->
+            <Text>Ваши [ICON_TradeRoute] торговые пути к городу союзника или сюзерена дают обоим городам +4 [ICON_Food] пищи и +8 [ICON_Gold] к золоту. Прирост очков союза для всех союзов увеличивается на 0,25 за ход.</Text>
+        </Replace>
+        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DEMOCRACY_XP1" Language="ru_RU">  <!-- Main government bonus, when in this gov -->
+            <Text>Скидка 15% на все покупки за [ICON_Gold] золото. Если город в эйфории, то получает дополнительно +4% [icon_culture] культуры, [icon_gold] золота и [icon_faith] веры.</Text>
+        </Replace>
+        <!-- Fascism-->
+        <Replace Tag="LOC_POLICY_MARTIAL_LAW_DESCRIPTION_XP2" Language="ru_RU">
+            <Text>Усталость от войны накапливается на 50% медленнее, чем обычно. Города с гарнизоном получают +10 ед. лояльности за ход.</Text>
+        </Replace>
+        <Replace Tag="LOC_GOVT_INHERENT_BONUS_FASCISM_XP1" Language="ru_RU"> <!-- Legacy bonus + current while in gov-->
+            <Text>Все юниты получают +5 [ICON_Strength] к боевой мощи на нейтральной или чужой территории. Усталость от войны снижена на 15%.</Text>
+        </Replace>
+
+        <!-- Communism -->
+        <Replace Tag="LOC_POLICY_SCIENTIFIC_VANGUARD_NAME" Language="ru_RU">
+            <Text>Авангард науки</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_SCIENTIFIC_VANGUARD_DESCRIPTION" Language="ru_RU">
+            <Text>Города с губернатором получают +10% к [ICON_Science] науке и [ICON_Production] производству, но также -2 [ICON_AMENITIES] довольства.</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_KOLKHOZ_NAME" Language="ru_RU">
+            <Text>Колхоз</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_KOLKHOZ_DESCRIPTION" Language="ru_RU">
+            <Text>+2 [Icon_Production] производства и +2 [Icon_Food] пищи за каждый кампус и промышленную зону.</Text>
+        </Replace>
+        <Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="ru_RU"> <!-- Legacy bonus + current while in gov-->
+            <Text>+4 [ICON_Strength] боевой мощи на своей территории</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC" Language="ru_RU">
+            <Text>+4 [ICON_Strength] боевой мощи на своей территории (Коммунизм)</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC" Language="ru_RU">
+            <Text>+4 [ICON_Strength] боевой мощи на своей территории (Коммунизм)</Text>
+        </Replace>
+        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_COMMUNISM_XP2" Language="ru_RU"> <!-- Main government bonus, when in this gov -->
+            <Text>+0.6 [ICON_Production] производства на единицу [ICON_Citizen] населения в городах с [ICON_Governor] губернаторами.</Text>
+        </Replace>
+
         <!-- == Тир 4 == -->
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_DIGITAL_DEMOCRACY" Language="ru_RU">
+        <Replace Tag="LOC_GOVT_INHERENT_BONUS_DIGITAL_DEMOCRACY" Language="ru_RU"> <!-- Top bonus (like legacy in gov description) -->
             <Text>+2 [ICON_Amenities] к довольству во всех городах, +2 [ICON_Culture] к культуре за каждый [ICON_DISTRICT] специализированный район.</Text>
         </Replace>
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="ru_RU">
-            <Text>Центры коммерции и военные лагеря увеличивают [ICON_Production] производство в городе на 10%; улучшения на ресурсах дают +1 этого ресурса за ход.</Text>
-        </Replace>
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CORPORATE_LIBERTARIANISM" Language="ru_RU">
-            <Text>+5 [Icon_RESOURCE_OIL] нефти, [Icon_RESOURCE_ALUMINUM] алюминия и [Icon_RESOURCE_URANIUM] урана в ход.</Text>
-        </Replace>
+        <!--        Old bonus, changed in 7.3 beta
+                <Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="ru_RU">
+                    <Text>Центры коммерции и военные лагеря увеличивают [ICON_Production] производство в городе на 10%; улучшения на ресурсах дают +1 этого ресурса за ход.</Text>
+                </Replace> -->
+        <!--         Old bonus, changed in 7.3 beta
+                <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CORPORATE_LIBERTARIANISM" Language="ru_RU">
+                    <Text>+5 [Icon_RESOURCE_OIL] нефти, [Icon_RESOURCE_ALUMINUM] алюминия и [Icon_RESOURCE_URANIUM] урана в ход.</Text>
+                </Replace> -->
         <!-- <Replace Tag="LOC_GOVT_INHERENT_BONUS_DIGITAL_DEMOCRACY" Language="ru_RU"> -->
         <!-- <Text>+2 [ICON_Amenities] к довольству во всех городах, +2 [ICON_Culture] к культуре за каждый специализированный район.</Text> -->
         <!-- </Replace> -->
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DIGITAL_DEMOCRACY" Language="ru_RU">
+        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DIGITAL_DEMOCRACY" Language="ru_RU"> <!-- Main government bonus, when in this gov -->
             <Text>+2 [ICON_Tourism] туризма за каждый специализированный район. Влияние туризма со стороны других цивилизаций снижено на 50%.</Text>
         </Replace>
         <!-- <Replace Tag="LOC_GOVT_INHERENT_BONUS_SYNTHETIC_TECHNOCRACY" Language="ru_RU"> -->
         <!-- <Text>+3 [ICON_Power] к энергии и +30% [ICON_Production] к производству при выполнении всех городских проектов.</Text> -->
         <!-- </Replace> -->
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_SYNTHETIC_TECHNOCRACY" Language="ru_RU">
-            <Text>+50% [ICON_Production] производства при строительстве Космпортов, Промышленных зон, Кампусов, Гаваней и зданий в этих районах.</Text>
+        <!--         Old bonus, cnanged in 7.3 beta
+                <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_SYNTHETIC_TECHNOCRACY" Language="ru_RU">
+                    <Text>+50% [ICON_Production] производства при строительстве Космпортов, Промышленных зон, Кампусов, Гаваней и зданий в этих районах.</Text>
+                </Replace> -->
+
+        <!-- Synthetic Technocracy-->
+        <Replace Tag="LOC_GOVT_INHERENT_BONUS_SYNTHETIC_TECHNOCRACY" Language="ru_RU">  <!-- Top bonus (like legacy in gov description) -->
+            <Text>+10 [ICON_Power] к энергии во всех городах, и +50% [ICON_Production] к производству при выполнении всех космических проектов.</Text>
         </Replace>
+        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_SYNTHETIC_TECHNOCRACY" Language="ru_RU"> <!-- Main government bonus, when in this gov -->
+            <Text>+100% [ICON_Production] производства при строительстве Космпортов, если в городе есть кампус и промышленная зона.</Text>
+        </Replace>
+        <!-- Corporate Libertarianism-->
+        <Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="ru_RU"> <!-- Top bonus (like legacy in gov description) -->
+            <Text>Центры коммерции приносят на 25% [Icon_Gold] золота больше. Города с гаванью, военным лагерем или аэродромом получают +50% к [ICON_Production] производству при создании юнитов.</Text>
+        </Replace>
+        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CORPORATE_LIBERTARIANISM" Language="ru_RU"> <!-- Main government bonus, when in this gov -->
+            <Text>+5 [Icon_RESOURCE_OIL] нефти, [Icon_RESOURCE_ALUMINUM] алюминия и [Icon_RESOURCE_URANIUM] урана в ход. Улучшения на ресурсах дают +1 этого ресурса за ход. +5 к [ICON_STRENGTH] боевой мощи всем юнитам.</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_CORPORATE_LIBERALISM_COMBAT_STRENGTH_ABILITY_NAME" Language="ru_RU">
+            <Text>Сила либералов</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_CORPORATE_LIBERALISM_COMBAT_STRENGTH_ABILITY_DESC" Language="ru_RU">
+            <Text>+5 к [ICON_STRENGTH] боевой мощи всем юнитам.</Text>
+        </Replace>
+        <!-- Digital Democracy -->
+        <!--    Old bonuces before 7.3 ?
+		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DIGITAL_DEMOCRACY" Language="ru_RU">
+			<Text>+2 [ICON_Tourism] туризма за каждый специализированный район. Влияние туризма со стороны других цивилизаций снижено на 50%.</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_DIGITAL_DEMOCRACY" Language="ru_RU">
+			<Text>+2 [ICON_Amenities] к довольству во всех городах, +2 [ICON_Culture] к культуре за каждый [ICON_DISTRICT] специализированный район.</Text>
+		</Replace>
+		-->
 
         <!-- === POLICIES - КАРТЫ ПОЛИТИКИ === -->
         <!-- == Военные == -->
@@ -6034,6 +6118,36 @@
         <Replace Tag="LOC_POLICY_FUTURE_VICTORY_DOMINATION_DESCRIPTION" Language="ru_RU">
             <Text>+1 [ICON_Movement] перемещению, если ход начинается на вражеской территории. +50% [ICON_Production] производства при создании ОБР.</Text>
         </Replace>
+        <!-- bbg 7.3b changes / new -->
+        <Replace Tag="LOC_POLICY_MILITARY_RESEARCH_EXPANSION1_DESCRIPTION" Language="ru_RU">
+            <Text>Оружейные, верфи и средневековые стены дают +1 [ICON_Science] науки, а военные академии, морские порты и стены Возрождения - +2 [ICON_Science] науки.</Text>
+        </Replace>
+
+        <Replace Tag="LOC_POLICY_MASTER_ARTISANS_NAME" Language="ru_RU">
+            <Text>Мастера-ремесленники</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_MASTER_ARTISANS_DESCRIPTION" Language="ru_RU">
+            <Text>Бонусы от соседства для [ICON_DISTRICT_INDUSTRIAL_ZONE] промышленной зоны: +100%.</Text>
+        </Replace>
+        <!-- Старая карточка коммунизма, теперь в идеологии -->
+        <Replace Tag="LOC_POLICY_DEFENSE_OF_MOTHERLAND_DESCRIPTION_XP2" Language="ru_RU">
+            <Text>+100% [ICON_Production] производства при создании вспомогательных юнитов от Нового времени до Информационной эры.</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_DEFENSE_OF_MOTHERLAND_NAME" Language="ru_RU">
+            <Text>Развертываемая инфраструктура|развертываемой инфраструктуры|развертываемой инфраструктуре|развертываемую инфраструктуру|развертываемой инфраструктурой|развертываемой инфраструктуре</Text>
+            <Gender>feminine</Gender>
+            <Plurality>1</Plurality>
+        </Replace>
+
+
+        <!-- = Military command (new from BBG) = -->
+        <Replace Tag="LOC_POLICY_MILITARY_COMMAND_CENTER_NAME" Language="ru_RU">
+            <Text>Военное командование</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_MILITARY_COMMAND_CENTER_DESCRIPTION" Language="ru_RU">
+            <Text>+30% [ICON_Production] производства при создании [ICON_DISTRICT_ENCAMPMENT] военных лагерей, [ICON_DISTRICT_HARBOR] гаваней и [ICON_DISTRICT_AERODROME] аэродромов, а также зданий в этих районах.</Text>
+        </Replace>
+
         <!-- == Экономические == -->
         <Replace Tag="LOC_POLICY_SERFDOM_DESCRIPTION" Language="ru_RU">
             <Text>Новые строители получают на 2 [ICON_Charges] действия больше.</Text>
@@ -6099,12 +6213,23 @@
         <Replace Tag="LOC_POLICY_NEW_DEAL_DESCRIPTION_XP2" Language="ru_RU">
             <Text>+4 [ICON_Housing] к жилью и +2 [ICON_Amenities] довольства во всех городах с 3 и более [ICON_DISTRICT] специализированными районами.</Text>
         </Replace>
-
         <Replace Tag="LOC_POLICY_PUBLIC_TRANSPORT_DESCRIPTION_XP2" Language="ru_RU">
             <Text>Пригороды с престижем «притягивающий» получают +3 [ICON_Food] пищи и +1 [ICON_Production] к производству. Пригороды с престижем «потрясающий» получают дополнительный бонус +1 к [ICON_Production] производству и [ICON_Food] пище. Все пригороды получают +1 [ICON_Gold] золота.</Text>
         </Replace>
+        <!-- bbg 7.3b changes / new -->
+        <Replace Tag="LOC_POLICY_COLLECTIVIZATION_NAME" Language="ru_RU">
+            <Text>Протекционизм</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_COLLECTIVIZATION_DESCRIPTION_XP2" Language="ru_RU">
+            <Text>+4 [Icon_Food] пищи и +4 [Icon_Production] для внутренних торговых путей.</Text>
+        </Replace>
 
-
+        <Replace Tag="LOC_POLICY_EMPIRICAL_METHOD_NAME" Language="ru_RU">
+            <Text>Эмпирический метод</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_EMPIRICAL_METHOD_DESCRIPTION" Language="ru_RU">
+            <Text>Бонусы от соседства для [ICON_DISTRICT_CAMPUS] кампуса: +100%.</Text>
+        </Replace>
         <!-- == Дипломатические == -->
         <Replace Tag="LOC_POLICY_PRAETORIUM_DESCRIPTION" Language="ru_RU">
             <Text>[ICON_Governor] Губернаторы дают +4 лояльности в ход для города назначения. +20% [ICON_Production] производства в захваченных городах с [ICON_Governor] Губернаторами.</Text>
@@ -6154,6 +6279,8 @@
         <Replace Tag="LOC_POLICY_COLONIAL_TAXES_DESCRIPTION" Language="ru_RU">
             <Text>+15% к скорости роста, +10% к [ICON_PRODUCTION] производству, +25% [ICON_Gold] золота и +3 лояльности в ход в городах, основанных на расстоянии 8 и более клеток от [ICON_Capital] столицы.</Text>
         </Replace>
+        <!-- bbg 7.3b changes / new -->
+
 
         <!-- == Универсальные == -->
         <!-- == Тёмный век == -->
@@ -6163,135 +6290,18 @@
         <Replace Tag="LOC_POLICY_TWILIGHT_VALOR_DESCRIPTION" Language="ru_RU">
             <Text>Все недальнобойные юниты, а также все юниты разведки получают +5 к [ICON_Strength] боевой мощи при атаке.[NEWLINE]НО: юниты не лечатся за пределами вашей территории.</Text>
         </Replace>
-        <!--  added / changed by BBG7.3 = -->
+        <!--  added / changed by BBG7.3, civic abilities= -->
         <!-- Policies -->
         <Replace Tag="LOC_CIVIC_RAPID_DEPLOYMENT_DESCRIPTION" Language="ru_RU">
             <Text>Позволяет перебрасывать военные юниты по воздуху между аэродромами, где есть аэропорты. Юниты могут получать повышение и двигаться в тот же ход.</Text>
         </Replace>
-        <Replace Tag="LOC_POLICY_MILITARY_RESEARCH_EXPANSION1_DESCRIPTION" Language="ru_RU">
-            <Text>Оружейные, верфи и средневековые стены дают +1 [ICON_Science] науки, а военные академии, морские порты и стены Возрождения - +2 [ICON_Science] науки.</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_COLLECTIVIZATION_NAME" Language="ru_RU">
-            <Text>Протекционизм</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_COLLECTIVIZATION_DESCRIPTION_XP2" Language="ru_RU">
-            <Text>+4 [Icon_Food] пищи и +4 [Icon_Production] для внутренних торговых путей.</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_EMPIRICAL_METHOD_NAME" Language="ru_RU">
-            <Text>Эмпирический метод</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_EMPIRICAL_METHOD_DESCRIPTION" Language="ru_RU">
-            <Text>Бонусы от соседства для [ICON_DISTRICT_CAMPUS] кампуса: +100%.</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_MASTER_ARTISANS_NAME" Language="ru_RU">
-            <Text>Мастера-ремесленники</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_MASTER_ARTISANS_DESCRIPTION" Language="ru_RU">
-            <Text>Бонусы от соседства для [ICON_DISTRICT_INDUSTRIAL_ZONE] промышленной зоны: +100%.</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_DEFENSE_OF_MOTHERLAND_DESCRIPTION_XP2" Language="ru_RU">
-            <Text>+100% [ICON_Production] производства при создании вспомогательных юнитов от Нового времени до Информационной эры.</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_DEFENSE_OF_MOTHERLAND_NAME" Language="ru_RU">
-            <Text>Развертываемая инфраструктура|развертываемой инфраструктуры|развертываемой инфраструктуре|развертываемую инфраструктуру|развертываемой инфраструктурой|развертываемой инфраструктуре</Text>
-            <Gender>feminine</Gender>
-            <Plurality>1</Plurality>
-        </Replace>
-        <!-- = Military command (BBG) = -->
-        <Replace Tag="LOC_POLICY_MILITARY_COMMAND_CENTER_NAME" Language="ru_RU">
-            <Text>Военное командование</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_MILITARY_COMMAND_CENTER_DESCRIPTION" Language="ru_RU">
-            <Text>+30% [ICON_Production] производства при создании [ICON_DISTRICT_ENCAMPMENT] военных лагерей, [ICON_DISTRICT_HARBOR] гаваней и [ICON_DISTRICT_AERODROME] аэродромов, а также зданий в этих районах.</Text>
-        </Replace>
+
         <Row Tag="LOC_BUILDING_RESEARCH_LAB_EXPANSION2_DESCRIPTION" Language="ru_RU">
             <Text>+3 [ICON_SCIENCE] науки после изучения социального института "Ядерная Программа".</Text>
         </Row>
         <Row Tag="LOC_CIVIC_NUCLEAR_PROGRAM_DESCRIPTION" Language="ru_RU">
             <Text>Все лаборатории в вашей империи получают +3 [ICON_SCIENCE] науки.</Text>
         </Row>
-
-
-        <!-- T3 T4 Gov -->
-        <!-- Democracy-->
-        <Replace Tag="LOC_POLICY_PROSPERITY_PACT_NAME" Language="ru_RU">
-            <Text>Пакт процветания</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_PROSPERITY_PACT_DESCRIPTION" Language="ru_RU">
-            <Text>Дополнительно приносит +5 очков союза за ход со всеми союзниками.</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_ARSENAL_OF_DEMOCRACY_DESCRIPTION" Language="ru_RU">
-            <Text>Ваши [ICON_TradeRoute] торговые пути к городу союзника или вассальному городу-государству дают +4 [ICON_Food] пищи и +8 [ICON_Gold] золота обоим городам. Прирост очков союза для всех союзов увеличивается на 0,25 за ход.</Text>
-        </Replace>
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_DEMOCRACY_XP2" Language="ru_RU">
-            <Text>Ваши [ICON_TradeRoute] торговые пути к городу союзника или сюзерена дают обоим городам +4 [ICON_Food] пищи и +8 [ICON_Gold] к золоту. Прирост очков союза для всех союзов увеличивается на 0,25 за ход.</Text>
-        </Replace>
-        <!-- Fascism-->
-        <Replace Tag="LOC_POLICY_MARTIAL_LAW_DESCRIPTION_XP2" Language="ru_RU">
-            <Text>Усталость от войны накапливается на 50% медленнее, чем обычно. Города с гарнизоном получают +10 ед. лояльности за ход.</Text>
-        </Replace>
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_FASCISM_XP1" Language="ru_RU">
-            <Text>Все юниты получают +5 [ICON_Strength] к боевой мощи на нейтральной или чужой территории (бонус не работает при Демократии и Коммунизме). Усталость от войны снижена на 15%.</Text>
-        </Replace>
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DEMOCRACY_XP1" Language="ru_RU">
-            <Text>Скидка 15% на все покупки за [ICON_Gold] золото. Если город в эйфории, то получает дополнительно +4% [icon_culture] культуры, [icon_gold] золота и [icon_faith] веры.</Text>
-        </Replace>
-        <!-- Communism -->
-        <Replace Tag="LOC_POLICY_SCIENTIFIC_VANGUARD_NAME" Language="ru_RU">
-            <Text>Авангард науки</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_SCIENTIFIC_VANGUARD_DESCRIPTION" Language="ru_RU">
-            <Text>Города с губернатором получают +10% к [ICON_Science] науке и [ICON_Production] производству, но также -2 [ICON_AMENITIES] довольства.</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_KOLKHOZ_NAME" Language="ru_RU">
-            <Text>Колхоз</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_KOLKHOZ_DESCRIPTION" Language="ru_RU">
-            <Text>+2 [Icon_Production] производства и +2 [Icon_Food] пищи за каждый кампус и промышленную зону.</Text>
-        </Replace>
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="ru_RU">
-            <Text>+4 [ICON_Strength] боевой мощи на своей территории (бонус не работает при Демократии и Фашизме).</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC" Language="ru_RU">
-            <Text>+4 [ICON_Strength] боевой мощи на своей территории (Коммунизм).</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC" Language="ru_RU">
-            <Text>+4 [ICON_Strength] боевой мощи на своей территории (Коммунизм).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_COMMUNISM_XP2" Language="ru_RU">
-            <Text>+0.6 [ICON_Production] производства на единицу [ICON_Citizen] населения в городах с [ICON_Governor] губернаторами.</Text>
-        </Replace>
-        <!-- Synthetic Technocracy-->
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_SYNTHETIC_TECHNOCRACY" Language="ru_RU">
-            <Text>+10 [ICON_Power] к энергии во всех городах, и +50% [ICON_Production] к производству при выполнении всех космических проектов.</Text>
-        </Replace>
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_SYNTHETIC_TECHNOCRACY" Language="ru_RU">
-            <Text>+100% [ICON_Production] производства при строительстве Космпортов, если в городе есть кампус и промышленная зона.</Text>
-        </Replace>
-        <!-- Corporate Libertarianism-->
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="ru_RU">
-            <Text>Центры коммерции приносят на 25% [Icon_Gold] золота больше. Города с гаванью, военным лагерем или аэродромом получают +50% к [ICON_Production] производству при создании юнитов.</Text>
-        </Replace>
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CORPORATE_LIBERTARIANISM" Language="ru_RU">
-            <Text>+5 [Icon_RESOURCE_OIL] нефти, [Icon_RESOURCE_ALUMINUM] алюминия и [Icon_RESOURCE_URANIUM] урана в ход. Улучшения на ресурсах дают +1 этого ресурса за ход. +5 к [ICON_STRENGTH] боевой мощи всем юнитам.</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_CORPORATE_LIBERALISM_COMBAT_STRENGTH_ABILITY_NAME" Language="ru_RU">
-            <Text>Сила либералов</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_CORPORATE_LIBERALISM_COMBAT_STRENGTH_ABILITY_DESC" Language="ru_RU">
-            <Text>+5 к [ICON_STRENGTH] боевой мощи всем юнитам.</Text>
-        </Replace>
-        <!-- Digital Democracy -->
-        <!--
-		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DIGITAL_DEMOCRACY" Language="ru_RU">
-			<Text>+2 [ICON_Tourism] туризма за каждый специализированный район. Влияние туризма со стороны других цивилизаций снижено на 50%.</Text>
-		</Replace>
-		<Replace Tag="LOC_GOVT_INHERENT_BONUS_DIGITAL_DEMOCRACY" Language="ru_RU">
-			<Text>+2 [ICON_Amenities] к довольству во всех городах, +2 [ICON_Culture] к культуре за каждый [ICON_DISTRICT] специализированный район.</Text>
-		</Replace>
-		-->
-
-
 
 
         <!-- === GREAT PERSONS - ВЕЛИКИЕ ЛЮДИ === -->
@@ -6435,7 +6445,7 @@
         </Replace>
 
         <!-- === SPLASH TEXT - РАЗНЫЕ ТЕКСТЫ === -->
-        <Replace Tag="LOC_HAPPINESS_UNHAPPY_NAME" Language="en_US">
+        <Replace Tag="LOC_HAPPINESS_UNHAPPY_NAME" Language="ru_RU">
             <Text>Эйфория</Text>
         </Replace>
         <Replace Tag="LOC_BBG_METOR_GOODIES_FREE_TECH_DESC" Language="ru_RU">
