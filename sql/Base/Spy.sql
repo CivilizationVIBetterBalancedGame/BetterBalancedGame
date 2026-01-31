@@ -7,3 +7,4 @@ UPDATE UnitOperations SET Turns=12 WHERE OperationType='UNITOPERATION_SPY_NEUTRA
 
 -- 05/01/26 Deleted Breach Dam
 DELETE FROM UnitOperations WHERE OperationType='UNITOPERATION_SPY_BREACH_DAM';
+DELETE FROM UnitPromotions WHERE UnitPromotionType='PROMOTION_SPY_SATCHEL_CHARGES';
