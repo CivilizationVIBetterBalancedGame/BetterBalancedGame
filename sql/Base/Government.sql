@@ -7,8 +7,8 @@ UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_LEGA
 
 -- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
 UPDATE Governments SET OtherGovernmentIntolerance=0 WHERE GovernmentType='GOVERNMENT_DEMOCRACY';
-UPDATE Governments SET OtherGovernmentIntolerance=-20 WHERE GovernmentType='GOVERNMENT_FASCISM';
-UPDATE Governments SET OtherGovernmentIntolerance=-20 WHERE GovernmentType='GOVERNMENT_COMMUNISM';
+UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_FASCISM';
+UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_COMMUNISM';
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='COLLECTIVIZATION_INTERNAL_TRADE_PRODUCTION' AND Name='Amount';
 
 -- Government slot
