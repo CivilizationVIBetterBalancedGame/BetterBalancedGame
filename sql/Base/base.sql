@@ -1,4 +1,7 @@
 
+UPDATE GlobalParameters SET Value=75 WHERE Name='LOYALTY_AFTER_TRANSFERRED_BY_COMBAT_OWNER_BEFORE_OCCUPATION';
+
+
 UPDATE GlobalParameters SET Value=2 WHERE Name='FORTIFY_BONUS_PER_TURN';
 
 
@@ -150,7 +153,7 @@ UPDATE Improvement_BonusYieldChanges SET BonusYieldChange=2 WHERE Id=13;
 DELETE FROM Improvement_BonusYieldChanges WHERE Id=231;
 UPDATE Technologies SET Description=NULL WHERE TechnologyType='TECH_PREDICTIVE_SYSTEMS';
 
---****		REQUIREMENTS		****--
+-- ****		REQUIREMENTS		****--
 INSERT OR IGNORE INTO Requirements
 	(RequirementId , RequirementType)
 	VALUES
@@ -263,6 +266,11 @@ UPDATE GoodyHutSubTypes SET Turn=30 WHERE ModifierID='GOODY_CULTURE_GRANT_ONE_RE
 -- 30/06/25 Governor titles delayed to turn 25. Free technology delayed to turn 31.
 UPDATE GoodyHutSubTypes SET Turn=50 WHERE ModifierID='GOODY_DIPLOMACY_GRANT_GOVERNOR_TITLE';
 UPDATE GoodyHutSubTypes SET Turn=62 WHERE ModifierID='GOODY_SCIENCE_GRANT_ONE_TECH';
+-- 18/12/25 Pop and Builder delayed to turn 10
+-- 02/01/26 Builder reverted to turn 1
+UPDATE GoodyHutSubTypes SET Turn=20 WHERE ModifierID='GOODY_SURVIVORS_ADD_POPULATION';
+-- UPDATE GoodyHutSubTypes SET Turn=20 WHERE ModifierID='GOODY_SURVIVORS_GRANT_BUILDER';
+
 
 --=======================================================================
 --******                       DISTRICTS                          ******
@@ -316,12 +324,22 @@ INSERT INTO TechnologyModifiers (TechnologyType, ModifierId) VALUES
     ('TECH_MILITARY_SCIENCE', 'CIVIC_GRANT_SPY');
 UPDATE Technologies SET Description='BBG_LOC_TECH_MILITARY_SCIENCE_DESCRIPTION' WHERE TechnologyType='TECH_MILITARY_SCIENCE';
 
+-- 18/12/25 Nuclear Fusion requires Composite
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_NUCLEAR_FUSION', 'TECH_COMPOSITES');
+
+-- 18/12/25 Composite requires Nuclear Fission
+-- 18/01/26 Composite requires Combined Arms instead (also moved nuclear fusion one line up)
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_COMPOSITES', 'TECH_COMBINED_ARMS');
+UPDATE Technologies SET UITreeRow=0 WHERE TechnologyType='TECH_NUCLEAR_FISSION';
+
+
 --=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================
 
 UPDATE Happinesses SET GrowthModifier=8, NonFoodYieldModifier=8 WHERE HappinessType='HAPPINESS_HAPPY';
-UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_ECSTATIC';
 
 -- 30/11/24 Pillage nerf
 -- Improvement pillage value to 35/20
@@ -330,6 +348,14 @@ UPDATE Improvements SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE'
 -- District pillage value to 40/20
 UPDATE Districts SET PlunderAmount=40 WHERE PlunderType='PLUNDER_GOLD';
 UPDATE Districts SET PlunderAmount=20 WHERE PlunderType IN ('PLUNDER_SCIENCE', 'PLUNDER_CULTURE', 'PLUNDER_FAITH');
+
+-- 18/01/26 Create new happiness level for Democracy and Scotland
+-- Have to reuse a negative else it doesn't appear in the happiness menu of the cities (unless lua and i don't want to do it rn)
+-- Will show as a red arrow but everything else will be fine
+UPDATE Happinesses SET MaximumAmenityScore=-4 WHERE HappinessType='HAPPINESS_UNREST';
+UPDATE Happinesses SET MinimumAmenityScore=-3 WHERE HappinessType='HAPPINESS_DISPLEASED';
+UPDATE Happinesses SET MinimumAmenityScore=8, MaximumAmenityScore=NULL, GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_UNHAPPY';
+UPDATE Happinesses_XP1 SET IdentityPerTurnChange=6 WHERE HappinessType='HAPPINESS_UNHAPPY';
 
 
 --=======================================================================

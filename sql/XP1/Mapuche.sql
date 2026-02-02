@@ -16,16 +16,18 @@ DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_MAPUCHE_TOQUI' AN
 UPDATE ModifierArguments SET Value='-15' WHERE ModifierId='TRAIT_DIMINISH_LOYALTY_IN_ENEMY_CITY' AND Name='Amount';
 UPDATE ModifierArguments SET Value='-15' WHERE ModifierId='TRAIT_DIMINISH_LOYALTY_IN_ENEMY_CITY' AND Name='AdditionalGoldenAge';
     
+
+
+-- Combat bonus against Golden Age Civs set to 5 instead of 10
+-- 19/12/25 Combat bonus reduced to 3 (there is 2 here idk which one work : flemme)
 INSERT INTO Modifiers(ModifierId, ModifierType, Permanent) VALUES
     ('TRAIT_TOQUI_COMBAT_BONUS_ABILITY_VS_GOLDEN_AGE_CIV', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY', 1);   
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('MOD_ABILITY_MAPUCHE', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'OPPONENT_IS_IN_GOLDEN_AGE_REQUIREMENTS');  
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('TRAIT_TOQUI_COMBAT_BONUS_ABILITY_VS_GOLDEN_AGE_CIV', 'AbilityType', 'ABILITY_TRAIT_MAPUCHE'),
-    ('MOD_ABILITY_MAPUCHE', 'Amount', 5);
-
--- Combat bonus against Golden Age Civs set to 5 instead of 10
-UPDATE ModifierArguments SET Value=5 WHERE ModifierId='TRAIT_TOQUI_COMBAT_BONUS_VS_GOLDEN_AGE_CIV';
+    ('MOD_ABILITY_MAPUCHE', 'Amount', 3);
+UPDATE ModifierArguments SET Value=3 WHERE ModifierId='TRAIT_TOQUI_COMBAT_BONUS_VS_GOLDEN_AGE_CIV';
 
 INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
     ('MOD_ABILITY_MAPUCHE', 'Preview', 'LOC_PREVIEW_MAPUCHE_COMBAT_BONUS_TOQUI_VS_GOLDEN_AGE_CIV');
@@ -80,3 +82,13 @@ INSERT INTO Modifiers ( ModifierId, ModifierType, SubjectRequirementSetId) VALUE
     ('BBG_MALON_MOV_FLAT_TERRAIN', 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT', 'BBG_PLOT_IS_FLAT');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MALON_MOV_FLAT_TERRAIN', 'Amount', '1');
+
+-- 19/12/25 Cities with Encampment get +1 Appeal
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_LAUTARO_ENCAMPMENT_APPEAL_GIVER', 'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER', NULL),
+    ('BBG_LAUTARO_ENCAMPMENT_APPEAL_MODIFIER', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_APPEAL', 'CITY_HAS_ENCAMPMENT');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_LAUTARO_ENCAMPMENT_APPEAL_GIVER', 'ModifierId', 'BBG_LAUTARO_ENCAMPMENT_APPEAL_MODIFIER'),
+    ('BBG_LAUTARO_ENCAMPMENT_APPEAL_MODIFIER', 'Amount', 1);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_LAUTARO_ABILITY', 'BBG_LAUTARO_ENCAMPMENT_APPEAL_GIVER');
