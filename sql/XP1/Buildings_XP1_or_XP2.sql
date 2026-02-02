@@ -2,7 +2,7 @@
 --******			  	B U I L D I N G S	 		  	  ******
 --==============================================================
 -- 12/06/23 from 6 to 20
-UPDATE ModifierArguments SET Value='20' WHERE ModifierId='SHOPPING_MALL_TOURISM';
+UPDATE ModifierArguments SET Value=10 WHERE ModifierId='SHOPPING_MALL_TOURISM';
 -- 12/06/23 gold from 2/2 to 10/10
 UPDATE Building_YieldChanges SET YieldChange=10 WHERE BuildingType='BUILDING_SHOPPING_MALL';
 UPDATE Building_YieldChangesBonusWithPower SET YieldChange=10 WHERE BuildingType='BUILDING_SHOPPING_MALL';

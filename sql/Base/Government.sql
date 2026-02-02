@@ -7,8 +7,8 @@ UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_LEGA
 
 -- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
 UPDATE Governments SET OtherGovernmentIntolerance=0 WHERE GovernmentType='GOVERNMENT_DEMOCRACY';
-UPDATE Governments SET OtherGovernmentIntolerance=-20 WHERE GovernmentType='GOVERNMENT_FASCISM';
-UPDATE Governments SET OtherGovernmentIntolerance=-20 WHERE GovernmentType='GOVERNMENT_COMMUNISM';
+UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_FASCISM';
+UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_COMMUNISM';
 UPDATE ModifierArguments SET Value='4' WHERE ModifierId='COLLECTIVIZATION_INTERNAL_TRADE_PRODUCTION' AND Name='Amount';
 
 -- Government slot
@@ -50,6 +50,7 @@ UPDATE Policies SET GovernmentSlotType='SLOT_WILDCARD' WHERE PolicyType='POLICY_
 DELETE FROM Policies WHERE PolicyType='POLICY_FINEST_HOUR';
 
 -- [NEW] Prosperity Pact Green Unique card : +2 alliance points/turn with allies. It's 1=0.25
+-- Increased to +5
 INSERT INTO Types(Type, Kind) VALUES
     ('POLICY_PROSPERITY_PACT', 'KIND_POLICY');
 INSERT INTO Policies(PolicyType, Name, Description, PrereqCivic, GovernmentSlotType) VALUES
@@ -59,7 +60,7 @@ INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_PROSPERITY_PACT_ALLIANCE_POINTS', 'MODIFIER_PLAYER_ADJUST_ALLIANCE_POINTS');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_PROSPERITY_PACT_ALLIANCE_POINTS', 'Amount', 8);
+    ('BBG_PROSPERITY_PACT_ALLIANCE_POINTS', 'Amount', 20);
 INSERT INTO Policy_GovernmentExclusives_XP2 (PolicyType, GovernmentType) VALUES
     ('POLICY_PROSPERITY_PACT', 'GOVERNMENT_DEMOCRACY');
 
@@ -93,7 +94,28 @@ INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
     ('POLICY_GOV_DEMOCRACY', 'BBG_DEMOCRACY_TRADE_ROUTE_GOLD_TO_SUZERAIN'),
     ('POLICY_GOV_DEMOCRACY', 'BBG_DEMOCRACY_TRADE_ROUTE_GOLD_FROM_SUZERAIN');
 
--- Government bonus : 15% discount on gold buy (no change).
+-- Government bonus : 15% discount on gold buy.
+-- 18/01/26 +8 amenity grant +4% faith/gold/culture (for now 8 amenity is HAPPINESS_UNHAPPY because Firaxis have to hardcode everything and flemme to do lua)
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_CULTURE', 'MODIFIER_PLAYER_CITIES_ADJUST_HAPPINESS_YIELD'),
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_GOLD', 'MODIFIER_PLAYER_CITIES_ADJUST_HAPPINESS_YIELD'),
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_FAITH', 'MODIFIER_PLAYER_CITIES_ADJUST_HAPPINESS_YIELD');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_CULTURE', 'HappinessType', 'HAPPINESS_UNHAPPY'),
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_CULTURE', 'YieldType', 'YIELD_CULTURE'),
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_CULTURE', 'Amount', 4),
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_GOLD', 'HappinessType', 'HAPPINESS_UNHAPPY'),
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_GOLD', 'YieldType', 'YIELD_GOLD'),
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_GOLD', 'Amount', 4),
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_FAITH', 'HappinessType', 'HAPPINESS_UNHAPPY'),
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_FAITH', 'YieldType', 'YIELD_FAITH'),
+    ('BBG_DEMOCRACY_EMPIRE_EUPHORIC_FAITH', 'Amount', 4);
+
+INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
+    ('GOVERNMENT_DEMOCRACY', 'BBG_DEMOCRACY_EMPIRE_EUPHORIC_CULTURE'),
+    ('GOVERNMENT_DEMOCRACY', 'BBG_DEMOCRACY_EMPIRE_EUPHORIC_GOLD'),
+    ('GOVERNMENT_DEMOCRACY', 'BBG_DEMOCRACY_EMPIRE_EUPHORIC_FAITH');
+
 
 -- Facism rework
 -- Martial Law (Joker Card) : War weariness reduction increased to 50% (from 25) and cities with garrisoned units get +10 loyalty per turn (from 4)
@@ -148,13 +170,13 @@ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_KOLKHOZ_FOOD_CAMPUS', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_YIELD_CHANGE', 'DISTRICT_IS_CAMPUS'),
     ('BBG_KOLKHOZ_PROD_CAMPUS', 'MODIFIER_PLAYER_DISTRICTS_ADJUST_YIELD_CHANGE', 'DISTRICT_IS_CAMPUS');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_KOLKHOZ_FOOD_IZ', 'Amount', 3),
+    ('BBG_KOLKHOZ_FOOD_IZ', 'Amount', 2),
     ('BBG_KOLKHOZ_FOOD_IZ', 'YieldType', 'YIELD_FOOD'),
-    ('BBG_KOLKHOZ_PROD_IZ', 'Amount', 3),
+    ('BBG_KOLKHOZ_PROD_IZ', 'Amount', 2),
     ('BBG_KOLKHOZ_PROD_IZ', 'YieldType', 'YIELD_PRODUCTION'),
-    ('BBG_KOLKHOZ_FOOD_CAMPUS', 'Amount', 3),
+    ('BBG_KOLKHOZ_FOOD_CAMPUS', 'Amount', 2),
     ('BBG_KOLKHOZ_FOOD_CAMPUS', 'YieldType', 'YIELD_FOOD'),
-    ('BBG_KOLKHOZ_PROD_CAMPUS', 'Amount', 3),
+    ('BBG_KOLKHOZ_PROD_CAMPUS', 'Amount', 2),
     ('BBG_KOLKHOZ_PROD_CAMPUS', 'YieldType', 'YIELD_PRODUCTION');
 INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
     ('POLICY_KOLKHOZ', 'BBG_KOLKHOZ_FOOD_IZ'),
@@ -168,7 +190,6 @@ INSERT INTO Policy_GovernmentExclusives_XP2 (PolicyType, GovernmentType) VALUES
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
     ('BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET', 'REQUIREMENTSET_TEST_ANY');
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-    ('BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET', 'UNIT_ADJACENT_TO_OWNER_TERRITORY_REQUIREMENT'),
     ('BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET', 'UNIT_IN_OWNER_TERRITORY_REQUIREMENT');
 
 INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
@@ -176,7 +197,7 @@ INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
     ('BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_COMMUNISM_COMBAT_STRENGTH_GIVER', 'AbilityType', 'BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY'),
-    ('BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER', 'Amount', 5);
+    ('BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER', 'Amount', 4);
 
 INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
     ('BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER', 'Preview', 'LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC');
