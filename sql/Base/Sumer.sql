@@ -3,12 +3,12 @@
 --==============================================================================================
 -- Delete old Trait as they are moved and reworked to Gilgamesh
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_FIRST_CIVILIZATION';
---Start bias moved to xp2 (because plains and grass floodplains didn't exist before gs)
+-- Start bias moved to xp2 (because plains and grass floodplains didn't exist before gs)
 -- Farms adjacent to a River yield +1 food, Farms adjacent to a River get + 1 prop if next to Zigurat
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'FIRST_CIVILIZATION_FARM_FOOD'),
     ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'FIRST_CIVILIZATION_FARM_PROD');
-    --('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'FIRST_CIVILIZATION_WAR_CART_PREMIUM'),
+    -- ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'FIRST_CIVILIZATION_WAR_CART_PREMIUM'),
 
 INSERT INTO Modifiers
     (ModifierId, ModifierType, SubjectRequirementSetId,    SubjectStackLimit)
@@ -23,9 +23,9 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('FIRST_CIVILIZATION_FARM_PROD', 'YieldType', 'YIELD_PRODUCTION'),
     ('FIRST_CIVILIZATION_FARM_PROD', 'Amount', 1);
 
--- This makes War Carts cost 120 gold in Online speed    Increase premium to 40->50. Removed at BBG5.1
-    --('FIRST_CIVILIZATION_WAR_CART_PREMIUM', 'UnitType', 'UNIT_SUMERIAN_WAR_CART'),
-    --('FIRST_CIVILIZATION_WAR_CART_PREMIUM', 'Amount', -50);
+-- This makes War Carts cost 120 gold in Online speed    Increase premium to 40->50. Removed at BBG 5.1
+    -- ('FIRST_CIVILIZATION_WAR_CART_PREMIUM', 'UnitType', 'UNIT_SUMERIAN_WAR_CART'),
+    -- ('FIRST_CIVILIZATION_WAR_CART_PREMIUM', 'Amount', -50);
 
 INSERT INTO RequirementSets (RequirementSetId,    RequirementSetType) VALUES
 	('FIRST_CIVILIZATION_FARM_FOOD_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL'),
@@ -76,7 +76,7 @@ UPDATE Units SET Combat=20 WHERE UnitType='UNIT_SUMERIAN_WAR_CART';
 -- Beta Buff: Revert to 45 cost
 -- 05/10/22 reduce cost to 40
 UPDATE Units SET Cost=40 WHERE UnitType='UNIT_SUMERIAN_WAR_CART';
---16/04/23 Warcart share movement with civilian
+-- 16/04/23 Warcart share movement with civilian
 INSERT INTO Types (Type, Kind) VALUES
     ('BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS', 'KIND_ABILITY');
 INSERT INTO TypeTags (Type, Tag) VALUES
@@ -114,9 +114,18 @@ VALUES  ('WAR_CART_COMBAT_STRENGTH_VS_BARBS_BBG', 'Amount', 4);
 -- 23/04/2021: Delete +5 when war common foe
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_ADVENTURES_ENKIDU' AND ModifierId='TRAIT_ATTACH_ALLIANCE_COMBAT_ADJUSTMENT';
 
+-- 15/10/23 remove flood damage (same as Egypt)
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'TRAIT_AVOID_MODERATE_FLOOD'),
+    ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'TRAIT_AVOID_MAJOR_FLOOD'),
+    ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'TRAIT_AVOID_THOUSAND_FLOOD');
+
+-- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_SUMERIAN_WAR_CART', 'CLASS_MALUS_CITY_CENTER');
 
 --==============================================================================================
---******            GILGAMESH                         ******
+--******                                     GILGAMESH                                    ******
 --==============================================================================================
 -- Delete some old Traits as they are buggy :( 
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_ADVENTURES_ENKIDU' and ModifierId='TRAIT_ADJUST_JOINTWAR_PLUNDER'; -- Coded on the lua front
@@ -144,19 +153,43 @@ VALUES  ('TRAIT_GILGAMESH_COMBAT_EXPERIENCE',               'Amount',           
 -- Sumerian War Carts as a starting unit in Ancient is coded on the lua front
 
 -- extra +3 envoys points per turn
---INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
+-- INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
 --  VALUES ('SUMERIA_ENVOY_POINTS_FROM_MILITARY_ALLIANCE', 'Amount', '3');
---INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
+-- INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
 --  VALUES ('SUMERIA_ENVOY_POINTS_FROM_MILITARY_ALLIANCE', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN');
---INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
+-- INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
 --  VALUES ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'SUMERIA_ENVOY_POINTS_FROM_MILITARY_ALLIANCE');
 
--- 15/10/23 remove flood damage (same as Egypt)
-INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
-    ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'TRAIT_AVOID_MODERATE_FLOOD'),
-    ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'TRAIT_AVOID_MAJOR_FLOOD'),
-    ('TRAIT_CIVILIZATION_FIRST_CIVILIZATION', 'TRAIT_AVOID_THOUSAND_FLOOD');
 
--- 30/11/24 Ancient unit gets -5 agaisnt city center, see Base/Units.sql
-INSERT INTO TypeTags (Type, Tag) VALUES
-    ('UNIT_SUMERIAN_WAR_CART', 'CLASS_MALUS_CITY_CENTER');
+-- Gilga receives bonus influence point from its highest alliance level (2/4/6)
+INSERT INTO RequirementSets(RequirementSetId , RequirementSetType) VALUES
+    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', 'REQUIREMENTSET_TEST_ALL'),
+    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', 'REQUIREMENTSET_TEST_ALL'),
+    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_3', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId) VALUES
+    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', 'REQUIRES_PLAYER_IS_ALLY_LEVEL_1'),
+    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', 'BBG_PLAYER_IS_NOT_ALLY_LEVEL_2'),
+    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', 'BBG_PLAYER_IS_NOT_ALLY_LEVEL_3'),
+    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', 'REQUIRES_PLAYER_IS_ALLY_LEVEL_2'),
+    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', 'BBG_PLAYER_IS_NOT_ALLY_LEVEL_3'),
+    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_3', 'REQUIRES_PLAYER_IS_ALLY_LEVEL_3');
+INSERT INTO Requirements(RequirementId , RequirementType, Inverse) VALUES
+    ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_2', 'REQUIREMENT_PLAYER_HAS_ACTIVE_ALLIANCE_OF_AT_LEAST_LEVEL', 1),
+    ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_3', 'REQUIREMENT_PLAYER_HAS_ACTIVE_ALLIANCE_OF_AT_LEAST_LEVEL', 1);
+INSERT INTO RequirementArguments(RequirementId , Name, Value) VALUES
+    ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_2', 'Level', 2),
+    ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_3', 'Level', 3);
+
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_SUMER_INFLUENCE_POINT_PER_ALLIANCE_LEVEL_1', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN', 'BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1'),
+    ('BBG_SUMER_INFLUENCE_POINT_PER_ALLIANCE_LEVEL_2', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN', 'BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2'),
+    ('BBG_SUMER_INFLUENCE_POINT_PER_ALLIANCE_LEVEL_3', 'MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN', 'BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_3');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_SUMER_INFLUENCE_POINT_PER_ALLIANCE_LEVEL_1', 'Amount', 2),
+    ('BBG_SUMER_INFLUENCE_POINT_PER_ALLIANCE_LEVEL_2', 'Amount', 4),
+    ('BBG_SUMER_INFLUENCE_POINT_PER_ALLIANCE_LEVEL_3', 'Amount', 6);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_ADVENTURES_ENKIDU', 'BBG_SUMER_INFLUENCE_POINT_PER_ALLIANCE_LEVEL_1'),
+    ('TRAIT_LEADER_ADVENTURES_ENKIDU', 'BBG_SUMER_INFLUENCE_POINT_PER_ALLIANCE_LEVEL_2'),
+    ('TRAIT_LEADER_ADVENTURES_ENKIDU', 'BBG_SUMER_INFLUENCE_POINT_PER_ALLIANCE_LEVEL_3');

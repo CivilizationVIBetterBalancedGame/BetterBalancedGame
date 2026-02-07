@@ -3,13 +3,13 @@
 <!-- Maybe change Expanded Criteria ? -->
 
 <!-- Release ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="7020"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="7030"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="7020"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="7030"> -->
 
 <!-- WIP ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="7020">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="7030">
 	<Properties>
 		<Name>Better Balanced Game WIP</Name>
 		<Description>
@@ -17,8 +17,8 @@
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>7020</Version>
-		<SpecialThanks>abstr, Apeul, Bastik, Bobnotarobot, Calcifer, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FaelSCCP, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Moumoulax, Onyxum, OSCAR., priz, robal, seed.of.apricot, Sent Kurokawa, _vadya_queen, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, Yenaleesternberg, ZhenjaMax, 3JIO6HbIU_Kycb</SpecialThanks>
+		<Version>7030</Version>
+		<SpecialThanks>abstr, acsess, Apeul, Bastik, Bobnotarobot, Calcifer, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FaelSCCP, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Moumoulax, Onyxum, OSCAR., priz, robal, seed.of.apricot, Sent Kurokawa, _vadya_queen, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, Yenaleesternberg, ZhenjaMax, 3JIO6HbIU_Kycb</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
 	
@@ -134,7 +134,7 @@
 		</Criteria>
 		<!-- Other Mods and Integrations -->
 		<Criteria id="BBS">
-			<ModInUse>c88cba8b-8311-4d35-90c3-51a4a5d66550</ModInUse>
+			<ModInUse>c88cba8b-8311-4d35-90c3-51a4a5d66542</ModInUse>
 		</Criteria>
 		<Criteria id="NoConflictingUIMod">
 			<ModInUse inverse="1">1d44b5e7-753e-405b-af24-5ee634ec8a01</ModInUse>
@@ -290,6 +290,14 @@
 			<!-- Release -->
 			<ModInUse>2a0aa96a-a31c-4ce2-87ec-09152f6f3e00</ModInUse>
 		</Criteria>
+
+
+		<Criteria id="ModManager">
+			<!-- Release -->
+			<ModInUse>47dccacd-f1d0-4f25-bb02-deb2b528c833</ModInUse>
+		</Criteria>
+
+
 	</ActionCriteria>
 
 	<!-- defines pre-game mods (e.g. menus, visual, text, etc..) -->
@@ -319,6 +327,11 @@
 			<File>config/config.sql</File>
 		</UpdateDatabase>
 
+		<UpdateText id="UpdateText">
+			<Criteria>ModManager</Criteria>
+			<File>mod_filter.sql</File>
+		</UpdateText>
+
 		<UpdateColors id="Colors">
 		    <Properties>
 		    	<LoadOrder>10001</LoadOrder>
@@ -326,6 +339,20 @@
 		    <File>sql/colors.sql</File>
 	    </UpdateColors>
 
+	    <UpdateDatabase id="BBG_Expanded_MOAR_Units_WIP_front">
+			<Properties>
+				<LoadOrder>4</LoadOrder>
+			</Properties>
+			<Criteria>BBGExpanded_WIP</Criteria>
+			<File>sql/BBG_Expanded/MOARUnits_enabledconfig.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Expanded_MOAR_Units_Release_front">
+			<Properties>
+				<LoadOrder>4</LoadOrder>
+			</Properties>
+			<Criteria>BBGExpanded_Release</Criteria>
+			<File>sql/BBG_Expanded/MOARUnits_enabledconfig.sql</File>
+		</UpdateDatabase>
 
 	</FrontEndActions>
 
@@ -916,6 +943,31 @@
 		<!-- -->
 
 
+		<UpdateDatabase id="BBG_Expanded_MOAR_Units_WIP">
+			<Properties>
+				<LoadOrder>4</LoadOrder>
+			</Properties>
+			<Criteria>BBGExpanded_WIP</Criteria>
+			<Criteria>XP1_AND_XP2</Criteria>
+			<Criteria>DLC_Aztec</Criteria>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<Criteria>GranColombia_Maya</Criteria>
+			<File>sql/BBG_Expanded/MOARUnits_enabled.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Expanded_MOAR_Units_Release">
+			<Properties>
+				<LoadOrder>4</LoadOrder>
+			</Properties>
+			<Criteria>BBGExpanded_Release</Criteria>
+			<Criteria>XP1_AND_XP2</Criteria>
+			<Criteria>DLC_Aztec</Criteria>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<Criteria>GranColombia_Maya</Criteria>
+			<File>sql/BBG_Expanded/MOARUnits_enabled.sql</File>
+		</UpdateDatabase>
+
 		<UpdateDatabase id="BBG_Expanded_WIP">
 			<Properties>
 				<LoadOrder>100000000</LoadOrder>
@@ -935,6 +987,8 @@
 			<File>sql/BBG_Expanded/Al_Hasan.sql</File>
 			<File>sql/BBG_Expanded/Spearthrower.sql</File>
 			<File>sql/BBG_Expanded/Resources.sql</File>
+			<File>sql/BBG_Expanded/Barbarossa_UU.sql</File>
+			<File>sql/BBG_Expanded/Caesar_UU.sql</File>
 		</UpdateDatabase>
 		<!-- I don't know how to do an OR -->
 		<UpdateDatabase id="BBG_Expanded_Release">
@@ -956,6 +1010,8 @@
 			<File>sql/BBG_Expanded/Al_Hasan.sql</File>
 			<File>sql/BBG_Expanded/Spearthrower.sql</File>
 			<File>sql/BBG_Expanded/Resources.sql</File>
+			<File>sql/BBG_Expanded/Barbarossa_UU.sql</File>
+			<File>sql/BBG_Expanded/Caesar_UU.sql</File>
 		</UpdateDatabase>
 
 
@@ -1220,6 +1276,10 @@
 		<File>lang/chinese.xml</File>
 		<File>lang/italian.xml</File>
 		<File>lang/spanish.xml</File>
+
+
+		<!-- mod filter -->
+		<File>mod_filter.sql</File>
 		<!-- utils -->
 	    <File>sql/colors.sql</File>
 		<!-- utils -->
@@ -1395,6 +1455,8 @@
 
 		<!-- BBG Expanded -->
 		<File>sql/BBG_Expanded/Vercingetorix.sql</File>
+		<File>sql/BBG_Expanded/Barbarossa_UU.sql</File>
+		<File>sql/BBG_Expanded/Caesar_UU.sql</File>
 		<File>sql/BBG_Expanded/Olympia.sql</File>
 		<File>sql/BBG_Expanded/Thule.sql</File>
 		<File>sql/BBG_Expanded/Te_Kinich.sql</File>
@@ -1403,6 +1465,8 @@
 		<File>sql/BBG_Expanded/Al_Hasan.sql</File>
 		<File>sql/BBG_Expanded/Spearthrower.sql</File>
 		<File>sql/BBG_Expanded/Resources.sql</File>
+		<File>sql/BBG_Expanded/MOARUnits_enabled.sql</File>
+		<File>sql/BBG_Expanded/MOARUnits_enabledconfig.sql</File>
 		<!-- BBG Expanded lua -->
       	<File>lua/BBG_Expanded/Thule.lua</File>
       	<File>lua/BBG_Expanded/Te_Kinich.lua</File>
