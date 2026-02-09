@@ -34,6 +34,7 @@ DELETE FROM StartBiasFeatures WHERE CivilizationType='CIVILIZATION_LIME_TEOTIHUA
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS';
 
 -- International trade routes to allies gain yields per type of CS under your control
+-- Also work for internals
 CREATE TEMPORARY TABLE "Teotihucan_trades"(
         'LeaderType' TEXT,
         'YieldType' TEXT,
@@ -57,6 +58,15 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) SELECT
 INSERT INTO TraitModifiers (TraitType, ModifierId) SELECT
     'TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS', 'BBG_INTERNATIONAL_' || LeaderType || '_ONE' FROM Teotihucan_trades;
 
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) SELECT
+    'BBG_INTERNAL_' || LeaderType || '_ONE', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_DOMESTIC', 'SUK_GALLIC_WAR_COMBAT_REQUIREMENTS_' || LeaderType FROM Teotihucan_trades;
+INSERT INTO ModifierArguments (ModifierId, Name, Value) SELECT
+    'BBG_INTERNAL_' || LeaderType || '_ONE', 'YieldType', YieldType FROM Teotihucan_trades; 
+INSERT INTO ModifierArguments (ModifierId, Name, Value) SELECT
+    'BBG_INTERNAL_' || LeaderType || '_ONE', 'Amount', Amount FROM Teotihucan_trades; 
+INSERT INTO TraitModifiers (TraitType, ModifierId) SELECT
+    'TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS', 'BBG_INTERNAL_' || LeaderType || '_ONE' FROM Teotihucan_trades;
+
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) SELECT
     'BBG_PLAYER_SUZ_2_' || LeaderType || '_REQSET', 'REQUIREMENTSET_TEST_ALL' FROM Leaders WHERE InheritFrom = 'LEADER_MINOR_CIV_DEFAULT';
 INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId) SELECT
@@ -76,6 +86,15 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) SELECT
     'BBG_INTERNATIONAL_' || LeaderType || '_TWO', 'Amount', Amount*2 FROM Teotihucan_trades; 
 INSERT INTO TraitModifiers (TraitType, ModifierId) SELECT
     'TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS', 'BBG_INTERNATIONAL_' || LeaderType || '_TWO' FROM Teotihucan_trades;
+
+INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) SELECT
+    'BBG_INTERNAL_' || LeaderType || '_TWO', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_DOMESTIC', 'BBG_PLAYER_SUZ_2_' || LeaderType || '_REQSET' FROM Teotihucan_trades;
+INSERT INTO ModifierArguments (ModifierId, Name, Value) SELECT
+    'BBG_INTERNAL_' || LeaderType || '_TWO', 'YieldType', YieldType FROM Teotihucan_trades; 
+INSERT INTO ModifierArguments (ModifierId, Name, Value) SELECT
+    'BBG_INTERNAL_' || LeaderType || '_TWO', 'Amount', Amount*2 FROM Teotihucan_trades; 
+INSERT INTO TraitModifiers (TraitType, ModifierId) SELECT
+    'TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS', 'BBG_INTERNAL_' || LeaderType || '_TWO' FROM Teotihucan_trades;
 
 
 -- ==========================================================
@@ -146,15 +165,17 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 -- ==========================================================
 
 
--- Base : May be assigned to a City State. Friendly Units defending this city gain +5 Combat Strength. Give 1 envoy to the city state
+-- Base : May be assigned to a City State. Friendly Units defending this city gain +5 Combat Strength. Give 2 envoy to the city state
+-- 19/12/25 Increased to 2 base envoy
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_FIREISBORN_BASE_ENVOY', 'MODIFIER_GOVERNOR_ADJUST_CITY_ENVOYS'); 
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_FIREISBORN_BASE_ENVOY', 'Amount', 1);
+    ('BBG_FIREISBORN_BASE_ENVOY', 'Amount', 2);
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
     ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_ARRIVAL', 'BBG_FIREISBORN_BASE_ENVOY');
 
 -- L1 : Envoy send to this city state are doubled if it receives a trade route, cities 15 tiles from the city gets +25% production toward hub
+-- Also work for harbors
 DELETE FROM GovernorPromotionModifiers WHERE ModifierId='MOD_LIME_TEO_OWL_EMISSARY_OUTPOST_CLONE_LUXES';
 
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
@@ -175,30 +196,39 @@ INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUE
     ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST', 'BBG_DUPLICATE_ENVOY_IF_TRADER');
 
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_HARBOR_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION', 'BBG_PLOT_15_TILES_MAX_REQSET'),
     ('BBG_HUB_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION', 'BBG_PLOT_15_TILES_MAX_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_HARBOR_PRODUCTION', 'DistrictType', 'DISTRICT_HARBOR'),
+    ('BBG_HARBOR_PRODUCTION', 'Amount', 25),
     ('BBG_HUB_PRODUCTION', 'DistrictType', 'DISTRICT_COMMERCIAL_HUB'),
     ('BBG_HUB_PRODUCTION', 'Amount', 25);
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
+    ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST', 'BBG_HARBOR_PRODUCTION'),
     ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_OUTPOST', 'BBG_HUB_PRODUCTION');
     
 -- R1 : Units in this city gains +5 combat strength.
 DELETE FROM GovernorPromotionModifiers WHERE ModifierId='MOD_LIME_TEO_OWL_EMISSARY_EXPEDITION_SAP_WALLS_ATTACH';
 
 -- L2 : Cities 15 tiles from the city gets +25% production toward hub and city center building
+-- Also work for Harbor
 DELETE FROM GovernorPromotionModifiers WHERE GovernorPromotionType='GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL';
 
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_CITY_CENTER_BUILDING_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION', 'BBG_PLOT_15_TILES_MAX_REQSET'),
-    ('BBG_HUB_BUILDING_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION', 'BBG_PLOT_15_TILES_MAX_REQSET');
+    ('BBG_HUB_BUILDING_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION', 'BBG_PLOT_15_TILES_MAX_REQSET'),
+    ('BBG_HARBOR_BUILDING_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION', 'BBG_PLOT_15_TILES_MAX_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_CITY_CENTER_BUILDING_PRODUCTION', 'DistrictType', 'DISTRICT_CITY_CENTER'),
     ('BBG_CITY_CENTER_BUILDING_PRODUCTION', 'Amount', 25),
     ('BBG_HUB_BUILDING_PRODUCTION', 'DistrictType', 'DISTRICT_COMMERCIAL_HUB'),
-    ('BBG_HUB_BUILDING_PRODUCTION', 'Amount', 25);
+    ('BBG_HUB_BUILDING_PRODUCTION', 'Amount', 25),
+    ('BBG_HARBOR_BUILDING_PRODUCTION', 'DistrictType', 'DISTRICT_HARBOR'),
+    ('BBG_HARBOR_BUILDING_PRODUCTION', 'Amount', 25);
 INSERT INTO GovernorPromotionModifiers (GovernorPromotionType, ModifierId) VALUES
     ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL', 'BBG_CITY_CENTER_BUILDING_PRODUCTION'),
-    ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL', 'BBG_HUB_BUILDING_PRODUCTION');
+    ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL', 'BBG_HUB_BUILDING_PRODUCTION'),
+    ('GOV_PROMO_LIME_TEO_OWL_EMISSARY_FALL', 'BBG_HARBOR_BUILDING_PRODUCTION');
 
 
 -- R2 : Levied Units 10 tiles from this city gets +5 combat strength

@@ -40,11 +40,11 @@ DELETE FROM TraitModifiers WHERE ModifierId IN ('TRAIT_FREE_ENVOY_WHEN_DISTRICT_
 --     ('PLAYER_HAS_GOLDEN_AGE_AND_NOT_BABYLON', 'REQUIRES_PLAYER_HAS_GOLDEN_AGE');
 -- UPDATE Modifiers SET OwnerRequirementSetId='PLAYER_HAS_GOLDEN_AGE_AND_NOT_BABYLON' WHERE ModifierId='COMMEMORATION_SCIENTIFIC_GA_BOOSTS';
 
---24/11/22 Babylon get free eureka when building a library
+-- 24/11/22 Babylon get free eureka when building a library
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_BABYLON' AND ModifierID='TRAIT_SCIENCE_DECREASE';
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_BABYLON' AND ModifierID='TRAIT_EUREKA_INCREASE';
---18/12/22 writed it properly :komik:
---BUILDING_IS_LIBRARY doesn't exist in base, recreate
+-- 18/12/22 writed it properly :komik:
+-- BUILDING_IS_LIBRARY doesn't exist in base, recreate
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
     ('REQUIRES_CITY_HAS_LIBRARY', 'REQUIREMENT_CITY_HAS_BUILDING');
 INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
@@ -169,3 +169,5 @@ UPDATE GreatPersonIndividuals SET EraType='ERA_MEDIEVAL' WHERE GreatPersonIndivi
 
 UPDATE GreatPersonIndividuals SET EraType='ERA_MEDIEVAL' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_RAJA_TODAR_MAL';
 UPDATE GreatPersonIndividuals SET EraType='ERA_RENAISSANCE' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_MARCO_POLO';
+
+
