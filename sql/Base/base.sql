@@ -340,7 +340,6 @@ UPDATE Technologies SET UITreeRow=0 WHERE TechnologyType='TECH_NUCLEAR_FISSION';
 --=======================================================================
 
 UPDATE Happinesses SET GrowthModifier=8, NonFoodYieldModifier=8 WHERE HappinessType='HAPPINESS_HAPPY';
-UPDATE Happinesses SET GrowthModifier=16, NonFoodYieldModifier=16 WHERE HappinessType='HAPPINESS_ECSTATIC';
 
 -- 30/11/24 Pillage nerf
 -- Improvement pillage value to 35/20
