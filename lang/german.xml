@@ -7,7 +7,7 @@
 
 
 
-		<!-- ==== TABLE OF CONTENTS ==== -->
+		<!-- ==== TABLE OF CONTENTS - INHALTSVERZEICHNIS ==== -->
 
 			<!-- === CIVILIZATIONS - CIVILISATIONEN === -->
 			<!-- === UNITS - EINEHITEN === -->
@@ -18,6 +18,7 @@
 			<!-- === RELIGIOUS BELIEFS - GLAUBENSSÄTZE === -->
 			<!-- === IMPROVEMENTS - VERBESSERUNGEN === -->
 			<!-- === DISTRICTS - BEZIRKE === -->
+			<!-- === ADJACENCY - NACHBARSCHAFTSBONUS === -->
 			<!-- === BUILDINGS - GEBÄUDE === -->
 			<!-- === WORLD WONDERS - WELTWUNDER === -->
 			<!-- === NATURAL WONDERS - NATURWUNDER === -->
@@ -406,7 +407,7 @@
 		<!-- == DUTCH / NETHERLANDS - HOLLAND / NIEDERLANDE == -->
 		<!-- = Civilization ability - Zivilisationsfähigkeit (Rhein-Maas-Delta) = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GROTE_RIVIEREN_EXPANSION2_DESCRIPTION" Language="de_DE">
-			<Text>Großer-Nachbarschaftbonus (+2) für [ICON_DISTRICT_CAMPUS] Campus-, [ICON_DISTRICT_THEATER] Theaterplatz- und [ICON_DISTRICT_INDUSTRIAL_ZONE] Industriegebiet-Bezirke, die an einen Fluss angrenzen.[NEWLINE][NEWLINE] Kulturschock für angrenzende Felder, wenn ein [ICON_DISTRICT_HARBOR] Hafen-Bezirk fertiggestellt wurde.[NEWLINE][NEWLINE]+50% [ICON_Production] Produktion für [ICON_DISTRICT_DAM] Damm-Bezirke und Hochwassersperren.[NEWLINE][NEWLINE][ICON_BULLETGLOW] Startbedingungen: T2 Flüsse; T3 Küstenfelder.</Text>
+			<Text>Großer-Nachbarschaftbonus (+2) für [ICON_DISTRICT_CAMPUS] Campus-, [ICON_DISTRICT_THEATER] Theaterplatz- und [ICON_DISTRICT_INDUSTRIAL_ZONE] Industriegebiet-Bezirke, die an einen Fluss angrenzen.[NEWLINE][NEWLINE] Kulturschock für angrenzende Felder, wenn ein [ICON_DISTRICT_HARBOR] Hafen-Bezirk fertiggestellt wurde.[NEWLINE][NEWLINE]+50% [ICON_Production] Produktion für [ICON_DISTRICT_DAM] Staudamm-Bezirke und Hochwassersperren.[NEWLINE][NEWLINE][ICON_BULLETGLOW] Startbedingungen: T2 Flüsse; T3 Küstenfelder.</Text>
 		</Replace>
 		<!-- = Leader ability - Führerfähigkeit (Wilhelmina - Radio Oranje)= -->
 		<Replace Tag="LOC_TRAIT_RADIO_ORANJE_DESCRIPTION" Language="de_DE">
@@ -558,6 +559,18 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="de_DE">
 			<Text>[ICON_DISTRICT] Bezirke erhalten:[NEWLINE][NEWLINE]• Kleiner-Nachbarschaftsbonus (+0.5) durch jede angrenzende "Mine".[NEWLINE]• Standard-Nachbarschaftsbonus (+1) durch jeden angrenzenden "Steinbruch".[NEWLINE]• Keinen Kleiner-Nachbarschaftsbonus (+0.5) durch angrenzende Spezial-[ICON_DISTRICT] Bezirke.[NEWLINE][NEWLINE]Spezial-[ICON_DISTRICT] Bezirke können nicht angrenzend an ein [ICON_DISTRICT_CITY_CENTER] Stadtzentrum gebaut werden.[NEWLINE][NEWLINE][ICON_BULLETGLOW] Startbedingungen: T3 [ICON_RESOURCE_IRON] Eisen; T5 Bonus- und Luxusressourcen-Felder für Minen und Steinbrüche ([ICON_RESOURCE_COPPER] Kupfer, [ICON_RESOURCE_DIAMONDS] Diamanten, [ICON_RESOURCE_JADE] Jade, [ICON_RESOURCE_MERCURY] Quecksilber, [ICON_RESOURCE_SALT] Salz, [ICON_RESOURCE_SILVER] Silber, [ICON_RESOURCE_STONE] Stein, [ICON_RESOURCE_MARBLE] Marmor, [ICON_RESOURCE_GYPSUM] Gips).</Text>
 		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_GOLD" Language="de_DE">
+			<Text>+{1_num} [ICON_GOLD] Gold für angrenzenden Steinbruch.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_SCIENCE" Language="de_DE">
+			<Text>+{1_num} [ICON_SCIENCE] Wissenschaft für angrenzenden Steinbruch.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_CULTURE" Language="de_DE">
+			<Text>+{1_num} [ICON_CULTURE] Kultur für angrenzenden Steinbruch.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_FAITH" Language="de_DE">
+			<Text>+{1_num} [ICON_FAITH] Glauben für angrenzenden Steinbruch.</Text>
+		</Replace>
 		<!-- = Leader ability - Führerfähigkeit (Ambiorix - König der Eburonen) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="de_DE">
 			<Text>+1 [ICON_STRENGTH] Kampfstärke für Nahkampf-[ICON_UNIT] Einheiten und Kavallerie-Abwehr-[ICON_UNIT] Einheiten, durch jede angrenzende Militär-[ICON_UNIT] Einheit.[NEWLINE][NEWLINE]Erhalte [ICON_CULTURE] Kultur entsprechend 25% der [ICON_PRODUCTION] Produktions-Kosten von rekrutierten Militär-[ICON_UNIT] Einheiten, nach Erforschung der Technologie "Bronzeverarbeitung".[NEWLINE][NEWLINE]Jeder Bau einer "Mine", löst einen Kulturschock für angrenzende Felder aus.</Text>
@@ -640,7 +653,7 @@
 		</Replace>
 		<!-- = Unique district - Einzigartiger Bezirk (Hanse) = -->
 		<Replace Tag="LOC_DISTRICT_HANSA_EXPANSION2_DESCRIPTION" Language="de_DE">
-			<Text>Dieser [ICON_DISTRICT_INDUSTRIAL_ZONE] "Hanse"-Bezirk des Mittelalters ist einzigartig für Deutschland, wird nach Erforschung der Technologie "Ausbildung" freigeschaltet, ersetzt den [ICON_DISTRICT_INDUSTRIAL_ZONE] Industriegebiet-Bezirk, gewährt dessen Boni und zusätzlich:[NEWLINE][NEWLINE]• +2 [ICON_PRODUCTION] Produktion durch jeden angrenzenden [ICON_DISTRICT_AQUEDUCT] Aquädukt-Bezirk, [ICON_DISTRICT_CANAL] Kanal-Bezirk und [ICON_DISTRICT_DAM] Damm-Bezirk.[NEWLINE]• +2 [ICON_PRODUCTION] Produktion durch jeden angrenzenden [ICON_DISTRICT_ENCAMPMENT] Lager-Bezirk (nur Friedrich Barbarossa) und [ICON_DISTRICT_COMMERCIAL_HUB] Handelszentrum-Bezirk (nur Ludwig II).[NEWLINE]• +1 [ICON_PRODUCTION] Produktion durch jede angrenzende Ressource.[NEWLINE]• Keine zusätzliche Produktion durch je 2 angrenzende "Minen" oder "Sägewerke".[NEWLINE][NEWLINE]Verringerte [ICON_PRODUCTION] [ICON_GOLD] Grundkosten.</Text>
+			<Text>Dieser [ICON_DISTRICT_INDUSTRIAL_ZONE] "Hanse"-Bezirk des Mittelalters ist einzigartig für Deutschland, wird nach Erforschung der Technologie "Ausbildung" freigeschaltet, ersetzt den [ICON_DISTRICT_INDUSTRIAL_ZONE] Industriegebiet-Bezirk, gewährt dessen Boni und zusätzlich:[NEWLINE][NEWLINE]• +2 [ICON_PRODUCTION] Produktion durch jeden angrenzenden [ICON_DISTRICT_AQUEDUCT] Aquädukt-Bezirk, [ICON_DISTRICT_CANAL] Kanal-Bezirk und [ICON_DISTRICT_DAM] Staudamm-Bezirk.[NEWLINE]• +2 [ICON_PRODUCTION] Produktion durch jeden angrenzenden [ICON_DISTRICT_ENCAMPMENT] Lager-Bezirk (nur Friedrich Barbarossa) und [ICON_DISTRICT_COMMERCIAL_HUB] Handelszentrum-Bezirk (nur Ludwig II).[NEWLINE]• +1 [ICON_PRODUCTION] Produktion durch jede angrenzende Ressource.[NEWLINE]• Keine zusätzliche Produktion durch je 2 angrenzende "Minen" oder "Sägewerke".[NEWLINE][NEWLINE]Verringerte [ICON_PRODUCTION] [ICON_GOLD] Grundkosten.</Text>
 		</Replace>
 		
 		<!-- == GREECE - GRIECHENLAND == -->
@@ -666,7 +679,7 @@
 			<Text>+5% [ICON_CULTURE] Kultur und +5% [ICON_TOURISM] Tourismus pro Stadtstaat, dessen Suzerän du bist.[NEWLINE][NEWLINE][ICON_DISTRICT_THEATER] "Akropolis"-Bezirke erhalten folgende Boni:[NEWLINE]• +1 [ICON_ENVOY] Gesandte, durch jedes gebaute "Amphitheater".[NEWLINE]• +1 [ICON_PRODUCTION] Produktion für jedes angrenzende [ICON_DISTRICT_WONDER] Weltwunder.[NEWLINE]• +0.5 [ICON_PRODUCTION] Produktion für jeden angrenzenden [ICON_DISTRICT] Bezirk.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PERICLES_ACROPOLIS_WONDER_PROD_DESC" Language="de_DE">
-			<Text>+2 [ICON_PRODUCTION] Produktion für jedes angrenzende [ICON_DISTRICT_WONDER] Weltwunder.</Text>
+			<Text>+{1_num} [ICON_PRODUCTION] Produktion für jedes angrenzende [ICON_DISTRICT_WONDER] Weltwunder.</Text>
 		</Replace>
 		<!-- = Unique unit - Einzigartige Einheit (Hoplit) = -->
 		<Replace Tag="LOC_UNIT_GREEK_HOPLITE_DESCRIPTION" Language="de_DE">
@@ -849,12 +862,12 @@
 		<Replace Tag="LOC_TRAIT_LEADER_MONASTERIES_KING_EXPANSION2_DESCRIPTION" Language="de_DE">
 			<Text>[ICON_DISTRICT_HOLYSITE] Heilige Stätte-Bezirke erhalten bei Angrenzung an einen Fluss:[NEWLINE][NEWLINE]• +1 [ICON_FOOD] Nahrung.[NEWLINE]• +2 [ICON_HOUSING] Wohnraum.[NEWLINE]• +1 [ICON_FAITH] Glauben.[NEWLINE][NEWLINE]Kulturschock für angrenzende Felder, wenn ein [ICON_DISTRICT_HOLYSITE] Heilige Stätte-Bezirke fertiggestellt wurde.</Text>
 		</Replace>
-		<Row Tag="LOC_DISTRICT_HOLY_SITE_RIVER_FAITH" Language="de_DE">
+		<Replace Tag="LOC_DISTRICT_HOLY_SITE_RIVER_FAITH" Language="de_DE">
 			<Text>+{1_num} [ICON_FAITH] Glauben vom angrenzenden Fluss.</Text>
-		</Row>
-		<Row Tag="LOC_BBG_HOLY_SITE_RIVER_FOOD_ADJACENCY" Language="de_DE">
-			<Text>+2 [ICON_FOOD] Nahrung vom angrenzenden Fluss.</Text>
-		</Row>
+		</Replace>
+		<Replace Tag="LOC_BBG_HOLY_SITE_RIVER_FOOD_ADJACENCY" Language="de_DE">
+			<Text>+1 [ICON_FOOD] Nahrung vom angrenzenden Fluss.</Text>
+		</Replace>
 		<!-- = Unique unit - Einzigartige Einheit (Domrey) = -->
 		<Replace Tag="LOC_UNIT_KHMER_DOMREY_DESCRIPTION" Language="de_DE">
 			<Text>Diese Belagerungs-[ICON_UNIT] Einheit der Mittelalters ist einzigartig für die Khmer, wird nach Erforschung der Technologie "Militärtechnik" freigeschaltet, ersetzt den "Tribok", gewährt dessen Boni und zusätzlich:[NEWLINE][NEWLINE]• +5 Grund-[ICON_STRENGTH] Kampfstärke.[NEWLINE]• +5 Grund-[ICON_BOMBARD] Bombardierungsstärke.[NEWLINE]• -17 [ICON_BOMBARD] Bombardierungsstärke gegen Land-[ICON_UNIT] Einheiten.[NEWLINE]• [ICON_BOMBARD] Bombardierungsstärke verursacht 100% Schaden gegen Marine-[ICON_UNIT] Einheiten und verteidigungsfähige [ICON_DISTRICT] Bezirke (die [ICON_STRENGTH] Kampfstärke besitzen).[NEWLINE]• [ICON_MOVEMENT] Bewegung und [ICON_RANGED] Fernkampf-Angriff in der selben [ICON_TURN] Runde möglich.[NEWLINE]• Erzeugt eine Kontrollzone.</Text>
@@ -982,7 +995,7 @@
 		<!-- == MALIAN - MALI == -->
 		<!-- = Civilization ability - Zivilisationsfähigkeit (Lieder der Jeli) = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="de_DE">
-			<Text>-5% [ICON_PRODUCTION] Produktion.[NEWLINE][NEWLINE]+2 [ICON_FAITH] Glauben bei Gründung:[NEWLINE][NEWLINE]• Für [ICON_DISTRICT_CITY_CENTER] Stadtzentren auf einem Wüstenfeld.[NEWLINE]• Für die [ICON_CAPITAL] Hauptstadt auf einem beliebigen Feld.[NEWLINE][NEWLINE]+2 [ICON_FOOD] Nahrung für Wüstenfelder.[NEWLINE][NEWLINE]+2 [ICON_GOLD] Gold für Minen auf Wüstenfeldern.[NEWLINE][NEWLINE]Kann "Bauernhöfe" auf Wüstenfelder bauen.[NEWLINE][NEWLINE]Kann [ICON_BUILDINGS] Gebäude im [ICON_DISTRICT_COMMERCIAL_HUB] "Suguba"-Bezirk mit [ICON_FAITH] Glauben kaufen.[NEWLINE][NEWLINE][ICON_BULLETGLOW] Startbedingungen: T1 Wüstenfelder, Wüstenhügelfelder; T5 Ressourcen-Felder für Minen ([ICON_RESOURCE_COPPER] Kupfer, [ICON_RESOURCE_DIAMONDS] Diamanten,[ICON_RESOURCE_JADE] Jade, [ICON_RESOURCE_MERCURY] Quecksilber, [ICON_RESOURCE_SALT] Salz, [ICON_RESOURCE_SILVER] Silber, [ICON_RESOURCE_ALUMINUM] Aluminium, [ICON_RESOURCE_COAL] Kohle, [ICON_RESOURCE_IRON] Eisen, [ICON_RESOURCE_NITER] Salpeter; KEIN [ICON_RESOURCE_URANIUM] Uran).</Text>
+			<Text>-5% [ICON_PRODUCTION] Produktion.[NEWLINE][NEWLINE]+2 [ICON_FAITH] Glauben bei Gründung:[NEWLINE][NEWLINE]• Für [ICON_DISTRICT_CITY_CENTER] Stadtzentren auf einem Wüstenfeld (nach Erforschung der Ausrichtung Außenhandel).[NEWLINE]• Für die [ICON_CAPITAL] Hauptstadt auf einem beliebigen Feld.[NEWLINE][NEWLINE]+2 [ICON_FOOD] Nahrung für Wüstenfelder.[NEWLINE][NEWLINE]+2 [ICON_GOLD] Gold für Minen auf Wüstenfeldern.[NEWLINE][NEWLINE]Kann "Bauernhöfe" auf Wüstenfelder bauen.[NEWLINE][NEWLINE]Kann [ICON_BUILDINGS] Gebäude im [ICON_DISTRICT_COMMERCIAL_HUB] "Suguba"-Bezirk mit [ICON_FAITH] Glauben kaufen.[NEWLINE][NEWLINE][ICON_BULLETGLOW] Startbedingungen: T1 Wüstenfelder, Wüstenhügelfelder; T5 Ressourcen-Felder für Minen ([ICON_RESOURCE_COPPER] Kupfer, [ICON_RESOURCE_DIAMONDS] Diamanten,[ICON_RESOURCE_JADE] Jade, [ICON_RESOURCE_MERCURY] Quecksilber, [ICON_RESOURCE_SALT] Salz, [ICON_RESOURCE_SILVER] Silber, [ICON_RESOURCE_ALUMINUM] Aluminium, [ICON_RESOURCE_COAL] Kohle, [ICON_RESOURCE_IRON] Eisen, [ICON_RESOURCE_NITER] Salpeter; KEIN [ICON_RESOURCE_URANIUM] Uran).</Text>
 		</Replace>
 		<!-- = Leader ability - Führerfähigkeit (Mansa Musa - Sahel-Händler) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SAHEL_MERCHANTS_DESCRIPTION" Language="de_DE">
@@ -1050,9 +1063,6 @@
 			<Text>[ICON_DISTRICT_CITY_CENTER] Städte mit einem etablierten [ICON_GOVERNOR] Gouverneur erhalten folgende Boni:[NEWLINE][NEWLINE]• +5% [ICON_PRODUCTION] Produktion, +5% [ICON_CULTURE] Kultur, +10% Kampferfahrung für rekrutierte [ICON_UNIT] Einheiten (verdreifacht in [ICON_DISTRICT_CITY_CENTER] Städten, die nicht von den Mapuche gegründet wurden).[NEWLINE]• +4 [ICON_PRESSUREUP] Loyalität pro [ICON_TURN] Runde für [ICON_DISTRICT_CITY_CENTER] Städte im Umkreis von 9 Feldern.[NEWLINE][NEWLINE][ICON_BULLETGLOW] Startbedingungen: T4 Graslandbergfelder, Ebenenbergfelder; -T3 Schwemmlandfelder.</Text>
 		</Replace>
 		<!-- = Leader ability - Führerfähigkeit (Lautaro - Schneller Falke) = -->
-		<Replace Tag="LOC_ABILITY_TRAIT_MAPUCHE_DESCRIPTION" Language="de_DE">
-			<Text>+3 [ICON_STRENGTH] Kampfstärke gegen Freie [ICON_DISTRICT_CITY_CENTER] Städte oder Zivilisationen, die sich in einem [ICON_GLORY_GOLDEN_AGE] Goldenen Zeitalter oder einem [ICON_GLORY_SUPER_GOLDEN_AGE] Heroischen Zeitalter befinden.[NEWLINE][NEWLINE]Wenn eine feindliche [ICON_UNIT] Einheit, innerhalb der Grenzen einer feindlichen [ICON_DISTRICT_CITY_CENTER] Stadt getötet wurde, verliert die [ICON_DISTRICT_CITY_CENTER] Stadt -15 [ICON_PRESSUREDOWN] Loyalität (-30 wenn sich diese Zivilisation in einem [ICON_GLORY_GOLDEN_AGE] Goldenen Zeitalter oder einem [ICON_GLORY_SUPER_GOLDEN_AGE] Heroischen Zeitalter befindet).[NEWLINE][NEWLINE]+1 Anziehungskraft für Felder in [ICON_DISTRICT_CITY_CENTER] Städten mit einem [ICON_DISTRICT_ENCAMPMENT] Lager-Bezirk.</Text>
-		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_LAUTARO_ABILITY_DESCRIPTION_ALT" Language="de_DE">
 			<Text>+3 [ICON_STRENGTH] Kampfstärke gegen Freie [ICON_DISTRICT_CITY_CENTER] Städte oder Zivilisationen, die sich in einem [ICON_GLORY_GOLDEN_AGE] Goldenen Zeitalter oder einem [ICON_GLORY_SUPER_GOLDEN_AGE] Heroischen Zeitalter befinden.[NEWLINE][NEWLINE]Wenn eine feindliche [ICON_UNIT] Einheit, innerhalb der Grenzen einer feindlichen [ICON_DISTRICT_CITY_CENTER] Stadt getötet wurde, verliert die [ICON_DISTRICT_CITY_CENTER] Stadt -15 [ICON_PRESSUREDOWN] Loyalität (-30 wenn sich diese Zivilisation in einem [ICON_GLORY_GOLDEN_AGE] Goldenen Zeitalter oder einem [ICON_GLORY_SUPER_GOLDEN_AGE] Heroischen Zeitalter befindet).[NEWLINE][NEWLINE]+1 Anziehungskraft für Felder in [ICON_DISTRICT_CITY_CENTER] Städten mit einem [ICON_DISTRICT_ENCAMPMENT] Lager-Bezirk.</Text>
 		</Replace>
@@ -1206,19 +1216,19 @@
 			<Text>Diese Verbesserung ist einzigartig für Nubien und deine Handwerker können sie durch den Verbrauch einer [ICON_CHARGES] Ladung, nach Erforschung der Ausrichtung "Handwerkskunst" bauen:[NEWLINE][NEWLINE]• +2 [ICON_FOOD] Nahrung.[NEWLINE]• +2 [ICON_FAITH] Glauben.[NEWLINE]• Standard-Nachbarschaftsbonus (+1) für [ICON_DISTRICT] Bezirke, durch jede angrenzende "Nubische Pyramide".[NEWLINE][NEWLINE]Erhält zusätzliche Erträge durch folgende angrenzende [ICON_DISTRICT] Bezirke:[NEWLINE]• +1 [ICON_FOOD] Nahrung pro [ICON_DISTRICT_CITY_CENTER] Stadtzentrum.[NEWLINE]• +1 [ICON_PRODUCTION] Produktion pro [ICON_DISTRICT_INDUSTRIAL_ZONE] Industriegebiet-, [ICON_DISTRICT_ENCAMPMENT] Lager- und [ICON_DISTRICT_AERODROME] Flugplatz-Bezirk.[NEWLINE]• +1 [ICON_GOLD] Gold pro [ICON_DISTRICT_COMMERCIAL_HUB] Handelszentrum- und [ICON_DISTRICT_HARBOR] Hafen-Bezirk.[NEWLINE]• +1 [ICON_CULTURE] Kultur und +2 [ICON_GOLD] Gold pro [ICON_DISTRICT_GOVERNMENT] Regierungsplatz- und [ICON_DISTRICT] Diplomatenviertel-Bezirk.[NEWLINE]• +1 [ICON_SCIENCE] Wissenschaft pro [ICON_DISTRICT_CAMPUS] Campus-Bezirk.[NEWLINE]• +1 [ICON_CULTURE] Kultur pro [ICON_DISTRICT_THEATER] Theaterplatz-Bezirk.[NEWLINE]• +1 [ICON_FAITH] Glauben pro [ICON_DISTRICT_HOLYSITE] Heilige Stätte-Bezirk.[NEWLINE][NEWLINE]Kann nur auf Flachlandfeldern und Wüstenhügelfeldern gebaut werden.[NEWLINE]Kann nicht angrenzende an andere "Nubische Pyramiden" gebaut werden.[NEWLINE]Kann nur einmal pro [ICON_DISTRICT_CITY_CENTER] Stadt gebaut werden.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_SCIENCE_DESC" Language="de_DE">
-			<Text>+{1_num} [ICON_SCIENCE] Wissenschaft Standard-Nachbarschaftbonus.</Text>
+			<Text>+{1_num} [ICON_SCIENCE] Wissenschaft für angrenzende Nubische Pyramide.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_PRODUCTION_DESC" Language="de_DE">
-			<Text>+{1_num} [ICON_PRODUCTION] Produktion Standard-Nachbarschaftbonus.</Text>
+			<Text>+{1_num} [ICON_PRODUCTION] Produktion für angrenzende Nubische Pyramide.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_CULTURE_DESC" Language="de_DE">
-			<Text>+{1_num} [ICON_CULTURE] Kultur Standard-Nachbarschaftbonus.</Text>
+			<Text>+{1_num} [ICON_CULTURE] Kultur für angrenzende Nubische Pyramide.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_FAITH_DESC" Language="de_DE">
-			<Text>+{1_num} [ICON_FAITH] Glauben Standard-Nachbarschaftbonus.</Text>
+			<Text>+{1_num} [ICON_FAITH] Glauben für angrenzende Nubische Pyramide.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_GOLD_DESC" Language="de_DE">
-			<Text>+{1_num} [ICON_GOLD] Gold Standard-Nachbarschaftbonus.</Text>
+			<Text>+{1_num} [ICON_GOLD] Gold für angrenzende Nubische Pyramide.</Text>
 		</Replace>
 		
 		
@@ -1899,7 +1909,7 @@
   			<Text>Informationszeitalter Anti-Luft-Unterstützungseinheit. Bietet Schutz vor Luft- und Nuklearangriffen bis zu 1 Feld von der Waffe entfernt.</Text>
   		</Replace>
 		<Replace Tag="LOC_UNIT_MILITARY_ENGINEER_ALT_DESCRIPTION" Language="de_DE">
-			<Text>Unterstützungseinheit des Mittelalters. Benötigt die "Waffenkammer" im [ICON_DISTRICT_ENCAMPMENT] Lager-Bezirk zur Herstellung. Kann Straßen, Eisenbahnen, Forts, Flugplätze, Raketensilos und Bergtunnel ausbauen. Jede [ICON_CHARGES] Ladung kann auch verwendet werden, um jeweils 20% von [ICON_DISTRICT_CANAL] Kanal-, [ICON_DISTRICT_DAM] Damm- oder [ICON_DISTRICT_AQUEDUCT] Aquädukt-Bezirken oder 50% von "Hochwassersperren" zu errichten.</Text>
+			<Text>Unterstützungseinheit des Mittelalters. Benötigt die "Waffenkammer" im [ICON_DISTRICT_ENCAMPMENT] Lager-Bezirk zur Herstellung. Kann Straßen, Eisenbahnen, Forts, Flugplätze, Raketensilos und Bergtunnel ausbauen. Jede [ICON_CHARGES] Ladung kann auch verwendet werden, um jeweils 20% von [ICON_DISTRICT_CANAL] Kanal-, [ICON_DISTRICT_DAM] Staudamm- oder [ICON_DISTRICT_AQUEDUCT] Aquädukt-Bezirken oder 50% von "Hochwassersperren" zu errichten.</Text>
 		</Replace>
 		
 		
@@ -2009,7 +2019,7 @@
 			<Text>[ICON_AntiAir_Large] Anti-Luft-Verteidigungsstärke erhöht auf 140.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_GDR_SIEGE_LASER_DESCRIPTION" Language="de_DE">
-			<Text>Beim Kämpfen gegen [ICON_DISTRICT] Bezirke die verteidigt werden können, erhalten Sie +30 [ICON_RANGED] Fernkampf- und +30 [ICON_STRENGTH] Nahkampfstärke, und Fernangriffe sind zu 100% effektiv.</Text>
+			<Text>Fernangriffe [ICON_RANGED] sind zu 100 % wirksam gegen verteidigungsfähige [ICON_DISTRICT] Bezirke.+30 [ICON_RANGED] Fernkampfstärke.</Text>
 		</Replace>
 		
 		
@@ -2632,6 +2642,244 @@
 		<!-- == SPACEPORT == -->
 		
 		
+		<!-- === ADJACENCY - NACHBARSCHAFTSBONUS === -->
+		
+		<!-- == FOOD - NAHRUNG == -->
+		<Replace Tag="LOC_DISTRICT_DESERT_FOOD" Language="de_DE">
+			<Text>Angrenzende Wüstenfelder: +{1_num} [ICON_FOOD] Nahrung.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DESERT_HILLS_FOOD" Language="de_DE">
+			<Text>Angrenzende Wüstenhügelfelder: +{1_num} [ICON_FOOD] Nahrung.</Text>
+		</Replace>
+
+		<!-- == PRODUCTION - PRODUKTION == -->
+		<Replace Tag="LOC_DISTRICT_MINE_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende Minen: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende Steinbrüche: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_1_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_COMMERCIAL_HUB_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_COMMERCIAL_HUB] Handelszentrum-Bezirke: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RESOURCE_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende Ressourcen: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MINES_HALF_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende Minen: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_LUMBER_MILL_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende Sägewerke: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_AQUEDUCT_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_AQUEDUCT] Aquädukt-Bezirke: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_BATH_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_AQUEDUCT] Bad-Bezirke: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_CANAL_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_CANAL] Kanal-Bezirke: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DAM_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_DAM] Staudamm-Bezirke: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_STRATEGIC_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende Strategische-Ressourcen: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_MACHU_PICCHU_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GOVERNMENT_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_GOVERNMENT] Regierungsplatz-Bezirke: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RIVER_PRODUCTION" Language="de_DE">
+			<Text>Angrenzende Flüsse: +{1_num} [ICON_PRODUCTION] Produktion.</Text>
+		</Replace>
+
+		<!-- == GOLD - GOLD == -->
+		<Replace Tag="LOC_DISTRICT_CITY_CENTER_GOLD" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_CITY_CENTER] Stadtzentrum-Bezirke: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RIVER_GOLD" Language="de_DE">
+			<Text>Angrenzende Flüsse: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_HARBOR_GOLD" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_HARBOR] Hafen-Bezirke: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_GOLD" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_HARBOR] "Royal-Navy-Werft"-Bezirke: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_GOLD" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_1_GOLD" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_SEARESOURCE_GOLD" Language="de_DE">
+			<Text>Angrenzende Meeresressourcen: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_JUNGLE_2_GOLD" Language="de_DE">
+			<Text>Angrenzende Regenwaldfelder: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_COTHON_GOLD" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_HARBOR] "Kothon"-Bezirke: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_HOLY_SITE_GOLD" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_HOLYSITE] Heilige Stätte-Bezirke: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_LAVRA_GOLD" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_HOLYSITE] "Lawra"-Bezirke: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_MACHU_PICCHU_GOLD" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GOVERNMENT_GOLD" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_GOVERNMENT] Regierungsplatz-Bezirke: +{1_num} [ICON_GOLD] Gold.</Text>
+		</Replace>
+
+		<!-- == SCIENCE - WISSENSCHAFT == -->
+		<Replace Tag="LOC_DISTRICT_JUNGLE_2_SCIENCE" Language="de_DE">
+			<Text>Angrenzende Regenwaldfelder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_FARM" Language="de_DE">
+			<Text>Angrenzende Bauernhöfe: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_PLANTATION" Language="de_DE">
+			<Text>Angrenzende Plantagen: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_CAMPUS_MOUNTAIN_WONDER_ADJACENCY_BBG" Language="de_DE">
+			<Text>Angrenzende Bergfeld-Naturwunder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAINS_SCIENCE1" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAINS_SCIENCE2" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAINS_SCIENCE3" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAINS_SCIENCE4" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAINS_SCIENCE5" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_JUNGLE_SCIENCE" Language="de_DE">
+			<Text>Angrenzende Regenwaldfelder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_SCIENCE" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_1_SCIENCE" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_BARRIER_REEF_SCIENCE" Language="de_DE">
+			<Text>Angrenzende "Great Barrier Reef"-Felder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GEOTHERMAL_SCIENCE" Language="de_DE">
+		    <Text>Angrenzende geothermischer Riss-Felder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_REEF_SCIENCE" Language="de_DE">
+		    <Text>Angrenzende Rifffelder: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GOVERNMENT_SCIENCE" Language="de_DE">
+		    <Text>Angrenzende [ICON_DISTRICT_GOVERNMENT] Regierungsplatz-Bezirke: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RIVER_SCIENCE" Language="de_DE">
+		    <Text>Angrenzende Flüsse: +{1_num} [ICON_SCIENCE] Wissenschaft.</Text>
+		</Replace>
+
+		<!-- == CULTURE - KULTUR == -->
+		<Replace Tag="LOC_DISTRICT_WONDER_CULTURE" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_WONDER] Weltwunder: +{1_num} [ICON_CULTURE] Kultur.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_CULTURE" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_CULTURE] Kultur.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_1_CULTURE" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_CULTURE] Kultur.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_CULTURE_STANDARD" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_CULTURE] Kultur.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_CULTURE_CITY_CENTER" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_CITY_CENTER] Stadtzentrum-Bezirke: +{1_num} [ICON_CULTURE] Kultur.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_JUNGLE_2_CULTURE" Language="de_DE">
+			<Text>Angrenzende Regenwaldfelder: +{1_num} [ICON_CULTURE] Kultur.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RIVER_CULTURE" Language="de_DE">
+		    <Text>Angrenzende Flüsse: +{1_num} [ICON_CULTURE] Kultur.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GOVERNMENT_CULTURE" Language="de_DE">
+		    <Text>Angrenzende [ICON_DISTRICT_GOVERNMENT] Regierungsplatz-Bezirke: +{1_num} [ICON_CULTURE] Kultur.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_MACHU_PICCHU_CULTURE" Language="de_DE">
+		    <Text>Angrenzende Bergfelder: +{1_num} [ICON_CULTURE] Kultur.</Text>
+		</Replace>
+
+		<!-- == FAITH - GLAUBEN == -->
+		<Replace Tag="LOC_DISTRICT_TUNDRA_FAITH" Language="de_DE">
+			<Text>Angrenzende Tundrafelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DESERT_FAITH" Language="de_DE">
+			<Text>Angrenzende Wüstenfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_JUNGLE_FAITH" Language="de_DE">
+			<Text>Angrenzende Regenwaldfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_STAVE_CHURCH_FOREST_FAITH" Language="de_DE">
+			<Text>Angrenzende Waldfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_JUNGLE_2_FAITH" Language="de_DE">
+			<Text>Angrenzende Regenwaldfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_NATURALWONDER_FAITH" Language="de_DE">
+			<Text>Angrenzende Naturwunder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAIN_FAITH1" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAIN_FAITH2" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAIN_FAITH3" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAIN_FAITH4" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAIN_FAITH5" Language="de_DE">
+			<Text>Angrenzende Bergfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_FOREST_FAITH" Language="de_DE">
+			<Text>Angrenzende Waldfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_FAITH" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_1_FAITH" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT] Bezirke: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RIVER_FAITH" Language="de_DE">
+			<Text>Angrenzende Flüsse: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GOVERNMENT_FAITH" Language="de_DE">
+			<Text>Angrenzende [ICON_DISTRICT_GOVERNMENT] Regierungsplatz-Bezirke: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DESERT_HILLS_FAITH" Language="de_DE">
+			<Text>Angrenzende Wüstenhügelfelder: +{1_num} [ICON_FAITH] Glauben.</Text>
+		</Replace>
+		
+		
+		
 		<!-- === BUILDINGS - GEBÄUDE === -->
 		
 		
@@ -2771,6 +3019,7 @@
 		<Replace Tag="LOC_BUILDING_CHANCERY_DESCRIPTION" Language="de_DE">
 			<Text>+3 [ICON_InfluencePerTurn] Einfluss-Punkte pro [ICON_TURN] Runde.[NEWLINE]Wenn du einen feindlichen "Spion" fängst oder tötest, erhälts du 100 [ICON_SCIENCE] Wissenschaft pro Stufe des feindlichen "Spions" (Online-Geschwindigkeit).</Text>
 		</Replace>
+		
 		
 		
 		<!-- === NATURAL WONDERS - NATURWUNDER === -->
@@ -5095,10 +5344,22 @@
 		</Replace>
 		!gelöscht!-->
 		<Replace Tag="LOC_WORLD_CONGRESS_BAN_PRODUCTION_YIELD_DESC" Language="de_DE">
-			<Text>Die Kosten für die Produktion oder den Kauf von Militär-[ICON_UNIT] Einheiten mit der gewählten Währungsart werden bis zum nächsten Weltkongress um 50% erhöht.</Text>
+			<Text>Die Kosten für die [ICON_PRODUCTION] Produktion oder den Kauf von Militär-[ICON_UNIT] Einheiten mit [ICON_GOLD] Gold oder [ICON_FAITH] Glauben, werden bis zum nächsten Weltkongress um 50% erhöht.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_PRODUCTION_YIELD_DESC" Language="de_DE">
-			<Text>Die Kosten für die Produktion oder den Kauf von Militär-[ICON_UNIT] Einheiten mit der gewählten Währungsart werden bis zum nächsten Weltkongress um 25% gesenkt.</Text>
+			<Text>Die Kosten für die [ICON_PRODUCTION] Produktion oder den Kauf von Militär-[ICON_UNIT] Einheiten mit [ICON_GOLD] Gold oder [ICON_FAITH] Glauben, werden bis zum nächsten Weltkongress um 25% gesenkt.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_WORK_TOURISM_DESC" Language="de_DE">
+			<Text>+100% [ICON_TOURISM] Tourismus für Meisterwerke dieser Art.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_NO_WORK_TOURISM_DESC" Language="de_DE">
+			<Text>-50% [ICON_TOURISM] Tourismus für Meisterwerke dieser Art.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_DISTRICT_BUILDING_PRODUCTION_DESC" Language="de_DE">
+			<Text>+100% [ICON_PRODUCTION] Produktion für [ICON_BUILDINGS] Gebäude in diesem [ICON_DISTRICT] Bezirk.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_NO_DISTRICT_BUILDING_DESC" Language="de_DE">
+			<Text>-50% [ICON_PRODUCTION] Produktion für [ICON_BUILDINGS] Gebäude in diesem [ICON_DISTRICT] Bezirk.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_WORK_TOURISM_DESC" Language="de_DE">
 			<Text>+100% [ICON_TOURISM] Tourismus für Meisterwerke dieser Art.</Text>
@@ -5113,10 +5374,22 @@
 			<Text>-50% [ICON_PRODUCTION] Produktion für [ICON_BUILDINGS] Gebäude in diesem [ICON_DISTRICT] Bezirk.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_NO_CULTURE_BORDER_GROWTH_DESC" Language="de_DE">
-			<Text>Die Grenzen dieses Spielers werden sich durch [ICON_CULTURE] Kultur nicht erweitern.</Text>
+			<Text>Die Grenzen des ausgewählten Spielers werden sich durch [ICON_CULTURE] Kultur nicht erweitern.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_DISTRICTS_CULTURE_BOMB_DESC" Language="de_DE">
-			<Text>Die von diesem Spieler gekauften Felder sind 50% günstiger.</Text>
+			<Text>Die Kaufkosten für Felder des ausgewählten Spielers werden um 50% reduziert.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_BAN_BUILDING_DESC" Language="de_DE">
+			<Text>Der ausgewählte [ICON_BUILDINGS] Gebäudetyp kann nicht gebaut werden.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_FAVOR_FROM_TRADE_AND_ENVOYS_WITH_MINORS_DESC" Language="de_DE">
+			<Text>+100% Ertragsbonus des Stadtstaat-Typs für [ICON_TRADEROUTE] Handelswege zu Stadtstaaten.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_MORE_GROWTH_LESS_LOYALTY_DESC" Language="de_DE">
+			<Text>+20% [ICON_CITIZEN] Wachstum und -5 [ICON_PRESSUREDOWN] Loyalität pro [ICON_TURN] Runde in den [ICON_DISTRICT_CITY_CENTER] Städten des Zielspielers.</Text>
+		</Replace>
+		<Replace Tag="LOC_WORLD_CONGRESS_LESS_GROWTH_MORE_LOYALTY_DESC" Language="de_DE">
+			<Text>-20% [ICON_CITIZEN] Wachstum und +5 [ICON_PRESSUREUP] Loyalität pro [ICON_TURN] Runde in den [ICON_DISTRICT_CITY_CENTER] Städten des Zielspielers.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BAN_BUILDING_DESC" Language="de_DE">
 			<Text>+50% [ICON_PRODUCTION] Produktions-Kosten für diesen [ICON_BUILDINGS] Gebäudetyp.</Text>
