@@ -558,6 +558,18 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="de_DE">
 			<Text>[ICON_DISTRICT] Bezirke erhalten:[NEWLINE][NEWLINE]• Kleiner-Nachbarschaftsbonus (+0.5) durch jede angrenzende "Mine".[NEWLINE]• Standard-Nachbarschaftsbonus (+1) durch jeden angrenzenden "Steinbruch".[NEWLINE]• Keinen Kleiner-Nachbarschaftsbonus (+0.5) durch angrenzende Spezial-[ICON_DISTRICT] Bezirke.[NEWLINE][NEWLINE]Spezial-[ICON_DISTRICT] Bezirke können nicht angrenzend an ein [ICON_DISTRICT_CITY_CENTER] Stadtzentrum gebaut werden.[NEWLINE][NEWLINE][ICON_BULLETGLOW] Startbedingungen: T3 [ICON_RESOURCE_IRON] Eisen; T5 Bonus- und Luxusressourcen-Felder für Minen und Steinbrüche ([ICON_RESOURCE_COPPER] Kupfer, [ICON_RESOURCE_DIAMONDS] Diamanten, [ICON_RESOURCE_JADE] Jade, [ICON_RESOURCE_MERCURY] Quecksilber, [ICON_RESOURCE_SALT] Salz, [ICON_RESOURCE_SILVER] Silber, [ICON_RESOURCE_STONE] Stein, [ICON_RESOURCE_MARBLE] Marmor, [ICON_RESOURCE_GYPSUM] Gips).</Text>
 		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_GOLD" Language="de_DE">
+			<Text>+{1_num} [ICON_GOLD] Gold für angrenzenden Steinbruch.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_SCIENCE" Language="de_DE">
+			<Text>+{1_num} [ICON_SCIENCE] Wissenschaft für angrenzenden Steinbruch.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_CULTURE" Language="de_DE">
+			<Text>+{1_num} [ICON_CULTURE] Kultur für angrenzenden Steinbruch.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_FAITH" Language="de_DE">
+			<Text>+{1_num} [ICON_FAITH] Glauben für angrenzenden Steinbruch.</Text>
+		</Replace>
 		<!-- = Leader ability - Führerfähigkeit (Ambiorix - König der Eburonen) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="de_DE">
 			<Text>+1 [ICON_STRENGTH] Kampfstärke für Nahkampf-[ICON_UNIT] Einheiten und Kavallerie-Abwehr-[ICON_UNIT] Einheiten, durch jede angrenzende Militär-[ICON_UNIT] Einheit.[NEWLINE][NEWLINE]Erhalte [ICON_CULTURE] Kultur entsprechend 25% der [ICON_PRODUCTION] Produktions-Kosten von rekrutierten Militär-[ICON_UNIT] Einheiten, nach Erforschung der Technologie "Bronzeverarbeitung".[NEWLINE][NEWLINE]Jeder Bau einer "Mine", löst einen Kulturschock für angrenzende Felder aus.</Text>
@@ -666,7 +678,7 @@
 			<Text>+5% [ICON_CULTURE] Kultur und +5% [ICON_TOURISM] Tourismus pro Stadtstaat, dessen Suzerän du bist.[NEWLINE][NEWLINE][ICON_DISTRICT_THEATER] "Akropolis"-Bezirke erhalten folgende Boni:[NEWLINE]• +1 [ICON_ENVOY] Gesandte, durch jedes gebaute "Amphitheater".[NEWLINE]• +1 [ICON_PRODUCTION] Produktion für jedes angrenzende [ICON_DISTRICT_WONDER] Weltwunder.[NEWLINE]• +0.5 [ICON_PRODUCTION] Produktion für jeden angrenzenden [ICON_DISTRICT] Bezirk.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PERICLES_ACROPOLIS_WONDER_PROD_DESC" Language="de_DE">
-			<Text>+2 [ICON_PRODUCTION] Produktion für jedes angrenzende [ICON_DISTRICT_WONDER] Weltwunder.</Text>
+			<Text>+{1_num} [ICON_PRODUCTION] Produktion für jedes angrenzende [ICON_DISTRICT_WONDER] Weltwunder.</Text>
 		</Replace>
 		<!-- = Unique unit - Einzigartige Einheit (Hoplit) = -->
 		<Replace Tag="LOC_UNIT_GREEK_HOPLITE_DESCRIPTION" Language="de_DE">
@@ -849,12 +861,12 @@
 		<Replace Tag="LOC_TRAIT_LEADER_MONASTERIES_KING_EXPANSION2_DESCRIPTION" Language="de_DE">
 			<Text>[ICON_DISTRICT_HOLYSITE] Heilige Stätte-Bezirke erhalten bei Angrenzung an einen Fluss:[NEWLINE][NEWLINE]• +1 [ICON_FOOD] Nahrung.[NEWLINE]• +2 [ICON_HOUSING] Wohnraum.[NEWLINE]• +1 [ICON_FAITH] Glauben.[NEWLINE][NEWLINE]Kulturschock für angrenzende Felder, wenn ein [ICON_DISTRICT_HOLYSITE] Heilige Stätte-Bezirke fertiggestellt wurde.</Text>
 		</Replace>
-		<Row Tag="LOC_DISTRICT_HOLY_SITE_RIVER_FAITH" Language="de_DE">
+		<Replace Tag="LOC_DISTRICT_HOLY_SITE_RIVER_FAITH" Language="de_DE">
 			<Text>+{1_num} [ICON_FAITH] Glauben vom angrenzenden Fluss.</Text>
-		</Row>
-		<Row Tag="LOC_BBG_HOLY_SITE_RIVER_FOOD_ADJACENCY" Language="de_DE">
-			<Text>+2 [ICON_FOOD] Nahrung vom angrenzenden Fluss.</Text>
-		</Row>
+		</Replace>
+		<Replace Tag="LOC_BBG_HOLY_SITE_RIVER_FOOD_ADJACENCY" Language="de_DE">
+			<Text>+1 [ICON_FOOD] Nahrung vom angrenzenden Fluss.</Text>
+		</Replace>
 		<!-- = Unique unit - Einzigartige Einheit (Domrey) = -->
 		<Replace Tag="LOC_UNIT_KHMER_DOMREY_DESCRIPTION" Language="de_DE">
 			<Text>Diese Belagerungs-[ICON_UNIT] Einheit der Mittelalters ist einzigartig für die Khmer, wird nach Erforschung der Technologie "Militärtechnik" freigeschaltet, ersetzt den "Tribok", gewährt dessen Boni und zusätzlich:[NEWLINE][NEWLINE]• +5 Grund-[ICON_STRENGTH] Kampfstärke.[NEWLINE]• +5 Grund-[ICON_BOMBARD] Bombardierungsstärke.[NEWLINE]• -17 [ICON_BOMBARD] Bombardierungsstärke gegen Land-[ICON_UNIT] Einheiten.[NEWLINE]• [ICON_BOMBARD] Bombardierungsstärke verursacht 100% Schaden gegen Marine-[ICON_UNIT] Einheiten und verteidigungsfähige [ICON_DISTRICT] Bezirke (die [ICON_STRENGTH] Kampfstärke besitzen).[NEWLINE]• [ICON_MOVEMENT] Bewegung und [ICON_RANGED] Fernkampf-Angriff in der selben [ICON_TURN] Runde möglich.[NEWLINE]• Erzeugt eine Kontrollzone.</Text>
@@ -982,7 +994,7 @@
 		<!-- == MALIAN - MALI == -->
 		<!-- = Civilization ability - Zivilisationsfähigkeit (Lieder der Jeli) = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="de_DE">
-			<Text>-5% [ICON_PRODUCTION] Produktion.[NEWLINE][NEWLINE]+2 [ICON_FAITH] Glauben bei Gründung:[NEWLINE][NEWLINE]• Für [ICON_DISTRICT_CITY_CENTER] Stadtzentren auf einem Wüstenfeld.[NEWLINE]• Für die [ICON_CAPITAL] Hauptstadt auf einem beliebigen Feld.[NEWLINE][NEWLINE]+2 [ICON_FOOD] Nahrung für Wüstenfelder.[NEWLINE][NEWLINE]+2 [ICON_GOLD] Gold für Minen auf Wüstenfeldern.[NEWLINE][NEWLINE]Kann "Bauernhöfe" auf Wüstenfelder bauen.[NEWLINE][NEWLINE]Kann [ICON_BUILDINGS] Gebäude im [ICON_DISTRICT_COMMERCIAL_HUB] "Suguba"-Bezirk mit [ICON_FAITH] Glauben kaufen.[NEWLINE][NEWLINE][ICON_BULLETGLOW] Startbedingungen: T1 Wüstenfelder, Wüstenhügelfelder; T5 Ressourcen-Felder für Minen ([ICON_RESOURCE_COPPER] Kupfer, [ICON_RESOURCE_DIAMONDS] Diamanten,[ICON_RESOURCE_JADE] Jade, [ICON_RESOURCE_MERCURY] Quecksilber, [ICON_RESOURCE_SALT] Salz, [ICON_RESOURCE_SILVER] Silber, [ICON_RESOURCE_ALUMINUM] Aluminium, [ICON_RESOURCE_COAL] Kohle, [ICON_RESOURCE_IRON] Eisen, [ICON_RESOURCE_NITER] Salpeter; KEIN [ICON_RESOURCE_URANIUM] Uran).</Text>
+			<Text>-5% [ICON_PRODUCTION] Produktion.[NEWLINE][NEWLINE]+2 [ICON_FAITH] Glauben bei Gründung:[NEWLINE][NEWLINE]• Für [ICON_DISTRICT_CITY_CENTER] Stadtzentren auf einem Wüstenfeld (nach Erforschung der Ausrichtung Außenhandel).[NEWLINE]• Für die [ICON_CAPITAL] Hauptstadt auf einem beliebigen Feld.[NEWLINE][NEWLINE]+2 [ICON_FOOD] Nahrung für Wüstenfelder.[NEWLINE][NEWLINE]+2 [ICON_GOLD] Gold für Minen auf Wüstenfeldern.[NEWLINE][NEWLINE]Kann "Bauernhöfe" auf Wüstenfelder bauen.[NEWLINE][NEWLINE]Kann [ICON_BUILDINGS] Gebäude im [ICON_DISTRICT_COMMERCIAL_HUB] "Suguba"-Bezirk mit [ICON_FAITH] Glauben kaufen.[NEWLINE][NEWLINE][ICON_BULLETGLOW] Startbedingungen: T1 Wüstenfelder, Wüstenhügelfelder; T5 Ressourcen-Felder für Minen ([ICON_RESOURCE_COPPER] Kupfer, [ICON_RESOURCE_DIAMONDS] Diamanten,[ICON_RESOURCE_JADE] Jade, [ICON_RESOURCE_MERCURY] Quecksilber, [ICON_RESOURCE_SALT] Salz, [ICON_RESOURCE_SILVER] Silber, [ICON_RESOURCE_ALUMINUM] Aluminium, [ICON_RESOURCE_COAL] Kohle, [ICON_RESOURCE_IRON] Eisen, [ICON_RESOURCE_NITER] Salpeter; KEIN [ICON_RESOURCE_URANIUM] Uran).</Text>
 		</Replace>
 		<!-- = Leader ability - Führerfähigkeit (Mansa Musa - Sahel-Händler) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SAHEL_MERCHANTS_DESCRIPTION" Language="de_DE">
@@ -1050,9 +1062,6 @@
 			<Text>[ICON_DISTRICT_CITY_CENTER] Städte mit einem etablierten [ICON_GOVERNOR] Gouverneur erhalten folgende Boni:[NEWLINE][NEWLINE]• +5% [ICON_PRODUCTION] Produktion, +5% [ICON_CULTURE] Kultur, +10% Kampferfahrung für rekrutierte [ICON_UNIT] Einheiten (verdreifacht in [ICON_DISTRICT_CITY_CENTER] Städten, die nicht von den Mapuche gegründet wurden).[NEWLINE]• +4 [ICON_PRESSUREUP] Loyalität pro [ICON_TURN] Runde für [ICON_DISTRICT_CITY_CENTER] Städte im Umkreis von 9 Feldern.[NEWLINE][NEWLINE][ICON_BULLETGLOW] Startbedingungen: T4 Graslandbergfelder, Ebenenbergfelder; -T3 Schwemmlandfelder.</Text>
 		</Replace>
 		<!-- = Leader ability - Führerfähigkeit (Lautaro - Schneller Falke) = -->
-		<Replace Tag="LOC_ABILITY_TRAIT_MAPUCHE_DESCRIPTION" Language="de_DE">
-			<Text>+3 [ICON_STRENGTH] Kampfstärke gegen Freie [ICON_DISTRICT_CITY_CENTER] Städte oder Zivilisationen, die sich in einem [ICON_GLORY_GOLDEN_AGE] Goldenen Zeitalter oder einem [ICON_GLORY_SUPER_GOLDEN_AGE] Heroischen Zeitalter befinden.[NEWLINE][NEWLINE]Wenn eine feindliche [ICON_UNIT] Einheit, innerhalb der Grenzen einer feindlichen [ICON_DISTRICT_CITY_CENTER] Stadt getötet wurde, verliert die [ICON_DISTRICT_CITY_CENTER] Stadt -15 [ICON_PRESSUREDOWN] Loyalität (-30 wenn sich diese Zivilisation in einem [ICON_GLORY_GOLDEN_AGE] Goldenen Zeitalter oder einem [ICON_GLORY_SUPER_GOLDEN_AGE] Heroischen Zeitalter befindet).[NEWLINE][NEWLINE]+1 Anziehungskraft für Felder in [ICON_DISTRICT_CITY_CENTER] Städten mit einem [ICON_DISTRICT_ENCAMPMENT] Lager-Bezirk.</Text>
-		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_LAUTARO_ABILITY_DESCRIPTION_ALT" Language="de_DE">
 			<Text>+3 [ICON_STRENGTH] Kampfstärke gegen Freie [ICON_DISTRICT_CITY_CENTER] Städte oder Zivilisationen, die sich in einem [ICON_GLORY_GOLDEN_AGE] Goldenen Zeitalter oder einem [ICON_GLORY_SUPER_GOLDEN_AGE] Heroischen Zeitalter befinden.[NEWLINE][NEWLINE]Wenn eine feindliche [ICON_UNIT] Einheit, innerhalb der Grenzen einer feindlichen [ICON_DISTRICT_CITY_CENTER] Stadt getötet wurde, verliert die [ICON_DISTRICT_CITY_CENTER] Stadt -15 [ICON_PRESSUREDOWN] Loyalität (-30 wenn sich diese Zivilisation in einem [ICON_GLORY_GOLDEN_AGE] Goldenen Zeitalter oder einem [ICON_GLORY_SUPER_GOLDEN_AGE] Heroischen Zeitalter befindet).[NEWLINE][NEWLINE]+1 Anziehungskraft für Felder in [ICON_DISTRICT_CITY_CENTER] Städten mit einem [ICON_DISTRICT_ENCAMPMENT] Lager-Bezirk.</Text>
 		</Replace>
@@ -1206,19 +1215,19 @@
 			<Text>Diese Verbesserung ist einzigartig für Nubien und deine Handwerker können sie durch den Verbrauch einer [ICON_CHARGES] Ladung, nach Erforschung der Ausrichtung "Handwerkskunst" bauen:[NEWLINE][NEWLINE]• +2 [ICON_FOOD] Nahrung.[NEWLINE]• +2 [ICON_FAITH] Glauben.[NEWLINE]• Standard-Nachbarschaftsbonus (+1) für [ICON_DISTRICT] Bezirke, durch jede angrenzende "Nubische Pyramide".[NEWLINE][NEWLINE]Erhält zusätzliche Erträge durch folgende angrenzende [ICON_DISTRICT] Bezirke:[NEWLINE]• +1 [ICON_FOOD] Nahrung pro [ICON_DISTRICT_CITY_CENTER] Stadtzentrum.[NEWLINE]• +1 [ICON_PRODUCTION] Produktion pro [ICON_DISTRICT_INDUSTRIAL_ZONE] Industriegebiet-, [ICON_DISTRICT_ENCAMPMENT] Lager- und [ICON_DISTRICT_AERODROME] Flugplatz-Bezirk.[NEWLINE]• +1 [ICON_GOLD] Gold pro [ICON_DISTRICT_COMMERCIAL_HUB] Handelszentrum- und [ICON_DISTRICT_HARBOR] Hafen-Bezirk.[NEWLINE]• +1 [ICON_CULTURE] Kultur und +2 [ICON_GOLD] Gold pro [ICON_DISTRICT_GOVERNMENT] Regierungsplatz- und [ICON_DISTRICT] Diplomatenviertel-Bezirk.[NEWLINE]• +1 [ICON_SCIENCE] Wissenschaft pro [ICON_DISTRICT_CAMPUS] Campus-Bezirk.[NEWLINE]• +1 [ICON_CULTURE] Kultur pro [ICON_DISTRICT_THEATER] Theaterplatz-Bezirk.[NEWLINE]• +1 [ICON_FAITH] Glauben pro [ICON_DISTRICT_HOLYSITE] Heilige Stätte-Bezirk.[NEWLINE][NEWLINE]Kann nur auf Flachlandfeldern und Wüstenhügelfeldern gebaut werden.[NEWLINE]Kann nicht angrenzende an andere "Nubische Pyramiden" gebaut werden.[NEWLINE]Kann nur einmal pro [ICON_DISTRICT_CITY_CENTER] Stadt gebaut werden.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_SCIENCE_DESC" Language="de_DE">
-			<Text>+{1_num} [ICON_SCIENCE] Wissenschaft Standard-Nachbarschaftbonus.</Text>
+			<Text>+{1_num} [ICON_SCIENCE] Wissenschaft für angrenzende Nubische Pyramide.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_PRODUCTION_DESC" Language="de_DE">
-			<Text>+{1_num} [ICON_PRODUCTION] Produktion Standard-Nachbarschaftbonus.</Text>
+			<Text>+{1_num} [ICON_PRODUCTION] Produktion für angrenzende Nubische Pyramide.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_CULTURE_DESC" Language="de_DE">
-			<Text>+{1_num} [ICON_CULTURE] Kultur Standard-Nachbarschaftbonus.</Text>
+			<Text>+{1_num} [ICON_CULTURE] Kultur für angrenzende Nubische Pyramide.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_FAITH_DESC" Language="de_DE">
-			<Text>+{1_num} [ICON_FAITH] Glauben Standard-Nachbarschaftbonus.</Text>
+			<Text>+{1_num} [ICON_FAITH] Glauben für angrenzende Nubische Pyramide.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_GOLD_DESC" Language="de_DE">
-			<Text>+{1_num} [ICON_GOLD] Gold Standard-Nachbarschaftbonus.</Text>
+			<Text>+{1_num} [ICON_GOLD] Gold für angrenzende Nubische Pyramide.</Text>
 		</Replace>
 		
 		
@@ -2009,7 +2018,7 @@
 			<Text>[ICON_AntiAir_Large] Anti-Luft-Verteidigungsstärke erhöht auf 140.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_GDR_SIEGE_LASER_DESCRIPTION" Language="de_DE">
-			<Text>Beim Kämpfen gegen [ICON_DISTRICT] Bezirke die verteidigt werden können, erhalten Sie +30 [ICON_RANGED] Fernkampf- und +30 [ICON_STRENGTH] Nahkampfstärke, und Fernangriffe sind zu 100% effektiv.</Text>
+			<Text>Fernangriffe [ICON_RANGED] sind zu 100 % wirksam gegen verteidigungsfähige [ICON_DISTRICT] Bezirke.+30 [ICON_RANGED] Fernkampfstärke.</Text>
 		</Replace>
 		
 		
