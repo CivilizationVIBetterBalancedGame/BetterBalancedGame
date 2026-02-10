@@ -20,6 +20,7 @@
 			<!-- === BELIEFS - CROYANCES === -->
 			<!-- === IMPROVEMENTS - AMÉNAGEMENTS === -->
 			<!-- === DISTRICTS - QUARTIERS === -->
+			<!-- === ADJACENCY - BONUS DE POXIMITÉ === -->
 			<!-- === BUILDINGS - BÂTIMENTS === -->
 			<!-- === NATURAL WONDERS - MERVEILLES NATURELLES === -->
 			<!-- === WORLD WONDERS - MERVEILLES MONDIALES === -->
@@ -52,10 +53,10 @@
 			<Text>Les unités reçoivent +5 [ICON_STRENGTH] Puissance de combat défensive sur le continent de leur [ICON_CAPITAL] Capitale et +5 [ICON_STRENGTH] Puissance de combat offensive hors du continent de la [ICON_CAPITAL] Capitale. Attrait +1 pour toutes les cases d'une ville possédant un parc national. La Science Militaire débloque les Rough Riders.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_COMBAT_HOME_CONTINENT_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +5 lors de la défense sur le continent de la Capitale.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Theodore)</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_COMBAT_FOREIGN_CONTINENT_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +5 lors de l'attaque hors du continent de la Capitale.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Theodore)</Text>
 		</Replace>
 		<!-- = Leader (Bull Moose) - Dirigeant (Élan) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ANTIQUES_AND_PARKS_DESCRIPTION" Language="fr_FR">
@@ -105,11 +106,11 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_LAST_PROPHET_DESCRIPTION" Language="fr_FR">
 			<Text>À l'Astrologie, points de [ICON_GREATPROPHET] Prophète illustre +1.[NEWLINE]Le dernier [ICON_GREATPROPHET] Prophète illustre est automatiquement recruté, si vous n'en avez pas déjà eu.[NEWLINE][NEWLINE][ICON_SCIENCE] Science +1 pour chaque ville étrangère suivant votre [ICON_RELIGION] religion.[NEWLINE][NEWLINE]Campus : [ICON_SCIENCE] Science +1 par Lieu saint adjacent.[NEWLINE]Lieux saints : [ICON_FAITH] Foi +1 par Campus adjacent.</Text>
 		</Replace>
-		<Replace Tag="BBG_LOC_HS_ARABIA_CAMPUS" Language="fr_FR">
-			<Text>[ICON_FAITH] Foi +{1_num} (Dernier prophète)</Text>
-		</Replace>
 		<Replace Tag="BBG_LOC_CAMPUS_ARABIA_HS" Language="fr_FR">
-			<Text>[ICON_SCIENCE] Science +{1_num} (Dernier prophète)</Text>
+			<Text>Cases de Lieu saint adjacentes : [ICON_SCIENCE] Science +{1_num}</Text>
+		</Replace>
+		<Replace Tag="BBG_LOC_HS_ARABIA_CAMPUS" Language="fr_FR">
+			<Text>Cases de Campus adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
 		</Replace>
 		<!-- = Leader (Vizier) - Dirigeant (Vizir) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_RIGHTEOUSNESS_OF_FAITH_DESCRIPTION" Language="fr_FR">
@@ -228,7 +229,7 @@
 			<Text>[ICON_RELIGION] Puissance religieuse +2 pour chaque ville sainte convertie à votre [ICON_RELIGION] religion (Taxis).</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_HIPPODROME_CULTURE" Language="fr_FR">
-			<Text>[ICON_CULTURE] Culture +{1_num} de la part de l'Hippodrome adjacent.</Text>
+			<Text>Cases d'Hippodrome adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
 		</Replace>
 		<!-- = Leader (Basile) - Dirigeant (Basil II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_BASIL_DESCRIPTION" Language="fr_FR">
@@ -239,7 +240,7 @@
 			<Text>Les Hippodromes et les Lieux saints fournissent +1 [ICON_FAITH] Foi par ferme adjacente.[NEWLINE][NEWLINE]Les Lieux saints fournissent +1 [ICON_CULTURE] Culture pour chaque [ICON_DISTRICT] quartier adjacent à la Philosophie Politique.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_THEODORA_HOLYSITE_CULTURE" Language="fr_FR">
-			<Text>[ICON_CULTURE] Culture +{1_num} de la part des [ICON_DISTRICT] quartiers adjacents.</Text>
+			<Text>Cases de quartier adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
 		</Replace>
 		<!-- = Unique unit (Dromon) - Unité unique (Dromon) = -->
 		<Replace Tag="LOC_UNIT_BYZANTINE_DROMON_DESCRIPTION" Language="fr_FR">
@@ -379,10 +380,10 @@
 			<Text>Unité de reconnaissance de l'ère antique exclusive aux Cris, remplaçant l'Éclaireur.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +5. [ICON_STRENGTH] Puissance de combat +5 contre les unités militaires plus puissantes.[NEWLINE]Dispose d'une [ICON_PROMOTION] promotion gratuite.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_OKIHTCITAW_STRONG_AGAINST_STRONGER_UNITS" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +5 lors d'un combat contre une unité plus puissante (Okichitaw)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Okichitaw)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_OKIHTCITAW_STRONG_AGAINST_STRONGER_UNITS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +5 lors d'un combat contre une unité plus puissante (Okichitaw)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Okichitaw)</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_MEKEWAP_DESCRIPTION" Language="fr_FR">
@@ -399,10 +400,10 @@
 			<Text>[ICON_CULTURE] Culture +2 pour vos [ICON_TRADEROUTE] routes commerciales internationales.[NEWLINE]Les [ICON_TRADEROUTE] routes commerciales internationales étrangères menant à vos villes fournissent +1 [ICON_CULTURE] Culture à la ville de départ et +2 [ICON_CULTURE] Culture à la ville d'arrivée.[NEWLINE]Loyauté +2 pour la ville de départ de vos [ICON_TRADEROUTE] routes commerciales intérieures.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour vos unités navales sur une case de polder.[NEWLINE][NEWLINE]Points [ICON_GREATADMIRAL] d'Amiral illustre +1 pour les Campus.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_POLDER_DEFENSIVE_CS" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 pour vos unités navales dans un polder (Radio oranje).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Radio oranje).</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_POLDER_DEFENSIVE_CS_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 pour vos unités navales dans un polder (Radio oranje).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Radio oranje).</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_DE_ZEVEN_PROVINCIEN_DESCRIPTION" Language="fr_FR">
@@ -470,7 +471,7 @@
 			<Text>[ICON_PRODUCTION] Production +20% pour la construction des bâtiments de la Zone industrielle.[NEWLINE][ICON_PRODUCTION] Production +5% dans les villes pour chaque usine et centrale dans la Zone industrielle.[NEWLINE]Les Zones industrielles fournissent +1 [ICON_PRODUCTION] Production pour chaque Port de la Royal Navy adjacent.[NEWLINE]Rendements +4 pour les bâtiments alimentés en [ICON_POWER] électricité.[NEWLINE][NEWLINE]Points [ICON_GREATENGINEER] d'Ingénieur illustre +1 pour les phares.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_AOS_ADJENCY_IZ_RND_DESC" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +{1_num} (Ère de la vapeur)</Text>
+			<Text>Cases de Port de la Royal Navy adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
 		</Replace>
 		<!-- = Leader (Elizabeth) - Dirigeant (Élisabeth) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_ELIZABETH_DESCRIPTION" Language="fr_FR">
@@ -546,12 +547,24 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GAUL_DESCRIPTION" Language="fr_FR">
 			<Text>Pour les [ICON_DISTRICT] quartiers spécialisés :[NEWLINE] • Bonus de proximité +1 des cases de carrière.[NEWLINE] • Bonus de proximité +0.5 des mines.[NEWLINE] • Pas de bonus de proximité habituel des autres quartiers.[NEWLINE] • Ne peuvent pas être adjacents à un Centre-ville.[NEWLINE][NEWLINE]Bias : T3 Fer / T5 Ressources bonus et de luxe à mine et à carrière.</Text>
 		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_GOLD" Language="fr_FR">
+			<Text>Cases de carrière adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_SCIENCE" Language="fr_FR">
+			<Text>Cases de carrière adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_CULTURE" Language="fr_FR">
+			<Text>Cases de carrière adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_1_FAITH" Language="fr_FR">
+			<Text>Cases de carrière adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
 		<!-- = Leader (Ambiorix) - Dirigeant (Ambiorix) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +1 pour les unités de combat rapproché et anti-cavalerie pour chaque unité militaire adjacente.[NEWLINE][NEWLINE]Au Travail du Bronze, achever une unité militaire terrestre octroie 25% de son coût en [ICON_PRODUCTION] Production en [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Aménager une mine déclenche une bombe culturelle.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +1 pour chaque unité adjacente (Roi des Éburons)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +1 pour chaque unité adjacente (Roi des Éburons).</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="fr_FR">
 			<Text>Roi des Éburons</Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
@@ -575,7 +588,7 @@
 		</Replace>
 		<!-- = Unique district - Quartier unique = -->
 		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="fr_FR">
-			<Text>Quartier exclusif à la Gaule, remplaçant la Zone industrielle et débloque au Travail du Fer.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +2 par case de ressource stratégie adajcente.[NEWLINE][ICON_PRODUCTION] Production +1 par case de carrière adjacente.[NEWLINE][NEWLINE]L'Oppidum est un quartier défendable.[NEWLINE][NEWLINE]Provoque une bombe culturelle sur les cases neutres à sa complétion.</Text>
+			<Text>Quartier exclusif à la Gaule, remplaçant la Zone industrielle et débloqué au Travail du Fer.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +2 par case de ressource stratégiquee adjacente.[NEWLINE][ICON_PRODUCTION] Production +1 par case de carrière adjacente.[NEWLINE][NEWLINE]L'Oppidum est un quartier défendable.[NEWLINE][NEWLINE]Provoque une bombe culturelle sur les cases neutres à sa complétion.</Text>
 		</Replace>
 
 		<!-- == GEORGIA - GÉORGIE == -->
@@ -592,7 +605,7 @@
 			<Text>Unité de combat rapproché de l'ère médiévale exclusive à la Géorgie, remplaçant l'Homme d'armes.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +2.[NEWLINE][ICON_STRENGTH] Puissance de combat +7 lorsque le combat se déroule sur une case de collines.[NEWLINE]Pas de pénalité de [ICON_MOVEMENT] mouvement sur les collines.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_GEORGIAN_KHEVSURETI_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +7 lors d'un combat sur une colline.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +7 (Kevshour)</Text>
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = -->
 		<Replace Tag="LOC_BUILDING_TSIKHE_DESCRIPTION_XP2" Language="fr_FR">
@@ -624,7 +637,7 @@
 			<Text>Unité de cavalerie lourde de l'ère moderne exclusive à Frédéric Barberousse, remplaçant le blindé.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +3.[NEWLINE][ICON_STRENGTH] Puissance de base +3 si non adjacent à un autre Tiger I.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PANZER_CS_NOT_ADJACENT_PANZER_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de base +3 (Tigre I).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Tigre I)</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_UNITS_PAGE_UNIT_GERMAN_PANZER_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
 			<Text>Le Tigre I était un char lourd allemand de la Seconde Guerre mondiale, utilisé à partir de 1942 en Afrique et en Europe, principalement au sein de bataillons de chars lourds indépendants. Sa désignation finale était Panzerkampfwagen VI Tiger Ausf. E, souvent abrégée en Tiger. Le Tigre I était le premier véhicule blindé de combat de la Wehrmacht équipé du canon KwK 36 de 8,8 cm (ne pas confondre avec le Flak 36 de 8,8 cm). Entre août 1942 et août 1944, 1 347 exemplaires ont été construits. Le char a reçu son surnom de « Tiger » de Ferdinand Porsche, et la lettre romaine a été ajoutée après la mise en production du Tigre II.</Text>
@@ -660,7 +673,7 @@
 			<Text>[ICON_CULTURE] Culture +5% et [ICON_TOURISM] Tourisme +5% par Cité-état vassale.[NEWLINE]Achever un amphithéâtre octroie un [ICON_ENVOY] émissaire.[NEWLINE][NEWLINE]Les Acropoles fournissent +1 [ICON_PRODUCTION] Production par merveilles mondiales adjacentes et +0.5 [ICON_PRODUCTION] par [ICON_DISTRICT] quartier adjacent.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PERICLES_ACROPOLIS_WONDER_PROD_DESC" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +1 par quartier adjacent.</Text>
+			<Text>Cases de merveille mondiale adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_GREEK_HOPLITE_DESCRIPTION" Language="fr_FR">
@@ -749,19 +762,19 @@
 			<Text>[ICON_STRENGTH] Puissance de combat +1 de l'Autel (Arthashastra)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_DESC" Language="fr_FR">
-			<Text>+1 de l'Autel (Arthashastra)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +1 (Arthashastra, autel)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CHANDRA_CS_T2_ABILITY_NAME" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +1 du Temple (Arthashastra)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CHANDRA_CS_T2_ABILITY_DESC" Language="fr_FR">
-			<Text>+1 du Temple (Arthashastra)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +1 (Arthashastra, temple)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CHANDRA_CS_T3_ABILITY_NAME" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +1 du Lieu de culte (Arthashastra)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CHANDRA_CS_T3_ABILITY_DESC" Language="fr_FR">
-			<Text>+1 du Lieu de culte (Arthashastra)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +1 (Arthashastra, lieu de culte)</Text>
 		</Replace>
 		<!-- = Leader (Gandhi) - Dirigeant (Gandhi) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SATYAGRAHA_DESCRIPTION" Language="fr_FR">
@@ -807,10 +820,10 @@
 			<Text>[ICON_PRODUCTION] Production +100% pour les Campements, les Places du théâtre et les Lieux saints.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités militaires terrestres adjacentes à une case de côte et pour les unités militaires navales sur une case de côte.[NEWLINE][NEWLINE]Les unités ne subissent pas de dégâts des tempêtes. Les civilisations en guerre avec le Japon subissent +100% de dégâts dûs aux tempêtes dans le territoire japonais.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_COMBAT_SHALLOW_WATER_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 sur les cases de côte (Vent Divin).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Vent Divin)</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_COMBAT_LAND_ON_COAST_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 sur les cases adjacentes à la côte (Vent Divin).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Vent Divin)</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_HOJO_TOKIMUNE_SHALLOW_WATER_COMBAT_BONUS_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +3 (Vent Divin)</Text>
@@ -841,7 +854,7 @@
 			<Text>[ICON_FOOD] Nourriture +1, [ICON_FAITH] Foi +1 et [ICON_HOUSING] Habitations +2 pour les Lieux saints adjacents à une rivière.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_HOLY_SITE_RIVER_FOOD_ADJACENCY" Language="fr_FR">
-			<Text>[ICON_FOOD] Nourriture +1 (Monastères du Roi)</Text>
+			<Text>Rivières adjacentes : [ICON_FOOD] Nourriture +1.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_KHMER_DOMREY_DESCRIPTION" Language="fr_FR">
@@ -869,10 +882,10 @@
 			<Text>[ICON_GOLD] Or +15% et [ICON_CULTURE] Culture +15% dans les villes avec un Mbanza (non cumulable). Bonus de proximité +2 pour les Plateformes commerciales et les Places du théâtre adjacentes à un Mbanza.[NEWLINE][NEWLINE]Coût d'achat en [ICON_GOLD] Or des Archéologues -50%.[NEWLINE][NEWLINE]Les unités civiles se déplacent sans pénalité de [ICON_MOVEMENT] PM dans les cases de bois et de forêts tropicales.[NEWLINE][NEWLINE]Points de [ICON_GREATMERCHANT] Marchand illustre +50%.</Text>
 		</Replace>
 		<Replace Tag="BBG_LOC_MBANDE_COMMERCIAL_MBANZA" Language="fr_FR">
-			<Text>[ICON_GOLD] Or +{1_num} de la part des Mbanza adjacents.</Text>
+			<Text>Cases de Mbanza adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="BBG_LOC_MBANDE_THEATRE_MBANZA" Language="fr_FR">
-			<Text>[ICON_CULTURE] Culture +{1_num} de la part des Mbanza adjacents.</Text>
+			<Text>Cases de Mbanza adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_KONGO_SHIELD_BEARER_DESCRIPTION" Language="fr_FR">
@@ -911,16 +924,16 @@
 			<Text>Proximité : [ICON_SCIENCE] Science +2. [ICON_SCIENCE] Science +1 toutes les 2 mines adjacentes. [ICON_SCIENCE] Science -1 par quartier adjacent.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_BASE_DISTRICT_SCIENCE" Language="fr_FR">
-			<Text>[ICON_SCIENCE] Science +{1_num}.</Text>
+			<Text>Bonus de proximité de base : [ICON_SCIENCE] Science +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_MINE_SCIENCE" Language="fr_FR">
-			<Text>[ICON_SCIENCE] Science +{1_num} de la part des mines adjacentes.</Text>
+			<Text>Cases de mine adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_SEOWON_THEATER_BONUS" Language="fr_FR">
-			<Text>[ICON_SCIENCE] Science +{1_num} de la part des Places du théâtre adjacentes (Sejong).</Text>
+			<Text>Cases de Place du théâtre adjacentes : [ICON_SCIENCE] Science +{1_num} (Sejong).</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_THEATER_SEOWON_BONUS" Language="fr_FR">
-			<Text>[ICON_CULTURE] Culture +{1_num} de la part des Seowons adjacentes (Sejong).</Text>
+			<Text>Cases de Seowon adjacentes : [ICON_CULTURE] Culture +{1_num} (Sejong).</Text>
 		</Replace>
 
 		<!-- == KUBLAI - KUBILAI == -->
@@ -946,7 +959,7 @@
 			<Text>Intrigues Cabires</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_JFD_CABEIRI_MYSTERIES_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_SCIENCE] Science +0.5 par [ICON_CITIZEN] Citoyen dans les villes possédant un Lieu saint et un Campement doté d'un basilikoi paides.[NEWLINE]Achever un Lieu saint et un basilikoi paides dans la même ville octroie un [ICON_ENVOY] émissaire[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +2 pour les unités de combat rapproché et de cavalerie lourde pour chaque Cité-état vassale.</Text>
+			<Text>[ICON_SCIENCE] Science +0.5 par [ICON_CITIZEN] Citoyen dans les villes possédant un Lieu saint et un Campement doté d'un basilikoi paides.[NEWLINE]Achever un Lieu saint et un basilikoi paides dans la même ville octroie un [ICON_ENVOY] émissaire[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat en attaque +2 pour les unités de combat rapproché et de cavalerie lourde pour chaque Cité-état vassale.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HYPASPIST_DESCRIPTION" Language="fr_FR">
@@ -970,21 +983,21 @@
 		<!-- == MALI == -->
 		<!-- = Civilization - Civilisation = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MALI_GOLD_DESERT_DESCRIPTION" Language="fr_FR">
-			<Text>Sur les cases de désert :[NEWLINE] • [ICON_FAITH] Foi +2 pour les Centres-villes ([ICON_FAITH] Foi +2 pour la [ICON_CAPITAL] Capitale peu importe la case).[NEWLINE] • [ICON_FOOD] Nourriture +2.[NEWLINE] • [ICON_GOLD] Or +2 pour les mines.[NEWLINE] • Peut aménager des fermes.[NEWLINE][NEWLINE]Peut acheter les bâtiments de la Suguba avec de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production -5%.[NEWLINE][NEWLINE]Bias : T1 Désert / T5 Ressources à mine (sauf Uranium).</Text>
+			<Text>Sur les cases de désert :[NEWLINE] • [ICON_FAITH] Foi +2 pour les Centres-villes ([ICON_FAITH] Foi +2 pour la [ICON_CAPITAL] Capitale peu importe la case) au Commerce à l'Étranger..[NEWLINE] • [ICON_FOOD] Nourriture +2.[NEWLINE] • [ICON_GOLD] Or +2 pour les mines.[NEWLINE] • Peut aménager des fermes.[NEWLINE][NEWLINE]Peut acheter les bâtiments de la Suguba avec de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production -5%.[NEWLINE][NEWLINE]Bias : T1 Désert / T5 Ressources à mine (sauf Uranium).</Text>
 		</Replace>
 		<!-- = Leader (Mansa Moussa) - Dirigeant (Mansa Moussa) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SAHEL_MERCHANTS_DESCRIPTION" Language="fr_FR">
 			<Text>Capacité des [ICON_TRADEROUTE] routes commerciales +1 aux Banques.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +15% pour la construction des Lieux saints et de leurs bâtiments.[NEWLINE]Les Sugubas reçoivent un bonus de proximité majeur plutôt que standard des Lieux saints.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_SUGUBA_HOLY_SITE_MANSA" Language="fr_FR">
-			<Text>Lieu saint adjacent : [ICON_GOLD] Or +{1_num} (Marchands du Sahel)</Text>
+			<Text>Cases de Lieu saint adjacente : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<!-- = Leader (Soundiata) - Dirigeant (Soundiata) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SUNDIATA_KEITA_DESCRIPTION" Language="fr_FR">
 			<Text>Coût en [ICON_GOLD] Or -30% pour le recrutement de [ICON_GREATPERSON] Personnages illustres.[NEWLINE]Points [ICON_GREATWRITER] d'Écrivain illustre +1 par tour dans les villes possédant une Suguba et une Place du théâtre.[NEWLINE][NEWLINE]Les marchés ont 2 emplacements de chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires (uniquement pour les villes fondées par Soundiata).[NEWLINE][ICON_GOLD] Or +4 et [ICON_CULTURE] Culture +2 pour les chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires.[NEWLINE][NEWLINE]Bonus de proximité +1 pour les Sugubas adjacentes à une Place du théâtre.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_SUGUBA_THEATER_SUNDIATA" Language="fr_FR">
-			<Text>Place du théâtre adjacente : [ICON_GOLD] Or +{1_num} (Sogolon)</Text>
+			<Text>Cases de Place du théâtre adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<!-- = Unique unit (Mandekalu) - Unité unique (Mandekalou) = -->
 		<Replace Tag="LOC_UNIT_MALI_MANDEKALU_CAVALRY_DESCRIPTION" Language="fr_FR">
@@ -1001,13 +1014,13 @@
 			<Text>Quartier exclusif au Mali, remplaçant la Plateforme commerciale.[NEWLINE][NEWLINE][ICON_GOLD] Or +1 pour chaque Lieu saint, rivière, oasis et Centre-ville adjacent.[NEWLINE][NEWLINE]Les unités, [ICON_DISTRICT] quartiers et bâtiments de cette ville sont 20% moins chers à l'achat ([ICON_GOLD] Or et [ICON_FAITH] Foi).</Text>
 		</Replace>
 		<Replace Tag="LOC_SUGUBA_OASIS_GOLD" Language="fr_FR">
-			<Text>Oasis adjacent : [ICON_GOLD] Or +{1_num}.</Text>
+			<Text>Cases d'Oasis adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_SUGUBA_RIVER_GOLD" Language="fr_FR">
-			<Text>Rivière adjacente : [ICON_GOLD] Or +{1_num}.</Text>
+			<Text>Rivières adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_HOLY_SITE_GOLD" Language="fr_FR">
-			<Text>Lieu saint adjacent : [ICON_GOLD] Or +{1_num}.</Text>
+			<Text>Cases de Lieu saint adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 
 		<!-- == MAORI == -->
@@ -1024,7 +1037,7 @@
 			<Text>Unité de combat rapproché de l'ère classique exclusive au Maori, remplaçant le Spadassin.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +2.[NEWLINE][ICON_STRENGTH] Puissance de combat -5 pour les unités militaires ennemies adjacentes.[NEWLINE][NEWLINE]Peut constuire un Pā (1 [ICON_CHARGES] charge).[NEWLINE][NEWLINE]Ne nécessite pas de [ICON_RESOURCE_IRON] Fer.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_TOA_NEGATIVE_COMBAT_MODIFIER_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat -5 (Toa).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat -5 (Toa)</Text>
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = -->
 		<Replace Tag="LOC_BUILDING_MARAE_DESCRIPTION" Language="fr_FR">
@@ -1045,10 +1058,10 @@
 			<Text>[ICON_STRENGTH] Puissance de combat +3 contre les villes libres ou les civilisations en âge [ICON_GLORY_GOLDEN_AGE] d'or ou [ICON_GLORY_SUPER_GOLDEN_AGE] héroïque. Tuer une unité ennemie qui se trouve sur le territoire d'une ville ennemie fait perdre 15 points de loyauté à cette ville, 30 si la civilisation vit un âge [ICON_GLORY_GOLDEN_AGE] d'or ou un [ICON_GLORY_SUPER_GOLDEN_AGE] héroïque.[NEWLINE][NEWLINE]Attrait +1 pour les cases des villes possédant un Campement.</Text>
 		</Replace>
 		<Replace Tag="LOC_PREVIEW_MAPUCHE_COMBAT_BONUS_TOQUI_VS_GOLDEN_AGE_CIV" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +{1_num} (Vif faucon).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_num} (Vif faucon)</Text>
 		</Replace>
-		<Replace Tag="LOC_ABILITY_TRAIT_MAPUCHE_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>[ICON_STRENGTH] Puissance de combat +{1_num} (Vif faucon).</Text>
+		<Replace Tag="LOC_ABILITY_TRAIT_MAPUCHE_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_num} (Vif faucon)</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_MAPUCHE_MALON_RAIDER_DESCRIPTION" Language="fr_FR">
@@ -1095,7 +1108,7 @@
 			<Text>Unité de combat à distance de l'ère antique exclusive aux Mayas, remplaçant l'Archer.[NEWLINE][NEWLINE][ICON_RANGED] Puissance de base à combat à distance +3.[NEWLINE][ICON_STRENGTH] Puissance de combat +5 contre les unités blessées.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_HULCHE_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +5 contre les unités blessées.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Hulche)</Text>
 		</Replace>
 		<!-- = Unique district - Quartier unique = -->
 		<Replace Tag="LOC_DISTRICT_OBSERVATORY_DESCRIPTION" Language="fr_FR">
@@ -1132,20 +1145,20 @@
 			<Text>[ICON_PRODUCTION] Production +50% pour la construction de Lieux saints.[NEWLINE]Lieux saints : [ICON_FAITH] Foi +1 par case de côte ou de lac adjacente.[NEWLINE]Ports : [ICON_GOLD] Or +2 par Lieu saint adjacent.[NEWLINE][NEWLINE]Les unités navales de combat rapproché peuvent se soigner sur les cases de côte neutres.[NEWLINE]L'embarquement et le débarquement des unités ne consomment pas de [ICON_MOVEMENT] PM.[NEWLINE][NEWLINE]Bias : T1 Côte / T5 Forêts.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_HOLY_SITE_NORWAY_COAST_FAITH" Language="fr_FR">
-			<Text>[ICON_FAITH] Foi +{1_num} (Knarr)</Text>
+			<Text>Cases de côte adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_HOLY_SITE_HARBOR_ADJACENCY_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_GOLD] Or +{1_num} (Knarr)</Text>
+			<Text>Cases de Lieu saint adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<!-- = Leader (Konge) - Dirigeant (Konge) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_PRODUCTION] Production +25% pour la formation d'unités navales de combat rapproché, qui peuvent attaquer les côtes.[NEWLINE]Le pillage et l'assaut côtier des cases de mine octroient de la [ICON_SCIENCE] Science, en plus de [ICON_GOLD] l'Or. Le pillage et l'assaut côtier des cases carrière, pâturage, plantation et camp octroient de la [ICON_CULTURE] Culture, en plus de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités navales de combat rapproché.[NEWLINE]Les unités peuvent traverser les cases d'océan à la Construction Navale.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY_NAME" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 pour les unités navales de combat rapproché.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Konge)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 pour les unités navales de combat rapproché</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Konge)</Text>
 		</Replace>
 		<!-- = Leader (Varengian) - Dirigeant (Varègue) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HARALD_ALT_XP_DESCRIPTION" Language="fr_FR">
@@ -1162,7 +1175,7 @@
 			<Text>Unité de combat rapproché de l'ère médiévale exclusive à la Norvège, remplaçant l'Homme d'armes.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base -6.[NEWLINE][ICON_MOVEMENT] PM +2 lorsqu'elle commence son tour en territoire ennemi ou embarquée.[NEWLINE][ICON_STRENGTH] Puissance de combat en attaque +10.[NEWLINE][NEWLINE]Peut être achetée contre de la [ICON_FAITH] Foi.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_BERSERKER_RAGE_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +10 en attaque (Berserker).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +10 (Berserker)</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_NORWEGIAN_LONGSHIP_DESCRIPTION" Language="fr_FR">
@@ -1191,19 +1204,19 @@
 			<Text>Aménagement exclusif à la Nubie, débloqué à l'Artisanat.[NEWLINE][NEWLINE][ICON_FOOD] Nourriture +2 et [ICON_FAITH] Foi +2.[NEWLINE][NEWLINE]Les [ICON_DISTRICT] quartiers adjacents octroient des rendements supplémentaires selon les quartiers adjacents:[NEWLINE] • [ICON_FOOD] Nourriture +1 si adjacente à un Centre-ville.[NEWLINE] • [ICON_PRODUCTION] Production +1 par Zone industrielle, Campement et Aérodrome.[NEWLINE] • [ICON_GOLD] Or +1 par Plateforme commerciale et Port.[NEWLINE] • [ICON_GOLD] Or +2 et [ICON_CULTURE] Culture +1 par Place de la gouvernance et Quartier diplomatique.[NEWLINE] • [ICON_SCIENCE] Science +1 par Campus.[NEWLINE] • [ICON_CULTURE] Culture +1 par Place du théâtre.[NEWLINE] • [ICON_FAITH] Foi +1 par Lieu saint.[NEWLINE][NEWLINE]Bonus de proximité +1 pour les [ICON_DISTRICT] quartiers adjacents.[NEWLINE][NEWLINE]Doit être construit sur une case plate. Un par ville. Deux pyramides nubiennes ne peuvent pas être adjacentes.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_PRODUCTION_DESC" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +{1_num} de la part des pyramides nubiennes adjacentes.</Text>
+			<Text>Cases de pyramide nubienne adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_GOLD_DESCS" Language="fr_FR">
-			<Text>[ICON_GOLD] Or +{1_num} de la part des pyramides nubiennes adjacentes.</Text>
+			<Text>Cases de pyramide nubienne adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_SCIENCE_DESC" Language="fr_FR">
-			<Text>[ICON_SCIENCE] Science +{1_num} de la part des pyramides nubiennes adjacentes.</Text>
+			<Text>Cases de pyramide nubienne adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_CULTURE_DESC" Language="fr_FR">
-			<Text>[ICON_CULTURE] Culture +{1_num} de la part des pyramides nubiennes adjacentes.</Text>
+			<Text>Cases de pyramide nubienne adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PYRAMID_DISTRICT_FAITH_DESC" Language="fr_FR">
-			<Text>[ICON_FAITH] Foi +{1_num} de la part des pyramides nubiennes adjacentes.</Text>
+			<Text>Cases de pyramide nubienne adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
 		</Replace>
 
 		<!-- == OTTOMANS == -->
@@ -1220,16 +1233,16 @@
 			<Text>[ICON_SCIENCE] Science +10% et [ICON_CULTURE] Culture +10% lors d'un âge [ICON_GLORY_GOLDEN_AGE] d'or ou [ICON_GLORY_SUPER_GOLDEN_AGE] héroïque.[NEWLINE][ICON_STRENGTH] Puissance de combat +2 en âge [ICON_GLORY_DARK_AGE] sombre ou [ICON_GLORY_NORMAL_AGE] normal (passe à +4 contre les civilisations elles aussi en âge [ICON_GLORY_DARK_AGE] sombre ou [ICON_GLORY_NORMAL_AGE] normal).</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_SULEIMAN_ALT_COMBAT_PREVIEW" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +2 (Muhteşem).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +2 (Muhteşem)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_SULEIMAN_ALT_COMBAT_NAME" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +2 (Muhteşem).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +2 (Muhteşem)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_SULEIMAN_ALT_COMBAT_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +2 (Muhteşem).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +2 (Muhteşem)</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_SULEIMAN_COMBAT_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +4 (Muhteşem).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +4 (Muhteşem)</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_SULEIMAN_JANISSARY_DESCRIPTION" Language="fr_FR">
@@ -1257,24 +1270,24 @@
 			<Text>[ICON_CULTURE] Culture +1 pour vos [ICON_TRADEROUTE] routes commerciales intérieures (passe à +3 à Foires Médiévales et à +5 à Urbanisation).[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 en attaque pour toutes les unités militaires perses.[NEWLINE][NEWLINE]Loyauté +5 par tour dans les villes occupées possédant une unité en garnison.[NEWLINE]Déclarer une guerre surprise compte comme pour une guerre formelle dans le calcul des [ICON_STAT_GRIEVANCE] griefs et du bellicisme.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_FALLBABYLON_COMBAT_BONUS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +{1_Value} en attaque (Cyrus).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Value} (Cyrus)</Text>
 		</Replace>
 		<!-- = Leader (Nader Shah) - Dirigeant (Nader Shah) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_NADER_SHAH_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_SCIENCE] Science +1 pour vos [ICON_TRADEROUTE] routes commerciales intérieures (passe à +3 à Éducation et à +5 à Théorie Scientifique).[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +5 en attaque contre les unités non blessées et les quartiers défendables.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_NADER_SHAH_COMBAT_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +5 (Épée de Perse).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Épée de Perse)</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_PERSIAN_IMMORTAL_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de combat rapproché de l'ère classique exclusive à la Perse, remplaçant le Spadassin.[NEWLINE][NEWLINE]Possède une attaque à distance (2 de [ICON_RANGE] Portée).</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_IMMORTAL_ATTACK_BONUS_NAME" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat en attaque +3 (Immortel).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Immortel)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_IMMORTAL_ATTACK_BONUS_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat en attaque +3 (Immortel).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Immortel)</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_PAIRIDAEZA_DESCRIPTION" Language="fr_FR">
@@ -1449,10 +1462,10 @@
 			<Text>[ICON_STRENGTH] Puissance de combat +3 pour toutes les unités qui attaquent des unités blessées (passe à +5 à l'entrée en ère médiévale). Si elles vainquent une unité, elles régénèrent jusqu'à 30 PV.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_TOMYRIS_BONUS_VS_WOUNDED_UNITS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 pour toutes les unités qui attaquent des unités blessée (Tomyris).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Tomyris)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_TOMYRIS_BONUS_VS_WOUNDED_UNITS_MEDIEVAL_MODIFIER_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +5 pour toutes les unités qui attaquent des unités blessées (Tomyris).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Tomyris)</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_SCYTHIAN_HORSE_ARCHER_DESCRIPTION" Language="fr_FR">
@@ -1473,10 +1486,10 @@
 			<Text>[ICON_STRENGTH] Puissance de combat +3 face aux civilisations suivant une autre [ICON_RELIGION] religion que la vôtre.[NEWLINE][NEWLINE]Coût en [ICON_FAITH] Foi des Missionnaires réduit de 25%. Les Inquisiteurs ont une charge supplémentaire et suppriment 100% de l'influence des autres [ICON_RELIGION] religions.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_COMBAT_OTHER_RELIGION_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 face aux civilisations converties à une autre [ICON_RELIGION] religion (L'Escurial).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (L'Escurial)</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_PHILIP_II_COMBAT_BONUS_OTHER_RELIGION_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 face aux civilisations converties à une autre [ICON_RELIGION] religion (L'Escurial).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (L'Escurial)</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_SPANISH_CONQUISTADOR_DESCRIPTION" Language="fr_FR">
@@ -1522,7 +1535,7 @@
 			<Text>[ICON_STRENGTH] Puissance de combat +4 contre les [ICON_BARBARIAN] barbares.[NEWLINE][ICON_BULLET] Pas de pénalité contre les unités anti-cavalerie.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_WAR_CART_COMBAT_STRENGTH_VS_BARBS_COMBAT_DESCRIPTION_BBG" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +4 contre les [ICON_BARBARIAN] barbares.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +4 (Char de guerre)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_WAR_CART_ESCORT_CIVILIANS_DESCRIPTION" Language="fr_FR">
 			<Text>Les unités civiles en formation profite de sa [ICON_MOVEMENT] vitesse de déplacement.</Text>
@@ -2368,14 +2381,8 @@
 		</Replace>
 
 		<!-- == ROCK BAND - GROUPE DE ROCK == -->
-		<Replace Tag="LOC_PROMOTION_ALBUM_COVER_ART_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement d'un niveau de plus sur les cases de merveille mondiale.</Text>
-		</Replace>
-		<Replace Tag="LOC_PROMOTION_ARENA_ROCK_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement de deux niveaux de plus sur les cases de Complexe de loisirs.</Text>
-		</Replace>
-		<Replace Tag="LOC_PROMOTION_GLAM_ROCK_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement de deux niveaux de plus sur les cases de Places du théâtre.</Text>
+		<Replace Tag="LOC_PROMOTION_ROADIES_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_MOVEMENT] PM +4.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_GOES_TO_DESCRIPTION" Language="fr_FR">
 			<Text>Les civilisations dans un rayon de 10 cases reçoivent 50% du [ICON_TOURISM] Tourisme généré.</Text>
@@ -2383,59 +2390,106 @@
 		<Replace Tag="LOC_PROMOTION_INDIE_DESCRIPTION" Language="fr_FR">
 			<Text>Fait perdre 40 points de loyauté à cette ville.</Text>
 		</Replace>
-		<Replace Tag="LOC_PROMOTION_MUSIC_FESTIVAL_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement d'un niveau de plus sur les cases de parc national ou de merveille naturelle. [ICON_TOURISM] Tourisme +1000 sur ces cases.</Text>
-		</Replace>
 		<Replace Tag="LOC_PROMOTION_POP_DESCRIPTION" Language="fr_FR">
 			<Text>25% du [ICON_TOURISM] Tourisme généré octroie de [ICON_GOLD] l'Or.</Text>
-		</Replace>
-		<Replace Tag="LOC_PROMOTION_REGGAE_ROCK_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement de deux niveaux de plus sur les cases de Parc aquatique.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_RELIGIOUS_ROCK_DESCRIPTION" Language="fr_FR">
 			<Text>Convertit la majorité des [ICON_CITIZEN] Citoyens de la ville à la [ICON_RELIGION] religion fondée par le joueur.</Text>
 		</Replace>
-		<Replace Tag="LOC_PROMOTION_ROADIES_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_MOVEMENT] PM +4.</Text>
+		<Replace Tag="LOC_PROMOTION_ALBUM_COVER_ART_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_DISTRICT_WONDER] Gagne virtuellement 1 niveau de plus sur les merveilles mondiales.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_ARENA_ROCK_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_DISTRICT_ENTERTAINMENT]Gagne virtuellement 2 niveaux de plus sur les Complexes de loisirs.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_GLAM_ROCK_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_DISTRICT_THEATER] Gagne virtuellement 2 niveaux de plus sur les Places du théâtre.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_MUSIC_FESTIVAL_DESCRIPTION" Language="fr_FR">
+			<Text>Gagne virtuellement 1 de plus sur les parcs nationaux et merveilles naturelles. [ICON_TOURISM] Tourisme +1000 sur ces cases.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_REGGAE_ROCK_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_DISTRICT_WATER_ENTERTAINMENT_COMPLEX] Gagne virtuellement de deux niveaux de plus sur les Parcs aquatiques.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_SPACE_ROCK_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement d'un niveau de plus sur les cases de Campus ou de Spatioport. [ICON_TOURISM] Tourisme +500 sur ces cases (passe à +1000 si le Campus possède une université).</Text>
+			<Text>[ICON_DISTRICT_CAMPUS] [ICON_DISTRICT_SPACEPORT] Gagne virtuellement 1 niveau de plus sur les Campus et Spatioports. [ICON_TOURISM] Tourisme +500 sur ces cases (passe à +1000 si le Campus possède une université).</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_SURF_ROCK_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement d'un niveau de plus sur les cases de Parc aquatique ou de Port. [ICON_TOURISM] Tourisme +500 sur ces cases (passe à +1000 si le port possède un chantier naval).</Text>
+			<Text>[ICON_DISTRICT_WATER_ENTERTAINMENT_COMPLEX] [ICON_DISTRICT_HARBOR] Gagne virtuellement 1 niveau de plus sur les Parcs aquatiques ou les Ports. [ICON_TOURISM] Tourisme +500 sur ces cases (passe à +1000 si le Port possède un chantier naval).</Text>
 		</Replace>
 	
 		<!-- == SPY - ESPION == -->
+		<!-- removed
 		<Replace Tag="LOC_PROMOTION_SPY_SATCHEL_CHARGES_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement de deux niveaux de plus pour percer une brèche dans un barrage.</Text>
+			<Text>Bénéficie virtuellement de deux niveaux de plus pour saboter les Barrages.</Text>
 		</Replace>
-		<Replace Tag="LOC_PROMOTION_SPY_SURVEILLANCE_DESCRIPTION" Language="fr_FR">
-			<Text>En contre-espionnage, tous les [ICON_DISTRICT] quartiers de la ville sont défendus. Bénéficie virtuellement d'un niveau de plus pour les [ICON_DISTRICT] quartiers adjacents.</Text>
+		-->
+		<Replace Tag="LOC_PROMOTION_SPY_LINGUIST_DESCRIPTION" Language="fr_FR">
+			<Text>Temps requis pour terminer les missions -25 %.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_SPY_DISGUISE_DESCRIPTION" Language="fr_FR">
+			<Text>Suppression du délai requis pour établir une présence dans une ville ennemie.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_SPY_QUARTERMASTER_DESCRIPTION" Language="fr_FR">
+			<Text>Si cet espion est sur votre territoire, vos espions gagnent virtuellement 1 niveau.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_SPY_POLYGRAPH_DESCRIPTION" Language="fr_FR">
-			<Text>Si cet espion se trouve dans son territoire, les espions adverses qui s'y trouvent perdent un niveau.</Text>
+			<Text>Si cet espion est sur votre territoire, les espions ennemis qui s'y trouvent perdent virtuellement 1 niveau.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_SPY_SURVEILLANCE_DESCRIPTION" Language="fr_FR">
+			<Text>En contre-espionnage, tous les [ICON_DISTRICT] quartiers de la ville sont défendus. Gagne virtuellement 1 niveau de plus pour défendre les [ICON_DISTRICT] quartiers adjacents.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_SPY_SEDUCTION_DESCRIPTION" Language="fr_FR">
+			<Text>Gagne virtuellement 2 niveaux de plus pour le contre-espionnage.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_SPY_ACE_DRIVER_DESCRIPTION" Language="fr_FR">
+			<Text>Gagne virtuellement 4 niveaux de plus pour fuir.</Text>
+		</Replace>
+		<Replace Tag="LOC_UNITOPERATION_SPY_FABRICATE_SCANDAL_DESCRIPTION" Language="fr_FR">
+			<Text>Créer un scandale (émissaires)</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_SPY_SMEAR_CAMPAIGN_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement de deux niveaux de plus pour provoquer un scandale.</Text>
+			<Text>[ICON_ENVOY] Gagne virtuellement 2 niveaux de plus pour provoquer un scandale.</Text>
+		</Replace>
+		<Replace Tag="LOC_UNITOPERATION_SPY_FOMENT_UNREST_DESCRIPTION" Language="fr_FR">
+			<Text>Fomenter des troubles (loyauté)</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_SPY_COVERT_ACTION_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement de deux niveaux de plus pour fomenter des troubles.</Text>
+			<Text>[ICON_PRESSUREDOWN] Gagne virtuellement 2 niveaux de plus pour fomenter des troubles.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_SPY_LICENSE_TO_KILL_DESCRIPTION" Language="fr_FR">
-			<Text>Bénéficie virtuellement de deux niveaux de plus pour neutraliser un gouverneur.</Text>
+			<Text>[ICON_GOVERNOR] Gagne virtuellement 2 niveaux de plus pour neutraliser un gouverneur.</Text>
 		</Replace>
-		
+		<Replace Tag="LOC_PROMOTION_SPY_TECHNOLOGIST_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_DISTRICT_CAMPUS] Gagne virtuellement 2 niveaux de plus pour voler des technologies.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_SPY_CAT_BURGLAR_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_DISTRICT_THEATER] Gagne virtuellement 2 niveaux de plus pour voler des chefs-d'œuvre.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_SPY_DEMOLITIONS_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_DISTRICT_INDUSTRIAL_ZONE] Gagne virtuellement 2 niveaux de plus pour saboter les Zones industrielles.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_SPY_CON_ARTIST_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_DISTRICT_COMMERCIAL_HUB] Gagne virtuellement 2 niveaux de plus pour voler de [ICON_GOLD] l'Or.</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_SPY_GUERILLA_LEADER_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_BARBARIAN] Gagne virtuellement 2 niveaux de plus pour recruter des partisans (barbares).</Text>
+		</Replace>
+		<Replace Tag="LOC_PROMOTION_SPY_ROCKET_SCIENTIST_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_DISTRICT_SPACEPORT] Gagne virtuellement 2 niveaux de plus pour saboter les Spatioports.</Text>
+		</Replace>
+
 		<!-- == GIANT DEATH ROBOT - ROBOT GÉANT DE LA MORT == -->
 		<Replace Tag="LOC_PROMOTION_GDR_AA_DEFENSE_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_ANTIAIR_LARGE] Puissance anti-aérienne +100.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_GDR_SIEGE_LASER_DESCRIPTION" Language="fr_FR">
-			<Text>Les [ICON_RANGED] attaques à distance sont efficaces à 100% contre les villes et les campements. [ICON_RANGED] Puissance de combat à distance +30.</Text>
+			<Text>Les [ICON_RANGED] attaques à distance sont efficaces à 100% contre les quartiers défendables. [ICON_RANGED] Puissance de combat à distance +30.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_GDR_BONUS_MOVEMENT_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_MOVEMENT] PM +3. Peut sauter pour franchir une case de montagne.</Text>
 		</Replace>
-		<Replace Tag="LOC_PROMOTION_GDR_ARMOR_UPGRAfr_FRSCRIPTION" Language="fr_FR">
+		<Replace Tag="LOC_PROMOTION_GDR_ARMOR_UPGRADE_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat en défense +10 contre les unités terrestres et navales.</Text>
 		</Replace>
 		
@@ -2998,54 +3052,298 @@
 
 
 		<!-- === DISTRICTS - QUARTIERS === -->
+
 		<!-- == AQUEDUCT - AQUEDUC == -->
 		<Replace Tag="LOC_DISTRICT_AQUEDUCT_ALT_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_HOUSING] Habitations +2 pour la ville (passe à +3 si la ville est côtière sans eau douce, ou +4 si la ville n'a pas accès à de l'eau). [ICON_AMENITIES] Activités +1 si adjacent à un fissure géothermique.[NEWLINE]Évite la perte de [ICON_FOOD] Nourriture lors d'une sécheresse.[NEWLINE][NEWLINE]Doit être construit entre un Centre-ville et une source d'eau douce.</Text>
 		</Replace>
+
 		<!-- == DAM - BARRAGE== -->
 		<Replace Tag="LOC_DISTRICT_DAM_DESCRIPTION" Language="fr_FR">
 			<Text>Immunise contre les crues les cases du cours d'eau sur lequel est construit le Barrage. Rendements des crues -50%.[NEWLINE]Évite la perte de [ICON_FOOD] Nourriture lors d'une sécheresse.[NEWLINE][NEWLINE]Doit être construit sur une case de plaines inondables. Un seul Barrage par cours d'eau.</Text>
 		</Replace>
+
 		<!-- == CANAL == -->
 		<Replace Tag="LOC_DISTRICT_CANAL_DESCRIPTION" Language="fr_FR">
 			<Text>Relie deux cases d'eau ou une case d'eau et un Centre-ville. Les [ICON_TRADEROUTE] routes commerciales qui la traversent peuvent multiplier [ICON_GOLD] l'Or reçu des quartiers de la ville de destination.[NEWLINE][NEWLINE]Doit être construit sur une case plate.</Text>
 		</Replace>
+
 		<!-- == NEIGHBORHOOD - QUARTIER RÉSIDENTIEL == -->
 		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_DESCRIPTION" Language="fr_FR">
 			<Text>Fournit de [ICON_HOUSING] l'Habitation en fonction de l'attrait de la case :[NEWLINE]Époustouflant : [ICON_HOUSING] Habitations +6.[NEWLINE]Charmant : [ICON_HOUSING] Habitations +5.[NEWLINE]Moyen : [ICON_HOUSING] Habitations +4.[NEWLINE]Peu accueillant : [ICON_HOUSING] Habitations +3.[NEWLINE]Repoussant : [ICON_HOUSING] Habitations +2.</Text>
 		</Replace>
+
 		<!-- == INDUSTRIAL ZONE - ZONE INDUSTRIELLE == -->
 		<Replace Tag="LOC_DISTRICT_INDUSTRIAL_ZONE_DESCRIPTION" Language="fr_FR">
 			<Text>Quartier destiné à accueillir les activités industrielles de votre ville.</Text>
 		</Replace>
+
 		<!-- == COMMERCIAL HUB - PLATEFORME COMMERCIALE == -->
-		<Replace Tag="LOC_DISTRICT_CITY_CENTER_GOLD" Language="fr_FR">
-			<Text>Centre-ville adjacent : [ICON_GOLD] Or +{1_num}</Text>
-		</Replace>
+
 		<!-- == HARBOR - PORT == -->
+
 		<!-- == CAMPUS == -->
-		<Replace Tag="LOC_CAMPUS_MOUNTAIN_WONDER_ADJACENCY_BBG" Language="fr_FR">
-			<Text>[ICON_SCIENCE] Science +{1_num} de la part des cases de merveille de montagne adjacentes.</Text>
-		</Replace>
+
 		<!-- == THEATER SQUARE - PLACE DU THÉÂTRE == -->
+
 		<!-- == HOLY SITE - LIEU SAINT == -->
+
 		<!-- == ENCAMPMENT - CAMPEMENT == -->
+
 		<!-- == AERODROME - AÉRODROME == -->
+
 		<!-- == PRESERVE - RÉSERVE == -->
+
 		<!-- == ENTERTAINMENT COMPLEX - COMPLEXE DE LOISIRS == -->
+
 		<!-- == WATER PARK - PARC AQUATIQUE == -->
+
 		<!-- == GOVERNMENT PLAZA - PLACE DE LA GOUVERNANCE == -->
+
 		<!-- == DIPLOMATIC == -->
+
 		<!-- == DIPLOMATIC QUARTER - QUARTIER DIPLOMATIQUE == -->
+
 		<!-- == SPACEPORT - SPATIOPORT == -->
 
 
 
 
+		<!-- === ADJACENCY - BONUS DE POXIMITÉ === -->
 
-		
-		
-		
+		<!-- == FOOD - NOURRITURE == -->
+		<Replace Tag="LOC_DISTRICT_DESERT_FOOD" Language="fr_FR">
+			<Text>Cases de désert adjacentes : [ICON_FOOD] Nourriture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DESERT_HILLS_FOOD" Language="fr_FR">
+			<Text>Cases de colline désertique adjacentes : [ICON_FOOD] Nourriture +{1_num}.</Text>
+		</Replace>
+
+		<!-- == PRODUCTION - PRODUCTION == -->
+		<Replace Tag="LOC_DISTRICT_MINE_PRODUCTION" Language="fr_FR">
+			<Text>Cases de mine adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_QUARRY_PRODUCTION" Language="fr_FR">
+			<Text>Cases de carrière adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_PRODUCTION" Language="fr_FR">
+			<Text>Cases de quartier adjacents : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_1_PRODUCTION" Language="fr_FR">
+			<Text>Cases de quartier adjacents : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_COMMERCIAL_HUB_PRODUCTION" Language="fr_FR">
+			<Text>Cases de Plateforme commerciale adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RESOURCE_PRODUCTION" Language="fr_FR">
+			<Text>Cases de ressource adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MINES_HALF_PRODUCTION" Language="fr_FR">
+			<Text>Cases de mine adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_LUMBER_MILL_PRODUCTION" Language="fr_FR">
+			<Text>Cases de scierie adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_AQUEDUCT_PRODUCTION" Language="fr_FR">
+			<Text>Cases d'Aqueduc adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_BATH_PRODUCTION" Language="fr_FR">
+			<Text>Cases de Thermes adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_CANAL_PRODUCTION" Language="fr_FR">
+			<Text>Cases de canal adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DAM_PRODUCTION" Language="fr_FR">
+			<Text>Cases de barrage adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_STRATEGIC_PRODUCTION" Language="fr_FR">
+			<Text>Cases de ressource stratégique adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_MACHU_PICCHU_PRODUCTION" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GOVERNMENT_PRODUCTION" Language="fr_FR">
+			<Text>Place de la gouvernance adjacente : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RIVER_PRODUCTION" Language="fr_FR">
+			<Text>Rivières adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+
+		<!-- == GOLD - OR == -->
+		<Replace Tag="LOC_DISTRICT_CITY_CENTER_GOLD" Language="fr_FR">
+			<Text>Cases de Centre-ville adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RIVER_GOLD" Language="fr_FR">
+			<Text>Rivières adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_HARBOR_GOLD" Language="fr_FR">
+			<Text>Cases de Port adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_GOLD" Language="fr_FR">
+			<Text>Cases de Port de la Royal Navy adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_GOLD" Language="fr_FR">
+			<Text>Cases de quartier adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_1_GOLD" Language="fr_FR">
+			<Text>Cases de quartier adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_SEARESOURCE_GOLD" Language="fr_FR">
+			<Text>Cases de ressource maritime adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_JUNGLE_2_GOLD" Language="fr_FR">
+			<Text>Cases de forêt tropicale adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_COTHON_GOLD" Language="fr_FR">
+			<Text>Cases de Cothon adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_HOLY_SITE_GOLD" Language="fr_FR">
+			<Text>Cases de Lieu saint adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_LAVRA_GOLD" Language="fr_FR">
+			<Text>Cases de Laure adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_MACHU_PICCHU_GOLD" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GOVERNMENT_GOLD" Language="fr_FR">
+			<Text>Cases de Place de la gouvernance adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+
+		<!-- == SCIENCE - SCIENCE == -->
+		<Replace Tag="LOC_DISTRICT_JUNGLE_2_SCIENCE" Language="fr_FR">
+			<Text>Cases de forêt tropicale adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_FARM" Language="fr_FR">
+			<Text>Cases de ferme adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_PLANTATION" Language="fr_FR">
+			<Text>Cases de plantation adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_CAMPUS_MOUNTAIN_WONDER_ADJACENCY_BBG" Language="fr_FR">
+			<Text>Cases de merveille naturelle de montagne adjacente : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAINS_SCIENCE1" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAINS_SCIENCE2" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAINS_SCIENCE3" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAINS_SCIENCE4" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAINS_SCIENCE5" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_JUNGLE_SCIENCE" Language="fr_FR">
+			<Text>Cases de forêt tropicale adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_SCIENCE" Language="fr_FR">
+			<Text>Cases de quartier adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_1_SCIENCE" Language="fr_FR">
+			<Text>Cases de quartier adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_BARRIER_REEF_SCIENCE" Language="fr_FR">
+			<Text>Cases de Grande barrière de corail adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GEOTHERMAL_SCIENCE" Language="fr_FR">
+		    <Text>Cases de fissure géothermique adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_REEF_SCIENCE" Language="fr_FR">
+		    <Text>Cases de récif adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GOVERNMENT_SCIENCE" Language="fr_FR">
+		    <Text>Place de la gouvernance adjacente : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RIVER_SCIENCE" Language="fr_FR">
+		    <Text>Rivières adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+
+		<!-- == CULTURE - CULTURE == -->
+		<Replace Tag="LOC_DISTRICT_WONDER_CULTURE" Language="fr_FR">
+			<Text>Cases de merveille mondiale adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_CULTURE" Language="fr_FR">
+			<Text>Cases de quartier adjacents : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_1_CULTURE" Language="fr_FR">
+			<Text>Cases de quartier adjacents : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_CULTURE_STANDARD" Language="fr_FR">
+			<Text>Cases de quartier adjacents : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_CULTURE_CITY_CENTER" Language="fr_FR">
+			<Text>Cases de Centre-ville adjacent : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_JUNGLE_2_CULTURE" Language="fr_FR">
+			<Text>Cases de forêt tropicale adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RIVER_CULTURE" Language="fr_FR">
+		    <Text>Rivière adjacente : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GOVERNMENT_CULTURE" Language="fr_FR">
+		    <Text>Cases de Place de la gouvernance adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_BUILDING_MACHU_PICCHU_CULTURE" Language="fr_FR">
+		    <Text>Cases de montagne adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+
+		<!-- == FAITH - FOI == -->
+		<Replace Tag="LOC_DISTRICT_TUNDRA_FAITH" Language="fr_FR">
+			<Text>Cases de toundra adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DESERT_FAITH" Language="fr_FR">
+			<Text>Cases de désert adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_JUNGLE_FAITH" Language="fr_FR">
+			<Text>Cases de forêt tropicale adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_STAVE_CHURCH_FOREST_FAITH" Language="fr_FR">
+			<Text>Cases de bois adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_JUNGLE_2_FAITH" Language="fr_FR">
+			<Text>Cases de forêt tropicale adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_NATURALWONDER_FAITH" Language="fr_FR">
+			<Text>Cases de merveille naturelle adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAIN_FAITH1" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAIN_FAITH2" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAIN_FAITH3" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAIN_FAITH4" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_MOUNTAIN_FAITH5" Language="fr_FR">
+			<Text>Cases de montagne adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_FOREST_FAITH" Language="fr_FR">
+			<Text>Cases de bois adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_FAITH" Language="fr_FR">
+			<Text>Cases de quartier adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DISTRICT_1_FAITH" Language="fr_FR">
+			<Text>Cases de quartier adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_RIVER_FAITH" Language="fr_FR">
+			<Text>Rivières adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_GOVERNMENT_FAITH" Language="fr_FR">
+			<Text>Cases de Place de la gouvernance adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_DESERT_HILLS_FAITH" Language="fr_FR">
+			<Text>Cases de colline désertique adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
+		</Replace>
 
 
 
@@ -4658,7 +4956,7 @@
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DIGITAL_DEMOCRACY" Language="fr_FR">
 			<Text>[ICON_TOURISM] Tourisme +2 par [ICON_DISTRICT] quartier spécialisé.[NEWLINE][ICON_TOURISM] Tourisme à l'encontre de votre civilisation -50%.</Text>
-		</Replace> 
+		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="fr_FR">
 			<Text>Les Plateformes commerciales fournissent 25% [ICON_GOLD] d'Or supplémentaire.[NEWLINE]Les villes possédant un Port, un Campement ou un Aérodrome gagnent +50% de [ICON_PRODUCTION] Production pour les unités.</Text>
 		</Replace>
@@ -5339,10 +5637,10 @@
 			<Text>Le joueur choisi perd 2 points de victoire diplomatique.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_IMPROVE_TRADE_WTH_PLAYER_DESC" Language="fr_FR">
-      		<Text>[ICON_GOLD] Or +4 pour les [ICON_TRADEROUTE] routes commerciales internationales vers le joueur ciblé, qui reçoit également +2 [ICON_GOLD] Or. [ICON_TRADEROUTE] Routes commerciales +1 pour le joueur ciblé.</Text>
+      		<Text>[ICON_GOLD] Or +4 pour les [ICON_TRADEROUTE] routes commerciales internationales vers le joueur choisi, qui reçoit également +2 [ICON_GOLD] Or. Emplacements de [ICON_TRADEROUTE] route commerciale +1 pour le joueur choisi.</Text>
     	</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BAN_TRADE_WITH_PLAYER_DESC" Language="fr_FR">
-      		<Text>[ICON_GOLD] Or -4 pour les [ICON_TRADEROUTE] routes commerciales internationales depuis ou vers le joueur ciblé.</Text>
+      		<Text>[ICON_GOLD] Or -4 pour les [ICON_TRADEROUTE] routes commerciales internationales depuis ou vers le joueur choisi.</Text>
     	</Replace>
 		<!--
 		<Replace Tag="LOC_WORLD_CONGRESS_EMPOWER_RELIGION_DESC" Language="fr_FR">
@@ -5354,28 +5652,28 @@
 		deleted
 		-->
 		<Replace Tag="LOC_WORLD_CONGRESS_IMPROVE_LUXURY_DESC" Language="fr_FR">
-			<Text>Tous les exemplaires de la ressource de luxe ciblée octroient de [ICON_AMENITIES] l'Activité.</Text>
+			<Text>Tous les exemplaires de la ressource de luxe choisie octroient de [ICON_AMENITIES] l'Activité.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BAN_LUXURY_DESC" Language="fr_FR">
 			<Text>La ressource de luxe choisie n'octroie pas [ICON_AMENITIES] d'Activité.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_PRODUCTION_YIELD_DESC" Language="fr_FR">
-			<Text>Le coût en Production ou d'achat des unités militaires est réduit de 25% jusqu'au prochain Congrès mondial.</Text>
+			<Text>Le coût en [ICON_PRODUCTION] Production ou [ICON_GOLD][ICON_FAITH] d'achat des unités militaires est réduit de 25%.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BAN_PRODUCTION_YIELD_DESC" Language="fr_FR">
-			<Text>Le coût en Production ou d'achat des unités militaires est augmenté de 50% jusqu'au prochain Congrès mondial.</Text>
+			<Text>Le coût en [ICON_PRODUCTION] Production ou [ICON_GOLD][ICON_FAITH] d'achat des unités militaires est augmenté de 50%.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_ARMS_CONTROL_DESC" Language="fr_FR">
-			<Text>Les armes de destruction massive de tous les joueurs sont réglées sur le niveau de celles du joueur ciblé.</Text>
+			<Text>Les armes de destruction massive de tous les joueurs sont réglées sur le niveau de celles du joueur choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_NERF_ARMS_CONTROL_DESC" Language="fr_FR">
-			<Text>Le joueur ciblé perd toutes ses armes de destruction massive.</Text>
+			<Text>Le joueur choisi perd toutes ses armes de destruction massive.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_WORK_TOURISM_DESC" Language="fr_FR">
-			<Text>[ICON_TOURISM] Tourisme +100% pour les chefs-d'œuvre de ce type.</Text>
+			<Text>[ICON_TOURISM] Tourisme +100% pour les chefs-d'œuvre du type choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_NO_WORK_TOURISM_DESC" Language="fr_FR">
-			<Text>[ICON_TOURISM] Tourisme -50% pour les chefs-d'œuvre de ce type.</Text>
+			<Text>[ICON_TOURISM] Tourisme -50% pour les chefs-d'œuvre du type choisi.</Text>
 		</Replace>
 		<!--
 		<Replace Tag="LOC_WORLD_CONGRESS_POLICY_FAVOR_DESC" Language="fr_FR">
@@ -5387,34 +5685,34 @@
 		never saw it in game
 		-->
 		<Replace Tag="LOC_WORLD_CONGRESS_GAIN_WILDCARD_DESC" Language="fr_FR">
-			<Text>Ce type de [ICON_GOVERNMENT] gouvernement reçoit un emplacement de doctrine Joker.</Text>
+			<Text>Le [ICON_GOVERNMENT] gouvernement choisi reçoit un emplacement de doctrine Joker.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_LOSE_WILDCARD_DESC" Language="fr_FR">
-			<Text>Ce type de [ICON_GOVERNMENT] gouvernement perd un emplacement de doctrine Joker.</Text>
+			<Text>Le [ICON_GOVERNMENT] gouvernement choisi perd un emplacement de doctrine Joker.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_DISTRICT_BUILDING_PRODUCTION_DESC" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +100% pour les bâtiments de ce quartier.</Text>
+			<Text>[ICON_PRODUCTION] Production +100% pour les bâtiments du quartier choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_NO_DISTRICT_BUILDING_DESC" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production -50% pour les bâtiments de ce quartier.</Text>
+			<Text>[ICON_PRODUCTION] Production -50% pour les bâtiments du quartier choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_DISTRICTS_CULTURE_BOMB_DESC" Language="fr_FR">
-			<Text>L'achat par ce joueur de nouvelles cases est réduit de 50%.</Text>
+			<Text>Le coût d'achat des cases du joueur choisi est réduit de 50%.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_NO_CULTURE_BORDER_GReplaceTH_DESC" Language="fr_FR">
-			<Text>Les frontières de ce joueur ne s'élargissent pas avec la [ICON_CULTURE] Culture.</Text>
+			<Text>Les frontières du joueur choisi ne s'élargissent pas avec la [ICON_CULTURE] Culture.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_PROJECT_PRODUCTION_DESC" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +100% pour ce projet.</Text>
+			<Text>[ICON_PRODUCTION] Production +100% pour le projet choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BAN_PROJECT_DESC" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production -50% pour ce projet.</Text>
+			<Text>[ICON_PRODUCTION] Production -50% pour le projet choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BUFF_GP_POINTS_DESC" Language="fr_FR">
-			<Text>Double les points générés pour ce type de [ICON_GREATPERSON] Personnage illustre.</Text>
+			<Text>Génération de points de [ICON_GREATPERSON] Personnage illustre du type choisi +100%.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_NO_GP_POINTS_DESC" Language="fr_FR">
-			<Text>Aucun point généré pour ce type de [ICON_GREATPERSON] Personnage illustre.</Text>
+			<Text>Aucune génération de points de [ICON_GREATPERSON] Personnage illustre du type choisi.</Text>
 		</Replace>
 		<!--
 		<Replace Tag="LOC_WORLD_CONGRESS_DOUBLE_SUZERAIN_FAVOR_DESC" Language="fr_FR">
@@ -5426,16 +5724,16 @@
 		never saw it in game
 		-->
 		<Replace Tag="LOC_WORLD_CONGRESS_BUILDING_DISCOUNT_DESC" Language="fr_FR">
-			<Text>Coût en [ICON_PRODUCTION] Production -50% pour ce type de bâtiment.</Text>
+			<Text>Coût en [ICON_PRODUCTION] Production -50% pour le type de bâtiment choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_BAN_BUILDING_DESC" Language="fr_FR">
-			<Text>Coût en [ICON_PRODUCTION] Production +50% pour ce type de bâtiment.</Text>
+			<Text>Impossible de construire le type de bâtiment choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_FAVOR_FROM_TRADE_AND_ENVOYS_WITH_MINORS_DESC" Language="fr_FR">
-			<Text>Type de rendement de la Cité-état +100% pour les [ICON_TRADEROUTE] routes commerciales à destination de ce type de Cité-état.</Text>
+			<Text>Type de rendement de la Cité-état +100% pour les [ICON_TRADEROUTE] routes commerciales à destination du type de Cité-état choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_NO_SUZERAIN_BONUS_DESC" Language="fr_FR">
-			<Text>Les Cités-états de ce type n'octroient pas leur bonus de suzerain exclusif.</Text>
+			<Text>Les Cités-états du type choisi n'octroient pas leur bonus de suzerain exclusif.</Text>
 		</Replace>
 		<!--
 		<Replace Tag="LOC_WORLD_CONGRESS_FAVOR_FROM_GOVERNOR_DESC" Language="fr_FR">
@@ -5447,16 +5745,16 @@
 		never saw it in game
 		-->
 		<Replace Tag="LOC_WORLD_CONGRESS_MORE_GROWTH_LESS_LOYALTY_DESC" Language="fr_FR">
-			<Text>[ICON_CITIZEN] Croissance +20% et loyauté par tour -5 dans les villes du joueur ciblé.</Text>
+			<Text>[ICON_CITIZEN] Croissance +20% et loyauté par tour -5 dans les villes du joueur choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_LESS_GROWTH_MORE_LOYALTY_DESC" Language="fr_FR">
-			<Text>[ICON_CITIZEN] Croissance -20% et loyauté par tour +5 dans les villes du joueur ciblé.</Text>
+			<Text>[ICON_CITIZEN] Croissance -20% et loyauté par tour +5 dans les villes du joueur choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_DEFORESTATION_GOLD_DESC" Language="fr_FR">
-			<Text>Supprimer des caractéristiques du type correspondant génère une quantité [ICON_GOLD] d'Or équivalente à la [ICON_PRODUCTION] Production et à la [ICON_FOOD] Nourriture générées.</Text>
+			<Text>Supprimer des caractéristiques du type choisi génère une quantité [ICON_GOLD] d'Or équivalente à la [ICON_PRODUCTION] Production et à la [ICON_FOOD] Nourriture générées.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_DEFORESTATION_BAN_DESC" Language="fr_FR">
-			<Text>Empêche de supprimer des caractéristiques du type correspondant.</Text>
+			<Text>Empêche de supprimer des caractéristiques du type choisi.</Text>
 		</Replace>
 		<!--
 		<Replace Tag="LOC_WORLD_CONGRESS_PUBLIC_RELATIONS_MORE_GRIEVANCES_DESC" Language="fr_FR">
@@ -5474,10 +5772,10 @@
 			<Text>L'opération choisie n'est pas disponible.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_BUFF_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 pour les unités de la classe de promotion choisie.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 pour les unités du type choisi.</Text>
 		</Replace>
 		<Replace Tag="LOC_WORLD_CONGRESS_MILITARY_ADVISORY_NERF_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat -3 pour les unités de la classe de promotion choisie.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat -3 pour les unités du type choisi.</Text>
 		</Replace>
 
 
