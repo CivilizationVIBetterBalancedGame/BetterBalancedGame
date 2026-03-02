@@ -3,13 +3,13 @@
 <!-- Maybe change Expanded Criteria ? -->
 
 <!-- Release ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="7031"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="7032"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="7031"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="7032"> -->
 
 <!-- WIP ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="7031">
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="7032">
 	<Properties>
 		<Name>Better Balanced Game WIP</Name>
 		<Description>
@@ -17,16 +17,16 @@
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>7031</Version>
-		<SpecialThanks>abstr, acsess, Apeul, Bastik, Bobnotarobot, Calcifer, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FaelSCCP, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Moumoulax, Onyxum, OSCAR., priz, robal, seed.of.apricot, Sent Kurokawa, _vadya_queen, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, Yenaleesternberg, ZhenjaMax, 3JIO6HbIU_Kycb</SpecialThanks>
+		<Version>7032</Version>
+		<SpecialThanks>abstr, acsess, Apeul, Bastik, Bobnotarobot, Calcifer, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FaelSCCP, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Moumoulax, Onyxum, OSCAR., Pebbleton, priz, robal, seed.of.apricot, Sent Kurokawa, _vadya_queen, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, Yenaleesternberg, ZhenjaMax, 3JIO6HbIU_Kycb</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
-	
+
 	<Dependencies>
 		<Mod id="1B28771A-C749-434B-9053-D1380C553DE9" title="Expansion: Rise and Fall"/>
 		<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Expansion: Gathering Storm" />
 	</Dependencies>
-	
+
 	<!-- can load only select files based on these requirements, if applied -->
 	<ActionCriteria>
 		<Criteria id="XP1" any="1">
@@ -195,7 +195,7 @@
 				<Value>1</Value>
 			</ConfigurationValueMatches>
 		</Criteria>
-		
+
 		<Criteria id="SVSetting_2">
 			<ConfigurationValueMatches>
 				<ConfigurationId>VictoryScienceSetting</ConfigurationId>
@@ -210,7 +210,7 @@
 				<Value>1</Value>
 			</ConfigurationValueMatches>
 		</Criteria>
-		
+
 		<Criteria id="DVSetting_2">
 			<ConfigurationValueMatches>
 				<ConfigurationId>VictoryDiploSetting</ConfigurationId>
@@ -225,7 +225,7 @@
 				<Value>1</Value>
 			</ConfigurationValueMatches>
 		</Criteria>
-		
+
 		<Criteria id="RVSetting_2">
 			<ConfigurationValueMatches>
 				<ConfigurationId>VictoryReligiousSetting</ConfigurationId>
@@ -357,7 +357,7 @@
 	</FrontEndActions>
 
 	<!-- defines modifications to games (requires any LocalizedText from Settings above, and must import files before modifying any SQL tables) -->
-	<InGameActions>		
+	<InGameActions>
 		<!--
 		<ImportFiles id="bbg_placement">
 			<File>ui/bbg_customplacement.lua</File>
@@ -376,7 +376,7 @@
 			<Criteria>NO_BBGTS</Criteria>
 			<File>scripts/bbg_uitogameplay.xml</File>
 		</AddUserInterfaces>
-		
+
 		<!-- BBCC-->
 		<!-- Script is integrated in BBG beta at the moment for performance increase
 		<AddGameplayScripts id="bbcc_no_rng_script">
@@ -495,7 +495,7 @@
 			</Properties>
 			<Criteria>BBS</Criteria>
 			<File>sql/mod_associations/bbs/_bbs_utils.sql</File>
-		</UpdateDatabase>			
+		</UpdateDatabase>
 		<!-- -->
 		<UpdateDatabase id="BBG_Base">
 			<Properties>
@@ -623,7 +623,7 @@
 			<Criteria>DLC_Vikings</Criteria>
 			<File>sql/DLC_Vikings/dlc_vikings.sql</File>
 		</UpdateDatabase>
-		
+
 		<UpdateDatabase id="BBG_Poland">
 			<Properties>
 				<LoadOrder>11618</LoadOrder>
@@ -735,7 +735,7 @@
 			<File>sql/NFP/dlc_maya_colombia.sql</File>
 			<File>sql/NFP/GranColombia.sql</File>
 			<File>sql/NFP/Maya.sql</File>
-		</UpdateDatabase>		
+		</UpdateDatabase>
 		<UpdateDatabase id="BBG_NFP_XP1_GranColombia_Maya">
 			<Properties>
 				<LoadOrder>11641</LoadOrder>
@@ -804,7 +804,7 @@
 			<Criteria>XP2</Criteria>
 			<File>sql/NFP/mali_dlc_babylon.sql</File>
 		</UpdateDatabase>
-		
+
 		<!-- Doesn't exist ?
 		<UpdateDatabase id="bbg_nfp_babylon_cs" criteria="nfp_babylon">
 			<Properties>
@@ -856,7 +856,7 @@
 			<Criteria>XP2</Criteria>
 			<File>sql/LP/Sultan.sql</File>
 		</UpdateDatabase>
-		
+
 		<UpdateDatabase id="BBG_Warlords">
 			<Properties>
 				<LoadOrder>11655</LoadOrder>
@@ -904,7 +904,7 @@
 			</Properties>
 			<Criteria>RulersChina</Criteria>
 			<Criteria>XP2</Criteria>
-			<File>sql/LP/lp_qin_unifier_xp2.sql</File>	
+			<File>sql/LP/lp_qin_unifier_xp2.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_Builders">
 			<Properties>
@@ -1038,7 +1038,7 @@
 	      </Properties>
 	      <Criteria>core_bbcc</Criteria>
 	      <File>sql/bbcc/core_bbcc.sql</File>
-	    </UpdateDatabase>	    
+	    </UpdateDatabase>
 	    <UpdateDatabase id="no_rng_bbcc_db">
 	      <Properties>
 	          <LoadOrder>11663</LoadOrder>
@@ -1133,7 +1133,7 @@
 			<File>sql/victories/new_bbg_dv_1.sql</File>
 			<File>sql/victories/new_bbg_sv_1.sql</File>
 			<File>sql/victories/new_bbg_cv.sql</File>
-		</UpdateDatabase>	
+		</UpdateDatabase>
 		<UpdateDatabase id="GlobalVictorySetting_2">
 			<Properties>
 				<LoadOrder>20000</LoadOrder>
@@ -1144,7 +1144,7 @@
 			<File>sql/victories/new_bbg_sv_2.sql</File>
 			<File>sql/victories/new_bbg_cv.sql</File>
 			<File>sql/victories/new_bbg_cv_2.sql</File>
-		</UpdateDatabase>	
+		</UpdateDatabase>
 		<UpdateDatabase id="GlobalVictorySetting_BBG_Legacy">
 			<Properties>
 				<LoadOrder>20000</LoadOrder>
@@ -1487,14 +1487,14 @@
 		<File>ui/replacements/compatibility/traderoutechooser.lua</File>
 		<File>ui/replacements/compatibility/tradeoverview.lua</File>
 		<!--
-		<File>ui/bbg_customplacement.lua</File>		
+		<File>ui/bbg_customplacement.lua</File>
 		<File>ui/replacements/strategicview_mapplacement.lua</File>
 		-->
 
 		<File>data/new_bbg_icons.xml</File>
 		<File>config/config.xml</File>
 		<File>config/config.sql</File>
-		
+
 		<File>sql/victories/new_bbg_cv_2.sql</File>
 		<File>sql/victories/new_bbg_sv_2.sql</File>
 		<File>sql/victories/new_bbg_dv_2.sql</File>
