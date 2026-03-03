@@ -178,18 +178,29 @@ INSERT INTO BeliefModifiers(BeliefType, ModifierID) VALUES
 -- ==========================  
 
 -- 02/01/26 Fire goddess 2 faith near volcano and +1 faith on volcanic soil. 3 faith on geotermal (same as now).
+-- 02/03/26 Pebbleton : fix with bbm wonders, moved code to here from lady and marsh
 
+--volcanic soil
 UPDATE ModifierArguments SET Value=1 WHERE ModifierId='GODDESS_OF_FIRE_FEATURES_FAITH_MODIFIER' AND Name='Amount';
 DELETE FROM RequirementSetRequirements WHERE RequirementSetId='PLOT_HAS_GODDES_FIRE_REQUIREMENTS' AND RequirementId='REQUIRES_PLOT_HAS_GEOTHERMAL_FIISSURE';
 
+--volcano
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_TILE_ADJACENT_TO_VOLCANO_REQSET', 'REQUIREMENTSET_TEST_ANY');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) 
-    SELECT 'BBG_TILE_ADJACENT_TO_VOLCANO_REQSET', 'BBG_TILE_ADJACENT_TO_' || FeatureType FROM Features_XP2 WHERE Features_XP2.Volcano=1;
 INSERT INTO Requirements (RequirementId, RequirementType)
     SELECT 'BBG_TILE_ADJACENT_TO_' || FeatureType, 'REQUIREMENT_PLOT_ADJACENT_FEATURE_TYPE_MATCHES' FROM Features_XP2 WHERE Features_XP2.Volcano=1;
+INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) 
+    SELECT 'BBG_TILE_ADJACENT_TO_' || WonderType, 'REQUIREMENT_PLOT_ADJACENT_FEATURE_TYPE_MATCHES' FROM WonderTerrainFeature_BBG WHERE WonderTerrainFeature_BBG.FeatureType='FEATURE_VOLCANO';
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) 
+    SELECT 'BBG_TILE_ADJACENT_TO_VOLCANO_REQSET', 'BBG_TILE_ADJACENT_TO_' || FeatureType FROM Features_XP2 WHERE Features_XP2.Volcano=1;
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId) 
+    SELECT 'BBG_TILE_ADJACENT_TO_VOLCANO_REQSET', 'BBG_TILE_ADJACENT_TO_' || WonderType FROM WonderTerrainFeature_BBG WHERE WonderTerrainFeature_BBG.FeatureType='FEATURE_VOLCANO';
+
 INSERT INTO RequirementArguments (RequirementId, Name, Value)
     SELECT 'BBG_TILE_ADJACENT_TO_' || FeatureType, 'FeatureType', FeatureType FROM Features_XP2 WHERE Features_XP2.Volcano=1;
+INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value)
+    SELECT 'BBG_TILE_ADJACENT_TO_' || WonderType, 'FeatureType', WonderType FROM WonderTerrainFeature_BBG WHERE WonderTerrainFeature_BBG.FeatureType='FEATURE_VOLCANO';
 
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_FIRE_GODDESS_NEXT_VOLCANO_GIVER', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
@@ -201,10 +212,31 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 INSERT INTO BeliefModifiers(BeliefType, ModifierID) VALUES
     ('BELIEF_GODDESS_OF_FIRE', 'BBG_FIRE_GODDESS_NEXT_VOLCANO_GIVER');
 
+--geothermal
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-    ('BBG_TILE_HAS_GEOTHERMAL_REQSET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-    ('BBG_TILE_HAS_GEOTHERMAL_REQSET', 'REQUIRES_PLOT_HAS_GEOTHERMAL_FIISSURE');
+    ('BBG_TILE_HAS_GEOTHERMAL_REQSET', 'REQUIREMENTSET_TEST_ANY');
+
+INSERT INTO Requirements(RequirementId, RequirementType) --vanilla geothermal fissure
+    VALUES('BBG_TILE_IS_FISSURE_FEATURE_GEOTHERMAL_FISSURE', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES');
+
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) --bbm wonders with geothermal fissure
+    SELECT 'BBG_TILE_IS_FISSURE_'||WonderTerrainFeature_BBG.WonderType, 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
+    FROM WonderTerrainFeature_BBG WHERE WonderTerrainFeature_BBG.FeatureType='FEATURE_GEOTHERMAL_FISSURE';
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+    VALUES('BBG_TILE_HAS_GEOTHERMAL_REQSET', 'BBG_TILE_IS_FISSURE_FEATURE_GEOTHERMAL_FISSURE');
+
+INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
+    SELECT 'BBG_TILE_HAS_GEOTHERMAL_REQSET', 'BBG_TILE_IS_FISSURE_'||WonderTerrainFeature_BBG.WonderType
+    FROM WonderTerrainFeature_BBG WHERE WonderTerrainFeature_BBG.FeatureType='FEATURE_GEOTHERMAL_FISSURE';
+
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value)
+    SELECT 'BBG_TILE_IS_FISSURE_FEATURE_GEOTHERMAL_FISSURE', 'FeatureType', 'FEATURE_GEOTHERMAL_FISSURE';
+INSERT INTO RequirementArguments (RequirementId, Name, Value)
+    SELECT 'BBG_TILE_IS_FISSURE_' || WonderType, 'FeatureType', WonderType
+    FROM WonderTerrainFeature_BBG WHERE WonderTerrainFeature_BBG.FeatureType='FEATURE_GEOTHERMAL_FISSURE';
+
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_FIRE_GODDESS_GEOTHERMAL_GIVER', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
     ('BBG_FIRE_GODDESS_GEOTHERMAL_MODIFIER', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'BBG_TILE_HAS_GEOTHERMAL_REQSET');
@@ -400,22 +432,7 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     AND AbstractModifiers.Name = 'FeatureType'
     AND AbstractModifiers.ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES'
     AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType' AND ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
---updating reqs for fire godess
-INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType)
-    SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES'
-    FROM WonderTerrainFeature_BBG WHERE FeatureType IN  ('FEATURE_GEOTHERMAL_FISSURE', 'FEATURE_VOLCANIC_SOIL');
-INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value)
-    SELECT 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG', 'FeatureType', WonderTerrainFeature_BBG.WonderType
-    FROM WonderTerrainFeature_BBG WHERE FeatureType IN  ('FEATURE_GEOTHERMAL_FISSURE', 'FEATURE_VOLCANIC_SOIL');
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
-    SELECT DISTINCT AbstractModifiers.SubjectRequirementSetId, 'REQ_'||WonderTerrainFeature_BBG.WonderType||'_BBG'
-    FROM AbstractModifiers
-    LEFT JOIN WonderTerrainFeature_BBG
-    WHERE WonderTerrainFeature_BBG.FeatureType IN ('FEATURE_GEOTHERMAL_FISSURE', 'FEATURE_VOLCANIC_SOIL')
-    AND AbstractModifiers.Name = 'FeatureType'
-    AND AbstractModifiers.ParentObjectID = 'BELIEF_GODDESS_OF_FIRE'
-    AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType' AND ParentObjectID = 'BELIEF_GODDESS_OF_FIRE');
-DELETE FROM AbstractModifiers WHERE ParentObjectID IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'BELIEF_GODDESS_OF_FIRE');
+DELETE FROM AbstractModifiers WHERE ParentObjectID IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
 
 
 -- Earth Godess +1 faith on appeal
