@@ -461,7 +461,10 @@ UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='SPORTSMEDIA_
 -- [NEW] Deployable Infrastructure (old Defense of the Motherlands) : No longer remove war weariness from combat in your territory. Is now a red card.
 UPDATE Policies SET GovernmentSlotType='SLOT_MILITARY' WHERE PolicyType='POLICY_DEFENSE_OF_MOTHERLAND';
 DELETE FROM PolicyModifiers WHERE ModifierId='DEFENSEOFMOTHERLAND_DOMESTICWARWEARINESS' AND PolicyType='POLICY_DEFENSE_OF_MOTHERLAND';
-
+-- 16/03/26 Reduce effect to 50%
+UPDATE ModifierArguments SET Value=50 WHERE ModifierId='DEFENSEOFMOTHERLAND_ATOMIC_SUPPORT_PRODUCTION' AND Name='Amount';
+UPDATE ModifierArguments SET Value=50 WHERE ModifierId='DEFENSEOFMOTHERLAND_MODERN_SUPPORT_PRODUCTION' AND Name='Amount';
+UPDATE ModifierArguments SET Value=50 WHERE ModifierId='DEFENSEOFMOTHERLAND_INFORMATION_SUPPORT_PRODUCTION' AND Name='Amount';
 
 -- Arm’s Race : Red Card, +25% toward nukes production. Unlocked at Nuclear Program.
 INSERT INTO Types(Type, Kind) VALUES
