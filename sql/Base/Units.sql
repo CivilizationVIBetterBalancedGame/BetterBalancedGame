@@ -65,6 +65,9 @@ UPDATE ModifierArguments SET Value='20' WHERE ModifierId='GDR_AA_DEFENSE' AND Na
 -- 08/04/25 Reverted
 -- UPDATE Units SET PurchaseYield=NULL WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
 
+-- === RANGE UNITS ===--
+-- 16/03/26 Reduce promotion from garnison to 7 (from 10)
+UPDATE ModifierArguments SET Value='7' WHERE ModifierId='GARRISON_BONUS_DISTRICTS' AND Name='Amount';
 
 -- === RECON UNITS ===--
 -- 1 sight after ranger
