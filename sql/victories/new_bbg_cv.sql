@@ -96,3 +96,6 @@ UPDATE Civics SET Description='LOC_CIVIC_OPERA_BALLET_DESCRIPTION' WHERE CivicTy
 
 -- 16/03/26 Increase culture cost of Future Civic by 50%
 UPDATE Civics SET Cost=Cost*1.5 WHERE EraType='ERA_FUTURE';
+
+-- 16/03/26 Archeological museums +2 base culture : 2 -> 4
+UPDATE Building_YieldChanges SET YieldChange=4 WHERE YieldType='YIELD_CULTURE' AND BuildingType='BUILDING_MUSEUM_ARTIFACT';
