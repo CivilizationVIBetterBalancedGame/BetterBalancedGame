@@ -538,7 +538,11 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 -- 30/06/25 Terracota no longer work on naval and air units
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET' WHERE ModifierId='TERRACOTTA_ARMY_LEVEL_UP_UNITS';
-
+-- 17/03/26 Terracota can be placed in all flat terrain
+INSERT OR IGNORE INTO Building_ValidTerrains (BuildingType, TerrainType) VALUES
+	('BUILDING_TERRACOTTA_ARMY', 'TERRAIN_SNOW'),
+	('BUILDING_TERRACOTTA_ARMY', 'TERRAIN_TUNDRA'),
+	('BUILDING_TERRACOTTA_ARMY', 'TERRAIN_DESERT');
 INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
 	('BBG_REQUIRES_UNIT_IS_NOT_NAVAL', 'REQUIREMENT_UNIT_DOMAIN_MATCHES', 1),
 	('BBG_REQUIRES_UNIT_IS_NOT_AIR', 'REQUIREMENT_UNIT_DOMAIN_MATCHES', 1);
