@@ -146,6 +146,9 @@ UPDATE ModifierArguments SET Value=15 WHERE Name='STADIUM_10_POPULATION_TOURISM'
 UPDATE Buildings SET Cost=120 WHERE BuildingType='BUILDING_AMPHITHEATER';
 UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_AMPHITHEATER' AND YieldType='YIELD_CULTURE';
 
+-- 16/03/26 Archeological museums +2 base culture : 2 -> 4
+UPDATE Building_YieldChanges SET YieldChange=4 WHERE YieldType='YIELD_CULTURE' AND BuildingType='BUILDING_MUSEUM_ARTIFACT';
+
 -- 17/12/25 Seaport advanced to Steam Power
 UPDATE Buildings SET PrereqTech='TECH_STEAM_POWER' WHERE BuildingType='BUILDING_SEAPORT';
 -- 17/12/25 Sea Port production cost reduced to 360 (from 440)
