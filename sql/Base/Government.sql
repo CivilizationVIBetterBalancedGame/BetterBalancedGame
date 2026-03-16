@@ -1,29 +1,10 @@
 --==============================================================================================
 --******				GOVERNMENT						   ******
 --==============================================================================================
--- fascism attack bonus works on defense now too
-UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_ATTACK_BUFF';
-UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_LEGACY_ATTACK_BUFF';
 
--- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
-UPDATE Governments SET OtherGovernmentIntolerance=0 WHERE GovernmentType='GOVERNMENT_DEMOCRACY';
-UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_FASCISM';
-UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_COMMUNISM';
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='COLLECTIVIZATION_INTERNAL_TRADE_PRODUCTION' AND Name='Amount';
-
--- Government slot
-UPDATE Government_SlotCounts SET NumSlots=1 WHERE GovernmentType='GOVERNMENT_MERCHANT_REPUBLIC' AND GovernmentSlotType='SLOT_DIPLOMATIC';
-UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_MERCHANT_REPUBLIC' AND GovernmentSlotType='SLOT_WILDCARD';
-
--- 11/12/22 Communism -1 red card +1 yellow card
--- 15/12/24 -1 yellow +1 wildcard
-UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_MILITARY';
--- UPDATE Government_SlotCounts SET NumSlots=4 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_ECONOMIC';
-UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_WILDCARD';
-
--- 15/10/23 Theocracy discount from 15 to 10%
--- 10/03/24 Reverted
--- UPDATE ModifierArguments SET Value=10 WHERE ModifierId='THEOCRACY_FAITH_PURCHASE' and Name='Amount';
+-- ==============================================================
+-- ***                          AUTOCRACY                     *** 
+-- ============================================================== 
 
 -- 10/03/24 Autocracy gives 1 food and production to monument if the city have at least one district
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
@@ -42,6 +23,31 @@ INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
 INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
     ('POLICY_GOV_AUTOCRACY', 'BBG_MONUMENT_FOOD_AUTOCRACY_1_DISTRICT'),
     ('POLICY_GOV_AUTOCRACY', 'BBG_MONUMENT_PRODUCTION_AUTOCRACY_1_DISTRICT');
+
+-- ==============================================================
+-- ***                  MERCHANT REPUBLIC                     *** 
+-- ============================================================== 
+
+-- Government slot
+UPDATE Government_SlotCounts SET NumSlots=1 WHERE GovernmentType='GOVERNMENT_MERCHANT_REPUBLIC' AND GovernmentSlotType='SLOT_DIPLOMATIC';
+UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_MERCHANT_REPUBLIC' AND GovernmentSlotType='SLOT_WILDCARD';
+
+
+-- ==============================================================
+-- ***                          THEOCRACY                     *** 
+-- ============================================================== 
+
+-- 15/10/23 Theocracy discount from 15 to 10%
+-- 10/03/24 Reverted
+-- UPDATE ModifierArguments SET Value=10 WHERE ModifierId='THEOCRACY_FAITH_PURCHASE' and Name='Amount';
+
+
+-- ==============================================================
+-- ***                          DEMOCRACY                     *** 
+-- ============================================================== 
+
+-- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
+UPDATE Governments SET OtherGovernmentIntolerance=0 WHERE GovernmentType='GOVERNMENT_DEMOCRACY';
 
 -- 17/12/25 Democracy rework 
 -- New Deal is now a Joker card.
@@ -116,6 +122,16 @@ INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
     ('GOVERNMENT_DEMOCRACY', 'BBG_DEMOCRACY_EMPIRE_EUPHORIC_GOLD'),
     ('GOVERNMENT_DEMOCRACY', 'BBG_DEMOCRACY_EMPIRE_EUPHORIC_FAITH');
 
+-- ==============================================================
+-- ***                          FASCISM                       *** 
+-- ============================================================== 
+
+-- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
+UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_FASCISM';
+
+-- fascism attack bonus works on defense now too
+UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_ATTACK_BUFF';
+UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_LEGACY_ATTACK_BUFF';
 
 -- Facism rework
 -- Martial Law (Joker Card) : War weariness reduction increased to 50% (from 25) and cities with garrisoned units get +10 loyalty per turn (from 4)
@@ -133,6 +149,18 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_NOT_IN_TERRITORY_REQSET' WHERE ModifierId IN ('FASCISM_ATTACK_BUFF', 'FASCISM_LEGACY_ATTACK_BUFF');
 -- Government bonus : +50% Production on units. (no change)
 
+-- ==============================================================
+-- ***                          COMMUNISM                     *** 
+-- ============================================================== 
+
+-- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
+UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_COMMUNISM';
+
+-- 11/12/22 Communism -1 red card +1 yellow card
+-- 15/12/24 -1 yellow +1 wildcard
+UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_MILITARY';
+-- UPDATE Government_SlotCounts SET NumSlots=4 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_ECONOMIC';
+UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_WILDCARD';
 
 -- Communism rework 
 DELETE FROM PolicyModifiers WHERE ModifierId='COMMUNISM_PRODUCTIVE_PEOPLE' AND PolicyType='POLICY_GOV_COMMUNISM';

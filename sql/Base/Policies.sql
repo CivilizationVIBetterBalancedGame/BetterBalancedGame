@@ -306,6 +306,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- 18/12/25 Protectionism : Yellow Card, +4 Food/Production to internal traderoutes. Unlocked at Ideology. [Using the old protectionism card from communism]
 UPDATE Policies SET PrereqCivic='CIVIC_IDEOLOGY' WHERE PolicyType='POLICY_COLLECTIVIZATION';
+-- moved from communism to ideology, from government to policy file
+UPDATE ModifierArguments SET Value='4' WHERE ModifierId='COLLECTIVIZATION_INTERNAL_TRADE_PRODUCTION' AND Name='Amount';
 
 
 -- 18/12/25 Military Research : [OLD] +2 Science from Mili Academies, Seaports and Renaissance Wall 
