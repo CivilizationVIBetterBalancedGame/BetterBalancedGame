@@ -566,3 +566,5 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 UPDATE Buildings SET PrereqCivic='CIVIC_CAPITALISM' WHERE BuildingType='BUILDING_BIG_BEN';
 UPDATE Buildings SET PrereqTech=NULL WHERE BuildingType='BUILDING_BIG_BEN';
 
+-- 16/03/26 Pyramids no longer give free builder
+DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_PYRAMIDS' AND ModifierId='PYRAMID_GRANT_BUILDERS';
