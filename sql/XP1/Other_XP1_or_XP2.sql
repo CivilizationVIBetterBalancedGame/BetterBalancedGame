@@ -193,7 +193,8 @@ INSERT INTO CommemorationModifiers (CommemorationType, ModifierId) VALUES
 -- INSERT OR IGNORE INTO CommemorationModifiers (CommemorationType, ModifierId)
 
 -- 19/03/2024 free inquiry boost nerf (10% -> 5%)
-UPDATE ModifierArguments SET Value='5' WHERE ModifierId='COMMEMORATION_SCIENTIFIC_GA_BOOSTS' AND Name='Amount';
+-- 16/03/26 revert free inquiry boost nerf (5% -> 10%)
+--UPDATE ModifierArguments SET Value='5' WHERE ModifierId='COMMEMORATION_SCIENTIFIC_GA_BOOSTS' AND Name='Amount';
 
 -- 25/06/25 New Commemoration order
 -- Third Era (70-90 turns) : Hic Sunt, Reform, To Arms & Heartbeat
