@@ -394,7 +394,7 @@ INSERT INTO AbstractModifiers(ParentObjectID, ModifierAId, ModifierAType, Modifi
     LEFT JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
     LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId
     WHERE
-    BeliefModifiers.BeliefType IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'BELIEF_GODDESS_OF_FIRE');
+    BeliefModifiers.BeliefType IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
 INSERT OR IGNORE INTO AbstractModifiers(ParentObjectID, ModifierBId, SubjectRequirementSetId, RequirementSetType, RequirementId, RequirementType, Inverse, Name, Value)
     SELECT CASE
     WHEN AbstractModifiers.ModifierAType LIKE '%ATTACH_MODIFIER%' 
@@ -433,7 +433,6 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     AND AbstractModifiers.ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES'
     AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType' AND ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
 DELETE FROM AbstractModifiers WHERE ParentObjectID IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
-
 
 -- Earth Godess +1 faith on appeal
 UPDATE Modifiers SET SubjectRequirementSetId='PLOT_CHARMING_APPEAL' WHERE ModifierId='EARTH_GODDESS_APPEAL_FAITH_MODIFIER';

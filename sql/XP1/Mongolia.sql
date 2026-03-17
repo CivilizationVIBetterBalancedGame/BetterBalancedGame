@@ -26,7 +26,8 @@ UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_ORDU
 
 
 -- 08/04/25 Ordu movement now only works if unit starts turn on flat terrain
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_IS_FLAT' WHERE ModifierId='ORDU_ADJUST_MOVEMENT';
+-- 16/03/26 revert
+--UPDATE Modifiers SET SubjectRequirementSetId='BBG_PLOT_IS_FLAT' WHERE ModifierId='ORDU_ADJUST_MOVEMENT';
 
 -- 19/12/25 Genghis' bonuses no longer work for heavy cav
 DELETE FROM TypeTags WHERE Tag='CLASS_HEAVY_CAVALRY' AND Type IN ('ABILITY_GENGHIS_KHAN_CAVALRY_BONUS', 'ABILITY_GENGHIS_KHAN_CAVALRY_CAPTURE_CAVALRY');

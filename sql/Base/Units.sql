@@ -65,6 +65,9 @@ UPDATE ModifierArguments SET Value='20' WHERE ModifierId='GDR_AA_DEFENSE' AND Na
 -- 08/04/25 Reverted
 -- UPDATE Units SET PurchaseYield=NULL WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
 
+-- === RANGE UNITS ===--
+-- 16/03/26 Reduce promotion from garnison to 7 (from 10)
+UPDATE ModifierArguments SET Value='7' WHERE ModifierId='GARRISON_BONUS_DISTRICTS' AND Name='Amount';
 
 -- === RECON UNITS ===--
 -- 1 sight after ranger
@@ -418,3 +421,35 @@ UPDATE Units SET CostProgressionModel='COST_PROGRESSION_GAME_PROGRESS', CostProg
 
 -- 15/12/24 Spy can stack so Wu can faith buy spies when there is one opponent in they city 
 UPDATE Units SET Stackable=1 WHERE UnitType='UNIT_SPY';
+
+--=======================================================================
+--******                    FORTIFY                                ******
+--=======================================================================
+-- 16/03/26 Cavalery cannot fortify, heal or alert. (except from fort/walls)
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_CAVALRY_NO_FORTIFY', 'MODIFIER_ALL_UNITS_DISABLE_OPERATION'),
+    ('BBG_CAVALRY_NO_FORTIFY_HEAL', 'MODIFIER_ALL_UNITS_DISABLE_OPERATION'),
+    ('BBG_CAVALRY_NO_FORTIFY_ALERT', 'MODIFIER_ALL_UNITS_DISABLE_OPERATION'); 
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_CAVALRY_NO_FORTIFY', 'OperationType', 'UNITOPERATION_FORTIFY'),
+    ('BBG_CAVALRY_NO_FORTIFY_HEAL', 'OperationType', 'UNITOPERATION_HEAL'),
+    ('BBG_CAVALRY_NO_FORTIFY_ALERT', 'OperationType', 'UNITOPERATION_ALERT');
+
+INSERT INTO Types (Type, Kind) VALUES
+    ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'KIND_ABILITY');
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'CLASS_HEAVY_CAVALRY'),
+    ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'CLASS_LIGHT_CAVALRY'),
+    ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'CLASS_RANGED_CAVALRY');
+
+INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
+    ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'LOC_BBG_CAVALRY_NO_FORTIFY_NAME', 'LOC_BBG_CAVALRY_NO_FORTIFY_DESC');
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+    ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'BBG_CAVALRY_NO_FORTIFY'),
+    ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'BBG_CAVALRY_NO_FORTIFY_HEAL'),
+    ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'BBG_CAVALRY_NO_FORTIFY_ALERT');
+
+INSERT INTO ModifierStrings (ModifierId , Context , Text) VALUES
+    ('BBG_CAVALRY_NO_FORTIFY', 'Preview', 'LOC_BBG_ABILITY_CAVALRY_NO_FORTIFY_DESC'),
+    ('BBG_CAVALRY_NO_FORTIFY_HEAL', 'Preview', 'LOC_BBG_ABILITY_CAVALRY_NO_FORTIFY_DESC'),
+    ('BBG_CAVALRY_NO_FORTIFY_ALERT', 'Preview', 'LOC_BBG_ABILITY_CAVALRY_NO_FORTIFY_DESC');

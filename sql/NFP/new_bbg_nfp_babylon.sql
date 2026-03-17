@@ -39,7 +39,8 @@ INSERT INTO GameModifiers (ModifierId) VALUES
 
 -- 2020/12/20 - Ayutthaya Culture buff (10% => 20%) IT WAS FIXED BY FIRAXIS <==================================================================
 -- 20%
-UPDATE ModifierArguments SET Value=20 WHERE ModifierId='MINOR_CIV_AYUTTHAYA_CULTURE_COMPLETE_BUILDING' AND Name='BuildingProductionPercent';
+-- 17/03/26 - to 15% 
+UPDATE ModifierArguments SET Value=15 WHERE ModifierId='MINOR_CIV_AYUTTHAYA_CULTURE_COMPLETE_BUILDING' AND Name='BuildingProductionPercent';
 
 -- Scenario: Building momument on Online speed with 30 production code
 -- BuildingProductionPercent    Faith   Percentage

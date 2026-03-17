@@ -1,29 +1,10 @@
 --==============================================================================================
 --******				GOVERNMENT						   ******
 --==============================================================================================
--- fascism attack bonus works on defense now too
-UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_ATTACK_BUFF';
-UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_LEGACY_ATTACK_BUFF';
 
--- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
-UPDATE Governments SET OtherGovernmentIntolerance=0 WHERE GovernmentType='GOVERNMENT_DEMOCRACY';
-UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_FASCISM';
-UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_COMMUNISM';
-UPDATE ModifierArguments SET Value='4' WHERE ModifierId='COLLECTIVIZATION_INTERNAL_TRADE_PRODUCTION' AND Name='Amount';
-
--- Government slot
-UPDATE Government_SlotCounts SET NumSlots=1 WHERE GovernmentType='GOVERNMENT_MERCHANT_REPUBLIC' AND GovernmentSlotType='SLOT_DIPLOMATIC';
-UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_MERCHANT_REPUBLIC' AND GovernmentSlotType='SLOT_WILDCARD';
-
--- 11/12/22 Communism -1 red card +1 yellow card
--- 15/12/24 -1 yellow +1 wildcard
-UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_MILITARY';
--- UPDATE Government_SlotCounts SET NumSlots=4 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_ECONOMIC';
-UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_WILDCARD';
-
--- 15/10/23 Theocracy discount from 15 to 10%
--- 10/03/24 Reverted
--- UPDATE ModifierArguments SET Value=10 WHERE ModifierId='THEOCRACY_FAITH_PURCHASE' and Name='Amount';
+-- ==============================================================
+-- ***                          AUTOCRACY                     *** 
+-- ============================================================== 
 
 -- 10/03/24 Autocracy gives 1 food and production to monument if the city have at least one district
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
@@ -42,6 +23,90 @@ INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
 INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
     ('POLICY_GOV_AUTOCRACY', 'BBG_MONUMENT_FOOD_AUTOCRACY_1_DISTRICT'),
     ('POLICY_GOV_AUTOCRACY', 'BBG_MONUMENT_PRODUCTION_AUTOCRACY_1_DISTRICT');
+
+-- ==============================================================
+-- ***                  MERCHANT REPUBLIC                     *** 
+-- ============================================================== 
+
+-- Government slot
+UPDATE Government_SlotCounts SET NumSlots=1 WHERE GovernmentType='GOVERNMENT_MERCHANT_REPUBLIC' AND GovernmentSlotType='SLOT_DIPLOMATIC';
+UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_MERCHANT_REPUBLIC' AND GovernmentSlotType='SLOT_WILDCARD';
+
+-- 16/03/26 new legacy bonus : +1 pm for boats and embarked units
+--boat movement bonus
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_MERCHANT_REPUBLIC_SEA_MOVEMENT', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY'),
+    ('BBG_MERCHANT_REPUBLIC_MOVEMENT_BUFF', 'MODIFIER_PLAYER_UNIT_ADJUST_SEA_MOVEMENT');
+INSERT INTO UnitAbilities (UnitAbilityType, Name, Description, Inactive) VALUES
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_MOVEMENT', 'LOC_BBG_ABILITY_MERCHANT_REPUBLIC_MOVEMENT_NAME', 'LOC_BBG_ABILITY_MERCHANT_REPUBLIC_MOVEMENT_DESC', 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MERCHANT_REPUBLIC_SEA_MOVEMENT', 'AbilityType', 'BBG_ABILITY_MERCHANT_REPUBLIC_MOVEMENT'),
+    ('BBG_MERCHANT_REPUBLIC_MOVEMENT_BUFF', 'Amount', 1);
+INSERT INTO UnitAbilityModifiers (UnitAbilityType, ModifierId) VALUES
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_MOVEMENT', 'BBG_MERCHANT_REPUBLIC_MOVEMENT_BUFF');
+-- embarked movement bonus
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'MODIFIER_PLAYER_ADJUST_EMBARKED_MOVEMENT');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'Amount', 1);
+-- embarked movement text only (for tooltip)
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_MERCHANT_REPUBLIC_ADD_EMBARKED_ABILITY_TEXT_ONLY', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY');
+INSERT INTO UnitAbilities (UnitAbilityType, Name, Description, Inactive) VALUES
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'LOC_BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT_NAME', 'LOC_BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT_DESC', 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_MERCHANT_REPUBLIC_ADD_EMBARKED_ABILITY_TEXT_ONLY', 'AbilityType', 'BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT');
+
+
+INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
+    ('GOVERNMENT_MERCHANT_REPUBLIC', 'BBG_MERCHANT_REPUBLIC_SEA_MOVEMENT'),
+    ('GOVERNMENT_MERCHANT_REPUBLIC', 'BBG_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT'),
+    ('GOVERNMENT_MERCHANT_REPUBLIC', 'BBG_MERCHANT_REPUBLIC_ADD_EMBARKED_ABILITY_TEXT_ONLY');
+
+INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
+    ('POLICY_GOV_MERCHANT_REPUBLIC', 'BBG_MERCHANT_REPUBLIC_SEA_MOVEMENT'),
+    ('POLICY_GOV_MERCHANT_REPUBLIC', 'BBG_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT'),
+    ('POLICY_GOV_MERCHANT_REPUBLIC', 'BBG_MERCHANT_REPUBLIC_ADD_EMBARKED_ABILITY_TEXT_ONLY');
+
+INSERT INTO Types(Type, Kind) VALUES
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_MOVEMENT', 'KIND_ABILITY');
+INSERT INTO TypeTags(Type, Tag) VALUES
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_MOVEMENT', 'CLASS_NAVAL_MELEE'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_MOVEMENT', 'CLASS_NAVAL_RANGED'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_MOVEMENT', 'CLASS_NAVAL_RAIDER'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_MOVEMENT', 'CLASS_NAVAL_CARRIER');
+INSERT INTO Types(Type, Kind) VALUES
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'KIND_ABILITY');
+INSERT INTO TypeTags(Type, Tag) VALUES
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_ANTI_CAVALRY'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_HEAVY_CAVALRY'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_LANDCIVILIAN'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_LIGHT_CAVALRY'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_MELEE'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_RANGED'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_RECON'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_RELIGIOUS'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_SIEGE'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_WARRIOR_MONK'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_GIANT_DEATH_ROBOT'),
+    ('BBG_ABILITY_MERCHANT_REPUBLIC_EMBARKED_MOVEMENT', 'CLASS_SUPPORT');
+
+
+-- ==============================================================
+-- ***                          THEOCRACY                     *** 
+-- ============================================================== 
+
+-- 15/10/23 Theocracy discount from 15 to 10%
+-- 10/03/24 Reverted
+-- UPDATE ModifierArguments SET Value=10 WHERE ModifierId='THEOCRACY_FAITH_PURCHASE' and Name='Amount';
+
+
+-- ==============================================================
+-- ***                          DEMOCRACY                     *** 
+-- ============================================================== 
+
+-- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
+UPDATE Governments SET OtherGovernmentIntolerance=0 WHERE GovernmentType='GOVERNMENT_DEMOCRACY';
 
 -- 17/12/25 Democracy rework 
 -- New Deal is now a Joker card.
@@ -65,7 +130,19 @@ INSERT INTO Policy_GovernmentExclusives_XP2 (PolicyType, GovernmentType) VALUES
     ('POLICY_PROSPERITY_PACT', 'GOVERNMENT_DEMOCRACY');
 
 -- Legacy Effect : Traderoute 
-DELETE FROM GovernmentModifiers WHERE ModifierId IN ('DEMOCRACY_TRADEROUTEPRODUCTIONTOALLY', 'DEMOCRACY_TRADEROUTEPRODUCTIONFROMALLY', 'DEMOCRACY_TRADEROUTEPRODUCTIONTOSUZERAIN', 'DEMOCRACY_TRADEROUTEPRODUCTIONFROMSUZERAIN', 'DEMOCRACY_ALLIANCEPOINTS');
+-- 16/03/26 Democracy yields from 4f/8g to 5f/2p/4g
+--DELETE FROM GovernmentModifiers WHERE ModifierId IN ('DEMOCRACY_TRADEROUTEPRODUCTIONTOALLY', 'DEMOCRACY_TRADEROUTEPRODUCTIONFROMALLY', 'DEMOCRACY_TRADEROUTEPRODUCTIONTOSUZERAIN', 'DEMOCRACY_TRADEROUTEPRODUCTIONFROMSUZERAIN', 'DEMOCRACY_ALLIANCEPOINTS');
+DELETE FROM GovernmentModifiers WHERE ModifierId='DEMOCRACY_ALLIANCEPOINTS';
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='DEMOCRACY_TRADEROUTEFOODTOALLY' AND Name='Amount';
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='DEMOCRACY_TRADEROUTEFOODFROMALLY' AND Name='Amount';
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='DEMOCRACY_TRADEROUTEFOODTOSUZERAIN' AND Name='Amount';
+UPDATE ModifierArguments SET Value=5 WHERE ModifierId='DEMOCRACY_TRADEROUTEFOODFROMSUZERAIN' AND Name='Amount';
+
+
+UPDATE ModifierArguments SET Value=2 WHERE ModifierId='DEMOCRACY_TRADEROUTEPRODUCTIONTOALLY' AND Name='Amount';
+UPDATE ModifierArguments SET Value=2 WHERE ModifierId='DEMOCRACY_TRADEROUTEPRODUCTIONFROMALLY' AND Name='Amount';
+UPDATE ModifierArguments SET Value=2 WHERE ModifierId='DEMOCRACY_TRADEROUTEPRODUCTIONTOSUZERAIN' AND Name='Amount';
+UPDATE ModifierArguments SET Value=2 WHERE ModifierId='DEMOCRACY_TRADEROUTEPRODUCTIONFROMSUZERAIN' AND Name='Amount';
 
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_TO_ALLY', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_DESTINATION_YIELD_FOR_ALLY_ROUTE'),
@@ -74,13 +151,13 @@ INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
     ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_FROM_SUZERAIN', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_ORIGIN_YIELD_FOR_SUZERAIN_ROUTE');
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_TO_ALLY', 'YieldType', 'YIELD_GOLD'),
-    ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_TO_ALLY', 'Amount', 8),
+    ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_TO_ALLY', 'Amount', 4),
     ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_FROM_ALLY', 'YieldType', 'YIELD_GOLD'),
-    ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_FROM_ALLY', 'Amount', 8),
+    ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_FROM_ALLY', 'Amount', 4),
     ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_TO_SUZERAIN', 'YieldType', 'YIELD_GOLD'),
-    ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_TO_SUZERAIN', 'Amount', 8),
+    ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_TO_SUZERAIN', 'Amount', 4),
     ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_FROM_SUZERAIN', 'YieldType', 'YIELD_GOLD'),
-    ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_FROM_SUZERAIN', 'Amount', 8);
+    ('BBG_DEMOCRACY_TRADE_ROUTE_GOLD_FROM_SUZERAIN', 'Amount', 4);
 INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
     ('GOVERNMENT_DEMOCRACY', 'BBG_DEMOCRACY_TRADE_ROUTE_GOLD_TO_ALLY'),
     ('GOVERNMENT_DEMOCRACY', 'BBG_DEMOCRACY_TRADE_ROUTE_GOLD_FROM_ALLY'),
@@ -116,6 +193,16 @@ INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
     ('GOVERNMENT_DEMOCRACY', 'BBG_DEMOCRACY_EMPIRE_EUPHORIC_GOLD'),
     ('GOVERNMENT_DEMOCRACY', 'BBG_DEMOCRACY_EMPIRE_EUPHORIC_FAITH');
 
+-- ==============================================================
+-- ***                          FASCISM                       *** 
+-- ============================================================== 
+
+-- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
+UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_FASCISM';
+
+-- fascism attack bonus works on defense now too
+UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_ATTACK_BUFF';
+UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_LEGACY_ATTACK_BUFF';
 
 -- Facism rework
 -- Martial Law (Joker Card) : War weariness reduction increased to 50% (from 25) and cities with garrisoned units get +10 loyalty per turn (from 4)
@@ -130,12 +217,26 @@ INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_UNIT_NOT_IN_TERRITORY_REQSET', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_UNIT_NOT_IN_TERRITORY_REQSET', 'REQUIRES_UNIT_NOT_IN_OWNER_TERRITORY');
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_NOT_IN_TERRITORY_REQSET' WHERE ModifierId IN ('FASCISM_ATTACK_BUFF', 'FASCISM_LEGACY_ATTACK_BUFF');
+-- 17/03/26 Facism combat bonus only apply outside of your territory ONLY for legacy.
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_NOT_IN_TERRITORY_REQSET' WHERE ModifierId IN ('FASCISM_LEGACY_ATTACK_BUFF');
 -- Government bonus : +50% Production on units. (no change)
 
+-- ==============================================================
+-- ***                          COMMUNISM                     *** 
+-- ============================================================== 
+
+-- 17/12/25 intolerance to 0 for Demo and -20 for Fascism/Communism
+UPDATE Governments SET OtherGovernmentIntolerance=-30 WHERE GovernmentType='GOVERNMENT_COMMUNISM';
+
+-- 11/12/22 Communism -1 red card +1 yellow card
+-- 15/12/24 -1 yellow +1 wildcard
+UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_MILITARY';
+-- UPDATE Government_SlotCounts SET NumSlots=4 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_ECONOMIC';
+UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_WILDCARD';
 
 -- Communism rework 
-DELETE FROM PolicyModifiers WHERE ModifierId='COMMUNISM_PRODUCTIVE_PEOPLE' AND PolicyType='POLICY_GOV_COMMUNISM';
+-- 17/03/26 Revert legacy bonus
+-- DELETE FROM PolicyModifiers WHERE ModifierId='COMMUNISM_PRODUCTIVE_PEOPLE' AND PolicyType='POLICY_GOV_COMMUNISM';
 DELETE FROM GovernmentModifiers WHERE ModifierId='COMMUNISM_SCIENCE' AND GovernmentType='GOVERNMENT_COMMUNISM';
 DELETE FROM Policy_GovernmentExclusives_XP2 WHERE PolicyType='POLICY_COLLECTIVIZATION';
 -- Communism : Scientific Vanguard Joker Card : Cities with Governor receive 10% Science and Production but also -2 amenity.
@@ -187,55 +288,58 @@ INSERT INTO Policy_GovernmentExclusives_XP2 (PolicyType, GovernmentType) VALUES
     ('POLICY_KOLKHOZ', 'GOVERNMENT_COMMUNISM');
 
 -- Legacy Effect : +5 combat strength inside or adjacent to territory 
-INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
-    ('BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET', 'REQUIREMENTSET_TEST_ANY');
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-    ('BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET', 'UNIT_IN_OWNER_TERRITORY_REQUIREMENT');
+-- 17/03/26 Reverted : communism no longer give combat bonus
 
-INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
-    ('BBG_COMMUNISM_COMBAT_STRENGTH_GIVER', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY', NULL),
-    ('BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_COMMUNISM_COMBAT_STRENGTH_GIVER', 'AbilityType', 'BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY'),
-    ('BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER', 'Amount', 4);
+-- INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+--     ('BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET', 'REQUIREMENTSET_TEST_ANY');
+-- INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+--     ('BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET', 'UNIT_IN_OWNER_TERRITORY_REQUIREMENT');
 
-INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
-    ('BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER', 'Preview', 'LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC');
+-- INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+--     ('BBG_COMMUNISM_COMBAT_STRENGTH_GIVER', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY', NULL),
+--     ('BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET');
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+--     ('BBG_COMMUNISM_COMBAT_STRENGTH_GIVER', 'AbilityType', 'BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY'),
+--     ('BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER', 'Amount', 4);
 
-INSERT INTO Types(Type, Kind) VALUES
-    ('BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY', 'KIND_ABILITY');
-INSERT INTO TypeTags(Type, Tag) VALUES
-    ('BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY', 'CLASS_ALL_COMBAT_UNITS');
-INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive) VALUES
-    ('BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY', 'LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_NAME', 'LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC', 1);
-INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
-    ('BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY', 'BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER');
-INSERT INTO GovernmentModifiers(GovernmentType, ModifierId) VALUES
-    ('GOVERNMENT_COMMUNISM', 'BBG_COMMUNISM_COMBAT_STRENGTH_GIVER');
+-- INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
+--     ('BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER', 'Preview', 'LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC');
+
+-- INSERT INTO Types(Type, Kind) VALUES
+--     ('BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY', 'KIND_ABILITY');
+-- INSERT INTO TypeTags(Type, Tag) VALUES
+--     ('BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY', 'CLASS_ALL_COMBAT_UNITS');
+-- INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive) VALUES
+--     ('BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY', 'LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_NAME', 'LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC', 1);
+-- INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+--     ('BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY', 'BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER');
+-- INSERT INTO GovernmentModifiers(GovernmentType, ModifierId) VALUES
+--     ('GOVERNMENT_COMMUNISM', 'BBG_COMMUNISM_COMBAT_STRENGTH_GIVER');
 
 -- Legacy 
-DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_GOV_COMMUNISM';
+-- 17/03/26 Reverted : communism get back vanilla legacy bonus
+-- DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_GOV_COMMUNISM';
 
-INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
-    ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_GIVER', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY', NULL),
-    ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_MODIFIER', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_GIVER', 'AbilityType', 'BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY'),
-    ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_MODIFIER', 'Amount', 5);
+-- INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+--     ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_GIVER', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY', NULL),
+--     ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_MODIFIER', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_COMMUNISM_LAND_OR_ADJACENT_TO_HOME_TERRITORY_REQSET');
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+--     ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_GIVER', 'AbilityType', 'BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY'),
+--     ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_MODIFIER', 'Amount', 5);
 
-INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
-    ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_MODIFIER', 'Preview', 'LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC');
+-- INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
+--     ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_MODIFIER', 'Preview', 'LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC');
 
-INSERT INTO Types(Type, Kind) VALUES
-    ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY', 'KIND_ABILITY');
-INSERT INTO TypeTags(Type, Tag) VALUES
-    ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY', 'CLASS_ALL_COMBAT_UNITS');
-INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive) VALUES
-    ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY', 'LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_NAME', 'LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC', 1);
-INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
-    ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY', 'BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER');
-INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
-    ('POLICY_GOV_COMMUNISM', 'BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_GIVER');
+-- INSERT INTO Types(Type, Kind) VALUES
+--     ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY', 'KIND_ABILITY');
+-- INSERT INTO TypeTags(Type, Tag) VALUES
+--     ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY', 'CLASS_ALL_COMBAT_UNITS');
+-- INSERT INTO UnitAbilities(UnitAbilityType, Name, Description, Inactive) VALUES
+--     ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY', 'LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_NAME', 'LOC_BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY_DESC', 1);
+-- INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+--     ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_ABILITY', 'BBG_COMMUNISM_COMBAT_STRENGTH_MODIFIER');
+-- INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
+--     ('POLICY_GOV_COMMUNISM', 'BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_GIVER');
 
 -- Government bonus : +.6 prod per citizen in cities with a governor.
 

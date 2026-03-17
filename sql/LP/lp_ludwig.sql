@@ -48,13 +48,14 @@ UPDATE ModifierArguments SET Value = '1' WHERE ModifierId = 'LUDWIG_WONDER_ADJAC
 
 -- 10/03/2024 CHub culture bomb
 -- 19/12/25 Moved from Germany to Ludwig
-INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-	('BBG_HUB_CULTURE_BOMB', 'MODIFIER_PLAYER_ADD_CULTURE_BOMB_TRIGGER');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-	('BBG_HUB_CULTURE_BOMB', 'DistrictType', 'DISTRICT_COMMERCIAL_HUB'),
-	('BBG_HUB_CULTURE_BOMB', 'CaptureOwnedTerritory', 0);
-INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
-	('TRAIT_LEADER_LUDWIG', 'BBG_HUB_CULTURE_BOMB');
+-- 16/03/26 No more culture bomb on commercial hub
+-- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+-- 	('BBG_HUB_CULTURE_BOMB', 'MODIFIER_PLAYER_ADD_CULTURE_BOMB_TRIGGER');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+-- 	('BBG_HUB_CULTURE_BOMB', 'DistrictType', 'DISTRICT_COMMERCIAL_HUB'),
+-- 	('BBG_HUB_CULTURE_BOMB', 'CaptureOwnedTerritory', 0);
+-- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+-- 	('TRAIT_LEADER_LUDWIG', 'BBG_HUB_CULTURE_BOMB');
 
 -- 19/12/25 Ludwig excluded from encampment/hansa adj
 INSERT INTO ExcludedAdjacencies (TraitType, YieldChangeId) VALUES

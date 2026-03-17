@@ -74,7 +74,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_NKISI', 'TRAIT_DOUBLE_WRITER_POINTS');
 
--- +4 faith for each sculture and artifact
+-- +4 faith for each sculpture and artifact
 UPDATE ModifierArguments SET Value=2 WHERE Name='YieldChange' AND ModifierId IN ('TRAIT_GREAT_WORK_FAITH_SCULPTURE', 'TRAIT_GREAT_WORK_FAITH_ARTIFACT', 'TRAIT_GREAT_WORK_FAITH_RELIC');
 
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
@@ -86,6 +86,7 @@ INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_PLAYER_IS_MVEMBA_REQSET', 'BBG_PLAYER_IS_MVEMBA');
 
+-- Mvemba gets +1 gold and +0.2 culture per population in cities following a religion
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_KONGO_GOLD_PER_POPULATION_CONVERTED', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_RELIGION_REQUIREMENTS'),
     ('BBG_KONGO_GOLD_PER_POPULATION_CONVERTED_MODIFIER', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION', 'BBG_PLAYER_IS_MVEMBA_REQSET'),
@@ -98,6 +99,9 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_KONGO_CULTURE_PER_POPULATION_CONVERTED', 'ModifierId', 'BBG_KONGO_CULTURE_PER_POPULATION_CONVERTED_MODIFIER'),
     ('BBG_KONGO_CULTURE_PER_POPULATION_CONVERTED_MODIFIER', 'YieldType', 'YIELD_CULTURE'),
     ('BBG_KONGO_CULTURE_PER_POPULATION_CONVERTED_MODIFIER', 'Amount', 0.2);
+-- 10/03/26 Remove old bonus that were replaced by the above
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_RELIGIOUS_CONVERT' AND ModifierId='TRAIT_GAINS_FOUNDER_BELIEF_MAJORITY_RELIGION';
+
 
 INSERT INTO BeliefModifiers (BeliefType, ModifierID)
     SELECT BeliefType, 'BBG_KONGO_GOLD_PER_POPULATION_CONVERTED' FROM Beliefs WHERE BeliefClassType='BELIEF_CLASS_FOLLOWER' UNION
@@ -113,7 +117,7 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_NKISI', 'BBG_TRAIT_ARCHAEOLOGIST_PROD');
 
 
--- 19/12/25 merchant point moved to Mbande
+-- 19/12/25 Merchant point moved to Mbande
 DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_DOUBLE_MERCHANT_POINTS' AND TraitType='TRAIT_CIVILIZATION_NKISI';
 
 -- 19/12/25 Mvemba gets +50% general points

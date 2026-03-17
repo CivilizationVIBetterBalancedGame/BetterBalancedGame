@@ -19,7 +19,9 @@ INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_UNIT_IS_GREAT_ENGINEER_REQSET', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_UNIT_IS_GREAT_ENGINEER_REQSET', 'BBG_UNIT_IS_GREAT_ENGINEER');
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_IS_GREAT_ENGINEER_REQSET' WHERE ModifierId='SUK_GALLIC_WAR_ENVOY';
+-- 16/03/26 Remove envoy from great engineer
+-- UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_IS_GREAT_ENGINEER_REQSET' WHERE ModifierId='SUK_GALLIC_WAR_ENVOY';
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_SUK_GALLIC_WAR' AND ModifierId='SUK_GALLIC_WAR_ENVOY';
 
 -- 30/07/25 Remove free walls
 DELETE FROM TraitModifiers WHERE ModifierId='SUK_GALLIC_WAR_FREE_WALLS_DISTRICTS';
