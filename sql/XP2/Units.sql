@@ -150,8 +150,12 @@ INSERT INTO TypeTags(Type, Tag) VALUES
 INSERT INTO Types(Type, Kind) VALUES
     ('RESULT_OPENING_ACT', 'KIND_ROCKBAND_RESULT');
 
+-- ROCKBAND 
 -- 02/07/23: Nerfed scaling of rockbands
 UPDATE Unit_RockbandResults_XP2 SET AlbumSales=40 WHERE ResultType='RESULT_OPENING_ACT';
 UPDATE Unit_RockbandResults_XP2 SET AlbumSales=80 WHERE ResultType='RESULT_RISING_STARS';
 UPDATE Unit_RockbandResults_XP2 SET AlbumSales=120 WHERE ResultType='RESULT_HEADLINERS';
 UPDATE Unit_RockbandResults_XP2 SET AlbumSales=160 WHERE ResultType='RESULT_LEGENDS_OF_ROCK';
+
+-- 17/03/26 : delay Rockband to SPACE RACE
+UPDATE Units SET PrereqCivic='CIVIC_SPACE_RACE' WHERE UnitType='UNIT_ROCK_BAND';
