@@ -488,6 +488,13 @@ UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_BIOSPHERE';
 
 -- 02/07/24 Oxford moved to Urbanization from Scientific Theory
 UPDATE Buildings SET PrereqTech=NULL, PrereqCivic='CIVIC_URBANIZATION' WHERE BuildingType='BUILDING_OXFORD_UNIVERSITY';
+-- 17/03/26 Oxford can be placed in all flat terrain
+INSERT OR IGNORE INTO Building_ValidTerrains (BuildingType, TerrainType) VALUES
+	('BUILDING_OXFORD_UNIVERSITY', 'TERRAIN_PLAINS'),
+	('BUILDING_OXFORD_UNIVERSITY', 'TERRAIN_GRASS'),
+	('BUILDING_OXFORD_UNIVERSITY', 'TERRAIN_SNOW'),
+	('BUILDING_OXFORD_UNIVERSITY', 'TERRAIN_TUNDRA'),
+	('BUILDING_OXFORD_UNIVERSITY', 'TERRAIN_DESERT');
 
 -- 28/11/24 Colossus now give +2 gold to foreign traders coming to and leaving the city
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
