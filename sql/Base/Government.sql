@@ -316,7 +316,8 @@ INSERT INTO Policy_GovernmentExclusives_XP2 (PolicyType, GovernmentType) VALUES
 --     ('GOVERNMENT_COMMUNISM', 'BBG_COMMUNISM_COMBAT_STRENGTH_GIVER');
 
 -- Legacy 
-DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_GOV_COMMUNISM';
+-- 17/03/26 Reverted : communism get back vanilla legacy bonus
+-- DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_GOV_COMMUNISM';
 
 -- INSERT INTO Modifiers(ModifierId, ModifierType, OwnerRequirementSetId) VALUES
 --     ('BBG_COMMUNISM_LEGACY_COMBAT_STRENGTH_GIVER', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY', NULL),
