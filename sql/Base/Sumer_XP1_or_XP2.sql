@@ -1,5 +1,5 @@
---====Summer====--
---moved from base because alliance levels didn't exist
+-- ====Summer====--
+-- moved from base because alliance levels didn't exist
 -- 16/05/2021: +1 military power per alliance level (on better alliance)
 -- 30/11/24 Removed 
 -- 15/12/24 reverted
@@ -23,22 +23,4 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_ADVENTURES_ENKIDU', 'BBG_SUMMER_COMBAT_ALLY_2'),
     ('TRAIT_LEADER_ADVENTURES_ENKIDU', 'BBG_SUMMER_COMBAT_ALLY_3');
 
-INSERT INTO RequirementSets(RequirementSetId , RequirementSetType) VALUES
-    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', 'REQUIREMENTSET_TEST_ALL'),
-    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', 'REQUIREMENTSET_TEST_ALL'),
-    ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_3', 'REQUIREMENTSET_TEST_ALL');
 
-INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId) VALUES
-  ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', 'REQUIRES_PLAYER_IS_ALLY_LEVEL_1'),
-  ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_1', 'BBG_PLAYER_IS_NOT_ALLY_LEVEL_2'),
-  ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', 'REQUIRES_PLAYER_IS_ALLY_LEVEL_2'),
-  ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_2', 'BBG_PLAYER_IS_NOT_ALLY_LEVEL_3'),
-  ('BBG_PLAYER_IS_ALLY_EXCLUSIVE_LEVEL_3', 'REQUIRES_PLAYER_IS_ALLY_LEVEL_3');
-
-INSERT INTO Requirements(RequirementId , RequirementType, Inverse) VALUES
-  ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_2', 'REQUIREMENT_PLAYER_HAS_ACTIVE_ALLIANCE_OF_AT_LEAST_LEVEL', 1),
-  ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_3', 'REQUIREMENT_PLAYER_HAS_ACTIVE_ALLIANCE_OF_AT_LEAST_LEVEL', 1);
-
-INSERT INTO RequirementArguments(RequirementId , Name, Value) VALUES
-  ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_2', 'Level', '2'),
-  ('BBG_PLAYER_IS_NOT_ALLY_LEVEL_3', 'Level', '3');

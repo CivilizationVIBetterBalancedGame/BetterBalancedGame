@@ -1,5 +1,5 @@
---5.6. Disable:
---building reqs (reqs are dynamically controlled via Lua)
+-- 5.6. Disable:
+-- building reqs (reqs are dynamically controlled via Lua)
 /*
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES
 	('DISTRICT_IS_INCOMPLETE_WONDER_REQ_BBG','REQUIREMENT_PLOT_PROPERTY_MATCHES');
@@ -18,7 +18,7 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_LUDWIG', 'MODIFIER_LUDWIG_REMOVE_INCOMPLETE_WONDER_ADJ_BBG');
 */
---5.6: 1 cult on incomplete wonders
+-- 5.6: 1 cult on incomplete wonders
 UPDATE ModifierArguments SET Value = '1' WHERE ModifierId = 'LUDWIG_WONDER_ADJACENCY' AND Name = 'Amount';
 
 -- 19/12/23 +1 culture at philo po
@@ -44,3 +44,18 @@ UPDATE ModifierArguments SET Value = '1' WHERE ModifierId = 'LUDWIG_WONDER_ADJAC
 -- INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 -- 	('BBG_UTILS_PLAYER_DOESNT_HAVE_CIVIC_POLITICAL_PHILOSOPHY_REQSET', 'BBG_UTILS_PLAYER_DOESNT_HAVE_CIVIC_POLITICAL_PHILOSOPHY_REQUIREMENT');
 -- UPDATE Modifiers SET OwnerRequirementSetId='BBG_UTILS_PLAYER_DOESNT_HAVE_CIVIC_POLITICAL_PHILOSOPHY_REQSET' WHERE ModifierId='LUDWIG_WONDER_ADJACENCY';
+
+
+-- 10/03/2024 CHub culture bomb
+-- 19/12/25 Moved from Germany to Ludwig
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+	('BBG_HUB_CULTURE_BOMB', 'MODIFIER_PLAYER_ADD_CULTURE_BOMB_TRIGGER');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+	('BBG_HUB_CULTURE_BOMB', 'DistrictType', 'DISTRICT_COMMERCIAL_HUB'),
+	('BBG_HUB_CULTURE_BOMB', 'CaptureOwnedTerritory', 0);
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+	('TRAIT_LEADER_LUDWIG', 'BBG_HUB_CULTURE_BOMB');
+
+-- 19/12/25 Ludwig excluded from encampment/hansa adj
+INSERT INTO ExcludedAdjacencies (TraitType, YieldChangeId) VALUES
+    ('TRAIT_LEADER_LUDWIG', 'BBG_BARBAROSSA_HANSA_ENCAMPMENT_PROD');

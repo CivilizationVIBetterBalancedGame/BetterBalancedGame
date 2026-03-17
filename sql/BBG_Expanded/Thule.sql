@@ -93,7 +93,7 @@ INSERT INTO UnitUpgrades (Unit, UpgradeUnit) VALUES
     ('UNIT_LIME_THULE_DOGSLED', 'UNIT_SKIRMISHER');
 
 -- 17/08/25 No longer has ranged attack
-UPDATE Units SET BaseSightRange=2, Combat=10, RangedCombat=0, Range=0, Cost=30, BuildCharges=1, Maintenance=0, PrereqTech=NULL WHERE UnitType='UNIT_LIME_THULE_DOGSLED';
+UPDATE Units SET BaseSightRange=2, Combat=10, RangedCombat=0, Range=0, Cost=30, BuildCharges=1, Maintenance=0, PrereqTech=NULL, ZoneOfControl=1 WHERE UnitType='UNIT_LIME_THULE_DOGSLED';
 DELETE FROM UnitAbilityModifiers WHERE UnitAbilityType='ABIL_LIME_THULE_DOGSLED';
 DELETE FROM UnitAbilities WHERE UnitAbilityType='ABIL_LIME_THULE_DOGSLED';
 DELETE FROM TypeTags WHERE Type='ABIL_LIME_THULE_DOGSLED' AND Tag='CLASS_LIME_THULE_DOGSLED';
@@ -138,9 +138,10 @@ INSERT INTO ImprovementModifiers (ImprovementType, ModifierId) VALUES
     ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_FOOD_TUNDRA'),
     ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_FOOD_SNOW');
 
-INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentImprovement) VALUES
-    ('BBG_WBH_CULTURE_CAMP', 'Placeholder', 'YIELD_CULTURE', 1, 1, 'IMPROVEMENT_CAMP'),
-    ('BBG_WBH_FAITH_CAMP', 'Placeholder', 'YIELD_FAITH', 1, 1, 'IMPROVEMENT_CAMP');
+-- 30/09/25: camp culture and faith from WB House now requires Foreign Trade
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentImprovement, PrereqCivic) VALUES
+    ('BBG_WBH_CULTURE_CAMP', 'Placeholder', 'YIELD_CULTURE', 1, 1, 'IMPROVEMENT_CAMP', 'CIVIC_FOREIGN_TRADE'),
+    ('BBG_WBH_FAITH_CAMP', 'Placeholder', 'YIELD_FAITH', 1, 1, 'IMPROVEMENT_CAMP', 'CIVIC_FOREIGN_TRADE');
 
 INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
     ('IMPROVEMENT_LIME_THULE_WBH', 'BBG_WBH_CULTURE_CAMP'),
@@ -150,6 +151,10 @@ UPDATE Improvement_Tourism SET PrereqTech='TECH_FLIGHT' WHERE ImprovementType='I
 
 -- cannot be placed next to each other
 UPDATE Improvements SET SameAdjacentValid=0 WHERE ImprovementType='IMPROVEMENT_LIME_THULE_WBH';
+
+-- 30/09/25: fishing boats culture and faith from WB House now requires Foreign Trade
+UPDATE Adjacency_YieldChanges SET PrereqCivic='CIVIC_FOREIGN_TRADE' WHERE ID='Lime_WBH_Faith';
+UPDATE Adjacency_YieldChanges SET PrereqCivic='CIVIC_FOREIGN_TRADE' WHERE ID='Lime_WBH_Culture';
 
 -- ========================================================================
 -- =                             KIVIUQ                                   =

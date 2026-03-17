@@ -560,3 +560,9 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 	('BBG_OPERA_SYDNEY_ROCKBAND', 'Amount', 2);
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_SYDNEY_OPERA_HOUSE', 'BBG_OPERA_SYDNEY_ROCKBAND');
+
+
+-- 17/12/25 Big Ben moved from Economics to Capitalism
+UPDATE Buildings SET PrereqCivic='CIVIC_CAPITALISM' WHERE BuildingType='BUILDING_BIG_BEN';
+UPDATE Buildings SET PrereqTech=NULL WHERE BuildingType='BUILDING_BIG_BEN';
+

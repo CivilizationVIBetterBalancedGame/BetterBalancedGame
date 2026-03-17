@@ -1,7 +1,4 @@
---communism 5.2. This didn't exist in base
-UPDATE ModifierArguments SET Value=1 WHERE ModifierId='COMMUNISM_PRODUCTIVE_PEOPLE' and Name="Amount";
-
---5.2.5 buff autocracy (extend bonus to plaza/diplo quarter district AND diplo quarter buildings) -- moved from base
+-- 5.2.5 buff autocracy (extend bonus to plaza/diplo quarter district AND diplo quarter buildings) -- moved from base
 INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
     ('GOVERNMENT_AUTOCRACY', 'AUTOCRACY_PLAZA_DISTRICT'),
     ('GOVERNMENT_AUTOCRACY', 'AUTOCRACY_DIPLOMATIC_DISTRICT');

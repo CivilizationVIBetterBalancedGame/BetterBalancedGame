@@ -11,7 +11,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 	('BUILDING_TAJ_MAHAL', 'TAJ_MAHAL_GOLD_MODIFIER_IN_ALL_CITIES');
 
---5.1 Kotoku Allows Monk Buy SQL
+-- 5.1 Kotoku Allows Monk Buy SQL
 INSERT INTO Unit_BuildingPrereqs(Unit, PrereqBuilding, NumSupported) VALUES
 	('UNIT_WARRIOR_MONK', 'BUILDING_KOTOKU_IN', '-1');
 INSERT INTO Requirements(RequirementId, RequirementType) VALUES

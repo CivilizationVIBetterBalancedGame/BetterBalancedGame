@@ -3,7 +3,9 @@
 -- 6.3 Tokugawa +0.5 sci/cul base scaling at +1 at Education/Humanism
 -- 6.4 +.5 again at Chemistry/Radio
 -- 20/06/25 removed 6.4
+-- 19/12/25 removed gold
 UPDATE ModifierArguments SET Value=1 WHERE ModifierId='TOKUGAWA_POSITIVE_DOMESTIC_GOLD_DISTRICTS' AND Name='Amount';
+DELETE FROM TraitModifiers WHERE ModifierId='TOKUGAWA_POSITIVE_DOMESTIC_GOLD_DISTRICTS';
 
 UPDATE ModifierArguments SET Value=0.5 WHERE ModifierId='TOKUGAWA_POSITIVE_DOMESTIC_SCIENCE_DISTRICTS' AND Name='Amount';
 UPDATE ModifierArguments SET Value=0.5 WHERE ModifierId='TOKUGAWA_POSITIVE_DOMESTIC_CULTURE_DISTRICTS' AND Name='Amount';

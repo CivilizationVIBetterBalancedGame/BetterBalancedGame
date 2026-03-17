@@ -45,7 +45,10 @@ INSERT INTO District_CitizenYieldChanges (DistrictType, YieldType, YieldChange) 
 
 -- 08/01/25 Seowon gets +2 from geothermal
 INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
-    ('DISTRICT_SEOWON', 'Geothermal_Science');
+    ('DISTRICT_SEOWON', 'Geothermal_Science');    
+    
+-- 30/09/25 Seowon no longer must be placed on hills
+DELETE FROM District_ValidTerrains WHERE DistrictType='DISTRICT_SEOWON';
     
 --=======================================================================
 --=                            SEONDEOK                                 =

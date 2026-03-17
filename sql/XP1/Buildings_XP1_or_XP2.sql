@@ -2,7 +2,7 @@
 --******			  	B U I L D I N G S	 		  	  ******
 --==============================================================
 -- 12/06/23 from 6 to 20
-UPDATE ModifierArguments SET Value='20' WHERE ModifierId='SHOPPING_MALL_TOURISM';
+UPDATE ModifierArguments SET Value=10 WHERE ModifierId='SHOPPING_MALL_TOURISM';
 -- 12/06/23 gold from 2/2 to 10/10
 UPDATE Building_YieldChanges SET YieldChange=10 WHERE BuildingType='BUILDING_SHOPPING_MALL';
 UPDATE Building_YieldChangesBonusWithPower SET YieldChange=10 WHERE BuildingType='BUILDING_SHOPPING_MALL';
@@ -62,7 +62,7 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 -- Warlord's Throne +2 revealed strategics/turn (abstract, robust to reveal tech change in Resources Table)
 -- Creating Modifiers
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId)
-	SELECT 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_'||REPLACE(Resources.ResourceType, 'RESOURCE_','')
+	SELECT 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_IMPORT_EXTRACTION', 'BBG_PLAYER_CAN_SEE_' || ResourceType || '_REQSET'
 	FROM Resources WHERE ResourceClassType = 'RESOURCECLASS_STRATEGIC';
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
 	SELECT 'BUILDING_GOV_CONQUEST_'||Resources.ResourceType||'_ACCUMULATION_MODIFIER', 'ResourceType', Resources.ResourceType

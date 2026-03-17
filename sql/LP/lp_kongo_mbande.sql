@@ -7,7 +7,7 @@ INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
 INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
 	('REQUIRES_OBJECT_1_OR_MORE_TILES_FROM_CAPITAL', 'MinDistance', '1');
 
---Disabling Mbande's effect on the capital city
+-- Disabling Mbande's effect on the capital city
 INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
 	('REQUIRES_CITY_IS_SAME_CONTINENT', 'REQUIRES_OBJECT_1_OR_MORE_TILES_FROM_CAPITAL');
 
@@ -32,6 +32,7 @@ INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
 	('TRAIT_LEADER_RELIGIOUS_CONVERT', 'BBG_MBANDE_THEATRE_MBANZA');
     
 -- 18/06/23 Mbande gets +10% culture & gold in cities with Mbanza
+-- 19/12/25 Increased to 15%
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
     ('BBG_REQUIREMENT_CITY_HAS_MBANZA', 'REQUIREMENT_CITY_HAS_DISTRICT');
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
@@ -46,8 +47,8 @@ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_MODIFIER_MBANZA_ADDCULTUREYIELD', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER', 'BBG_CITY_HAS_MBANZA'),
     ('BBG_MODIFIER_MBANZA_ADDGOLDYIELD', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER', 'BBG_CITY_HAS_MBANZA');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_MODIFIER_MBANZA_ADDCULTUREYIELD', 'Amount', '10'),
-    ('BBG_MODIFIER_MBANZA_ADDGOLDYIELD', 'Amount', '10');
+    ('BBG_MODIFIER_MBANZA_ADDCULTUREYIELD', 'Amount', 15),
+    ('BBG_MODIFIER_MBANZA_ADDGOLDYIELD', 'Amount', 15);
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MODIFIER_MBANZA_ADDCULTUREYIELD', 'YieldType', 'YIELD_CULTURE'),
     ('BBG_MODIFIER_MBANZA_ADDGOLDYIELD', 'YieldType', 'YIELD_GOLD');
@@ -83,3 +84,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_TRAIT_ARCHAEOLOGIST_COST', 'Amount', '50');
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_NZINGA_MBANDE', 'BBG_TRAIT_ARCHAEOLOGIST_COST');
+
+-- 19/12/25 Receives merchant points from Kongo
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_NZINGA_MBANDE', 'TRAIT_DOUBLE_MERCHANT_POINTS');

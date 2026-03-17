@@ -3,9 +3,9 @@
 --==================
 -- Georgian Khevsur unit becomes sword replacement
 -- 23/04/2021: Firaxis patch
---UPDATE Units SET Combat=35, Cost=100, Maintenance=2, PrereqTech='TECH_IRON_WORKING', StrategicResource='RESOURCE_IRON' WHERE UnitType='UNIT_GEORGIAN_KHEVSURETI';
---UPDATE ModifierArguments SET Value='5' WHERE ModifierId='KHEVSURETI_HILLS_BUFF' AND Name='Amount';
---INSERT OR IGNORE INTO UnitReplaces (CivUniqueUnitType , ReplacesUnitType)
+-- UPDATE Units SET Combat=35, Cost=100, Maintenance=2, PrereqTech='TECH_IRON_WORKING', StrategicResource='RESOURCE_IRON' WHERE UnitType='UNIT_GEORGIAN_KHEVSURETI';
+-- UPDATE ModifierArguments SET Value='5' WHERE ModifierId='KHEVSURETI_HILLS_BUFF' AND Name='Amount';
+-- INSERT OR IGNORE INTO UnitReplaces (CivUniqueUnitType , ReplacesUnitType)
 --	VALUES ('UNIT_GEORGIAN_KHEVSURETI', 'UNIT_SWORDSMAN');
 -- Georgia Tsikhe changed to a stronger Ancient Wall replacement instead of a Renaissance Wall replacement
 DELETE FROM BuildingPrereqs WHERE Building='BUILDING_TSIKHE';
@@ -25,9 +25,13 @@ INSERT INTO ModifierArguments (ModifierId , Name , Value) VALUES
 INSERT INTO ModifierArguments (ModifierId , Name , Value) VALUES
 	('BBG_GEORGIA_FAITH_PER_ENVOY' , 'Amount', '1');
 
---15/06/23 Tsikhe gives 1 culture
+-- 15/06/23 Tsikhe gives 1 culture
 INSERT INTO Building_YieldChanges (BuildingType, YieldType, YieldChange) VALUES
 	('BUILDING_TSIKHE', 'YIELD_CULTURE', 1);
 
---12/07/23 Tsikhe gives only 3 faith in golde
+-- 12/07/23 Tsikhe gives only 3 faith in golde
 UPDATE ModifierArguments SET Value=3 WHERE ModifierId='TSIKHE_FAITH_GOLDEN_AGE' AND Name='Amount';
+
+-- BBG Expanded somehow changes that 20/12/25
+-- Will not be needed anymore next Expanded update
+UPDATE Units SET Cost=160 WHERE UnitType='UNIT_GEORGIAN_KHEVSURETI';
