@@ -235,7 +235,8 @@ UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COM
 UPDATE Government_SlotCounts SET NumSlots=2 WHERE GovernmentType='GOVERNMENT_COMMUNISM' AND GovernmentSlotType='SLOT_WILDCARD';
 
 -- Communism rework 
-DELETE FROM PolicyModifiers WHERE ModifierId='COMMUNISM_PRODUCTIVE_PEOPLE' AND PolicyType='POLICY_GOV_COMMUNISM';
+-- 17/03/26 Revert legacy bonus
+-- DELETE FROM PolicyModifiers WHERE ModifierId='COMMUNISM_PRODUCTIVE_PEOPLE' AND PolicyType='POLICY_GOV_COMMUNISM';
 DELETE FROM GovernmentModifiers WHERE ModifierId='COMMUNISM_SCIENCE' AND GovernmentType='GOVERNMENT_COMMUNISM';
 DELETE FROM Policy_GovernmentExclusives_XP2 WHERE PolicyType='POLICY_COLLECTIVIZATION';
 -- Communism : Scientific Vanguard Joker Card : Cities with Governor receive 10% Science and Production but also -2 amenity.
