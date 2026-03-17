@@ -211,6 +211,37 @@ UPDATE RandomEvent_Damages Set Percentage=0 WHERE DamageType='UNIT_KILLED_CIVILI
 --==============================================================
 --10/03/2024 capturing capital  means +2 instead of -2
 UPDATE GlobalParameters SET Value='2' WHERE Name='FAVOR_PER_OWNED_ORIGINAL_CAPITAL';
+
+--17/03/26 : Capturing a City-State grants -1 favor, inspired by Ceasar wildcard
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES 
+    ('BBG_CS_CAPTURE_FAVOR_MALUS_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+    ('BBG_PLAYER_CAPTURED_CITY_CS_REQSET', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType, Inverse) VALUES
+    ('BBG_PLAYER_CAPTURED_CS_CITY', 'REQUIREMENT_COLLECTION_COUNT_ATLEAST', '0'),
+    ('BBG_REQUIRES_IS_CS', 'REQUIREMENT_PLOT_PROPERTY_MATCHES', '0'),
+    ('BBG_REQUIRES_CITY_IS_CAPTURED', 'REQUIREMENT_CITY_IS_ORIGINAL_OWNER', '1');
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES 
+    ('BBG_CS_CAPTURE_FAVOR_MALUS_REQSET', 'BBG_PLAYER_CAPTURED_CS_CITY'),
+    ('BBG_PLAYER_CAPTURED_CITY_CS_REQSET', 'BBG_REQUIRES_CITY_IS_CAPTURED'),
+    ('BBG_PLAYER_CAPTURED_CITY_CS_REQSET', 'BBG_REQUIRES_IS_CS');
+
+INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('BBG_PLAYER_CAPTURED_CS_CITY', 'CollectionType', 'COLLECTION_PLAYER_CITIES'), 
+    ('BBG_PLAYER_CAPTURED_CS_CITY', 'Count', '1'), 
+    ('BBG_PLAYER_CAPTURED_CS_CITY', 'RequirementSetId', 'BBG_PLAYER_CAPTURED_CITY_CS_REQSET'),
+    ('BBG_REQUIRES_IS_CS', 'PropertyName', 'CS_CAPITAL_BBG'),
+    ('BBG_REQUIRES_IS_CS', 'PropertyMinimum', '1');
+
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId, Repeatable) VALUES 
+    ('BBG_CS_CAPTURE_FAVOR_MALUS', 'MODIFIER_PLAYER_ADJUST_EXTRA_FAVOR_PER_TURN', 'BBG_CS_CAPTURE_FAVOR_MALUS_REQSET', '1');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_CS_CAPTURE_FAVOR_MALUS', 'Amount', '-1');
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_MAJOR_CIV', 'BBG_CS_CAPTURE_FAVOR_MALUS');
+
 -- oil available on all floodplains
 INSERT OR IGNORE INTO Resource_ValidFeatures (ResourceType, FeatureType)
     VALUES
