@@ -4,6 +4,20 @@
 
 
 --==========================
+--*       CHIGUETTI        *
+--==========================
+-- 16/03/26 Chinguetti change bonus to 4 faith on all traders (No religion requirement)
+DELETE FROM ModifierArguments WHERE ModifierId='MINOR_CIV_CHINGUETTI_UNIQUE_INFLUENCE_BONUS' AND Value='MINOR_CIV_CHINGUETTI_FAITH_FOLLOWERS';
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_CHINGUETTI_FAITH_PER_TRADE_ROUTE', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD', NULL); 
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_CHINGUETTI_FAITH_PER_TRADE_ROUTE', 'YieldType', 'YIELD_FAITH'),
+    ('BBG_CHINGUETTI_FAITH_PER_TRADE_ROUTE', 'Amount', 4);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('MINOR_CIV_CHINGUETTI_UNIQUE_INFLUENCE_BONUS','ModifierId', 'BBG_CHINGUETTI_FAITH_PER_TRADE_ROUTE');
+
+
+--==========================
 --*       ZANZIBAR         *
 --==========================
 -- amenities reduced to 4
@@ -154,3 +168,4 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_KUMASI_BASE_CULTURE_TRADEROUTE', 'Amount', 2);
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('MINOR_CIV_KUMASI_TRAIT', 'BBG_KUMASI_UNIQUE_INFLUENCE_BASE_CULTURE_TRADEROUTE_MODIFIER');
+

@@ -217,7 +217,8 @@ INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_UNIT_NOT_IN_TERRITORY_REQSET', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_UNIT_NOT_IN_TERRITORY_REQSET', 'REQUIRES_UNIT_NOT_IN_OWNER_TERRITORY');
-UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_NOT_IN_TERRITORY_REQSET' WHERE ModifierId IN ('FASCISM_ATTACK_BUFF', 'FASCISM_LEGACY_ATTACK_BUFF');
+-- 17/03/26 Facism combat bonus only apply outside of your territory ONLY for legacy.
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_NOT_IN_TERRITORY_REQSET' WHERE ModifierId IN ('FASCISM_LEGACY_ATTACK_BUFF');
 -- Government bonus : +50% Production on units. (no change)
 
 -- ==============================================================
