@@ -2,7 +2,12 @@
 UPDATE GlobalParameters SET Value=75 WHERE Name='LOYALTY_AFTER_TRANSFERRED_BY_COMBAT_OWNER_BEFORE_OCCUPATION';
 
 
-UPDATE GlobalParameters SET Value=2 WHERE Name='FORTIFY_BONUS_PER_TURN';
+--UPDATE GlobalParameters SET Value=2 WHERE Name='FORTIFY_BONUS_PER_TURN';
+-- 20/03/26  Change to 1 stack max that gives +4, in case someone fortify only once with a cavalry unit
+UPDATE GlobalParameters SET Value=4 WHERE Name='FORTIFY_BONUS_PER_TURN';
+UPDATE GlobalParameters SET Value=1 WHERE Name='FORTIFY_TURN_MAX';
+UPDATE Buildings SET GrantFortification = 1 WHERE GrantFortification > 0;
+UPDATE Improvements SET GrantFortification = 1 WHERE GrantFortification > 0;
 
 
 UPDATE GlobalParameters SET Value=0.5 WHERE Name='TRADE_ROUTE_TRANSPORTATION_EFFICIENCY_MAX_RATIO';
