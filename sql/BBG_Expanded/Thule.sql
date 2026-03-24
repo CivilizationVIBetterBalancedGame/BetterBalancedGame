@@ -102,6 +102,9 @@ DELETE FROM Types WHERE Type='ABIL_LIME_THULE_DOGSLED';
 INSERT INTO Improvement_ValidBuildUnits (ImprovementType, UnitType) VALUES
     ('IMPROVEMENT_LIME_THULE_WBH', 'UNIT_LIME_THULE_DOGSLED');
 
+-- 24/03/26: Ancient unit gets -5 against city center, see Base/Units.sql
+INSERT INTO TypeTags (Type, Tag) VALUES
+    ('UNIT_LIME_THULE_DOGSLED', 'CLASS_MALUS_CITY_CENTER');
 -- ==========================================================
 -- =                       WB HOUSE                         =
 -- ==========================================================
