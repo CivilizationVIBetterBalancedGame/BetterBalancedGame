@@ -495,25 +495,26 @@ UPDATE Units SET Stackable=1 WHERE UnitType='UNIT_SPY';
 --     ('CHARGE_REQUIREMENTS', 'BBG_OPPONENT_IS_NOT_HEAVY_CAVALRY'),
 --     ('CHARGE_REQUIREMENTS', 'BBG_OPPONENT_IS_NOT_RANGED_CAVALRY');
 
---20/03/26 Instead of removing the fortify operation, we will add +4 modifier when attacking fortified cavalry. 
-INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_CHARGE_VS_FORTIFIED_CAVALRY', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET');
-INSERT INTO ModifierStrings (ModifierId , Context , Text) VALUES
-    ('BBG_CHARGE_VS_FORTIFIED_CAVALRY', 'Preview', 'LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_PREVIEW');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_CHARGE_VS_FORTIFIED_CAVALRY', 'Amount', 4);
-INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
-    ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-    ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'PLAYER_IS_ATTACKER_REQUIREMENTS'),
-    ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'OPPONENT_IS_FORTIFIED'),                --existing requirement that checks if opponent is fortified, from charge promotion
-    ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'OPPONENT_IS_CAVALRY_REQUIREMENTS_MET'); --existing requirement that checks if opponent is cavalry, from anti-cavalry
--- attach modifier to all units
-INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
-    ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_NAME', 'LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_DESC');
-INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
-    ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'BBG_CHARGE_VS_FORTIFIED_CAVALRY');
-INSERT INTO Types (Type, Kind) VALUES
-    ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'KIND_ABILITY');
-INSERT INTO TypeTags (Type, Tag) VALUES
-    ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'CLASS_ALL_COMBAT_UNITS');
+--20/03/26 Instead of removing the fortify operation, we will add +4 modifier when attacking fortified cavalry.
+--24/03/26 reverted, waiting for a bigger rework of fortify that may include this change
+-- INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+--     ('BBG_CHARGE_VS_FORTIFIED_CAVALRY', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET');
+-- INSERT INTO ModifierStrings (ModifierId , Context , Text) VALUES
+--     ('BBG_CHARGE_VS_FORTIFIED_CAVALRY', 'Preview', 'LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_PREVIEW');
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+--     ('BBG_CHARGE_VS_FORTIFIED_CAVALRY', 'Amount', 4);
+-- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+--     ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'REQUIREMENTSET_TEST_ALL');
+-- INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+--     ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'PLAYER_IS_ATTACKER_REQUIREMENTS'),
+--     ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'OPPONENT_IS_FORTIFIED'),                --existing requirement that checks if opponent is fortified, from charge promotion
+--     ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'OPPONENT_IS_CAVALRY_REQUIREMENTS_MET'); --existing requirement that checks if opponent is cavalry, from anti-cavalry
+-- -- attach modifier to all units
+-- INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
+--     ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_NAME', 'LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_DESC');
+-- INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+--     ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'BBG_CHARGE_VS_FORTIFIED_CAVALRY');
+-- INSERT INTO Types (Type, Kind) VALUES
+--     ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'KIND_ABILITY');
+-- INSERT INTO TypeTags (Type, Tag) VALUES
+--     ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'CLASS_ALL_COMBAT_UNITS');
