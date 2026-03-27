@@ -38,3 +38,9 @@ DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_ADJACENT_DISTRICT
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_DIVINE_WIND', 'TRAIT_ADJACENT_DISTRICTS_HARBOR_ADJACENCYGOLD'),
     ('TRAIT_LEADER_DIVINE_WIND', 'TRAIT_ADJACENT_DISTRICTS_COMMERCIALHUB_ADJACENCYGOLD');
+
+-- 27/03/26 tokug should get minor adjacency bonus for harbor / commercial hub
+DELETE FROM ExcludedAdjacencies WHERE TraitType='TRAIT_CIVILIZATION_ADJACENT_DISTRICTS' AND YieldChangeId='District_Gold';
+
+INSERT INTO ExcludedAdjacencies (TraitType, YieldChangeId) VALUES
+    ('TRAIT_LEADER_DIVINE_WIND', 'District_Gold');
