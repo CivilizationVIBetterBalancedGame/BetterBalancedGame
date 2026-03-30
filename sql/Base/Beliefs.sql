@@ -353,6 +353,20 @@ INSERT INTO BeliefModifiers(BeliefType, ModifierID) VALUES
 -- 30/06/25 back to 1
 UPDATE ModifierArguments SET Value=1 WHERE Name='Amount' AND ModifierId='DIVINE_SPARK_HOLY_SITE_MODIFIER';
 
+-- --17/03/26 : Divine Spark give point on district but with requirement of having the building to get the point (objective : work with pingala)
+-- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+--     ('BBG_DIVINE_SPARK_WRITER_DISTRICT_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+--     ('BBG_DIVINE_SPARK_ENGINEER_DISTRICT_REQSET', 'REQUIREMENTSET_TEST_ALL');
+
+-- INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+--     ('BBG_DIVINE_SPARK_WRITER_DISTRICT_REQSET', 'REQUIRES_DISTRICT_IS_THEATER'),
+--     ('BBG_DIVINE_SPARK_WRITER_DISTRICT_REQSET', 'REQUIRES_CITY_HAS_AMPHITHEATER'),
+--     ('BBG_DIVINE_SPARK_ENGINEER_DISTRICT_REQSET', 'REQUIRES_DISTRICT_IS_INDUSTRIAL_ZONE'),
+--     ('BBG_DIVINE_SPARK_ENGINEER_DISTRICT_REQSET', 'REQUIRES_CITY_HAS_WORKSHOP');
+
+-- UPDATE Modifiers SET ModifierType='MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', SubjectRequirementSetId='BBG_DIVINE_SPARK_WRITER_DISTRICT_REQSET' WHERE ModifierId='DIVINE_SPARK_WRITER_MODIFIER';
+-- UPDATE Modifiers SET ModifierType='MODIFIER_SINGLE_CITY_DISTRICTS_ADJUST_GREAT_PERSON_POINTS', SubjectRequirementSetId='BBG_DIVINE_SPARK_ENGINEER_DISTRICT_REQSET' WHERE ModifierId='BBG_DIVINE_SPARK_ENGINEER_MODIFIER';
+
 -- ==========================
 -- *   GOD OF CRAFTSMEN     *
 -- ==========================
@@ -394,7 +408,7 @@ INSERT INTO AbstractModifiers(ParentObjectID, ModifierAId, ModifierAType, Modifi
     LEFT JOIN Requirements ON RequirementSetRequirements.RequirementId = Requirements.RequirementId
     LEFT JOIN RequirementArguments ON Requirements.RequirementId = RequirementArguments.RequirementId
     WHERE
-    BeliefModifiers.BeliefType IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'BELIEF_GODDESS_OF_FIRE');
+    BeliefModifiers.BeliefType IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
 INSERT OR IGNORE INTO AbstractModifiers(ParentObjectID, ModifierBId, SubjectRequirementSetId, RequirementSetType, RequirementId, RequirementType, Inverse, Name, Value)
     SELECT CASE
     WHEN AbstractModifiers.ModifierAType LIKE '%ATTACH_MODIFIER%' 
@@ -433,7 +447,6 @@ INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId)
     AND AbstractModifiers.ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES'
     AND WonderTerrainFeature_BBG.WonderType NOT IN (SELECT Value FROM AbstractModifiers WHERE Name = 'FeatureType' AND ParentObjectID = 'BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
 DELETE FROM AbstractModifiers WHERE ParentObjectID IN ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES');
-
 
 -- Earth Godess +1 faith on appeal
 UPDATE Modifiers SET SubjectRequirementSetId='PLOT_CHARMING_APPEAL' WHERE ModifierId='EARTH_GODDESS_APPEAL_FAITH_MODIFIER';

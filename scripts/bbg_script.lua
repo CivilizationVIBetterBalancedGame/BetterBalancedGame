@@ -534,9 +534,11 @@ function OnGameplayPromotionFixExp(iUnitPlayerID: number, kParameters)
 		pUnitExp:ChangeExperience(expVal);
 	end
 end
--- Caesar
+-- Caesar 
+-- 17/03/26 -> moved to all games for cs malus favor
 function OnCityBuilt(iPlayerID, iCityID, iX, iY)
 	local pPlayer = Players[iPlayerID]
+	--print("OnCityBuilt: PlayerID", iPlayerID, "CityID", iCityID, "X", iX, "Y", iY)
 	if pPlayer == nil then
 		return
 	end
@@ -4281,6 +4283,11 @@ function Initialize()
 	--LuaEvents.UINotUnifierDeleteSunTzu.Add(OnUINotUnifierDeleteSunTzu)
 	--5.2. Disable: GameEvents.GameplayNotUnifierDeleteSunTzu.Add(OnGameplayNotUnifierDeleteSunTzu)
 	--5.2. Disable: print("BBG Suntzu Gameplay Deletion hooks added")
+
+	
+	-- Caesar wildcard and cs favor malus
+	GameEvents.CityBuilt.Add(OnCityBuilt);
+
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
 		if PlayerConfigurations[iPlayerID]:GetCivilizationTypeName()=="CIVILIZATION_BYZANTIUM" then
@@ -4315,8 +4322,6 @@ function Initialize()
 			--5.2. Disable: GameEvents.CityConquered.Add(OnIncaCityConquered)
 			--5.2. Disable: print("BBG Inca Hooks Added")
 		elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_JULIUS_CAESAR" then
-			-- Caesar wildcard
-			GameEvents.CityBuilt.Add(OnCityBuilt);
 			GameEvents.CityConquered.Add(OnCityConquered)
 			--print("BBG Caesar Hooks Added")
 		--5.6. Disable: elseif PlayerConfigurations[iPlayerID]:GetLeaderTypeName()=="LEADER_LUDWIG" then

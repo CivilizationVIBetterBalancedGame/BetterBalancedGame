@@ -257,3 +257,4 @@ function GetCombatResults ( attacker, locX, locY )
 	end
 end
 --]]
+

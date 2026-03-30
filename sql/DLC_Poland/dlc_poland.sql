@@ -6,7 +6,8 @@
 -- Poland
 --==================
 -- 19/05/2021, 05/09/2021: Poland's Winged Hussar
-UPDATE Units SET Combat=64, PrereqCivic='CIVIC_REFORMED_CHURCH' WHERE UnitType='UNIT_POLISH_HUSSAR';
+-- 16/03/2026: Nerfed Winged Hussar combat strength to 62.
+UPDATE Units SET Combat=62, PrereqCivic='CIVIC_REFORMED_CHURCH' WHERE UnitType='UNIT_POLISH_HUSSAR';
 
 -- Poland gets a relic when founding and completeing a religion
 --Grants Relic Upon Founding Religion

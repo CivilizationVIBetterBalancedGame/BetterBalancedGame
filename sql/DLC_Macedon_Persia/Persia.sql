@@ -20,6 +20,8 @@ UPDATE Improvements SET TilesRequired=2 WHERE ImprovementType='IMPROVEMENT_PAIRI
 -- 16/04/23 +3 to compensate loss of support bonus
 -- 15/06/23 Reverted
 UPDATE Units SET Combat=36 WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
+-- 16/03/26 -2 range attack
+UPDATE Units SET RangedCombat=23 WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
 
 -- 15/06/23 Immortals get +3 attack
 -- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES

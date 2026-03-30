@@ -74,7 +74,7 @@ INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_NKISI', 'TRAIT_DOUBLE_WRITER_POINTS');
 
--- +4 faith for each sculture and artifact
+-- +4 faith for each sculpture and artifact
 UPDATE ModifierArguments SET Value=2 WHERE Name='YieldChange' AND ModifierId IN ('TRAIT_GREAT_WORK_FAITH_SCULPTURE', 'TRAIT_GREAT_WORK_FAITH_ARTIFACT', 'TRAIT_GREAT_WORK_FAITH_RELIC');
 
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
@@ -86,6 +86,7 @@ INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_PLAYER_IS_MVEMBA_REQSET', 'BBG_PLAYER_IS_MVEMBA');
 
+-- Mvemba gets +1 gold and +0.2 culture per population in cities following a religion
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_KONGO_GOLD_PER_POPULATION_CONVERTED', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_RELIGION_REQUIREMENTS'),
     ('BBG_KONGO_GOLD_PER_POPULATION_CONVERTED_MODIFIER', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION', 'BBG_PLAYER_IS_MVEMBA_REQSET'),
@@ -98,6 +99,9 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_KONGO_CULTURE_PER_POPULATION_CONVERTED', 'ModifierId', 'BBG_KONGO_CULTURE_PER_POPULATION_CONVERTED_MODIFIER'),
     ('BBG_KONGO_CULTURE_PER_POPULATION_CONVERTED_MODIFIER', 'YieldType', 'YIELD_CULTURE'),
     ('BBG_KONGO_CULTURE_PER_POPULATION_CONVERTED_MODIFIER', 'Amount', 0.2);
+-- 10/03/26 Remove old bonus that were replaced by the above
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_RELIGIOUS_CONVERT' AND ModifierId='TRAIT_GAINS_FOUNDER_BELIEF_MAJORITY_RELIGION';
+
 
 INSERT INTO BeliefModifiers (BeliefType, ModifierID)
     SELECT BeliefType, 'BBG_KONGO_GOLD_PER_POPULATION_CONVERTED' FROM Beliefs WHERE BeliefClassType='BELIEF_CLASS_FOLLOWER' UNION
@@ -113,17 +117,29 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_NKISI', 'BBG_TRAIT_ARCHAEOLOGIST_PROD');
 
 
--- 19/12/25 merchant point moved to Mbande
+-- 19/12/25 Merchant point moved to Mbande
 DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_DOUBLE_MERCHANT_POINTS' AND TraitType='TRAIT_CIVILIZATION_NKISI';
 
 -- 19/12/25 Mvemba gets +50% general points
-INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
-    ('BBG_MVEMBA_GENERAL_POINTS', 'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS_PERCENT');
+-- INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+--     ('BBG_MVEMBA_GENERAL_POINTS', 'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS_PERCENT');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+--     ('BBG_MVEMBA_GENERAL_POINTS', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_GENERAL'),
+--     ('BBG_MVEMBA_GENERAL_POINTS', 'Amount', 50);
+-- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+--     ('TRAIT_LEADER_RELIGIOUS_CONVERT', 'BBG_MVEMBA_GENERAL_POINTS');
+
+-- 17/03/26 Barrack et stable give 1 extra general point
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_KONGO_BARRACKS_STABLES_GENERAL_POINTS_GIVER', 'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER', NULL),
+    ('BBG_KONGO_BARRACKS_STABLES_GENERAL_POINTS', 'MODIFIER_SINGLE_CITY_ADJUST_GREAT_PERSON_POINT', 'BBG_CITY_HAS_STABLE_BARRACKS_REQSET');
+
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_MVEMBA_GENERAL_POINTS', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_GENERAL'),
-    ('BBG_MVEMBA_GENERAL_POINTS', 'Amount', 50);
+    ('BBG_KONGO_BARRACKS_STABLES_GENERAL_POINTS_GIVER', 'ModifierId', 'BBG_KONGO_BARRACKS_STABLES_GENERAL_POINTS'),
+    ('BBG_KONGO_BARRACKS_STABLES_GENERAL_POINTS', 'Amount', '1'),
+    ('BBG_KONGO_BARRACKS_STABLES_GENERAL_POINTS', 'GreatPersonClassType', 'GREAT_PERSON_CLASS_GENERAL');
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
-    ('TRAIT_LEADER_RELIGIOUS_CONVERT', 'BBG_MVEMBA_GENERAL_POINTS');
+    ('TRAIT_LEADER_RELIGIOUS_CONVERT', 'BBG_KONGO_BARRACKS_STABLES_GENERAL_POINTS_GIVER');
 
 -- 19/12/25 Forest/rainforest give +1 prod when adjacent to an encampment
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES

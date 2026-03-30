@@ -65,6 +65,9 @@ UPDATE ModifierArguments SET Value='20' WHERE ModifierId='GDR_AA_DEFENSE' AND Na
 -- 08/04/25 Reverted
 -- UPDATE Units SET PurchaseYield=NULL WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
 
+-- === RANGE UNITS ===--
+-- 16/03/26 Reduce promotion from garnison to 7 (from 10)
+UPDATE ModifierArguments SET Value='7' WHERE ModifierId='GARRISON_BONUS_DISTRICTS' AND Name='Amount';
 
 -- === RECON UNITS ===--
 -- 1 sight after ranger
@@ -418,3 +421,100 @@ UPDATE Units SET CostProgressionModel='COST_PROGRESSION_GAME_PROGRESS', CostProg
 
 -- 15/12/24 Spy can stack so Wu can faith buy spies when there is one opponent in they city 
 UPDATE Units SET Stackable=1 WHERE UnitType='UNIT_SPY';
+
+--=======================================================================
+--******                    FORTIFY                                ******
+--=======================================================================
+-- 16/03/26 Cavalery cannot fortify, heal or alert. (except from fort/walls)
+-- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+--     ('BBG_UNIT_IS_CAVALRY', 'REQUIREMENTSET_TEST_ANY');
+
+-- INSERT INTO Requirements(RequirementId, RequirementType) VALUES
+--     ('BBG_UNIT_IS_RANGED_CAVALRY', 'REQUIREMENT_UNIT_TAG_MATCHES'),
+--     ('BBG_UNIT_IS_LIGHT_CAVALRY', 'REQUIREMENT_UNIT_TAG_MATCHES'),
+--     ('BBG_UNIT_IS_HEAVY_CAVALRY', 'REQUIREMENT_UNIT_TAG_MATCHES');
+
+-- INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+--     ('BBG_UNIT_IS_RANGED_CAVALRY', 'Tag', 'CLASS_RANGED_CAVALRY'),
+--     ('BBG_UNIT_IS_LIGHT_CAVALRY', 'Tag', 'CLASS_LIGHT_CAVALRY'),
+--     ('BBG_UNIT_IS_HEAVY_CAVALRY', 'Tag', 'CLASS_HEAVY_CAVALRY');
+
+-- INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+--     ('BBG_UNIT_IS_CAVALRY', 'BBG_UNIT_IS_LIGHT_CAVALRY'),
+--     ('BBG_UNIT_IS_CAVALRY', 'BBG_UNIT_IS_HEAVY_CAVALRY'),
+--     ('BBG_UNIT_IS_CAVALRY', 'BBG_UNIT_IS_RANGED_CAVALRY');
+
+
+-- INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+--     ('BBG_CAVALRY_NO_FORTIFY', 'MODIFIER_ALL_UNITS_DISABLE_OPERATION', 'BBG_UNIT_IS_CAVALRY'),
+--     ('BBG_CAVALRY_NO_FORTIFY_HEAL', 'MODIFIER_ALL_UNITS_DISABLE_OPERATION', 'BBG_UNIT_IS_CAVALRY'),
+--     ('BBG_CAVALRY_NO_FORTIFY_ALERT', 'MODIFIER_ALL_UNITS_DISABLE_OPERATION', 'BBG_UNIT_IS_CAVALRY');
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+--     ('BBG_CAVALRY_NO_FORTIFY', 'OperationType', 'UNITOPERATION_FORTIFY'),
+--     ('BBG_CAVALRY_NO_FORTIFY_HEAL', 'OperationType', 'UNITOPERATION_HEAL'),
+--     ('BBG_CAVALRY_NO_FORTIFY_ALERT', 'OperationType', 'UNITOPERATION_ALERT');
+
+-- -- tag/descriptions
+-- INSERT INTO Types (Type, Kind) VALUES
+--     ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'KIND_ABILITY');
+-- INSERT INTO TypeTags (Type, Tag) VALUES
+--     ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'CLASS_HEAVY_CAVALRY'),
+--     ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'CLASS_LIGHT_CAVALRY'),
+--     ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'CLASS_RANGED_CAVALRY');
+
+-- INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
+--     ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'LOC_BBG_CAVALRY_NO_FORTIFY_NAME', 'LOC_BBG_CAVALRY_NO_FORTIFY_DESC');
+
+-- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+--     ('TRAIT_LEADER_MAJOR_CIV', 'BBG_CAVALRY_NO_FORTIFY'),
+--     ('TRAIT_LEADER_MAJOR_CIV', 'BBG_CAVALRY_NO_FORTIFY_HEAL'),
+--     ('TRAIT_LEADER_MAJOR_CIV', 'BBG_CAVALRY_NO_FORTIFY_ALERT');
+
+-- -- not used
+-- INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+--     ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'BBG_CAVALRY_NO_FORTIFY'),
+--     ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'BBG_CAVALRY_NO_FORTIFY_HEAL'),
+--     ('BBG_ABILITY_CAVALRY_NO_FORTIFY', 'BBG_CAVALRY_NO_FORTIFY_ALERT');
+
+-- INSERT INTO ModifierStrings (ModifierId , Context , Text) VALUES
+--     ('BBG_CAVALRY_NO_FORTIFY', 'Preview', 'LOC_BBG_ABILITY_CAVALRY_NO_FORTIFY_DESC'),
+--     ('BBG_CAVALRY_NO_FORTIFY_HEAL', 'Preview', 'LOC_BBG_ABILITY_CAVALRY_NO_FORTIFY_DESC'),
+--     ('BBG_CAVALRY_NO_FORTIFY_ALERT', 'Preview', 'LOC_BBG_ABILITY_CAVALRY_NO_FORTIFY_DESC');
+
+-- -- Charge promotion: Add requirement that opponent is NOT cavalry
+-- INSERT INTO Requirements(RequirementId, RequirementType, Inverse) VALUES
+--     ('BBG_OPPONENT_IS_NOT_LIGHT_CAVALRY', 'REQUIREMENT_OPPONENT_UNIT_TAG_MATCHES', 1),
+--     ('BBG_OPPONENT_IS_NOT_HEAVY_CAVALRY', 'REQUIREMENT_OPPONENT_UNIT_TAG_MATCHES', 1),
+--     ('BBG_OPPONENT_IS_NOT_RANGED_CAVALRY', 'REQUIREMENT_OPPONENT_UNIT_TAG_MATCHES', 1);
+-- INSERT INTO RequirementArguments(RequirementId, Name, Value) VALUES
+--     ('BBG_OPPONENT_IS_NOT_LIGHT_CAVALRY', 'Tag', 'CLASS_LIGHT_CAVALRY'),
+--     ('BBG_OPPONENT_IS_NOT_HEAVY_CAVALRY', 'Tag', 'CLASS_HEAVY_CAVALRY'),
+--     ('BBG_OPPONENT_IS_NOT_RANGED_CAVALRY', 'Tag', 'CLASS_RANGED_CAVALRY');
+-- INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+--     ('CHARGE_REQUIREMENTS', 'BBG_OPPONENT_IS_NOT_LIGHT_CAVALRY'),
+--     ('CHARGE_REQUIREMENTS', 'BBG_OPPONENT_IS_NOT_HEAVY_CAVALRY'),
+--     ('CHARGE_REQUIREMENTS', 'BBG_OPPONENT_IS_NOT_RANGED_CAVALRY');
+
+--20/03/26 Instead of removing the fortify operation, we will add +4 modifier when attacking fortified cavalry.
+--24/03/26 reverted, waiting for a bigger rework of fortify that may include this change
+-- INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+--     ('BBG_CHARGE_VS_FORTIFIED_CAVALRY', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET');
+-- INSERT INTO ModifierStrings (ModifierId , Context , Text) VALUES
+--     ('BBG_CHARGE_VS_FORTIFIED_CAVALRY', 'Preview', 'LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_PREVIEW');
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+--     ('BBG_CHARGE_VS_FORTIFIED_CAVALRY', 'Amount', 4);
+-- INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+--     ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'REQUIREMENTSET_TEST_ALL');
+-- INSERT INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+--     ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'PLAYER_IS_ATTACKER_REQUIREMENTS'),
+--     ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'OPPONENT_IS_FORTIFIED'),                --existing requirement that checks if opponent is fortified, from charge promotion
+--     ('BBG_ATTACKING_FORTIFIED_CAVALRY_REQSET', 'OPPONENT_IS_CAVALRY_REQUIREMENTS_MET'); --existing requirement that checks if opponent is cavalry, from anti-cavalry
+-- -- attach modifier to all units
+-- INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
+--     ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_NAME', 'LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_DESC');
+-- INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+--     ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'BBG_CHARGE_VS_FORTIFIED_CAVALRY');
+-- INSERT INTO Types (Type, Kind) VALUES
+--     ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'KIND_ABILITY');
+-- INSERT INTO TypeTags (Type, Tag) VALUES
+--     ('BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY', 'CLASS_ALL_COMBAT_UNITS');

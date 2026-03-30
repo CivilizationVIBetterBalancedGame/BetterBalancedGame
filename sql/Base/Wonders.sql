@@ -488,6 +488,13 @@ UPDATE Buildings SET Cost=1620 WHERE BuildingType='BUILDING_BIOSPHERE';
 
 -- 02/07/24 Oxford moved to Urbanization from Scientific Theory
 UPDATE Buildings SET PrereqTech=NULL, PrereqCivic='CIVIC_URBANIZATION' WHERE BuildingType='BUILDING_OXFORD_UNIVERSITY';
+-- 17/03/26 Oxford can be placed in all flat terrain
+INSERT OR IGNORE INTO Building_ValidTerrains (BuildingType, TerrainType) VALUES
+	('BUILDING_OXFORD_UNIVERSITY', 'TERRAIN_PLAINS'),
+	('BUILDING_OXFORD_UNIVERSITY', 'TERRAIN_GRASS'),
+	('BUILDING_OXFORD_UNIVERSITY', 'TERRAIN_SNOW'),
+	('BUILDING_OXFORD_UNIVERSITY', 'TERRAIN_TUNDRA'),
+	('BUILDING_OXFORD_UNIVERSITY', 'TERRAIN_DESERT');
 
 -- 28/11/24 Colossus now give +2 gold to foreign traders coming to and leaving the city
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
@@ -538,7 +545,11 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 -- 30/06/25 Terracota no longer work on naval and air units
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_IS_NOT_NAVAL_OR_PLANE_REQSET' WHERE ModifierId='TERRACOTTA_ARMY_LEVEL_UP_UNITS';
-
+-- 17/03/26 Terracota can be placed in all flat terrain
+INSERT OR IGNORE INTO Building_ValidTerrains (BuildingType, TerrainType) VALUES
+	('BUILDING_TERRACOTTA_ARMY', 'TERRAIN_SNOW'),
+	('BUILDING_TERRACOTTA_ARMY', 'TERRAIN_TUNDRA'),
+	('BUILDING_TERRACOTTA_ARMY', 'TERRAIN_DESERT');
 INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
 	('BBG_REQUIRES_UNIT_IS_NOT_NAVAL', 'REQUIREMENT_UNIT_DOMAIN_MATCHES', 1),
 	('BBG_REQUIRES_UNIT_IS_NOT_AIR', 'REQUIREMENT_UNIT_DOMAIN_MATCHES', 1);
@@ -566,3 +577,5 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 UPDATE Buildings SET PrereqCivic='CIVIC_CAPITALISM' WHERE BuildingType='BUILDING_BIG_BEN';
 UPDATE Buildings SET PrereqTech=NULL WHERE BuildingType='BUILDING_BIG_BEN';
 
+-- 16/03/26 Pyramids no longer give free builder
+DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_PYRAMIDS' AND ModifierId='PYRAMID_GRANT_BUILDERS';
