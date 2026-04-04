@@ -95,4 +95,5 @@ INSERT INTO TechnologyModifiers (TechnologyType, ModifierId)
 UPDATE Civics SET Description='LOC_CIVIC_OPERA_BALLET_DESCRIPTION' WHERE CivicType='CIVIC_OPERA_BALLET';
 
 -- 16/03/26 Increase culture cost of Future Civic by 50%
-UPDATE Civics SET Cost=Cost*1.5 WHERE EraType='ERA_FUTURE';
+-- 04/04/26 Only the last repeatable one
+UPDATE Civics SET Cost=Cost*1.5 WHERE CivicType='CIVIC_FUTURE_CIVIC';
