@@ -69,3 +69,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
      ('BBG_INDONESIA_FAITH_HARBOR_BUILDING', 'DistrictType', 'DISTRICT_HARBOR');
  INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
      ('TRAIT_LEADER_EXALTED_GODDESS', 'BBG_INDONESIA_FAITH_HARBOR_BUILDING');
+
+
+--14/04/26 Fix bug by firaxis : unit embark for free if you control a religious unit
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_ADJUST_IGNORE_SHORES' WHERE ModifierId='GITARJA_RELIGIOUS_NO_EMBARK_DISEMBARK_COST';
+UPDATE Modifiers SET Permanent='1' WHERE ModifierId='GITARJA_RELIGIOUS_NO_EMBARK_DISEMBARK_COST';
