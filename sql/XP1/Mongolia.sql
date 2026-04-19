@@ -31,3 +31,6 @@ UPDATE Building_YieldChanges SET YieldChange=2 WHERE BuildingType='BUILDING_ORDU
 
 -- 19/12/25 Genghis' bonuses no longer work for heavy cav
 DELETE FROM TypeTags WHERE Tag='CLASS_HEAVY_CAVALRY' AND Type IN ('ABILITY_GENGHIS_KHAN_CAVALRY_BONUS', 'ABILITY_GENGHIS_KHAN_CAVALRY_CAPTURE_CAVALRY');
+
+--19/04/26 Genghis' bonuses no longer work for heavy cav -- fix 
+DELETE FROM RequirementSetRequirements WHERE RequirementId='UNIT_IS_HEAVY_CAVALRY' AND RequirementSetId ='REQUIREMENTS_UNIT_IS_MONGOLIAN_CAVALRY';
