@@ -3,21 +3,21 @@
 <!-- Maybe change Expanded Criteria ? -->
 
 <!-- Release ModID-->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="7043">
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be260" version="7046"> -->
 
 <!-- BETA ModID-->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="7045"> -->
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="7046">
 
 <!-- WIP ModID -->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="7045"> -->
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="7046"> -->
 	<Properties>
-		<Name>Better Balanced Game 7.4.3</Name>
+		<Name>Better Balanced Game 7.4.6</Name>
 		<Description>
-			LIVE build of Better Balanced Game 7.4.3
+			LIVE build of Better Balanced Game 7.4.6
 		</Description>
 		<Teaser>Mod to balance multiplayer game.</Teaser>
 		<Authors>github.com/CivilizationVIBetterBalancedGame</Authors>
-		<Version>7043</Version>
+		<Version>7046</Version>
 		<SpecialThanks>abstr, acsess, Apeul, Bastik, Bobnotarobot, Calcifer, codenaugh, coloo, D. / Jack The Narrator, Hej, Facu, FaelSCCP, FlashyFeeds, fl0r3k, GLaYD, goldfire, iElden, Ignasiuz, keride, Kid, Klas, MarsLife(puj), Moumoulax, Onyxum, OSCAR., Pebbleton, priz, robal, seed.of.apricot, Sent Kurokawa, _vadya_queen, VioletXU1534, Vodairo, wazabaza, WhySoHate, Ybanca, Yenaleesternberg, ZhenjaMax, 3JIO6HbIU_Kycb</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
 	</Properties>
@@ -286,6 +286,10 @@
 			<!-- WIP -->
 			<ModInUse>2a0aa96a-a31c-4ce2-87ec-09144f6f3e00</ModInUse>
 		</Criteria>
+		<Criteria id="BBGExpanded_WIP_Published">
+			<!-- WIP -->
+			<ModInUse>2a0aa96a-a31c-4ce2-87ec-09152f6f3888</ModInUse>
+		</Criteria>
 		<Criteria id="BBGExpanded_Release">
 			<!-- Release -->
 			<ModInUse>2a0aa96a-a31c-4ce2-87ec-09152f6f3e00</ModInUse>
@@ -339,11 +343,24 @@
 		    <File>sql/colors.sql</File>
 	    </UpdateColors>
 
+	    <UpdateDatabase id="BBG_Expanded_Disable_new_front">
+			<Properties>
+				<LoadOrder>100000000</LoadOrder>
+			</Properties>
+			<File>sql/BBG_Expanded/Disable_new_config.sql</File>
+		</UpdateDatabase>
 	    <UpdateDatabase id="BBG_Expanded_MOAR_Units_WIP_front">
 			<Properties>
 				<LoadOrder>4</LoadOrder>
 			</Properties>
 			<Criteria>BBGExpanded_WIP</Criteria>
+			<File>sql/BBG_Expanded/MOARUnits_enabledconfig.sql</File>
+		</UpdateDatabase>
+	    <UpdateDatabase id="BBG_Expanded_MOAR_Units_WIP_front">
+			<Properties>
+				<LoadOrder>4</LoadOrder>
+			</Properties>
+			<Criteria>BBGExpanded_WIP_Published</Criteria>
 			<File>sql/BBG_Expanded/MOARUnits_enabledconfig.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="BBG_Expanded_MOAR_Units_Release_front">
@@ -955,6 +972,18 @@
 			<Criteria>GranColombia_Maya</Criteria>
 			<File>sql/BBG_Expanded/MOARUnits_enabled.sql</File>
 		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Expanded_MOAR_Units_WIP">
+			<Properties>
+				<LoadOrder>4</LoadOrder>
+			</Properties>
+			<Criteria>BBGExpanded_WIP_Published</Criteria>
+			<Criteria>XP1_AND_XP2</Criteria>
+			<Criteria>DLC_Aztec</Criteria>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<Criteria>GranColombia_Maya</Criteria>
+			<File>sql/BBG_Expanded/MOARUnits_enabled.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="BBG_Expanded_MOAR_Units_Release">
 			<Properties>
 				<LoadOrder>4</LoadOrder>
@@ -989,6 +1018,30 @@
 			<File>sql/BBG_Expanded/Resources.sql</File>
 			<File>sql/BBG_Expanded/Barbarossa_UU.sql</File>
 			<File>sql/BBG_Expanded/Caesar_UU.sql</File>
+			<File>sql/BBG_Expanded/Disable_new.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="BBG_Expanded_WIP_Published">
+			<Properties>
+				<LoadOrder>100000000</LoadOrder>
+			</Properties>
+			<Criteria>BBGExpanded_WIP_Published</Criteria>
+			<Criteria>XP1_AND_XP2</Criteria>
+			<Criteria>DLC_Aztec</Criteria>
+			<Criteria>DLC_Macedon_Persia</Criteria>
+			<Criteria>Byzantium_Gaul</Criteria>
+			<Criteria>GranColombia_Maya</Criteria>
+			<File>sql/BBG_Expanded/Vercingetorix.sql</File>
+			<File>sql/BBG_Expanded/Olympia.sql</File>
+			<File>sql/BBG_Expanded/Thule.sql</File>
+			<File>sql/BBG_Expanded/Te_Kinich.sql</File>
+			<File>sql/BBG_Expanded/Trisong.sql</File>
+			<File>sql/BBG_Expanded/Ahiram.sql</File>
+			<File>sql/BBG_Expanded/Al_Hasan.sql</File>
+			<File>sql/BBG_Expanded/Spearthrower.sql</File>
+			<File>sql/BBG_Expanded/Resources.sql</File>
+			<File>sql/BBG_Expanded/Barbarossa_UU.sql</File>
+			<File>sql/BBG_Expanded/Caesar_UU.sql</File>
+			<File>sql/BBG_Expanded/Disable_new.sql</File>
 		</UpdateDatabase>
 		<!-- I don't know how to do an OR -->
 		<UpdateDatabase id="BBG_Expanded_Release">
@@ -1012,6 +1065,7 @@
 			<File>sql/BBG_Expanded/Resources.sql</File>
 			<File>sql/BBG_Expanded/Barbarossa_UU.sql</File>
 			<File>sql/BBG_Expanded/Caesar_UU.sql</File>
+			<File>sql/BBG_Expanded/Disable_new.sql</File>
 		</UpdateDatabase>
 
 
@@ -1467,6 +1521,8 @@
 		<File>sql/BBG_Expanded/Resources.sql</File>
 		<File>sql/BBG_Expanded/MOARUnits_enabled.sql</File>
 		<File>sql/BBG_Expanded/MOARUnits_enabledconfig.sql</File>
+		<File>sql/BBG_Expanded/Disable_new.sql</File>
+		<File>sql/BBG_Expanded/Disable_new_config.sql</File>
 		<!-- BBG Expanded lua -->
       	<File>lua/BBG_Expanded/Thule.lua</File>
       	<File>lua/BBG_Expanded/Te_Kinich.lua</File>
