@@ -273,8 +273,10 @@ INSERT INTO ModifierStrings (ModifierId, Context, Text) VALUES
     ('BBG_CVS_TAINO_UU_AGAINST_STRONGER_UNITS', 'Preview', 'LOC_BBG_ABILITY_CVS_TAINO_UU_AGAINST_STRONGER_UNITS_DESCRIPTION');
 
 
--- UI +1 housing
-UPDATE Improvements SET Housing = 1 WHERE ImprovementType = 'IMPROVEMENT_CVS_ANACAONA_UI';
+-- UI +1 housing and not next to each other
+
+UPDATE Improvements SET Housing = 1, SameAdjacentValid = 0 WHERE ImprovementType = 'IMPROVEMENT_CVS_ANACAONA_UI';
+
 -- UI allowed on hill
 INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType)
 VALUES ('IMPROVEMENT_CVS_ANACAONA_UI', 'TERRAIN_GRASS_HILLS'),

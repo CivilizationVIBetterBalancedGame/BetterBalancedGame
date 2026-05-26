@@ -23,7 +23,7 @@ local tTraitPlayers = C15_GetValidTraitPlayers(sTrait)
 function BBG_Gothic_Pop(playerID, cityID)
     if tTraitPlayers[playerID] then
 
-        local iRadius = 5
+        local iRadius = 6
         local sGothPop = "LOC_GOTHIC_MIGRATION_POP_GAIN"
         
         -- print ("BBG_Gothic_Pop working!")
@@ -39,23 +39,25 @@ function BBG_Gothic_Pop(playerID, cityID)
             if CityCheck ~= nil then
                 -- print ("already migrated from this city")
             else
-                for i, otherCity in pPlayerCities:Members() do
-                    if otherCity == pCity then
-                        -- we don't need to test the city against itself
-                    else
-                        local nX = otherCity:GetX()
-                        local nY = otherCity:GetY()
+                if Players[playerID]:GetCulture():HasCivic(GameInfo.Civics["CIVIC_POLITICAL_PHILOSOPHY"].Index) then
+                    for i, otherCity in pPlayerCities:Members() do
+                        if otherCity == pCity then
+                            -- we don't need to test the city against itself
+                        else
+                            local nX = otherCity:GetX()
+                            local nY = otherCity:GetY()
 
-                        if nX > -1 then
+                            if nX > -1 then
 
-                            local iDistance = Map.GetPlotDistance(oX, oY, nX, nY)
+                                local iDistance = Map.GetPlotDistance(oX, oY, nX, nY)
 
-                            if iDistance <= iRadius then
-                                local pGrowth = otherCity:GetGrowth()
-                                if pGrowth and pGrowth:GetHousing() > otherCity:GetPopulation()+1 then
-                                    otherCity:ChangePopulation(1)
-                                    if pPlayer:IsHuman() then
-                                        Game.AddWorldViewText(playerID, Locale.Lookup(sGothPop, 1), nX, nY, 0)
+                                if iDistance <= iRadius then
+                                    local pGrowth = otherCity:GetGrowth()
+                                    if pGrowth and pGrowth:GetHousing() > otherCity:GetPopulation()+1 then
+                                        otherCity:ChangePopulation(1)
+                                        if pPlayer:IsHuman() then
+                                            Game.AddWorldViewText(playerID, Locale.Lookup(sGothPop, 1), nX, nY, 0)
+                                        end
                                     end
                                 end
                             end
