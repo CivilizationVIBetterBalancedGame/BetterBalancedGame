@@ -69,7 +69,14 @@ INSERT INTO Units (UnitType, Cost, BaseMoves, BaseSightRange, ZoneOfControl, Dom
 ('UNIT_GREAT_DIPLOMAT', 1, 4, 2, 0, 'DOMAIN_LAND', 'FORMATION_CLASS_CIVILIAN', 'LOC_UNIT_GREAT_DIPLOMAT_NAME', 'LOC_UNIT_GREAT_DIPLOMAT_DESCRIPTION', 0, 1, 0, 'TRAIT_UNIT_GREAT_DIPLOMAT');
 INSERT INTO Units_XP2 (UnitType, CanEarnExperience, CanFormMilitaryFormation) VALUES ('UNIT_GREAT_DIPLOMAT', 0, 0);
 
-INSERT INTO TypeTags (Type, Tag) VALUES ('UNIT_GREAT_DIPLOMAT', 'CLASS_LANDCIVILIAN'), ('TRAIT_UNIT_GREAT_DIPLOMAT', 'CLASS_ALL_ERAS');
+-- diplomat ignore terrain cost
+INSERT INTO Tags (Tag, Vocabulary) VALUES ('CLASS_DIPLOMAT', 'ABILITY_CLASS');
+
+INSERT INTO TypeTags (Type, Tag)
+VALUES ('UNIT_GREAT_DIPLOMAT', 'CLASS_LANDCIVILIAN'),
+('UNIT_GREAT_DIPLOMAT', 'CLASS_DIPLOMAT'),
+('TRAIT_UNIT_GREAT_DIPLOMAT', 'CLASS_ALL_ERAS'),
+('ABILITY_IGNORE_TERRAIN_COST', 'CLASS_DIPLOMAT');
 
 
 INSERT INTO GreatPersonClasses  (GreatPersonClassType, Name, UnitType, DistrictType, AvailableInTimeline, GenerateDuplicateIndividuals, IconString, ActionIcon, PseudoYieldType)    

@@ -108,35 +108,35 @@ INSERT INTO NamedLakes(NamedLakeType, Name) VALUES
     ('NAMED_LAKE_GOTH_1', 'LOC_NAMED_LAKE_GOTH_1_NAME'),
     ('NAMED_LAKE_GOTH_2', 'LOC_NAMED_LAKE_GOTH_2_NAME');
 
-INSERT INTO NamedMountain(NamedMountainType, Name) VALUES
+INSERT INTO NamedMountains(NamedMountainType, Name) VALUES
     ('NAMED_MOUNTAIN_GOTH_1', 'LOC_NAMED_MOUNTAIN_GOTH_1_NAME'),
     ('NAMED_MOUNTAIN_GOTH_2', 'LOC_NAMED_MOUNTAIN_GOTH_2_NAME');
 
-INSERT INTO NamedVolcano(NamedVolcanoType, Name) VALUES
+INSERT INTO NamedVolcanoes(NamedVolcanoType, Name) VALUES
     ('NAMED_VOLCANO_GOTH_1', 'LOC_NAMED_VOLCANO_GOTH_1_NAME'),
     ('NAMED_VOLCANO_GOTH_2', 'LOC_NAMED_VOLCANO_GOTH_2_NAME');
 
-INSERT INTO NamedSea(NamedLakeType, Name) VALUES
+INSERT INTO NamedSeas(NamedSeaType, Name) VALUES
     ('NAMED_SEA_GOTH_1', 'LOC_NAMED_LAKE_GOTH_1_NAME'),
     ('NAMED_SEA_GOTH_2', 'LOC_NAMED_LAKE_GOTH_2_NAME');
 
-INSERT INTO NamedRiversCivilizations(NamedRiverType, CivilizationType) VALUES
+INSERT INTO NamedRiverCivilizations(NamedRiverType, CivilizationType) VALUES
     ('NAMED_RIVER_GOTH_1', 'CIVILIZATION_MER_GOTHS'),
     ('NAMED_RIVER_GOTH_2', 'CIVILIZATION_MER_GOTHS');
 
-INSERT INTO NamedLakesCivilizations(NamedRiverType, CivilizationType) VALUES
+INSERT INTO NamedLakeCivilizations(NamedLakeType, CivilizationType) VALUES
     ('NAMED_LAKE_GOTH_1', 'CIVILIZATION_MER_GOTHS'),
     ('NAMED_LAKE_GOTH_2', 'CIVILIZATION_MER_GOTHS');
 
-INSERT INTO NamedMountainCivilizations(NamedRiverType, CivilizationType) VALUES
+INSERT INTO NamedMountainCivilizations(NamedMountainType, CivilizationType) VALUES
     ('NAMED_MOUNTAIN_GOTH_1', 'CIVILIZATION_MER_GOTHS'),
     ('NAMED_MOUNTAIN_GOTH_2', 'CIVILIZATION_MER_GOTHS');
 
-INSERT INTO NamedVolcanoCivilizations(NamedRiverType, CivilizationType) VALUES
+INSERT INTO NamedVolcanoCivilizations(NamedVolcanoType, CivilizationType) VALUES
     ('NAMED_VOLCANO_GOTH_1', 'CIVILIZATION_MER_GOTHS'),
     ('NAMED_VOLCANO_GOTH_2', 'CIVILIZATION_MER_GOTHS');
 
-INSERT INTO NamedSeaCivilizations(NamedRiverType, CivilizationType) VALUES
+INSERT INTO NamedSeaCivilizations(NamedSeaType, CivilizationType) VALUES
     ('NAMED_SEA_GOTH_1', 'CIVILIZATION_MER_GOTHS'),
     ('NAMED_SEA_GOTH_2', 'CIVILIZATION_MER_GOTHS');
 
