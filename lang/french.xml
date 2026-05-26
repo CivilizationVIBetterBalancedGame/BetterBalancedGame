@@ -167,7 +167,7 @@
 			<Text>Marie-Thérèse la Grande</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_MER_THERESIAN_REFORM_DESCRIPTION" Language="fr_FR">
-			<Text>Les gouverneur établis octroient les bonus suivants :[NEWLINE][ICON_BULLET]Points [ICON_INFLUENCEPERTURN] d'influence par tour +1[NEWLINE][ICON_BULLET][ICON_PRODUCTION] Production +15% pour les quartiers[NEWLINE][ICON_BULLET][ICON_PRODUCTION] Production +15% pour les unités[NEWLINE][NEWLINE]Les quartiers spécialisés fournissent +1 [ICON_HOUSING] d'Habitations si un exemplaire est construit dans la [ICON_CAPITAL] Capitale.</Text>
+			<Text>Les [ICON_GOVERNOR] gouverneurs établis octroient les bonus suivants :[NEWLINE] • Points [ICON_INFLUENCEPERTURN] d'influence par tour +1.[NEWLINE] • [ICON_PRODUCTION] Production +15% pour les quartiers.[NEWLINE][ICON_BULLET] • [ICON_PRODUCTION] Production +15% pour les unités.[NEWLINE][NEWLINE]Les [ICON_DISTRICT] quartiers spécialisés (sauf dans la [ICON_CAPITAL] Capitale) fournissent +1 [ICON_HOUSING] d'Habitations si un exemplaire est construit dans la [ICON_CAPITAL] Capitale.</Text>
 		</Replace>
         <!-- = Unique unit - Unité unique = --> <!-- BBG expanded -->
         <Replace Tag="LOC_UNIT_MER_GRENZER_NAME" Language="fr_FR">
@@ -739,11 +739,8 @@
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MER_GOTHIC_MIGRATION_NAME" Language="fr_FR">
 			<Text>Migration des Goths</Text>
 		</Replace>
-        <Replace Tag="LOC_GOTHIC_MIGRATION_POP_GAIN" Language="fr_FR">
-            <Text>Des Goths ont rejoint votre ville : +{1: number #,###.#} [ICON_Citizen] Citoyens!</Text>
-        </Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MER_GOTHIC_MIGRATION_DESCRIPTION" Language="fr_FR">
-			<Text>Fonder ou conquérir une ville pour la première fois octroie +1 [ICON_CITIZEN] Citoyens dans toutes vos villes dans un rayon de 6 cases avec au moins 2 [ICON_HOUSING] Habitations libres.</Text>
+			<Text>À la [COLOR:212,115,212,255]Philosophie Politique[ENDCOLOR], fonder ou conquérir une ville pour la première fois octroie +1 [ICON_CITIZEN] Citoyens dans toutes vos villes dans un rayon de 6 cases avec au moins 2 [ICON_HOUSING] Habitations libres.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOTHIC_MIGRATION_POP_GAIN" Language="fr_FR">
             <Text>Des Goths ont rejoint votre ville : +{1: number #,###.#} [ICON_Citizen] Citoyens!</Text>
@@ -753,21 +750,24 @@
 			<Text>Gothorum Romanorumque</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_MER_THEODORIC_GOTHORUM_ROMANORUMQUE_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_MOVEMENT] PM +1 pour les unités militaire terrestre hors cavalerie dans un rayon de 6 cases d'un Hlaiw.</Text>
+			<Text>[ICON_MOVEMENT] PM +1 pour les unités militaire terrestres hors cavalerie dans un rayon de 6 cases d'un Hlaiw.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_UNIT_MER_MILITOND_NAME" Language="fr_FR">
 			<Text>Militōnd</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_MER_MILITOND_DESCRIPTION" Language="fr_FR">
-			<Text>Unité de combat rapproché de l'ère classique exclusive à Théodoric le Grand, remplaçant le Spadassin.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +5 contre les quartiers et les unités dans un quartiers. Gagne une [ICON_PROMOTION] promotion gratuite.</Text>
+			<Text>Unité de combat rapproché de l'ère classique exclusive à Théodoric le Grand, remplaçant le Spadassin.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +5 contre les quartiers et les unités dans un quartier. Gagne une [ICON_PROMOTION] promotion gratuite.</Text>
+		</Replace>
+		<Replace Tag="LOC_MODIFIER_MER_MILITOND_DISTRICT_DESC" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +5 contre les quartiers et les unités dans un quartier.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_UNIT_MER_GADRAUHT_NAME" Language="fr_FR">
 			<Text>Gadrauht</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_MER_GADRAUHT_DESCRIPTION" Language="fr_FR">
-			<Text>Unité d'anti-cavalerie de l'ère médiévale excluvie aux Goths, remplaçant le Piquier.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat de base +5. Tuer une unité rapporte 50% de sa [ICON_STRENGTH] Puissance de combat de base en [ICON_CULTURE] Culture (vitesse en ligne). Pour former un Gadrauht, une ville doit avoir au moins 2 [ICON_CITIZEN] Citoyens. Former un Gadrauht fait perdre 1 [ICON_CITIZEN] Citoyen si la ville ne possède pas de Temple.[NEWLINE]Gagne une [ICON_PROMOTION] promotion gratuite.</Text>
+			<Text>Unité d'anti-cavalerie de l'ère médiévale exclusive aux Goths, remplaçant le Piquier.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat de base +2.[NEWLINE][NEWLINE]Tuer une unité rapporte 50% de sa [ICON_STRENGTH] Puissance de combat de base en [ICON_CULTURE] Culture (vitesse en ligne). Pour former un Gadrauht, une ville doit avoir au moins 2 [ICON_CITIZEN] Citoyens. Former un Gadrauht fait perdre 1 [ICON_CITIZEN] Citoyen si la ville ne possède pas de Temple.[NEWLINE]Gagne une [ICON_PROMOTION] promotion gratuite.</Text>
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_BUILDING_MER_HLAIW_NAME" Language="fr_FR">
@@ -1427,7 +1427,7 @@
 			<Text>Commission de l'Éducation nationale</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_JFD_NATIONAL_EDUCATION_DESCRIPTION" Language="fr_FR">
-			<Text>Les cases de ressources et/ou aménagées reçoivent des rendements supplémentaires si elles sont adjacentes à un Campement et ses bâtiments :[NEWLINE] • Campement : [ICON_FOOD] nourriture +1.[NEWLINE] • Caserne/Écurie : [ICON_CULTURE] Culture +1.[NEWLINE] • Armurerie : [ICON_SCIENCE] Science +1.[NEWLINE] • École militaire : [ICON_PRODUCTION] Production +1.</Text>
+			<Text>Les cases de ressources et/ou aménagées reçoivent des rendements supplémentaires si elles sont adjacentes à un Campement et ses bâtiments :[NEWLINE] • Campement : [ICON_FOOD] Nourriture +1.[NEWLINE] • Caserne/Écurie : [ICON_CULTURE] Culture +1.[NEWLINE] • Armurerie : [ICON_SCIENCE] Science +1.[NEWLINE] • École militaire : [ICON_PRODUCTION] Production +1.</Text>
 		</Replace>
 		<!-- = Unique unit (Winged hussar) - Unité unique (Hussard ailé) = -->
 		<Replace Tag="LOC_UNIT_POLISH_HUSSAR_EXPANSION2_DESCRIPTION" Language="fr_FR">
@@ -1439,6 +1439,9 @@
 		</Replace>
 		<Replace Tag="LOC_UNIT_JFD_UHLAN_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de cavalerie légère de la Renaissance exclusive à Stanislas II, remplaçant la Cavalerie.[NEWLINE][NEWLINE]Bonus de contournement doublé.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_JFD_UHLAN_FLANKING_BONUS_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Amount} en contournement.</Text>
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = -->
 		<Replace Tag="LOC_BUILDING_SUKIENNICE_EXPANSION1_DESCRIPTION" Language="fr_FR">
@@ -1722,7 +1725,7 @@
 			<Text>Guatiao</Text>
 		</Replace>
         <Replace Tag="LOC_TRAIT_CIVILIZATION_CVS_TAINO_UA_DESCRIPTION" Language="fr_FR">
-			<Text>Les doctrines qui octroient des points de [ICON_GREATPERSON] Personnage illustre fournissent +3 [ICON_FOOD] Nourriture aux villes possédant le quartier correspondant.[NEWLINE][NEWLINE][ICON_AMENITIES] Activités +1 dans les villes possédant un Batey par doctrine [COLOR:103,204,4,255]Diplomatique[ENDCOLOR] dans le [ICON_GOVERNMENT] gouvernement.</Text>
+			<Text>Les doctrines qui octroient des points de [ICON_GREATPERSON] Personnage illustre fournissent +3 [ICON_FOOD] Nourriture aux villes possédant le [ICON_DISTRICT] quartier correspondant et +2 [ICON_FOOD] Nourriture par bâtiment dans ce [ICON_DISTRICT] quartier.[NEWLINE][NEWLINE][ICON_AMENITIES] Activités +1 dans les villes possédant un Batey par doctrine [COLOR:103,204,4,255]Diplomatique[ENDCOLOR] dans le [ICON_GOVERNMENT] gouvernement.</Text>
 		</Replace>
 		<!-- = Leader - Dirigeant = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_TRAIT_LEADER_CVS_ANACAONA_NAME" Language="fr_FR">
@@ -1738,33 +1741,36 @@
 		<Replace Tag="LOC_UNIT_CVS_TAINO_UU_DESCRIPTION" Language="fr_FR">
 			<Text>Unité unique de reconnaissance de l'ère antique exclusive aux Taïnos, remplaçant le Guerrier.[NEWLINE][NEWLINE][ICON_MOVEMENT] PM +1 et Vision +1.[NEWLINE][ICON_STRENGTH] Puissance de base -5. [ICON_STRENGTH] Puissance de combat +5 contre les unités militaires plus puissantes.[NEWLINE][NEWLINE]Garde ses [ICON_PROMOTION] promotions de reconnaissance à l'amélioration.[NEWLINE][NEWLINE]Tuer une unité rapporte 50% de sa [ICON_STRENGTH] Puissance de combat de base en [ICON_FAITH] Foi (vitesse en ligne).</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_CVS_TAINO_UU_DESCRIPTION" Language="fr_FR">
+			<Text>Tuer une unité rapporte 50% de sa [ICON_STRENGTH] Puissance de combat de base en [ICON_FAITH] Foi (vitesse en ligne).</Text>
+		</Replace>
 		<!-- = Unique district - Quartier unique = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_DISTRICT_CVS_TAINO_UI_NAME" Language="fr_FR">
 			<Text>Batey</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_CVS_TAINO_UI_DESCRIPTION" Language="fr_FR">
-			<Text>Quartier exclusif aux Taïnos, remplaçant le Complexe de loisirs.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +2 et [ICON_GOLD] Or +3 par Plateforme commerciale, Port et Centre-ville adjacent.[NEWLINE][NEWLINE]Permet de lancer un projet unique, qui produit de la [ICON_FAITH] Foi et qui octroie des points [ICON_GREATWRITER] d'Écrivain illustre, [ICON_GREATARTIST] d'Artiste illustre et de [ICON_GREATMUSICIAN] Musicien illustre à un rendement doublé par rapport au normal.[NEWLINE][NEWLINE]Une arene dans ce quartier possède 2 emplacements pour chef-d'œuvre (tout type).</Text>
+			<Text>Quartier exclusif aux Taïnos, remplaçant le Complexe de loisirs.[NEWLINE][NEWLINE]En plus des bonus du Complexe de loisirs, [ICON_AMENITIES] Activités +1 et [ICON_PRODUCTION] Production +2 et [ICON_GOLD] Or +3 par Centre-ville, Plateforme commerciale et Port adjacent.[NEWLINE][NEWLINE]L'arena possède 2 emplacements de chefs-d'œuvre.[NEWLINE][NEWLINE]Permet de lancer un projet unique, qui fournit 44% de la Production en [ICON_FAITH] Foi chaque tour, et octroie des points [ICON_GREATWRITER] d'Écrivain illustre, [ICON_GREATARTIST] d'Artiste illustre et de [ICON_GREATMUSICIAN] Musicien illustre à sa complétion.</Text>
 		</Replace>
-		<Replace Tag="LOC_BBG_PRODUCTION_TAINO_HARBOR" Language="fr_FR">
-			<Text>Ports adjacents : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		<Replace Tag="LOC_BBG_PRODUCTION_TAINO_CITY_CENTER" Language="fr_FR">
+			<Text>Centres-ville adjacents : [ICON_PRODUCTION] Production +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PRODUCTION_TAINO_COMMERCIAL_HUB" Language="fr_FR">
 			<Text>Plateformes commerciales adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
 		</Replace>
-		<Replace Tag="LOC_BBG_PRODUCTION_TAINO_CITY_CENTER" Language="fr_FR">
-			<Text>Centres-ville adjacents : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		<Replace Tag="LOC_BBG_PRODUCTION_TAINO_HARBOR" Language="fr_FR">
+			<Text>Ports adjacents : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_TAINO_THEATRE_CULTURE" Language="fr_FR">
+			<Text>Bateys adjacents : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_GOLD_TAINO_CITY_CENTER" Language="fr_FR">
+			<Text>Centres-ville adjacents : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_GOLD_TAINO_COMMERCIAL_HUB" Language="fr_FR">
 			<Text>Plateformes commerciales adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_GOLD_TAINO_HARBOR" Language="fr_FR">
 			<Text>Ports adjacents : [ICON_GOLD] Or +{1_num}.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_GOLD_TAINO_CITY_CENTER" Language="fr_FR">
-			<Text>Centres-ville adjacents : [ICON_GOLD] Or +{1_num}.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_TAINO_THEATRE_CULTURE" Language="fr_FR">
-			<Text>Bateys adjacents : [ICON_CULTURE] Culture +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROJECT_CVS_TAINO_UP_NAME" Language="fr_FR">
 			<Text>Areyto</Text>
@@ -1776,11 +1782,11 @@
 			<Text>Areyto</Text>
 		</Replace>
 		<Replace Tag="LOC_PROJECT_CVS_TAINO_UP_DESCRIPTION" Language="fr_FR">
-			<Text>Projet unique aux Taïnos, disponible dans le Batey. Convertir 15% de la [ICON_PRODUCTION] en [ICON_FAITH] Foi. Octroie des points [ICON_GREATWRITER] d'Écrivain illustre, [ICON_GREATARTIST] d'Artiste illustre et de [ICON_GREATMUSICIAN] Musicien illustre à sa complétion.</Text>
+			<Text>Projet unique aux Taïnos, disponible dans le Batey. Fournit 44% de la Production en [ICON_FAITH] Foi chaque tour, et octroie des points [ICON_GREATWRITER] d'Écrivain illustre, [ICON_GREATARTIST] d'Artiste illustre et de [ICON_GREATMUSICIAN] Musicien illustre à sa complétion.</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_CVS_ANACAONA_UI_DESCRIPTION" Language="fr_FR">
-			<Text>Aménagement exclusif aux Taïnos.[NEWLINE][NEWLINE]Rendements de base en fonction du terrain si adjacent à une ressource (bonus ou de luxe) : Plaines +1 [ICON_FOOD] Nourriture et +1 [ICON_PRODUCTION], Prairie +2 [ICON_FOOD], Toundra +1 [ICON_FOOD].[NEWLINE][NEWLINE][ICON_CULTURE] Culture +1.[NEWLINE][ICON_CULTURE] Culture +1 aux [COLOR:212,115,212,255]Loisirs[ENDCOLOR].[NEWLINE][ICON_CULTURE] Culture +1 aux [COLOR:212,115,212,255]Foires Médiévales[ENDCOLOR].[NEWLINE][ICON_CULTURE] Culture +1 à l'[COLOR:212,115,212,255]Histoire Naturelle[ENDCOLOR].[NEWLINE][ICON_HOUSING]Habitation +1[NEWLINE][NEWLINE]Doit être placé sur une case adjacente à une ressource bonus ou de luxe. Peut être construit sur de la plaine, de la prairie ou de la toundra. Ne peut pas être aménagé adjacent à un autre Conuco.</Text>
+			<Text>Aménagement exclusif aux Taïnos.[NEWLINE][NEWLINE][ICON_CULTURE] Culture +1.[NEWLINE][ICON_CULTURE] Culture +1 aux [COLOR:212,115,212,255]Loisirs[ENDCOLOR].[NEWLINE][ICON_CULTURE] Culture +1 aux [COLOR:212,115,212,255]Foires Médiévales[ENDCOLOR].[NEWLINE][ICON_CULTURE] Culture +1 à l'[COLOR:212,115,212,255]Histoire Naturelle[ENDCOLOR].[NEWLINE][ICON_HOUSING] Habitations +1.[NEWLINE][NEWLINE]Si adjacent à une case de ressource de luxe ou bonus :[NEWLINE] • Plaine : [ICON_FOOD] Nourriture +1 et [ICON_PRODUCTION] Production +1.[NEWLINE] • Pairie : [ICON_FOOD] Nourriture +2.[NEWLINE] • Toundra : [ICON_FOOD] Nourriture +1.[NEWLINE][NEWLINE]Doit être placé sur une case de plaine, de pairie ou de toundra, adjacente à une ressource bonus ou de luxe. Ne peut pas être aménagé adjacent à un autre Conuco.</Text>
 		</Replace>
 
 		<!-- = TEOTIHUACAN = --> <!-- BBG expanded -->
