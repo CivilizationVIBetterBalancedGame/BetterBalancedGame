@@ -5,6 +5,8 @@
 -- change startBias
 DELETE FROM StartBiasTerrains WHERE CivilizationType = 'CIVILIZATION_CVS_TAINO';
 DELETE FROM StartBiasResources WHERE CivilizationType = 'CIVILIZATION_CVS_TAINO';
+DELETE FROM StartBiasFeatures WHERE CivilizationType = 'CIVILIZATION_CVS_TAINO';
+
 -- delete base effect
 DELETE FROM Modifiers WHERE ModifierId='MODIFIER_CVS_ANACAONA_UA_FAITH_GPP';
 DELETE FROM Modifiers WHERE ModifierId='MODIFIER_CVS_ANACAONA_UA_FAITH_ENVOY';
