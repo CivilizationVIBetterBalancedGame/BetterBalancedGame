@@ -5,7 +5,7 @@
 -- adjust unit to fit other unique cavalry in bbg (BaseMoves=5, Cost=310) 
 UPDATE Units SET BaseMoves=5, Cost=330 WHERE UnitType = 'UNIT_JFD_UHLAN';
 -- flanking bonus to 50% from 100%
--- UPDATE ModifierArguments SET Value=50 WHERE ModifierId='JFD_UHLAN_FLANKING_BONUS' AND Name='Percent';
+UPDATE ModifierArguments SET Value=50 WHERE ModifierId='JFD_UHLAN_FLANKING_BONUS' AND Name='Percent';
 
 -- remove leader effect 
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_JFD_NATIONAL_EDUCATION';
