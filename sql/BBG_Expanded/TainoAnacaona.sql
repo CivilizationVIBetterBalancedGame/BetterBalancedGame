@@ -126,7 +126,7 @@ INSERT INTO TempPolicyDistricts(PolicyType, DistrictType) VALUES
 	('POLICY_SYMPHONIES', 'DISTRICT_THEATER'),
 	('POLICY_TRAVELING_MERCHANTS', 'DISTRICT_COMMERCIAL_HUB');
 
---buildings +2 food
+--buildings +1 food
 INSERT INTO PolicyModifiers(PolicyType, ModifierId)
 SELECT PolicyType, 'BBG_' || PolicyType || '_FOOD_' || BuildingType 
 FROM TempPolicyDistricts JOIN Buildings ON TempPolicyDistricts.DistrictType = Buildings.PrereqDistrict;
@@ -139,13 +139,13 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 SELECT 'BBG_' || PolicyType || '_FOOD_' || BuildingType , 'YieldType', 'YIELD_FOOD'
 FROM TempPolicyDistricts JOIN Buildings ON TempPolicyDistricts.DistrictType = Buildings.PrereqDistrict;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-SELECT 'BBG_' || PolicyType || '_FOOD_' || BuildingType , 'Amount', '2'
+SELECT 'BBG_' || PolicyType || '_FOOD_' || BuildingType , 'Amount', '1'
 FROM TempPolicyDistricts JOIN Buildings ON TempPolicyDistricts.DistrictType = Buildings.PrereqDistrict;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
 SELECT 'BBG_' || PolicyType || '_FOOD_' || BuildingType , 'BuildingType', BuildingType
 FROM TempPolicyDistricts JOIN Buildings ON TempPolicyDistricts.DistrictType = Buildings.PrereqDistrict;
 
--- districts +3 food
+-- districts +2 food
 INSERT INTO PolicyModifiers(PolicyType, ModifierId)
 SELECT PolicyType, 'BBG_' || PolicyType || '_FOOD_' || DistrictType 
 FROM TempPolicyDistricts;
@@ -157,7 +157,7 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value)
 SELECT 'BBG_' || PolicyType || '_FOOD_' || DistrictType , 'YieldType', 'YIELD_FOOD'
 FROM TempPolicyDistricts;
 INSERT INTO ModifierArguments(ModifierId, Name, Value)
-SELECT 'BBG_' || PolicyType || '_FOOD_' || DistrictType , 'Amount', '3'
+SELECT 'BBG_' || PolicyType || '_FOOD_' || DistrictType , 'Amount', '2'
 FROM TempPolicyDistricts;
 
 DROP TABLE TempPolicyDistricts;
