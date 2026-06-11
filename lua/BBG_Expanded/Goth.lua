@@ -39,7 +39,7 @@ function BBG_Gothic_Pop(playerID, cityID)
             if CityCheck ~= nil then
                 -- print ("already migrated from this city")
             else
-                if Players[playerID]:GetCulture():HasCivic(GameInfo.Civics["CIVIC_POLITICAL_PHILOSOPHY"].Index) then
+                if Players[playerID]:GetCulture():HasCivic(GameInfo.Civics["CIVIC_EARLY_EMPIRE"].Index) then
                     for i, otherCity in pPlayerCities:Members() do
                         if otherCity == pCity then
                             -- we don't need to test the city against itself

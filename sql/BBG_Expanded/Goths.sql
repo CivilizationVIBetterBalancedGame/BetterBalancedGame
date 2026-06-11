@@ -13,7 +13,7 @@ INSERT INTO Units_XP2 (UnitType, ResourceCost) VALUES ('UNIT_MER_MILITOND', '10'
 
 
 -- unit gadrauht now a pikeman, --> changed in base mod
-UPDATE Units SET Combat = 47, Cost = 125 WHERE UnitType = 'UNIT_MER_GADRAUHT';
+UPDATE Units SET Combat = 47, Cost = 180 WHERE UnitType = 'UNIT_MER_GADRAUHT';
 -- only cost 1 pop in cities without temple
 UPDATE Units SET PopulationCost = '' WHERE UnitType = 'UNIT_MER_GADRAUHT';
 INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
