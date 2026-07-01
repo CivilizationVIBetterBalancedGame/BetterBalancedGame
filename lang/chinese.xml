@@ -122,7 +122,7 @@
             <Text>特蕾西亚改革</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_MER_THERESIAN_REFORM_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>已就职的 [ICON_GOVERNOR] 总督提供以下加成：[NEWLINE] • 每回合+1 [ICON_INFLUENCEPERTURN] 影响力点数[NEWLINE] • 建造区域时+15% [ICON_PRODUCTION] 生产力[NEWLINE] • 生产单位时+15% [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]若 [ICON_CAPITAL] 首都中已建成对应区域，则所有该类型 [ICON_DISTRICT] 特色区域（首都除外）提供+1 [ICON_HOUSING] 住房。</Text>
+            <Text>已就职的 [ICON_GOVERNOR] 总督提供以下加成：[NEWLINE][ICON_BULLET]每回合+1 [ICON_INFLUENCEPERTURN] 影响力点数[NEWLINE][ICON_BULLET]建造区域时+15% [ICON_PRODUCTION] 生产力[NEWLINE][ICON_BULLET]生产单位时+15% [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]若 [ICON_CAPITAL] 首都中已建成对应区域，则所有该类型 [ICON_DISTRICT] 特色区域（首都除外）提供+1 [ICON_HOUSING] 住房。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_MER_GRENZER_NAME" Language="zh_Hans_CN">
             <Text>边防军</Text>
@@ -130,6 +130,9 @@
         <Replace Tag="LOC_UNIT_MER_GRENZER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>奥地利工业时代特色侦察单位，替代游骑兵。[NEWLINE][NEWLINE]基础远程战斗力 [ICON_STRENGTH] +5。位于友方领土3格范围内时+5 [ICON_STRENGTH] 战斗力。拥有控制区。</Text>
         </Replace>
+        <Replace Tag="LOC_MODIFIER_MER_GRENZER_NEAR_TERRITORY_DESC" Language="zh_Hans_CN">
+			<Text>+5 [ICON_STRENGTH] 战斗力(军事边区)</Text>
+		</Replace>
         <Replace Tag="LOC_UNIT_GREAT_DIPLOMAT_NAME" Language="zh_Hans_CN">
             <Text>大外交官</Text>
         </Replace>
@@ -699,7 +702,7 @@
             <Text>哥特人迁徙</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_CIVILIZATION_MER_GOTHIC_MIGRATION_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>解锁"帝国初期"市政后，首次建立或征服一座城市时，所有位于6格范围内且至少拥有2个空闲 [ICON_HOUSING] 住房的城市，获得+1 [ICON_CITIZEN] 人口。</Text>
+            <Text>解锁"帝国初期"市政后，首次建立或征服一座城市时，所有位于6格范围内且至少拥有2个空余 [ICON_HOUSING] 住房的城市，获得+1 [ICON_CITIZEN] 人口。</Text>
         </Replace>
         <Replace Tag="LOC_GOTHIC_MIGRATION_POP_GAIN" Language="zh_Hans_CN">
             <Text>哥特人迁徙：+{1: number #,###.#} [ICON_Citizen]人口</Text>
@@ -723,7 +726,7 @@
             <Text>誓卫战士</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_MER_GADRAUHT_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>哥特中世纪特色反骑兵单位，替代长矛兵。[NEWLINE][NEWLINE]基础战斗力 [ICON_STRENGTH] +2。[NEWLINE][NEWLINE]击杀单位时，获得其基础战斗力50%的 [ICON_CULTURE] 文化值（标准速度下）。只能在2 [ICON_CITIZEN] 人口及以上的城市训练。若训练该单位的城市中没有寺庙，则损失1 [ICON_CITIZEN] 人口。[NEWLINE]获得一次免费 [ICON_PROMOTION] 升级。</Text>
+            <Text>哥特中世纪特色抗骑兵单位，替代长矛兵。[NEWLINE][NEWLINE]基础战斗力 [ICON_STRENGTH] +2。[NEWLINE][NEWLINE]击杀单位时，获得其基础战斗力50%的 [ICON_CULTURE] 文化值（标准速度下）。只能在2 [ICON_CITIZEN] 人口及以上的城市训练。若训练该单位的城市中没有寺庙，则损失1 [ICON_CITIZEN] 人口。[NEWLINE]获得一次免费 [ICON_PROMOTION] 升级。</Text>
         </Replace>
         <Replace Tag="LOC_BUILDING_MER_HLAIW_NAME" Language="zh_Hans_CN">
             <Text>古冢</Text>
@@ -1097,10 +1100,10 @@
             <Text>城市无法从淡水和海岸获得额外 [ICON_HOUSING] 住房。[ICON_CAPITAL] 首都+1 [ICON_HOUSING] 住房。市中心每相邻1个奢侈品资源获得+1 [ICON_AMENITIES] 宜居度。[NEWLINE][NEWLINE]农场每相邻1个天文台，提供+1 [ICON_GOLD] 金币、+1 [ICON_HOUSING] 住房和+1 [ICON_PRODUCTION] 生产力。[NEWLINE]种植园每相邻1个天文台，提供+1 [ICON_SCIENCE] 科技值（解锁“教育”科技后提升至+2）。[NEWLINE][NEWLINE]出生地关联：T3种植园奢侈品 / T4香蕉。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>在距离您的 [ICON_CAPITAL] 首都6单元格范围内的城市，所有产出提升5%。其他城市（除首都外）所有产出降低10%。[NEWLINE][ICON_STRENGTH] 战斗力+3对于位于距离您 [ICON_CAPITAL] 首都6单元格范围内的军事单位。</Text>
+            <Text>在距离您的 [ICON_CAPITAL] 首都6单元格范围内的城市，所有产出提升5%。其他城市（除首都外）所有产出降低10%。[NEWLINE]位于您 [ICON_CAPITAL] 首都6格范围内的军事单位+3 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_MUTAL_COMBAT_STRENGTH_NEAR_CAPITAL_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>位于 [ICON_CAPITAL] 首都6单元格范围内时+3 [ICON_STRENGTH] 战斗力。</Text>
+            <Text>位于 [ICON_CAPITAL] 首都6格范围内时+3 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_NAME" Language="zh_Hans_CN">
             <Text>金星之怒</Text>
@@ -1323,7 +1326,7 @@
             <Text>解锁"军事传统"市政后，将1个军事政策槽位转换为通配符槽位。[NEWLINE][NEWLINE]军营和堡垒建成时会触发文化炸弹。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_LITHUANIAN_UNION_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>创立和完成 [ICON_RELIGION] 宗教时分别获得一个 [ICON_GREATWORK_RELIC] 遗物。[NEWLINE][ICON_GREATWORK_RELIC] 遗物提供+4 [ICON_GOLD] 金币、+2 [ICON_CULTURE] 文化值和+2 [ICON_FAITH] 信仰值。[NEWLINE][NEWLINE]圣地从相邻的其他区域处获得标准相邻加成，而非少量相邻加成。[NEWLINE][NEWLINE]因您的文化炸弹而失去单元格的城市，将自动采纳您的 [ICON_RELIGION] 宗教为其主流宗教。</Text>
+            <Text>创立和完成 [ICON_RELIGION] 宗教时分别获得一个 [ICON_GREATWORK_RELIC] 遗物。[NEWLINE][ICON_GREATWORK_RELIC] 遗物提供+4 [ICON_GOLD] 金币、+2 [ICON_CULTURE] 文化值和+2 [ICON_FAITH] 信仰值。[NEWLINE][NEWLINE]圣地从相邻的其他区域处获得标准相邻加成，而非少量相邻加成。[NEWLINE][NEWLINE]因您的文化炸弹而失去单元格的城市，您的 [ICON_RELIGION] 宗教将成为为其主流宗教。</Text>
         </Replace>
 
 		<!--领袖 (斯坦尼斯瓦夫二世)--> 
@@ -1331,7 +1334,7 @@
             <Text>国家教育委员会</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_JFD_NATIONAL_EDUCATION_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>位于军营及其建筑旁的资源和改良单元格获得额外产出：[NEWLINE] • 军营：[ICON_FOOD] 食物+1[NEWLINE] • 兵营/马厩：+1 [ICON_CULTURE] 文化值[NEWLINE] • 兵工厂：+1 [ICON_SCIENCE] 科技值[NEWLINE] • 军事学院：+1 [ICON_PRODUCTION] 生产力</Text>
+            <Text>位于军营及其建筑旁的资源和改良单元格获得额外产出：[NEWLINE][ICON_BULLET]军营：[ICON_FOOD] 食物+1[NEWLINE][ICON_BULLET]兵营/马厩：+1 [ICON_CULTURE] 文化值[NEWLINE][ICON_BULLET]兵工厂：+1 [ICON_SCIENCE] 科技值[NEWLINE][ICON_BULLET]军事学院：+1 [ICON_PRODUCTION] 生产力</Text>
         </Replace>
         <!--特色单位 (翼骑兵)-->
         <Replace Tag="LOC_UNIT_POLISH_HUSSAR_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
@@ -1342,7 +1345,7 @@
             <Text>乌兰骑兵</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_JFD_UHLAN_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>波兰文艺复兴时代特色轻骑兵单位，替代骑兵。夹击加成+50%。</Text>
+            <Text>波兰文艺复兴时代特色轻骑兵单位，替代骑兵。获得+50%夹击加成。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_JFD_UHLAN_FLANKING_BONUS_DESCRIPTION" Language="zh_Hans_CN">
             <Text>额外夹击加成：+{1_Amount} [ICON_STRENGTH]战斗力。</Text>
@@ -1358,7 +1361,7 @@
             <Text>所有单位+1视野。[NEWLINE][NEWLINE]每次进入新时代（包含远古时代）时，+1 [ICON_TRADEROUTE] 贸易路线容量。[NEWLINE][NEWLINE]与所有城邦开放边界。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_PORTUGUESE_NAU_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>葡萄牙文艺复兴时代特色海军近战单位，替代轻快帆船。[NEWLINE][NEWLINE]初始便拥有一次免费的 [ICON_PROMOTION] 升级。[NEWLINE]维护费用更低。[NEWLINE][NEWLINE]拥有2次 [ICON_CHARGES] 劳动力，可用于建造商站（Feitorias）。</Text>
+            <Text>葡萄牙文艺复兴时代特色海军近战单位，替代轻快帆船。[NEWLINE][NEWLINE]初始便拥有一次免费的 [ICON_PROMOTION] 升级。[NEWLINE]维护费用更低。[NEWLINE][NEWLINE]拥有2次 [ICON_CHARGES] 劳动力，可用于建造商站。</Text>
         </Replace>
         <Replace Tag="LOC_BUILDING_NAVIGATION_SCHOOL_DESCRIPTION" Language="zh_Hans_CN">
             <Text>葡萄牙特色建筑，替代大学。[NEWLINE][NEWLINE]除了大学的加成外，该城市在训练海军单位时+25% [ICON_PRODUCTION] 生产力。[NEWLINE]该城市中每2个海岸或湖泊单元格提供+1 [ICON_SCIENCE] 科技值。[NEWLINE]+1 [ICON_GREATADMIRAL] 海军统帅点数。</Text>
@@ -1592,6 +1595,9 @@
         <Replace Tag="LOC_UNIT_SUK_JAHAZI_DESCRIPTION" Language="zh_Hans_CN">
             <Text>斯瓦希里远古时代特色海军支援单位。[NEWLINE][NEWLINE]拥有2次 [ICON_CHARGES] 劳动力，可用于建造渔船，其建造的渔船额外提供+2 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]2单元格范围内的登船单位获得+1 [ICON_MOVEMENT] 移动力并无视移动力惩罚。该单位可被俘获。</Text>
         </Replace>
+        <Replace Tag="LOC_ABILITY_SUK_JAHAZI_NAME" Language="zh_Hans_CN">
+			<Text>J朱亚网</Text>
+		</Replace>
         <Replace Tag="LOC_ABILITY_SUK_JAHAZI_EMBARKED_MOVEMENT_NAME" Language="zh_Hans_CN">
             <Text>+1 [ICON_MOVEMENT] 移动力</Text>
         </Replace>
@@ -1645,11 +1651,11 @@
             <Text>提供 [ICON_GREATPERSON] 伟人点数的政策卡，为拥有对应 [ICON_DISTRICT] 特色区域的城市提供+2 [ICON_FOOD] 食物，且该区域中的每个建筑额外提供+1 [ICON_FOOD] 食物。[NEWLINE][NEWLINE][ICON_GOVERNMENT] 政体中每有一个外交政策槽位，拥有巴泰球场的城市+1 [ICON_AMENITIES] 宜居度。</Text>
         </Replace>
 		<!--领袖-->
-        <Replace Tag="LOC_TRAIT_LEADER_CVS_ANACAONA_NAME" Language="zh_Hans_CN">
-            <Text>金色之花</Text>
-        </Replace>
+        <Replace Tag="LOC_TRAIT_LEADER_CVS_ANACAONA_UA_NAME" Language="zh_Hans_CN">
+			<Text>金色之花</Text>
+		</Replace>
         <Replace Tag="LOC_TRAIT_LEADER_CVS_ANACAONA_UA_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>解锁"政治哲学"市政后，每个选择的时代着力点会提供一个不同类型的政策槽位：[NEWLINE] • 军事政策：鼓噪而进、全民皆兵和机器人大战[NEWLINE] • 经济政策：自由探索、货币改革和漫天繁星[NEWLINE] • 外交政策：百花齐放、此处有龙和兵不厌诈[NEWLINE] • 通配政策：雄伟壮丽、滚滚蒸汽和愿你在此[NEWLINE][NEWLINE]快乐的城市+5% [ICON_GOLD] 金币（欣喜若狂的城市提升至+10%，极度兴奋的城市提升至+15%）。</Text>
+            <Text>解锁"政治哲学"市政后，每个选择的时代着力点会提供一个不同类型的政策槽位：[NEWLINE][ICON_BULLET]军事政策：鼓噪而进、全民皆兵和机器人大战[NEWLINE][ICON_BULLET]经济政策：自由探索、货币改革和漫天繁星[NEWLINE][ICON_BULLET]外交政策：百花齐放、此处有龙和兵不厌诈[NEWLINE][ICON_BULLET]通配政策：雄伟壮丽、滚滚蒸汽和愿你在此[NEWLINE][NEWLINE]快乐的城市+5% [ICON_GOLD] 金币（欣喜若狂的城市提升至+10%，极度兴奋的城市提升至+15%）。</Text>
         </Replace>
 		<!--特色单位-->
         <Replace Tag="LOC_UNIT_CVS_TAINO_UU_NAME" Language="zh_Hans_CN">
@@ -1702,8 +1708,11 @@
             <Text>泰诺专属项目，仅可在巴泰球场启动。每回合将30% [ICON_PRODUCTION] 生产力转化为 [ICON_FAITH] 信仰值。完成时提供 [ICON_GREATWRITER] 大作家、[ICON_GREATARTIST] 大艺术家和 [ICON_GREATMUSICIAN] 大音乐家点数，相比剧院广场项目会额外提供20% [ICON_GREATWRITER] 大作家点数。</Text>
         </Replace>
         <!--特色设施-->
+        <Replace Tag="LOC_IMPROVEMENT_CVS_ANACAONA_UI_NAME" Language="zh_Hans_CN">
+			<Text>科努科</Text>
+		</Replace>
         <Replace Tag="LOC_IMPROVEMENT_CVS_ANACAONA_UI_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>泰诺特色改良设施。[NEWLINE][NEWLINE]+1 [ICON_CULTURE] 文化值。"中世纪集市"后+1 [ICON_CULTURE] 文化值，"自然历史"后+1 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]与加成资源或奢侈品资源相邻时获得额外加成：[NEWLINE] • 平原：+1 [ICON_FOOD] 食物、 +1 [ICON_PRODUCTION] 生产力[NEWLINE] • 草原：+2 [ICON_FOOD] 食物[NEWLINE] • 冻土：+1 [ICON_FOOD] 食物[NEWLINE] • "重商主义"后，每相邻一个加成资源或奢侈品资源+2 [ICON_GOLD] 金币[NEWLINE][NEWLINE]必须建在与加成资源或奢侈品资源相邻的单元格上。只能建在平原、草原或冻土上。不能与另一座小耕丘相邻。</Text>
+            <Text>泰诺特色改良设施。[NEWLINE][NEWLINE]+1 [ICON_CULTURE] 文化值。"中世纪集市"后+1 [ICON_CULTURE] 文化值，"自然历史"后+1 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]与加成资源或奢侈品资源相邻时获得额外加成：[NEWLINE][ICON_BULLET]平原：+1 [ICON_FOOD] 食物、 +1 [ICON_PRODUCTION] 生产力[NEWLINE][ICON_BULLET]草原：+2 [ICON_FOOD] 食物[NEWLINE][ICON_BULLET]冻土：+1 [ICON_FOOD] 食物[NEWLINE][ICON_BULLET]"重商主义"后，每相邻一个加成资源或奢侈品资源+2 [ICON_GOLD] 金币[NEWLINE][NEWLINE]必须建在与加成资源或奢侈品资源相邻的单元格上。只能建在平原、草原或冻土上。不能与另一座科努科相邻。</Text>
         </Replace>
 
         <Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_NAME" Language="zh_Hans_CN">
@@ -1984,7 +1993,7 @@
         </Replace>
 
         <Replace Tag="LOC_UNIT_CATAPULT_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>古典时代攻城单位。除非拥有“炮兵专业升级，否则无法在同一回合内移动并攻击。</Text>
+            <Text>古典时代攻城单位。除非拥有“炮兵专业”升级，否则无法在同一回合内移动并攻击。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_TREBUCHET_DESCRIPTION" Language="zh_Hans_CN">
             <Text>中世纪攻城单位。除非拥有“炮兵专业”升级，否则无法在同一回合内移动并攻击。</Text>
@@ -5604,7 +5613,7 @@
             <Text>立即创建一个观测气球。</Text>
         </Replace>
         <Replace Tag="LOC_GREATPERSON_RANI_LAKSHMIBAI_ACTIVE" Language="zh_Hans_CN">
-            <Text>立即创建一个带有1级晋升的直升机。</Text>
+            <Text>立即创建一个带有一级晋升的直升机。</Text>
         </Replace>
         <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_TUPAC_AMARU_ACTIVE" Language="zh_Hans_CN">
             <Text>为目标城市每个无法防御且无人驻守的 [ICON_DISTRICT] 区域提供一名步兵。</Text>
@@ -6299,12 +6308,6 @@
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_GILGAMESH_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
             <Text>作为人类历史上最早的文明，苏美尔帝国在远古时代便开始发散光芒。战车和金字形神塔在最初的几个回合就能使用，并在“文明的摇篮”能力下使城市蓬勃发展。有了战车，清理 [ICON_BARBARIAN] 蛮族营地不在话下，还能通过“超越万王”的能力获取收益。沿着河流扩张帝国，通过合理的城市规划，苏美尔能在 [ICON_SCIENCE] 科技、[ICON_CULTURE] 文化甚至是 [ICON_FAITH] 信仰上迅速取得优势。</Text>
         </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_CAPSULE_BODY" Language="zh_Hans_CN">
-            <Text>奥林匹亚丝统治下的马其顿，是唯一在整场游戏中都乐于维持外交关系的文明。深知自己的命运系于同盟之上，她会尽其所能拉拢最多的城邦。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
-            <Text>奥林匹亚丝的外交手腕令人敬畏。通过向那些相信她天命的人派遣马其顿使者，她能迅速在身边聚集伟大的将军和预言家，用于发动战争或创立宗教。由于单位在皇家学堂中受训，马其顿无需特意建造学院也能在科技上取得进展。凭借强大的信仰，奥林匹亚丝可以确保邻近城邦的忠诚，反过来，这又会增强她的军队和信仰。因此，马其顿可以随心所欲地追求领土胜利或宗教胜利。</Text>
-        </Replace>
 
         <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CITIES_16_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN">
             <Text>幸福度代表了城市中 [ICON_CITIZEN] 人口的满意度，它取决于城市所拥有的 [ICON_AMENITIES] 宜居度数量。每2个 [ICON_CITIZEN] 公民需要1点 [ICON_AMENITIES] 宜居度。满意度分为不同阶段：[NEWLINE] • 极度兴奋的城市（+8或更多 [ICON_AMENITIES] 宜居度）：人口增长和产出+16%。部分领袖、文明或政体还会提供额外加成。[NEWLINE] • 欣喜若狂的城市（+5到+7 [ICON_AMENITIES] 宜居度）：人口增长和产出+16%。[NEWLINE] • 快乐的城市（+3到+4 [ICON_AMENITIES] 宜居度）：人口增长和产出+8%。[NEWLINE] • 满意的城市（0到+2 [ICON_AMENITIES] 宜居度）：无加成也无减益。[NEWLINE] • 不满的城市（-1到-3 [ICON_AMENITIES] 宜居度）：人口增长-15%，产出-10%。[NEWLINE] • 动荡的城市（-4到-6 [ICON_AMENITIES] 宜居度）：人口增长-100%，产出-30%，可能出现叛军。[NEWLINE] • 叛乱的城市（-7或更少 [ICON_AMENITIES] 宜居度）：人口增长-100%，产出-40%，频繁出现叛军。</Text>
@@ -6376,6 +6379,7 @@
             <Text>麦勒卡特赐予你富贵，阿希拉姆啊，世间鲜有能与你比肩的豪富。用你掌控海洋的优势积累财富，在所有领地建造宏伟建筑，在殖民地大力发展商业和工业——因为财富自能孕育财富。在这满布乞者的世间，唯有用比布鲁斯与他邦的金银，建造伟大的城市。</Text>
         </Replace>
 
+        <!-- = 哈桑 - 斯瓦希里 = -->
         <Replace Tag="LOC_CITY_NAME_SUK_SWAHILI_KILWA_KISIWANI" Language="zh_Hans_CN">
             <Text>基尔瓦</Text>
         </Replace>
@@ -6687,6 +6691,8 @@
         <Replace Tag="LOC_NAMED_RIVER_QINNGUATA_KUUSSUA_NAME" Language="zh_Hans_CN">
             <Text>琴瓜塔库苏瓦河</Text>
         </Replace>
+
+        <!--新文明(奥林匹娅斯)-->
         <Replace Tag="LOC_MOD_JFD_MACEDON_OLYMPIAS_DESCRIPTION" Language="zh_Hans_CN">
             <Text>------------------------------------[NEWLINE]领袖：奥林匹娅斯[NEWLINE][NEWLINE]特性：卡比里秘仪[NEWLINE]创立万神殿时获得1名 [ICON_ENVOY] 使者。向城邦派遣 [ICON_ENVOY] 使者时可获得 [ICON_GREATGENERAL] 大将军和 [ICON_GREATPROPHET] 大预言家点数，若派往军事和宗教城邦则获得的点数翻倍。[NEWLINE][NEWLINE]议程：冥界神谕[NEWLINE]确保她在竞争城邦时拥有较高的 [ICON_FAITH] 信仰值和 [ICON_GREATPROPHET] 大预言家点数，并希望其他竞争相同城邦的文明拥有较低的 [ICON_FAITH] 信仰值。她鄙视那些同样拥有较高 [ICON_FAITH] 信仰值且竞争相同城邦的文明。</Text>
         </Replace>
@@ -6694,8 +6700,7 @@
             <Text>奥林匹娅斯</Text>
         </Replace>
         <Replace Tag="LOC_LOADING_INFO_LEADER_JFD_OLYMPIAS" Language="zh_Hans_CN">
-            <Text>女王奥林匹娅丝，您曾得见异象：一道雷霆坠入您的膝间，宙斯的神火在血脉中奔涌——您已蒙天赐。
-此子将诞，终登世界王座，执掌万物权柄。而您，必为其先驱之声。</Text>
+            <Text>女王奥林匹娅丝，您曾得见异象：一道雷霆坠入您的膝间，宙斯的神火在血脉中奔涌——您已蒙天赐。此子将诞，终登世界王座，执掌万物权柄。而您，必为其先驱之声。</Text>
         </Replace>
         <Replace Tag="LOC_CITY_NAME_LIME_THULE_DAVE_QILAKITSOQ" Language="zh_Hans_CN">
             <Text>奇拉基特索克</Text>
@@ -6847,6 +6852,8 @@
         <Replace Tag="LOC_GOVERNMENT_JFD_EMPIRE_LEADER_TITLE_LIME_THULE_DAVE" Language="zh_Hans_CN">
             <Text>金古德勒克 (Kingudlerk)</Text>
         </Replace>
+
+        <!-- = 奇维乌克 - 图勒 = -->
         <Replace Tag="LOC_CIVILIZATION_LIME_THULE_NAME" Language="zh_Hans_CN">
             <Text>图勒</Text>
         </Replace>
@@ -6854,12 +6861,13 @@
             <Text>图勒传统</Text>
         </Replace>
         <Replace Tag="LOC_CIVILIZATION_LIME_THULE_ADJECTIVE" Language="zh_Hans_CN">
-            <Text>图勒</Text>
+            <Text>图勒的</Text>
         </Replace>
         <Replace Tag="LOC_CIVILIZATION_LIME_THULE_DESCRIPTION_JFD_CIVILIZATION" Language="zh_Hans_CN">
             <Text>图勒文明</Text>
         </Replace>
 
+        <!-- = 奇维乌克 - 吐蕃 = -->
         <Replace Tag="LOC_NAMED_RIVER_YARLUNG_TSANGPO_NAME" Language="zh_Hans_CN">
             <Text>雅鲁藏布江</Text>
         </Replace>
@@ -6995,7 +7003,8 @@
         <Replace Tag="LOC_CIVINFO_SUK_TIBET_CAPITAL" Language="zh_Hans_CN">
             <Text>拉萨</Text>
         </Replace>
-
+        
+        <!--文明对话(腓尼基)-->
         <Replace Tag="LOC_AGENDA_LIME_PHOE_AHIRAM_BE_HUMBLED_NAME" Language="zh_Hans_CN">
             <Text>保持谦卑</Text>
         </Replace>
@@ -7117,6 +7126,7 @@
             <Text>腓尼基天生倾向于一种高度经济化和扩张性的沿海玩法，众多小城市分布在漫长的海岸线上，并通过以“巨型船坞”为起点的庞大贸易网络创造黄金。阿希拉姆利用这笔财富来积累大量的大商人点数，这些点数有多种用途。阿希拉姆还提供了特色建筑“皇家陵墓”，这不仅有助于从这些大型商业中心产生更多的黄金，而且还能推进科学建筑的建设和购买。使用“瑞娜”总督（金融家）也将对腓尼基有所帮助，尽管购买区域并不能产生大商人点数。</Text>
         </Replace>
 
+        <!--文明对话(斯瓦希里)-->
         <Replace Tag="LOC_AGENDA_SUK_FATHER_OF_GIFTS_NAME" Language="zh_Hans_CN">
             <Text>恩赐之父</Text>
         </Replace>
@@ -7134,9 +7144,6 @@
         </Replace>
         <Replace Tag="LOC_DIPLO_MODIFIER_SUK_FATHER_OF_GIFTS_WARNING" Language="zh_Hans_CN">
             <Text>哈桑对您将伟人们塞在欠发达的城市里感到恼火。</Text>
-        </Replace>
-        <Replace Tag="LOC_LEADER_LIME_THULE_DAVE_NAME" Language="zh_Hans_CN">
-            <Text>奇维乌克</Text>
         </Replace>
         <Replace Tag="LOC_DIPLO_FIRST_MEET_LEADER_SUK_AL_HASAN_ANY" Language="zh_Hans_CN">
             <Text>欢迎来到基尔瓦，疲惫的旅行者。我是他们的苏丹哈桑，恩赐之父。您也是为礼物而来的吗？</Text>
@@ -7237,7 +7244,17 @@
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_SUK_AL_HASAN_SUBTITLE" Language="zh_Hans_CN">
             <Text>基尔瓦苏丹</Text>
         </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_CAPSULE_BODY" Language="zh_Hans_CN">
+            <Text>虽然他们可能不是海战的大师，但斯瓦希里人在海岸的繁荣发展上却表现得游刃有余。哈桑的能力增强了斯瓦希里最重要的区域：港口。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
+            <Text>与英国、挪威和西班牙不同，斯瓦希里几乎没有加强其海上军事实力的加成。然而，他们拥有的是其他海上强国都会羡慕的强大且多功能的经济基础潜力。将您的城市建立在海岸上，并保持城市紧凑，以最大限度地发挥您的独特能力和支柱墓的作用。在哈桑的统治下，您也不必担心淡水问题：您的港口可以作为极好的替代品，此外还能提供文化！如果您在沿海城市的生产力不足，可以训练或购买贾哈兹帆船，然后将它们派往需要的地方。最重要的是不要忽视您的海军，否则您的城市可能会成为挪威等国家的受害者。</Text>
+        </Replace>
 
+        <!--文明对话(图勒)-->
+        <Replace Tag="LOC_LEADER_LIME_THULE_DAVE_NAME" Language="zh_Hans_CN">
+            <Text>奇维乌克</Text>
+        </Replace>
         <Replace Tag="LOC_AGENDA_LIME_THULE_DAVE_ALWAYS_ROAMING_NAME" Language="zh_Hans_CN">
             <Text>永远在漫游</Text>
         </Replace>
@@ -7255,12 +7272,6 @@
         </Replace>
         <Replace Tag="LOC_DIPLO_MODIFIER_LEADER_LIME_THULE_DAVE_ALWAYS_ROAMING_EXPLORERPHILE_NEGATIVE" Language="zh_Hans_CN">
             <Text>基维乌克认为您心胸狭窄且对冒险缺乏热情。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_TITLE" Language="zh_Hans_CN">
-            <Text>基维乌克</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_SUBTITLE" Language="zh_Hans_CN">
-            <Text>北方英雄</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_QUOTE" Language="zh_Hans_CN">
             <Text>长者们说，他如今正度过着自己最后的一生，正在某处经历着冒险。但在他离世之前，他一定会回来看看他的人民。</Text>
@@ -7298,6 +7309,82 @@
         <Replace Tag="LOC_DIPLO_OPEN_BORDERS_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
             <Text>我听过许多关于您王国的传说。我能去那里旅行看看它们是否是真的吗？</Text>
         </Replace>
+        <Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>能称您为我的朋友，我深感自豪。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>我恐怕我的路在别处。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>这是“皮库贾伊特”（命运）！我很高兴参与其中。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>非常感谢。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>独自出发是愚蠢的：阿玛鲁克专猎落单的旅行者。我能打败它，但我为您的安全担忧。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>您让我想起了阿格鲁利克（海神）。您愿意体验一次冒险吗？</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_KUDO_EXIT_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>走得更远，愿您的旅途充满精彩事件。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_WARNING_EXIT_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>您不是旅行者。您只是我将要跨越的障碍。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_WARNING_TOO_MANY_TROOPS_NEAR_ME_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>我边境上的那些人看起来不像冒险家。也不像猎人。事实上，他们似乎是入侵者。我的双眼还没有变成石头。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_ACCEPT_MAKE_DEAL_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>非常感谢。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_REJECT_MAKE_DEAL_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>独自出发是愚蠢的：阿玛鲁克专猎落单的旅行者。我能打败它，但我为您的安全担忧。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_DENOUNCE_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>您有激怒赛德娜女神的危险！您想把我们都拖入深渊吗？</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_DENOUNCE_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>如果您不去探索世界，您怎么能保护我们的人民？！否则，您又怎么能接近命运的安排？！（谴责您）</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_DENOUNCE_REASON_FROM_AI_LEADER_ANY_REASON_LIME_THULE_DAVE_ALWAYS_ROAMING_EXPLORERPHILE_NEGATIVE" Language="zh_Hans_CN">
+            <Text>（您没有去探索世界。）</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>这不是战争。这是一次冒险！一次讲述侵略者总是被击败的美丽故事的冒险。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>您落后、软弱，且害怕荒野。现在您看到了这给您带来了什么。现在，您将迎接风暴。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>很好。安加库特萨满将祈求赛德娜女神宽恕我们。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>我不是傻瓜，北风还没让我的头脑昏聩。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_MAKE_PEACE_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>冬天即将来临，我们俩都该为此做好准备。我们能就这停战协议达成共识吗？</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_DEFEAT_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>我想就是这样了。我最后的冒险。我无法克服的最后障碍，原来就是终点处的您。我感觉我的心跳变慢了，现在我正在变成石头。好冷……好冷……</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_DEFEAT_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
+            <Text>您没必要成为我的敌人；我只是想去探索。事实上，在某种程度上我羡慕您：您现在正踏上前往阿德利文（冥界）的旅程，而那是一次我永远没有机会经历的旅程。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_TITLE" Language="zh_Hans_CN">
+            <Text>基维乌克</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_SUBTITLE" Language="zh_Hans_CN">
+            <Text>北方英雄</Text>
+        </Replace><Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_CAPSULE_BODY" Language="zh_Hans_CN">
+            <Text>基维乌克的能力鼓励伟大的探索发现；与此同时，图勒基地能够在本来无法居住的环境中，迅速建立起坚实的文化和宗教基础。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
+            <Text>基维乌克的能力鼓励伟大的探索发现；与此同时，图勒基地能够在本来无法居住的环境中，迅速建立起坚实的文化和宗教基础。</Text>
+        </Replace>
+
+        <!--文明对话(高卢)-->
         <Replace Tag="LOC_LEADER_SUK_VERCINGETORIX_NAME" Language="zh_Hans_CN">
             <Text>维钦托利</Text>
         </Replace>
@@ -7424,70 +7511,8 @@
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_VERCINGETORIX_DLC_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
             <Text>对高卢来说，最重要的问题是建城位置的选择。他们的大部分特色能力依赖于在可开发的资源上建城，但这可能意味着他们必须在距离河流或更有利位置一两格远的地方建城。由于同样强大但选址要求同样严格的“奥皮杜姆”（高卢特色工业区）的存在，这变得更加复杂。寻找能充分利用这两种能力的位置是游戏中成功的关键。维钦托利的能力有助于帝国的安全：你可以迅速在任何需要的地方建起城墙，只要每个人保持忠诚，就能获得显著的战斗力加成。</Text>
         </Replace>
-        <Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>能称您为我的朋友，我深感自豪。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>我恐怕我的路在别处。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>这是“皮库贾伊特”（命运）！我很高兴参与其中。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>非常感谢。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>独自出发是愚蠢的：阿玛鲁克专猎落单的旅行者。我能打败它，但我为您的安全担忧。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>您让我想起了阿格鲁利克（海神）。您愿意体验一次冒险吗？</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_KUDO_EXIT_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>走得更远，愿您的旅途充满精彩事件。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_WARNING_EXIT_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>您不是旅行者。您只是我将要跨越的障碍。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_WARNING_TOO_MANY_TROOPS_NEAR_ME_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>我边境上的那些人看起来不像冒险家。也不像猎人。事实上，他们似乎是入侵者。我的双眼还没有变成石头。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_ACCEPT_MAKE_DEAL_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>非常感谢。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_REJECT_MAKE_DEAL_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>独自出发是愚蠢的：阿玛鲁克专猎落单的旅行者。我能打败它，但我为您的安全担忧。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_DENOUNCE_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>您有激怒赛德娜女神的危险！您想把我们都拖入深渊吗？</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_DENOUNCE_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>如果您不去探索世界，您怎么能保护我们的人民？！否则，您又怎么能接近命运的安排？！（谴责您）</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_DENOUNCE_REASON_FROM_AI_LEADER_ANY_REASON_LIME_THULE_DAVE_ALWAYS_ROAMING_EXPLORERPHILE_NEGATIVE" Language="zh_Hans_CN">
-            <Text>（您没有去探索世界。）</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>这不是战争。这是一次冒险！一次讲述侵略者总是被击败的美丽故事的冒险。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>您落后、软弱，且害怕荒野。现在您看到了这给您带来了什么。现在，您将迎接风暴。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>很好。安加库特萨满将祈求赛德娜女神宽恕我们。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>我不是傻瓜，北风还没让我的头脑昏聩。</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_MAKE_PEACE_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>冬天即将来临，我们俩都该为此做好准备。我们能就这停战协议达成共识吗？</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_DEFEAT_FROM_AI_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>我想就是这样了。我最后的冒险。我无法克服的最后障碍，原来就是终点处的您。我感觉我的心跳变慢了，现在我正在变成石头。好冷……好冷……</Text>
-        </Replace>
-        <Replace Tag="LOC_DIPLO_DEFEAT_FROM_HUMAN_LEADER_LIME_THULE_DAVE_ANY" Language="zh_Hans_CN">
-            <Text>您没必要成为我的敌人；我只是想去探索。事实上，在某种程度上我羡慕您：您现在正踏上前往阿德利文（冥界）的旅程，而那是一次我永远没有机会经历的旅程。</Text>
-        </Replace>
 
+        <!--文明对话(马其顿)-->
         <Replace Tag="LOC_AGENDA_JFD_ORACLE_CHTONICS_NAME" Language="zh_Hans_CN">
             <Text>冥界神谕</Text>
         </Replace>
@@ -7505,12 +7530,6 @@
         </Replace>
         <Replace Tag="LOC_DIPLO_MODIFIER_AGENDA_JFD_ORACLE_CHTONICS_LEADS_FAITH_AND_COMPETING_MINORS" Language="zh_Hans_CN">
             <Text>奥林匹娅斯对您竞争城邦感到威胁。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_TITLE" Language="zh_Hans_CN">
-            <Text>奥林匹娅斯</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_SUBTITLE" Language="zh_Hans_CN">
-            <Text>马其顿女王</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_QUOTE" Language="zh_Hans_CN">
             <Text>奥林匹娅斯告诉亚历山大，他的亲生父亲不是腓力，而是宙斯。</Text>
@@ -7611,6 +7630,20 @@
         <Replace Tag="LOC_DIPLO_DEFEAT_FROM_HUMAN_LEADER_JFD_OLYMPIAS_ANY" Language="zh_Hans_CN">
             <Text>哈迪斯来接您了。</Text>
         </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_TITLE" Language="zh_Hans_CN">
+            <Text>奥林匹娅斯</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_SUBTITLE" Language="zh_Hans_CN">
+            <Text>马其顿女王</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_CAPSULE_BODY" Language="zh_Hans_CN">
+            <Text>奥林匹亚丝统治下的马其顿，是唯一在整场游戏中都乐于维持外交关系的文明。深知自己的命运系于同盟之上，她会尽其所能拉拢最多的城邦。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_OLYMPIAS_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
+            <Text>奥林匹亚丝的外交手腕令人敬畏。通过向那些相信她天命的人派遣马其顿使者，她能迅速在身边聚集伟大的将军和预言家，用于发动战争或创立宗教。由于单位在皇家学堂中受训，马其顿无需特意建造学院也能在科技上取得进展。凭借强大的信仰，奥林匹亚丝可以确保邻近城邦的忠诚，反过来，这又会增强她的军队和信仰。因此，马其顿可以随心所欲地追求领土胜利或宗教胜利。</Text>
+        </Replace>
+
+        <!--文明对话(特奥蒂瓦坎)-->
         <Replace Tag="LOC_LEADER_LIME_TEO_OWL_NAME" Language="zh_Hans_CN">
             <Text>掷矛者猫头鹰</Text>
         </Replace>
@@ -7934,6 +7967,7 @@
             <Text>特奥蒂瓦坎文明</Text>
         </Replace>
 
+        <!--文明对话（特·基尼奇二世）-->
         <Replace Tag="LOC_AGENDA_LIME_MAYA_TE_KINICH_LORD_WATER_NAME" Language="zh_Hans_CN">
             <Text>水之主</Text>
         </Replace>
@@ -8150,6 +8184,7 @@
         <Replace Tag="LOC_DIPLO_DEFEAT_FROM_AI_LEADER_LL_TEKINICH_II_ANY" Language="zh_Hans_CN">
             <Text>看来我错误地评估了星星，也错误地评估了您。这只是我必须付出的代价。</Text>
         </Replace>
+
         <Replace Tag="LOC_CIVILIZATION_SUK_TIBET_NAME" Language="zh_Hans_CN">
             <Text>吐蕃</Text>
         </Replace>
@@ -8162,6 +8197,7 @@
         <Replace Tag="LOC_CIVILIZATION_SUK_TIBET_DESCRIPTION_JFD_CIVILIZATION" Language="zh_Hans_CN">
             <Text>藏族文明</Text>
         </Replace>
+
         <Replace Tag="LOC_CITY_NAME_LIME_TE_KINICH_CARACOL" Language="zh_Hans_CN">
             <Text>奥克苏伊察</Text>
         </Replace>
@@ -8298,12 +8334,6 @@
         <Replace Tag="LOC_LEADER_SUK_AL_HASAN_NAME" Language="zh_Hans_CN">
             <Text>哈桑·伊本·苏莱曼</Text>
         </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_CAPSULE_BODY" Language="zh_Hans_CN">
-            <Text>虽然他们可能不是海战的大师，但斯瓦希里人在海岸的繁荣发展上却表现得游刃有余。哈桑的能力增强了斯瓦希里最重要的区域：港口。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
-            <Text>与英国、挪威和西班牙不同，斯瓦希里几乎没有加强其海上军事实力的加成。然而，他们拥有的是其他海上强国都会羡慕的强大且多功能的经济基础潜力。将您的城市建立在海岸上，并保持城市紧凑，以最大限度地发挥您的独特能力和支柱墓的作用。在哈桑的统治下，您也不必担心淡水问题：您的港口可以作为极好的替代品，此外还能提供文化！如果您在沿海城市的生产力不足，可以训练或购买贾哈兹帆船，然后将它们派往需要的地方。最重要的是不要忽视您的海军，否则您的城市可能会成为挪威等国家的受害者。</Text>
-        </Replace>
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SUK_AL_HASAN_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
             <Text>苏丹哈桑·伊本·苏莱曼，常被称为“Abu'l-Mawahib”（“恩赐之父”），在1310年至1333年间统治着基尔瓦城邦。我们关于哈桑以及基尔瓦本身的大部分了解，都来自于穆斯林学者、伟大的旅行家伊本·白图泰（Ibn Battuta）的记载。</Text>
         </Replace>
@@ -8328,12 +8358,6 @@
         </Replace>
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_HISTORY_PARA_4" Language="zh_Hans_CN">
             <Text>口头传统保存了许多版本的基维乌克故事循环。如今，新一代的说书人正在以书面或图形的形式将这些故事栩栩如生地呈现出来。爱斯基摩文化的复兴使人们重新关注起基维乌克。2000年，土星的一颗卫星以他的名字命名，尽管它很小且并非球形。基维乌克的传奇继续在发展，现在甚至已经将他带向了星辰。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_CAPSULE_BODY" Language="zh_Hans_CN">
-            <Text>基维乌克的能力鼓励伟大的探索发现；与此同时，图勒基地能够在本来无法居住的环境中，迅速建立起坚实的文化和宗教基础。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_LIME_THULE_DAVE_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
-            <Text>基维乌克的能力鼓励伟大的探索发现；与此同时，图勒基地能够在本来无法居住的环境中，迅速建立起坚实的文化和宗教基础。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_LIME_THULE_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
             <Text>图勒人（发音为“Too-lee”）是现代因纽特人的祖先，居住在今天的加拿大北部、阿拉斯加和格陵兰岛。他们于公元10世纪首次在阿拉斯加发展起来，并在随后的300年中扩展到加拿大和格陵兰岛，在那里他们取代并支配了以前居住在那里的多塞特文化（Dorset culture）。</Text>
@@ -8770,55 +8794,7 @@
             <Text>公元797年，赤松德赞退居宗卡宫（Zungkar），将权力交给了他的次子木奈赞普（Muné Tsenpo）。从那时起，各种历史资料中出现了很大的分歧。似乎在赤松德赞死后发生了一场王位争夺战。目前尚不清楚赤松德赞何时去世，也不清楚木奈赞普统治了多久。《拔协》（一本可能追溯到9世纪的藏文历史文献）声称，木奈赞普坚持要按照佛教仪式而不是传统仪式来举行他父亲的葬礼。</Text>
         </Replace>
 
-        <!--玛丽亚·特蕾西亚 - 奥地利-->
-        <Replace Tag="LOC_TRAIT_CIVILIZATION_BUILDING_MER_COFFEE_HOUSE_NAME" Language="zh_Hans_CN">
-            <Text>咖啡馆</Text>
-        </Replace>
-        <Replace Tag="LOC_TRAIT_CIVILIZATION_BUILDING_MER_COFFEE_HOUSE_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>奥地利特色建筑。</Text>
-        </Replace>
-        <Replace Tag="LOC_BUILDING_THEMINGBONUS_COFFEEHOUSE" Language="zh_Hans_CN">
-            <Text>主题加成：展出来自不同伟人的巨作时，产出翻倍。</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_CLASS_AUSTRIAN_DIPLOMAT_NAME" Language="zh_Hans_CN">
-            <Text>大外交官</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_1_NAME" Language="zh_Hans_CN">
-            <Text>托马斯·埃本多弗</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_2_NAME" Language="zh_Hans_CN">
-            <Text>朱利奥·维斯孔蒂·博罗梅奥·阿雷塞</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_3_NAME" Language="zh_Hans_CN">
-            <Text>伊格纳茨·冯·施图默</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_4_NAME" Language="zh_Hans_CN">
-            <Text>弗里德里希·斐迪南·冯·博伊斯特</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_5_NAME" Language="zh_Hans_CN">
-            <Text>鲁道夫·安东·布奥尔</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_6_NAME" Language="zh_Hans_CN">
-            <Text>维克特林的约翰</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_7_NAME" Language="zh_Hans_CN">
-            <Text>路德维希·冯·科本茨尔</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_8_NAME" Language="zh_Hans_CN">
-            <Text>阿洛伊斯·冯·考尼茨-里特贝格</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_9_NAME" Language="zh_Hans_CN">
-            <Text>路德维希·冯·帕尔</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_10_NAME" Language="zh_Hans_CN">
-            <Text>巴托洛梅乌斯·冯·施图默</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_11_NAME" Language="zh_Hans_CN">
-            <Text>约翰·阿马德乌斯·冯·图古特</Text>
-        </Replace>
-        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_12_NAME" Language="zh_Hans_CN">
-            <Text>约翰·格奥尔格·冯·哈恩</Text>
-        </Replace>
+        <!--  玛丽亚·特蕾西亚 - 奥地利  -->
         <Replace Tag="LOC_CIVILIZATION_MER_AUSTRIA_NAME" Language="zh_Hans_CN">
             <Text>奥地利</Text>
         </Replace>
@@ -8830,6 +8806,27 @@
         </Replace>
         <Replace Tag="LOC_CIVILIZATION_MER_AUSTRIA_ADJECTIVE" Language="zh_Hans_CN">
             <Text>奥地利的</Text>
+        </Replace>
+        <Replace Tag="LOC_LEADER_MER_MARIA_THERESA_NAME" Language="zh_Hans_CN">
+			<Text>玛丽亚·特蕾西亚</Text>
+		</Replace>
+        <Replace Tag="LOC_TRAIT_CIVILIZATION_UNIT_MER_GRENZER_NAME" Language="zh_Hans_CN">
+			<Text>边防军</Text>
+		</Replace>
+		<Replace Tag="LOC_TRAIT_CIVILIZATION_UNIT_MER_GRENZER_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>奥地利特色侦察单位</Text>
+		</Replace>
+        <Replace Tag="LOC_TRAIT_CIVILIZATION_BUILDING_MER_COFFEE_HOUSE_NAME" Language="zh_Hans_CN">
+            <Text>咖啡馆</Text>
+        </Replace>
+        <Replace Tag="LOC_TRAIT_CIVILIZATION_BUILDING_MER_COFFEE_HOUSE_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>奥地利特色建筑。</Text>
+        </Replace>
+        <Replace Tag="LOC_BUILDING_THEMINGBONUS_COFFEEHOUSE" Language="zh_Hans_CN">
+            <Text>主题加成：展出来自不同伟人的巨作时，产出翻倍。</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_CLASS_AUSTRIAN_DIPLOMAT_NAME" Language="zh_Hans_CN">
+            <Text>大外交官</Text>
         </Replace>
         <Replace Tag="LOC_CITY_NAME_MER_AUSTRIA_1" Language="zh_Hans_CN">
             <Text>维也纳</Text>
@@ -8941,6 +8938,42 @@
         </Replace>
         <Replace Tag="LOC_CITY_NAME_MER_AUSTRIA_37" Language="zh_Hans_CN">
             <Text>巴德加施泰因</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_1_NAME" Language="zh_Hans_CN">
+            <Text>托马斯·埃本多弗</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_2_NAME" Language="zh_Hans_CN">
+            <Text>朱利奥·维斯孔蒂·博罗梅奥·阿雷塞</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_3_NAME" Language="zh_Hans_CN">
+            <Text>伊格纳茨·冯·施图默</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_4_NAME" Language="zh_Hans_CN">
+            <Text>弗里德里希·斐迪南·冯·博伊斯特</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_5_NAME" Language="zh_Hans_CN">
+            <Text>鲁道夫·安东·布奥尔</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_6_NAME" Language="zh_Hans_CN">
+            <Text>维克特林的约翰</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_7_NAME" Language="zh_Hans_CN">
+            <Text>路德维希·冯·科本茨尔</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_8_NAME" Language="zh_Hans_CN">
+            <Text>阿洛伊斯·冯·考尼茨-里特贝格</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_9_NAME" Language="zh_Hans_CN">
+            <Text>路德维希·冯·帕尔</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_10_NAME" Language="zh_Hans_CN">
+            <Text>巴托洛梅乌斯·冯·施图默</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_11_NAME" Language="zh_Hans_CN">
+            <Text>约翰·阿马德乌斯·冯·图古特</Text>
+        </Replace>
+        <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_AUSTRIA_12_NAME" Language="zh_Hans_CN">
+            <Text>约翰·格奥尔格·冯·哈恩</Text>
         </Replace>
         <Replace Tag="LOC_CITIZEN_MER_AUSTRIA_MALE_1" Language="zh_Hans_CN">
             <Text>卢卡斯</Text>
@@ -9087,7 +9120,7 @@
             <Text>第一共和国时期，奥地利法西斯主义政府试图维持奥地利相对于德国的独立地位。时任总理恩格尔伯特·陶尔斐斯承认，大多数奥地利人在文化与民族认同上同时视自己为德国人与奥地利人，但他坚持维护国家独立。1938年，出生于奥地利的阿道夫·希特勒发动“德奥合并”，将奥地利并入纳粹德国，此举获得了相当数量奥地利民众的支持。第二次世界大战结束后，奥地利于1955年恢复独立，并建立奥地利第二共和国。</Text>
         </Replace>
         <Replace Tag="LOC_LOADING_INFO_LEADER_MER_MARIA_THERESA" Language="zh_Hans_CN">
-            <Text>愿上帝庇佑并守护您，玛丽亚·特蕾西亚，温德边疆的女领主、奥地利女大公。您的责任与理想，是将广阔的王冠领地 united 为同一个国家，使其拥有共同的愿景与信仰。凭借外交、良政与对艺术的热爱，您的国度必将繁荣；但对奥地利而言，利剑与羽笔同样不可或缺。为了希望而进行的斗争已经开始，陛下，而它始于今日。</Text>
+            <Text>愿上帝庇佑并守护您，玛丽亚·特蕾西亚，温德边疆的女领主、奥地利女大公。您的责任与理想，是将广阔的王冠领地联合为同一个国家，使其拥有共同的愿景与信仰。凭借外交、良政与对艺术的热爱，您的国度必将繁荣；但对奥地利而言，利剑与羽笔同样不可或缺。为了希望而进行的斗争已经开始，陛下，而它始于今日。</Text>
         </Replace>
         <Replace Tag="LOC_AGENDA_MER_THERESA_AGENDA_NAME" Language="zh_Hans_CN">
             <Text>国教信仰</Text>
@@ -9113,6 +9146,12 @@
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_MER_MARIA_THERESA_SUBTITLE" Language="zh_Hans_CN">
             <Text>神圣罗马帝国皇后、奥地利女大公、匈牙利与克罗地亚女王</Text>
         </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_MER_MARIA_THERESA_CHAPTER_CAPSULE_BODY" Language="zh_Hans_CN">
+            <Text>奥地利专注于城市发展，并擅长与城邦进行外交。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_MER_MARIA_THERESA_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
+            <Text>玛丽亚·特蕾西亚领导下的奥地利专注于发展城市与首都，以获取各类加成。</Text>
+        </Replace>
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_MER_MARIA_THERESA_QUOTE" Language="zh_Hans_CN">
             <Text>“在这一切苦难与动荡之中，唯有我始终怀着孩童般的信赖，不断向上帝祈求援助。”</Text>
         </Replace>
@@ -9124,12 +9163,6 @@
         </Replace>
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_MER_MARIA_THERESA_CHAPTER_HISTORY_PARA_3" Language="zh_Hans_CN">
             <Text>玛丽亚·特蕾西亚与其夫君神圣罗马皇帝弗朗茨一世育有十一个女儿和五个儿子，其中包括法国王后、那不勒斯与西西里王后、帕尔马公爵夫人，以及两位神圣罗马皇帝约瑟夫二世与利奥波德二世。在他们的十六名子女中，有十人活至成年。尽管人们曾预期她会将权力让渡给弗朗茨，随后又让渡给约瑟夫——二人名义上都是她在奥地利与波希米亚的共同统治者——但玛丽亚·特蕾西亚始终是一位在大臣辅佐下亲自执政的绝对君主。她批评并反对过约瑟夫的许多政策。玛丽亚·特蕾西亚深知公众形象的重要性，也懂得如何同时赢得臣民的尊敬与爱戴。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_MER_MARIA_THERESA_CHAPTER_CAPSULE_BODY" Language="zh_Hans_CN">
-            <Text>奥地利专注于城市发展，并擅长与城邦进行外交。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_MER_MARIA_THERESA_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
-            <Text>玛丽亚·特蕾西亚领导下的奥地利专注于发展城市与首都，以获取各类加成。</Text>
         </Replace>
         <Replace Tag="LOC_DIPLO_FIRST_MEET_LEADER_MER_MARIA_THERESA_ANY" Language="zh_Hans_CN">
             <Text>奥地利女大公向阁下致以欢迎……哦，还是快些结束吧！我十六点还有午餐。</Text>
@@ -9228,15 +9261,27 @@
             <Text>没有了您，世界依旧会继续运转，而且会变得更好。</Text>
         </Replace>
 
-       <!--狄奥多里克 - 哥特人-->
+       <!--  狄奥多里克 - 哥特  -->
+        <Replace Tag="LOC_CIVILIZATION_MER_GOTHS_NAME" Language="zh_Hans_CN">
+            <Text>哥特</Text>
+        </Replace>
+        <Replace Tag="LOC_CIVILIZATION_MER_GOTHS_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>哥特</Text>
+        </Replace>
+        <Replace Tag="LOC_CIVILIZATION_MER_GOTHS_DESCRIPTION_JFD_CIVILIZATION" Language="zh_Hans_CN">
+            <Text>哥特文明</Text>
+        </Replace>
+        <Replace Tag="LOC_CIVILIZATION_MER_GOTHS_ADJECTIVE" Language="zh_Hans_CN">
+            <Text>哥特的</Text>
+        </Replace>
         <Replace Tag="LOC_LEADER_MER_THEODORIC_NAME" Language="zh_Hans_CN">
-            <Text>狄奥多里克大帝</Text>
+            <Text>狄奥多里克</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_CIVILIZATION_UNIT_MER_MILITOND_NAME" Language="zh_Hans_CN">
             <Text>战团兵</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_CIVILIZATION_UNIT_MER_MILITOND_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>哥特特色陆军单位。</Text>
+            <Text>哥特特色近战单位。</Text>
         </Replace>
         <Replace Tag="LOC_MODIFIER_MER_MILITOND_PROMOTION_NAME" Language="zh_Hans_CN">
             <Text>罗马遗产</Text>
@@ -9251,7 +9296,7 @@
             <Text>誓卫战士</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_CIVILIZATION_UNIT_MER_GADRAUHT_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>哥特特色陆军单位。</Text>
+            <Text>哥特特色抗骑兵单位。</Text>
         </Replace>
         <Replace Tag="LOC_MODIFIER_MER_GADRAUHT_CULTURE_VICTORY_NAME" Language="zh_Hans_CN">
             <Text>战团传统</Text>
@@ -9264,18 +9309,6 @@
         </Replace>
         <Replace Tag="LOC_TRAIT_CIVILIZATION_BUILDING_MER_HLAIW_DESCRIPTION" Language="zh_Hans_CN">
             <Text>哥特特色建筑。</Text>
-        </Replace>
-        <Replace Tag="LOC_CIVILIZATION_MER_GOTHS_NAME" Language="zh_Hans_CN">
-            <Text>哥特人</Text>
-        </Replace>
-        <Replace Tag="LOC_CIVILIZATION_MER_GOTHS_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>哥特人</Text>
-        </Replace>
-        <Replace Tag="LOC_CIVILIZATION_MER_GOTHS_DESCRIPTION_JFD_CIVILIZATION" Language="zh_Hans_CN">
-            <Text>哥特文明</Text>
-        </Replace>
-        <Replace Tag="LOC_CIVILIZATION_MER_GOTHS_ADJECTIVE" Language="zh_Hans_CN">
-            <Text>哥特的</Text>
         </Replace>
         <Replace Tag="LOC_CITY_NAME_MER_GOTHS_1" Language="zh_Hans_CN">
             <Text>哥特斯坎扎</Text>
@@ -9487,27 +9520,26 @@
         <Replace Tag="LOC_CITIZEN_MER_GOTHS_MODERN_FEMALE_10" Language="zh_Hans_CN">
             <Text>伊丽莎维塔</Text>
         </Replace>
-
         <Replace Tag="LOC_AGENDA_MER_ROMAN_GOTH_NAME" Language="zh_Hans_CN">
             <Text>罗马遗风</Text>
         </Replace>
         <Replace Tag="LOC_AGENDA_MER_ROMAN_GOTH_DESCRIPTION" Language="zh_Hans_CN">
             <Text>尊重那些修建区域并维持常备军的文明。不喜欢忽视区域建设与军队发展的文明。</Text>
         </Replace>
-        <Replace Tag="LOC_DIPLO_MODIFIER_LEADER_MER_THEODORIC_AGENDA_VERY_ROMAN" Language="zh_Hans_CN">
-            <Text>狄奥多里克对你的城市建设与军事实力印象深刻。</Text>
-        </Replace>
         <Replace Tag="LOC_DIPLO_KUDOS_LEADER_MER_THEODORIC_AGENDA_VERY_ROMAN" Language="zh_Hans_CN">
             <Text>（你修建了大量区域并维持着庞大的常备军。）</Text>
         </Replace>
-        <Replace Tag="LOC_DIPLO_KUDO_EXIT_LEADER_MER_THEODORIC_ANY" Language="zh_Hans_CN">
-            <Text>你的城市建设与训练有素的军队值得赞赏，它们足以与罗马和拉文纳媲美。</Text>
+        <Replace Tag="LOC_DIPLO_MODIFIER_LEADER_MER_THEODORIC_AGENDA_VERY_ROMAN" Language="zh_Hans_CN">
+            <Text>狄奥多里克对你的城市建设与军事实力印象深刻。</Text>
+        </Replace>
+        <Replace Tag="LOC_DIPLO_KUDOS_LEADER_MER_THEODORIC_AGENDA_NOT_VERY_ROMAN" Language="zh_Hans_CN">
+            <Text>（你缺少区域与军事单位。）</Text>
         </Replace>
         <Replace Tag="LOC_DIPLO_MODIFIER_LEADER_MER_THEODORIC_AGENDA_NOT_VERY_ROMAN" Language="zh_Hans_CN">
             <Text>狄奥多里克对你的城市规模与军队实力感到失望。</Text>
         </Replace>
-        <Replace Tag="LOC_DIPLO_KUDOS_LEADER_MER_THEODORIC_AGENDA_NOT_VERY_ROMAN" Language="zh_Hans_CN">
-            <Text>（你缺少区域与军事单位。）</Text>
+        <Replace Tag="LOC_DIPLO_KUDO_EXIT_LEADER_MER_THEODORIC_ANY" Language="zh_Hans_CN">
+            <Text>你的城市建设与训练有素的军队值得赞赏，它们足以与罗马和拉文纳媲美。</Text>
         </Replace>
         <Replace Tag="LOC_DIPLO_WARNING_EXIT_LEADER_MER_THEODORIC_ANY" Language="zh_Hans_CN">
             <Text>你的城市里一定充满了游手好闲之人。你的人民无所事事！他们应该拿起铁锤或长剑。</Text>
@@ -9591,12 +9623,18 @@
             <Text>正如我曾立于一个衰亡帝国的肩膀之上，如今你也将立于我的肩膀之上。</Text>
         </Replace>
 
-       <!--斯坦尼斯瓦夫 - 波兰-->
-        <Replace Tag="LOC_MOD_JFD_POLAND_STANISLAW_II_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>------------------------------------[NEWLINE]领袖 —— 斯坦尼斯瓦夫二世[NEWLINE][NEWLINE]特性 —— 国民教育委员会[NEWLINE]若资源地块和改良设施与军营及其建筑相邻，则获得额外产出：[NEWLINE] • 军营： +1 [ICON_FOOD]食物。[NEWLINE] • 兵营/马厩：+1 [ICON_CULTURE]文化。[NEWLINE] • 兵工厂： +1 [ICON_SCIENCE]科技值。[NEWLINE] • 军事学院： +1 [ICON_PRODUCTION]生产力。[NEWLINE][NEWLINE]单位 —— 乌兰骑兵[NEWLINE]波兰文艺复兴时代特色轻骑兵单位，替代骑兵。拥有双倍夹击加成。。[NEWLINE][NEWLINE]议程 —— 星期四晚宴[NEWLINE]欣赏拥有高 [ICON_CULTURE] 文化产出的文明。会尽可能招募伟人，并尊重同样重视伟人的文明。不喜欢忽视伟人赞助事业的文明。</Text>
-        </Replace>
-        <Replace Tag="LOC_LEADER_JFD_STANISLAW_NAME" Language="zh_Hans_CN">
+       <!--  斯坦尼斯瓦夫二世 - 波兰  -->
+       <Replace Tag="LOC_LEADER_JFD_STANISLAW_NAME" Language="zh_Hans_CN">
             <Text>斯坦尼斯瓦夫二世</Text>
+        </Replace>
+        <Replace Tag="LOC_MOD_JFD_POLAND_STANISLAW_II_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>------------------------------------[NEWLINE]领袖 —— 斯坦尼斯瓦夫二世[NEWLINE][NEWLINE]特性 —— 国民教育委员会[NEWLINE]若资源地块和改良设施与军营及其建筑相邻，则获得额外产出：[NEWLINE][ICON_BULLET]军营： +1 [ICON_FOOD]食物。[NEWLINE][ICON_BULLET]兵营/马厩：+1 [ICON_CULTURE]文化。[NEWLINE][ICON_BULLET]兵工厂： +1 [ICON_SCIENCE]科技值。[NEWLINE][ICON_BULLET]军事学院： +1 [ICON_PRODUCTION]生产力。[NEWLINE][NEWLINE]单位 —— 乌兰骑兵[NEWLINE]波兰文艺复兴时代特色轻骑兵单位，替代骑兵。拥有额外夹击加成。。[NEWLINE][NEWLINE]议程 —— 星期四晚宴[NEWLINE]欣赏拥有高 [ICON_CULTURE] 文化产出的文明。会尽可能招募伟人，并尊重同样重视伟人的文明。不喜欢忽视伟人赞助事业的文明。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_UNITS_PAGE_UNIT_JFD_UHLAN_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
+            <Text>乌兰骑兵是一种装备长枪、军刀与手枪的波兰轻骑兵单位，并于18至19世纪被俄罗斯、普鲁士与奥地利军队广泛采用。乌兰骑兵源自立陶宛境内的鞑靼移民后裔，最早的乌兰骑兵团于18世纪初由波兰立陶宛联邦组建。凭借高速机动性，以及摆脱了过去主导骑兵战争的沉重盔甲，乌兰骑兵很快因其灵活性与速度而声名远扬。他们既能执行侦察与袭扰任务，也能发动正面冲锋。如今，波兰武装部队仍保留着一支礼仪性质的乌兰骑兵团。</Text>
+        </Replace>
+        <Replace Tag="LOC_LOADING_INFO_LEADER_JFD_STANISLAW" Language="zh_Hans_CN">
+            <Text>两国共和国的高贵人民已经推举您——波尼亚托夫斯基家族的斯坦尼斯瓦夫——成为他们的新国王。如今，您的使命是在昔日“黄金自由”的传统与未来启蒙改革的需求之间寻求平衡。让有文化与学识之士环绕在您左右，后世必将如铭记奥古斯都一般铭记您的名字。</Text>
         </Replace>
         <Replace Tag="LOC_AGENDA_JFD_THURSDAY_DINNERS_NAME" Language="zh_Hans_CN">
             <Text>星期四晚宴</Text>
@@ -9621,9 +9659,6 @@
         </Replace>
         <Replace Tag="LOC_DIPLO_MODIFIER_AGENDA_JFD_THURSDAY_DINNERS_LAGS_PATRONAGE" Language="zh_Hans_CN">
             <Text>斯坦尼斯瓦夫对你缺乏对伟人事业的支持感到失望。</Text>
-        </Replace>
-        <Replace Tag="LOC_LOADING_INFO_LEADER_JFD_STANISLAW" Language="zh_Hans_CN">
-            <Text>两国共和国的高贵人民已经推举您——波尼亚托夫斯基家族的斯坦尼斯瓦夫——成为他们的新国王。如今，您的使命是在昔日“黄金自由”的传统与未来启蒙改革的需求之间寻求平衡。让有文化与学识之士环绕在您左右，后世必将如铭记奥古斯都一般铭记您的名字。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_JFD_STANISLAW_TITLE" Language="zh_Hans_CN">
             <Text>斯坦尼斯瓦夫二世</Text>
@@ -9760,11 +9795,8 @@
         <Replace Tag="LOC_DIPLO_DEFEAT_FROM_HUMAN_LEADER_JFD_STANISLAW_ANY" Language="zh_Hans_CN">
             <Text>[LOC_DIPLO_DEFEAT_FROM_AI_LEADER_JFD_STANISLAW_ANY]</Text>
         </Replace>
-        <Replace Tag="LOC_PEDIA_UNITS_PAGE_UNIT_JFD_UHLAN_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
-            <Text>乌兰骑兵是一种装备长枪、军刀与手枪的波兰轻骑兵单位，并于18至19世纪被俄罗斯、普鲁士与奥地利军队广泛采用。乌兰骑兵源自立陶宛境内的鞑靼移民后裔，最早的乌兰骑兵团于18世纪初由波兰立陶宛联邦组建。凭借高速机动性，以及摆脱了过去主导骑兵战争的沉重盔甲，乌兰骑兵很快因其灵活性与速度而声名远扬。他们既能执行侦察与袭扰任务，也能发动正面冲锋。如今，波兰武装部队仍保留着一支礼仪性质的乌兰骑兵团。</Text>
-        </Replace>
 
-       <!-- = 阿娜考娜 - 泰诺人 = -->
+       <!--  阿娜卡奥娜 - 泰诺  -->
         <Replace Tag="LOC_CIVILIZATION_CVS_TAINO_NAME" Language="zh_Hans_CN">
             <Text>泰诺</Text>
         </Replace>
@@ -9774,6 +9806,9 @@
         <Replace Tag="LOC_CIVILIZATION_CVS_TAINO_ADJECTIVE" Language="zh_Hans_CN">
             <Text>泰诺的</Text>
         </Replace>
+        <Replace Tag="LOC_LEADER_CVS_ANACAONA_NAME" Language="zh_Hans_CN">
+			<Text>阿娜卡奥娜</Text>
+		</Replace>
         <Replace Tag="LOC_BUILDING_CVS_TAINO_UP_DUMMY_DESCRIPTION" Language="zh_Hans_CN">
             <Text>这座城市已开始举行阿雷托仪式。</Text>
         </Replace>
@@ -10033,25 +10068,25 @@
             <Text>普通民众通常居住在大型圆形建筑“bohío”中，这些房屋由木柱、编织茅草与棕榈叶建成。它们环绕中央广场而建，每座可容纳10至15个家庭。卡西克及其家族则居住于类似结构的矩形建筑“caney”中，并附带木制门廊。泰诺人的家具有棉制吊床（hamaca）、用于睡眠与休息的棕榈席垫、木制编织座椅（dujo 或 duho），以及儿童使用的平台与摇篮。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_CVS_TAINO_CHAPTER_HISTORY_PARA_13" Language="zh_Hans_CN">
-            <Text>泰诺人会进行一种名为“巴特伊”（batey）的仪式性球赛。对抗双方通常各由10至30名选手组成，并使用实心橡胶球进行比赛。参赛者通常为男性，但女性有时也会参与。经典泰诺人会在村庄中央广场，或专门修建的矩形球场“巴特伊”中举行比赛。历史学家认为，巴特伊比赛具有调解不同部族或社区冲突的作用。一些规模最宏大的球场往往位于酋邦边境地区，而各地卡西克也经常会为比赛结果下注。</Text>
+            <Text>泰诺人会进行一种名为“巴泰伊”（batey）的仪式性球赛。对抗双方通常各由10至30名选手组成，并使用实心橡胶球进行比赛。参赛者通常为男性，但女性有时也会参与。经典泰诺人会在村庄中央广场，或专门修建的矩形球场“巴泰伊”中举行比赛。历史学家认为，巴泰伊比赛具有调解不同部族或社区冲突的作用。一些规模最宏大的球场往往位于酋邦边境地区，而各地卡西克也经常会为比赛结果下注。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_CVS_TAINO_CHAPTER_HISTORY_PARA_14" Language="zh_Hans_CN">
             <Text>泰诺人使用阿拉瓦克语族语言，并发展出一种以岩画形式存在的早期原始文字系统。许多源自泰诺语的词汇后来被吸收进西班牙语与英语之中，例如 barbacoa（烧烤）、hamaca（吊床）、kanoa（独木舟）、tabaco（烟草）、yuca（木薯）、batata（甘薯）以及 juracán（飓风）。在战争中，泰诺男性会制作一种名为“马卡纳”的木制棍棒武器。这种武器约有一英寸厚，其形制与中美洲部分文明所使用的木制战棍相似。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_DISTRICTS_PAGE_DISTRICT_CVS_TAINO_UI_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
-            <Text>“巴特伊”（Batey）是加勒比地区泰诺人对一种特殊公共广场的称呼，他们通常围绕这种广场建立聚落。巴特伊一般呈矩形，并由刻有象征图案与岩画符号（petroglyphs）的石块环绕。</Text>
+            <Text>“巴泰伊”（Batey）是加勒比地区泰诺人对一种特殊公共广场的称呼，他们通常围绕这种广场建立聚落。巴泰伊一般呈矩形，并由刻有象征图案与岩画符号（petroglyphs）的石块环绕。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_DISTRICTS_PAGE_DISTRICT_CVS_TAINO_UI_CHAPTER_HISTORY_PARA_2" Language="zh_Hans_CN">
-            <Text>巴特伊既是举行仪式、球赛等公共活动的场所，也是泰诺社会的重要文化中心。根据部分历史记载，巴特伊仪式（亦称 batu）与其说是一种单纯的竞技游戏，不如说更接近一种具有裁决性质的仪式性对决。由于现存关于该运动与场地的记述大多来自欧洲探险者，尤其是西班牙人的记录，因此巴特伊真正的历史、功能与文化意义至今仍存在争议。据说，邻近部族之间常通过巴特伊比赛解决争端，以避免战争。</Text>
+            <Text>巴泰伊既是举行仪式、球赛等公共活动的场所，也是泰诺社会的重要文化中心。根据部分历史记载，巴泰伊仪式（亦称 batu）与其说是一种单纯的竞技游戏，不如说更接近一种具有裁决性质的仪式性对决。由于现存关于该运动与场地的记述大多来自欧洲探险者，尤其是西班牙人的记录，因此巴泰伊真正的历史、功能与文化意义至今仍存在争议。据说，邻近部族之间常通过巴泰伊比赛解决争端，以避免战争。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_DISTRICTS_PAGE_DISTRICT_CVS_TAINO_UI_CHAPTER_HISTORY_PARA_3" Language="zh_Hans_CN">
-            <Text>关于加勒比巴特伊球赛究竟是在美洲不同地区独立发展形成，还是由某一文化中心传播扩散而来，学界至今尚无定论。考古学家发现，萨拉多伊德文化时期聚落中央的大型墓地区域，可能曾充当类似于南美平原部落公共广场的功能。</Text>
+            <Text>关于加勒比巴泰伊球赛究竟是在美洲不同地区独立发展形成，还是由某一文化中心传播扩散而来，学界至今尚无定论。考古学家发现，萨拉多伊德文化时期聚落中央的大型墓地区域，可能曾充当类似于南美平原部落公共广场的功能。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_DISTRICTS_PAGE_DISTRICT_CVS_TAINO_UI_CHAPTER_HISTORY_PARA_4" Language="zh_Hans_CN">
-            <Text>后来逐渐形成的球赛仪式与宗教意义，显示其与中美洲球赛文化存在一定联系。有学者认为，加勒比地区的巴特伊球赛可能是玛雅“Pok-ta-Pok”球赛的一种简化版本，并经过泰诺文化与宗教体系的本土化改造。也有人推测，这种球赛及部分玛雅文化元素并非直接由尤卡坦传播至加勒比，而是经由南美洲间接传入，因为南美的奥托马克人同样进行过类似运动。</Text>
+            <Text>后来逐渐形成的球赛仪式与宗教意义，显示其与中美洲球赛文化存在一定联系。有学者认为，加勒比地区的巴泰伊球赛可能是玛雅“Pok-ta-Pok”球赛的一种简化版本，并经过泰诺文化与宗教体系的本土化改造。也有人推测，这种球赛及部分玛雅文化元素并非直接由尤卡坦传播至加勒比，而是经由南美洲间接传入，因为南美的奥托马克人同样进行过类似运动。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_DISTRICTS_PAGE_DISTRICT_CVS_TAINO_UI_CHAPTER_HISTORY_PARA_5" Language="zh_Hans_CN">
-            <Text>关于加勒比群岛球赛最主要的历史资料，来自贡萨洛·费尔南德斯·德·奥维耶多-巴尔德斯与巴托洛梅·德·拉斯·卡萨斯等人的记载。原住民将球场与比赛本身都称为“巴特伊”。奥维耶多对比赛用球的描述表明，这些球可能由橡胶或具有类似弹性的树脂制成；几乎所有文献都特别提到这些球惊人的弹性。</Text>
+            <Text>关于加勒比群岛球赛最主要的历史资料，来自贡萨洛·费尔南德斯·德·奥维耶多-巴尔德斯与巴托洛梅·德·拉斯·卡萨斯等人的记载。原住民将球场与比赛本身都称为“巴泰伊”。奥维耶多对比赛用球的描述表明，这些球可能由橡胶或具有类似弹性的树脂制成；几乎所有文献都特别提到这些球惊人的弹性。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_DISTRICTS_PAGE_DISTRICT_CVS_TAINO_UI_CHAPTER_HISTORY_PARA_6" Language="zh_Hans_CN">
             <Text>比赛通常由两支队伍进行，每队约有10至30名选手。参赛者一般为男性，但女性有时也会参与。奥维耶多曾记载，某些比赛甚至会由男女混合组队进行，或让男性与女性对抗，亦或已婚妇女与未婚少女彼此竞技。已婚妇女会以披巾裹身，而男性与未婚女性则通常赤身参赛。考古学家还发现，波多黎各部分球场遗址附近出土了石制颈环与肘饰，它们与球场之间似乎存在某种关联。虽然历史文献并未明确说明这些饰物的具体用途，但它们与中美洲球员佩戴的石制仪式腰饰之间，存在明显相似之处。</Text>
@@ -10061,6 +10096,15 @@
         </Replace>
         <Replace Tag="LOC_PEDIA_DISTRICTS_PAGE_DISTRICT_CVS_TAINO_UI_CHAPTER_HISTORY_PARA_8" Language="zh_Hans_CN">
             <Text>考古学家在河岸岩石、洞穴与岩棚墙面，以及用于划定球场边界的竖立石板上，都发现了大量岩画符号。遗憾的是，其中许多文物后来遭到收藏家或盗墓者掠夺。现存岩画大致可分为两类：几何图案，以及描绘人形或动物形象的图像。考古学家欧文·劳斯曾将这些岩画描述为“具有人体与头部特征的人形图像、面孔，以及多种几何纹样，其中不少似乎象征太阳与月亮”。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_IMPROVEMENTS_PAGE_IMPROVEMENT_CVS_ANACAONA_UI_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
+            <Text>居住于波多黎各、伊斯帕尼奥拉岛与牙买加等较发达岛屿上的泰诺群体，社会经济更加依赖农业生产。为了种植木薯等重要块根作物，他们会将泥土堆成称为“科努科”的高垄土丘。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_IMPROVEMENTS_PAGE_IMPROVEMENT_CVS_ANACAONA_UI_CHAPTER_HISTORY_PARA_2" Language="zh_Hans_CN">
+            <Text>这种耕作方式能够改善排水与土壤肥力，同时减缓侵蚀，使作物能够更长时间储存在土地中。至于玉米等较次要作物，则通常种植于通过刀耕火种开辟出的空地之中。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_IMPROVEMENTS_PAGE_IMPROVEMENT_CVS_ANACAONA_UI_CHAPTER_HISTORY_PARA_3" Language="zh_Hans_CN">
+            <Text>典型的科努科土丘通常高约三英尺、周长约九英尺，并整齐排列成行。最主要的块根作物是木薯，一种因其富含淀粉的可食块根而被广泛种植的灌木植物。泰诺人会使用一种名为“coa”的全木制锄具进行种植。妇女们则负责处理有毒品种的木薯：她们先将其压榨以去除有毒汁液，再将根部磨成粉，用于烘烤面包。除木薯外，甘薯（番薯）也是另一种重要的块根作物。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_PROJECTS_PAGE_PROJECT_CVS_TAINO_UP_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
             <Text>泰诺人通过一种名为“阿雷托”（Areyto）的宗教仪式来庆祝生命与族群精神。音乐在博里肯——即泰诺人对波多黎各的称呼，在其语言中意为“神之土地”——的历史与文化中始终占据核心地位。</Text>
@@ -10072,7 +10116,7 @@
             <Text>从波多黎各国歌《La Borinqueña》开始，泰诺人便为后世留下了丰富的文化与传统遗产。阿雷托仪式在泰诺社会的宗教、政治与公共生活中都占据重要地位，其核心目的在于纪念祖先，并向灵界寻求精神指引。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_PROJECTS_PAGE_PROJECT_CVS_TAINO_UP_CHAPTER_HISTORY_PARA_4" Language="zh_Hans_CN">
-            <Text>整个社群都会通过舞蹈与音乐参与阿雷托庆典，而庆祝活动往往持续数日。仪式通常在村庄中央名为“巴特伊”的广场举行。这片也被称作“舞蹈广场”的大型矩形区域，周围竖立着石板，并装饰有 zemí 雕像，用以供奉约卡胡与阿塔贝两位神灵的灵魂。</Text>
+            <Text>整个社群都会通过舞蹈与音乐参与阿雷托庆典，而庆祝活动往往持续数日。仪式通常在村庄中央名为“巴泰伊”的广场举行。这片也被称作“舞蹈广场”的大型矩形区域，周围竖立着石板，并装饰有 zemí 雕像，用以供奉约卡胡与阿塔贝两位神灵的灵魂。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_PROJECTS_PAGE_PROJECT_CVS_TAINO_UP_CHAPTER_HISTORY_PARA_5" Language="zh_Hans_CN">
             <Text>泰诺人相信，“泽米”（zemí）拥有影响自然环境的神秘力量，包括天气、健康、死亡与生育等领域。泽米雕像通常由石材或木材雕刻而成，形态与大小各异，并常以黄金与半宝石加以装饰。</Text>
@@ -10101,9 +10145,8 @@
         <Replace Tag="LOC_PEDIA_PROJECTS_PAGE_PROJECT_CVS_TAINO_UP_CHAPTER_HISTORY_PARA_13" Language="zh_Hans_CN">
             <Text>历史学家认为，阿雷托仪式是一种摆脱尘世、通往更高精神境界的方式。尽管只有卡西克与博伊克能够真正与更高层次的灵界沟通，但所有参与者都能通过阿雷托仪式达到一种净化心灵的状态，并从中获得恩典、智慧与喜悦。</Text>
         </Replace>
-
         <Replace Tag="LOC_PEDIA_UNITS_PAGE_UNIT_CVS_TAINO_UU_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
-            <Text>“马卡纳”（macana）一词源自泰诺语，泛指中南美洲多种原住民文化所使用的木制武器。该词最早指一种剑形木制武器，虽然材质为木头，但边缘足够锋利，具有相当杀伤力。有时这一名称也被用于指代阿兹特克人的类似武器——一种嵌有黑曜石碎片形成刃部的木剑；不过，也有学者将后者专门称为其纳瓦特尔语名称“macuahuitl”。</Text>
+            <Text>“马卡纳”一词源自泰诺语，泛指中南美洲多种原住民文化所使用的木制武器。该词最早指一种剑形木制武器，虽然材质为木头，但边缘足够锋利，具有相当杀伤力。有时这一名称也被用于指代阿兹特克人的类似武器——一种嵌有黑曜石碎片形成刃部的木剑；不过，也有学者将后者专门称为其纳瓦特尔语名称“macuahuitl”。</Text>
         </Replace>
         <Replace Tag="LOC_CIVILIZATION_CVS_ROMANIA_DESCRIPTION_JFD_CIVILIZATION" Language="zh_Hans_CN">
             <Text>泰诺文明</Text>
@@ -10168,6 +10211,9 @@
         <Replace Tag="LOC_GOVERNMENT_JFD_LIBERAL_DEMOCRACY_LEADER_TITLE_CVS_ROMANIA_FEMININE" Language="zh_Hans_CN">
             <Text>女卡西克</Text>
         </Replace>
+        <Replace Tag="LOC_LOADING_INFO_LEADER_CVS_ANACAONA" Language="zh_Hans_CN">
+            <Text>最睿智的统治者都明白，战争不过是外交失败后的结果。高贵的泰诺女卡西克阿娜卡奥娜啊，唯有对土地的理解，才能让你的人民从大地母亲那里获得丰饶的馈赠；然而，与弱小邦国建立友谊所带来的福祉，则更加珍贵。用阿雷托仪式的热情好客吸引他们，再以仁慈维系这份情谊。</Text>
+        </Replace>
         <Replace Tag="LOC_AGENDA_CVS_ANACAONA_NAME" Language="zh_Hans_CN">
             <Text>达蒂奥</Text>
         </Replace>
@@ -10178,19 +10224,49 @@
             <Text>（你维持着和平。）</Text>
         </Replace>
         <Replace Tag="LOC_DIPLO_MODIFIER_CVS_ANACAONA_HAPPY" Language="zh_Hans_CN">
-            <Text>阿娜考娜很高兴看到你维持和平。</Text>
+            <Text>阿娜卡奥娜很高兴看到你维持和平。</Text>
         </Replace>
         <Replace Tag="LOC_DIPLO_WARNING_LEADER_CVS_ANACAONA_REASON_ANY" Language="zh_Hans_CN">
             <Text>（你曾在她的家乡大陆发动战争，或攻击过城邦。）</Text>
         </Replace>
         <Replace Tag="LOC_DIPLO_MODIFIER_CVS_ANACAONA_UNHAPPY" Language="zh_Hans_CN">
-            <Text>阿娜考娜对你侵略城邦的行为感到愤怒。</Text>
+            <Text>阿娜卡奥娜对你侵略城邦的行为感到愤怒。</Text>
         </Replace>
-        <Replace Tag="LOC_LOADING_INFO_LEADER_CVS_ANACAONA" Language="zh_Hans_CN">
-            <Text>最睿智的统治者都明白，战争不过是外交失败后的结果。高贵的泰诺女卡西克阿娜考娜啊，唯有对土地的理解，才能让你的人民从大地母亲那里获得丰饶的馈赠；然而，与弱小邦国建立友谊所带来的福祉，则更加珍贵。用阿雷托仪式的热情好客吸引他们，再以仁慈维系这份情谊。</Text>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_CVS_ANACAONA_TITLE" Language="zh_Hans_CN">
+            <Text>阿娜卡奥娜</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_CVS_ANACAONA_SUBTITLE" Language="zh_Hans_CN">
+            <Text>泰诺人的女卡西克</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_CAPSULE_BODY" Language="zh_Hans_CN">
+            <Text>阿娜卡奥娜在各种胜利路线中都具备灵活性，而与城邦建立外交关系则是她成功的关键。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
+            <Text>泰诺人在游戏初期应充分利用机动迅速的“马卡纳战士”，尽可能探索并接触更多城邦。通过“巴泰伊”及其独特项目“阿雷托仪式”，他们能够获得大量 [ICON_Envoy] 使者，以尽可能成为更多城邦的宗主国，从而获取双倍类型加成。在阿娜卡奥娜的领导下，泰诺人还能借助特色改良设施“科努科”翻倍利用地块资源，使城市成长速度更快。再加上他们能够以减少25% [ICON_Faith] 信仰值的成本招募 [ICON_GreatPerson] 伟人，阿娜卡奥娜的多面性足以适应任何胜利路线。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
+            <Text>阿娜卡奥娜是一位出身于酋长家族的泰诺女卡西克（女性首领），同时也是雅拉瓜酋长博埃奇奥的妹妹。她的丈夫是邻近马瓜纳地区的酋长考纳博。1492年西班牙人抵达基斯克亚岛（今海地与多米尼加共和国）时，她的兄长与丈夫均位列统治该岛的五大卡西克之一。阿娜卡奥娜以创作叙事诗歌与民谣“阿雷托”而闻名。如今，她已成为海地与多米尼加共和国共同历史中的传奇人物；在海地，许多人更将她视为早期民族历史的重要象征与国家精神的奠基者之一。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_2" Language="zh_Hans_CN">
+            <Text>阿娜卡奥娜出生于马瓜纳（靠近今日的莱奥甘），其兄长于1474年成为当地首领。1496年末哥伦布到访时，阿娜卡奥娜与博埃奇奥以平等谈判者的身份出面接待。根据巴托洛梅·德·拉斯·卡萨斯在《印度史》中的记载，哥伦布成功与他们达成协议：当地原住民需向西班牙人缴纳食物与棉花贡赋。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_3" Language="zh_Hans_CN">
+            <Text>这次访问最初是在友好氛围中进行的。数月后，哥伦布又率领一艘轻型帆船前来收取部分贡品。阿娜卡奥娜与博埃奇奥曾作为客人短暂登上停泊于贡纳夫湾（今莱奥甘附近）的西班牙船只。起初，原住民与征服者之间关系尚算和睦，但泰诺人最终意识到，他们的土地正在被掠夺，而自己的人民则逐渐沦为奴隶。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_4" Language="zh_Hans_CN">
+            <Text>阿娜卡奥娜之所以拥有崇高地位，很可能与泰诺社会中的母系继承传统有关。泰诺卡西克通常会将权力与财产传给姐妹的长子；若姐妹没有子嗣，则会从兄弟的子女中挑选继承人；若仍无合适人选，才会考虑自己的后代。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_5" Language="zh_Hans_CN">
+            <Text>在兄长去世后，阿娜卡奥娜继承成为雅拉瓜的统治者。她的丈夫考纳博因涉嫌策划袭击拉纳维达德（位于伊斯帕尼奥拉岛西北部的西班牙殖民据点），被阿隆索·德·奥赫达俘虏并押往西班牙，最终在途中因船难身亡。许多泰诺酋长也同样死于远离故土的西班牙船只之上。面对征服者的残酷压迫，泰诺人发动起义，并与西班牙人进行了长期战争。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_6" Language="zh_Hans_CN">
+            <Text>1503年，在一次由约80位卡西克参加的集会上，西班牙总督尼古拉斯·德·奥万多下令纵火焚烧会堂，企图将与会者活活烧死。女卡西克阿娜卡奥娜与其他泰诺贵族随后被逮捕，并被统一指控策划反抗西班牙占领，最终遭到处决。</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_7" Language="zh_Hans_CN">
+            <Text>在行刑前，西班牙人曾提出赦免阿娜卡奥娜，条件是她成为一名西班牙人的情妇——这种做法在当时并不罕见。然而，出于对泰诺同胞的忠诚，这位加勒比原住民女卡西克宁愿选择赴死，也不愿向西班牙征服者屈服。她的拒绝进一步巩固了自己的传奇地位。直到公开被处死前，阿娜卡奥娜始终保持着反抗与独立的姿态。由于她拒绝接受西班牙侵略者的羞辱性要求，而其他人则遭到枪决，她最终被施以绞刑。去世时，她年仅29岁。</Text>
         </Replace>
         <Replace Tag="LOC_DIPLO_FIRST_MEET_LEADER_CVS_ANACAONA_ANY" Language="zh_Hans_CN">
-            <Text>向你致意，远方的旅人。我是泰诺人的女卡西克——阿娜考娜。你来自何方？</Text>
+            <Text>向你致意，远方的旅人。我是泰诺人的女卡西克——阿娜卡奥娜。你来自何方？</Text>
         </Replace>
         <Replace Tag="LOC_DIPLO_FIRST_MEET_VISIT_RECIPIENT_LEADER_CVS_ANACAONA_ANY" Language="zh_Hans_CN">
             <Text>按照泰诺人的传统，我们会为来访者举行盛大的宴席与阿雷托仪式。我愿邀请你与我们共进晚餐。</Text>
@@ -10284,48 +10360,6 @@
         </Replace>
         <Replace Tag="LOC_PEDIA_LEADERS_PAGE_CVS_ANACAONA_QUOTE" Language="zh_Hans_CN">
             <Text>不要追逐吸引双眼之物，而应追寻真正打动内心之物。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_CVS_ANACAONA_TITLE" Language="zh_Hans_CN">
-            <Text>阿娜考娜</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_CVS_ANACAONA_SUBTITLE" Language="zh_Hans_CN">
-            <Text>泰诺人的女卡西克</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_CAPSULE_BODY" Language="zh_Hans_CN">
-            <Text>阿娜考娜在各种胜利路线中都具备灵活性，而与城邦建立外交关系则是她成功的关键。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_DETAILED_BODY" Language="zh_Hans_CN">
-            <Text>泰诺人在游戏初期应充分利用机动迅速的“马卡纳战士”，尽可能探索并接触更多城邦。通过“巴特伊”及其独特项目“阿雷托仪式”，他们能够获得大量[ICON_Envoy]使者，以尽可能成为更多城邦的宗主国，从而获取双倍类型加成。在阿娜考娜的领导下，泰诺人还能借助特色改良设施“科努科”翻倍利用地块资源，使城市成长速度更快。再加上他们能够以减少25%[ICON_Faith]信仰值的成本招募[ICON_GreatPerson]伟人，阿娜考娜的多面性足以适应任何胜利路线。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
-            <Text>阿娜考娜是一位出身于酋长家族的泰诺女卡西克（女性首领），同时也是雅拉瓜酋长博埃奇奥的妹妹。她的丈夫是邻近马瓜纳地区的酋长考纳博。1492年西班牙人抵达基斯克亚岛（今海地与多米尼加共和国）时，她的兄长与丈夫均位列统治该岛的五大卡西克之一。阿娜考娜以创作叙事诗歌与民谣“阿雷托”而闻名。如今，她已成为海地与多米尼加共和国共同历史中的传奇人物；在海地，许多人更将她视为早期民族历史的重要象征与国家精神的奠基者之一。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_2" Language="zh_Hans_CN">
-            <Text>阿娜考娜出生于马瓜纳（靠近今日的莱奥甘），其兄长于1474年成为当地首领。1496年末哥伦布到访时，阿娜考娜与博埃奇奥以平等谈判者的身份出面接待。根据巴托洛梅·德·拉斯·卡萨斯在《印度史》中的记载，哥伦布成功与他们达成协议：当地原住民需向西班牙人缴纳食物与棉花贡赋。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_3" Language="zh_Hans_CN">
-            <Text>这次访问最初是在友好氛围中进行的。数月后，哥伦布又率领一艘轻型帆船前来收取部分贡品。阿娜考娜与博埃奇奥曾作为客人短暂登上停泊于贡纳夫湾（今莱奥甘附近）的西班牙船只。起初，原住民与征服者之间关系尚算和睦，但泰诺人最终意识到，他们的土地正在被掠夺，而自己的人民则逐渐沦为奴隶。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_4" Language="zh_Hans_CN">
-            <Text>阿娜考娜之所以拥有崇高地位，很可能与泰诺社会中的母系继承传统有关。泰诺卡西克通常会将权力与财产传给姐妹的长子；若姐妹没有子嗣，则会从兄弟的子女中挑选继承人；若仍无合适人选，才会考虑自己的后代。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_5" Language="zh_Hans_CN">
-            <Text>在兄长去世后，阿娜考娜继承成为雅拉瓜的统治者。她的丈夫考纳博因涉嫌策划袭击拉纳维达德（位于伊斯帕尼奥拉岛西北部的西班牙殖民据点），被阿隆索·德·奥赫达俘虏并押往西班牙，最终在途中因船难身亡。许多泰诺酋长也同样死于远离故土的西班牙船只之上。面对征服者的残酷压迫，泰诺人发动起义，并与西班牙人进行了长期战争。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_6" Language="zh_Hans_CN">
-            <Text>1503年，在一次由约80位卡西克参加的集会上，西班牙总督尼古拉斯·德·奥万多下令纵火焚烧会堂，企图将与会者活活烧死。女卡西克阿娜考娜与其他泰诺贵族随后被逮捕，并被统一指控策划反抗西班牙占领，最终遭到处决。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_CVS_ANACAONA_CHAPTER_HISTORY_PARA_7" Language="zh_Hans_CN">
-            <Text>在行刑前，西班牙人曾提出赦免阿娜考娜，条件是她成为一名西班牙人的情妇——这种做法在当时并不罕见。然而，出于对泰诺同胞的忠诚，这位加勒比原住民女卡西克宁愿选择赴死，也不愿向西班牙征服者屈服。她的拒绝进一步巩固了自己的传奇地位。直到公开被处死前，阿娜考娜始终保持着反抗与独立的姿态。由于她拒绝接受西班牙侵略者的羞辱性要求，而其他人则遭到枪决，她最终被施以绞刑。去世时，她年仅29岁。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_IMPROVEMENTS_PAGE_IMPROVEMENT_CVS_ANACAONA_UI_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
-            <Text>居住于波多黎各、伊斯帕尼奥拉岛与牙买加等较发达岛屿上的泰诺群体，社会经济更加依赖农业生产。为了种植木薯等重要块根作物，他们会将泥土堆成称为“科努科”的高垄土丘。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_IMPROVEMENTS_PAGE_IMPROVEMENT_CVS_ANACAONA_UI_CHAPTER_HISTORY_PARA_2" Language="zh_Hans_CN">
-            <Text>这种耕作方式能够改善排水与土壤肥力，同时减缓侵蚀，使作物能够更长时间储存在土地中。至于玉米等较次要作物，则通常种植于通过刀耕火种开辟出的空地之中。</Text>
-        </Replace>
-        <Replace Tag="LOC_PEDIA_IMPROVEMENTS_PAGE_IMPROVEMENT_CVS_ANACAONA_UI_CHAPTER_HISTORY_PARA_3" Language="zh_Hans_CN">
-            <Text>典型的科努科土丘通常高约三英尺、周长约九英尺，并整齐排列成行。最主要的块根作物是木薯（manioc/cassava），一种因其富含淀粉的可食块根而被广泛种植的灌木植物。泰诺人会使用一种名为“coa”的全木制锄具进行种植。妇女们则负责处理有毒品种的木薯：她们先将其压榨以去除有毒汁液，再将根部磨成粉，用于烘烤面包。除木薯外，甘薯（番薯）也是另一种重要的块根作物。</Text>
         </Replace>
 
 	</LocalizedText>
