@@ -340,6 +340,14 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
 UPDATE Technologies SET UITreeRow=0 WHERE TechnologyType='TECH_NUCLEAR_FISSION';
 
 
+-- 04/07/26 Modern Era Tech path Rework
+DELETE FROM TechnologyPrereqs WHERE Technology='TECH_ADVANCED_BALLISTICS' AND PrereqTech='TECH_REPLACEABLE_PARTS';
+-- 04/07/26 Informations Era Tech path Rework
+DELETE FROM TechnologyPrereqs WHERE Technology='TECH_GUIDANCE_SYSTEMS' AND PrereqTech='TECH_ROCKETRY';
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_COMPOSITES', 'TECH_NUCLEAR_FISSION'),
+    ('TECH_GUIDANCE_SYSTEMS', 'TECH_NUCLEAR_FISSION');
+
 --=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================

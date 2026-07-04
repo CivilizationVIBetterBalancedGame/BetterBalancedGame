@@ -70,6 +70,13 @@ UPDATE ModifierArguments SET Value='20' WHERE ModifierId='GDR_AA_DEFENSE' AND Na
 -- 08/04/25 Reverted
 -- UPDATE Units SET PurchaseYield=NULL WHERE UnitType='UNIT_GIANT_DEATH_ROBOT';
 
+-- 04/07/26 Modern Era Tech path Rework
+UPDATE Units SET PrereqTech='TECH_REFINING' WHERE UnitType='UNIT_INFANTRY';
+UPDATE Units SET PrereqTech='TECH_ADVANCED_BALLISTICS' WHERE UnitType='UNIT_AT_CREW';
+
+-- 04/07/26 Informations Era Tech path Rework
+UPDATE Units SET PrereqTech='TECH_GUIDANCE_SYSTEMS' WHERE UnitType='UNIT_MECHANIZED_INFANTRY';
+
 -- === RANGE UNITS ===--
 -- 16/03/26 Reduce promotion from garnison to 7 (from 10)
 UPDATE ModifierArguments SET Value='7' WHERE ModifierId='GARRISON_BONUS_DISTRICTS' AND Name='Amount';
