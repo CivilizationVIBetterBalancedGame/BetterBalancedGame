@@ -28,13 +28,20 @@ UPDATE Civics SET Description='BBG_LOC_CIVIC_CULTURAL_HEGEMONY_DESCRIPTION' WHER
 INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES
     ('CIVIC_CULTURAL_HEGEMONY', 'CULTURAL_HEGEMONY_BOOST_ALL_TOURISM');
 
--- fix same artist, same archelogist culture and tourism from bing 1 and 1 to being default numbers
-UPDATE Building_GreatWorks SET NonUniquePersonYield=4 WHERE BuildingType='BUILDING_HERMITAGE';
-UPDATE Building_GreatWorks SET NonUniquePersonTourism=4 WHERE BuildingType='BUILDING_HERMITAGE';
-UPDATE Building_GreatWorks SET NonUniquePersonYield=4 WHERE BuildingType='BUILDING_MUSEUM_ART';
-UPDATE Building_GreatWorks SET NonUniquePersonTourism=4 WHERE BuildingType='BUILDING_MUSEUM_ART';
-UPDATE Building_GreatWorks SET NonUniquePersonYield=6 WHERE BuildingType='BUILDING_MUSEUM_ARTIFACT';
-UPDATE Building_GreatWorks SET NonUniquePersonTourism=6 WHERE BuildingType='BUILDING_MUSEUM_ARTIFACT';
+-- -- fix same artist, same archelogist culture and tourism from bing 1 and 1 to being default numbers
+-- UPDATE Building_GreatWorks SET NonUniquePersonYield=4 WHERE BuildingType='BUILDING_HERMITAGE';
+-- UPDATE Building_GreatWorks SET NonUniquePersonTourism=4 WHERE BuildingType='BUILDING_HERMITAGE';
+-- UPDATE Building_GreatWorks SET NonUniquePersonYield=4 WHERE BuildingType='BUILDING_MUSEUM_ART';
+-- UPDATE Building_GreatWorks SET NonUniquePersonTourism=4 WHERE BuildingType='BUILDING_MUSEUM_ART';
+UPDATE Building_GreatWorks SET NonUniquePersonYield=4 WHERE GreatWorkSlotType='GREATWORKSLOT_ART';
+UPDATE Building_GreatWorks SET NonUniquePersonTourism=4 WHERE GreatWorkSlotType='GREATWORKSLOT_ART';
+-- UPDATE Building_GreatWorks SET NonUniquePersonYield=6 WHERE BuildingType='BUILDING_MUSEUM_ARTIFACT';
+-- UPDATE Building_GreatWorks SET NonUniquePersonTourism=6 WHERE BuildingType='BUILDING_MUSEUM_ARTIFACT';
+UPDATE Building_GreatWorks SET NonUniquePersonYield=6 WHERE GreatWorkSlotType='GREATWORKSLOT_ARTIFACT';
+UPDATE Building_GreatWorks SET NonUniquePersonTourism=6 WHERE GreatWorkSlotType='GREATWORKSLOT_ARTIFACT';
+-- 04/07/26 Fix for other buildings
+UPDATE Building_GreatWorks SET NonUniquePersonYield=4 WHERE GreatWorkSlotType='GREATWORKSLOT_PALACE';
+UPDATE Building_GreatWorks SET NonUniquePersonTourism=4 WHERE GreatWorkSlotType='GREATWORKSLOT_PALACE';
 
 -- Relic
 UPDATE GreatWorks SET Tourism=4 WHERE GreatWorkObjectType='GREATWORKOBJECT_RELIC';

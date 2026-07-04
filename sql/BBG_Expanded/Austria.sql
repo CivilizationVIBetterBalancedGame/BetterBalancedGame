@@ -285,3 +285,7 @@ INSERT INTO NamedRiverCivilizations(NamedRiverType, CivilizationType) VALUES
 
 INSERT INTO NamedLakeCivilizations(NamedLakeType, CivilizationType) VALUES
     ('NAMED_LAKE_AUSTRIA_1', 'CIVILIZATION_MER_AUSTRIA');
+
+-- 04/07/26 BUILDING_MER_COFFEE_HOUSE : fix culture 
+UPDATE Building_GreatWorks SET NonUniquePersonYield=4 WHERE BuildingType='BUILDING_MER_COFFEE_HOUSE';
+UPDATE Building_GreatWorks SET NonUniquePersonTourism=4 WHERE BuildingType='BUILDING_MER_COFFEE_HOUSE';

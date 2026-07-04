@@ -199,9 +199,11 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_BUILDING_QUEENS_BIBLIOTHEQUE', 'BBG_KRISTINA_ENGINEERS_GIVER_T3');
 
 -- 30/03/25 queens bibli gets 6 all arts slot
+-- 04/07/26 fix culture / tourism values for duplicate from same artist
 DELETE FROM Building_GreatWorks WHERE BuildingType='BUILDING_QUEENS_BIBLIOTHEQUE';
-INSERT INTO Building_GreatWorks (BuildingType, GreatWorkSlotType, NumSlots) VALUES
-    ('BUILDING_QUEENS_BIBLIOTHEQUE', 'GREATWORKSLOT_PALACE', 6);
+INSERT INTO Building_GreatWorks (BuildingType, GreatWorkSlotType, NumSlots, NonUniquePersonTourism, NonUniquePersonYield) VALUES
+    ('BUILDING_QUEENS_BIBLIOTHEQUE', 'GREATWORKSLOT_PALACE', 6, 4, 4);
+
 
 -- 20/06/25 Nobel Prize Competition starts renaissance era instead of indus
 INSERT INTO Requirements (RequirementId, RequirementType) VALUES
