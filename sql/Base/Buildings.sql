@@ -159,3 +159,8 @@ UPDATE Buildings SET Cost=360 WHERE BuildingType='BUILDING_SEAPORT';
 
 -- 17/12/25 Stable production cost reduced to 90 (from 120)
 UPDATE Buildings SET Cost=90 WHERE BuildingType='BUILDING_STABLE';
+
+
+-- 04/07/26 Shipyard gives 2 prod instead of 1 to unimproved coast
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('SHIPYARD_UNIMPROVED_COAST_PRODUCTION', 'Amount', '2');
