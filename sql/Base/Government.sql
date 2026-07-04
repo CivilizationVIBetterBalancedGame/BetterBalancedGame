@@ -25,6 +25,52 @@ INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
     ('POLICY_GOV_AUTOCRACY', 'BBG_MONUMENT_PRODUCTION_AUTOCRACY_1_DISTRICT');
 
 -- ==============================================================
+-- ***                          OLIGARCHY                     *** 
+-- ============================================================== 
+
+DELETE FROM GovernmentModifiers WHERE GovernmentType='GOVERNMENT_OLIGARCHY' AND ModifierId='OLIGARCHY_MELEE';
+DELETE FROM GovernmentModifiers WHERE GovernmentType='GOVERNMENT_OLIGARCHY' AND ModifierId='OLIGARCHY_UNIT_EXPERIENCE';
+DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_GOV_OLIGARCHY' AND ModifierId='OLIGARCHY_LEGACY_MELEE';
+
+-- 04/07/26 all units currently affected by oligarchy gains +4 cs base with Philosophy Politics
+UPDATE Modifiers SET OwnerRequirementSetId='BBG_UTILS_PLAYER_HAS_CIVIC_POLITICAL_PHILOSOPHY_REQSET' WHERE ModifierId='OLIGARCHY_MELEE';
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+    ('TRAIT_LEADER_MAJOR_CIV', 'OLIGARCHY_MELEE');
+
+-- new legacy : +50% exp on units during combat and your units can still move and attack after promotion
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_OLIGARCHY_UNIT_EXPERIENCE', 'MODIFIER_PLAYER_UNITS_ADJUST_UNIT_EXPERIENCE_MODIFIER'),
+    ('BBG_OLIGARCHY_UNIT_MOVE_AFTER_PROMOTION', 'MODIFIER_PLAYER_UNITS_PROMOTE_NO_FINISH_MOVES');
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_OLIGARCHY_UNIT_EXPERIENCE', 'Amount', 50),
+    ('BBG_OLIGARCHY_UNIT_MOVE_AFTER_PROMOTION', 'NoFinishMoves', '1');
+
+INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
+    ('GOVERNMENT_OLIGARCHY', 'BBG_OLIGARCHY_UNIT_EXPERIENCE'),
+    ('GOVERNMENT_OLIGARCHY', 'BBG_OLIGARCHY_UNIT_MOVE_AFTER_PROMOTION');
+
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+    ('POLICY_GOV_OLIGARCHY', 'BBG_OLIGARCHY_UNIT_EXPERIENCE'),
+    ('POLICY_GOV_OLIGARCHY', 'BBG_OLIGARCHY_UNIT_MOVE_AFTER_PROMOTION');
+
+-- gov effect : +1 mp for all units
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('REQUIREMENT_UNIT_IS_IN_OWNER_TERRITORY_REQUIREMENT', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('REQUIREMENT_UNIT_IS_IN_OWNER_TERRITORY_REQUIREMENT', 'UNIT_IN_OWNER_TERRITORY_REQUIREMENT');
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_OLIGARCHY_UNIT_MOVEMENT', 'MODIFIER_PLAYER_UNITS_ADJUST_FRIENDLY_TERRITORY_START_MOVEMENT');
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_OLIGARCHY_UNIT_MOVEMENT', 'Amount', 1);
+
+INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
+    ('GOVERNMENT_OLIGARCHY', 'BBG_OLIGARCHY_UNIT_MOVEMENT');
+
+UPDATE Civics SET Description='LOC_CIVIC_POLITICAL_PHILOSOPHY_DESCRIPTION' WHERE CivicType='CIVIC_POLITICAL_PHILOSOPHY';
+-- ==============================================================
 -- ***                  MERCHANT REPUBLIC                     *** 
 -- ============================================================== 
 
