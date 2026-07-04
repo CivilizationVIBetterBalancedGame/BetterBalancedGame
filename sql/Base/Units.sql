@@ -31,6 +31,23 @@ UPDATE Units SET Cost=310 WHERE UnitType='UNIT_CAVALRY';
 -- 03/10/22: movement from 6 to 5
 UPDATE Units SET BaseMoves=5 WHERE UnitType='UNIT_HELICOPTER';
 
+-- 04/07/26 Light cav heal +10 on kill
+
+INSERT INTO Types(Type, Kind) VALUES
+    ('BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL', 'KIND_ABILITY');
+INSERT INTO TypeTags(Type, Tag) VALUES
+    ('BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL', 'CLASS_LIGHT_CAVALRY');
+
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_LIGHT_CAV_HEAL_ON_KILL', 'MODIFIER_PLAYER_UNIT_ADJUST_HEAL_FROM_COMBAT');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_LIGHT_CAV_HEAL_ON_KILL', 'Amount', 10);
+
+INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
+    ('BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL', 'LOC_BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL_NAME', 'LOC_BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL_DESC');
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+    ('BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL', 'BBG_LIGHT_CAV_HEAL_ON_KILL');
+
 --=======================================================================
 --******                    HEAVY CAV                              ******
 --=======================================================================
