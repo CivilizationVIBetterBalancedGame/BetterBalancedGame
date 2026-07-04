@@ -103,6 +103,8 @@ INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
 INSERT INTO UnitPromotionModifiers(UnitPromotionType, ModifierId) VALUES
     ('PROMOTION_SPYGLASS', 'BBG_PROMOTION_ENDURANCE');
 
+-- 04/07/26 Skirmisher cost reduced to 60 from 75 (150 -> 120)
+UPDATE Units SET Cost=120 WHERE UnitType='UNIT_SKIRMISHER';
 
 --=======================================================================
 --******                        RANGE                              ******
