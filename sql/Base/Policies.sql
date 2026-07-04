@@ -282,7 +282,8 @@ INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
 
 
 -- 30/03/25 Defense of the motherland now on Ideology and no longers needs Communism
-UPDATE Policies SET PrereqCivic='CIVIC_IDEOLOGY' WHERE PolicyType='POLICY_DEFENSE_OF_MOTHERLAND';
+-- 04/07/26 Now on mass media
+UPDATE Policies SET PrereqCivic='CIVIC_MASS_MEDIA' WHERE PolicyType='POLICY_DEFENSE_OF_MOTHERLAND';
 DELETE FROM Policy_GovernmentExclusives_XP2 WHERE PolicyType='POLICY_DEFENSE_OF_MOTHERLAND';
     
 
