@@ -110,3 +110,7 @@ UPDATE ModifierArguments SET Value=50 WHERE ModifierId='TRAIT_INCREASE_ENEMY_WAR
 UPDATE Units SET StrategicResource='RESOURCE_HORSES' WHERE UnitType='UNIT_INDIAN_VARU';
 INSERT INTO Units_XP2 (UnitType, ResourceCost) VALUES
     ('UNIT_INDIAN_VARU', 10);
+
+-- 04/07/26 varu (-3cs near them instead of -5cs), 60prod -> 55
+UPDATE Units SET Cost=55 WHERE UnitType='UNIT_INDIAN_VARU';
+UPDATE ModifierArguments SET Value='-3' WHERE ModifierId='VARU_NEGATIVE_COMBAT_MODIFIER' AND Name='Amount';
