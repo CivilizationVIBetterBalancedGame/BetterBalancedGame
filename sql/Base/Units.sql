@@ -80,6 +80,28 @@ UPDATE Units SET BaseMoves=5 WHERE UnitType='UNIT_MODERN_ARMOR';
 
 UPDATE Units SET Combat=100 WHERE UnitType='UNIT_MODERN_ARMOR';
 
+-- 04/07/26 Heavy cav +5 vs melee
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_HEAVY_CAVALRY_VS_MELEE_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_HEAVY_CAVALRY_VS_MELEE_REQSET', 'OPPONENT_IS_PROMOTION_CLASS_MELEE');
+
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId ) VALUES
+    ('BBG_HEAVY_CAVALRY_BONUS_VS_MELEE', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_HEAVY_CAVALRY_VS_MELEE_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_HEAVY_CAVALRY_BONUS_VS_MELEE', 'Amount', 5);
+INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
+    ('BBG_HEAVY_CAVALRY_BONUS_VS_MELEE', 'Preview', 'LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_DESC');
+
+INSERT INTO Types(Type, Kind) VALUES
+    ('BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE', 'KIND_ABILITY');
+INSERT INTO TypeTags(Type, Tag) VALUES
+    ('BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE', 'CLASS_HEAVY_CAVALRY');
+
+INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
+    ('BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE', 'LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_NAME', 'LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_DESC');
+INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
+    ('BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE', 'BBG_HEAVY_CAVALRY_BONUS_VS_MELEE');
 --=======================================================================
 --******                        RECON                              ******
 --=======================================================================
