@@ -487,3 +487,27 @@ INSERT OR IGNORE INTO RequirementArguments (RequirementId , Name , Value)
 INSERT OR IGNORE INTO RequirementArguments (RequirementId , Name , Value)
     VALUES ('REQUIRES_BELIEF_RELIGIOUS_COLONIZATION_CPLMOD' , 'BeliefType' , 'BELIEF_RELIGIOUS_COLONIZATION');
 
+-- Requirements to test if unit is in an era or earlier BBG_UNIT_IS_UP_TO_RENAISSANCE_ERA
+
+
+INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) SELECT
+    'BBG_UNIT_IS_' || EraType, 'REQUIREMENT_UNIT_ERA_TYPE_MATCHES' FROM Eras;
+INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) SELECT
+    'BBG_UNIT_IS_' || EraType, 'EraType', EraType FROM Eras;
+    
+
+INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) SELECT
+    'BBG_UNIT_IS_UP_TO_' || EraType, 'REQUIREMENT_REQUIREMENTSET_IS_MET' FROM Eras;
+INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) SELECT
+    'BBG_UNIT_IS_UP_TO_' || EraType, 'RequirementSetId', 'BBG_UNIT_IS_UP_TO_' || EraType || '_REQSET' FROM Eras;
+INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType) SELECT
+    'BBG_UNIT_IS_UP_TO_' || EraType || '_REQSET', 'REQUIREMENTSET_TEST_ANY' FROM Eras;
+
+-- ex : medieval = ancient, classical + medieval --> use ChronologyIndex to get the era order
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+SELECT
+    'BBG_UNIT_IS_UP_TO_' || current.EraType || '_REQSET',
+    'BBG_UNIT_IS_' || prior.EraType
+FROM Eras AS current
+JOIN Eras AS prior
+    ON prior.ChronologyIndex <= current.ChronologyIndex;
