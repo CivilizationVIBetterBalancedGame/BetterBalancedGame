@@ -17,6 +17,11 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementI
 
 -- 09/03/24 Buff military engineers +1 charge
 UPDATE Units SET BuildCharges=3 WHERE UnitType='UNIT_MILITARY_ENGINEER';
+-- 04/07/26 Military Engineers require barracks or stable, moved to engineering
+UPDATE Units SET PrereqTech='TECH_ENGINEERING' WHERE UnitType='UNIT_MILITARY_ENGINEER';
+DELETE FROM Unit_BuildingPrereqs WHERE Unit='UNIT_MILITARY_ENGINEER';
+INSERT INTO Unit_BuildingPrereqs (Unit, PrereqBuilding)
+    VALUES ('UNIT_MILITARY_ENGINEER', 'BUILDING_BARRACKS'), ('UNIT_MILITARY_ENGINEER', 'BUILDING_STABLE');
 
 -- Melee changes
 UPDATE Units SET Combat=46, PrereqTech='TECH_MILITARY_TACTICS' WHERE UnitType='UNIT_MAN_AT_ARMS';

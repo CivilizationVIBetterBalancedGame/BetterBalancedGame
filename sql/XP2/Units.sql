@@ -39,7 +39,9 @@ UPDATE Units SET Combat=80,  Bombard=105      WHERE UnitType='UNIT_BOMBER';
 UPDATE Units SET Combat=85,  Bombard=115      WHERE UnitType='UNIT_JET_BOMBER';
 
 -- Military Engineers get tunnels at military science
-UPDATE Improvements SET PrereqTech='TECH_MILITARY_SCIENCE' WHERE ImprovementType='IMPROVEMENT_MOUNTAIN_TUNNEL';
+-- 04/07/26 : Military Engineers get tunnels at  military engineering
+UPDATE Improvements SET PrereqTech='TECH_MILITARY_ENGINEERING' WHERE ImprovementType='IMPROVEMENT_MOUNTAIN_TUNNEL';
+
 -- 09/03/2024 Fort to military engineering
 UPDATE Improvements SET PrereqTech='TECH_MILITARY_ENGINEERING' WHERE ImprovementType='IMPROVEMENT_FORT';
 
