@@ -53,8 +53,8 @@ INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_MEDIC_MOVEMENT_NIHANG_REQSET', 'ADJACENT_UNIT_REQUIREMENT'),
     ('BBG_MEDIC_MOVEMENT_NIHANG_REQSET', 'REQUIREMENT_UNIT_IS_NIHANG');
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
-    ('BBG_MEDIC_NIHANG_MOVEMENT', 'MODIFIER_PLAYER_UNITS_ADJUST_MOVEMENT', 'BBG_MEDIC_MOVEMENT_NIHANG_REQSET');
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId, SubjectStackLimit ) VALUES
+    ('BBG_MEDIC_NIHANG_MOVEMENT', 'MODIFIER_PLAYER_UNITS_ADJUST_MOVEMENT', 'BBG_MEDIC_MOVEMENT_NIHANG_REQSET', 1);
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MEDIC_NIHANG_MOVEMENT', 'Amount', 1);
 INSERT INTO UnitAbilityModifiers (UnitAbilityType, ModifierId) VALUES
