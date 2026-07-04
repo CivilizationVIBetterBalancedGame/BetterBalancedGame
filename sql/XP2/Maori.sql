@@ -72,3 +72,8 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 
 -- 30/09/24 removed amenity
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='CAPITAL_ENTERTAINMENT';
+
+-- 04/07/26 Fort, Roman Fort and PA : Add one prod and one gold
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+    ('IMPROVEMENT_MAORI_PA', 'YIELD_PRODUCTION', 1),
+    ('IMPROVEMENT_MAORI_PA', 'YIELD_GOLD', 1);

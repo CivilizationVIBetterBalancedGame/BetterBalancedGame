@@ -386,3 +386,14 @@ UPDATE Boosts SET BoostClass='BOOST_TRIGGER_KILL_WITH' WHERE TechnologyType='TEC
 
 -- 30/03/25 Humanism : Own 2 Amphiteater [Recruit an Artist]
 UPDATE Boosts SET Unit1Type=NULL, NumItems=2, BoostClass='BOOST_TRIGGER_HAVE_X_BUILDINGS', BuildingType='BUILDING_AMPHITHEATER' WHERE CivicType='CIVIC_HUMANISM';
+
+
+
+--=======================================================================
+--******                       IMPROVEMENTS                        ******
+--=======================================================================
+
+-- 04/07/26 Fort, Roman Fort and PA : Add one prod and one gold
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+    ('IMPROVEMENT_FORT', 'YIELD_PRODUCTION', 1),
+    ('IMPROVEMENT_FORT', 'YIELD_GOLD', 1);

@@ -16,3 +16,8 @@ UPDATE Districts SET Entertainment=0 WHERE DistrictType='DISTRICT_BATH';
 
 -- 08/04/25 Legions down to 38
 UPDATE Units SET Combat=38 WHERE UnitType='UNIT_ROMAN_LEGION';
+
+-- 04/07/26 Fort, Roman Fort and PA : Add one prod and one gold
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+	('IMPROVEMENT_ROMAN_FORT', 'YIELD_PRODUCTION', 1),
+	('IMPROVEMENT_ROMAN_FORT', 'YIELD_GOLD', 1);
