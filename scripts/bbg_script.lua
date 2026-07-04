@@ -166,42 +166,6 @@ function InitCapitals()
 	end
 	Game.SetProperty("P_CAPITALS", tCapitals)
 end
-
--- Initialize CS adjacency flags for existing city-state capitals on map load
-function InitCSAdjacentFlags()
-	local gridWidth, gridHeight = Map.GetGridSize();
-	for x = 0, gridWidth - 1 do
-		for y = 0, gridHeight - 1 do
-			local pPlot = Map.GetPlot(x, y)
-			if pPlot ~= nil and pPlot:GetProperty("CS_CAPITAL_BBG") == 1 then
-				for i = 0, 5 do
-					local pAdj = GetAdjacentTiles(pPlot, i)
-					if pAdj ~= nil then
-						pAdj:SetProperty("CS_ADJACENT_BBG", 1)
-					end
-				end
-			end
-		end
-	end
-end
-
--- Clear CS properties when a city-state capital is conquered/removed
-function OnCityStateConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
-	local pOldOwner = Players[iOldOwnerID]
-	if pOldOwner == nil or pOldOwner:IsMajor() == true then
-		return
-	end
-	local pPlot = Map.GetPlot(iX, iY)
-	if pPlot ~= nil and pPlot:GetProperty("CS_CAPITAL_BBG") == 1 then
-		pPlot:SetProperty("CS_CAPITAL_BBG", nil)
-		for i = 0, 5 do
-			local pAdj = GetAdjacentTiles(pPlot, i)
-			if pAdj ~= nil then
-				pAdj:SetProperty("CS_ADJACENT_BBG", nil)
-			end
-		end
-	end
-end
 -- ==========================================================================
 -- Setting Up data to easily deal with communism(legacy) workers
 -- ==========================================================================
@@ -610,18 +574,7 @@ function OnCityConquered(iNewOwnerID, iOldOwnerID, iCityID, iX, iY)
 	local pNewOwner = Players[iNewOwnerID]
 	local pOldOwner = Players[iOldOwnerID]
 	--print("New "..tostring(iNewOwnerID).." Old: "..tostring(iOldOwnerID))
-	-- If a city-state (non-major) lost this city, clear CS properties
-	if pOldOwner ~= nil and pOldOwner:IsMajor() ~= true then
-		local pPlot = Map.GetPlot(iX, iY)
-		if pPlot ~= nil and pPlot:GetProperty("CS_CAPITAL_BBG") == 1 then
-			pPlot:SetProperty("CS_CAPITAL_BBG", nil)
-			for i = 0, 5 do
-				local pAdj = GetAdjacentTiles(pPlot, i)
-				if pAdj ~= nil then
-					pAdj:SetProperty("CS_ADJACENT_BBG", nil)
-				end
-			end
-		end
+	if pOldOwner:IsMajor()~= true then 
 		return
 	end
 	if PlayerConfigurations[iNewOwnerID]:GetLeaderTypeName() ~= "LEADER_JULIUS_CAESAR" then
@@ -4272,8 +4225,6 @@ function Initialize()
 	--print("BBG - relevant feature yields populated")
 	InitCapitals()
 	print("BBG - capital data initialized")
-	-- initialize city-state adjacent plot flags
-	InitCSAdjacentFlags()
 	if GameConfiguration.GetValue("BBCC_SETTING_YIELD") == 1 then --moved to BCY no RNG only
 		PopulateBugWonders()
 	end
@@ -4343,8 +4294,6 @@ function Initialize()
 	
 	-- Caesar wildcard and cs favor malus
 	GameEvents.CityBuilt.Add(OnCityBuilt);
-	-- ensure we clear CS adjacency flags when city-states lose capitals
-	GameEvents.CityConquered.Add(OnCityStateConquered);
 
 	local tMajorIDs = PlayerManager.GetAliveMajorIDs()
 	for i, iPlayerID in ipairs(tMajorIDs) do
