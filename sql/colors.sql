@@ -57,3 +57,6 @@ UPDATE PlayerColors SET Alt3PrimaryColor='COLOR_STANDARD_GREEN_MD', Alt3Secondar
 
 -- ahiram 
 UPDATE PlayerColors SET PrimaryColor='COLOR_STANDARD_RED_DK', SecondaryColor='COLOR_STANDARD_YELLOW_MD' WHERE Type='LEADER_LIME_PHOE_AHIRAM';
+
+-- Goths 
+UPDATE PlayerColors SET PrimaryColor='COLOR_STANDARD_YELLOW_LT' WHERE Type='LEADER_MER_THEODORIC';
