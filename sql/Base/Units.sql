@@ -302,6 +302,8 @@ INSERT INTO ModifierStrings (ModifierId, Context , Text) VALUES
 -- 30/06/25 SAM 125 anti air (stop all nukes)
 UPDATE Units SET AntiAirCombat=125, BaseMoves=5 WHERE UnitType='UNIT_MOBILE_SAM';
 
+-- 04/07/26 Modern Era Tech path Rework
+UPDATE Units SET PrereqTech='TECH_SATELLITES' WHERE UnitType='UNIT_MOBILE_SAM';
 
 --18/12/23 Medic to military science + reduction cost
 UPDATE Units SET PrereqTech='TECH_MILITARY_SCIENCE' WHERE UnitType='UNIT_MEDIC';
