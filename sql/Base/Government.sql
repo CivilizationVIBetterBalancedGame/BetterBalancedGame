@@ -33,9 +33,10 @@ DELETE FROM GovernmentModifiers WHERE GovernmentType='GOVERNMENT_OLIGARCHY' AND 
 DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_GOV_OLIGARCHY' AND ModifierId='OLIGARCHY_LEGACY_MELEE';
 
 -- 04/07/26 all units currently affected by oligarchy gains +4 cs base with Philosophy Politics
-UPDATE Modifiers SET OwnerRequirementSetId='BBG_UTILS_PLAYER_HAS_CIVIC_POLITICAL_PHILOSOPHY_REQSET' WHERE ModifierId='OLIGARCHY_MELEE';
-INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
-    ('TRAIT_LEADER_MAJOR_CIV', 'OLIGARCHY_MELEE');
+-- UPDATE Modifiers SET OwnerRequirementSetId='BBG_UTILS_PLAYER_HAS_CIVIC_POLITICAL_PHILOSOPHY_REQSET' WHERE ModifierId='OLIGARCHY_MELEE';
+-- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+--     ('TRAIT_LEADER_MAJOR_CIV', 'OLIGARCHY_MELEE');
+
 
 -- new legacy : +20% exp on units during combat and your units can still move and attack after promotion
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES

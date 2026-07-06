@@ -9,12 +9,12 @@
 <!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be250" version="7057"> -->
 
 <!-- WIP Published ModID -->
-<Mod id="cb84075d-5007-4207-b662-c35a5f7be288" version="7057">
+<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be288" version="7057"> -->
  
 <!-- WIP ModID -->
-<!-- <Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="7057"> -->
+<Mod id="cb84075d-5007-4207-b662-c35a5f7be254" version="7057">
 	<Properties>
-		<Name>Better Balanced Game WIP</Name>
+		<Name>Better Balanced Game WIP LOCAL</Name>
 		<Description>
 			WIP build of Better Balanced Game
 		</Description>
@@ -957,6 +957,16 @@
 			<File>sql/LP/Elizabeth.sql</File>
 			<File>sql/LP/Varangian.sql</File>
 		</UpdateDatabase>
+
+		
+		<!-- XP1 and XP2 Units oligarchy buff -->
+		<UpdateDatabase id="BBG_Oligarchy_Units_Buff">
+			<Properties>
+				<LoadOrder>200000000</LoadOrder> <!-- must be loaded after Expanded too -->
+			</Properties>
+			<Criteria>XP1_AND_XP2</Criteria>
+			<File>sql/Base/UnitsOligarchyBuff.sql</File>
+		</UpdateDatabase>
 		<!-- -->
 
 
@@ -1369,6 +1379,7 @@
 		<File>sql/Base/Spy.sql</File>
 		<File>sql/Base/Sumer.sql</File>
 		<File>sql/Base/Units.sql</File>
+		<File>sql/Base/UnitsOligarchyBuff.sql</File>
 		<File>sql/Base/Wonders.sql</File>
 		<!-- XP 1-->
 		<File>sql/XP1/_xp1_utils.sql</File>
