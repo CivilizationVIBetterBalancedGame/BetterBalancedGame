@@ -116,7 +116,7 @@
             <Text>政治联姻</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_CIVILIZATION_MER_CROWNLANDS_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>每次建成市政广场建筑时，获得一位专属的外交官伟人，能够吞并已宗主的城邦。</Text>
+            <Text>每次建成市政广场建筑时，获得一位专属的外交官伟人，能够吞并已宗主的城邦，且与其他文明的 [ICON_CAPITAL] 首都相邻时，每回合+1 [ICON_FAVOR] 外交支持。。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_MER_THERESIAN_REFORM_NAME" Language="zh_Hans_CN">
             <Text>特蕾西亚改革</Text>
@@ -717,7 +717,7 @@
             <Text>战团兵</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_MER_MILITOND_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>哥特古典时代特色近战单位，替代剑客。[NEWLINE][NEWLINE]对战区域和位于区域中的单位+5 [ICON_STRENGTH] 战斗力。[NEWLINE]获得一次免费 [ICON_PROMOTION] 升级。</Text>
+            <Text>哥特古典时代特色近战单位，替代剑客。[NEWLINE][NEWLINE]基础 [ICON_Strength] 战斗力+2。对战区域和位于区域中的单位+5 [ICON_STRENGTH] 战斗力。[NEWLINE]获得一次免费 [ICON_PROMOTION] 升级。</Text>
         </Replace>
         <Replace Tag="LOC_MODIFIER_MER_MILITOND_DISTRICT_DESC" Language="zh_Hans_CN">
             <Text>对战区域和位于区域中的单位+5 [ICON_STRENGTH] 战斗力。</Text>
@@ -941,7 +941,7 @@
             <Text>拥有 [ICON_GOVERNOR] 总督的城市+1 [ICON_AMENITIES] 宜居度。[NEWLINE]城市中就职的 [ICON_GOVERNOR] 总督每拥有一级晋升，书院建筑的产出便提升30%。[NEWLINE]解锁“封建主义”市政后，没有 [ICON_GOVERNOR] 总督的城市产出-10%。解锁“封建主义”市政时获得1个 [ICON_GOVERNOR] 总督头衔。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_SEJONG_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>当您研究完成新时代的第一项科技时，获得相当于当回合所产出 [ICON_SCIENCE] 科技值两倍的 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]书院：每相邻一个剧院广场获得+2 [ICON_SCIENCE] 科技值，每相邻一个其他 [ICON_DISTRICT] 区域-1 [ICON_SCIENCE] 科技值。[NEWLINE]剧院广场：每相邻一个书院获得+2 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]同时拥有书院和剧院广场的城市，每个特色 [ICON_DISTRICT] 区域提供+1 [ICON_CULTURE] 文化值和+2 [ICON_TOURISM] 旅游业绩。[NEWLINE][NEWLINE]解锁“封建主义”市政后，没有 [ICON_GOVERNOR] 总督的城市在训练建造者时+30% [ICON_PRODUCTION] 生产力。</Text>
+            <Text>当您研究完成新时代的第一项科技时，获得相当于当回合所产出 [ICON_SCIENCE] 科技值两倍的 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]书院：每相邻一个剧院广场获得+2 [ICON_SCIENCE] 科技值，每相邻一个其他 [ICON_DISTRICT] 区域-1 [ICON_SCIENCE] 科技值。[NEWLINE]剧院广场：每相邻一个书院获得+2 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]同时拥有书院和剧院广场的城市，每个特色 [ICON_DISTRICT] 区域提供+1 [ICON_CULTURE] 文化值和+2 [ICON_TOURISM] 旅游业绩。[NEWLINE][NEWLINE]解锁“封建主义”市政后，训练建造者+30% [ICON_PRODUCTION] 生产力。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_KOREAN_HWACHA_DESCRIPTION" Language="zh_Hans_CN">
             <Text>朝鲜文艺复兴时代特色远程单位，替代野战炮。[NEWLINE][NEWLINE]基础近战 [ICON_STRENGTH] 战斗力-5。[NEWLINE][NEWLINE]维护费更低。[NEWLINE][NEWLINE]无法在同一回合内移动并攻击。</Text>
@@ -1918,6 +1918,15 @@
         <Replace Tag="LOC_UNIT_MECHANIZED_INFANTRY_DESCRIPTION" Language="zh_Hans_CN">
             <Text>信息时代近战单位。无视控制区（ZOC）。</Text>
         </Replace>
+        <Replace Tag="LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_NAME" Language="zh_Hans_CN">
+			<Text>机动</Text> 
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_DESC" Language="zh_Hans_CN">
+			<Text>攻击处于驻守状态的骑兵单位时，获得额外 [ICON_STRENGTH] 战斗力以抵消其驻守加成。</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_PREVIEW" Language="zh_Hans_CN">
+			<Text>攻击处于驻守状态的骑兵单位时+4 [ICON_STRENGTH] 战斗力。</Text>
+		</Replace>
 
         <Replace Tag="LOC_UNIT_SPEARMAN_DESCRIPTION" Language="zh_Hans_CN">
             <Text>远古时代抗骑兵单位。</Text>
@@ -2132,7 +2141,7 @@
             <Text>信息时代防空支援单位。为1单元格范围内的单位提供掩护以防御空袭和核打击。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_MILITARY_ENGINEER_ALT_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>中世纪支援单位。在满足科技与市政前提下，可建造道路、铁路、堡垒、飞机跑道、导弹发射井和穿山隧道。可以消耗1次 [ICON_CHARGES] 劳动力来完成运河、堤坝或水渠20%的建设进度，或拦洪坝50%的建设进度。需要在拥有兵工厂的城市中训练。</Text>
+            <Text>中世纪支援单位。在满足科技与市政前提下，可建造道路、铁路、堡垒、飞机跑道、导弹发射井和穿山隧道。可以消耗1次 [ICON_CHARGES] 劳动力来完成运河、堤坝或水渠20%的建设进度，或拦洪坝50%的建设进度。需要在拥有兵营或马厩的城市中训练。</Text>
         </Replace>
 
         <Replace Tag="LOC_PROMOTION_BATTLECRY_DESCRIPTION" Language="zh_Hans_CN">
@@ -2595,7 +2604,7 @@
             <Text>对抗抗骑兵单位时+10 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_ANIT_SPEAR_MODIFIER_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>面对抗骑兵单位：+10。</Text>
+            <Text>对抗抗骑兵单位时+10 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
 
         <Replace Tag="LOC_BBG_ABILITY_NO_SUPPORT_BONUS_DESC" Language="zh_Hans_CN">
@@ -2613,9 +2622,44 @@
         <Replace Tag="LOC_ABILITY_HEAVY_CHARIOT_MODIFIER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>如果在开阔地形上开始回合，+1 [ICON_Movement] 移动力。</Text>
         </Replace>
+
+        <Replace Tag="LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_DESC" Language="zh_Hans_CN">
+			<Text>对抗近战单位时+5 [ICON_STRENGTH] 战斗力。</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_NAME" Language="zh_Hans_CN">
+			<Text>反静态战术</Text>
+		</Replace>
+
+        <Replace Tag="LOC_ABILITY_TOMYRIS_HEAL_AFTER_DEFEATING_UNIT_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>击败敌方单位后恢复+10 [ICON_Damaged] 生命值。（轻骑兵）</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL_NAME" Language="zh_Hans_CN">
+			<Text>轻骑兵治愈</Text>
+		</Replace>
+
         <Replace Tag="LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_DESC" Language="zh_Hans_CN">
             <Text>每个相邻海军单位提供+2支援加成</Text>
         </Replace>
+
+        <Replace Tag="LOC_BBG_RAM_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="en_US">
+            <Text>战场医疗（攻城锤）</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_RAM_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="en_US">
+            <Text>为1格范围内所有古典时代及更早近战、抗骑兵和远程单位+1 [ICON_MOVEMENT] 移动力。</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_SIEGE_TOWER_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="en_US">
+            <Text>战场医疗（攻城塔）</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_SIEGE_TOWER_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="en_US">
+            <Text>为1格范围内所有中世纪及更早近战、抗骑兵和远程单位+1 [ICON_MOVEMENT] 移动力。</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="en_US">
+            <Text>战场医疗（医护兵）</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="en_US">
+            <Text>为1格范围内所有近战、抗骑兵和远程单位+1 [ICON_MOVEMENT] 移动力。</Text>
+        </Replace>
+
         <Replace Tag="LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_NAME" Language="zh_Hans_CN">
             <Text>石制武器</Text>
         </Replace>
@@ -3465,10 +3509,10 @@
             <Text>该城中训练的所有海军单位获得+25%战斗经验值。城市的所有海岸单元格+1 [ICON_FOOD] 食物。如果城市建在海岸旁，+2 [ICON_HOUSING] 住房。如果此城尚无市场，则+1 [ICON_TRADEROUTE] 贸易路线容量。</Text>
         </Replace>
         <Replace Tag="LOC_BUILDING_SHIPYARD_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>该城中训练的所有海军单位获得+25%战斗经验值。提供等同于港口区域相邻加成的 [ICON_PRODUCTION] 生产力。城市的所有无主海岸或湖泊单元格以及水产养殖单元格+1 [ICON_PRODUCTION] 生产力。[NEWLINE]每回合提供+1 [ICON_RESOURCE_COAL] 煤。</Text>
+            <Text>该城中训练的所有海军单位获得+25%战斗经验值。提供等同于港口区域相邻加成的 [ICON_PRODUCTION] 生产力。城市的所有渔船+1 [ICON_PRODUCTION] 生产力，所有未改良海岸与湖泊单元格+2 [ICON_PRODUCTION] 生产力。[NEWLINE]每回合提供+1 [ICON_RESOURCE_COAL] 煤。</Text>
         </Replace>
         <Replace Tag="LOC_BUILDING_SEAPORT_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>该城中训练的所有海军单位获得+25%战斗经验值。允许直接组建 [ICON_CORPS] 舰队和 [ICON_ARMY] 无敌舰队，且花费降低25%。城市的所有海岸单元格+2 [ICON_GOLD] 金币。[NEWLINE]每回合提供+2 [ICON_RESOURCE_OIL] 石油。</Text>
+            <Text>该城中训练的所有海军单位获得+25%战斗经验值。允许直接组建 [ICON_CORPS] 舰队和 [ICON_ARMY] 无敌舰队，且花费降低25%。城市的所有海岸单元格+2 [ICON_GOLD] 金币。[NEWLINE]每回合提供+1 [ICON_RESOURCE_COAL] 煤和+1 [ICON_RESOURCE_OIL] 石油。</Text>
         </Replace>
 
         <Replace Tag="LOC_BUILDING_RESEARCH_LAB_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
@@ -4748,6 +4792,17 @@
         <Replace Tag="LOC_CIVIC_MILITARY_TRADITION_DESCRIPTION" Language="zh_Hans_CN">
             <Text>所有军事单位（陆地和海军远程单位除外）获得夹击和支援战斗加成。</Text>
         </Replace>
+        <Replace Tag="LOC_CIVIC_POLITICAL_PHILOSOPHY_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>陆地近战、抗骑兵和海军近战单位不再-4 [ICON_Strength] 战斗力。</Text>
+		</Replace>
+        
+        <Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_DESC" Language="zh_Hans_CN">
+			<Text>解锁政治哲学前，-4 [ICON_Strength] 战斗力。</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_NAME" Language="zh_Hans_CN">
+			<Text>缺乏政治哲学</Text>
+		</Replace>
+
         <Replace Tag="LOC_CIVIC_CONSERVATION_DESCRIPTION" Language="zh_Hans_CN">
             <Text>奖励3位 [ICON_Envoy] 使者。允许建造国家公园和使用 [ICON_Faith] 信仰值购买自然学家。允许建造者植树造林（人造林）。您领土上从未被移除的树林（非人造林）获得+1魅力。从城墙获得 [ICON_TOURISM] 旅游业绩。</Text>
         </Replace>
@@ -4945,18 +5000,29 @@
             <Text>政体加成</Text>
         </Replace>
 
-        <Replace Tag="LOC_GOVT_INHERENT_BONUS_OLIGARCHY_XP1" Language="zh_Hans_CN">
-            <Text>陆地近战、抗骑兵以及海军近战单位+4 [ICON_STRENGTH] 战斗力。</Text>
-        </Replace>
-        <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_OLIGARCHY_XP1" Language="zh_Hans_CN">
-            <Text>单位战斗经验值+20%。</Text>
-        </Replace>
+        <!--寡头政体-->
+        <!--政体-->
+		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_OLIGARCHY" Language="zh_Hans_CN">
+			<Text>若回合开始时位于己方领土，则+1 [ICON_MOVEMENT] 移动力。</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVT_INHERENT_BONUS_OLIGARCHY_XP1" Language="zh_Hans_CN">
+			<Text>单位战斗经验值+50%。允许单位在同一回合内进行升级和移动。</Text>
+		</Replace>
+		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_OLIGARCHY_XP1" Language="zh_Hans_CN">
+			<Text>单位战斗经验值+50%。允许单位在同一回合内进行升级和移动。</Text>
+		</Replace>
+		<!--传承-->		
+		<Replace Tag="LOC_ABILITY_OLIGARCHY_LEGACY_MELEE_BUFF_MODIFIER_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>单位战斗经验值+50%。允许单位在同一回合内进行升级和移动。</Text>
+		</Replace>
+        <!--古典共和-->
         <Replace Tag="LOC_GOVT_INHERENT_BONUS_CLASSREP_XP1" Language="zh_Hans_CN">
             <Text>拥有 [ICON_DISTRICT] 区域的城市+1 [ICON_HOUSING] 住房和+1 [ICON_AMENITIES] 宜居度。</Text>
         </Replace>
         <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_CLASSREP_XP1" Language="zh_Hans_CN">
             <Text>[ICON_GREATPERSON] 伟人点数+15%。</Text>
         </Replace>
+        <!--专制-->
         <Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="zh_Hans_CN">
             <Text>宫殿、市政广场、外交区及其建筑的所有产出+1。拥有纪念碑和特色 [ICON_DISTRICT] 区域的城市+1 [ICON_FOOD] 食物和+1 [ICON_PRODUCTION] 生产力。</Text>
         </Replace>
@@ -5594,6 +5660,9 @@
 
         <!--伟人-->
         <!--大将军-->
+        <Replace Tag="LOC_GREATPERSON_COMBAT_STRENGTH_AOE_MODERN_LAND" Language="zh_Hans_CN">
+			<Text>在两个单元格以内，为现代、原子能和信息时代的陆地单位+5 [ICON_Strength] 战斗力和+1 [ICON_Movement] 移动力。</Text>
+		</Replace>
         <Replace Tag="LOC_GREATPERSON_BOUDICA_ACTIVE" Language="zh_Hans_CN">
             <Text>在 [ICON_CAPITAL] 首都创建一个军事工程师。</Text>
         </Replace>
