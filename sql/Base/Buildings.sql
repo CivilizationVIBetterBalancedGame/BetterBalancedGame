@@ -162,5 +162,4 @@ UPDATE Buildings SET Cost=90 WHERE BuildingType='BUILDING_STABLE';
 
 
 -- 04/07/26 Shipyard gives 2 prod instead of 1 to unimproved coast
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('SHIPYARD_UNIMPROVED_COAST_PRODUCTION', 'Amount', '2');
+UPDATE ModifierArguments SET Value='2' WHERE ModifierId='SHIPYARD_UNIMPROVED_COAST_PRODUCTION' AND Name='Amount';
