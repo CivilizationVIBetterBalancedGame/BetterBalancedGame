@@ -511,3 +511,16 @@ SELECT
 FROM Eras AS current
 JOIN Eras AS prior
     ON prior.ChronologyIndex <= current.ChronologyIndex;
+
+-- to check if unit is melee, ranged, anti cav, light cav, siege, cavalry etc
+INSERT INTO Requirements (RequirementId, RequirementType) 
+SELECT 'BBG_UNIT_IS_' || PromotionClassType, 'REQUIREMENT_UNIT_PROMOTION_CLASS_MATCHES' FROM UnitPromotionClasses;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) 
+SELECT 'BBG_UNIT_IS_' || PromotionClassType, 'UnitPromotionClass', PromotionClassType FROM UnitPromotionClasses;
+
+INSERT INTO Requirements (RequirementId, RequirementType) 
+SELECT 'BBG_UNIT_IS_' || FormationClassType, 'REQUIREMENT_UNIT_FORMATION_CLASS_MATCHES' FROM UnitFormationClasses;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) 
+SELECT 'BBG_UNIT_IS_' || FormationClassType, 'UnitFormationClass', FormationClassType FROM UnitFormationClasses;
