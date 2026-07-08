@@ -23,6 +23,9 @@ INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
     ('POLICY_GOV_AUTOCRACY', 'AUTOCRACY_PLAZA_DISTRICT'),
     ('POLICY_GOV_AUTOCRACY', 'AUTOCRACY_DIPLOMATIC_DISTRICT');
 
+-- 08/07/26 nerf autocracy : no longer works with palace
+DELETE FROM PolicyModifiers WHERE PolicyType='POLICY_GOV_AUTOCRACY' AND ModifierId='AUTOCRACY_CAPITAL';
+
 /*--5.2. Disable:
 --5.2.5 Communism -- moved from base
 INSERT INTO PolicyModifiers(PolicyType, ModifierId)
