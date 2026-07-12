@@ -8,6 +8,20 @@ INSERT INTO Requirements(RequirementId , RequirementType)
 INSERT INTO RequirementArguments(RequirementId , Name, Value)
     SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType FROM Districts;
 
+
+-- Create requirements for each building 
+INSERT INTO Requirements(RequirementId , RequirementType)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType || '_REQUIREMENT', 'REQUIREMENT_CITY_HAS_BUILDING' FROM Buildings;
+INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType, 'REQUIREMENTSET_TEST_ALL' FROM Buildings;
+INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType, 'BBG_UTILS_CITY_HAS_' || BuildingType || '_REQUIREMENT' FROM Buildings;
+INSERT INTO RequirementArguments(RequirementId , Name, Value)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType || '_REQUIREMENT', 'BuildingType', BuildingType FROM Buildings;
+
+
+
+
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_IS_SPECIALTY_DISTRICT', 'REQUIREMENTSET_TEST_ANY');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
