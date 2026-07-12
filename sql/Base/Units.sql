@@ -121,6 +121,9 @@ INSERT INTO UnitAbilities(UnitAbilityType, Name, Description) VALUES
     ('BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE', 'LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_NAME', 'LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_DESC');
 INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
     ('BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE', 'BBG_HEAVY_CAVALRY_BONUS_VS_MELEE');
+
+-- 12/07/26 rework heavy chariot as an answer to melee uu
+UPDATE Units set Combat=36, BaseMoves=3, Cost=90 where UnitType='UNIT_HEAVY_CHARIOT';
 --=======================================================================
 --******                        RECON                              ******
 --=======================================================================

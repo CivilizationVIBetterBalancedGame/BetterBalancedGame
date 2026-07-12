@@ -296,6 +296,9 @@ UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_ENTERTAINMENT_
 --******                       TECHS                               ******
 --=======================================================================
 
+-- 12/07/26 The Wheel is now Classical for the heavy chariot
+UPDATE Technologies SET EraType='ERA_CLASSICAL', Cost=120 WHERE TechnologyType='TECH_THE_WHEEL';
+
 -- 18/12/23 advanced ballistics advanced one era
 UPDATE Technologies SET EraType='ERA_MODERN' WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
 UPDATE Technologies SET Cost=1370 WHERE TechnologyType='TECH_ADVANCED_BALLISTICS';
