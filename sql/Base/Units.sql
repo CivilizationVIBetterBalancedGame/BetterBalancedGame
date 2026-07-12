@@ -465,6 +465,11 @@ UPDATE Units SET Combat=65, RangedCombat=75 WHERE UnitType='UNIT_BATTLESHIP';
 -- 02/07/24 Naval first promote (melee and ranged) reduced to +5 from +7 
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='LINE_OF_BATTLE_BONUS_VS_NAVAL';
 
+-- 04/07/26  All quads have 2 range
+UPDATE Units SET Range=2 WHERE UnitType='UNIT_QUADRIREME';
+-- 12/07/26  All quads have 2 range --> reduce ranged combat 
+UPDATE Units SET RangedCombat=23 WHERE UnitType='UNIT_QUADRIREME';
+
 --=======================================================================
 --******                  NAVAL RAIDER                             ******
 --=======================================================================
@@ -474,12 +479,6 @@ UPDATE Units SET PrereqCivic='CIVIC_EXPLORATION' WHERE UnitType='UNIT_PRIVATEER'
 -- Base is 3, Resource cost / Maintenance is 1 in GS
 UPDATE Units SET BaseMoves=4 WHERE UnitType='UNIT_SUBMARINE';
 UPDATE Units SET BaseMoves=4 WHERE UnitType='UNIT_GERMAN_UBOAT';
-
--- 04/07/26  All quads have 2 range
-UPDATE Units SET Range=2 WHERE UnitType='UNIT_QUADRIREME';
--- 12/07/26  All quads have 2 range --> reduce ranged combat 
-UPDATE Units SET RangedCombat=23 WHERE UnitType='UNIT_QUADRIREME';
-
 
 --=======================================================================
 --******                 AIRCRAFT CARRIER                          ******
@@ -630,6 +629,8 @@ UPDATE Units SET MandatoryObsoleteTech='TECH_GUIDANCE_SYSTEMS' WHERE UnitType='U
 
 UPDATE Units SET MandatoryObsoleteTech='TECH_ADVANCED_BALLISTICS' WHERE UnitType='UNIT_PIKEMAN';
 UPDATE Units SET MandatoryObsoleteTech='TECH_COMPOSITES' WHERE UnitType='UNIT_PIKE_AND_SHOT';
+UPDATE Units SET MandatoryObsoleteTech='TECH_REFINING' WHERE UnitType='UNIT_QUADRIREME';
+
 
 -- 30/11/24 Ancient unit gets -5 agaisnt city center
     -- UNIT_WARRIOR
