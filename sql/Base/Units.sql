@@ -477,6 +477,8 @@ UPDATE Units SET BaseMoves=4 WHERE UnitType='UNIT_GERMAN_UBOAT';
 
 -- 04/07/26  All quads have 2 range
 UPDATE Units SET Range=2 WHERE UnitType='UNIT_QUADRIREME';
+-- 12/07/26  All quads have 2 range --> reduce ranged combat 
+UPDATE Units SET RangedCombat=23 WHERE UnitType='UNIT_QUADRIREME';
 
 
 --=======================================================================
