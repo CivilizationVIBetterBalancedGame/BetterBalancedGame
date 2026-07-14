@@ -298,7 +298,6 @@ UPDATE Modifiers SET SubjectRequirementSetId=NULL WHERE ModifierId='FASCISM_LEGA
 -- Martial Law (Joker Card) : War weariness reduction increased to 50% (from 25) and cities with garrisoned units get +10 loyalty per turn (from 4)
 UPDATE ModifierArguments SET Value=50 WHERE ModifierId='MARTIALLAW_OVERALLWARWEARINESS' AND Name='Amount';
 UPDATE ModifierArguments SET Value=10 WHERE ModifierId='MARTIALLAW_GARRISONIDENTITY' AND Name='Amount';
--- Third Alternative (Red) : no change. 
 -- Legacy Effect : +5 Combat Strength outside of your home territory (from everywhere). (removed war weariness reduction)
 DELETE FROM GovernmentModifiers WHERE ModifierId='FASCISM_WAR_WEARINESS';
 DELETE FROM PolicyModifiers WHERE ModifierId='FASCISM_WAR_WEARINESS';
@@ -310,6 +309,24 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 -- 17/03/26 Facism combat bonus only apply outside of your territory ONLY for legacy.
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_NOT_IN_TERRITORY_REQSET' WHERE ModifierId IN ('FASCISM_LEGACY_ATTACK_BUFF');
 -- Government bonus : +50% Production on units. (no change)
+-- Third Alternative (Red) : no change. 
+-- 14/07/26 Third Alternative : Add Seaport
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_THIRDALTERNATIVE_SEAPORT_GOLD_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_YIELD_CHANGE'),
+    ('BBG_THIRDALTERNATIVE_SEAPORT_CULTURE_MODIFIER', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_YIELD_CHANGE');
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_THIRDALTERNATIVE_SEAPORT_GOLD_MODIFIER', 'YieldType', 'YIELD_GOLD'),
+    ('BBG_THIRDALTERNATIVE_SEAPORT_GOLD_MODIFIER', 'Amount', 4),
+    ('BBG_THIRDALTERNATIVE_SEAPORT_GOLD_MODIFIER', 'BuildingType', 'BUILDING_SEAPORT'),
+    ('BBG_THIRDALTERNATIVE_SEAPORT_CULTURE_MODIFIER', 'YieldType', 'YIELD_CULTURE'),
+    ('BBG_THIRDALTERNATIVE_SEAPORT_CULTURE_MODIFIER', 'Amount', 2),
+    ('BBG_THIRDALTERNATIVE_SEAPORT_CULTURE_MODIFIER', 'BuildingType', 'BUILDING_SEAPORT');
+
+INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
+    ('POLICY_THIRD_ALTERNATIVE', 'BBG_THIRDALTERNATIVE_SEAPORT_GOLD_MODIFIER'),
+    ('POLICY_THIRD_ALTERNATIVE', 'BBG_THIRDALTERNATIVE_SEAPORT_CULTURE_MODIFIER');
+
 
 -- ==============================================================
 -- ***                          COMMUNISM                     *** 
