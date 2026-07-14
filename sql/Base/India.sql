@@ -8,6 +8,23 @@ INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
     ('IMPROVEMENT_STEPWELL', 'BBG_STEPWELL_FOOD');
 DELETE FROM ImprovementModifiers WHERE ModifierId='STEPWELL_FARMADJACENCY_FOOD';
 
+-- 14/07/26 Indian Stepwells get +1 production and +1 Faith per adjacent holy site
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+    ('IMPROVEMENT_STEPWELL', 'YIELD_PRODUCTION', 0);
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentDistrict) VALUES
+    ('BBG_STEPWELL_FAITH', 'Placeholder', 'YIELD_FAITH', 1, 1, 'DISTRICT_HOLY_SITE'),
+    ('BBG_STEPWELL_PRODUCTION', 'Placeholder', 'YIELD_PRODUCTION', 1, 1, 'DISTRICT_HOLY_SITE');
+INSERT INTO Improvement_Adjacencies (ImprovementType, YieldChangeId) VALUES
+    ('IMPROVEMENT_STEPWELL', 'BBG_STEPWELL_FAITH'),
+    ('IMPROVEMENT_STEPWELL', 'BBG_STEPWELL_PRODUCTION');
+DELETE FROM ImprovementModifiers WHERE ModifierId='STEPWELL_HOLYSITEADJACENCY_FAITH';
+
+-- 14/07/26 Indian Stepwells gives +1 adjacency to holy site
+INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, AdjacentImprovement) VALUES
+    ('BBG_STEPWELL_DISTRICT_FAITH', 'LOC_BBG_STEPWELL_DISTRICT_FAITH', 'YIELD_FAITH', 1, 1, 'IMPROVEMENT_STEPWELL');
+INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
+    ('DISTRICT_HOLY_SITE', 'BBG_STEPWELL_DISTRICT_FAITH');
+
 -- 25/06/25 Amenity per different religion changed to 1 amenity if city following India's religion
 DELETE FROM TraitModifiers WHERE ModifierId='TRAIT_AMENITIES_FOR_MIN_FOLLOWERS';
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
