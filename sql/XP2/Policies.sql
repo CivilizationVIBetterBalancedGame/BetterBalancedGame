@@ -47,6 +47,15 @@ INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
     ('POLICY_RESOURCE_MANAGEMENT', 'BBG_POLICY_GIVE_FREE_ALUMINUM'),
     ('POLICY_RESOURCE_MANAGEMENT', 'BBG_POLICY_GIVE_FREE_OIL');
 
+-- 14/07/26 Resource Management : +2 production to all improved strategic resources
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_RESOURCE_MANAGEMENT_IMPROVED_STRATEGIC_RESOURCE_PRODUCTION', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_STRATEGIC_IMPROVED_REQUIREMENTS');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_RESOURCE_MANAGEMENT_IMPROVED_STRATEGIC_RESOURCE_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
+    ('BBG_RESOURCE_MANAGEMENT_IMPROVED_STRATEGIC_RESOURCE_PRODUCTION', 'Amount', '2');
+INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
+    ('POLICY_RESOURCE_MANAGEMENT', 'BBG_RESOURCE_MANAGEMENT_IMPROVED_STRATEGIC_RESOURCE_PRODUCTION');
+
 -- 06/07/24 Fixed bug in the "Strategic Air Force" policy card.
 -- Now boosts production for Atomic-era air fighters/bombers and modern-era air fighters.
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
