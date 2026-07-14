@@ -8,6 +8,15 @@
 -- === Existing Policies Adjustments ===
 -- Buff Discipline +5 -> +10
 UPDATE ModifierArguments SET Value='10' WHERE ModifierId='DISCIPLINE_BARBARIANCOMBAT' AND Name='Amount';
+-- 14/07/26 Discipline also grants +1 vision to recon units
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_DISCIPLINE_RECON_VISION_GIVER', 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER', 'BBG_UNIT_IS_RECON_REQSET'),
+    ('BBG_DISCIPLINE_RECON_VISION', 'MODIFIER_PLAYER_UNIT_ADJUST_SIGHT', null);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_DISCIPLINE_RECON_VISION_GIVER', 'ModifierId', 'BBG_DISCIPLINE_RECON_VISION'),
+    ('BBG_DISCIPLINE_RECON_VISION', 'Amount', '1');
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+    ('POLICY_DISCIPLINE', 'BBG_DISCIPLINE_RECON_VISION_GIVER');
 
 -- Bastillon ""bugfix"" (Value is doubled, so put 2*+3 instead of 2*+5)
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='BASTIONS_RANGEDSTRIKE' AND Name='Amount';
