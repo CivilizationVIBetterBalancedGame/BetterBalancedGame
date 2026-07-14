@@ -538,3 +538,25 @@ SELECT 'BBG_UNIT_IS_' || FormationClassType, 'REQUIREMENT_UNIT_FORMATION_CLASS_M
 
 INSERT INTO RequirementArguments (RequirementId, Name, Value) 
 SELECT 'BBG_UNIT_IS_' || FormationClassType, 'UnitFormationClass', FormationClassType FROM UnitFormationClasses;
+
+
+-- Test if unit is unit type
+INSERT INTO Requirements (RequirementId, RequirementType)
+SELECT 'BBG_UTILS_UNIT_IS_' || UnitType, 'REQUIREMENT_UNIT_TYPE_MATCHES' FROM Units;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value)
+SELECT 'BBG_UTILS_UNIT_IS_' || UnitType, 'UnitType', UnitType FROM Units;
+
+INSERT INTO Tags (Tag, Vocabulary)
+SELECT 'CLASS_UNIQUE_UNIT', 'ABILITY_CLASS';
+
+INSERT INTO TypeTags (Type, Tag)
+SELECT UnitType, 'CLASS_UNIQUE_UNIT' FROM Units WHERE TraitType is not null;
+
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+('BBG_UTILS_UNIT_IS_UNIQUE', 'REQUIREMENT_UNIT_TAG_MATCHES'),
+('BBG_UTILS_OPPONENT_UNIT_IS_UNIQUE', 'REQUIREMENT_OPPONENT_UNIT_TAG_MATCHES');
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+('BBG_UTILS_UNIT_IS_UNIQUE', 'Tag', 'CLASS_UNIQUE_UNIT'),
+('BBG_UTILS_OPPONENT_UNIT_IS_UNIQUE', 'Tag', 'CLASS_UNIQUE_UNIT');
