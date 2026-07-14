@@ -138,8 +138,9 @@ INSERT INTO Improvement_ValidTerrains(ImprovementType, TerrainType) VALUES
 UPDATE Improvements SET MinimumAppeal=2 WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
 -- 15/06/23 Beach resort get gold double the appeal and tourism based on that
 -- 30/09/24 from *2 to *1.5
+-- 14/07/26 revert to base *1
 UPDATE Improvement_Tourism SET TourismSource='TOURISMSOURCE_GOLD' WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
-UPDATE Improvements SET YieldFromAppealPercent=150 WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
+UPDATE Improvements SET YieldFromAppealPercent=100 WHERE ImprovementType='IMPROVEMENT_BEACH_RESORT';
 
 
 -- 12/06/23 Fix tourism at flight on some improvement
