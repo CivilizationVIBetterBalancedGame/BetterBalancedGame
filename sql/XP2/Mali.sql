@@ -8,16 +8,17 @@ UPDATE Units SET Combat=53 WHERE UnitType='UNIT_MALI_MANDEKALU_CAVALRY';
 -- 25/10/23 Remove 30% prod malus for units/buildings, add global 15% prod malus
 -- 19/12/25 Malus prod removed
 -- 18/01/26 Malus to 5%
+-- 15/07/26 Malus prod removed
 DELETE FROM TraitModifiers WHERE TraitType = 'TRAIT_CIVILIZATION_MALI_GOLD_DESERT' AND ModifierId = 'TRAIT_LESS_UNIT_PRODUCTION';
 DELETE FROM TraitModifiers WHERE TraitType = 'TRAIT_CIVILIZATION_MALI_GOLD_DESERT' AND ModifierId = 'TRAIT_LESS_BUILDING_PRODUCTION';
 
-INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
-    ('TRAIT_CIVILIZATION_MALI_GOLD_DESERT', 'BBG_TRAIT_MALI_LESS_CITY_PRODUCTION');
-INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
-    ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER');
-INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
-    ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
-    ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'Amount', -5);
+-- INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
+--     ('TRAIT_CIVILIZATION_MALI_GOLD_DESERT', 'BBG_TRAIT_MALI_LESS_CITY_PRODUCTION');
+-- INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+--     ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_MODIFIER');
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+--     ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
+--     ('BBG_TRAIT_MALI_LESS_CITY_PRODUCTION', 'Amount', -5);
 
 -- Faith on cities removed
 DELETE FROM TraitModifiers WHERE TraitType = 'TRAIT_CIVILIZATION_MALI_GOLD_DESERT' AND ModifierId = 'TRAIT_DESERT_CITY_CENTER_FAITH';
@@ -145,8 +146,10 @@ INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
     ('DISTRICT_SUGUBA', 'BBG_SUGUBA_CITY_CENTER');
 DELETE FROM District_Adjacencies WHERE DistrictType = 'DISTRICT_SUGUBA' AND YieldChangeId = 'River_Gold';
 
-UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='Holy_Site_Gold';
 
+-- 14/07/26 Holy site +2 to Suguba only mansa
+-- UPDATE Adjacency_YieldChanges SET YieldChange=1 WHERE ID='Holy_Site_Gold';
+DELETE FROM Adjacency_YieldChanges WHERE ID='Holy_Site_Gold';
 
 --===========================================================================
 --=                                 MANSA                                   =
@@ -170,26 +173,27 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 
 -- Holy site +1 to Suguba / Sundiata is excluded in LP/Sundiata.sql
 -- remove the classic +1 and give +2 on the Mansa one
-INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
-    ('TRAIT_LEADER_SAHEL_MERCHANTS', 'Holy_Site_Gold');
+-- INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
+--     ('TRAIT_LEADER_SAHEL_MERCHANTS', 'Holy_Site_Gold');
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentDistrict) VALUES
     ('BBG_SUGUBA_HOLY_SITE_MANSA', 'LOC_BBG_SUGUBA_HOLY_SITE_MANSA', 'YIELD_GOLD', 2, 'DISTRICT_HOLY_SITE');
 INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
     ('DISTRICT_SUGUBA', 'BBG_SUGUBA_HOLY_SITE_MANSA');
 
 -- 15% towards Holy Sites and its building
+-- 14/07/26 Malus prod removed --> reduce to 10%
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION', 'DistrictType', 'DISTRICT_HOLY_SITE'),
-    ('BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION', 'Amount', 15);
+    ('BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION', 'Amount', 10);
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_SAHEL_MERCHANTS', 'BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION');
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION_BUILDING', 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_PRODUCTION');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION_BUILDING', 'DistrictType', 'DISTRICT_HOLY_SITE'),
-    ('BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION_BUILDING', 'Amount', 15);
+    ('BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION_BUILDING', 'Amount', 10);
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_SAHEL_MERCHANTS', 'BBG_MANSA_HOLY_SITE_BONUS_PRODUCTION_BUILDING');
 
