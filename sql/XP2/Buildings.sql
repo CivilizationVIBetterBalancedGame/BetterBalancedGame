@@ -129,6 +129,8 @@ INSERT INTO GameModifiers(ModifierId) VALUES ('BBG_GOLDENGATE_IGNORE_CLIFF');
 INSERT INTO CustomPlacement(ObjectType, Hash, PlacementFunction)
     SELECT Types.Type, Types.Hash, 'BBG_PANAMA_CANAL_CUSTOM_PLACEMENT'
     FROM Types WHERE Type = 'BUILDING_PANAMA_CANAL';
+-- 14/07/26 Panama earlier
+UPDATE Buildings SET PrereqTech='TECH_INDUSTRIALIZATION' WHERE BuildingType='BUILDING_PANAMA_CANAL';
 
 -- University of Sankore - new bonus : Add +1 trader capacity AND add +1science +2gold for your all your traders (internal/external)
 DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_UNIVERSITY_SANKORE' AND ModifierId='SANKORE_TRADE_OFFER_SCIENCE';
