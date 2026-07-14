@@ -398,6 +398,26 @@ UPDATE Boosts SET BoostClass='BOOST_TRIGGER_KILL_WITH' WHERE TechnologyType='TEC
 -- 30/03/25 Humanism : Own 2 Amphiteater [Recruit an Artist]
 UPDATE Boosts SET Unit1Type=NULL, NumItems=2, BoostClass='BOOST_TRIGGER_HAVE_X_BUILDINGS', BuildingType='BUILDING_AMPHITHEATER' WHERE CivicType='CIVIC_HUMANISM';
 
+-- 14/07/26 Give Late Game civics a boost
+-- 14/07/26 Cultural Hegemony (card for rockband & spy) : own 5 spy (may "bug" with captured spies)
+INSERT INTO Boosts(CivicType, Boost, BoostClass, TriggerDescription, TriggerLongDescription, NumItems, Unit1Type) VALUES
+    ('CIVIC_CULTURAL_HEGEMONY', 40, 'BOOST_TRIGGER_OWN_X_UNITS_OF_TYPE', 'BBG_LOC_BOOST_TRIGGER_CULTURAL_HEGEMONY', 'BBG_LOC_BOOST_TRIGGER_LONGDESC_CULTURAL_HEGEMONY', 5, 'UNIT_SPY');
+
+-- 14/07/26 Information Warfare (GDR prod card)  : own 1 GDR
+INSERT INTO Boosts(CivicType, Boost, BoostClass, TriggerDescription, TriggerLongDescription, NumItems, Unit1Type) VALUES
+    ('CIVIC_INFORMATION_WARFARE', 40, 'BOOST_TRIGGER_OWN_X_UNITS_OF_TYPE', 'BBG_LOC_BOOST_TRIGGER_INFORMATION_WARFARE', 'BBG_LOC_BOOST_TRIGGER_LONGDESC_INFORMATION_WARFARE', 1, 'UNIT_GIANT_DEATH_ROBOT');
+
+-- 14/07/26 Exodus Imperative (reduce tourism + spaceport alu/electricity) : own 2 spaceport
+INSERT INTO Boosts(CivicType, Boost, BoostClass, TriggerDescription, TriggerLongDescription, NumItems, DistrictType) VALUES
+    ('CIVIC_EXODUS_IMPERATIVE', 40, 'BOOST_TRIGGER_HAVE_X_DISTRICTS', 'BBG_LOC_BOOST_TRIGGER_EXODUS_IMPERATIVE', 'BBG_LOC_BOOST_TRIGGER_LONGDESC_EXODUS_IMPERATIVE', 2, 'DISTRICT_SPACEPORT');
+
+-- 14/07/26 Smart Power Doctrine (+7cs in friendly and +4 favor/t)  : Research Predictive System (offshore wind farm)
+INSERT INTO Boosts(CivicType, Boost, BoostClass, TriggerDescription, TriggerLongDescription, NumItems, BoostingTechType) VALUES
+    ('CIVIC_SMART_POWER_DOCTRINE', 40, 'BOOST_TRIGGER_RESEARCH_TECH', 'BBG_LOC_BOOST_TRIGGER_SMART_POWER_DOCTRINE', 'BBG_LOC_BOOST_TRIGGER_LONGDESC_SMART_POWER_DOCTRINE', 0, 'TECH_PREDICTIVE_SYSTEMS');
+
+-- 14/07/26 Global Warming Mitigation (carbon reduction and diplo point) : own 3 wind farm (available at composite material / modern armor tech) 
+INSERT INTO Boosts(CivicType, Boost, BoostClass, TriggerDescription, TriggerLongDescription, NumItems, ImprovementType) VALUES
+    ('CIVIC_GLOBAL_WARMING_MITIGATION', 40, 'BOOST_TRIGGER_HAVE_X_IMPROVEMENTS', 'BBG_LOC_BOOST_TRIGGER_GLOBAL_WARMING_MITIGATION', 'BBG_LOC_BOOST_TRIGGER_LONGDESC_GLOBAL_WARMING_MITIGATION', 3, 'IMPROVEMENT_WIND_FARM');
 
 
 --=======================================================================
