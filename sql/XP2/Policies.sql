@@ -85,3 +85,26 @@ INSERT INTO TypeTags (Type, Tag) VALUES
 
 -- 15/05/26 POLICY_REVELATION never obsolete and never disabled (+2 prophet points for anacoana)
 DELETE FROM ObsoletePolicies  WHERE PolicyType='POLICY_REVELATION';
+
+
+-- 14/07/26 legacy cards only available when in a higher tier government
+INSERT INTO Policy_GovernmentExclusives_XP2 (PolicyType, GovernmentType)
+SELECT g1.PolicyToUnlock, g2.GovernmentType
+FROM Governments g1
+JOIN Governments g2
+    ON (
+        CASE g2.Tier
+            WHEN 'Tier1' THEN 1
+            WHEN 'Tier2' THEN 2
+            WHEN 'Tier3' THEN 3
+            WHEN 'Tier4' THEN 4
+        END
+        >=
+        CASE g1.Tier
+            WHEN 'Tier1' THEN 1
+            WHEN 'Tier2' THEN 2
+            WHEN 'Tier3' THEN 3
+            WHEN 'Tier4' THEN 4
+        END + 1
+    )
+WHERE g1.PolicyToUnlock IS NOT NULL;
