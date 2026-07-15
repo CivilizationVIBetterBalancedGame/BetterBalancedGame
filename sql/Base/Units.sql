@@ -177,15 +177,18 @@ INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
 INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
     ('BBG_NO_SUPPORT_BONUS_MODIFIER', 'Percent', '-100');
 
--- 20/12/23 movement from 2 to 3 machine gun
-UPDATE Units SET BaseMoves=3 WHERE UnitType='UNIT_MACHINE_GUN';
 
 -- 16/03/26 Reduce promotion from garnison to 7 (from 10)
 UPDATE ModifierArguments SET Value='7' WHERE ModifierId='GARRISON_BONUS_DISTRICTS' AND Name='Amount';
 
+-- 20/12/23 movement from 2 to 3 machine gun
+UPDATE Units SET BaseMoves=3 WHERE UnitType='UNIT_MACHINE_GUN';
 -- 18/12/25 Machine gun get aa
 -- 04/07/26 Reverted
 -- UPDATE Units SET AntiAirCombat=80 WHERE UnitType='UNIT_MACHINE_GUN';
+-- 14/07/26 Machine Gun -5 range cs
+UPDATE Units SET RangedCombat=RangedCombat-5 WHERE UnitType='UNIT_MACHINE_GUN';
+
 
 --=======================================================================
 --******                        MELEE                              ******
