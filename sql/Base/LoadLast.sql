@@ -1,10 +1,10 @@
 ------------------------------------------------------------------------------
---	FILE:	 new_bbg_base_units.sql
+--	FILE:	 LoadLast.sql
 --	AUTHOR:  Pebbleton
---	PURPOSE: ADD +4 base strength to all units which were affected by oligarchy, must be loaded after all unit changes
+--	PURPOSE: must be loaded after all unit changes or other mod changes, very high load order
 ------------------------------------------------------------------------------
 --=======================================================================
---******                        MELEE                              ******
+--******                          OLIGARCHY                        ******
 --=======================================================================
 
 -- 06/07/26 oligarchy rework 
@@ -47,3 +47,13 @@ INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
     ('BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY', 'BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER');
 
 UPDATE Civics SET Description='LOC_CIVIC_POLITICAL_PHILOSOPHY_DESCRIPTION' WHERE CivicType='CIVIC_POLITICAL_PHILOSOPHY';
+
+
+--=======================================================================
+--******                          WONDERS                          ******
+--=======================================================================
+--need to run after bbm as this is an update and not and insert
+-- 14/07/26 Lac Victoria : +1 food
+DELETE FROM Feature_YieldChanges WHERE FeatureType='FEATURE_LAKE_VICTORIA' AND YieldType='YIELD_FOOD';
+INSERT INTO Feature_YieldChanges(FeatureType, YieldType, YieldChange) VALUES
+	('FEATURE_LAKE_VICTORIA', 'YIELD_FOOD', 3);

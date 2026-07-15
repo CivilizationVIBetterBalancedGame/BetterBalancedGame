@@ -45,3 +45,12 @@ INSERT INTO Feature_YieldChanges (FeatureType, YieldType, YieldChange) VALUES
     ('FEATURE_BARRIER_REEF', 'YIELD_PRODUCTION', 1);
 
 
+
+-- 14/07/26 Sahara el Beyda : +1 food 
+INSERT INTO Feature_YieldChanges(FeatureType, YieldType, YieldChange) VALUES
+	('FEATURE_WHITEDESERT', 'YIELD_FOOD', 1);
+
+-- 14/07/26 Rock of Gibraltar : +1 prod 
+INSERT INTO Feature_AdjacentYields(FeatureType, YieldType, YieldChange) VALUES
+	('FEATURE_GIBRALTAR', 'YIELD_PRODUCTION', 1);
+
