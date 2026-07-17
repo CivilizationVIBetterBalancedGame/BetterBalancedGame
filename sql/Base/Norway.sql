@@ -142,3 +142,7 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('BBG_UNIT_IS_LANDSKIP_OR_BERSERK_REQSET', 'BBG_UTILS_UNIT_IS_UNIT_NORWEGIAN_LONGSHIP');
 
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_TRAIT_EARLY_OCEAN_NAVIGATION_REQSET' WHERE ModifierId='TRAIT_EARLY_OCEAN_NAVIGATION';
+
+-- 17/07/26 StartBias no jungle
+INSERT INTO StartBiasNegatives(CivilizationType, FeatureType, Tier) VALUES
+    ('CIVILIZATION_NORWAY', 'FEATURE_JUNGLE', 4);
