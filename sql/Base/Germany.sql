@@ -17,3 +17,14 @@ INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, Til
     ('BBG_BARBAROSSA_HANSA_ENCAMPMENT_PROD', 'LOC_BBG_BARBAROSSA_HANSA_ENCAMPMENT_PROD_DESC', 'YIELD_PRODUCTION', 2, 1, 'DISTRICT_ENCAMPMENT');
 INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
     ('DISTRICT_HANSA', 'BBG_BARBAROSSA_HANSA_ENCAMPMENT_PROD');
+
+-- 14/07/26 Frederic +7 vs barbarians also works vs all Unique units
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_UNIT_IS_UNIQUE_OR_MINOR', 'REQUIREMENTSET_TEST_ANY');
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_UNIT_IS_UNIQUE_OR_MINOR', 'REQUIRES_OPPONENT_IS_MINOR_CIV'),
+    ('BBG_UNIT_IS_UNIQUE_OR_MINOR', 'BBG_UTILS_OPPONENT_UNIT_IS_UNIQUE');
+
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_UNIT_IS_UNIQUE_OR_MINOR' WHERE ModifierId='BARBAROSSA_COMBAT_BONUS_VS_CITY_STATES';
+    

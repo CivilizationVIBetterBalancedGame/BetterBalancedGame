@@ -34,6 +34,8 @@ INSERT INTO RequirementArguments(RequirementId , Name, Value) VALUES
 INSERT INTO TraitModifiers(TraitType, ModifierId) VALUES
     ('TRAIT_CIVILIZATION_BUILDING_GRAND_BAZAAR', 'BBG_GRAND_BAZAAR_GOV_POINT');
 
+-- 14/07/26 Grand Bazaar at Guilds
+UPDATE Buildings SET PrereqCivic='CIVIC_GUILDS', PrereqTech=NULL WHERE BuildingType='BUILDING_GRAND_BAZAAR';
 
 -- 04/10/22 barbary corsaire can go in ocean tiles without cartography
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES

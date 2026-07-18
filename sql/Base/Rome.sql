@@ -7,8 +7,9 @@ UPDATE Modifiers SET SubjectRequirementSetId='BBG_UTILS_PLAYER_HAS_CIVIC_EARLY_E
 --====Rome======--
 -- reverted 04/10/22
 -- back to the menu 07/07/25
+-- 14/07/26 increase to standard adjacency
 INSERT INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
-	('DISTRICT_BATH' , 'District_Culture');
+	('DISTRICT_BATH' , 'District_Culture_Standard');
 
 -- 07/07/25 Bath no longer give amenity
 UPDATE Districts SET Entertainment=0 WHERE DistrictType='DISTRICT_BATH';
