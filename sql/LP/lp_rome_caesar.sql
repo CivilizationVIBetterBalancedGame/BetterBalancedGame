@@ -153,11 +153,11 @@ DELETE FROM TraitModifiers WHERE ModifierId IN ('TRAIT_CAESAR_GOLD_CAPTURED_CITY
 -- INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
 --  ('DISTRICT_BATH', 'BBG_BATH_AMENITY_CAESAR');
 
-INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId)
-    SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_LEADER_JULIUS_CAESAR_REQSET' FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
-INSERT INTO ModifierArguments (ModifierId, Name, Value)
-    SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'Amount', 1 FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
-INSERT INTO UnitPromotionModifiers (UnitPromotionType, ModifierId)
-    SELECT UnitPromotions.UnitPromotionType, 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
-INSERT INTO ModifierStrings (ModifierId, Context, Text)
-    SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'Preview', '+{1_Amount} {'||UnitPromotions.Name||'}' FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
+-- INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId)
+--     SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_LEADER_JULIUS_CAESAR_REQSET' FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
+-- INSERT INTO ModifierArguments (ModifierId, Name, Value)
+--     SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'Amount', 1 FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
+-- INSERT INTO UnitPromotionModifiers (UnitPromotionType, ModifierId)
+--     SELECT UnitPromotions.UnitPromotionType, 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
+-- INSERT INTO ModifierStrings (ModifierId, Context, Text)
+--     SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'Preview', '+{1_Amount} {'||UnitPromotions.Name||'}' FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
