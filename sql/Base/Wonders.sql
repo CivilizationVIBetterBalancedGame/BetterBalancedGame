@@ -574,8 +574,9 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 
 -- 17/12/25 Big Ben moved from Economics to Capitalism
-UPDATE Buildings SET PrereqCivic='CIVIC_CAPITALISM' WHERE BuildingType='BUILDING_BIG_BEN';
-UPDATE Buildings SET PrereqTech=NULL WHERE BuildingType='BUILDING_BIG_BEN';
+-- 23/07/26 reverted
+-- UPDATE Buildings SET PrereqCivic='CIVIC_CAPITALISM' WHERE BuildingType='BUILDING_BIG_BEN';
+-- UPDATE Buildings SET PrereqTech=NULL WHERE BuildingType='BUILDING_BIG_BEN';
 
 -- 16/03/26 Pyramids no longer give free builder
 DELETE FROM BuildingModifiers WHERE BuildingType='BUILDING_PYRAMIDS' AND ModifierId='PYRAMID_GRANT_BUILDERS';
