@@ -213,4 +213,26 @@ INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
 DELETE FROM RequirementSetRequirements WHERE RequirementSetId='NOBEL_PRIZE_TARGET_REQUIREMENTS' AND RequirementId='REQUIRES_GAME_ERA_AFTER_RENAISSANCE';
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('NOBEL_PRIZE_TARGET_REQUIREMENTS', 'BBG_REQUIRES_GAME_ERA_AFTER_MEDIEVAL');
-    
+
+--28/07/26 +1 gpp for all buildings from iz and campus from only university and factory
+DELETE FROM Modifiers WHERE ModifierId IN ('TRAIT_GREAT_SCIENTIST_UNIVERSITY_MODIFIER', 'TRAIT_GREAT_ENGINEER_FACTORY_MODIFIER' );
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) 
+SELECT 'BBG_SWEDEN_BONUS_GPP_' || BuildingType , 'MODIFIER_PLAYER_CITIES_ADJUST_GREAT_PERSON_POINT', 'BBG_UTILS_CITY_HAS_' || BuildingType FROM Buildings 
+WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_INDUSTRIAL_ZONE') AND TraitType is NULL;
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) 
+SELECT 'BBG_SWEDEN_BONUS_GPP_' || BuildingType, 'GreatPersonClassType', 'GREAT_PERSON_CLASS_SCIENTIST' FROM Buildings
+WHERE PrereqDistrict = 'DISTRICT_CAMPUS' AND TraitType is NULL;
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) 
+SELECT 'BBG_SWEDEN_BONUS_GPP_' || BuildingType, 'GreatPersonClassType', 'GREAT_PERSON_CLASS_ENGINEER' FROM Buildings
+WHERE PrereqDistrict = 'DISTRICT_INDUSTRIAL_ZONE' AND TraitType is NULL;
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) 
+SELECT 'BBG_SWEDEN_BONUS_GPP_' || BuildingType, 'Amount', 1 FROM Buildings
+WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_INDUSTRIAL_ZONE') AND TraitType is NULL;
+
+INSERT INTO TraitModifiers (TraitType, ModifierId) 
+SELECT 'TRAIT_CIVILIZATION_NOBEL_PRIZE', 'BBG_SWEDEN_BONUS_GPP_' || BuildingType FROM Buildings 
+WHERE PrereqDistrict IN ('DISTRICT_CAMPUS', 'DISTRICT_INDUSTRIAL_ZONE') AND TraitType is NULL;
