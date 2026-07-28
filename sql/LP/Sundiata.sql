@@ -9,8 +9,9 @@ INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES
     ('TRAIT_LEADER_SUNDIATA_KEITA', 'BBG_SUGUBA_HOLY_SITE_MANSA');
 
 -- Theater give +1 adj to suguba
+-- 14/07/26 +2 adj to suguba
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentDistrict) VALUES
-    ('BBG_SUGUBA_THEATER_SUNDIATA', 'LOC_BBG_SUGUBA_THEATER_SUNDIATA', 'YIELD_GOLD', 1, 'DISTRICT_THEATER');
+    ('BBG_SUGUBA_THEATER_SUNDIATA', 'LOC_BBG_SUGUBA_THEATER_SUNDIATA', 'YIELD_GOLD', 2, 'DISTRICT_THEATER');
 INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
     ('DISTRICT_SUGUBA', 'BBG_SUGUBA_THEATER_SUNDIATA');
 INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId) VALUES

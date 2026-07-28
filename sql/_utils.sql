@@ -8,6 +8,20 @@ INSERT INTO Requirements(RequirementId , RequirementType)
 INSERT INTO RequirementArguments(RequirementId , Name, Value)
     SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType FROM Districts;
 
+
+-- Create requirements for each building 
+INSERT INTO Requirements(RequirementId , RequirementType)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType || '_REQUIREMENT', 'REQUIREMENT_CITY_HAS_BUILDING' FROM Buildings;
+INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType, 'REQUIREMENTSET_TEST_ALL' FROM Buildings;
+INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType, 'BBG_UTILS_CITY_HAS_' || BuildingType || '_REQUIREMENT' FROM Buildings;
+INSERT INTO RequirementArguments(RequirementId , Name, Value)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType || '_REQUIREMENT', 'BuildingType', BuildingType FROM Buildings;
+
+
+
+
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_IS_SPECIALTY_DISTRICT', 'REQUIREMENTSET_TEST_ANY');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
@@ -511,3 +525,38 @@ SELECT
 FROM Eras AS current
 JOIN Eras AS prior
     ON prior.ChronologyIndex <= current.ChronologyIndex;
+
+-- to check if unit is melee, ranged, anti cav, light cav, siege, cavalry etc
+INSERT INTO Requirements (RequirementId, RequirementType) 
+SELECT 'BBG_UNIT_IS_' || PromotionClassType, 'REQUIREMENT_UNIT_PROMOTION_CLASS_MATCHES' FROM UnitPromotionClasses;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) 
+SELECT 'BBG_UNIT_IS_' || PromotionClassType, 'UnitPromotionClass', PromotionClassType FROM UnitPromotionClasses;
+
+INSERT INTO Requirements (RequirementId, RequirementType) 
+SELECT 'BBG_UNIT_IS_' || FormationClassType, 'REQUIREMENT_UNIT_FORMATION_CLASS_MATCHES' FROM UnitFormationClasses;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) 
+SELECT 'BBG_UNIT_IS_' || FormationClassType, 'UnitFormationClass', FormationClassType FROM UnitFormationClasses;
+
+
+-- Test if unit is unit type
+INSERT INTO Requirements (RequirementId, RequirementType)
+SELECT 'BBG_UTILS_UNIT_IS_' || UnitType, 'REQUIREMENT_UNIT_TYPE_MATCHES' FROM Units;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value)
+SELECT 'BBG_UTILS_UNIT_IS_' || UnitType, 'UnitType', UnitType FROM Units;
+
+INSERT INTO Tags (Tag, Vocabulary)
+SELECT 'CLASS_UNIQUE_UNIT', 'ABILITY_CLASS';
+
+INSERT INTO TypeTags (Type, Tag)
+SELECT UnitType, 'CLASS_UNIQUE_UNIT' FROM Units WHERE TraitType is not null;
+
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+('BBG_UTILS_UNIT_IS_UNIQUE', 'REQUIREMENT_UNIT_TAG_MATCHES'),
+('BBG_UTILS_OPPONENT_UNIT_IS_UNIQUE', 'REQUIREMENT_OPPONENT_UNIT_TAG_MATCHES');
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+('BBG_UTILS_UNIT_IS_UNIQUE', 'Tag', 'CLASS_UNIQUE_UNIT'),
+('BBG_UTILS_OPPONENT_UNIT_IS_UNIQUE', 'Tag', 'CLASS_UNIQUE_UNIT');

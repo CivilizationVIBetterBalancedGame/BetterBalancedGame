@@ -22,9 +22,12 @@ UPDATE Units SET Cost=180 WHERE UnitType='UNIT_COURSER';
 UPDATE Units SET Cost=200 WHERE UnitType='UNIT_KNIGHT';
 
 --5.2.5 Set heavy chariot cost 5 iron (reverted, greyed out just in case)
---INSERT OR IGNORE INTO Units_XP2 (UnitType , ResourceCost  , ResourceMaintenanceAmount , ResourceMaintenanceType)
-    --VALUES ('UNIT_HEAVY_CHARIOT' , 10 , 0, 'RESOURCE_IRON');
---UPDATE Units SET StrategicResource='RESOURCE_IRON' WHERE UnitType='UNIT_HEAVY_CHARIOT';
+-- 12/07/26 rework heavy chariot as an answer to melee uu
+
+INSERT OR IGNORE INTO Units_XP2 (UnitType , ResourceCost  , ResourceMaintenanceAmount , ResourceMaintenanceType)
+    VALUES ('UNIT_HEAVY_CHARIOT' , 20 , 0, 'RESOURCE_IRON');
+UPDATE Units SET StrategicResource='RESOURCE_IRON' WHERE UnitType='UNIT_HEAVY_CHARIOT';
+
 
 --=======================================================================
 --******                        RECON                              ******

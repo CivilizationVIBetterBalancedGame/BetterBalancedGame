@@ -15,3 +15,5 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 UPDATE Units SET StrategicResource='RESOURCE_HORSES' WHERE UnitType='UNIT_EGYPTIAN_CHARIOT_ARCHER';
 INSERT INTO Units_XP2 (UnitType, ResourceCost) VALUES
     ('UNIT_EGYPTIAN_CHARIOT_ARCHER', 10);
+-- 12/07/26 rework heavy chariot as an answer to melee uu --> need to move maryanus to not be classical
+UPDATE Units SET PrereqTech='TECH_ARCHERY' WHERE UnitType='UNIT_EGYPTIAN_CHARIOT_ARCHER';

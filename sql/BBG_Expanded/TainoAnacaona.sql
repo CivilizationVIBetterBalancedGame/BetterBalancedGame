@@ -246,6 +246,8 @@ INSERT INTO TypeTags (Type, Tag) VALUES
 
 -- Macana like oki : 15 and +5 vs stronger units
 UPDATE Units SET Combat=15 WHERE UnitType='UNIT_CVS_TAINO_UU';
+-- 06/07/26 oligarchy rework 
+UPDATE Units SET Combat=Combat+4 WHERE UnitType='UNIT_CVS_TAINO_UU';
 
 INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
     ('REQUIRES_COMBAT_AGAINST_STRONGER_UNIT','REQUIREMENT_OPPONENT_IS_STRONGER');

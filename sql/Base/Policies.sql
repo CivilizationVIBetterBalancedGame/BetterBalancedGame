@@ -8,6 +8,15 @@
 -- === Existing Policies Adjustments ===
 -- Buff Discipline +5 -> +10
 UPDATE ModifierArguments SET Value='10' WHERE ModifierId='DISCIPLINE_BARBARIANCOMBAT' AND Name='Amount';
+-- 14/07/26 Discipline also grants +1 vision to recon units
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_DISCIPLINE_RECON_VISION_GIVER', 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER', 'BBG_UNIT_IS_RECON_REQSET'),
+    ('BBG_DISCIPLINE_RECON_VISION', 'MODIFIER_PLAYER_UNIT_ADJUST_SIGHT', null);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_DISCIPLINE_RECON_VISION_GIVER', 'ModifierId', 'BBG_DISCIPLINE_RECON_VISION'),
+    ('BBG_DISCIPLINE_RECON_VISION', 'Amount', '1');
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+    ('POLICY_DISCIPLINE', 'BBG_DISCIPLINE_RECON_VISION_GIVER');
 
 -- Bastillon ""bugfix"" (Value is doubled, so put 2*+3 instead of 2*+5)
 UPDATE ModifierArguments SET Value='3' WHERE ModifierId='BASTIONS_RANGEDSTRIKE' AND Name='Amount';
@@ -489,3 +498,33 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
     ('POLICY_ARMS_RACE', 'BBG_ARMS_RACE_FASTER_NUKE'),
     ('POLICY_ARMS_RACE', 'BBG_ARMS_RACE_FASTER_THERMO');
+
+
+-- 14/07/26 : Caravansaries +1 prod on international trade routes
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_CARAVANSARIES_TRADEROUTEPRODUCTION', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_INTERNATIONAL');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_CARAVANSARIES_TRADEROUTEPRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
+    ('BBG_CARAVANSARIES_TRADEROUTEPRODUCTION', 'Amount', 1);
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+    ('POLICY_CARAVANSARIES', 'BBG_CARAVANSARIES_TRADEROUTEPRODUCTION');
+
+
+-- 14/07/26 : Triangular Trade +1 prod on international trade routes
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_TRIANGULAR_TRADE_TRADEROUTEPRODUCTION', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD_FOR_INTERNATIONAL');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_TRIANGULAR_TRADE_TRADEROUTEPRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
+    ('BBG_TRIANGULAR_TRADE_TRADEROUTEPRODUCTION', 'Amount', 1);
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+    ('POLICY_TRIANGULAR_TRADE', 'BBG_TRIANGULAR_TRADE_TRADEROUTEPRODUCTION');
+
+-- 14/07/26 : Religious order : missionaries and apostles are 50% more effective at spreading (keep the +5 religious cs) MODIFIER_PLAYER_UNIT_ADJUST_FOREIGN_SPREAD_MODIFIER
+ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_RELIGIOUS_ORDERS_MORE_EFFECTIVE_GIVER', 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER', 'UNIT_IS_RELIGIOUS'),
+    ('BBG_RELIGIOUS_ORDERS_MORE_EFFECTIVE', 'MODIFIER_PLAYER_UNIT_ADJUST_FOREIGN_SPREAD_MODIFIER', null);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_RELIGIOUS_ORDERS_MORE_EFFECTIVE_GIVER', 'ModifierId', 'BBG_RELIGIOUS_ORDERS_MORE_EFFECTIVE'),
+    ('BBG_RELIGIOUS_ORDERS_MORE_EFFECTIVE', 'Amount', 50);
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+    ('POLICY_RELIGIOUS_ORDERS', 'BBG_RELIGIOUS_ORDERS_MORE_EFFECTIVE_GIVER');
