@@ -228,3 +228,6 @@ UPDATE Unit_RockbandResults_XP2 SET AlbumSales=160 WHERE ResultType='RESULT_LEGE
 
 -- 17/03/26 : delay Rockband to SPACE RACE
 UPDATE Units SET PrereqCivic='CIVIC_SPACE_RACE' WHERE UnitType='UNIT_ROCK_BAND';
+
+-- 22/07/26 : Rockbands lose movements and can be killed
+UPDATE Units SET BaseMoves=2, CanCapture=0, CanRetreatWhenCaptured=0 WHERE UnitType='UNIT_ROCK_BAND';

@@ -560,3 +560,37 @@ INSERT INTO Requirements (RequirementId, RequirementType) VALUES
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
 ('BBG_UTILS_UNIT_IS_UNIQUE', 'Tag', 'CLASS_UNIQUE_UNIT'),
 ('BBG_UTILS_OPPONENT_UNIT_IS_UNIQUE', 'Tag', 'CLASS_UNIQUE_UNIT');
+
+
+
+-- allow to test if an unit has a specific promotion
+-- promotion give a fake ability, and a requirement check if a unit has the ability
+INSERT INTO Requirements (RequirementId, RequirementType) 
+    SELECT 'BBG_UNIT_HAS_' || UnitPromotionType || '_ABILITY', 'REQUIREMENT_UNIT_HAS_ABILITY' FROM UnitPromotions;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) 
+    SELECT 'BBG_UNIT_HAS_' || UnitPromotionType || '_ABILITY', 'UnitAbilityType', 'BBG_FAKE_ABILITY_' || UnitPromotionType FROM UnitPromotions;
+
+INSERT INTO Modifiers (ModifierId, ModifierType) 
+    SELECT 'BBG_UNIT_' || UnitPromotionType || '_GIVE_ABILITY', 'MODIFIER_PLAYER_UNIT_GRANT_ABILITY' FROM UnitPromotions;
+
+INSERT INTO Types (Type, Kind)
+    SELECT 'BBG_FAKE_ABILITY_' || UnitPromotionType, 'KIND_ABILITY' FROM UnitPromotions;
+
+INSERT INTO UnitAbilities (UnitAbilityType, Name, Description, Inactive)
+    SELECT 'BBG_FAKE_ABILITY_' || UnitPromotionType, null, null, 1 FROM UnitPromotions;
+
+INSERT INTO TypeTags (Type, Tag)
+    SELECT 'BBG_FAKE_ABILITY_' || UnitPromotionType, 'CLASS_ALL_COMBAT_UNITS' FROM UnitPromotions;
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) 
+    SELECT 'BBG_UNIT_' || UnitPromotionType || '_GIVE_ABILITY', 'AbilityType', 'BBG_FAKE_ABILITY_' || UnitPromotionType FROM UnitPromotions;
+
+INSERT INTO UnitPromotionModifiers (UnitPromotionType, ModifierId) 
+    SELECT UnitPromotionType, 'BBG_UNIT_' || UnitPromotionType || '_GIVE_ABILITY' FROM UnitPromotions;
+
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) 
+    SELECT 'BBG_UNIT_' || UnitPromotionType || '_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL' FROM UnitPromotions;
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) 
+    SELECT 'BBG_UNIT_' || UnitPromotionType || '_REQUIREMENTS', 'BBG_UNIT_HAS_' || UnitPromotionType || '_ABILITY' FROM UnitPromotions;

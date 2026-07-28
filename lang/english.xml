@@ -842,7 +842,7 @@
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_STEPWELL_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Indian unique builder improvement unlocked with Irrigation.[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food, +1 [ICON_FAITH] Faith, and +1 [ICON_HOUSING] Housing.[NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_FAITH] Faith with Feudalism.[NEWLINE]+1 [ICON_FOOD] Food for each adjacent Farm.[NEWLINE]+1 [ICON_FAITH] Faith and +1 [ICON_PRODUCTION] Production for each adjacent Holy Site district.[NEWLINE]Holy Site receive standard adjacency from Stepwell.[NEWLINE]+1 [ICON_HOUSING] Housing with Sanitation.[NEWLINE][NEWLINE]Cannot be built on Hills or adjacent to another Stepwell.</Text>
+			<Text>Indian unique builder improvement unlocked with Irrigation.[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food, +1 [ICON_FAITH] Faith, and +1 [ICON_HOUSING] Housing.[NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_FAITH] Faith with Feudalism.[NEWLINE]+1 [ICON_FOOD] Food for each adjacent Farm.[NEWLINE]+1 [ICON_FAITH] Faith if adjacent to a Holy Site district.[NEWLINE]+1 [ICON_HOUSING] Housing with Sanitation.[NEWLINE][NEWLINE]Cannot be built on Hills or adjacent to another Stepwell.</Text>
 		</Replace>
 
 
@@ -1397,7 +1397,7 @@
 		</Replace>
 		<!-- = leader ability (Julius Caesar) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="en_US">
-			<Text>Melee, Siege, Ranged and Heavy Cavalry units receive +50% Combat Experience, increasing to +100% when entering the medieval era. These units receive +1 Combat Strength per promotion received.[NEWLINE][NEWLINE]Receive a free melee unit each time you found a non-capital city and in your capital after researching Code of Laws.[NEWLINE][NEWLINE]Gain an extra Wildcard Policy slot when capturing and retaining at least one city founded by a major civilization and owned by a major civilization at the time of capture (maximum 1 extra wildcard slot).[NEWLINE][NEWLINE]Gain the Onager unique unit when Engineering is researched.</Text>
+			<Text>Melee, Siege, Ranged and Heavy Cavalry units receive +50% Combat Experience, increasing to +100% when entering the medieval era.[NEWLINE][NEWLINE]Receive a free melee unit each time you found a non-capital city and in your capital after researching Code of Laws.[NEWLINE][NEWLINE]Gain an extra Wildcard Policy slot when capturing and retaining at least one city founded by a major civilization and owned by a major civilization at the time of capture (maximum 1 extra wildcard slot).[NEWLINE][NEWLINE]Gain the Onager unique unit when Engineering is researched.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_DOUBLE_XP_BONUS_MODIFIER_NAME" Language="en_US">
 			<Text>+100% Combat Experience (Veni, Vidi, Vici)</Text>
@@ -1610,7 +1610,7 @@
 		<!-- == SWEDEN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="en_US">
-			<Text>Sweden gains 20 [ICON_FAVOR] Diplomatic Favor (on Standard speed) when earning a [ICON_GreatPerson] Great Person. Having Sweden in the game adds three unique World Congress competitions starting in the Renaissance Era.[NEWLINE]+50% [ICON_PRODUCTION] Production towards Libraries, Workshops, Universities, Factories and Government Plaza buildings.[NEWLINE][NEWLINE]+1 [ICON_GreatEngineer] Great Engineer point from Factories.[NEWLINE]+1 [ICON_GreatScientist] Great Scientist point from Universities.[NEWLINE]+2 [ICON_GREATWRITER] Great Writer points from tier 1 Gov't Plaza building.[NEWLINE]+2 [ICON_GREATARTIST] Great Artist points from tier 2 Gov't Plaza building.[NEWLINE]+2 [ICON_GREATMUSICIAN] Great Musician points from tier 3 Gov't Plaza building. +2 [ICON_GREATSCIENTIST] Great Scientist points and +2 [ICON_GREATENGINEER] Great Engineer points per tier of Government Plaza building.[NEWLINE][ICON_BULLET]Bias: Special "King of the North"</Text>
+			<Text>Sweden gains 20 [ICON_FAVOR] Diplomatic Favor (on Standard speed) when earning a [ICON_GreatPerson] Great Person. Having Sweden in the game adds three unique World Congress competitions starting in the Renaissance Era.[NEWLINE]+50% [ICON_PRODUCTION] Production towards Libraries, Workshops, Universities, Factories and Government Plaza buildings.[NEWLINE][NEWLINE]+1 [ICON_GreatEngineer] Great Engineer point from Industrial Zone buildings.[NEWLINE]+1 [ICON_GreatScientist] Great Scientist point from Campus buildings.[NEWLINE]+2 [ICON_GREATWRITER] Great Writer points from tier 1 Gov't Plaza building.[NEWLINE]+2 [ICON_GREATARTIST] Great Artist points from tier 2 Gov't Plaza building.[NEWLINE]+2 [ICON_GREATMUSICIAN] Great Musician points from tier 3 Gov't Plaza building. +2 [ICON_GREATSCIENTIST] Great Scientist points and +2 [ICON_GREATENGINEER] Great Engineer points per tier of Government Plaza building.[NEWLINE][ICON_BULLET]Bias: Special "King of the North"</Text>
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_QUEENS_BIBLIOTHEQUE_DESCRIPTION" Language="en_US">
@@ -2181,10 +2181,10 @@
 			<Text>Agriculture</Text>
 		</Row>
 		<Row Tag="LOC_GOVERNOR_PROMOTION_AGRICULTURE_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_FOOD] Food on the city's revealed resources.</Text>
+			<Text>+1 [ICON_FOOD] Food on the city's improved resources or City Centers founded on resources.</Text>
 		</Row>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_ZONING_COMMISSIONER_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_PRODUCTION] Production on the city's revealed resources.</Text>
+			<Text>+1 [ICON_PRODUCTION] Production on the city's improved resources or City Centers founded on resources.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_WATER_WORKS_NAME" Language="en_US">
 			<Text>Housing Boom</Text>
@@ -3501,6 +3501,13 @@
 			<Text>Lack of philosophy</Text>
 		</Replace>
 
+		<!-- <Replace Tag="LOC_TECH_CARTOGRAPHY_DESCRIPTION" Language="en_US">
+			<Text>Reduce Cost of [ICON_MOVEMENT] Movement in the ocean to 1. +2 [ICON_Gold] Gold from the Fishing Boat improvement.</Text>
+		</Replace>
+		<Replace Tag="BBG_LOC_TECH_BUTTRESS_DESCRIPTION" Language="en_US">
+		<Text>All naval and embarked units can navigate Ocean tiles.</Text>
+		</Replace> -->
+
 		<!-- === GOVERNMENTS === -->
 		<Replace Tag="LOC_GOVERNMENT_INHERENT_BONUS" Language="en_US">
 			<Text>Legacy Effect</Text>
@@ -3532,14 +3539,17 @@
 		<!-- == OLIGARCHY == -->
 		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_OLIGARCHY_XP1" Language="en_US">
-			<Text>+20% Unit Experience. +1 [ICON_PRODUCTION] Production and +1 [ICON_HOUSING] Housing for [ICON_DISTRICT_HARBOR] Harbors and [ICON_DISTRICT_ENCAMPMENT] Encampments, and their buildings.</Text>
+			<Text>+20% Unit Experience. Melee and naval units receive +1 [ICON_STRENGTH] Combat Strength per [ICON_PROMOTION] promotion received.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_OLIGARCHY_BONUS_COMBAT_MODIFIER_PREVIEW" Language="en_US">
+			<Text>+1 [ICON_STRENGTH] (Oligarchy)</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_OLIGARCHY_XP1" Language="en_US">
 			<Text>Civilian and Support units gain +1 [ICON_MOVEMENT] Movement if starting turn in friendly territory.</Text>
 		</Replace>
 		<!-- = Legacy = -->		
 		<Replace Tag="LOC_ABILITY_OLIGARCHY_LEGACY_MELEE_BUFF_MODIFIER_DESCRIPTION" Language="en_US">
-			<Text>+20% Unit Experience. +1 [ICON_MOVEMENT] Movement for all military units.</Text>
+			<Text>+20% Unit Experience. Melee and naval units receive +1 [ICON_STRENGTH] Combat Strength per [ICON_PROMOTION] promotion received.</Text>
 		</Replace>
 		<!-- == Tier 2 Governments == -->
 		<!-- == MONARCHY == -->
@@ -3781,8 +3791,17 @@
 		</Replace>
 		<!-- = Grande Armée = -->
 		<Replace Tag="LOC_POLICY_GRANDE_ARMEE_DESCRIPTION" Language="en_US">
-			<Text>+50% [ICON_PRODUCTION] Production toward Modern era and earlier melee, recon, anti-cavalry, and ranged units.</Text>
+			<Text>+50% [ICON_PRODUCTION] Production toward Industrial era and earlier melee, recon, anti-cavalry, and ranged units.</Text>
 		</Replace>
+
+		<!-- = BBG - Modern Drill = -->
+		<Replace Tag="LOC_BBG_MODERN_DRILL_NAME" Language="en_US">
+      		<Text>Modern Drill</Text>
+    	</Replace>
+		<Replace Tag="LOC_BBG_MODERN_DRILL_DESCRIPTION" Language="en_US">
+			<Text>+50% [ICON_PRODUCTION] Production toward Modern era and earlier melee, recon, anti-cavalry, and ranged units.</Text>
+    	</Replace>
+		
 		<!-- = Hard Shell Explosives (BBG) = -->
 		<Replace Tag="LOC_POLICY_HARD_SHELL_EXPLOSIVES_NAME" Language="en_US">
 			<Text>Hard-Shell Explosives</Text>
@@ -3812,6 +3831,13 @@
 		<!-- = Press Gangs = -->
 		<Replace Tag="LOC_POLICY_PRESS_GANGS_DESCRIPTION" Language="en_US">
 			<Text>+100% [ICON_PRODUCTION] Production toward Industrial era and earlier naval units.</Text>
+		</Replace>
+		<!-- = BBG - Naval Guilds = -->
+		<Replace Tag="LOC_POLICY_NAVAL_GUILDS_NAME" Language="en_US">
+			<Text>Naval Guilds</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_NAVAL_GUILDS_DESCRIPTION" Language="en_US">
+			<Text>+100% [ICON_PRODUCTION] Production toward Medieval era and earlier naval units.</Text>
 		</Replace>
 		<!-- = Raid = -->			
 		<Replace Tag="LOC_POLICY_RAID_EXPANSION1_ALT_DESCRIPTION" Language="en_US">
@@ -4755,7 +4781,7 @@
 
 		<!-- POLAND -->		
 		<Replace Tag="LOC_TRAIT_LEADER_JFD_NATIONAL_EDUCATION_DESCRIPTION" Language="en_US">
-			<Text>Resources and improved tiles gains bonus yields next to Encampment and its buildings (do not stacks) : [NEWLINE]- District : +1 [ICON_FOOD] Food [NEWLINE]- Barracks and Stable : +1 [ICON_Culture] Culture[NEWLINE]- Armory : +1 [ICON_SCIENCE] Science[NEWLINE]- Military Academy : +1 [ICON_PRODUCTION] Production.[NEWLINE][NEWLINE]Gain the Uhlan unique unit when they research the Metal Casting technology.</Text>
+			<Text>Strategic Resources and improved tiles gains bonus yields next to Encampment and its buildings (do not stacks) : [NEWLINE]- District : +1 [ICON_FOOD] Food [NEWLINE]- Barracks and Stable : +1 [ICON_Culture] Culture[NEWLINE]- Armory : +1 [ICON_SCIENCE] Science[NEWLINE]- Military Academy : +1 [ICON_PRODUCTION] Production.[NEWLINE][NEWLINE]Gain the Uhlan unique unit when they research the Metal Casting technology.</Text>
 		</Replace>
 		
 		<!-- TAINO - Anacaona -->

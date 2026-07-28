@@ -352,6 +352,10 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
     ('TECH_COMPOSITES', 'TECH_NUCLEAR_FISSION'),
     ('TECH_GUIDANCE_SYSTEMS', 'TECH_NUCLEAR_FISSION');
 
+-- -- 19/07/26 test for naval
+-- INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+--     ('TECH_CARTOGRAPHY', 'TECH_MILITARY_TACTICS');
+
 --=======================================================================
 --******                       AMENITIES                           ******
 --=======================================================================
@@ -429,3 +433,26 @@ INSERT INTO Boosts(CivicType, Boost, BoostClass, TriggerDescription, TriggerLong
 INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
     ('IMPROVEMENT_FORT', 'YIELD_PRODUCTION', 1),
     ('IMPROVEMENT_FORT', 'YIELD_GOLD', 1);
+
+
+
+--=======================================================================
+--******                       NAVAL                               ******
+--=======================================================================
+
+-- -- 19/07/26 Ocean cost move to 2 mp, move to ocean at buttress, at carto reduce movement to 1
+-- UPDATE TechnologyModifiers SET TechnologyType='TECH_BUTTRESS' WHERE TechnologyType='TECH_CARTOGRAPHY' AND ModifierId='CARTOGRAPHY_GRANT_OCEAN_NAVIGATION';
+-- UPDATE Technologies SET Description='BBG_LOC_TECH_BUTTRESS_DESCRIPTION' WHERE TechnologyType='TECH_BUTTRESS';
+
+-- UPDATE Terrains SET MovementCost=2 WHERE TerrainType='TERRAIN_OCEAN';
+
+-- INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+--     ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT_GIVER', 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER'),
+--     ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT', 'MODIFIER_PLAYER_UNIT_ADJUST_IGNORE_TERRAIN_COST');
+-- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+--     ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT_GIVER', 'ModifierId', 'BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT'),
+--     ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT', 'Type', 'TERRAIN_OCEAN'),
+--     ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT', 'Ignore', '1');
+
+-- INSERT INTO TechnologyModifiers(TechnologyType, ModifierId) VALUES
+--     ('TECH_CARTOGRAPHY', 'BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT_GIVER');
