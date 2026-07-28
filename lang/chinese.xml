@@ -106,7 +106,7 @@
             <Text>解放城市后，所有城市10 [ICON_TURN] 回合内+50% [ICON_Production] 生产力。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_DIGGER_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>澳大利亚现代特色近战单位，替代步兵。基础 [ICON_STRENGTH] 战斗力+3。在海岸单元格作战时+10 [ICON_STRENGTH] 战斗力。在中立或外国领土作战时+5 [ICON_STRENGTH] 战斗力。</Text>
+            <Text>澳大利亚现代特色近战单位，替代步兵。基础 [ICON_STRENGTH] 战斗力+3。在海岸单元格作战时+5 [ICON_STRENGTH] 战斗力。在中立或外国领土作战时+3 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
         <Replace Tag="LOC_IMPROVEMENT_OUTBACK_STATION_DESCRIPTION" Language="zh_Hans_CN">
             <Text>澳大利亚特色改良设施，解锁于“公会”市政。[NEWLINE][NEWLINE]+1 [ICON_FOOD] 食物、+1 [ICON_PRODUCTION] 生产力和+0.5 [ICON_Housing] 住房。[NEWLINE]每相邻1个牧场则+1 [ICON_FOOD] 食物。[NEWLINE]“紧急部署”市政后，每相邻2个内陆牧场+1 [ICON_FOOD] 食物。[NEWLINE]“工业化”科技后，每相邻2个内陆牧场+1 [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]“工业化”科技后，牧场每相邻1个内陆牧场+1 [ICON_PRODUCTION] 生产力。[NEWLINE]为相邻单元格提供+1魅力。[NEWLINE][NEWLINE]只能在平原、平原丘陵、草原、草原丘陵、沙漠和沙漠丘陵上建造。</Text>
@@ -826,9 +826,6 @@
         </Replace>
         <Replace Tag="LOC_IMPROVEMENT_STEPWELL_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
             <Text>印度特色改良设施，解锁于“灌溉”科技。[NEWLINE][NEWLINE]+1 [ICON_FOOD] 食物、+1 [ICON_FAITH] 信仰值与+1 [ICON_HOUSING] 住房。[NEWLINE]每相邻1个农场+1 [ICON_FOOD] 食物。[NEWLINE]如果与圣地相邻，则额外+1 [ICON_FAITH] 信仰值。[NEWLINE]“封建主义”市政后额外+1 [ICON_FOOD] 食物与+1 [ICON_FAITH] 信仰值。[NEWLINE]“卫生设备”科技后额外+1 [ICON_HOUSING] 住房。[NEWLINE][NEWLINE]不能建在丘陵上，不能与另一座梯井相邻。</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_STEPWELL_DISTRICT_FAITH" Language="zh_Hans_CN">
-            <Text>相邻梯井：+{1_num} [ICON_FAITH] 信仰值。</Text>
         </Replace>
 
         <Replace Tag="LOC_TRAIT_CIVILIZATION_INDONESIA_NUSANTARA_DESCRIPTION" Language="zh_Hans_CN">
@@ -1732,7 +1729,7 @@
             <Text>西境领主</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="zh_Hans_CN">
-            <Text>波奇特卡聚集区和领事馆各提供+1 [ICON_TRADEROUTE] 贸易路线容量。[NEWLINE]建造波奇特卡聚居区建筑时+100% [ICON_PRODUCTION] 生产力。[NEWLINE]可招募独特 [ICON_GOVERNOR] 总督"浴火而生"。</Text>
+            <Text>波奇特卡聚集区、外交办和领事馆各提供+1 [ICON_TRADEROUTE] 贸易路线容量。[NEWLINE]建造波奇特卡聚居区建筑时+100% [ICON_PRODUCTION] 生产力。[NEWLINE]可招募独特 [ICON_GOVERNOR] 总督"浴火而生"。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="zh_Hans_CN">
             <Text>羽甲战士</Text>
@@ -5057,17 +5054,16 @@
         <!--一级政体-->
         <!--寡头政体-->
         <!--传承效果-->
-        
-        <!--政体加成-->
-		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_OLIGARCHY_XP1" Language="zh_Hans_CN">
-			<Text>平民和支援单位在己方领土内开始回合时，+1 [ICON_MOVEMENT] 移动力。</Text>
-		</Replace>
         <Replace Tag="LOC_GOVT_INHERENT_BONUS_OLIGARCHY_XP1" Language="zh_Hans_CN">
-			<Text>单位获得+20%战斗经验值。近战和海军单位每获得一次 [ICON_PROMOTION] 升级，+1 [ICON_STRENGTH] 战斗力。</Text>
+			<Text>单位获得+20%战斗经验值。近战和海军单位每拥有一级 [ICON_PROMOTION] 晋升，+1 [ICON_STRENGTH] 战斗力。</Text>
 		</Replace>
         <Replace Tag="LOC_BBG_OLIGARCHY_BONUS_COMBAT_MODIFIER_PREVIEW" Language="zh_Hans_CN">
             <Text>+{1_num} [ICON_STRENGTH] 战斗力（寡头政体）</Text>
         </Replace>
+        <!--政体加成-->
+		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_OLIGARCHY_XP1" Language="zh_Hans_CN">
+			<Text>平民和支援单位在己方领土内开始回合时，+1 [ICON_MOVEMENT] 移动力。</Text>
+		</Replace>
         <!--古典共和-->
         <!--传承效果-->	
         <Replace Tag="LOC_GOVT_INHERENT_BONUS_CLASSREP_XP1" Language="zh_Hans_CN">
@@ -5296,6 +5292,14 @@
         <Replace Tag="LOC_POLICY_PRESS_GANGS_DESCRIPTION" Language="zh_Hans_CN">
             <Text>生产工业时代及更早时代的海军单位时+100% [ICON_PRODUCTION] 生产力。</Text>
         </Replace>
+
+        <Replace Tag="LOC_POLICY_NAVAL_GUILDS_NAME" Language="zh_Hans_CN">
+            <Text>海洋行会</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_NAVAL_GUILDS_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>生产中世纪及更早时代的海军单位时+100% [ICON_PRODUCTION] 生产力。</Text>
+        </Replace>
+
         <Replace Tag="LOC_POLICY_WARS_OF_RELIGION_DESCRIPTION" Language="zh_Hans_CN">
             <Text>对抗信仰其他宗教的文明时+4 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
