@@ -24,6 +24,7 @@
 			<!-- === BUILDINGS - BÂTIMENTS === -->
 			<!-- === PROJECTS - PROJETS === -->
 			<!-- === NATURAL WONDERS - MERVEILLES NATURELLES === -->
+			<!-- === BBM NATURAL WONDERS - MERVEILLES NATURELLES BBM === -->
 			<!-- === WORLD WONDERS - MERVEILLES MONDIALES === -->
 			<!-- === CITY-STATES - CITÉS-ÉTATS === -->
 			<!-- === AGES - ÂGES === -->
@@ -84,7 +85,7 @@
     	</Replace>
 		<!-- = Leader (Abraham Lincoln) - Dirigeant (Abraham Lincoln) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LINCOLN_EXPANSION_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +100% pour la construction de Zones industrielles et d'Aqueducs.[NEWLINE][ICON_AMENITIES] Activités +2 et Loyauté +3 pour les Zones industrielles.[NEWLINE][ICON_CULTURE] Culture +2 les bâtiments de la Zones industrielle.[NEWLINE]Achever une Zone industrielle ou l'un de ses bâtiments octroie une unité de combat rapproché gratuite, dont la création et l'entretien ne nécessitent pas de ressources.[NEWLINE][NEWLINE]Loyauté -2 par tour pour chaque plantation.</Text>
+			<Text>[ICON_PRODUCTION] Production +100% pour la construction de Zones industrielles et d'Aqueducs.[NEWLINE][ICON_AMENITIES] Activités +2 et Loyauté +3 pour les Zones industrielles, et [ICON_CULTURE]Culture +2 pour leurs bâtiments.[NEWLINE]Achever une Zone industrielle ou l'un de ses bâtiments octroie une unité de combat rapproché gratuite, dont la création et l'entretien ne nécessitent pas de ressources.[NEWLINE][NEWLINE]Loyauté -2 par tour pour chaque plantation.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_AMERICAN_ROUGH_RIDER_EXPANSION2_DESCRIPTION" Language="fr_FR">
@@ -181,10 +182,7 @@
 			<Text>Diplomate illustre</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_GREAT_DIPLOMAT_DESCRIPTION" Language="fr_FR">
-			<Text>Personnage illustre unique à l'Autriche. Peut absorber une Cité-état vassale. Augmente la génération de [ICON_FAVOR] faveur diplomatique lorsqu'il est à côté d'une capitale étrangère.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_DIPLOMAT_PASSIVE" Language="fr_FR">
-			<Text>+1 [ICON_FAVOR] Faveur Diplomatique par tour si adjacent à une capitale étrangère.</Text>
+			<Text>Personnage illustre unique à l'Autriche.[NEWLINE][NEWLINE]Peut absorber une Cité-état vassale.[NEWLINE][NEWLINE][ICON_FAVOR] Faveurs diplomatique +1 par tour si adjacent à une [ICON_CAPITAL] étrangère.</Text>
 		</Replace>
         <!-- = Unique building - Bâtiment unique = --> <!-- BBG expanded -->
         <Replace Tag="LOC_BUILDING_MER_COFFEE_HOUSE_NAME" Language="fr_FR">
@@ -663,10 +661,10 @@
 		</Replace>
 		<!-- = Leader (Frederick Barbarossa) - Dirigeant (Frédéric Barberousse) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_HOLY_ROMAN_EMPEROR_DESCRIPTION" Language="fr_FR">
-			<Text>Tous les [ICON_GOVERNMENT] gouvernements ont un emplacement de doctrine [COLOR:217,67,67,255]Militaire[ENDCOLOR] supplémentaire.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +7 contre les Cités-états et les Unités Uniques.[NEWLINE][NEWLINE]Hanses : [ICON_PRODUCTION] Production +2 par Campement adjacent.</Text>
+			<Text>Tous les [ICON_GOVERNMENT] gouvernements ont un emplacement de doctrine [COLOR:217,67,67,255]Militaire[ENDCOLOR] supplémentaire.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +7 contre les Cités-états, et les unités uniques.[NEWLINE][NEWLINE]Hanses : [ICON_PRODUCTION] Production +2 par Campement adjacent.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_COMBAT_VS_CITY_STATES_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_Strength] Puissance de combat +7 (Frédéric Barberousse)</Text>
+			<Text>[ICON_Strength] Puissance de combat +7 (Empereur du Saint-Empire).</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_BARBAROSSA_HANSA_ENCAMPMENT_PROD_DESC" Language="fr_FR">
 			<Text>Cases de Campement adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
@@ -746,7 +744,7 @@
 			<Text>Migration des Goths</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MER_GOTHIC_MIGRATION_DESCRIPTION" Language="fr_FR">
-			<Text>Au [COLOR:212,115,212,255]Premier empire[ENDCOLOR], fonder ou conquérir une ville pour la première fois octroie +1 [ICON_CITIZEN] Citoyens dans toutes vos villes dans un rayon de 6 cases avec au moins 2 [ICON_HOUSING] Habitations libres.</Text>
+			<Text>Au [COLOR:212,115,212,255]Premier Empire[ENDCOLOR], fonder ou conquérir une ville pour la première fois octroie +1 [ICON_CITIZEN] Citoyens dans toutes vos villes dans un rayon de 6 cases avec au moins 2 [ICON_HOUSING] Habitations libres.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOTHIC_MIGRATION_POP_GAIN" Language="fr_FR">
             <Text>Des Goths ont rejoint votre ville : +{1: number #,###.#} [ICON_Citizen] Citoyens!</Text>
@@ -763,7 +761,7 @@
 			<Text>Militōnd</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_MER_MILITOND_DESCRIPTION" Language="fr_FR">
-			<Text>Unité de combat rapproché de l'ère classique exclusive à Théodoric le Grand, remplaçant le Spadassin.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +2.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +5 contre les quartiers et les unités dans un quartier. Gagne une [ICON_PROMOTION] promotion gratuite.</Text>
+			<Text>Unité de combat rapproché de l'ère classique exclusive à Théodoric le Grand, remplaçant le Spadassin.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +2.[NEWLINE][ICON_STRENGTH] Puissance de combat +5 contre les quartiers et les unités dans un quartier. Gagne une [ICON_PROMOTION] promotion gratuite.</Text>
 		</Replace>
 		<Replace Tag="LOC_MODIFIER_MER_MILITOND_DISTRICT_DESC" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +5 contre les quartiers et les unités dans un quartier.</Text>
@@ -829,7 +827,7 @@
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_TERRACE_FARM_DESCRIPTION" Language="fr_FR">
-			<Text>Aménagement exclusif aux Incas.[NEWLINE][NEWLINE][ICON_FOOD] Nourriture +1 et [ICON_HOUSING] Habitations +1.[NEWLINE][ICON_FOOD] Nourriture +1 pour chaque case de montagne adjacente.[NEWLINE][ICON_PRODUCTION] Production +2 pour chaque Aqueduc adjacent.[NEWLINE][ICON_PRODUCTION] Production +1 si adjacente à de l'eau douce, mais pas à un Aqueduc.[NEWLINE][ICON_FOOD] Nourriture +1 toutes les 2 cases de culture en terrasses adjacentes (pour chaque culture en terrasses aux [COLOR_FLOAT_SCIENCE]Pièces de rechange[ENDCOLOR]).[NEWLINE][ICON_PRODUCTION] Production +1 si la ville possède un moulin à eau.[NEWLINE][NEWLINE]Ne peut être construite que sur une case de collines de prairie, de plaine et de désert.</Text>
+			<Text>Aménagement exclusif aux Incas.[NEWLINE][NEWLINE][ICON_FOOD] Nourriture +1 et [ICON_HOUSING] Habitations +1.[NEWLINE][ICON_FOOD] Nourriture +1 pour chaque case de montagne adjacente.[NEWLINE][ICON_PRODUCTION] Production +2 pour chaque Aqueduc adjacent.[NEWLINE][ICON_PRODUCTION] Production +1 si adjacente à de l'eau douce, mais pas à un Aqueduc.[NEWLINE][ICON_PRODUCTION] Production +1 si la ville possède un moulin.[NEWLINE][ICON_FOOD] Nourriture +1 toutes les 2 cases de culture en terrasses adjacentes (pour chaque culture en terrasses aux [COLOR_FLOAT_SCIENCE]Pièces de rechange[ENDCOLOR]).[NEWLINE][NEWLINE]Ne peut être construite que sur une case de collines de prairie, de plaine et de désert.</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_MOUNTAIN_ROAD_DESCRIPTION" Language="fr_FR">
@@ -900,7 +898,7 @@
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_KAMPUNG_DESCRIPTION" Language="fr_FR">
-			<Text>Aménagement exclusif à l'Indonésie, débloqué à la [COLOR_FLOAT_SCIENCE]Construction Navale[ENDCOLOR].[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 et [ICON_HOUSING] Habitations +1.[NEWLINE][ICON_FOOD] Nourriture +1 et [ICON_FAITH] Foi +1 pour chaque case de bateau de pêche adjacente.[NEWLINE][ICON_PRODUCTION] Production +1 au Génie Civil.[NEWLINE][NEWLINE]Génère du [ICON_TOURISM] Tourisme par le biais de la [ICON_FOOD] Nourriture à l'Aviation.[NEWLINE][NEWLINE]Doit être placé sur une case de côte ou de lac adjacente à une ressource maritime.</Text>
+			<Text>Aménagement exclusif à l'Indonésie, débloqué à la [COLOR_FLOAT_SCIENCE]Construction Navale[ENDCOLOR].[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 et [ICON_HOUSING] Habitations +1.[NEWLINE][ICON_FOOD] Nourriture +1 et [ICON_FAITH] Foi +1 pour chaque case de bateau de pêche adjacente.[NEWLINE][ICON_PRODUCTION] Production +1 au Génie Civil.[NEWLINE][NEWLINE]Génère du [ICON_TOURISM] Tourisme par le biais de la [ICON_FOOD] Nourriture à l'[COLOR_FLOAT_SCIENCE]Aviation[ENDCOLOR].[NEWLINE][NEWLINE]Doit être placé sur une case de côte ou de lac adjacente à une ressource maritime.</Text>
 		</Replace>
 
 		<!-- == JAPAN - JAPON = -->
@@ -1003,7 +1001,7 @@
 		</Replace>
 		<!-- = Leader (Sejong) - Dirigeant (Sejong) -->
 		<Replace Tag="LOC_TRAIT_LEADER_SEJONG_DESCRIPTION" Language="fr_FR">
-			<Text>Lorsque vous découvrez la première technologie d'une nouvelle ère, vous gagnez de la [ICON_CULTURE] Culture équivalente à 2 fois la [ICON_SCIENCE] Science produite ce tour.[NEWLINE][NEWLINE]Seowons : [ICON_SCIENCE] Science +2 par Place du théâtre adjacente, [ICON_SCIENCE] Science -1 par [ICON_DISTRICT] quartier adjacent.[NEWLINE]Places du théâtre : [ICON_CULTURE] Culture +2 par Seowon adjacente.[NEWLINE][NEWLINE][ICON_CULTURE] Culture +1 et [ICON_TOURISM] Tourisme +2 pour chaque [ICON_DISTRICT] quartier spécialisé dans les villes possédant une Seowon et une Place du théâtre.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +30% pour les Bâtisseurs dans les villes à la [COLOR:212,115,212,255]Féodalité[ENDCOLOR].</Text>
+			<Text>Lorsque vous découvrez la première technologie d'une nouvelle ère, vous gagnez de la [ICON_CULTURE] Culture équivalente à 2 fois la [ICON_SCIENCE] Science produite ce tour.[NEWLINE][NEWLINE]Seowons : [ICON_SCIENCE] Science +2 par Place du théâtre adjacente, [ICON_SCIENCE] Science -1 par [ICON_DISTRICT] quartier adjacent.[NEWLINE]Places du théâtre : [ICON_CULTURE] Culture +2 par Seowon adjacente.[NEWLINE][NEWLINE][ICON_CULTURE] Culture +1 et [ICON_TOURISM] Tourisme +2 pour chaque [ICON_DISTRICT] quartier spécialisé dans les villes possédant une Seowon et une Place du théâtre.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +30% pour les Bâtisseurs à la [COLOR:212,115,212,255]Féodalité[ENDCOLOR].</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_KOREAN_HWACHA_DESCRIPTION" Language="fr_FR">
@@ -1083,11 +1081,11 @@
 			<Text>Capacité des [ICON_TRADEROUTE] routes commerciales +1 aux [COLOR_FLOAT_SCIENCE]Banques[ENDCOLOR].[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +10% pour la construction des Lieux saints et de leurs bâtiments.[NEWLINE]Les Sugubas reçoivent un bonus de proximité majeur des Lieux saints.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_SUGUBA_HOLY_SITE_MANSA" Language="fr_FR">
-			<Text>Cases de Lieu saint adjacente : [ICON_GOLD] Or +{1_num}.</Text>
+			<Text>Cases de Lieu saint adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 		<!-- = Leader (Soundiata) - Dirigeant (Soundiata) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SUNDIATA_KEITA_DESCRIPTION" Language="fr_FR">
-			<Text>Coût en [ICON_GOLD] Or -30% pour le recrutement de [ICON_GREATPERSON] Personnages illustres.[NEWLINE]Points [ICON_GREATWRITER] d'Écrivain illustre +1 par tour dans les villes possédant une Suguba et une Place du théâtre.[NEWLINE][NEWLINE]Les marchés ont 2 emplacements de chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires (uniquement pour les villes fondées par Soundiata).[NEWLINE][ICON_GOLD] Or +4 et [ICON_CULTURE] Culture +2 pour les chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires.[NEWLINE][NEWLINE]Bonus de proximité majeur pour les Sugubas adjacentes à une Place du théâtre.</Text>
+			<Text>Coût en [ICON_GOLD] Or -30% pour le recrutement de [ICON_GREATPERSON] Personnages illustres.[NEWLINE]Points [ICON_GREATWRITER] d'Écrivain illustre +1 par tour dans les villes possédant une Suguba et une Place du théâtre.[NEWLINE][NEWLINE]Les marchés ont 2 emplacements de chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires (uniquement pour les villes fondées par Soundiata).[NEWLINE][ICON_GOLD] Or +4 et [ICON_CULTURE] Culture +2 pour les chefs-d'œuvre [ICON_GREATWORK_WRITING] littéraires.[NEWLINE][NEWLINE]Les Sugubas reçoivent un bonus de proximité majeur des Places du théâtre.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_SUGUBA_THEATER_SUNDIATA" Language="fr_FR">
 			<Text>Cases de Place du théâtre adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
@@ -1245,7 +1243,7 @@
 		</Replace>
 		<!-- = Leader (Konge) - Dirigeant (Konge) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +25% pour la formation d'unités navales de combat rapproché, qui peuvent attaquer les côtes.[NEWLINE]Le pillage et l'assaut côtier des cases de mine octroient de la [ICON_SCIENCE] Science, en plus de [ICON_GOLD] l'Or. Le pillage et l'assaut côtier des cases carrière, pâturage, plantation et camp octroient de la [ICON_CULTURE] Culture, en plus de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités navales de combat rapproché.[NEWLINE]Les Berserkers et les Langskips peuvent traverser les cases d'océan à la [COLOR_FLOAT_SCIENCE]Construction Navale[ENDCOLOR].</Text>
+			<Text>[ICON_PRODUCTION] Production +25% pour la formation d'unités navales de combat rapproché, qui peuvent attaquer les côtes.[NEWLINE]Le pillage et l'assaut côtier des cases de mine octroient de la [ICON_SCIENCE] Science, en plus de [ICON_GOLD] l'Or. Le pillage et l'assaut côtier des cases carrière, pâturage, plantation et camp octroient de la [ICON_CULTURE] Culture, en plus de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités navales de combat rapproché.[NEWLINE]Les Langskips et les Berserkers peuvent traverser les cases d'océan à la [COLOR_FLOAT_SCIENCE]Construction Navale[ENDCOLOR].</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY_NAME" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +3 (Konge)</Text>
@@ -1350,7 +1348,7 @@
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = -->
 		<Replace Tag="LOC_BUILDING_GRAND_BAZAAR_DESCRIPTION" Language="fr_FR">
-			<Text>Bâtiment exclusif aux Ottomans, remplaçant la banque et disponible sur [COLOR:212,115,212,255]Guildes[ENDCOLOR].[NEWLINE][NEWLINE][ICON_AMENITIES] Activités +1 pour chaque case de ressource de luxe aménagée dans cette ville.[NEWLINE][ICON_GOLD] Or +2 pour les [ICON_TRADEROUTE] routes commerciales à l'origine de cette ville.[NEWLINE][ICON_GOLD] Or +1 pour les [ICON_TRADEROUTE] routes commerciales à destination de cette ville.[NEWLINE][NEWLINE]Permet de créer une [ICON_TRADEROUTE] route commerciale supplémentaire.[NEWLINE][NEWLINE]Accumulez une ressource stratégique supplémentaire pour chaque type de ressource stratégique aménagée dans cette ville.</Text>
+			<Text>Bâtiment exclusif aux Ottomans, remplaçant la banque.[NEWLINE][NEWLINE][ICON_AMENITIES] Activités +1 pour chaque case de ressource de luxe aménagée dans cette ville.[NEWLINE][ICON_GOLD] Or +2 pour les [ICON_TRADEROUTE] routes commerciales à l'origine de cette ville.[NEWLINE][ICON_GOLD] Or +1 pour les [ICON_TRADEROUTE] routes commerciales à destination de cette ville.[NEWLINE][NEWLINE]Permet de créer une [ICON_TRADEROUTE] route commerciale supplémentaire.[NEWLINE][NEWLINE]Accumulez une ressource stratégique supplémentaire pour chaque type de ressource stratégique aménagée dans cette ville.</Text>
 		</Replace>
 
 		<!-- == PERSIA - PERSE == -->
@@ -1367,7 +1365,7 @@
 		</Replace>
 		<!-- = Leader (Nader Shah) - Dirigeant (Nader Shah) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_NADER_SHAH_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_SCIENCE] Science +1 pour vos [ICON_TRADEROUTE] routes commerciales intérieures (passe à +3 à [COLOR_FLOAT_SCIENCE]Éducation[ENDCOLOR] et à +5 à [COLOR_FLOAT_SCIENCE]Théorie Scientifique[ENDCOLOR]).[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +5 en attaque contre les unités non blessées et les quartiers défendables.</Text>
+			<Text>[ICON_SCIENCE] Science +1 pour vos [ICON_TRADEROUTE] routes commerciales intérieures (passe à +3 à l'[COLOR_FLOAT_SCIENCE]Éducation[ENDCOLOR] et à +5 à la [COLOR_FLOAT_SCIENCE]Théorie Scientifique[ENDCOLOR]).[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +5 en attaque contre les unités non blessées et les quartiers défendables.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_NADER_SHAH_COMBAT_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +5 (Épée de Perse)</Text>
@@ -1422,7 +1420,7 @@
 		<!-- == POLAND - POLOGNE == -->
 		<!-- = Civilization - Civilisation = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GOLDEN_LIBERTY_DESCRIPTION" Language="fr_FR">
-			<Text>Un emplacement de doctrine [COLOR:217,67,67,255]Militaire[ENDCOLOR] est converti en emplacement de doctrine [COLOR:149,0,232,255]Joker[ENDCOLOR] au [COLOR:212,115,212,255]Premier Empire[ENDCOLOR].[NEWLINE][NEWLINE]Les Campements et les Forts provoquent une bombe culturelle.</Text>
+			<Text>Au [COLOR:212,115,212,255]Premier Empire[ENDCOLOR], un emplacement de doctrine [COLOR:217,67,67,255]Militaire[ENDCOLOR] est converti en emplacement de doctrine [COLOR:149,0,232,255]Joker[ENDCOLOR].[NEWLINE][NEWLINE]Les Campements et les Forts provoquent une bombe culturelle.</Text>
 		</Replace>
 		<!-- = Leader (Jadwiga) - Dirigeant (Hedwige Ière) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LITHUANIAN_UNION_DESCRIPTION" Language="fr_FR">
@@ -1444,7 +1442,7 @@
 			<Text>Uhlan</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_JFD_UHLAN_DESCRIPTION" Language="fr_FR">
-			<Text>Unité de cavalerie légère de la Renaissance exclusive à Stanislas II, remplaçant la Cavalerie.[NEWLINE][NEWLINE]Bonus de contournement augmenté de 50%.</Text>
+			<Text>Unité de cavalerie légère de la Renaissance exclusive à Stanislas II, remplaçant la Cavalerie.[NEWLINE][NEWLINE]Bonus de contournement +50%.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_JFD_UHLAN_FLANKING_BONUS_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +{1_Amount} en contournement.</Text>
@@ -1487,7 +1485,7 @@
 		</Replace>
 		<!-- = Leader (Julius Caesar) - Dirigeant (Jules César) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="fr_FR">
-			<Text>Pour les unités militaires de combat rapproché, de combat à distance, de siège et de cavalerie lourde : Expérience +50% (passe à +100% à l'ère médiévale). [NEWLINE][NEWLINE]Fonder une ville octroie l'unité de combat rapproché la plus puissante que vous pouvez former. Vous recevez un Guerrier sur votre [ICON_CAPITAL] Capitale au [COLOR:212,115,212,255]Code Juridique[ENDCOLOR].[NEWLINE][NEWLINE]Si vous parvenez à conquérir une ville fondée par un autre joueur, et tant que vous en contrôlez au moins une, vous obtenez un emplacement de doctrine [COLOR:149,0,232,255]Joker[ENDCOLOR] supplémentaire.[NEWLINE][ICON_STRENGTH] Puissance de combat +5 et Expérience reçue complète contre les [ICON_BARBARIAN] barbares.</Text>
+			<Text>Pour les unités militaires de combat rapproché, de combat à distance, de siège et de cavalerie lourde : Expérience +50% (passe à +100% à l'ère médiévale).[NEWLINE][NEWLINE]Fonder une ville octroie l'unité de combat rapproché la plus puissante que vous pouvez former. Vous recevez un Guerrier sur votre [ICON_CAPITAL] Capitale au [COLOR:212,115,212,255]Code Juridique[ENDCOLOR].[NEWLINE][NEWLINE]Si vous parvenez à conquérir une ville fondée par un autre joueur, et tant que vous en contrôlez au moins une, vous obtenez un emplacement de doctrine [COLOR:149,0,232,255]Joker[ENDCOLOR] supplémentaire.[NEWLINE][ICON_STRENGTH] Puissance de combat +5 et Expérience reçue complète contre les [ICON_BARBARIAN] barbares.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_XP_BONUS_BASE_MODIFIER_NAME" Language="fr_FR">
 			<Text>Expérience de combat +50% (Veni, Vidi, Vici)</Text>
@@ -1520,7 +1518,7 @@
 		</Replace>
 		<!-- = Unique district - Quartier unique = -->
 		<Replace Tag="LOC_DISTRICT_BATH_EXPANSION2_ALT_DESCRIPTION" Language="fr_FR">
-			<Text>Quartier exclusif à Rome, remplaçant l'Aqueduc.[NEWLINE][NEWLINE]En plus des bonus de l'Aqueduc, [ICON_HOUSING] Habitations +2.[NEWLINE][ICON_CULTURE] Culture +1 pour chaque quartiers adjacents.</Text>
+			<Text>Quartier exclusif à Rome, remplaçant l'Aqueduc.[NEWLINE][NEWLINE]En plus des bonus de l'Aqueduc, [ICON_HOUSING] Habitations +2.[NEWLINE][ICON_CULTURE] Culture +1 pour chaque quartier adjacent.</Text>
 		</Replace>
 
 		<!-- == RUSSIA - RUSSIE == -->
@@ -1569,7 +1567,7 @@
 		</Replace>
 		<!-- = Leader - Dirigeant = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KILLER_OF_CYRUS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 pour toutes les unités qui attaquent des unités blessées (passe à +5 à l'entrée en ère médiévale). Si elles vainquent une unité, elles régénèrent jusqu'à 30 PV.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat en attaque +3 contre les unités blessées (passe à +5 à l'entrée en ère médiévale). Vaincre une unité restaure 30 PV.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_TOMYRIS_BONUS_VS_WOUNDED_UNITS_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +3 (Tomyris)</Text>
@@ -1706,7 +1704,7 @@
 		<!-- == SWEDEN - SUÈDE == -->
 		<!-- = Civilization - Civilisation = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +50% pour la construction des ateliers, usines, bibliothèques, des universités et des bâtiments de la Place de gouvernance.[NEWLINE][NEWLINE]Les bâtiments de la Zone industrielle génère 1 point [ICON_GREATENGINEER] d'Ingénieur illustre supplémentaire et ceux du Campus 1 point de [ICON_GREATSCIENTIST] Savant illustre supplémentaire.[NEWLINE][ICON_FAVOR] Faveurs diplomatiques +10 pour chaque [ICON_GREATPERSON] Personnage illustre recruté (vitesse en ligne).[NEWLINE][NEWLINE]La présence de la Suède dans une partie ajoute trois compétitions exclusives au Congrès mondial à partir de la Renaissance.[NEWLINE][NEWLINE]Bias : Spécial : "King in the north".</Text>
+			<Text>[ICON_PRODUCTION] Production +50% pour la construction des ateliers, usines, bibliothèques, des universités et des bâtiments de la Place de gouvernance.[NEWLINE][NEWLINE]Les bâtiments de la Zone industrielle et du Campus génèrent respectivement 1 point [ICON_GREATENGINEER] d'Ingénieur illustre supplémentaire et 1 point de [ICON_GREATSCIENTIST] Savant illustre supplémentaire.[NEWLINE][ICON_FAVOR] Faveurs diplomatiques +10 pour chaque [ICON_GREATPERSON] Personnage illustre recruté (vitesse en ligne).[NEWLINE][NEWLINE]La présence de la Suède dans une partie ajoute trois compétitions exclusives au Congrès mondial à partir de la Renaissance.[NEWLINE][NEWLINE]Bias : Spécial : "King in the north".</Text>
 		</Replace>
 		<!-- = Leader - Dirigeant = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KRISTINA_AUTO_THEME_DESCRIPTION" Language="fr_FR">
@@ -1747,18 +1745,18 @@
 		<Replace Tag="LOC_UNIT_CVS_TAINO_UU_DESCRIPTION" Language="fr_FR">
 			<Text>Unité unique de reconnaissance de l'ère antique exclusive aux Taïnos, remplaçant le Guerrier.[NEWLINE][NEWLINE][ICON_MOVEMENT] PM +1 et Vision +1.[NEWLINE][ICON_STRENGTH] Puissance de base -5. [ICON_STRENGTH] Puissance de combat +5 contre les unités militaires plus puissantes.[NEWLINE][NEWLINE]Garde ses [ICON_PROMOTION] promotions de reconnaissance à l'amélioration.[NEWLINE][NEWLINE]Tuer une unité rapporte 50% de sa [ICON_STRENGTH] Puissance de combat de base en [ICON_FAITH] Foi (vitesse en ligne).</Text>
 		</Replace>
-		<Replace Tag="BBG_CVS_TAINO_UU_AGAINST_STRONGER_UNITS" Language="fr_FR">
-			<Text>+5 [ICON_STRENGTH] Puissance de combat (Macana).</Text>
-		</Replace>
 		<Replace Tag="LOC_ABILITY_CVS_TAINO_UU_DESCRIPTION" Language="fr_FR">
 			<Text>Tuer une unité rapporte 50% de sa [ICON_STRENGTH] Puissance de combat de base en [ICON_FAITH] Foi (vitesse en ligne).</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_CVS_TAINO_UU_AGAINST_STRONGER_UNITS_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Macana).</Text>
 		</Replace>
 		<!-- = Unique district - Quartier unique = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_DISTRICT_CVS_TAINO_UI_NAME" Language="fr_FR">
 			<Text>Batey</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_CVS_TAINO_UI_DESCRIPTION" Language="fr_FR">
-			<Text>Quartier exclusif aux Taïnos, remplaçant le Complexe de loisirs.[NEWLINE][NEWLINE]En plus des bonus du Complexe de loisirs, [ICON_PRODUCTION] Production +2 et [ICON_GOLD] Or +3 par Plateforme commerciale, et [ICON_PRODUCTION] Production +4 et [ICON_GOLD] Or +6 par  Port adjacents.[NEWLINE][NEWLINE]L'arena possède 2 emplacements de chefs-d'œuvre littéraire.[NEWLINE][NEWLINE]Permet de lancer un projet unique, qui fournit 30% de la Production en [ICON_FAITH] Foi chaque tour, et octroie des points [ICON_GREATWRITER] d'Écrivain illustre, [ICON_GREATARTIST] d'Artiste illustre et de [ICON_GREATMUSICIAN] Musicien illustre à sa complétion. Génère 20% de points [ICON_GreatWriter] d'écrivain illustre supplémenaires qu'un projet à la place de théâtre.</Text>
+			<Text>Quartier exclusif aux Taïnos, remplaçant le Complexe de loisirs.[NEWLINE][NEWLINE]En plus des bonus du Complexe de loisirs, [ICON_PRODUCTION] Production +2 et [ICON_GOLD] Or +3 pour chaque Plateforme commerciale adjacente, ainsi que [ICON_PRODUCTION] Production +4 et [ICON_GOLD] Or +6 pour chaque Port adjacent.[NEWLINE][NEWLINE]L'arena possède 2 emplacements de chefs-d'œuvre littéraires.[NEWLINE][NEWLINE]Permet de lancer un projet unique, qui fournit 30% de la Production en [ICON_FAITH] Foi chaque tour, et octroie des points [ICON_GREATWRITER] d'Écrivain illustre, [ICON_GREATARTIST] d'Artiste illustre et de [ICON_GREATMUSICIAN] Musicien illustre à sa complétion. Génère 20% de points [ICON_GreatWriter] d'Écrivain illustre supplémentaires qu'un projet à la Place de théâtre.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PRODUCTION_TAINO_COMMERCIAL_HUB" Language="fr_FR">
 			<Text>Plateformes commerciales adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
@@ -1785,11 +1783,11 @@
 			<Text>Areyto</Text>
 		</Replace>
 		<Replace Tag="LOC_PROJECT_CVS_TAINO_UP_DESCRIPTION" Language="fr_FR">
-			<Text>Projet unique aux Taïnos, disponible dans le Batey. Fournit 30% de la Production en [ICON_FAITH] Foi chaque tour, et octroie des points [ICON_GREATWRITER] d'Écrivain illustre, [ICON_GREATARTIST] d'Artiste illustre et de [ICON_GREATMUSICIAN] Musicien illustre à sa complétion. 20% de points [ICON_GreatWriter] d'écrivain illustre supplémentaires qu'un projet à la Place de Théâtre.</Text>
+			<Text>Projet unique aux Taïnos, disponible dans le Batey. Fournit 30% de la Production en [ICON_FAITH] Foi chaque tour, et octroie des points [ICON_GREATWRITER] d'Écrivain illustre, [ICON_GREATARTIST] d'Artiste illustre et de [ICON_GREATMUSICIAN] Musicien illustre à sa complétion. Génère 20% de points [ICON_GreatWriter] d'Écrivain illustre supplémentaires qu'un projet à la Place de théâtre.</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_CVS_ANACAONA_UI_DESCRIPTION" Language="fr_FR">
-			<Text>Aménagement exclusif aux Taïnos.[NEWLINE][NEWLINE][ICON_CULTURE] Culture +1.[NEWLINE][ICON_CULTURE] Culture +1 aux [COLOR:212,115,212,255]Foires Médiévales[ENDCOLOR].[NEWLINE][ICON_CULTURE] Culture +1 à l'[COLOR:212,115,212,255]Histoire Naturelle[ENDCOLOR].[NEWLINE][ICON_GOLD] Or +2 par ressource bonus ou de luxe adjacente au [ICON_CULTURE]Mercantilisme[ENDCOLOR].[NEWLINE]Si adjacent à une case de ressource de luxe ou bonus :[NEWLINE] • Plaine : [ICON_FOOD] Nourriture +1 et [ICON_PRODUCTION] Production +1.[NEWLINE] • Pairie : [ICON_FOOD] Nourriture +2.[NEWLINE] • Toundra : [ICON_FOOD] Nourriture +1.[NEWLINE][NEWLINE]Doit être placé sur une case de plaine, de pairie ou de toundra, adjacente à une ressource bonus ou de luxe. Ne peut pas être aménagé adjacent à un autre Conuco.</Text>
+			<Text>Aménagement exclusif aux Taïnos.[NEWLINE][NEWLINE][ICON_CULTURE] Culture +1.[NEWLINE][ICON_CULTURE] Culture +1 aux [COLOR:212,115,212,255]Foires Médiévales[ENDCOLOR].[NEWLINE][ICON_CULTURE] Culture +1 à l'[COLOR:212,115,212,255]Histoire Naturelle[ENDCOLOR].[NEWLINE][ICON_GOLD] Or +2 pour chaque ressource bonus ou de luxe adjacente au [COLOR:212,115,212,255]Mercantilisme[ENDCOLOR].[NEWLINE][NEWLINE]Si adjacent à une case de ressource de luxe ou bonus :[NEWLINE] • Plaine : [ICON_FOOD] Nourriture +1 et [ICON_PRODUCTION] Production +1.[NEWLINE] • Pairie : [ICON_FOOD] Nourriture +2.[NEWLINE] • Toundra : [ICON_FOOD] Nourriture +1.[NEWLINE][NEWLINE]Doit être placé sur une case de plaine, de pairie ou de toundra, adjacente à une ressource bonus ou de luxe. Ne peut pas être aménagé adjacent à un autre Conuco.</Text>
 		</Replace>
 
 		<!-- = TEOTIHUACAN = --> <!-- BBG expanded -->
@@ -1805,7 +1803,7 @@
 			<Text>Seigneur de l'Ouest</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="fr_FR">
-			<Text>Capacité de [ICON_TRADEROUTE] routes commerciales +1 pour l'Enclave De Pochtecatl et la chancellerie.[NEWLINE][ICON_PRODUCTION] Production +100% pour les bâtiments de l'Enclave De Pochtecatl.[NEWLINE]Peut recruter Fire Is Born, un [ICON_GOVERNOR] Gouverneur unique.</Text>
+			<Text>Capacité de [ICON_TRADEROUTE] routes commerciales +1 pour l'Enclave de pochtecatl et la chancellerie.[NEWLINE][ICON_PRODUCTION] Production +100% pour les bâtiments de l'Enclave De Pochtecatl.[NEWLINE][NEWLINE]Peut recruter Fire Is Born, un [ICON_GOVERNOR] Gouverneur unique.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="fr_FR">
@@ -1934,8 +1932,8 @@
 		</Replace>
 
 
-		<!-- === UNITS - UNITÉS === -->
 
+		<!-- === UNITS - UNITÉS === -->
 
 		<!-- == LAND MELEE - TERRESTRE COMBAT RAPPROCHÉ == -->
 		<Replace Tag="LOC_UNIT_WARRIOR_DESCRIPTION" Language="fr_FR">
@@ -1993,18 +1991,21 @@
 		<Replace Tag="LOC_UNIT_MACHINE_GUN_DESCRIPTION" Language="fr_FR">
 			<Text>Unité d'attaque à distance de l'ère moderne.</Text>
 		</Replace>
-
-		<!-- == CAVALRY  == -->
+		
+		<!-- == CAVALRY - CAVALERIE == -->
 		<Replace Tag="LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_DESC" Language="fr_FR">
 			<Text>Puissance de combat [ICON_STRENGTH] augmenté pour compenser le retranchement lors de l'attaque d'unités de cavalerie retranchées.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_CHARGE_VS_FORTIFIED_CAVALRY_PREVIEW" Language="fr_FR">
-			<Text>Puissance de combat [ICON_STRENGTH] +4 lors de l'attaque d'unités de cavalerie retranchées.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat en attaque +4 contre les unités de cavalerie retranchées.</Text>
 		</Replace>
 
 		<!-- == LIGHT CAVALRY - CAVALERIE LÉGÈRE == -->
-		 <Replace Tag="LOC_ABILITY_TOMYRIS_HEAL_AFTER_DEFEATING_UNIT_DESCRIPTION" Language="fr_FR">
-			<Text>10 [ICON_Damaged] PV rendu lors de la victoire sur une unité ennemie. (Cavalerie légère)</Text>
+		<Replace Tag="LOC_BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL_NAME" Language="fr_FR">
+			<Text>Vaincre une unité restaure 10 PV.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL_DESC" Language="fr_FR">
+			<Text>Vaincre une unité restaure 10 PV.</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_HORSEMAN_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de cavalerie légère de l'ère classique.</Text>
@@ -2021,7 +2022,7 @@
 
 		<!-- == HEAVY CAVALRY - CAVALERIE LOURDE == -->
 		<Replace Tag="LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_DESC" Language="fr_FR">
-			<Text>Puissance de combat [ICON_STRENGTH] +5 contre les unités de combat rapproché.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +5 contre les unités de combat rapproché.</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_HEAVY_CHARIOT_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de cavalerie lourde de l'ère classique. [ICON_MOVEMENT] PM +1 si elle commence son tour sur une case sans caractéristique de terrain.</Text>
@@ -2036,7 +2037,7 @@
 			<Text>Unité de cavalerie lourde de l'ère moderne. [ICON_MOVEMENT] PM +1 si elle commence son tour sur une case sans caractéristique de terrain.</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_MODERN_ARMOR_DESCRIPTION" Language="fr_FR">
-			<Text>Unité de cavalerie lourde de l'ère de l'information.[ICON_MOVEMENT] PM +1 si elle commence son tour sur une case sans caractéristique de terrain.</Text>
+			<Text>Unité de cavalerie lourde de l'ère de l'information. [ICON_MOVEMENT] PM +1 si elle commence son tour sur une case sans caractéristique de terrain.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_STRENGTH_DEFENDING_FRIENDLY_NAME" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat défensive +5 quand elle se trouve dans son territoire.</Text>
@@ -2185,20 +2186,20 @@
 		<Replace Tag="LOC_UNIT_BATTERING_RAM_EXPANSION2_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de soutien de l'ère antique. Si adjacente à une ville, les unités de combat rapproché et anti-cavalerie peuvent endommager ses remparts. N'affecte pas les villes dotées de remparts médiévaux ou de la Renaissance. Inefficace contre les défenses urbaines.</Text>
 		</Replace>
+		<Replace Tag="LOC_BBG_RAM_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="fr_FR">
+			<Text>[ICON_MOVEMENT] PM +1 pour les unités des ère antique et classique de combat rapproché, d'anti-cavalerie et de combat à distance qui commencent leur tour dans un rayon d'une case.</Text>
+		</Replace>
 		<Replace Tag="LOC_UNIT_SIEGE_TOWER_EXPANSION2_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de soutien de l'ère médiévale. Si adjacente à une ville, les unités de combat rapproché et anti-cavalerie peuvent ignorer ses remparts. N'affecte pas les villes dotées de remparts de la Renaissance. Inefficace contre les défenses urbaines.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_SIEGE_TOWER_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="fr_FR">
+			<Text>[ICON_MOVEMENT] PM +1 pour les unités des ères médiévale ou antérieures de combat rapproché, d'anti-cavalerie et de combat à distance qui commencent leur tour dans un rayon d'une case.</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_MEDIC_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de soutien de l'ère industrielle. Augmente le soin des unités adjacentes par 20. [ICON_MOVEMENT] PM +1 pour les unités de combat rapproché, anti-cavalerie et combat à distance qui commencent leur tour adjacentes au médecin.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="fr_FR">
 			<Text>[ICON_MOVEMENT] PM +1 pour les unités de combat rapproché, anti-cavalerie et combat à distance du joueur qui commencent leur tour dans un rayon d'une case.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_RAM_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="fr_FR">
-			<Text>[ICON_MOVEMENT] PM +1 pour les unités classique ou antérieures de combat rapproché, anti-cavalerie et combat à distance du joueur qui commencent leur tour dans un rayon d'une case.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_SIEGE_TOWER_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="fr_FR">
-			<Text>[ICON_MOVEMENT] PM +1 pour les unités médiévales ou antérieures de combat rapproché, anti-cavalerie et combat à distance du joueur qui commencent leur tour dans un rayon d'une case.</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_SUPPLY_CONVOY_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de soutien de l'ère moderne. Augmente le soin des unités adjacentes par 20. [ICON_MOVEMENT] PM +1 pour les unités qui commencent leur tour adjacentes au convoi de ravitaillement.</Text>
@@ -2717,6 +2718,16 @@
 		<Replace Tag="LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_DESC" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat -5 contre les quartiers défendables.</Text>
 		</Replace>
+		<!-- -->
+		<Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_DESC" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat -4 jusqu'à la [COLOR:212,115,212,255]Philosophie Politique[ENDCOLOR].</Text>
+		</Replace>
+		<Replace Tag="LOC_CIVIC_POLITICAL_PHILOSOPHY_DESCRIPTION" Language="fr_FR">
+			<Text>Les unités de combat rapproché terrestres et navales et d'anti-cavalerie ne subissent plus le malus de [ICON_STRENGTH] Puissance de combat.</Text>
+		</Replace>
+		<Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_NAME" Language="fr_FR">
+			<Text>Manque de philosophie</Text>
+		</Replace>
 
 
 
@@ -2816,7 +2827,7 @@
 			<Text>Agriculture</Text>
 		</Replace>
 		<Replace Tag='LOC_GOVERNOR_PROMOTION_AGRICULTURE_DESCRIPTION' Language="fr_FR"> <!-- R1 -->
-			<Text>[ICON_FOOD] Nourriture +1 sur toutes les ressources travaillées ou sous un Centre-ville dans la ville.</Text>
+			<Text>[ICON_FOOD] Nourriture +1 pour les cases de ressource travaillées ou sous le Centre-ville.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_PARKS_RECREATION_DESCRIPTION" Language="fr_FR"> <!-- L2 -->
 			<Text>Peut construire un parc urbain sur un terrain plat de cette ville aux [COLOR:212,115,212,255]Loisirs[ENDCOLOR]. [ICON_SCIENCE] Science +3, [ICON_CULTURE] Culture +2, [ICON_HOUSING] Habitations +2 et [ICON_AMENITIES] Activités +1. Attrait +2 pour les cases adjacentes. Un par ville.</Text>
@@ -2825,7 +2836,7 @@
 			<Text>Aménagement unique à [ICON_GOVERNOR] Liang. [ICON_SCIENCE] Science +3, [ICON_CULTURE] Culture +2, [ICON_HOUSING] Habitations +2 et [ICON_AMENITIES] Activités +1. Attrait +2 pour les cases adjacentes.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_ZONING_COMMISSIONER_DESCRIPTION" Language="fr_FR"> <!-- R2 -->
-			<Text>[ICON_PRODUCTION] Production +1 sur toutes les ressources travaillées ou sous un Centre-ville dans la ville.</Text>
+			<Text>[ICON_PRODUCTION] Production +1 pour les cases de ressource travaillées ou sous le Centre-ville.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVERNOR_PROMOTION_WATER_WORKS_NAME" Language="fr_FR"> <!-- M3 -->
 			<Text>Boom démographique</Text>
@@ -3264,7 +3275,25 @@
 
 		<!-- == NEIGHBORHOOD - QUARTIER RÉSIDENTIEL == -->
 		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_FOOD] Nourriture +2.[NEWLINE]Bonus de proximité +1 pour les quartiers adjacents.[NEWLINE]Fournit de [ICON_HOUSING] l'Habitation en fonction de l'attrait de la case :[NEWLINE]Époustouflant : [ICON_HOUSING] Habitations +6.[NEWLINE]Charmant : [ICON_HOUSING] Habitations +5.[NEWLINE]Moyen : [ICON_HOUSING] Habitations +4.[NEWLINE]Peu accueillant : [ICON_HOUSING] Habitations +3.[NEWLINE]Repoussant : [ICON_HOUSING] Habitations +2.</Text>
+			<Text>[ICON_FOOD] Nourriture +2.[NEWLINE][NEWLINE]Bonus de proximité standard pour les [ICON_DISTRICT] quartiers adjacents.[NEWLINE][NEWLINE]Fournit de [ICON_HOUSING] l'Habitation en fonction de l'attrait de la case :[NEWLINE]Époustouflant : [ICON_HOUSING] Habitations +6.[NEWLINE]Charmant : [ICON_HOUSING] Habitations +5.[NEWLINE]Moyen : [ICON_HOUSING] Habitations +4.[NEWLINE]Peu accueillant : [ICON_HOUSING] Habitations +3.[NEWLINE]Repoussant : [ICON_HOUSING] Habitations +2.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_FOOD" Language="fr_FR">
+			<Text>Cases de Quartier résidentiel adjacentes : [ICON_FOOD] Nourriture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_PRODUCTION" Language="fr_FR">
+			<Text>Cases de Quartier résidentiel adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_GOLD" Language="fr_FR">
+			<Text>Cases de Quartier résidentiel adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_SCIENCE" Language="fr_FR">
+			<Text>Cases de Quartier résidentiel adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_CULTURE" Language="fr_FR">
+			<Text>Cases de Quartier résidentiel adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_FAITH" Language="fr_FR">
+			<Text>Cases de Quartier résidentiel adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
 		</Replace>
 
 		<!-- == INDUSTRIAL ZONE - ZONE INDUSTRIELLE == -->
@@ -3312,10 +3341,6 @@
 		<Replace Tag="LOC_DISTRICT_DESERT_HILLS_FOOD" Language="fr_FR">
 			<Text>Cases de colline désertique adjacentes : [ICON_FOOD] Nourriture +{1_num}.</Text>
 		</Replace>
-		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_FOOD" Language="fr_FR">
-			<Text>Quartier résidentiel adjacent : [ICON_FOOD] Nourriture +{1_num}.</Text>
-		</Replace>
-
 
 		<!-- == PRODUCTION - PRODUCTION == -->
 		<Replace Tag="LOC_DISTRICT_MINE_PRODUCTION" Language="fr_FR">
@@ -3366,9 +3391,6 @@
 		<Replace Tag="LOC_DISTRICT_RIVER_PRODUCTION" Language="fr_FR">
 			<Text>Rivières adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
 		</Replace>
-		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_PRODUCTION" Language="fr_FR">
-			<Text>Quartier résidentiel adjacent : [ICON_PRODUCTION] Production +{1_num}.</Text>
-		</Replace>
 
 		<!-- == GOLD - OR == -->
 		<Replace Tag="LOC_DISTRICT_CITY_CENTER_GOLD" Language="fr_FR">
@@ -3409,9 +3431,6 @@
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_GOVERNMENT_GOLD" Language="fr_FR">
 			<Text>Cases de Place de la gouvernance adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
-		</Replace>
-		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_GOLD" Language="fr_FR">
-			<Text>Quartier résidentiel adjacent : [ICON_GOLD] Or +{1_num}.</Text>
 		</Replace>
 
 		<!-- == SCIENCE - SCIENCE == -->
@@ -3466,9 +3485,6 @@
 		<Replace Tag="LOC_DISTRICT_RIVER_SCIENCE" Language="fr_FR">
 		    <Text>Rivières adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
 		</Replace>
-		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_SCIENCE" Language="fr_FR">
-			<Text>Quartier résidentiel adjacent : [ICON_SCIENCE] Science +{1_num}.</Text>
-		</Replace>
 
 		<!-- == CULTURE - CULTURE == -->
 		<Replace Tag="LOC_DISTRICT_WONDER_CULTURE" Language="fr_FR">
@@ -3497,9 +3513,6 @@
 		</Replace>
 		<Replace Tag="LOC_BUILDING_MACHU_PICCHU_CULTURE" Language="fr_FR">
 		    <Text>Cases de montagne adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
-		</Replace>
-		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_CULTURE" Language="fr_FR">
-			<Text>Quartier résidentiel adjacent : [ICON_CULTURE] Culture +{1_num}.</Text>
 		</Replace>
 
 		<!-- == FAITH - FOI == -->
@@ -3554,12 +3567,10 @@
 		<Replace Tag="LOC_DISTRICT_DESERT_HILLS_FAITH" Language="fr_FR">
 			<Text>Cases de colline désertique adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
 		</Replace>
-		<Replace Tag="LOC_DISTRICT_NEIGHBORHOOD_FAITH" Language="fr_FR">
-			<Text>Quartier résidentiel adjacent : [ICON_FAITH] Foi +{1_num}.</Text>
-		</Replace>
 		<Replace Tag="LOC_BBG_STEPWELL_DISTRICT_FAITH" Language="fr_FR">
 			<Text>Cases de Puits à degrés adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
 		</Replace>
+
 
 
 		<!-- === BUILDINGS - BÂTIMENTS === -->
@@ -3627,10 +3638,10 @@
 			<Text>Expérience au combat +25% pour toutes les unités navales formées dans cette ville. [ICON_FOOD] Nourriture +1 pour toutes les cases côtières de la ville. [ICON_HOUSING] Habitations +2 si la ville est adjacente à la côte. Capacité de [ICON_TRADEROUTE] routes commerciales +1 si la ville ne possède pas encore de marché.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_SHIPYARD_EXPANSION2_DESCRIPTION" Language="fr_FR">
-      		<Text>Expérience au combat +25% pour toutes les unités navales formées dans cette ville. Bonus de [ICON_PRODUCTION] Production équivalent au bonus de proximité du Port. [ICON_PRODUCTION] Production +2 pour toutes les cases côtières ou lacustres non aménagées de la ville et [ICON_PRODUCTION] Production +1 pour les cases d'aquaculture.[NEWLINE][ICON_RESOURCE_COAL] Charbon +1 par tour.</Text>
+      		<Text>Expérience au combat +25% pour toutes les unités navales formées dans cette ville. Bonus de [ICON_PRODUCTION] Production équivalent au bonus de proximité du Port. [ICON_PRODUCTION] Production +2 pour les cases côtières ou lacustres non aménagées et [ICON_PRODUCTION] Production +1 pour les cases côtières ou lacustres aménagées.[NEWLINE][ICON_RESOURCE_COAL] Charbon +1 par tour.</Text>
     	</Replace>
 		<Replace Tag="LOC_BUILDING_SEAPORT_DESCRIPTION" Language="fr_FR">
-			<Text>Expérience au combat +25% pour toutes les unités navales formées dans cette ville. Permet la formation immédiate de [ICON_CORPS] Flottes et [ICON_ARMY] d'Armadas. Coûts d'entraînement des [ICON_CORPS] Flottes et des [ICON_ARMY] Armadas -25%. [ICON_GOLD] Or +2 pour toutes les cases côtières de la ville.[NEWLINE][ICON_RESOURCE_COAL] Charbon +1 par tour et [ICON_RESOURCE_OIL] Pétrole +1 par tour.</Text>
+			<Text>Expérience au combat +25% pour toutes les unités navales formées dans cette ville. Permet la formation immédiate de [ICON_CORPS] Flottes et [ICON_ARMY] d'Armadas. Coûts d'entraînement des [ICON_CORPS] Flottes et des [ICON_ARMY] Armadas -25%. [ICON_GOLD] Or +2 pour toutes les cases côtières de la ville.[NEWLINE][ICON_RESOURCE_COAL] Charbon +1 par tour et [ICON_RESOURCE_OIL] Pétrole +2 par tour.</Text>
 		</Replace>
 
 		<!-- == CAMPUS == -->
@@ -3840,7 +3851,7 @@
 			<Text>Merveille naturelle de 3 cases. [ICON_PRODUCTION] Production +4 et [ICON_CULTURE] Culture +4.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_WHITEDESERT_DESCRIPTION" Language="fr_FR">
-			<Text>Merveille naturelle de 4 cases. [ICON_FOOD] Nourriture +1, [ICON_GOLD] Or +6, [ICON_SCIENCE] Science +2 et [ICON_CULTURE] Culture +2.</Text>
+			<Text>Merveille naturelle de 4 cases. [ICON_FOOD] Nourriture +1 [ICON_GOLD] Or +6, [ICON_SCIENCE] Science +2 et [ICON_CULTURE] Culture +2.</Text>
 		</Replace>
 		<Replace Tag="LOC_FEATURE_CHOCOLATEHILLS_DESCRIPTION" Language="fr_FR">
 			<Text>Merveille naturelle de 4 cases prenant la forme de collines. [ICON_FOOD] Nourriture +3, [ICON_PRODUCTION] Production +3 et [ICON_SCIENCE] Science +1.</Text>
@@ -3902,20 +3913,342 @@
 		<Replace Tag="LOC_FEATURE_PIOPIOTAHI_DESCRIPTION" Language="fr_FR">
 			<Text>Merveille naturelle infranchissable de trois cases. [ICON_GOLD] Or +1 et [ICON_CULTURE] Culture +1 pour les cases adjacentes.</Text>
 		</Replace>
+		
+		
+		
+		<!-- === BBM NATURAL WONDERS - MERVEILLES NATURELLES BBM === -->
+		<!-- = Barringer Crater = -->
+		<Replace Tag="LOC_FEATURE_BARRINGER_CRATER_NAME" Language="fr_FR">
+			<Text>Barringer Crater</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_BARRINGER_CRATER_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle d'une case. [ICON_FOOD] Nourriture +2, [ICON_GOLD] Or +3 et [ICON_SCIENCE] Science +3. [ICON_PRODUCTION] Production +10% pour les projets de course à l'espace.</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_BARRINGER_CRATER_QUOTE" Language="fr_FR">
+			<Text>"Aujourd'hui nous pouvons prouver que ce cratère est dû à la collision d'un corps extra-terrestres avec la Terre, surement un petit astéroïde de nature métallique."[NEWLINE]- Daniel Barringer</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_BARRINGER_CRATER_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Le Barringer Crater est un gigantesque impact de météorite localisé en Arizona, aux États-Unis. Le cratère a un diamètre de 1 200 mètres, et les scientifiques croient qu’il a été créé il y a 50 000 ans quand une météorite composées de nickel et de fer pesant 160 000 tonnes et bougeant à 44 000 kilomètres par heure.</Text>
+		</Replace>
 
-		<Replace Tag="LOC_FEATURE_GIBRALTAR_DESCRIPTION" Language="fr_FR">
-			<Text>Merveille naturelle infranchissable d'une case. [ICON_PRODUCTION] Production +1, [ICON_FOOD] Nourriture +1 et [ICON_GOLD] Or +1 pour les cases adjacentes.</Text>
+		<!-- = Bioluminescent Bay = -->
+		<Replace Tag="LOC_FEATURE_BIOLUMINESCENT_BAY_NAME" Language="fr_FR">
+			<Text>Baie bioluminescente</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_BIOLUMINESCENT_BAY_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle d'une case. [ICON_FOOD] Nourriture +1, [ICON_GOLD] Or +1 et [ICON_SCIENCE] Science +3. [ICON_GOLD] Or +1 sur les bateaux de pêche si vous possédez cette case.</Text>
 		</Replace>	
+		<Replace Tag="LOC_FEATURE_BIOLUMINESCENT_BAY_QUOTE" Language="fr_FR">
+			<Text>“L’émission de lumière du feu, des éclairs, des étoiles ou des êtres vivants attire toujours l’attention de tout être humain. Dans le cas de la baie luminescente, elle émet une étrange lueur, quelque chose de magique et mystèrieux."[NEWLINE]- Cassius Stevani</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_BIOLUMINESCENT_BAY_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>La baie bioluminescente (également connue sous le nom de Puerto Mosquito, ou Mosquito Bay), est considérée comme le meilleur exemple de baie bioluminescente aux États-Unis. La luminescence dans la baie est causée par un micro-organisme, le dinoflagellé Pyrodinium bahamense, qui brille chaque fois que l'eau est perturbée, laissant une traînée de bleu néon.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_BIOLUMINESCENT_BAY_CHAPTER_HISTORY_PARA_2" Language="fr_FR">
+			<Text>Une combinaison de facteurs crée les conditions nécessaires à la bioluminescence : les mangroves rouges entourent l'eau, l'absence totale de développement moderne autour de la baie, l'eau est fraîche et profonde, et un petit chenal vers l'océan retient les dinoflagellés dans la baie. Ce petit chenal a été créé artificiellement, à la suite des tentatives des occupants des navires espagnols d'étouffer la baie de l'océan. Les Espagnols croyaient que la bioluminescence qu'ils avaient rencontrée lors de leur première exploration de la région était l'œuvre du diable et essayaient d'empêcher l'eau de mer de traverser la baie en jetant d'énormes rochers dans le canal. Les Espagnols n'ont réussi qu'à préserver et à accroître la luminescence de la baie désormais isolée.</Text>
+		</Replace>
 
+		<!-- = Cerro de Potosi = -->
+		<Replace Tag="LOC_FEATURE_CERRO_DE_POTOSI_NAME" Language="fr_FR">
+			<Text>Cerro de Potosi</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_CERRO_DE_POTOSI_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle infranchissable d'une case, considérée comme une montagne. [ICON_PRODUCTION] Production +1 et [ICON_GOLD] Or +3 pour les cases adjacentes.</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_CERRO_DE_POTOSI_QUOTE" Language="fr_FR">
+			<Text>"Je suis le riche Potosi, trésor du monde, roi de toutes les montagnes et convoité par les rois."[NEWLINE]- Premières armoiries de Potosi</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_CERRO_DE_POTOSI_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Localisée dans le sud de la Bolivie, la montagne de Potosi a produit la quasi-totalité de l'argent extrait par les Espagnols à l'époque impériale. Une fois extrait de la montagne, l'argent était transporté jusqu'à la côte à dos de lamas et de mules, où il était chargé à bord de bateaux à trésors à destination de l'Europe. Pas loin de 41 000 tonnes d'argent pur ont été minées sur 200 ans, dont 8 200 qui revinrent directement à la couronne espagnole. Après 1800, la plupart des mines d'argent sont épuisées, mais l'exploitation de la montagne continue, non plus pour l'argent mais pour l'étain qu'elle contient.</Text>
+		</Replace>
+
+		<!-- = Dallol = -->
+		<Replace Tag="LOC_FEATURE_DALLOL_NAME" Language="fr_FR">
+			  <Text>Dallol</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_DALLOL_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle d'une case. [ICON_FOOD] Nourriture +2, [ICON_PRODUCTION] Production +2, [ICON_GOLD] Or +1 et [ICON_SCIENCE] Science +2.</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_DALLOL_QUOTE" Language="fr_FR">
+			<Text>"Là, tout est enfer, ténèbres, gouffre sulfureux, incendie, bouillonnement, infection, consomption"[NEWLINE]- William Shakespeare, King Lear</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_DALLOL_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Le Dallol est un volcan à cône de cendres dans la dépression de Danakil, au nord-est de la chaîne d'Erta Ale en Éthiopie. Il a été formé par l'intrusion de magma basaltique dans les dépôts de sel du Miocène et l'activité hydrothermale subséquente. Des éruptions phréatiques ont eu lieu en 1926, formant le volcan Dallol, tandis que de nombreux autres cratères d'éruption parsèment les plaines salines avoisinantes. Ces cratères sont les évents volcaniques subaériens les plus bas connus au monde, à 45 mètres ou plus au-dessous du niveau de la mer.</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_DALLOL_CHAPTER_HISTORY_PARA_2" Language="fr_FR">
+			<Text>De nombreuses sources chaudes évacuent ici de la saumure et du liquide acide. De petits geysers temporaires répandus produisent des cônes de sel. Les gisements de Dallol comprennent d'importantes quantités de potasse trouvées directement à la surface. Le terme 'Dallol' a été inventé par le peuple afar et signifie 'dissolution' ou 'désintégration', décrivant un paysage d'étangs acides verts (pH inférieur à 1) et de plaines désertiques d'oxyde de fer, de soufre et de sel.</Text>
+		</Replace>
+
+		<!-- = Grand Mesa = -->
+		<Replace Tag="LOC_FEATURE_GRAND_MESA_NAME" Language="fr_FR">
+			<Text>Grand Mesa</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_GRAND_MESA_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle infranchissable d'une case. [ICON_FOOD] Nourriture +1 et [ICON_CULTURE] Culture +1 pour les cases adjacentes.</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_GRAND_MESA_QUOTE" Language="fr_FR">
+			<Text>"La conservation, c'est l'utilisation judicieuse de la terre et de ses ressources pour le bien durable de l'homme."[NEWLINE]- Gifford Pinchot</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_GRAND_MESA_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>La Grande Mesa est une grande formation géologique du Colorado, aux États-Unis d'Amérique. S'élevant à environ 1500 mètres au-dessus du territoire environnant et avec une superficie de 1300 kilomètres carrés, c'est la plus grande mesa du monde. La Grande Mesa est recouverte d'une couche de basalte volcanique qui résiste à l'érosion. Il ne s'éleva pas tant dans les airs qu'il resta à son altitude initiale, car le terrain environnant fut érodé par l'action des rivières Colorado et Gunnison. La forêt nationale de Grand Mesa (à l'origine appelée réserve forestière de Battlemfrt Mesa) a été créée par Benjamin Harrison le 24 décembre 1892. Il s'agit de la troisième réserve forestière créée aux États-Unis.</Text>
+		</Replace>
+
+		<!-- = Mount Kailash = -->
+		<Replace Tag="LOC_FEATURE_KAILASH_NAME" Language="fr_FR">
+			<Text>Mont Kailash</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_KAILASH_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle infranchissable d'une case, considérée comme une montagne. [ICON_CULTURE] Culture +1 et [ICON_FAITH] Foi +1.[NEWLINE][ICON_CULTURE] Culture +1 pour chaque ville étrangère qui suit votre religion si vous possédez cette case.</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_KAILASH_QUOTE" Language="fr_FR">
+			<Text>"Après avoir ainsi instruit les pieux Brahma de Seigneur s'en alla avec dans son sillage les ancêtres et les chefs du peuple qu'il emmena de sa propre place à la demeure de Shiva de Seigneur, Kailash, la meilleure de toutes les montagnes qui est si chère au maître. " [NEWLINE]- Le Bhagavata Purana</Text>
+		</Replace>
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_KAILASH_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Le sommet sacré du mont Kailash, situé dans l'Himalaya du Tibet, est chéri par un certain nombre de religions, en particulier les adeptes de l'hindouisme. On le croit être la maison de Shiva de Seigneur, qui demeure sur la montagne dans un état de béatitude éternelle. Le mont Kailash est considéré comme l'un des pèlerinages religieux les plus difficiles, car les conditions difficiles dissuadent de nombreux pèlerins potentiels et il n'est accessible par aucun moyen de transport moderne.</Text>
+		</Replace>
+
+		<!-- = Lake Victoria = -->
+		<Replace Tag="LOC_FEATURE_LAKE_VICTORIA_NAME" Language="fr_FR">
+			<Text>Lac Victoria</Text>
+		</Replace>
 		<Replace Tag="LOC_FEATURE_LAKE_VICTORIA_DESCRIPTION" Language="fr_FR">
 			<Text>Merveille naturelle de 4 cases, considérées comme un lac et fournit de l'eau douce. [ICON_FOOD] Nourriture +3, [ICON_PRODUCTION] Production +1, [ICON_GOLD] Or +1 et [ICON_CULTURE] Culture +1.</Text>
 		</Replace>	
+		<Replace Tag="LOC_FEATURE_LAKE_VICTORIA_QUOTE" Language="fr_FR">
+			<Text>"J'ai vu ce vieux père Nile se lever sans aucun doute dans la Victoria Nyanza, et comme je l'avais prédit, ce lac est la grande source de la rivière sainte qui a bercé le premier exposant de notre croyance religieuse."[NEWLINE]- John Hanning Speke</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_LAKE_VICTORIA_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Avec une superficie de plus de 68 800 km², le lac Victoria est le plus grand lac d'Afrique, le deuxième plus grand lac d'eau douce de la Terre et le plus grand lac tropical du monde. Deux grands fleuves quittent le lac, le Nil Blanc et le Katonga. Les premiers documents historiques sur le lac proviennent de commerçants arabes qui cherchaient de l'or, de l'ivoire et d'autres produits auprès des indigènes alors qu'ils poussaient vers l'intérieur des terres depuis la côte. La recherche par les explorateurs européens de la source du Nil a conduit à la découverte du lac par le Français John Speke en 1858 après J.-C. , qui l'a nommé d'après le monarque britannique de l'époque.</Text>
+		</Replace>
+
+		<!-- = Lençóis Maranhenses = -->
+		<Replace Tag="LOC_FEATURE_LENCOIS_MARANHENSES_NAME" Language="fr_FR">
+			<Text>Lençois Maranhenses</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_LENCOIS_MARANHENSES_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle de 2 cases. Fournit de l'eau douce. [ICON_FOOD] Nourriture +2, [ICON_GOLD] Or +2 et [ICON_CULTURE] Culture +2.[NEWLINE][ICON_CULTURE] Culture +1 pour les cases inondables de plaine et de désert si vous possédez au moins une case.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_LENCOIS_MARANHENSES_QUOTE" Language="fr_FR">
+			<Text>"J'ai vu des prairies de sable blanc et doré, changeant constamment de forme selon l'humeur créative et le caprice des vents."[NEWLINE]- Geert Mauricio Bas</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_LENCOIS_MARANHENSES_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Situé dans l'état de Maranhão au nord-est du Brésil, le parc national Lençois Maranhenses se compose de 380 000 hectares de dunes de sable qui inondent d'eau douce pendant la saison des pluies. Le parc abrite une variété d'espèces, dont quatre sont en voie de disparition, et en raison de ses propriétés physiques uniques, il est devenu une destination populaire pour les écotouristes.</Text>
+		</Replace>
+
+		<!-- = Krakatoa = -->
+		<Replace Tag="LOC_FEATURE_KRAKATOA_NAME" Language="fr_FR">
+			<Text>Krakatoa</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_KRAKATOA_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle infranchissable d'une case, considérée comme un volcan. [ICON_SCIENCE] Science +2 pour les cases adjacentes. Fournit des rendements supplémentaires en cas d'éruption au coût de [ICON_CITIZEN] Citoyens et dommages importants aux bâtiments et aménagements. Toujours actif.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_KRAKATOA_QUOTE" Language="fr_FR">
+			<Text>"J'ai vu avec stupéfaction que l'île de Krakatoa était complètement brûlée et stérile sous nos yeux et qu'à quatre endroits elle lançait de gros morceaux de feu. "[NEWLINE]- Johann Wilhelm Vogel</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_KRAKATOA_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Krakatoa est une île volcanique indonésienne située entre les îles de Java et Sumatra. Le volcan a explosé violemment en août 1883 avec une force équivalente à 13 000 fois la puissance de la bombe nucléaire d'Hiroshima. L'explosion est largement considérée comme le son le plus fort jamais enregistré. L'éruption a détruit plus de la moitié de l'île et a été entendue dans certaines parties de l'Australie, à quelque 3 200 kilomètres de là. Quelques 37 000 personnes ont été tuées par l'éruption et les tsunamis qui ont suivi. Le volcan émet régulièrement de la lave depuis quatre-vingts ans, reconstruisant le cône à un rythme d'environ 5 mètres par an.</Text>
+		</Replace>	
+		<Replace Tag="LOC_RANDOM_EVENT_KRAKATOA_GENTLE_NAME" Language="fr_FR">
+			<Text>Éruption Douce</Text>
+		</Replace>
+		<Replace Tag="LOC_RANDOM_EVENT_KRAKATOA_GENTLE_DESCRIPTION" Language="fr_FR">
+			<Text>De la fumée s'échappe de la montagne de feu qu'on appelle le Krakatoa. Cela pourrait-il être un signe avant-coureur des choses à venir ?</Text>
+		</Replace>
+		<Replace Tag="LOC_RANDOM_EVENT_KRAKATOA_CATASTROPHIC_NAME" Language="fr_FR">
+			<Text>Éruption catastrophique</Text>
+		</Replace>
+		<Replace Tag="LOC_RANDOM_EVENT_KRAKATOA_CATASTROPHIC_DESCRIPTION" Language="fr_FR">
+			<Text>Nous avons dû abandonner nos dieux, car quand nous avons regardé vers le ciel bleu et demandé la pluie, c'était Krakatoa qui a répondu par le feu.</Text>
+		</Replace>
+		<Replace Tag="LOC_RANDOM_EVENT_KRAKATOA_MEGACOLOSSAL_NAME" Language="fr_FR">
+			<Text>Éruption mégacolossale</Text>
+		</Replace>
+		<Replace Tag="LOC_RANDOM_EVENT_KRAKATOA_MEGACOLOSSAL_DESCRIPTION" Language="fr_FR">
+			<Text>Maudite soit la terre sur laquelle Krakatoa jette son ombre puissante. Le feu et le rocher qu'il a forgés sur nous. Car on nous a enlevés de la terre pour les cendres que nous sommes... et aux cendres que nous sommes retournés.</Text>
+		</Replace>
+
+		<!-- = Mosi-oa-Tunya = -->
+		<Replace Tag="LOC_FEATURE_MOSI_OA_TUNYA_NAME" Language="fr_FR">
+			<Text>Mosi-oa-Tunya</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_MOSI_OA_TUNYA_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle infranchissable d'une case. Fournit de l'eau douce. [ICON_FOOD] Nourriture +2. Attrait +4 pour les cases adjacentes, au lieu des +2 habituels.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_MOSI_OA_TUNYA_QUOTE" Language="fr_FR">
+			<Text>"Rampant avec effroi jusqu'au bord, j'ai regardé vers le bas dans un grand lotissement et j'ai vu qu'un ruisseau de mille mètres de large avait sauté sur une centaine de pieds, puis s'est soudainement comprimé dans un espace de quinze ou vingt mètres, le spectacle le plus merveilleux que j'aie jamais vu en Afrique. "[NEWLINE]- David Livingstone</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_MOSI_OA_TUNYA_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>La Mosi-oa-Tunya, également connue sous le nom de chutes Victoria, est l'une des chutes d'eau les plus spectaculaires au monde. Le fleuve Zambèze, large de plus de 2 kilomètres, s'enfonce bruyamment dans une série de gorges de basalte et soulève un brouillard irisé visible à plus de 50 kilomètres de là. Son nom, qui se traduit par « La fumée qui tonnerre », vient du Kololo ou Lozi utilisé dans toute la Zambie et dans certaines parties du Zimbabwe, bien qu'il soit plus communément connu dans le monde entier sous le nom de Victoria Falls en raison du missionnaire et explorateur écossais David Livingstone, qui est peut-être le plus célèbre pour avoir donné son nom à une cascade qui en avait déjà une.</Text>
+		</Replace>
+
+		<!-- = Motlatse Canyon = -->
+		<Replace Tag="LOC_FEATURE_MOTLATSE_CANYON_NAME" Language="fr_FR">
+			<Text>Motlatse Canyon</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_MOTLATSE_CANYON_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle infranchissable de 4 cases. [ICON_CULTURE] Culture +1 et [ICON_FAITH] Foi +1.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_MOTLATSE_CANYON_QUOTE" Language="fr_FR">
+			<Text>"Je crois que l'Afrique du Sud est le plus bel endroit du monde. Certes, je suis partial, mais je pense que même les critiques les plus scrupuleux conviendraient que nous avons la chance d'avoir une terre vraiment merveilleuse."[NEWLINE]- Nelson Mandela</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_MOTLATSE_CANYON_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Le canyon de Motlatse est une caractéristique naturelle importante de l'Afrique du Sud, situé à Mpumalanga et formant la partie nord de l'escarpement du Drakfrsberg. Situé dans la réserve naturelle de Blyde River Canyon, il mesure 25 kilomètres de long et a une profondeur moyenne d'environ 750 mètres, arborant certaines des falaises abruptes les plus profondes de tous les canyons de la planète.</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_MOTLATSE_CANYON_CHAPTER_HISTORY_PARA_2" Language="fr_FR">
+			<Text>Bien qu'il soit difficile de comparer les canyons du monde entier, le canyon de Blyde River est l'un des plus grands canyons de la planète, et c'est peut-être le plus grand canyon vert en raison de son feuillage subtropical luxuriant. Elle abrite une grande diversité de flore et de faune, y compris de nombreuses espèces de poissons et d'antilopes, ainsi que des hippopotames, des crocodiles et toutes les espèces de primates présentes en Afrique du Sud, ce qui en fait une région touristique très prisée.</Text>
+		</Replace>
+
+		<!-- = Namib Sand Sea = -->
+		<Replace Tag="LOC_FEATURE_NAMIB_NAME" Language="fr_FR">
+			<Text>Désert de Namib</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_NAMIB_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle de 3 cases. [ICON_PRODUCTION] Production +2, [ICON_GOLD] Or +2 et [ICON_CULTURE] Culture +2. Les unités de reconnaissance qui pénètrent le Désert de Namib gagnent +1 [ICON_MOVEMENT] PM pour le reste de la partie.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_NAMIB_QUOTE" Language="fr_FR">
+			<Text>"J'aime entendre le son des dunes de sable, je fais partie de ceux qui perçoivent le rythme d'un paysage comme enregistré dans de nombreuses peintures, je fais partie des milliers qui savent que je suis enfin chez moi." [NEWLINE]- Mvula Ya Nangolo</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_NAMIB_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Le Namib est un désert côtier de l'Afrique australe, dont le nom vient de Nama et signifie « vaste endroit ». Le Namib s'étend sur plus de 2000 km le long des côtes atlantiques de l'Angola, la Namibie et l'Afrique du Sud. Ayant subi des conditions arides ou semi-arides pendant environ 55 à 80 millions d'années, le Namib est peut-être le plus vieux désert du monde, contenant certaines des régions les plus arides du monde. En raison de son aridité, le Namib est presque totalement inhabité, à l'exception d'un petit nombre de colonies dispersées qui ont servi de postes de traite pour les commerçants et les missionnaires qui traversent le désert.</Text>
+		</Replace>	
+		<Replace Tag="LOC_ABILITY_NAMIB_BUFF_NAME" Language="fr_FR">
+			<Text>Nomades du Désert</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_NAMIB_BUFF_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_MOVEMENT] PM +1 (Nomades du désert).</Text>
+		</Replace>
+
+		<!-- = Rock of Gibraltar = -->
+		<Replace Tag="LOC_FEATURE_GIBRALTAR_NAME" Language="fr_FR">
+			<Text>Rocher de Gibraltar</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_GIBRALTAR_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle infranchissable d'une case. [ICON_FOOD] Nourriture +1, [ICON_PRODUCTION] Production +1 et [ICON_GOLD] Or +1 pour les cases adjacentes.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_GIBRALTAR_QUOTE" Language="fr_FR">
+			<Text>"Regardez autour de vous, mes garçons, et voyez comme le Rocher est beau à la lumière du feu glorieux."[NEWLINE]- George Augustus Eliott</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_GIBRALTAR_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Gibraltar est une péninsule contenant une formation rocheuse remarquable à l'embouchure de la mer Méditerranée. Capturée par les Anglais et les Hollandais aux Espagnols en 1704 et cédée à l'Angleterre en 1713, Gibraltar est depuis une possession britannique (au grand dam de l'Espagne, qui veut le récupérer). Gardant l'entrée de l'Atlantique depuis la Méditerranée, Gibraltar est une importante base navale britannique depuis trois cents ans. La majeure partie de Gibraltar est recouverte par le « Rocher », une immense formation de schiste, de grès et de calcaire poussée par la puissance inimaginable de la tectonique des plaques. Le Rocher s'élève à environ 430 mètres de haut. Gibraltar était autrefois une fortification massive permettant à la Grande-Bretagne de dominer l'étroit passage Méditerranée-Atlantique, mais aujourd'hui l'île est plus une réserve naturelle et une destination touristique qu'une base militaire.</Text>
+		</Replace>
+
+		<!-- = Old Faithful = -->	
+		<Replace Tag="LOC_FEATURE_OLD_FAITHFUL_NAME" Language="fr_FR">
+			<Text>Old Faithful</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_OLD_FAITHFUL_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle d'une case. [ICON_FOOD] Nourriture +2, [ICON_GOLD] Or +1, [ICON_SCIENCE] Science +3 et [ICON_FAITH] Foi +1. Bonus de proximité majeur pour les Campus.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_OLD_FAITHFUL_QUOTE" Language="fr_FR">
+			<Text>Il a craché à intervalles réguliers neuf fois pendant notre séjour, les colonnes d'eau bouillante étant projetées de quatre-vingt-dix à cent vingt pieds à chaque décharge, ce qui a duré de quinze à vingt minutes. Nous lui avons donné le nom de Old Faithful."[NEWLINE]- Nathaniel P. Langford</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_OLD_FAITHFUL_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Old Faithful est un geyser du parc national de Yellowstone, dans le Wyoming, aux États-Unis. Vu pour la première fois par les Européens en 1870 (et par les indigènes environ 10 000 ans auparavant), Old Faithful fut ainsi nommé en raison de la régularité de son éruption. Le geyser tire une colonne d'eau bouillante à une hauteur d'environ 30-50 mètres toutes les 60-90 minutes (intervalle déterminé par la férocité de l'éruption précédente). Les geysers surviennent lorsque l'eau souterraine touche du magma (roche en fusion). L'eau est instantanément transformée en vapeur, qui se précipite dans le geyser disponible le plus proche à une pression extrêmement élevée. Old Faithful et les 250 autres geysers de Yellowstone accueillent environ trois millions de visiteurs chaque année.</Text>
+		</Replace>	
+		<Replace Tag="LOC_DISTRICT_OLD_FAITHFUL_Science" Language="fr_FR">
+			<Text>[ICON_SCIENCE] Science +{1_num} pour l'Old Faithful.</Text>
+		</Replace>
+
+		<!-- = Lakes of Ounianga = -->
+		<Replace Tag="LOC_FEATURE_OUNIANGA_NAME" Language="fr_FR">
+			<Text>Lacs d'Ounianga</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_OUNIANGA_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle de 2 cases. Fournit de l'eau douce. [ICON_FOOD] Nourriture +2, [ICON_GOLD] Or +2 et [ICON_CULTURE] Culture +2.[NEWLINE][ICON_FOOD] Nourriture +1 pour les cases adjacentes.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_OUNIANGA_QUOTE" Language="fr_FR">
+			<Text>"Au commencement, le langage du désert était l'herbe qui fleurissait contre le mur du vent, les grands palmiers qui se balançaient au moment des semailles et les cendres transportées par l'air jusqu'à l'accueil bleu du sable chaud. Elle a été notre première fontaine, notre mère, qui nous a soutenus, puis nous a livrés à l'âge des villes d'attente."[NEWLINE]- Al-Munsif al-Wahaybi</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_OUNIANGA_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Les lacs d'Ounianga sont une série de dix-huit lacs interconnectés dans la région hyper-aride Ennedi du désert du Sahara, occupant un bassin dans les montagnes du Tibesti occidental et frnedi oriental. Il constitue un paysage naturel exceptionnel d'une grande beauté aux couleurs et aux formes saisissantes. Les lacs salins, hyper salins et d'eau douce sont alimentés par les eaux souterraines et se trouvent en deux groupes à 40 kilomètres l'un de l'autre. Ounianga Kebir comprend quatre lacs, dont le plus grand, Yoan, couvre une superficie de 358 hectares et a une profondeur de 27 mètres. Ses eaux très salines ne nourrissent que les algues et certains micro-organismes. Le deuxième groupe, Ounianga Serir, comprend quatorze lacs séparés par des dunes de sable. Les roseaux flottants couvrent presque la moitié de la surface de ces lacs, réduisant ainsi l'évaporation. Le lac Teli a la plus grande superficie, mais sa profondeur est inférieure à 10 mètres. Avec leur eau douce de grande qualité, certains de ces lacs abritent une faune aquatique, en particulier des poissons.</Text>
+		</Replace>
+
+		<!-- = Salar de Uyuni = -->
+		<Replace Tag="LOC_FEATURE_SALAR_DE_UYUNI_NAME" Language="fr_FR">
+			<Text>Salar d'Uyuni</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_SALAR_DE_UYUNI_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle de 4 cases. [ICON_PRODUCTION] Production +2, [ICON_GOLD] Or +4 et [ICON_SCIENCE] Science +2. Bonus de proximité majeur pour les Plateformes commerciales.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_SALAR_DE_UYUNI_QUOTE" Language="fr_FR">
+			<Text>"J'ai frissonné dans ces solitudes quand j'ai entendu la voix du sel dans le désert."[NEWLINE]- Pablo Neruda</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_SALAR_DE_UYUNI_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Située au sud-ouest de la Bolivie, près de la frontière chilienne et du désert d'Atacama, se trouve Salar de Uyuni, la plus grande plaine saline du monde avec 10 582 kilomètres carrés, soit environ 100 fois la taille des plaines salines de Bonneville aux États-Unis. Le Salar a été formé à la suite de transformations entre plusieurs lacs préhistoriques. Recouvert de quelques mètres de croûte salée, il a une planéité extraordinaire avec des variations d'altitude moyennes de moins d'un mètre sur toute la zone du Salar. Sa grande surface, son ciel dégagé et sa planéité exceptionnelle en font un objet idéal pour calibrer les altimètres des satellites d'observation de la Terre.</Text>
+		</Replace>	
+		<Replace Tag="LOC_DISTRICT_SALAR_DE_UYUNI_GOLD" Language="fr_FR">
+			<Text>[ICON_GOLD] Or +{1_num} pour chaque case du Salar d'Uyuni.</Text>
+		</Replace>
+
+		<!-- = Mount Sinai = -->
+		<Replace Tag="LOC_FEATURE_SINAI_NAME" Language="fr_FR">
+			<Text>Mont Sinaï</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_SINAI_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle infranchissable d'une case, considérée comme une montagne. [ICON_FAITH] Foi +2 pour les cases adjacentes. Les unités religieuses se trouvant sur une case adjacente au Mont Sinaï obtiennent +15 [ICON_RELIGION] Puissance religieuse.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_SINAI_QUOTE" Language="fr_FR">
+			<Text>"Lorsque l'Éternel eut achevé de parler à Moïse sur le mont Sinaï, il lui donna les deux tables de la loi, les tables de pierre écrites du doigt de Dieu."[NEWLINE]- Exode 31:18</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_SINAI_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Situé sur la péninsule du Sinaï en Égypte, le mont Sinaï est l'un des sites sacrés les plus vénérés reconnus par les adeptes du judaïsme, du christianisme et de l' On pense que le mont Sinaï est l'endroit où Moïse a reçu les Dix Commandements de Dieu pendant l'exode des Israélites d'Egypte, faisant du sommet un site important pour les pèlerins du monde entier.</Text>
+		</Replace>	
+		<Replace Tag="LOC_ABILITY_SINAI_BUFF_NAME" Language="fr_FR">
+			<Text>Dix Commandements</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_SINAI_BUFF_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_RELIGION] Puissance de combat religieux +15 (Dix Commandements).</Text>
+		</Replace>
+
+		<!-- = Sri Pada = -->	
+		<Replace Tag="LOC_FEATURE_SRI_PADA_NAME" Language="fr_FR">
+			<Text>Pic d'Adam</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_SRI_PADA_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle infranchissable d'une case, considérée comme une montagne. [ICON_FOOD] Nourriture +1 et [ICON_FAITH] Foi +1 pour les cases adjacentes.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_SRI_PADA_QUOTE" Language="fr_FR">
+			<Text>"Un spectacle extraordinairement merveilleux, doté d'une splendeur suprême."[NEWLINE]- Le Mahabharata</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_SRI_PADA_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Surplombant le Sri Lanka, le Pic d'Adam (ou Sri Pada) est un grand sommet de montagne avec une forme inhabituellement conique qui est considéré comme sacré par un certain nombre de religions pour l'empreinte qu'on trouve à son sommet. L'empreinte, une grande dépression trouvée dans une formation rocheuse sur le sommet, a été attribuée à Bouddha, Shiva et le personnage biblique Adam, conduisant à une révolte parmi les adeptes du bouddhisme, de l'hindouisme et de l'islam. Chaque année, des milliers de pèlerins montent pendant des heures la montagne pour rendre hommage au lieu saint.</Text>
+		</Replace>
+
+		<!-- = Vredefort Dome = -->
+		<Replace Tag="LOC_FEATURE_VREDEFORT_DOME_NAME" Language="fr_FR">
+			<Text>Dôme de Vredefort</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_VREDEFORT_DOME_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle de 2 cases. [ICON_FOOD] Nourriture +2, [ICON_PRODUCTION] Production +1, [ICON_SCIENCE] Science +2 et [ICON_CULTURE] Culture +1.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_VREDEFORT_DOME_QUOTE" Language="fr_FR">
+			<Text>"Lorsque les géologues ont parcouru pour la première fois le spectaculaire cercle de collines qui chevauchent la rivière Vaal au nord de Vredefort il y a près de 150 ans, ils ont immédiatement reconnu que les roches inhabituellement brisées et inclinées témoignaient d'un événement exceptionnellement violent dans un passé lointain."[NEWLINE]- Wolf Uwe Reimold</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_VREDEFORT_DOME_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Le dôme de Vredefort est le plus grand cratère d'impact vérifié sur Terre, avec plus de 300 kilomètres de diamètre au moment de sa formation. Ce qui en reste se trouve dans l'actuelle province de l'État libre d'Afrique du Sud, où l'agriculture cultivée domine le paysage. On estime que le cratère a plus de 2 milliards d'années et que l'impact a eu lieu au Paléoprotérozoïque, ce qui en fait le deuxième plus ancien cratère connu sur Terre.</Text>
+		</Replace>
+
+		<!-- = Wulingyuan = -->
+		<Replace Tag="LOC_FEATURE_WULINGYUAN_NAME" Language="fr_FR">
+			<Text>Wulingyuan</Text>
+		</Replace>
+		<Replace Tag="LOC_FEATURE_WULINGYUAN_DESCRIPTION" Language="fr_FR">
+			<Text>Merveille naturelle infranchissable de 2 cases. [ICON_CULTURE] Culture +1 pour les cases adjacentes.</Text>
+		</Replace>	
+		<Replace Tag="LOC_FEATURE_WULINGYUAN_QUOTE" Language="fr_FR">
+			<Text>"De dix mille vallées les arbres touchent le ciel, sur mille sommets les coucous appellent, et, après une nuit de pluie de montagne, de chaque sommet viennent des centaines de cascades de soie."[NEWLINE]- Wang Wei</Text>
+		</Replace>	
+		<Replace Tag="LOC_PEDIA_FEATURES_PAGE_FEATURE_WULINGYUAN_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
+			<Text>Wulingyuan est un site pittoresque et historique du centre-sud de la Chine. Il est connu pour plus de 3000 piliers et sommets en grès quartzite, dont beaucoup dépassent 200 mètres de haut, ainsi que des ravins, des gorges, des piscines, des lacs, des rivières et des cascades. Il comprend 40 grottes et deux ponts naturels, Xianrenqiao (Pont des Immortels) et Tianqiashengkong (Pont à travers le ciel).</Text>
+		</Replace>
+
+
 
 		<!-- === WORLD WONDERS - MERVEILLES MONDIALES === -->
 
 		<!-- == SCIENCE WONDERS - MERVEILLES SCIENTIFIQUES == -->
 		<Replace Tag="LOC_BUILDING_GREAT_BATH_DESCRIPTION" Language="fr_FR">
-			<Text>Merveille de l'ère antique.[NEWLINE][NEWLINE]Les cases de plaines inondables de cette rivière sont immunisées aux crues. [ICON_FAITH] Foi +1 pour ces cases à chaque crue, mais rendements bonus en [ICON_FOOD] Nourriture et en [ICON_PRODUCTION] Production dûs aux crues réduits de moitié.[NEWLINE][ICON_FOOD] Nourriture +1 pour les cases de plaines inondables de la ville.[NEWLINE][NEWLINE]Doit être construite sur une case de plaines inondables.</Text>
+			<Text>Merveille de l'ère antique.[NEWLINE][NEWLINE]Les cases de plaines inondables de cette rivière sont immunisées aux crues. [ICON_FAITH] Foi +1 pour ces cases à chaque crue, mais rendements bonus en [ICON_FOOD] Nourriture et en [ICON_PRODUCTION] Production dûs aux crues réduits de moitié.[ICON_FOOD] Nourriture +1 pour les cases de plaines inondables de cette ville.[NEWLINE][NEWLINE]Doit être construite sur une case de plaines inondables.</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_STONEHENGE_DESCRIPTION" Language="fr_FR">
 			<Text>Merveille de l'ère antique.[NEWLINE][NEWLINE]Octroie un [ICON_GREATPROPHET] Prophète illustre.[NEWLINE]Les [ICON_GREATPROPHET] Prophètes illustres peuvent fonder une [ICON_RELIGION] religion à Stonehenge.[NEWLINE][NEWLINE]Doit être construite sur une case plate adjacente à une ressource de [ICON_RESOURCE_STONE] Pierre.</Text>
@@ -5156,7 +5489,6 @@
 		<Replace Tag="LOC_BOOST_TRIGGER_NEAR_FUTURE_GOVERNANCE" Language="fr_FR">
 			<Text>Adoptez un gouvernement avec 10 emplacements de doctrine.</Text>
 		</Replace>
-
 		<Replace Tag="BBG_LOC_BOOST_TRIGGER_CULTURAL_HEGEMONY" Language="fr_FR">
 			<Text>Possédez 5 Espions.</Text>
 		</Replace>
@@ -5176,36 +5508,20 @@
 			<Text>Deux fois la vitesse !</Text>
 		</Replace>
 		<Replace Tag="BBG_LOC_BOOST_TRIGGER_SMART_POWER_DOCTRINE" Language="fr_FR">
-			<Text>Découvrez Systèmes Predictifs.</Text>
+			<Text>Découvrez les Systèmes Predictifs.</Text>
 		</Replace>
 		<Replace Tag="BBG_LOC_BOOST_TRIGGER_LONGDESC_SMART_POWER_DOCTRINE" Language="fr_FR">
 			<Text>Bienvenue dans le monde de l'IA !</Text>
 		</Replace>
 		<Replace Tag="BBG_LOC_BOOST_TRIGGER_GLOBAL_WARMING_MITIGATION" Language="fr_FR">
-			<Text>Possédez 3 Parcs Eoliens.</Text>
+			<Text>Possédez 3 parcs éoliens.</Text>
 		</Replace>
 		<Replace Tag="BBG_LOC_BOOST_TRIGGER_LONGDESC_GLOBAL_WARMING_MITIGATION" Language="fr_FR">
 			<Text>Il n'est pas trop tard pour sauver la planète.</Text>
 		</Replace>
 
 
-		<!-- === TODO === -->
-		<Replace Tag="LOC_CIVIC_POLITICAL_PHILOSOPHY_DESCRIPTION" Language="fr_FR">
-			<Text>Toutes les unités de mélée, d'anti-cavalerie et mélée navales ne subissent plus un malus de -4 [ICON_Strength] Puissance de combat.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_DESC" Language="fr_FR">
-			<Text>-4 [ICON_Strength] Puissance de combat jusqu'à ce que la Philosophie politique soit débloquée.</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_NAME" Language="fr_FR">
-			<Text>Manque de philosophie</Text>
-		</Replace>
 
-		<!-- <Replace Tag="LOC_TECH_CARTOGRAPHY_DESCRIPTION" Language="fr_FR">
-		<Text>Réduit le coût de [ICON_MOVEMENT] Mouvement dans l'océan à 1. [ICON_Gold] Or +2 pour les bateaux de pêche.</Text>
-		</Replace>
-		<Replace Tag="BBG_LOC_TECH_BUTTRESS_DESCRIPTION" Language="fr_FR">
-		<Text>Toutes les unités  navales et embarquées peuvent naviguer sur l'océan.</Text>
-		</Replace> -->
 		<!-- === GOVERNEMENTS - GOUVERNEMENTS === -->
 
 		<Replace Tag="LOC_GOVERNMENT_INHERENT_BONUS" Language="fr_FR">
@@ -5216,15 +5532,14 @@
 		</Replace>
 
 		<!-- == T1 == -->
-		<!-- = Legacy = -->	
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_OLIGARCHY_XP1" Language="fr_FR">
-			<Text>Expérience des unités +20%. Pour les unités terrestre et navales : [ICON_STRENGTH] Puissance de combat +1 pour chaque [ICON_PROMOTION] niveau.</Text>
+			<Text>Expérience des unités +20%. [ICON_STRENGTH] Puissance de combat +1 pour les unités terrestres et navales pour chaque [ICON_PROMOTION] niveau.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_OLIGARCHY_XP1" Language="fr_FR">
 			<Text>[ICON_MOVEMENT] PM +1 pour les unités de support et civiles si l'unité commence son tour en territoire allié.</Text>
-		</Replace>	
+		</Replace>
 		<Replace Tag="LOC_BBG_OLIGARCHY_BONUS_COMBAT_MODIFIER_PREVIEW" Language="fr_FR">
-			<Text>[ICON_STRENGTH] +{1_num} (Oligarchie)</Text>	
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_num} (Oligarchie).</Text>	
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CLASSREP_XP1" Language="fr_FR">
 			<Text>[ICON_HOUSING] Habitations +1 et [ICON_AMENITIES] Activités +1 dans les villes dotées d'un [ICON_DISTRICT] quartier.</Text>
@@ -5233,7 +5548,7 @@
 			<Text>Points de [ICON_GREATPERSON] Personnage illustre +15%.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_AUTOCRACY_ETHIOPIA" Language="fr_FR">
-			<Text>[ICON_FOOD][ICON_PRODUCTION][ICON_GOLD][ICON_SCIENCE][ICON_CULTURE][ICON_FAITH] Rendements +1 dans la Place de la gouvernance, le Quartier diplomatique et tous leurs bâtiments.[NEWLINE][ICON_FOOD] Nourriture +1 et [ICON_PRODUCTION] Production +1 pour les villes possédant un monument et un [ICON_DISTRICT] quartier spécialisé.</Text>
+			<Text>[ICON_FOOD][ICON_PRODUCTION][ICON_GOLD][ICON_SCIENCE][ICON_CULTURE][ICON_FAITH] Rendements +1 pour la Place de la gouvernance, le Quartier diplomatique et tous leurs bâtiments.[NEWLINE][ICON_FOOD] Nourriture +1 et [ICON_PRODUCTION] Production +1 pour les villes possédant un monument et un [ICON_DISTRICT] quartier spécialisé.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_AUTOCRACY_XP1" Language="fr_FR">
 			<Text>[ICON_PRODUCTION] Production +10% pour les merveilles.</Text>
@@ -5311,7 +5626,7 @@
 			<Text>[ICON_AMENITIES] Activités +2 dans toutes les villes et [ICON_CULTURE] Culture +2 pour chaque [ICON_DISTRICT] quartier spécialisé.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DIGITAL_DEMOCRACY" Language="fr_FR">
-			<Text>[ICON_TOURISM] Tourisme +2 par [ICON_DISTRICT] quartier spécialisé.[NEWLINE][ICON_TOURISM] Tourisme à l'encontre de votre civilisation -50%.</Text>
+			<Text>[ICON_TOURISM] Tourisme +2 par quartier.[NEWLINE][ICON_TOURISM] Tourisme à l'encontre de votre civilisation -50%.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_CORPORATE_LIBERTARIANISM" Language="fr_FR">
 			<Text>Les Plateformes commerciales fournissent 25% [ICON_GOLD] d'Or supplémentaire.[NEWLINE]Les villes possédant un Port, un Campement ou un Aérodrome gagnent +50% de [ICON_PRODUCTION] Production pour les unités.</Text>
@@ -5388,17 +5703,17 @@
 		<Replace Tag="LOC_POLICY_RETAINERS_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_AMENITIES] Activités +1 pour les villes dans lesquelles une unité est en garnison.</Text>
 		</Replace>
+		<Replace Tag="LOC_POLICY_NAVAL_GUILDS_NAME" Language="fr_FR">
+			<Text>Guildes navales</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_NAVAL_GUILDS_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_PRODUCTION] Production +100% pour les unités navales des ères médiévale et antérieures.</Text>
+		</Replace>
 		<Replace Tag="LOC_POLICY_PROFESSIONAL_ARMY_DESCRIPTION_XP2" Language="fr_FR">
 			<Text>30% de réduction en [ICON_GOLD] Or pour l'amélioration d'unité.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_RETINUES_DESCRIPTION" Language="fr_FR">
 			<Text>50% de réduction en ressources pour la Production et l'amélioration d'unité.</Text>
-		</Replace>
-		<Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_NAME" Language="fr_FR">
-			<Text>Standardisation militaire</Text>
-		</Replace>
-		<Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_DESCRIPTION" Language="fr_FR">
-			<Text>40% de réduction en [ICON_GOLD] Or pour l'amélioration d'unité.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_HARD_SHELL_EXPLOSIVES_NAME" Language="fr_FR">
 			<Text>Obus explosifs</Text>
@@ -5418,13 +5733,6 @@
 		<Replace Tag="LOC_POLICY_PRESS_GANGS_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_PRODUCTION] Production +100% pour les unités navales des ères industrielle et antérieures.</Text>
 		</Replace>
-		<!-- = BBG - Naval Guilds = -->
-		<Replace Tag="LOC_POLICY_NAVAL_GUILDS_NAME" Language="fr_FR">
-			<Text>Guildes navales</Text>
-		</Replace>
-		<Replace Tag="LOC_POLICY_NAVAL_GUILDS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +100% pour les unités navales des ères médiévales et antérieures.</Text>
-		</Replace>
 		<Replace Tag="LOC_POLICY_WARS_OF_RELIGION_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +4 pour les unités militaires affrontant une civilisation d'une autre religion.</Text>
 		</Replace>
@@ -5438,16 +5746,16 @@
 			<Text>Les victoires militaires génèrent une quantité [ICON_GOLD] d'Or égale à 25% de la [ICON_STRENGTH] Puissance de combat de l'unité vaincue (vitesse en ligne).</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_GRANDE_ARMEE_DESCRIPTION" Language="fr_FR">
-      		<Text>[ICON_PRODUCTION] Production +50% pour les unités de combat rapproché, combat à distance, anti-cavalerie et reconnaissance, des ères industrielles et antérieures.</Text>
-    	</Replace>
-		<Replace Tag="LOC_BBG_MODERN_DRILL_NAME" Language="fr_FR">
-      		<Text>Drill moderne</Text>
-    	</Replace>
-		<Replace Tag="LOC_BBG_MODERN_DRILL_DESCRIPTION" Language="fr_FR">
-      		<Text>[ICON_PRODUCTION] Production +50% pour les unités de combat rapproché, combat à distance, anti-cavalerie et reconnaissance, des ères moderne et antérieures.</Text>
+      		<Text>[ICON_PRODUCTION] Production +50% pour les unités de combat rapproché, combat à distance, anti-cavalerie et reconnaissance, des ères industrielle et antérieures.</Text>
     	</Replace>
 		<Replace Tag="LOC_POLICY_NATIONAL_IDENTITY_DESCRIPTION" Language="fr_FR">
 			<Text>Malus de [ICON_STRENGTH] Puissance de combat pour les unités blessées réduit de 50%.</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_NAME" Language="fr_FR">
+			<Text>Standardisation militaire</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_DESCRIPTION" Language="fr_FR">
+			<Text>40% de réduction en [ICON_GOLD] Or pour l'amélioration d'unité.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_MILITARY_RESEARCH_EXPANSION1_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_SCIENCE] Science +1 pour les armureries, les chantiers navals et les remparts médiévaux. [ICON_SCIENCE] Science +2 pour les écoles militaires, les complexes portuaires, les remparts de la Renaissance et les hangars.</Text>
@@ -5485,6 +5793,12 @@
 		<Replace Tag="LOC_POLICY_MILITARY_COMMAND_CENTER_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_DISTRICT_ENCAMPMENT][ICON_DISTRICT_HARBOR][ICON_DISTRICT_AERODROME] [ICON_PRODUCTION] Production +30% pour les Campements, les Ports, les Aérodromes et leurs bâtiments.</Text>
 		</Replace>
+		<Replace Tag="LOC_BBG_MODERN_DRILL_NAME" Language="fr_FR">
+      		<Text>Foret moderne</Text>
+    	</Replace>
+		<Replace Tag="LOC_BBG_MODERN_DRILL_DESCRIPTION" Language="fr_FR">
+      		<Text>[ICON_PRODUCTION] Production +50% pour les unités de combat rapproché, combat à distance, anti-cavalerie et reconnaissance, des ères moderne et antérieures.</Text>
+    	</Replace>
 		<Replace Tag="LOC_POLICY_ARMS_RACE_NAME" Language="fr_FR">
       		<Text>Course à l'armement</Text>
 		</Replace>
@@ -5537,7 +5851,7 @@
 			<Text>[ICON_PRODUCTION] Production +30% pour les Bâtisseurs.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_CARAVANSARIES_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_GOLD] Or +2 pour les [ICON_TRADEROUTE] routes commerciales.[NEWLINE][ICON_PRODUCTION] Production +1 pour les routes commerciales internationales.</Text>
+			<Text>[ICON_GOLD] Or +2 pour les [ICON_TRADEROUTE] routes commerciales.[NEWLINE][ICON_PRODUCTION] Production +1 pour les [ICON_TRADEROUTE] routes commerciales internationales.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_CORVEE_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_PRODUCTION] Production +15% pour les merveilles des ères antique et classique.</Text>
@@ -5582,13 +5896,13 @@
 			<Text>[ICON_PRODUCTION] Production +15% pour les merveilles des ères antique, classique, médiévale et de la Renaissance.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_RELIGIOUS_ORDERS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_RELIGION] Puissance religieuse +5 en combat théologique et propagation de la [ICON_RELIGION] Religion 50% plus forte dans les villes des autres civilisations pour les unités religieuses.</Text>
+			<Text>[ICON_RELIGION] Puissance religieuse +5 pour toutes les unités religieuses en combat théologique et propagation de la [ICON_RELIGION] religion 50% plus forte dans les villes des autres civilisations pour les unités religieuses.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_SIMULTANEUM_DESCRIPTION" Language="fr_FR">
 			<Text>Rendements des bâtiments des Lieux saints : +50% si la ville compte au moins 13 [ICON_CITIZEN] Citoyens, +50% si le quartier a un bonus de proximité d'au moins +3.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_TRIANGULAR_TRADE_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_GOLD] Or +4 et [ICON_FAITH] Foi +1 pour les [ICON_TRADEROUTE] routes commerciales.[NEWLINE][ICON_PRODUCTION] Production +1 pour les routes commerciales internationales.</Text>
+			<Text>[ICON_GOLD] Or +4 et [ICON_FAITH] Foi +1 pour les [ICON_TRADEROUTE] routes commerciales.[NEWLINE][ICON_PRODUCTION] Production +1 pour les [ICON_TRADEROUTE] routes commerciales internationales.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_RATIONALISM_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_SCIENCE] Science des bâtiments des Campus : +50% si la ville compte au moins 13 [ICON_CITIZEN] Citoyens, +50% si le quartier a un bonus de proximité d'au moins +3.</Text>
@@ -5842,9 +6156,8 @@
 		<!-- === GREAT PEOPLE - PERSONNAGES ILLUSTRES === -->
 
 		<!-- == GREAT GENERAL - GÉNÉRAL ILLUSTRE == -->
-
 		<Replace Tag="LOC_GREATPERSON_COMBAT_STRENGTH_AOE_MODERN_LAND" Language="fr_FR">
-      		<Text>[ICON_Strength] Puissance de combat +5 et [ICON_Movement] PM +1 pour les unités terrestres des ères moderne, atomique et de l'information dans un rayon de 2 cases.</Text>
+      		<Text>[ICON_STRENGTH] Puissance de combat +5 et [ICON_MOVEMENT] PM +1 pour les unités terrestres des ères moderne, atomique et de l'information dans un rayon de 2 cases.</Text>
 		</Replace>
 		<Replace Tag="LOC_GREATPERSON_BOUDICA_ACTIVE" Language="fr_FR">
       		<Text>Crée un ingénieur militaire dans votre [ICON_CAPITAL] Capitale.</Text>
@@ -8494,7 +8807,7 @@
 			<Text>Un bâtiment unique</Text>
 		</Replace>
 		<Replace Tag="LOC_BUILDING_THEMINGBONUS_COFFEEHOUSE" Language="fr_FR">
-			<Text>Bonus de thèmatique lorsqu'on expose y des objets de tout type provenant de différents Grands Personnages.</Text>
+			<Text>Bonus de thèmatique lorsqu'on expose y des objets de tout type provenant de différents Personnages illustres.</Text>
 		</Replace>
 		<Replace Tag="LOC_GREAT_PERSON_CLASS_AUSTRIAN_DIPLOMAT_NAME" Language="fr_FR">
 			<Text>Grand Diplomate</Text>
@@ -8778,19 +9091,19 @@
 		<Replace Tag="LOC_CITIZEN_MER_AUSTRIA_MODERN_FEMALE_10" Language="fr_FR">
 			<Text>Farahilde</Text>
 		</Replace>
-		<Replace Tag="LOC_NAMED_VOLCANO_AUSTRIA_NAME"	Language="fr_FR">
+		<Replace Tag="LOC_NAMED_VOLCANO_AUSTRIA_NAME" Language="fr_FR">
 			<Text>Riegersburg</Text>
 		</Replace>
-		<Replace Tag="LOC_NAMED_MOUNTAIN_AUSTRIA_1_NAME"	Language="fr_FR">
+		<Replace Tag="LOC_NAMED_MOUNTAIN_AUSTRIA_1_NAME" Language="fr_FR">
 			<Text>Alpes de Zillertal</Text>
 		</Replace>
-		<Replace Tag="LOC_NAMED_MOUNTAIN_AUSTRIA_2_NAME"	Language="fr_FR">
+		<Replace Tag="LOC_NAMED_MOUNTAIN_AUSTRIA_2_NAME" Language="fr_FR">
 			<Text>Hohe Tauern</Text>
 		</Replace>
-		<Replace Tag="LOC_NAMED_MOUNTAIN_AUSTRIA_3_NAME"	Language="fr_FR">
+		<Replace Tag="LOC_NAMED_MOUNTAIN_AUSTRIA_3_NAME" Language="fr_FR">
 			<Text>Alpes de l'Ötztal</Text>
 		</Replace>
-		<Replace Tag="LOC_CIVINFO_MER_AUSTRIA_LOCATION" Language="fr_FR">
+		<Replace Tag="LOC_CIVINFO_MER_AUSTRIA_LOCATION"	Language="fr_FR">
 			<Text>Autriche</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_MER_AUSTRIA_CHAPTER_HISTORY_PARA_1" Language="fr_FR">
