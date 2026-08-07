@@ -29,6 +29,11 @@ DELETE FROM GreatPersonIndividualActionModifiers WHERE ModifierId='GREATPERSON_C
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
 	('GREAT_PERSON_INDIVIDUAL_ALAN_TURING', 'BBG_GREAT_PERSON_INDIVIDUAL_BOOST_OR_GRANT_COMPUTERS', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
 
+-- 07/08/26 Euclid : no longer give a random boost, allow the city to get an extra district instead
+DELETE FROM GreatPersonIndividualActionModifiers WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_EUCLID' AND ModifierId='GREATPERSON_1MEDIEVALTECHBOOST';
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_EUCLID', 'GREATPERSON_EXTRA_DISTRICT_CAPACITY', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
+
 ---- ============================
 ---- GREAT MERCHANTS
 ---- ============================
