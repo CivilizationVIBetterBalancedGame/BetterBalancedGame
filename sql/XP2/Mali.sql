@@ -130,8 +130,9 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 
 -- Cheaper purchase
 -- 30/06/25 20% discount, from 10
-UPDATE ModifierArguments SET Value=20 WHERE ModifierId IN ('SUGUBA_CHEAPER_BUILDING_PURCHASE', 'SUGUBA_CHEAPER_DISTRICT_PURCHASE');
-UPDATE ModifierArguments SET Value=20 WHERE ModifierId='SUGUBA_CHEAPER_UNIT_PURCHASE' AND Name='Amount';
+-- 07/08/26 reduced to 10% (since no malus)
+UPDATE ModifierArguments SET Value=10 WHERE ModifierId IN ('SUGUBA_CHEAPER_BUILDING_PURCHASE', 'SUGUBA_CHEAPER_DISTRICT_PURCHASE');
+UPDATE ModifierArguments SET Value=10 WHERE ModifierId='SUGUBA_CHEAPER_UNIT_PURCHASE' AND Name='Amount';
 
 -- Normal adj from HS, City center, Rivers, Oasis and Gov Plaza
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentFeature) VALUES
