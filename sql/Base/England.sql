@@ -72,4 +72,6 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_ABILITY_AOE_MELEE_NAVAL_ESCORT_CIVILIANS_GIVER', 'AbilityType', 'BBG_ABILITY_AOE_MELEE_NAVAL_ESCORT_CIVILIANS');
 INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
     ('TRAIT_LEADER_PAX_BRITANNICA', 'BBG_ABILITY_AOE_MELEE_NAVAL_ESCORT_CIVILIANS_GIVER');
---     
+
+-- 07/08/26 move Sea dog to elizabeth only (with bbg expanded that add the longbow as new civ unit)
+DELETE FROM CivilizationTraits WHERE CivilizationType='CIVILIZATION_ENGLAND' AND TraitType='TRAIT_CIVILIZATION_UNIT_ENGLISH_SEADOG';

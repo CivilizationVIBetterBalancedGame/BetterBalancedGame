@@ -501,7 +501,7 @@
 		<!-- == ENGLAND == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION_DESCRIPTION" Language="en_US">
-			<Text>[ICON_RESOURCE_IRON] Iron and [ICON_RESOURCE_COAL] Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10 (on Standard speed). +100% [ICON_PRODUCTION] Production towards Military Engineers. Military Engineers receive +2 [ICON_CHARGES] charges.[NEWLINE][ICON_BULLET]Bias: T1 Coast, T5 Iron and Coal.</Text>
+			<Text>[ICON_RESOURCE_IRON] Iron and [ICON_RESOURCE_COAL] Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10 (on Standard speed). +100% [ICON_PRODUCTION] Production towards Military Engineers. Military Engineers receive +2 [ICON_CHARGES] charges. Buildings that provide additional yields when [ICON_POWER] Powered receive +4 of that yield. [NEWLINE][ICON_BULLET]Bias: T1 Coast, T5 Iron and Coal.</Text>
 		</Replace>
 		<!-- = leader ability (Victoria - Age of Empire) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PAX_BRITANNICA_DESCRIPTION" Language="en_US">
@@ -515,7 +515,7 @@
 		</Row>
 		<!-- = leader ability (Victoria - Age of Steam) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_VICTORIA_ALT_DESCRIPTION" Language="en_US">
-			<Text>+5% [ICON_PRODUCTION] Production in Cities for each Factory and Power Plant in that city. Buildings that provide additional yields when [ICON_POWER] Powered receive +4 of that yield. Industrial Zones receive standard adjacency from Royal Navy Dockyards. +20% [ICON_PRODUCTION] Production towards Industrial Zone buildings.[NEWLINE]Lighthouse grants +1 [ICON_GREATENGINEER] Great Engineer point per turn.</Text>
+			<Text>+5% [ICON_PRODUCTION] Production in Cities for each Factory and Power Plant in that city.Industrial Zones receive standard adjacency from Royal Navy Dockyards. +20% [ICON_PRODUCTION] Production towards Industrial Zone buildings.[NEWLINE]+1 [ICON_PRODUCTION] Production to all improved Strategic Resources.[NEWLINE]Lighthouse grants +1 [ICON_GREATENGINEER] Great Engineer point per turn.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_AOS_ADJENCY_IZ_RND_DESC" Language="en_US">
 			<Text>+{1_num} [ICON_PRODUCTION] Production per adjacent Royal Navy Dockyard.</Text>
@@ -531,6 +531,24 @@
 		<Replace Tag="LOC_UNIT_ENGLISH_REDCOAT_DESCRIPTION" Language="en_US">
 			<Text>English unique Industrial era unit when Victoria is their leader that replaces the Line Infantry. +5 [ICON_STRENGTH] Combat Strength when fighting on a continent other than that of your capital's. No disembark cost.</Text>
 		</Replace>
+		
+		<Replace Tag="LOC_UNIT_ENGLISH_SEADOG_DESCRIPTION" Language="en_US">
+			<Text>English unique Renaissance era naval unit when Elizabeth is their leader  that replaces the Privateer. Has a chance to capture defeated enemy ships. Can only be seen by other Naval Raiders unless adjacent to it. Reveals Naval Raiders within sight range.</Text>
+		</Replace>
+
+		<Replace Language="en_US" Tag="LOC_ABILITY_LONGBOWMAN_DESCRIPTION">
+			<Text>+4 [ICON_Strength] Combat Strength against Melee and Cavalry units with a further +4 [ICON_Strength] Combat Strength if adjacent to another Longbowman unit.</Text>
+		</Replace>
+		<Replace Language="en_US" Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_DESCRIPTION">
+			<Text>English unique Medieval Era Ranged unit that replaces the Crossbowman. +4 [ICON_Strength] Combat Strength if adjacent to another Longbowman unit.</Text>
+		</Replace>
+		<Replace Language="en_US" Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_NAME">
+			<Text>Longbowman</Text>
+		</Replace>
+		<Replace Language="en_US" Tag="PLUS_4_LONGBOWMAN_ADJACENCY_COMBAT_BONUS_DESC">
+			<Text>+4 [ICON_Strength] Combat Strength next to Longbowman unit.</Text>
+		</Replace>
+
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_DESCRIPTION" Language="en_US">
 			<Text>A district unique to England for naval activity in your city. Replaces the Harbor district. Also removes the [ICON_MOVEMENT] Movement penalty for embarking and disembarking to and from this tile. Must be built on Coast or Lake Terrain adjacent to land.[NEWLINE][NEWLINE]+1 [ICON_MOVEMENT] Movement for all naval units built in Dockyard[NEWLINE]+2 [ICON_GOLD] Gold as adjacency and +4 Loyalty per turn when built on a foreign continent. Cannot be built on Reef.</Text>
