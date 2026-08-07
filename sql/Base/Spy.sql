@@ -9,3 +9,8 @@ UPDATE UnitOperations SET Turns=10 WHERE OperationType='UNITOPERATION_SPY_NEUTRA
 -- 05/01/26 Deleted Breach Dam
 DELETE FROM UnitOperations WHERE OperationType='UNITOPERATION_SPY_BREACH_DAM';
 DELETE FROM UnitPromotions WHERE UnitPromotionType='PROMOTION_SPY_SATCHEL_CHARGES';
+
+
+--  07/08/26 Increase counter spy effect
+UPDATE UnitOperations SET EnemyProbChange=2*EnemyProbChange WHERE CategoryInUI='OFFENSIVESPY';
+UPDATE UnitOperations SET EnemyLevelProbChange=2*EnemyLevelProbChange WHERE CategoryInUI='OFFENSIVESPY';
