@@ -188,6 +188,8 @@ UPDATE Units SET BaseMoves=3 WHERE UnitType='UNIT_MACHINE_GUN';
 -- UPDATE Units SET AntiAirCombat=80 WHERE UnitType='UNIT_MACHINE_GUN';
 -- 14/07/26 Machine Gun -5 range cs
 UPDATE Units SET RangedCombat=RangedCombat-5 WHERE UnitType='UNIT_MACHINE_GUN';
+-- 07/08/26 Machine Gun more expensive
+UPDATE Units SET Cost=600 WHERE UnitType='UNIT_MACHINE_GUN';
 
 
 --=======================================================================
@@ -267,6 +269,9 @@ UPDATE Units SET Cost=290 WHERE UnitType='UNIT_PIKE_AND_SHOT';
 
 -- 04/07/26 Modern Era Tech path Rework
 UPDATE Units SET PrereqTech='TECH_ADVANCED_BALLISTICS' WHERE UnitType='UNIT_AT_CREW';
+
+-- 07/08/26 AT Crew more expensive per turn (same as infantry)
+UPDATE Units SET Maintenance=6, Cost=460 WHERE UnitType='UNIT_AT_CREW';
 
 --=======================================================================
 --******                     SIEGE                               ******
