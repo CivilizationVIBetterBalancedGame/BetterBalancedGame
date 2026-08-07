@@ -18,6 +18,9 @@ UPDATE GlobalParameters SET Value=0.5 WHERE Name='TRADE_ROUTE_TRANSPORTATION_EFF
 UPDATE GlobalParameters SET Value=0 WHERE Name='COMBAT_MAX_EXTRA_DAMAGE';
 UPDATE GlobalParameters SET Value=30 WHERE Name='COMBAT_BASE_DAMAGE';
 
+-- 07/08/26 Max xp per attack increase to 10 from 8
+UPDATE GlobalParameters SET Value=10 WHERE Name='EXPERIENCE_MAXIMUM_ONE_COMBAT';
+
 --==============================================================
 --******				S  C  O  R  E				  	  ******
 --==============================================================

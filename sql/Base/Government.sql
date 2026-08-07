@@ -57,10 +57,11 @@ INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
 -- 21/07/26 : legacy : +20%exp and +1combat strength per level (from ceasar)
 
 -- legacy 20% xp
+-- 07/08/26 : legacy at 40%
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_OLIGARCHY_UNIT_EXPERIENCE', 'MODIFIER_PLAYER_UNITS_ADJUST_UNIT_EXPERIENCE_MODIFIER', NULL);
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_OLIGARCHY_UNIT_EXPERIENCE', 'Amount', 20);
+    ('BBG_OLIGARCHY_UNIT_EXPERIENCE', 'Amount', 40);
 INSERT INTO GovernmentModifiers (GovernmentType, ModifierId) VALUES
     ('GOVERNMENT_OLIGARCHY', 'BBG_OLIGARCHY_UNIT_EXPERIENCE');
 INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
