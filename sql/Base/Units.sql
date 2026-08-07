@@ -497,6 +497,8 @@ UPDATE ModifierArguments SET Value=5 WHERE ModifierId='LINE_OF_BATTLE_BONUS_VS_N
 UPDATE Units SET Range=2 WHERE UnitType='UNIT_QUADRIREME';
 -- 12/07/26  All quads have 2 range --> reduce ranged combat 
 UPDATE Units SET RangedCombat=23 WHERE UnitType='UNIT_QUADRIREME';
+-- 07/08/26 Quads cost more 
+UPDATE Units SET Cost=160 WHERE UnitType='UNIT_QUADRIREME';
 
 --=======================================================================
 --******                  NAVAL RAIDER                             ******
