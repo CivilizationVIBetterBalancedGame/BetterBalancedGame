@@ -313,8 +313,9 @@ UPDATE GlobalParameters SET Value=30 WHERE Name='TECH_COST_PERCENT_CHANGE_AFTER_
 UPDATE Technologies SET Cost=Cost*1.05 WHERE EraType NOT IN ('ERA_ANCIENT', 'ERA_CLASSICAL');
 
 -- 2022-06-04 -- Add Scientific Theory as Prereq for Steam Power
+-- 07/08/26 Steam Power requires Astronomy instead of Scientific Theory
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
-    ('TECH_STEAM_POWER', 'TECH_SCIENTIFIC_THEORY');
+    ('TECH_STEAM_POWER', 'TECH_ASTRONOMY');
 
 -- 30/03/25 Robotics needs Composites
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
