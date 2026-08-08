@@ -78,6 +78,15 @@ UPDATE RequirementArguments SET Value=13 WHERE RequirementId='REQUIRES_CITY_HAS_
 --     ('POLICY_SIMULTANEUM', 'BBG_SIMULTANEUM_BUILDING_YIELDS_HIGH_POP_PRODUCTION'),
 --     ('POLICY_SIMULTANEUM', 'BBG_SIMULTANEUM_BUILDING_YIELDS_HIGH_ADJACENCY_GOLD'),  
 --     ('POLICY_SIMULTANEUM', 'BBG_SIMULTANEUM_BUILDING_YIELDS_HIGH_POP_GOLD');
+-- 08/08/26 just increase faith %
+UPDATE ModifierArguments SET Value='100' WHERE ModifierId='SIMULTANEUM_BUILDING_YIELDS_HIGH_ADJACENCY' AND Name='Amount';
+UPDATE ModifierArguments SET Value='100' WHERE ModifierId='SIMULTANEUM_BUILDING_YIELDS_HIGH_POP' AND Name='Amount';
+
+UPDATE ModifierArguments SET Value='100' WHERE ModifierId='GRANDOPERA_BUILDING_YIELDS_HIGH_ADJACENCY' AND Name='Amount';
+UPDATE ModifierArguments SET Value='100' WHERE ModifierId='GRANDOPERA_BUILDING_YIELDS_HIGH_POP' AND Name='Amount';
+
+UPDATE ModifierArguments SET Value='100' WHERE ModifierId='FREEMARKET_BUILDING_YIELDS_HIGH_ADJACENCY' AND Name='Amount';
+UPDATE ModifierArguments SET Value='100' WHERE ModifierId='FREEMARKET_BUILDING_YIELDS_HIGH_POP' AND Name='Amount';
 
 
 --5.2.5 buff autocracy (extend bonus to plaza/diplo quarter district AND diplo quarter buildings) -- moved from base
