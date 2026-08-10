@@ -502,7 +502,7 @@
 		<!-- == ENGLAND - ANGLETERRE == -->
 		<!-- = Civilization - Civilisation = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION_DESCRIPTION" Language="fr_FR">
-			<Text>Les mines de [ICON_RESOURCE_IRON] Fer et de [ICON_RESOURCE_COAL] Charbon fournissent 2 unités supplémentaires par tour. Stocks de ressources stratégiques +10 grâce aux bâtiments du Port (vitesse en ligne).[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +100% et [ICON_CHARGES] charges +2 pour les ingénieurs militaires.[NEWLINE][NEWLINE]Bias : T1 Côte / T5 Fer, Charbon.</Text>
+			<Text>Les mines de [ICON_RESOURCE_IRON] Fer et de [ICON_RESOURCE_COAL] Charbon fournissent 2 unités supplémentaires par tour. Stocks de ressources stratégiques +10 grâce aux bâtiments du Port (vitesse en ligne).[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +100% et [ICON_CHARGES] charges +2 pour les ingénieurs militaires.[NEWLINE]Rendements +3 pour les bâtiments alimentés en [ICON_POWER] électricité.[NEWLINE][NEWLINE]Bias : T1 Côte / T5 Fer, Charbon.</Text>
 		</Replace>
 		<!-- = Leader (Age of Empire) - Dirigeant (Empire) = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_PAX_BRITANNICA_EXPANSION2_DESCRIPTION" Language="fr_FR">
@@ -513,7 +513,7 @@
 		</Replace>
 		<!-- = Leader (Age of Steam) - Dirigeant (Vapeur) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_VICTORIA_ALT_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +20% pour la construction des bâtiments de la Zone industrielle.[NEWLINE][ICON_PRODUCTION] Production +5% dans les villes pour chaque usine et centrale dans la Zone industrielle.[NEWLINE]Les Zones industrielles fournissent +1 [ICON_PRODUCTION] Production pour chaque Port de la Royal Navy adjacent.[NEWLINE]Rendements +4 pour les bâtiments alimentés en [ICON_POWER] électricité.[NEWLINE][NEWLINE]Points [ICON_GREATENGINEER] d'Ingénieur illustre +1 pour les phares.</Text>
+			<Text>[ICON_PRODUCTION] Production +20% pour la construction des bâtiments de la Zone industrielle.[NEWLINE][ICON_PRODUCTION] Production +5% dans les villes pour chaque usine et centrale dans la Zone industrielle.[NEWLINE]Les Zones industrielles fournissent +1 [ICON_PRODUCTION] Production pour chaque Port de la Royal Navy adjacent.[NEWLINE][NEWLINE]Points [ICON_GREATENGINEER] d'Ingénieur illustre +1 pour les phares.[NEWLINE][ICON_PRODUCTION] Production +1 pour toutes les ressources stratégiques aménagées.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_AOS_ADJENCY_IZ_RND_DESC" Language="fr_FR">
 			<Text>Cases de Port de la Royal Navy adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
@@ -527,7 +527,7 @@
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_ENGLISH_SEADOG_DESCRIPTION" Language="fr_FR">
-			<Text>Unité navale d'assaut en mer de la Renaissance exclusive à l'Angleterre, remplaçant le Corsaire.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +3.[NEWLINE]Tuer une unité navale offre une chance de la capturer.[NEWLINE]Ne peut être vue que par d'autres unités navales d'assaut en mer à moins de lui être adjacent. Révèle les unités d'assaut en mer dans son champ de vision.</Text>
+			<Text>Unité navale d'assaut en mer de la Renaissance exclusive à Élisabeth, remplaçant le Corsaire.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +3.[NEWLINE]Tuer une unité navale offre une chance de la capturer.[NEWLINE]Ne peut être vue que par d'autres unités navales d'assaut en mer à moins de lui être adjacent. Révèle les unités d'assaut en mer dans son champ de vision.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_ENGLISH_REDCOAT_DESCRIPTION" Language="fr_FR">
@@ -536,6 +536,18 @@
 		<!-- = Unique district - Quartier unique = -->
 		<Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_EXPANSION2_DESCRIPTION" Language="fr_FR">
 			<Text>Quartier exclusif à l'Angleterre, remplaçant le Port.[NEWLINE][NEWLINE]Bonus de proximité +2 et loyauté +4 par tour en cas de construction sur un continent étranger.[NEWLINE][ICON_MOVEMENT] PM +1 pour les unités navales.</Text>
+		</Replace>
+		<Replace Language="fr_FR" Tag="LOC_ABILITY_LONGBOWMAN_DESCRIPTION">
+			<Text>[ICON_Strength] Puissance de combat +4 si adjacent à un autre Longbowman.</Text>
+		</Replace>
+		<Replace Language="fr_FR" Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_DESCRIPTION">
+			<Text>Unité de combat à distance de l'ère médiévale exclusive à l'Angleterre, remplaçant l'Arbalétrier.[NEWLINE][NEWLINE][ICON_Strength] Puissance de combat +4 si adjacent à un autre Longbowman.</Text>
+		</Replace>
+		<Replace Language="fr_FR" Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_NAME">
+			<Text>Longbowman</Text>
+		</Replace>
+		<Replace Language="fr_FR" Tag="PLUS_4_LONGBOWMAN_ADJACENCY_COMBAT_BONUS_DESC">
+			<Text>[ICON_Strength] Puissance de combat +4 lorsqu'adjacent à un autre Longbowman.</Text>
 		</Replace>
 
 		<!-- == ETHIOPIA - ÉTHIOPIE == -->
@@ -654,7 +666,7 @@
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = -->
 		<Replace Tag="LOC_BUILDING_TSIKHE_DESCRIPTION_XP2" Language="fr_FR">
-			<Text>Bâtiment exclusif à la Géorgie, remplaçant les remparts antiques.[NEWLINE][NEWLINE]Défenses extérieures +25.[NEWLINE][NEWLINE][ICON_CULTURE] Culture +1 et [ICON_FAITH] Foi +4.[NEWLINE][ICON_FAITH] Foi +3 et [ICON_TOURISM] Tourisme +1 lors d'un âge d'or.[NEWLINE][ICON_TOURISM] Tourisme +1 à la [COLOR:212,115,212,255]Conservation[ENDCOLOR].</Text>
+			<Text>Bâtiment exclusif à la Géorgie, remplaçant les remparts antiques.[NEWLINE][NEWLINE]Défenses extérieures +25.[NEWLINE][NEWLINE][ICON_CULTURE] Culture +1 et [ICON_FAITH] Foi +4.[NEWLINE][ICON_FAITH] Foi +3 et [ICON_TOURISM] Tourisme +1 lors d'un âge d'or.[NEWLINE]Points de [ICON_GREATPROPHET] Prophète illustre +1.[NEWLINE][ICON_TOURISM] Tourisme +1 à la [COLOR:212,115,212,255]Conservation[ENDCOLOR].</Text>
 		</Replace>
 
 		<!-- == GERMANY - ALLEMAGNE == -->
@@ -1105,7 +1117,7 @@
 		</Replace>
 		<!-- = Unique district - Quartier unique = -->
 		<Replace Tag="LOC_DISTRICT_SUGUBA_DESCRIPTION" Language="fr_FR">
-			<Text>Quartier exclusif au Mali, remplaçant la Plateforme commerciale.[NEWLINE][NEWLINE][ICON_GOLD] Or +1 pour chaque rivière, oasis et Centre-ville adjacent.[NEWLINE][NEWLINE]Les unités, [ICON_DISTRICT] quartiers et bâtiments de cette ville sont 20% moins chers à l'achat ([ICON_GOLD] Or et [ICON_FAITH] Foi).</Text>
+			<Text>Quartier exclusif au Mali, remplaçant la Plateforme commerciale.[NEWLINE][NEWLINE][ICON_GOLD] Or +1 pour chaque rivière, oasis et Centre-ville adjacent.[NEWLINE][NEWLINE]Les unités, [ICON_DISTRICT] quartiers et bâtiments de cette ville sont 10% moins chers à l'achat ([ICON_GOLD] Or et [ICON_FAITH] Foi).</Text>
 		</Replace>
 		<Replace Tag="LOC_SUGUBA_OASIS_GOLD" Language="fr_FR">
 			<Text>Cases d'Oasis adjacentes : [ICON_GOLD] Or +{1_num}.</Text>
@@ -1120,7 +1132,7 @@
 		<!-- == MAORI == -->
 		<!-- = Civilization - Civilisation = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAORI_MANA_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_FOOD] Nourriture +1 pour les bateaux de pêche à la [COLOR_FLOAT_SCIENCE]Navigation Astronomique[ENDCOLOR].[NEWLINE]Les bateaux de pêche déclenchent une bombe culturelle sur les cases adjacentes.[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 pour les cases de bois et de forêt tropicale non aménagées au [COLOR:212,115,212,255]Premier Empire[ENDCOLOR] (passe à +2 au [COLOR:212,115,212,255]Mercantilisme[ENDCOLOR] et à +4 à la [COLOR:212,115,212,255]Conservation[ENDCOLOR]).[NEWLINE][NEWLINE][ICON_MOVEMENT] PM +2 pour les unités embarquées à la [COLOR_FLOAT_SCIENCE]Construction Navale[ENDCOLOR].[NEWLINE][NEWLINE]Impossible de récolter les ressources, ni d'obtenir [ICON_GREATWRITER] d'Écrivain illustre.[NEWLINE][NEWLINE]Bias : T1 Côte.</Text>
+			<Text>[ICON_FOOD] Nourriture +1 pour les bateaux de pêche à la [COLOR_FLOAT_SCIENCE]Navigation Astronomique[ENDCOLOR].[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 pour les cases de bois et de forêt tropicale non aménagées au [COLOR:212,115,212,255]Premier Empire[ENDCOLOR] (passe à +2 au [COLOR:212,115,212,255]Mercantilisme[ENDCOLOR] et à +4 à la [COLOR:212,115,212,255]Conservation[ENDCOLOR]).[NEWLINE][NEWLINE][ICON_MOVEMENT] PM +2 pour les unités embarquées à la [COLOR_FLOAT_SCIENCE]Construction Navale[ENDCOLOR].[NEWLINE][NEWLINE]Impossible de récolter les ressources, ni d'obtenir [ICON_GREATWRITER] d'Écrivain illustre.[NEWLINE][NEWLINE]Bias : T1 Côte.</Text>
 		</Replace>
 		<!-- = Leader - Dirigeant = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KUPES_VOYAGE_DESCRIPTION" Language="fr_FR">
@@ -1128,10 +1140,10 @@
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_MAORI_TOA_DESCRIPTION" Language="fr_FR">
-			<Text>Unité de combat rapproché de l'ère classique exclusive au Maori, remplaçant le Spadassin.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +2.[NEWLINE][ICON_STRENGTH] Puissance de combat -5 pour les unités militaires ennemies adjacentes.[NEWLINE][NEWLINE]Peut construire un Pā (1 [ICON_CHARGES] charge).[NEWLINE][NEWLINE]Ne nécessite pas de [ICON_RESOURCE_IRON] Fer.</Text>
+			<Text>Unité de combat rapproché de l'ère classique exclusive au Maori, remplaçant le Spadassin.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +2.[NEWLINE][ICON_STRENGTH] Puissance de combat -3 pour les unités militaires ennemies adjacentes.[NEWLINE][NEWLINE]Peut construire un Pā (1 [ICON_CHARGES] charge).[NEWLINE][NEWLINE]Ne nécessite pas de [ICON_RESOURCE_IRON] Fer.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_TOA_NEGATIVE_COMBAT_MODIFIER_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat -5 (Toa)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat -3 (Toa)</Text>
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = -->
 		<Replace Tag="LOC_BUILDING_MARAE_DESCRIPTION" Language="fr_FR">
@@ -1246,7 +1258,7 @@
 		</Replace>
 		<!-- = Leader (Konge) - Dirigeant (Konge) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +25% pour la formation d'unités navales de combat rapproché, qui peuvent attaquer les côtes.[NEWLINE]Le pillage et l'assaut côtier des cases de mine octroient de la [ICON_SCIENCE] Science, en plus de [ICON_GOLD] l'Or. Le pillage et l'assaut côtier des cases carrière, pâturage, plantation et camp octroient de la [ICON_CULTURE] Culture, en plus de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités navales de combat rapproché.[NEWLINE]Les Langskips et les Berserkers peuvent traverser les cases d'océan à la [COLOR_FLOAT_SCIENCE]Construction Navale[ENDCOLOR].</Text>
+			<Text>[ICON_PRODUCTION] Production +25% pour la formation d'unités navales de combat rapproché, qui peuvent attaquer les côtes.[NEWLINE]Le pillage et l'assaut côtier des cases de mine octroient de la [ICON_SCIENCE] Science, en plus de [ICON_GOLD] l'Or. Le pillage et l'assaut côtier des cases carrière, pâturage, plantation et camp octroient de la [ICON_CULTURE] Culture, en plus de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités navales de combat rapproché.[NEWLINE]Les unités hors quadrirèmes peuvent traverser les cases d'océan à la [COLOR_FLOAT_SCIENCE]Construction Navale[ENDCOLOR].</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY_NAME" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +3 (Konge)</Text>
@@ -1707,7 +1719,7 @@
 		<!-- == SWEDEN - SUÈDE == -->
 		<!-- = Civilization - Civilisation = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +50% pour la construction des ateliers, usines, bibliothèques, des universités et des bâtiments de la Place de gouvernance.[NEWLINE][NEWLINE]Les bâtiments de la Zone industrielle et du Campus génèrent respectivement 1 point [ICON_GREATENGINEER] d'Ingénieur illustre supplémentaire et 1 point de [ICON_GREATSCIENTIST] Savant illustre supplémentaire.[NEWLINE][ICON_FAVOR] Faveurs diplomatiques +10 pour chaque [ICON_GREATPERSON] Personnage illustre recruté (vitesse en ligne).[NEWLINE][NEWLINE]La présence de la Suède dans une partie ajoute trois compétitions exclusives au Congrès mondial à partir de la Renaissance.[NEWLINE][NEWLINE]Bias : Spécial : "King in the north".</Text>
+			<Text>[ICON_PRODUCTION] Production +50% pour la construction des des bâtiments de la Place de gouvernance, du Campus et de la Zone industrielle.[NEWLINE][NEWLINE]Les bâtiments de la Zone industrielle et du Campus génèrent respectivement 1 point [ICON_GREATENGINEER] d'Ingénieur illustre supplémentaire et 1 point de [ICON_GREATSCIENTIST] Savant illustre supplémentaire.[NEWLINE][ICON_FAVOR] Faveurs diplomatiques +10 pour chaque [ICON_GREATPERSON] Personnage illustre recruté (vitesse en ligne).[NEWLINE][NEWLINE]La présence de la Suède dans une partie ajoute trois compétitions exclusives au Congrès mondial à partir de la Renaissance.[NEWLINE][NEWLINE]Bias : Spécial : "King in the north".</Text>
 		</Replace>
 		<!-- = Leader - Dirigeant = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KRISTINA_AUTO_THEME_DESCRIPTION" Language="fr_FR">
@@ -1806,7 +1818,7 @@
 			<Text>Seigneur de l'Ouest</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="fr_FR">
-			<Text>Capacité de [ICON_TRADEROUTE] routes commerciales +1 pour l'Enclave de pochtecatl et la chancellerie.[NEWLINE][ICON_PRODUCTION] Production +100% pour les bâtiments de l'Enclave De Pochtecatl.[NEWLINE][NEWLINE]Peut recruter Fire Is Born, un [ICON_GOVERNOR] Gouverneur unique.</Text>
+			<Text>Capacité de [ICON_TRADEROUTE] routes commerciales +1 pour l'Enclave De Pochtecatl et ses bâtiments.[NEWLINE][ICON_PRODUCTION] Production +100% pour les bâtiments de l'Enclave De Pochtecatl.[NEWLINE]Peut recruter Fire Is Born, un [ICON_GOVERNOR] Gouverneur unique.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="fr_FR">
@@ -2998,10 +3010,10 @@
 			<Text>[ICON_PRODUCTION] Production +20% pour les Colons.[NEWLINE]Vos villes reçoivent 2 cases gratuites quand elles sont fondées et voient la vitesse d'expansion de leurs frontières augmenter de 50%.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_RIVER_GODDESS_DESCRIPTION" Language="fr_FR">
-			<Text>Bonus de proximité majeur pour les Lieux saints adjacents à une rivière. [ICON_AMENITIES] Activités +1 dans les villes possédant un Lieu saint adjacent à une rivière.</Text>
+			<Text>Bonus de proximité standard pour les Lieux saints adjacents à une rivière. [ICON_AMENITIES] Activités +1 dans les villes possédant un Lieu saint adjacent à une rivière.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_RIVER_GODDESS_EXPANSION2_DESCRIPTION" Language="fr_FR">
-			<Text>Bonus de proximité majeur pour les Lieux saints adjacents à une rivière. [ICON_AMENITIES] Activités +1 dans les villes possédant un Lieu saint adjacent à une rivière.</Text>
+			<Text>Bonus de proximité standard pour les Lieux saints adjacents à une rivière. [ICON_AMENITIES] Activités +1 dans les villes possédant un Lieu saint adjacent à une rivière.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_HOLY_SITE_RIVER_FAITH" Language="fr_FR">
 			<Text>[ICON_FAITH] Foi +{1_num} (Déesse des rivières).</Text>
@@ -4881,7 +4893,7 @@
 			<Text>Tambours de guerre</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="fr_FR">
-			<Text>Âge d'or "Tambours de guerre" :[NEWLINE][ICON_PRODUCTION] Production +15% et coût d'entretien -1 pour les unités militaires. [ICON_PRODUCTION] Production +1 pour les Campements et leurs bâtiments. Les victoires militaires octroient un bonus en [ICON_CULTURE] Culture équivalent à 40% de la [ICON_STRENGTH] Puissance de combat de l'unité vaincue (vitesse en ligne). [ICON_RESOURCE_HORSES][ICON_RESOURCE_IRON][ICON_RESOURCE_NITER] Chevaux, Fer et Salpêtre +2 par tour.</Text>
+			<Text>Âge d'or "Tambours de guerre" :[NEWLINE][ICON_PRODUCTION] Production +15% pour les unités militaires. [ICON_PRODUCTION] Production +1 pour les Campements et leurs bâtiments. Les victoires militaires octroient un bonus en [ICON_CULTURE] Culture équivalent à 40% de la [ICON_STRENGTH] Puissance de combat de l'unité vaincue (vitesse en ligne). [ICON_RESOURCE_HORSES][ICON_RESOURCE_IRON][ICON_RESOURCE_NITER] Chevaux, Fer et Salpêtre +2 par tour.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="fr_FR">
 			<Text>Bonus d'engagement "Tambours de guerre" :[NEWLINE]Score d'ère +1 chaque fois que vous recrutez un [ICON_GREATPERSON] Personnage illustre.</Text>
@@ -4890,7 +4902,7 @@
 			<Text>Bonus d'engagement "Tambours de guerre" :[NEWLINE]Score d'ère +1 chaque fois que vous recrutez un [ICON_GREATPERSON] Personnage illustre.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="fr_FR">
-			<Text>"Tambours de guerre" : score d'ère +1 chaque fois que vous recrutez un [ICON_GREATPERSON] Personnage illustre. Choisi au début d'un âge d'or, [ICON_PRODUCTION] Production +15% et coût d'entretien -1 pour les unités militaires. [ICON_PRODUCTION] Production +1 pour les Campements et leurs bâtiments. Les victoires militaires octroient un bonus en [ICON_CULTURE] Culture équivalent à 40% de la [ICON_STRENGTH] Puissance de combat de l'unité vaincue (vitesse en ligne). [ICON_RESOURCE_HORSES][ICON_RESOURCE_IRON][ICON_RESOURCE_NITER] Chevaux, Fer et Salpêtre +2 par tour.</Text>
+			<Text>"Tambours de guerre" : score d'ère +1 chaque fois que vous recrutez un [ICON_GREATPERSON] Personnage illustre. Choisi au début d'un âge d'or, [ICON_PRODUCTION] Production +15%  pour les unités militaires. [ICON_PRODUCTION] Production +1 pour les Campements et leurs bâtiments. Les victoires militaires octroient un bonus en [ICON_CULTURE] Culture équivalent à 40% de la [ICON_STRENGTH] Puissance de combat de l'unité vaincue (vitesse en ligne). [ICON_RESOURCE_HORSES][ICON_RESOURCE_IRON][ICON_RESOURCE_NITER] Chevaux, Fer et Salpêtre +2 par tour.</Text>
 		</Replace>
 		<!-- == MONUMENTALITY - MONUMENTALITÉ == -->
 		<Replace Tag="LOC_MOMENT_CATEGORY_INFRASTRUCTURE" Language="fr_FR">
@@ -5525,6 +5537,12 @@
 
 
 
+		<Replace Tag="LOC_TECH_CARTOGRAPHY_DESCRIPTION" Language="fr_FR">
+		  <Text>Réduit le coût de [ICON_MOVEMENT] Mouvement dans l'océan à 1. [ICON_Gold] Or +2 pour les bateaux de pêche.</Text>
+		</Replace>
+		<Replace Tag="BBG_LOC_TECH_BUTTRESS_DESCRIPTION" Language="fr_FR">
+		  <Text>Toutes les unités  navales et embarquées peuvent naviguer sur l'océan.</Text>
+		</Replace>
 		<!-- === GOVERNEMENTS - GOUVERNEMENTS === -->
 
 		<Replace Tag="LOC_GOVERNMENT_INHERENT_BONUS" Language="fr_FR">
@@ -5536,7 +5554,7 @@
 
 		<!-- == T1 == -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_OLIGARCHY_XP1" Language="fr_FR">
-			<Text>Expérience des unités +20%. [ICON_STRENGTH] Puissance de combat +1 pour les unités terrestres et navales pour chaque [ICON_PROMOTION] niveau.</Text>
+			<Text>Expérience des unités +40%. [ICON_STRENGTH] Puissance de combat +1 pour les unités terrestres et navales pour chaque [ICON_PROMOTION] niveau.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_OLIGARCHY_XP1" Language="fr_FR">
 			<Text>[ICON_MOVEMENT] PM +1 pour les unités de support et civiles si l'unité commence son tour en territoire allié.</Text>
@@ -5594,7 +5612,7 @@
       		<Text>[ICON_PRODUCTION] Production +1 par [ICON_CITIZEN] Citoyen dans une ville possédant un [ICON_GOVERNOR] gouverneur.</Text>
     	</Replace>
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_COMMUNISM_XP2" Language="fr_FR">
-			<Text>Intolérance aux gouvernements différents : [ICON_TOURISM] Tourisme -30%.</Text>
+			<Text>[ICON_SCIENCE] Science +10% dans les villes avec un [ICON_DISTRICT_CAMPUS] Campus.[NEWLINE]Intolérance aux gouvernements différents : [ICON_TOURISM] Tourisme -30%.</Text>
 		</Replace>
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_DEMOCRACY_XP2" Language="fr_FR">
 			<Text>[ICON_FOOD] Nourriture +5, [ICON_PRODUCTION] Production +2 et [ICON_GOLD] Or +4 pour les [ICON_TRADEROUTE] routes commerciales avec une ville alliée. Cette ville reçoit aussi ces rendements.[NEWLINE]Les points d'alliance avec tous les alliés augmentent de 0.25 point en plus par tour.</Text>
@@ -5713,10 +5731,16 @@
 			<Text>[ICON_PRODUCTION] Production +100% pour les unités navales des ères médiévale et antérieures.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_PROFESSIONAL_ARMY_DESCRIPTION_XP2" Language="fr_FR">
-			<Text>30% de réduction en [ICON_GOLD] Or pour l'amélioration d'unité.</Text>
+			<Text>40% de réduction en [ICON_GOLD] Or pour l'amélioration d'unité.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_RETINUES_DESCRIPTION" Language="fr_FR">
 			<Text>50% de réduction en ressources pour la Production et l'amélioration d'unité.</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_NAME" Language="fr_FR">
+			<Text>Standardisation militaire</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_DESCRIPTION" Language="fr_FR">
+			<Text>45% de réduction en [ICON_GOLD] Or pour l'amélioration d'unité.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_HARD_SHELL_EXPLOSIVES_NAME" Language="fr_FR">
 			<Text>Obus explosifs</Text>
@@ -5902,7 +5926,7 @@
 			<Text>[ICON_RELIGION] Puissance religieuse +5 pour toutes les unités religieuses en combat théologique et propagation de la [ICON_RELIGION] religion 50% plus forte dans les villes des autres civilisations pour les unités religieuses.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_SIMULTANEUM_DESCRIPTION" Language="fr_FR">
-			<Text>Rendements des bâtiments des Lieux saints : +50% si la ville compte au moins 13 [ICON_CITIZEN] Citoyens, +50% si le quartier a un bonus de proximité d'au moins +3.</Text>
+			<Text>[ICON_Faith] Foi bonus des bâtiments des Lieux saints : +100% si la ville compte au moins 13 [ICON_CITIZEN] Citoyens, +100% si le quartier a un bonus de proximité d'au moins +3.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_TRIANGULAR_TRADE_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_GOLD] Or +4 et [ICON_FAITH] Foi +1 pour les [ICON_TRADEROUTE] routes commerciales.[NEWLINE][ICON_PRODUCTION] Production +1 pour les [ICON_TRADEROUTE] routes commerciales internationales.</Text>
@@ -5911,7 +5935,7 @@
 			<Text>[ICON_SCIENCE] Science des bâtiments des Campus : +50% si la ville compte au moins 13 [ICON_CITIZEN] Citoyens, +50% si le quartier a un bonus de proximité d'au moins +3.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_FREE_MARKET_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_GOLD] Or des bâtiments des Plateformes commerciales : +50% si la ville compte au moins 13 [ICON_CITIZEN] Citoyens, +50% si le quartier a un bonus de proximité d'au moins +4.</Text>
+			<Text>[ICON_GOLD] Or des bâtiments des Plateformes commerciales : +100% si la ville compte au moins 13 [ICON_CITIZEN] Citoyens, +100% si le quartier a un bonus de proximité d'au moins +4.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_LIBERALISM_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_AMENITIES] Activités +1 pour les villes possédant au moins 2 [ICON_DISTRICT] quartiers spécialisés.</Text>
@@ -5935,7 +5959,7 @@
 			<Text>[ICON_DISTRICT_INDUSTRIAL_ZONE] Bonus de proximité +100% pour les Zones industrielles.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_GRAND_OPERA_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_CULTURE] Culture des bâtiments des Places du théâtre : +50% si la ville compte au moins 13 [ICON_CITIZEN] Citoyens, +50% si le quartier a un bonus de proximité d'au moins +3.</Text>
+			<Text>[ICON_CULTURE] Culture des bâtiments des Places du théâtre : +100% si la ville compte au moins 13 [ICON_CITIZEN] Citoyens, +100% si le quartier a un bonus de proximité d'au moins +3.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_PUBLIC_TRANSPORT_DESCRIPTION_XP2" Language="fr_FR">
       		<Text>[ICON_FOOD] Nourriture +3 et [ICON_PRODUCTION] Production +1 pour les Quartiers résidentiels d'un Attrait charmant (+4 et +2 si le quartier est époustouflant). [ICON_GOLD] Or +1 pour tous les Quartiers résidentiels.[NEWLINE][ICON_Gold] Or +100 par point d'attrait d'une case si vous remplacez une ferme par un quartier résidentiel.</Text>
@@ -6210,7 +6234,7 @@
 			<Text>Crée un Corsaire avec un niveau de promotion. Butin issu du pillage des [ICON_TRADEROUTE] routes commerciales maritimes +50%. [ICON_PRODUCTION] Production +25% pour les unités militaires navales de combat à distance et d'assaut en mer.</Text>
 		</Replace>
 		
-		<!-- == GREAT INGENEER - INGÉNIEUR ILLUSTRE == -->
+		<!-- == GREAT ENGINEER - INGÉNIEUR ILLUSTRE == -->
 		<Replace Tag="LOC_GREATPERSON_CULTURE_BOMB_TRIGGER_INDUSTRIAL_ZONE" Language="fr_FR">
       		<Text>[ICON_HOUSING] Habitations +1 et [ICON_AMENITIES] Activités +1 dans la ville cible.</Text>
     	</Replace>
@@ -6224,6 +6248,10 @@
     	</Replace>
 
 		<!-- == GREAT SCIENTIST - SCIENTIFIQUE ILLUSTRE == -->
+		
+		<Replace Tag="LOC_GREATPERSON_EUCLID_ACTIVE" Language="fr_FR">
+			<Text>Déclenche un [ICON_TechBoosted] Eurêka ! pour les mathématiques et permet à cette ville de construire un quartier de plus que le maximum autorisé par sa [ICON_Citizen] population.</Text>
+		</Replace>
 		<Replace Tag="LOC_GREATPERSON_DMITRI_MENDELEEV_ACTIVE" Language="fr_FR">
       		<Text>Déclenche un [ICON_TECHBOOSTED] Eurêka pour la Chimie et une technologie aléatoire de l'ère industrielle. [ICON_PRODUCTION] Production +50% pour les laboratoires de recherche.</Text>
     	</Replace>

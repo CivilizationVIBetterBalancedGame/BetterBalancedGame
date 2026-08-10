@@ -501,7 +501,7 @@
 		<!-- == ENGLAND == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION_DESCRIPTION" Language="en_US">
-			<Text>[ICON_RESOURCE_IRON] Iron and [ICON_RESOURCE_COAL] Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10 (on Standard speed). +100% [ICON_PRODUCTION] Production towards Military Engineers. Military Engineers receive +2 [ICON_CHARGES] charges.[NEWLINE][ICON_BULLET]Bias: T1 Coast, T5 Iron and Coal.</Text>
+			<Text>[ICON_RESOURCE_IRON] Iron and [ICON_RESOURCE_COAL] Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10 (on Standard speed). +100% [ICON_PRODUCTION] Production towards Military Engineers. Military Engineers receive +2 [ICON_CHARGES] charges. Buildings that provide additional yields when [ICON_POWER] Powered receive +3 of that yield. [NEWLINE][ICON_BULLET]Bias: T1 Coast, T5 Iron and Coal.</Text>
 		</Replace>
 		<!-- = leader ability (Victoria - Age of Empire) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_PAX_BRITANNICA_DESCRIPTION" Language="en_US">
@@ -515,7 +515,7 @@
 		</Row>
 		<!-- = leader ability (Victoria - Age of Steam) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_VICTORIA_ALT_DESCRIPTION" Language="en_US">
-			<Text>+5% [ICON_PRODUCTION] Production in Cities for each Factory and Power Plant in that city. Buildings that provide additional yields when [ICON_POWER] Powered receive +4 of that yield. Industrial Zones receive standard adjacency from Royal Navy Dockyards. +20% [ICON_PRODUCTION] Production towards Industrial Zone buildings.[NEWLINE]Lighthouse grants +1 [ICON_GREATENGINEER] Great Engineer point per turn.</Text>
+			<Text>+5% [ICON_PRODUCTION] Production in Cities for each Factory and Power Plant in that city.Industrial Zones receive standard adjacency from Royal Navy Dockyards. +20% [ICON_PRODUCTION] Production towards Industrial Zone buildings.[NEWLINE]+1 [ICON_PRODUCTION] Production to all improved Strategic Resources.[NEWLINE]Lighthouse grants +1 [ICON_GREATENGINEER] Great Engineer point per turn.</Text>
 		</Replace>
 		<Row Tag="LOC_BBG_AOS_ADJENCY_IZ_RND_DESC" Language="en_US">
 			<Text>+{1_num} [ICON_PRODUCTION] Production per adjacent Royal Navy Dockyard.</Text>
@@ -531,6 +531,24 @@
 		<Replace Tag="LOC_UNIT_ENGLISH_REDCOAT_DESCRIPTION" Language="en_US">
 			<Text>English unique Industrial era unit when Victoria is their leader that replaces the Line Infantry. +5 [ICON_STRENGTH] Combat Strength when fighting on a continent other than that of your capital's. No disembark cost.</Text>
 		</Replace>
+		
+		<Replace Tag="LOC_UNIT_ENGLISH_SEADOG_DESCRIPTION" Language="en_US">
+			<Text>English unique Renaissance era naval unit when Elizabeth is their leader  that replaces the Privateer. Has a chance to capture defeated enemy ships. Can only be seen by other Naval Raiders unless adjacent to it. Reveals Naval Raiders within sight range.</Text>
+		</Replace>
+
+		<Replace Language="en_US" Tag="LOC_ABILITY_LONGBOWMAN_DESCRIPTION">
+			<Text>+4 [ICON_Strength] Combat Strength against Melee and Cavalry units with a further +4 [ICON_Strength] Combat Strength if adjacent to another Longbowman unit.</Text>
+		</Replace>
+		<Replace Language="en_US" Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_DESCRIPTION">
+			<Text>English unique Medieval Era Ranged unit that replaces the Crossbowman. +4 [ICON_Strength] Combat Strength if adjacent to another Longbowman unit.</Text>
+		</Replace>
+		<Replace Language="en_US" Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_NAME">
+			<Text>Longbowman</Text>
+		</Replace>
+		<Replace Language="en_US" Tag="PLUS_4_LONGBOWMAN_ADJACENCY_COMBAT_BONUS_DESC">
+			<Text>+4 [ICON_Strength] Combat Strength next to Longbowman unit.</Text>
+		</Replace>
+
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_DESCRIPTION" Language="en_US">
 			<Text>A district unique to England for naval activity in your city. Replaces the Harbor district. Also removes the [ICON_MOVEMENT] Movement penalty for embarking and disembarking to and from this tile. Must be built on Coast or Lake Terrain adjacent to land.[NEWLINE][NEWLINE]+1 [ICON_MOVEMENT] Movement for all naval units built in Dockyard[NEWLINE]+2 [ICON_GOLD] Gold as adjacency and +4 Loyalty per turn when built on a foreign continent. Cannot be built on Reef.</Text>
@@ -659,11 +677,8 @@
 			<Text>+7 [ICON_STRENGTH] Combat Strength bonus when fighting in Hill terrain</Text>
 		</Replace>
 		<!-- = unique building = -->
-		<Replace Tag="LOC_BUILDING_TSIKHE_DESCRIPTION" Language="en_US">
-			<Text>A building unique to Georgia which replaces and is stronger than Ancient Walls. +4 [ICON_FAITH] Faith. Provides +1 [ICON_TOURISM] Tourism after advancing to the Conservation Civic.</Text>
-		</Replace>
 		<Replace Tag="LOC_BUILDING_TSIKHE_DESCRIPTION_XP2" Language="en_US">
-			<Text>A building unique to Georgia which replaces and is stronger than Ancient Walls.[NEWLINE][NEWLINE]+4 [ICON_FAITH] Faith and +1 [ICON_CULTURE] Culture.[NEWLINE]+1 [ICON_TOURISM] Tourism with Conservation.[NEWLINE]+3 [ICON_FAITH] Faith and +100% [ICON_TOURISM] Tourism when in a [ICON_GLORY_GOLDEN_AGE] Golden or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age.</Text>
+			<Text>A building unique to Georgia which replaces and is stronger than Ancient Walls.[NEWLINE][NEWLINE]+4 [ICON_FAITH] Faith and +1 [ICON_CULTURE] Culture.[NEWLINE]+1 [ICON_TOURISM] Tourism with Conservation.[NEWLINE]+1 [ICON_GreatProphet] Great Prophet points.[NEWLINE]+3 [ICON_FAITH] Faith and +100% [ICON_TOURISM] Tourism when in a [ICON_GLORY_GOLDEN_AGE] Golden or [ICON_GLORY_SUPER_GOLDEN_AGE] Heroic Age.</Text>
 		</Replace>
 
 		<!-- == GERMANY == -->
@@ -1049,7 +1064,7 @@
 		</Replace>
 		<!-- = leader ability (Mansa Musa) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_SAHEL_MERCHANTS_DESCRIPTION" Language="en_US">
-			<Text>+1 [ICON_TRADEROUTE] Trade Route capacity after Banking. Holy Sites grant major adjacency to Sugubas. +15% [ICON_PRODUCTION] Production toward Holy Sites and their buildings.</Text>
+			<Text>+1 [ICON_TRADEROUTE] Trade Route capacity after Banking. Holy Sites grant major adjacency to Sugubas. +10% [ICON_PRODUCTION] Production toward Holy Sites and their buildings.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_SUGUBA_HOLY_SITE_MANSA" Language="en_US">
 			<Text>Holy Site adjacency: +{1_num} [ICON_GOLD] Gold.</Text>
@@ -1073,7 +1088,7 @@
 		</Replace>
 		<!-- = unique district = -->
 		<Replace Tag="LOC_DISTRICT_SUGUBA_DESCRIPTION" Language="en_US">
-			<Text>A district unique to Mali that replaces the Commercial Hub. Units, Buildings, and Districts are 20% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith in this City.[NEWLINE][NEWLINE]+1 [ICON_GOLD] Gold bonus from a tile containing a City Center, River Edge, or an Oasis. +1 [ICON_GOLD] Gold bonus for every two adjacent district tiles.</Text>
+			<Text>A district unique to Mali that replaces the Commercial Hub. Units, Buildings, and Districts are 10% cheaper to purchase with [ICON_GOLD] Gold and [ICON_FAITH] Faith in this City.[NEWLINE][NEWLINE]+1 [ICON_GOLD] Gold bonus from a tile containing a City Center, River Edge, or an Oasis. +1 [ICON_GOLD] Gold bonus for every two adjacent district tiles.</Text>
 		</Replace>
 		<Replace Tag="LOC_SUGUBA_OASIS_GOLD" Language="en_US">
 			<Text>Oasis adjacency: +{1_num} [ICON_GOLD] Gold.</Text>
@@ -1086,7 +1101,7 @@
 		<!-- == MAORI == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_MAORI_MANA_DESCRIPTION" Language="en_US">
-			<Text>Embarked units gain +2 [ICON_MOVEMENT] Movement with Ship Building. Fishing Boats Culture Bomb adjacent tiles and provide +1 [ICON_FOOD] Food with Celestial Navigation. Resources cannot be harvested. [ICON_GreatWriter] Great Writers cannot be earned.[NEWLINE][NEWLINE]Unimproved Woods and Rainforest tiles gain:[NEWLINE]+1 [ICON_PRODUCTION] Production with Early Empire.[NEWLINE]+1 [ICON_PRODUCTION] Production with Mercantilism.[NEWLINE]+2 [ICON_PRODUCTION] Production with Conservation.[NEWLINE][NEWLINE][ICON_BULLET]Bias: T1 Coast.</Text>
+			<Text>Embarked units gain +2 [ICON_MOVEMENT] Movement with Ship Building. Fishing Boats provide +1 [ICON_FOOD] Food with Celestial Navigation. Resources cannot be harvested. [ICON_GreatWriter] Great Writers cannot be earned.[NEWLINE][NEWLINE]Unimproved Woods and Rainforest tiles gain:[NEWLINE]+1 [ICON_PRODUCTION] Production with Early Empire.[NEWLINE]+1 [ICON_PRODUCTION] Production with Mercantilism.[NEWLINE]+2 [ICON_PRODUCTION] Production with Conservation.[NEWLINE][NEWLINE][ICON_BULLET]Bias: T1 Coast.</Text>
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_KUPES_VOYAGE_DESCRIPTION" Language="en_US">
@@ -1094,7 +1109,7 @@
 		</Replace>
 		<!-- = unique unit = -->
 		<Replace Tag="LOC_UNIT_MAORI_TOA_DESCRIPTION" Language="en_US"> <!-- = charge icon = -->
-			<Text>Māori unique Classical era melee unit. Adjacent enemy units receive -5 [ICON_STRENGTH] Combat Strength. Has 1 [ICON_CHARGES] charge to build Pā improvement.</Text>
+			<Text>Māori unique Classical era melee unit. Adjacent enemy units receive -3 [ICON_STRENGTH] Combat Strength. Has 1 [ICON_CHARGES] charge to build Pā improvement.</Text>
 		</Replace>
 		<!-- = unique improvement = -->
 		<Replace Tag="LOC_IMPROVEMENT_MAORI_PA_DESCRIPTION" Language="en_US">
@@ -1199,7 +1214,7 @@
 			<Text>+3 [ICON_STRENGTH] Combat Strength and +25% [ICON_PRODUCTION] Production to Naval Melee Units. Naval Melee units can perform coastal raids.[NEWLINE][NEWLINE]Langskip and Berserker units gain the ability to enter Ocean tiles after researching the Shipbuilding technology.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>+3 [ICON_STRENGTH] Combat Strength and +25% [ICON_PRODUCTION] Production to Naval Melee Units. Naval Melee units can perform coastal raids. Receive additional yields from pillaging or performing coastal raids: [ICON_SCIENCE] Science from Mines, [ICON_CULTURE] Culture from Quarries, Pastures, Plantations, and Camps.[NEWLINE][NEWLINE]Langskips and Berserkers gain the ability to enter Ocean tiles after researching the Shipbuilding technology.</Text>
+			<Text>+3 [ICON_STRENGTH] Combat Strength and +25% [ICON_PRODUCTION] Production to Naval Melee Units. Naval Melee units can perform coastal raids. Receive additional yields from pillaging or performing coastal raids: [ICON_SCIENCE] Science from Mines, [ICON_CULTURE] Culture from Quarries, Pastures, Plantations, and Camps.[NEWLINE][NEWLINE]Units excepts quadrirems gain the ability to enter Ocean tiles after researching the Shipbuilding technology.</Text>
 		</Replace>
 		<!-- = unique unit (Longship) = -->
 		<Replace Tag="LOC_UNIT_NORWEGIAN_LONGSHIP_DESCRIPTION" Language="en_US">
@@ -1359,7 +1374,7 @@
 		<!-- == POLAND == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_GOLDEN_LIBERTY_DESCRIPTION" Language="en_US"> <!-- government icon -->
-			<Text>At First Empire, One Military policy slot in the current [ICON_GOVERNMENT] government is converted to a Wildcard policy slot.[NEWLINE]Culture Bomb adjacent tiles when completing an Encampment or Fort inside friendly territory.[NEWLINE][ICON_BULLET]Bias: None.</Text>	
+			<Text>At Early Empire, One Military policy slot in the current [ICON_GOVERNMENT] government is converted to a Wildcard policy slot.[NEWLINE]Culture Bomb adjacent tiles when completing an Encampment or Fort inside friendly territory.[NEWLINE][ICON_BULLET]Bias: None.</Text>	
 		</Replace>
 		<!-- = leader ability = -->
 		<Replace Tag="LOC_TRAIT_LEADER_LITHUANIAN_UNION_DESCRIPTION" Language="en_US">
@@ -1610,7 +1625,7 @@
 		<!-- == SWEDEN == -->
 		<!-- = civilization ability = -->
 		<Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="en_US">
-			<Text>Sweden gains 20 [ICON_FAVOR] Diplomatic Favor (on Standard speed) when earning a [ICON_GreatPerson] Great Person. Having Sweden in the game adds three unique World Congress competitions starting in the Renaissance Era.[NEWLINE]+50% [ICON_PRODUCTION] Production towards Libraries, Workshops, Universities, Factories and Government Plaza buildings.[NEWLINE][NEWLINE]+1 [ICON_GreatEngineer] Great Engineer point from Industrial Zone buildings.[NEWLINE]+1 [ICON_GreatScientist] Great Scientist point from Campus buildings.[NEWLINE]+2 [ICON_GREATWRITER] Great Writer points from tier 1 Gov't Plaza building.[NEWLINE]+2 [ICON_GREATARTIST] Great Artist points from tier 2 Gov't Plaza building.[NEWLINE]+2 [ICON_GREATMUSICIAN] Great Musician points from tier 3 Gov't Plaza building. +2 [ICON_GREATSCIENTIST] Great Scientist points and +2 [ICON_GREATENGINEER] Great Engineer points per tier of Government Plaza building.[NEWLINE][ICON_BULLET]Bias: Special "King of the North"</Text>
+			<Text>Sweden gains 20 [ICON_FAVOR] Diplomatic Favor (on Standard speed) when earning a [ICON_GreatPerson] Great Person. Having Sweden in the game adds three unique World Congress competitions starting in the Renaissance Era.[NEWLINE]+50% [ICON_PRODUCTION] Production towards Campus, Industrial Zone and Government Plaza buildings.[NEWLINE][NEWLINE]+1 [ICON_GreatEngineer] Great Engineer point from Industrial Zone buildings.[NEWLINE]+1 [ICON_GreatScientist] Great Scientist point from Campus buildings.[NEWLINE]+2 [ICON_GREATWRITER] Great Writer points from tier 1 Gov't Plaza building.[NEWLINE]+2 [ICON_GREATARTIST] Great Artist points from tier 2 Gov't Plaza building.[NEWLINE]+2 [ICON_GREATMUSICIAN] Great Musician points from tier 3 Gov't Plaza building. +2 [ICON_GREATSCIENTIST] Great Scientist points and +2 [ICON_GREATENGINEER] Great Engineer points per tier of Government Plaza building.[NEWLINE][ICON_BULLET]Bias: Special "King of the North"</Text>
 		</Replace>
 		<!-- = unique building = -->
 		<Replace Tag="LOC_BUILDING_QUEENS_BIBLIOTHEQUE_DESCRIPTION" Language="en_US">
@@ -1634,7 +1649,7 @@
 			<Text>Lord of the West</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="en_US">
-			<Text>+1 [ICON_TRADEROUTE]Trade route capacity when completing the Pochteca Enclave and the Chancery.[NEWLINE]+100% [ICON_PRODUCTION] Production for buildings in the Pochteca Enclave.[NEWLINE]Unlock the unique [ICON_GOVERNOR] Governor, Fire is Born.</Text>
+			<Text>+1 [ICON_TRADEROUTE]Trade route capacity when completing the Pochteca Enclave and its buildings.[NEWLINE]+100% [ICON_PRODUCTION] Production for buildings in the Pochteca Enclave.[NEWLINE]Unlock the unique [ICON_GOVERNOR] Governor, Fire is Born.</Text>
 		</Replace>
 		<!-- = Unique unit -->
 		<Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="en_US">
@@ -2391,10 +2406,10 @@
 		</Replace>
 		<!-- == River Goddess == -->
 		<Replace Tag="LOC_BELIEF_RIVER_GODDESS_EXPANSION2_DESCRIPTION" Language="en_US">
-			<Text>Rivers give +2 [ICON_FAITH] Faith adjacency to Holy Site Districts. +1 [ICON_AMENITIES] Amenity to cities if they have a Holy Site district adjacent to a River.</Text>
+			<Text>Rivers give +1 [ICON_FAITH] Faith adjacency to Holy Site Districts. +1 [ICON_AMENITIES] Amenity to cities if they have a Holy Site district adjacent to a River.</Text>
 		</Replace>
 		<Replace Tag="LOC_BELIEF_RIVER_GODDESS_DESCRIPTION" Language="en_US">
-			<Text>Rivers give +2 [ICON_FAITH] Faith adjacency to Holy Site Districts. +1 [ICON_AMENITIES] Amenity to cities if they have a Holy Site district adjacent to a River.</Text>
+			<Text>Rivers give +1 [ICON_FAITH] Faith adjacency to Holy Site Districts. +1 [ICON_AMENITIES] Amenity to cities if they have a Holy Site district adjacent to a River.</Text>
 		</Replace>
 		<!-- == Sacred Path == -->
 		<Replace Tag="LOC_BELIEF_SACRED_PATH_DESCRIPTION" Language="en_US">
@@ -3214,7 +3229,7 @@
 			<Text>Drums of War</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="en_US">
-			<Text>Drums of War Golden Age:[NEWLINE]+2 Horses, Iron, and Niter per turn once discovered. +15% [ICON_PRODUCTION] Production toward military units. Unit maintenance reduced by 1 [ICON_GOLD] Gold per turn. +1 [ICON_PRODUCTION] Production for Encampments and their Buildings. Combat victories provide [ICON_CULTURE] Culture equal to 40% of the [ICON_STRENGTH] Combat Strength of the defeated unit.</Text>
+			<Text>Drums of War Golden Age:[NEWLINE]+2 Horses, Iron, and Niter per turn once discovered. +15% [ICON_PRODUCTION] Production toward military units. +1 [ICON_PRODUCTION] Production for Encampments and their Buildings. Combat victories provide [ICON_CULTURE] Culture equal to 40% of the [ICON_STRENGTH] Combat Strength of the defeated unit.</Text>
 		</Replace>
 		<Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="en_US">
 			<Text>Drums of War Normal Age:[NEWLINE]Gain +1 Era Score each time you recruit a Great Person.</Text>
@@ -3223,7 +3238,7 @@
 			<Text>Drums of War Dark Age:[NEWLINE]Gain +1 Era Score each time you recruit a Great Person.</Text>
 		</Replace>
 		<Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="en_US">
-			<Text>Drums of War: Gain +1 Era Score each time you recruit a Great Person. If chosen at the start of a Golden Age, +2 Strategic Resources of each type discovered per turn. +15% [ICON_PRODUCTION] Production toward military units. Unit maintenance reduced by 1 [ICON_GOLD] Gold per turn. +1 [ICON_PRODUCTION] Production for Encampments and their Buildings. Combat victories provide [ICON_CULTURE] Culture equal to 40% of the [ICON_STRENGTH] Combat Strength of the defeated unit. Classical and Medieval Eras.</Text>
+			<Text>Drums of War: Gain +1 Era Score each time you recruit a Great Person. If chosen at the start of a Golden Age, +2 Strategic Resources of each type discovered per turn. +15% [ICON_PRODUCTION] Production toward military units. +1 [ICON_PRODUCTION] Production for Encampments and their Buildings. Combat victories provide [ICON_CULTURE] Culture equal to 40% of the [ICON_STRENGTH] Combat Strength of the defeated unit. Classical and Medieval Eras.</Text>
 		</Replace>
 
 		<!-- == Monumentality == -->
@@ -3501,12 +3516,12 @@
 			<Text>Lack of philosophy</Text>
 		</Replace>
 
-		<!-- <Replace Tag="LOC_TECH_CARTOGRAPHY_DESCRIPTION" Language="en_US">
+		<Replace Tag="LOC_TECH_CARTOGRAPHY_DESCRIPTION" Language="en_US">
 			<Text>Reduce Cost of [ICON_MOVEMENT] Movement in the ocean to 1. +2 [ICON_Gold] Gold from the Fishing Boat improvement.</Text>
 		</Replace>
 		<Replace Tag="BBG_LOC_TECH_BUTTRESS_DESCRIPTION" Language="en_US">
 		<Text>All naval and embarked units can navigate Ocean tiles.</Text>
-		</Replace> -->
+		</Replace>
 
 		<!-- === GOVERNMENTS === -->
 		<Replace Tag="LOC_GOVERNMENT_INHERENT_BONUS" Language="en_US">
@@ -3539,7 +3554,7 @@
 		<!-- == OLIGARCHY == -->
 		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_INHERENT_BONUS_OLIGARCHY_XP1" Language="en_US">
-			<Text>+20% Unit Experience. Melee and naval units receive +1 [ICON_STRENGTH] Combat Strength per [ICON_PROMOTION] promotion received.</Text>
+			<Text>+40% Unit Experience. Military (non-GDR) units receive +1 [ICON_STRENGTH] Combat Strength per [ICON_PROMOTION] promotion received.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_OLIGARCHY_BONUS_COMBAT_MODIFIER_PREVIEW" Language="en_US">
 			<Text>+1 [ICON_STRENGTH] (Oligarchy)</Text>
@@ -3549,7 +3564,7 @@
 		</Replace>
 		<!-- = Legacy = -->		
 		<Replace Tag="LOC_ABILITY_OLIGARCHY_LEGACY_MELEE_BUFF_MODIFIER_DESCRIPTION" Language="en_US">
-			<Text>+20% Unit Experience. Melee and naval units receive +1 [ICON_STRENGTH] Combat Strength per [ICON_PROMOTION] promotion received.</Text>
+			<Text>+40% Unit Experience. Melee and naval units receive +1 [ICON_STRENGTH] Combat Strength per [ICON_PROMOTION] promotion received.</Text>
 		</Replace>
 		<!-- == Tier 2 Governments == -->
 		<!-- == MONARCHY == -->
@@ -3593,7 +3608,7 @@
 		<!-- == COMMUNISM == -->
 		<!-- = Government = -->
 		<Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_COMMUNISM_XP2" Language="en_US">
-			<Text>This government has no bonus. 30% Tourism Intolerance.</Text>
+			<Text>Cities with a Campus receive +10% [ICON_SCIENCE] Science. 30% Tourism Intolerance.</Text>
 		</Replace>
 		<!-- = Legacy = -->
 		<!-- OLD VERSION <Replace Tag="LOC_GOVT_INHERENT_BONUS_COMMUNISM_XP1" Language="en_US">
@@ -3777,13 +3792,13 @@
 		</Replace>
 		
 		<Replace Tag="LOC_POLICY_PROFESSIONAL_ARMY_DESCRIPTION_XP2" Language="en_US">
-			<Text>30% [ICON_Gold] Gold discount on all unit upgrades.</Text>
+			<Text>40% [ICON_Gold] Gold discount on all unit upgrades.</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_NAME" Language="en_US">
 			<Text>Military Standardization</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_DESCRIPTION" Language="en_US">
-			<Text>40% [ICON_Gold] Gold discount on all unit upgrades.</Text>
+			<Text>45% [ICON_Gold] Gold discount on all unit upgrades.</Text>
 		</Replace>
 		<!-- = Force Modernization = -->		
 		<Replace Tag="LOC_POLICY_FORCE_MODERNIZATION_DESCRIPTION" Language="en_US">
@@ -3906,7 +3921,7 @@
 		</Replace>
 		<!-- = Free Market = -->	
 		<Replace Tag="LOC_POLICY_FREE_MARKET_DESCRIPTION" Language="en_US">
-			<Text>Extra [ICON_GOLD] Gold from buildings in Commercial Hubs: +50% if city [ICON_CITIZEN] population is 13 or higher, +50% if district has at least +4 adjacency bonus.</Text>
+			<Text>Extra [ICON_GOLD] Gold from buildings in Commercial Hubs: +100% if city [ICON_CITIZEN] population is 13 or higher, +100% if district has at least +4 adjacency bonus.</Text>
 		</Replace>
 		<!-- = Gothic Architecture = -->
 		<Replace Tag="LOC_POLICY_GOTHIC_ARCHITECTURE_DESCRIPTION" Language="en_US">
@@ -3914,7 +3929,7 @@
 		</Replace>
 		<!-- = Grand Opera = -->			
 		<Replace Tag="LOC_POLICY_GRAND_OPERA_DESCRIPTION" Language="en_US">
-			<Text>Extra [ICON_CULTURE] Culture from buildings in Theater Squares: +50% if city [ICON_CITIZEN] population is 13 or higher, +50% if district has at least +3 adjacency bonus.</Text>
+			<Text>Extra [ICON_CULTURE] Culture from buildings in Theater Squares: +100% if city [ICON_CITIZEN] population is 13 or higher, +100% if district has at least +3 adjacency bonus.</Text>
 		</Replace>
 		<!-- = Insulae = -->
 		<Replace Tag="LOC_POLICY_INSULAE_DESCRIPTION" Language="en_US">
@@ -3976,7 +3991,7 @@
 		</Replace>
 		<!-- = Simultaneum = -->		
 		<Replace Tag="LOC_POLICY_SIMULTANEUM_DESCRIPTION" Language="en_US">
-			<Text>Extra Yields from buildings in Holy Sites: +50% if city [ICON_CITIZEN] population is 13 or higher, +50% if district has at least +3 adjacency bonus.</Text>
+			<Text>Extra [ICON_Faith] Faith from buildings in Holy Sites: +100% if city [ICON_CITIZEN] population is 13 or higher, +100% if district has at least +3 adjacency bonus.</Text>
 		</Replace>
 		<!-- = Sports Media = -->		
 		<Replace Tag="LOC_POLICY_SPORTS_MEDIA_DESCRIPTION" Language="en_US">
@@ -4151,6 +4166,10 @@
 		</Replace>
 		
 		<!-- == Scientists == -->
+
+		<Replace Tag="LOC_GREATPERSON_EUCLID_ACTIVE" Language="en_US">
+			<Text>Triggers the [ICON_TechBoosted] Eureka moment for Mathematics and lets this city build one more district than the [ICON_Citizen] Population limit allows.</Text>
+		</Replace>
 		<Replace Tag="LOC_GREATPERSON_DMITRI_MENDELEEV_ACTIVE" Language="en_US">
 			<Text>Triggers the [ICON_TechBoosted] Eureka for Chemistry and 1 random technology from the Industrial era. +50% [ICON_PRODUCTION] Production towards Research Lab buildings.</Text>
 		</Replace>

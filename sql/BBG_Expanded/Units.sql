@@ -1,0 +1,1 @@
+UPDATE Units SET Combat=42 where UnitType='UNIT_DLV_COG';

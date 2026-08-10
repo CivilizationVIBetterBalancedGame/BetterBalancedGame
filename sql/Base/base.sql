@@ -18,6 +18,9 @@ UPDATE GlobalParameters SET Value=0.5 WHERE Name='TRADE_ROUTE_TRANSPORTATION_EFF
 UPDATE GlobalParameters SET Value=0 WHERE Name='COMBAT_MAX_EXTRA_DAMAGE';
 UPDATE GlobalParameters SET Value=30 WHERE Name='COMBAT_BASE_DAMAGE';
 
+-- 07/08/26 Max xp per attack increase to 10 from 8
+UPDATE GlobalParameters SET Value=10 WHERE Name='EXPERIENCE_MAXIMUM_ONE_COMBAT';
+
 --==============================================================
 --******				S  C  O  R  E				  	  ******
 --==============================================================
@@ -310,8 +313,9 @@ UPDATE GlobalParameters SET Value=30 WHERE Name='TECH_COST_PERCENT_CHANGE_AFTER_
 UPDATE Technologies SET Cost=Cost*1.05 WHERE EraType NOT IN ('ERA_ANCIENT', 'ERA_CLASSICAL');
 
 -- 2022-06-04 -- Add Scientific Theory as Prereq for Steam Power
+-- 07/08/26 Steam Power requires Astronomy instead of Scientific Theory
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
-    ('TECH_STEAM_POWER', 'TECH_SCIENTIFIC_THEORY');
+    ('TECH_STEAM_POWER', 'TECH_ASTRONOMY');
 
 -- 30/03/25 Robotics needs Composites
 INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
@@ -352,9 +356,9 @@ INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
     ('TECH_COMPOSITES', 'TECH_NUCLEAR_FISSION'),
     ('TECH_GUIDANCE_SYSTEMS', 'TECH_NUCLEAR_FISSION');
 
--- -- 19/07/26 test for naval
--- INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
---     ('TECH_CARTOGRAPHY', 'TECH_MILITARY_TACTICS');
+-- 19/07/26 test for naval
+INSERT INTO TechnologyPrereqs (Technology, PrereqTech) VALUES
+    ('TECH_CARTOGRAPHY', 'TECH_MILITARY_TACTICS');
 
 --=======================================================================
 --******                       AMENITIES                           ******
@@ -440,19 +444,19 @@ INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) V
 --******                       NAVAL                               ******
 --=======================================================================
 
--- -- 19/07/26 Ocean cost move to 2 mp, move to ocean at buttress, at carto reduce movement to 1
--- UPDATE TechnologyModifiers SET TechnologyType='TECH_BUTTRESS' WHERE TechnologyType='TECH_CARTOGRAPHY' AND ModifierId='CARTOGRAPHY_GRANT_OCEAN_NAVIGATION';
--- UPDATE Technologies SET Description='BBG_LOC_TECH_BUTTRESS_DESCRIPTION' WHERE TechnologyType='TECH_BUTTRESS';
+-- 19/07/26 Ocean cost move to 2 mp, move to ocean at buttress, at carto reduce movement to 1
+UPDATE TechnologyModifiers SET TechnologyType='TECH_BUTTRESS' WHERE TechnologyType='TECH_CARTOGRAPHY' AND ModifierId='CARTOGRAPHY_GRANT_OCEAN_NAVIGATION';
+UPDATE Technologies SET Description='BBG_LOC_TECH_BUTTRESS_DESCRIPTION' WHERE TechnologyType='TECH_BUTTRESS';
 
--- UPDATE Terrains SET MovementCost=2 WHERE TerrainType='TERRAIN_OCEAN';
+UPDATE Terrains SET MovementCost=2 WHERE TerrainType='TERRAIN_OCEAN';
 
--- INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
---     ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT_GIVER', 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER'),
---     ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT', 'MODIFIER_PLAYER_UNIT_ADJUST_IGNORE_TERRAIN_COST');
--- INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
---     ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT_GIVER', 'ModifierId', 'BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT'),
---     ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT', 'Type', 'TERRAIN_OCEAN'),
---     ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT', 'Ignore', '1');
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT_GIVER', 'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER'),
+    ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT', 'MODIFIER_PLAYER_UNIT_ADJUST_IGNORE_TERRAIN_COST');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT_GIVER', 'ModifierId', 'BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT'),
+    ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT', 'Type', 'TERRAIN_OCEAN'),
+    ('BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT', 'Ignore', '1');
 
--- INSERT INTO TechnologyModifiers(TechnologyType, ModifierId) VALUES
---     ('TECH_CARTOGRAPHY', 'BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT_GIVER');
+INSERT INTO TechnologyModifiers(TechnologyType, ModifierId) VALUES
+    ('TECH_CARTOGRAPHY', 'BBG_CARTOGRAPHY_OCEAN_FAST_MOVEMENT_GIVER');
