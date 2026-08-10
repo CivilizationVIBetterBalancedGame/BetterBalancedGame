@@ -621,7 +621,30 @@
         <!-- == ENGLAND - Англия == -->
         <!-- = civilization ability = -->
         <Replace Tag="LOC_TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION_DESCRIPTION" Language="ru_RU">
-            <Text>[ICON_RESOURCE_IRON] Железные рудники и [ICON_RESOURCE_COAL] угольные шахты дают на 2 ед. больше ресурсов за ход. Здания в гавани увеличивают запасы стратегических ресурсов на 10 (при стандартной скорости игры).[NEWLINE]+100% [ICON_PRODUCTION] к производству военных инженеров. Военные инженеры получают +2 [ICON_Charges] заряда.[NEWLINE][ICON_BULLET]Привязка: Т1 побережье, Т5 железо, уголь.</Text>
+            <Text>[ICON_RESOURCE_IRON] Железные рудники и [ICON_RESOURCE_COAL] угольные шахты дают на 2 ед. больше ресурсов за ход. Здания в гавани увеличивают запасы стратегических ресурсов на 10 (при стандартной скорости игры).[NEWLINE]Здания, повышающие производительность, при достаточном [ICON_POWER] энергоснабжении дают +3 ед. соответствующей продукции.[NEWLINE]+100% [ICON_PRODUCTION] к производству военных инженеров. Военные инженеры получают +2 [ICON_Charges] заряда.[NEWLINE][ICON_BULLET]Привязка: Т1 побережье, Т5 железо, уголь.</Text>
+        </Replace>
+        <!-- = unique unit - Длиннолучник = -->
+        <Replace Language="ru_RU" Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_DESCRIPTION">
+            <Text>Уникальный английский дальнобойный юнит Средневековья, заменяющий арбалетчика. Получает +4 [ICON_Strength] боевой мощи против юнитов ближнего боя и кавалерии и дополнительные +4 [ICON_Strength] боевой мощи при нахождении рядом с другим длиннолучником.</Text>
+        </Replace>
+        <Replace Language="ru_RU" Tag="LOC_ABILITY_LONGBOWMAN_DESCRIPTION">
+            <Text>+4 [ICON_Strength] боевой мощи против юнитов ближнего боя и кавалерии, а также дополнительные +4 [ICON_Strength] боевой мощи при нахождении рядом с другим длиннолучником.</Text>
+        </Replace>
+        <Replace Language="ru_RU" Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_NAME">
+            <Text>Длиннолучник</Text>
+        </Replace>
+        <Replace Language="ru_RU" Tag="PLUS_4_LONGBOWMAN_ADJACENCY_COMBAT_BONUS_DESC">
+            <Text>+4 [ICON_Strength] боевой мощи рядом с длиннолучником.</Text>
+        </Replace>
+        <!-- = unique district - Верфи Королевского Флота = -->
+        <Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_DESCRIPTION" Language="ru_RU">
+            <Text>Уникальный район Англии, заменяющий гавань. Убирает штраф к [ICON_Movement] передвижению при погрузке/выгрузке юнитов на этой клетке.[NEWLINE][NEWLINE]+1 [ICON_Movement] очко перемещения всем морским юнитам, построенным на Верфях Королевского Флота[NEWLINE]+2 [ICON_Gold] золота при постройке на чужом континенте[NEWLINE]+1 [ICON_TradeRoute] доступный торговый путь.[NEWLINE]+1 [ICON_GREATADMIRAL] очко великого адмирала после постройки маяка</Text>
+        </Replace>
+        <Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_EXPANSION1_DESCRIPTION" Language="ru_RU">
+            <Text>Уникальный район Англии, заменяющий гавань. Убирает штраф к [ICON_Movement] передвижению при погрузке/выгрузке юнитов на этой клетке.[NEWLINE][NEWLINE]+1 [ICON_Movement] очко перемещения всем морским юнитам, построенным на Верфях Королевского Флота[NEWLINE]+2 [ICON_Gold] золота и +4 лояльности при постройке на чужом континенте. Нельзя построить на рифе.[NEWLINE]+1 [ICON_GREATADMIRAL] очко великого адмирала после постройки маяка</Text>
+        </Replace>
+        <Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_EXPANSION2_DESCRIPTION" Language="ru_RU">
+            <Text>Уникальный район Англии, заменяющий гавань. Убирает штраф к [ICON_Movement] передвижению при погрузке/выгрузке юнитов на этой клетке.[NEWLINE][NEWLINE]+1 [ICON_Movement] очко перемещения всем морским юнитам, построенным на Верфях Королевского Флота[NEWLINE]+2 [ICON_Gold] золота и +4 лояльности при постройке на чужом континенте. Нельзя построить на рифе.</Text>
         </Replace>
         <!-- = leader ability (Victoria (Age Of Empire) - Виктория (Эпоха империй) = -->
         <Replace Tag="LOC_TRAIT_LEADER_PAX_BRITANNICA_DESCRIPTION" Language="ru_RU">
@@ -633,9 +656,13 @@
         <Replace Tag="LOC_BBG_ABILITY_AOE_MELEE_NAVAL_ESCORT_CIVILIANS_DESC" Language="ru_RU">
             <Text>Морские юниты ближнего боя могут сопровождать гражданские юниты с повышенной [ICON_Movement] скоростью.</Text>
         </Replace>
+        <!-- = unique unit - Красный мундир = -->
+        <Replace Tag="LOC_UNIT_ENGLISH_REDCOAT_DESCRIPTION" Language="ru_RU">
+            <Text>Уникальный английский юнит промышленной эры, заменяющий линейную пехоту. Доступен, если Англией управляет Виктория. +5 [ICON_Strength] боевой мощи в сражении на континенте отличном от континента столицы. Нет затрат очков передвижения на высадку.</Text>
+        </Replace>
         <!-- = leader ability (Victoria (Age Of Steam) Виктория (Эпоха паровых машин) = -->
         <Replace Tag="LOC_TRAIT_LEADER_VICTORIA_ALT_DESCRIPTION" Language="ru_RU">
-            <Text>+20% [ICON_PRODUCTION] к производству построек в промышленной зоне. +5% [ICON_PRODUCTION] производства в городе за каждую фабрику и электростанцию в промышленной зоне этого города. Здания, повышающие производительность, при достаточном [ICON_POWER] энергоснабжении дают +4 ед. соответствующей продукции. Промышленные зоны получают стандартный бонус соседства от Верфей Королевского Флота.[NEWLINE]Маяк приносит +1 [ICON_GreatEngineer] очко Великого Инженера в ход.</Text>
+            <Text>+1 [ICON_PRODUCTION] производства на обработанных стратегических ресурсах.[NEWLINE]+20% [ICON_PRODUCTION] к производству построек в промышленной зоне. +5% [ICON_PRODUCTION] производства в городе за каждую фабрику и электростанцию в промышленной зоне этого города. Промышленные зоны получают стандартный бонус соседства от Верфей Королевского Флота.[NEWLINE]Маяк приносит +1 [ICON_GreatEngineer] очко Великого Инженера в ход.</Text>
         </Replace>
         <Replace Tag="LOC_BBG_AOS_ADJENCY_IZ_RND_DESC" Language="ru_RU">
             <Text>+2 производства [ICON_Production] от Верфей Королевского Флота.</Text>
@@ -647,19 +674,9 @@
         <Replace Tag="LOC_BBG_ABILITY_ELISABETH_RAIDER_MOVE_PROMOTE_ATTACK_DESC" Language="ru_RU">
             <Text>Повышение морских рейдеров не заканчивает их ход.</Text>
         </Replace>
-        <!-- = unique unit - Красный мундир = -->
-        <Replace Tag="LOC_UNIT_ENGLISH_REDCOAT_DESCRIPTION" Language="ru_RU">
-            <Text>Уникальный английский юнит промышленной эры, заменяющий линейную пехоту. Доступен, если Англией управляет Виктория. +5 [ICON_Strength] боевой мощи в сражении на континенте отличном от континента столицы. Нет затрат очков передвижения на высадку.</Text>
-        </Replace>
-        <!-- = unique district - Верфи Королевского Флота = -->
-        <Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_DESCRIPTION" Language="ru_RU">
-            <Text>Уникальный район Англии, заменяющий гавань. Убирает штраф к [ICON_Movement] передвижению при погрузке/выгрузке юнитов на этой клетке.[NEWLINE][NEWLINE]+1 [ICON_Movement] очко перемещения всем морским юнитам, построенным на Верфях Королевского Флота[NEWLINE]+2 [ICON_Gold] золота при постройке на чужом континенте[NEWLINE]+1 [ICON_TradeRoute] доступный торговый путь.[NEWLINE]+1 [ICON_GREATADMIRAL] очко великого адмирала после постройки маяка</Text>
-        </Replace>
-        <Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_EXPANSION1_DESCRIPTION" Language="ru_RU">
-            <Text>Уникальный район Англии, заменяющий гавань. Убирает штраф к [ICON_Movement] передвижению при погрузке/выгрузке юнитов на этой клетке.[NEWLINE][NEWLINE]+1 [ICON_Movement] очко перемещения всем морским юнитам, построенным на Верфях Королевского Флота[NEWLINE]+2 [ICON_Gold] золота и +4 лояльности при постройке на чужом континенте. Нельзя построить на рифе.[NEWLINE]+1 [ICON_GREATADMIRAL] очко великого адмирала после постройки маяка</Text>
-        </Replace>
-        <Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_EXPANSION2_DESCRIPTION" Language="ru_RU">
-            <Text>Уникальный район Англии, заменяющий гавань. Убирает штраф к [ICON_Movement] передвижению при погрузке/выгрузке юнитов на этой клетке.[NEWLINE][NEWLINE]+1 [ICON_Movement] очко перемещения всем морским юнитам, построенным на Верфях Королевского Флота[NEWLINE]+2 [ICON_Gold] золота и +4 лояльности при постройке на чужом континенте. Нельзя построить на рифе.</Text>
+        <!-- = unique unit - Морской пёс = -->
+        <Replace Tag="LOC_UNIT_ENGLISH_SEADOG_DESCRIPTION" Language="ru_RU">
+            <Text>Уникальный английский морской юнит эпохи Возрождения, если лидером является Елизавета I. Заменяет капер, имеет шанс захватить побежденные вражеские корабли. Виден только морским рейдерам или с соседних клеток. Обнаруживает других морских рейдеров в радиусе видимости.</Text>
         </Replace>
 
         <!-- == ETHIOPIA - Эфиопия== -->
@@ -793,7 +810,7 @@
             <Text>Уникальное здание Грузии. Заменяет стены Классической эпохи и обеспечивает лучшую защиту города. Дает +3 [ICON_TOURISM] к туризму после исследования социального института «Охрана природы». Дает +3 [ICON_Faith] ед. веры. В [ICON_GLORY_GOLDEN_AGE] золотом веке и +100% к [ICON_TOURISM] туризму и [ICON_FAITH] вере.</Text>
         </Replace>
         <Replace Tag="LOC_BUILDING_TSIKHE_DESCRIPTION_XP2" Language="ru_RU">
-            <Text>Уникальное здание Грузии. Заменяет Древние Стены и обеспечивает лучшую защиту города. +4 [ICON_Faith] Веры и +1 [Icon_Culture] Культуры. Даёт +1 [ICON_TOURISM] к туризму после исследования социального института «Охрана природы». +3 [ICON_FAITH] веры и +1 к [ICON_TOURISM] туризму в [ICON_GLORY_GOLDEN_AGE] Золотом или [ICON_GLORY_SUPER_GOLDEN_AGE] Героическом Веке.</Text>
+            <Text>Уникальное здание Грузии. Заменяет Древние Стены и обеспечивает лучшую защиту города. +4 [ICON_Faith] Веры, +1 очко [ICON_GREATPROPHET] Великого пророка в ход и +1 [Icon_Culture] Культуры. Даёт +1 [ICON_TOURISM] к туризму после исследования социального института «Охрана природы». +3 [ICON_FAITH] веры и +1 к [ICON_TOURISM] туризму в [ICON_GLORY_GOLDEN_AGE] Золотом или [ICON_GLORY_SUPER_GOLDEN_AGE] Героическом Веке.</Text>
         </Replace>
 
         <!-- == GERMANY - Германия == -->
@@ -1254,7 +1271,7 @@
         </Replace>
         <!-- = unique district - Сугуба = -->
         <Replace Tag="LOC_DISTRICT_SUGUBA_DESCRIPTION" Language="ru_RU">
-            <Text>Уникальный район Мали, заменяет собой центр коммерции. В этом городе юниты, здания и районы при покупке за [ICON_GOLD] золото или за [ICON_FAITH] веру обходятся на 20% дешевле.[NEWLINE][NEWLINE]+1 [ICON_Gold] золота за каждое соседнее священное место и центр города. +1 [ICON_Gold] золота за клетку, по границе которой протекает река, или которая находится рядом с оазисом. +1 [ICON_Gold] золота за каждые два соседних района.</Text>
+            <Text>Уникальный район Мали, заменяет собой центр коммерции. В этом городе юниты, здания и районы при покупке за [ICON_GOLD] золото или за [ICON_FAITH] веру обходятся на 10% дешевле.[NEWLINE][NEWLINE]+1 [ICON_Gold] золота за каждое соседнее священное место и центр города. +1 [ICON_Gold] золота за клетку, по границе которой протекает река, или которая находится рядом с оазисом. +1 [ICON_Gold] золота за каждые два соседних района.</Text>
         </Replace>
         <Replace Tag="LOC_SUGUBA_RIVER_GOLD" Language="ru_RU">
             <Text>+{1_num} [ICON_GOLD] золота от реки.</Text>
@@ -1269,11 +1286,15 @@
         <!-- == MAORI - Маори == -->
         <!-- = civilization ability = -->
         <Replace Tag="LOC_TRAIT_CIVILIZATION_MAORI_MANA_DESCRIPTION" Language="ru_RU">
-            <Text>Леса и Джунгли без улучшений получают +1 [ICON_PRODUCTION] Производства после открытия Ранней Империи. Дополнительные +1 [ICON_PRODUCTION] Производства после открытия Меркантилизма и +2 [ICON_PRODUCTION] Производства после открытия Охраны Природы.[NEWLINE][NEWLINE]Нельзя собирать бонусные ресурсы.[NEWLINE]Не может нанимать [ICON_GreatWriter] великих писателей.[NEWLINE][ICON_BULLET]Привязка: Т1 побережье.</Text>
+            <Text>Погруженные на лодки юниты получают +2 [ICON_Movement] очка передвижения после открытия технологии "Судостроение".[NEWLINE]Рыбацкие лодки дают +1 [ICON_FOOD] пищи после открытия технологии "Навигация по звёздам". Леса и Джунгли без улучшений получают +1 [ICON_PRODUCTION] Производства после открытия Ранней Империи. Дополнительные +1 [ICON_PRODUCTION] Производства после открытия Меркантилизма и +2 [ICON_PRODUCTION] Производства после открытия Охраны Природы.[NEWLINE][NEWLINE]Нельзя собирать бонусные ресурсы.[NEWLINE]Не может нанимать [ICON_GreatWriter] великих писателей.[NEWLINE][ICON_BULLET]Привязка: Т1 побережье.</Text>
         </Replace>
         <!-- = leader ability - Купе = -->
         <Replace Tag="LOC_TRAIT_LEADER_KUPES_VOYAGE_DESCRIPTION" Language="ru_RU">
-            <Text>Дворец получает +3 [ICON_HOUSING] жилья.[NEWLINE][NEWLINE]Поселенцы могут погружаться на корабли после открытия технологии "Мореходство". Погруженные на лодки юниты получают +2 [ICON_Movement] очка передвижения после открытия технологии "Судостроение".[NEWLINE]Рыбацкая Лодка производит культурный захват соседних клеток и даёт +1 [ICON_FOOD] пищи после открытия технологии "Навигация по звёздам".</Text>
+            <Text>Дворец получает +3 [ICON_HOUSING] жилья.[NEWLINE][NEWLINE]Поселенцы могут погружаться на корабли после открытия технологии "Мореходство".</Text>
+        </Replace>
+        <!-- = unique unit - Тоа = -->
+        <Replace Tag="LOC_UNIT_MAORI_TOA_DESCRIPTION" Language="ru_RU">
+            <Text>Уникальный античный юнит ближнего боя для народа маори. -3 к [ICON_STRENGTH] боевой мощи соседним вражеским юнитам. Может строить уникальное улучшение: па.</Text>
         </Replace>
 
         <!-- == MAPUCHE - Мапуче == -->
@@ -1381,7 +1402,7 @@
             <Text>+25% [ICON_PRODUCTION] производства морских юнитов ближнего боя. Морские юниты ближнего боя получают +3 [ICON_STRENGTH] боевой мощи, а также могут осуществлять прибрежные рейды.[NEWLINE]Берсерки и Дракары могут пересекать океан после изучения судостроения.[NEWLINE][NEWLINE]+50% к [ICON_PRODUCTION] производству священных мест и зданий в них. Священные места получают стандартный бонус соседства от клеток озёр и побережья.[NEWLINE][NEWLINE]Гавани рядом со священными местами получают +2 к [ICON_GOLD] золоту (считается как бонус соседства).</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="ru_RU">
-            <Text>+25% [ICON_PRODUCTION] производства при создании всех морских юнитов ближнего боя.[NEWLINE]Все морские юниты ближнего боя получают +3 [ICON_STRENGTH] боевой мощи, а также имеют способность осуществлять рейды на прибрежные территории. Мародерство и рейды на побережье против рудников приносят не только [ICON_GOLD] золото, но и [ICON_SCIENCE] науку. Мародерство и рейды на побережье против каменоломен, пастбищ, плантаций и лагерей приносят не только [ICON_FAITH] веру, но и [ICON_CULTURE] культуру.[NEWLINE][NEWLINE]Берсерки и Дракары могут пересекать океан после изучения судостроения.</Text>
+            <Text>+25% [ICON_PRODUCTION] производства при создании всех морских юнитов ближнего боя.[NEWLINE]Все морские юниты ближнего боя получают +3 [ICON_STRENGTH] боевой мощи, а также имеют способность осуществлять рейды на прибрежные территории. Мародерство и рейды на побережье против рудников приносят не только [ICON_GOLD] золото, но и [ICON_SCIENCE] науку. Мародерство и рейды на побережье против каменоломен, пастбищ, плантаций и лагерей приносят не только [ICON_FAITH] веру, но и [ICON_CULTURE] культуру.[NEWLINE][NEWLINE]Все юниты, кроме квадрирем могут пересекать океан после изучения судостроения.</Text>
         </Replace>
         <Replace Tag="LOC_BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY_NAME" Language="ru_RU">
             <Text>Морские юниты ближнего боя получают +3 [ICON_STRENGTH] боевой мощи</Text>
@@ -1775,7 +1796,7 @@
         <!-- == SWEDEN Швеция == -->
         <!-- = civilization ability = -->
         <Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="ru_RU">
-            <Text>Швеция получает 10 [ICON_Favor] единиц мирового влияния (на сетевой скорости) за каждого нанятого [ICON_GreatPerson] великого человека. Если Швеция присутствует в игре, то начиная с Эры Возрождения добавляются три уникальных соревнования всемирного конгресса.[NEWLINE][NEWLINE]+50% [ICON_PRODUCTION] к производству библиотек, мастерских, университетов, фабрик и зданий в правительственной площади. +1 [ICON_GreatEngineer] очко великого инженера от каждого здания в промышленной зоне, и +1 [ICON_GreatScientist] очко великого ученого от каждого здания в кампусе.[NEWLINE][ICON_BULLET]Особая привязка "королева севера": появляется в верхней или нижней трети карты.</Text>
+            <Text>Швеция получает 10 [ICON_Favor] единиц мирового влияния (на сетевой скорости) за каждого нанятого [ICON_GreatPerson] великого человека. Если Швеция присутствует в игре, то начиная с Эры Возрождения добавляются три уникальных соревнования всемирного конгресса.[NEWLINE][NEWLINE]+50% [ICON_PRODUCTION] к производству зданий в кампусах, промышленных зонах и правительственной площади. +1 [ICON_GreatEngineer] очко великого инженера от каждого здания в промышленной зоне, и +1 [ICON_GreatScientist] очко великого ученого от каждого здания в кампусе.[NEWLINE][ICON_BULLET]Особая привязка "королева севера": появляется в верхней или нижней трети карты.</Text>
         </Replace>
         <!-- = leader ability Кристина = -->
         <Replace Tag="LOC_TRAIT_LEADER_KRISTINA_AUTO_THEME_DESCRIPTION" Language="ru_RU">
@@ -6347,6 +6368,14 @@
         <Replace Tag="LOC_BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL_NAME" Language="ru_RU">
             <Text>Исцеление лёгкой кавалерии</Text>
         </Replace>
+
+        <Replace Tag="LOC_TECH_CARTOGRAPHY_DESCRIPTION" Language="ru_RU">
+            <Text>Снижает стоимость [ICON_MOVEMENT] передвижения по океану до 1. +2 [ICON_Gold] золота от рыбацкого судна.</Text>
+        </Replace>
+        <Replace Tag="BBG_LOC_TECH_BUTTRESS_DESCRIPTION" Language="ru_RU">
+            <Text>Все морские и погруженные на корабль юниты могут пересекать клетки океана.</Text>
+        </Replace>
+
         <!-- === GOVERNORS - ГУБЕРНАТОРЫ === -->
         <!-- == Victor - Виктор == -->
         <Replace Tag="LOC_GOVERNOR_PROMOTION_REDOUBT_DESCRIPTION" Language="ru_RU">
@@ -6609,10 +6638,10 @@
         </Replace>
         <!-- == River Goddess - Речная богиня == -->
         <Replace Tag="LOC_BELIEF_RIVER_GODDESS_DESCRIPTION" Language="ru_RU">
-            <Text>Священные места, построенные на реке получают повышенный бонус соседства от реки, а также приносят городу +1 [ICON_Amenities] довольства</Text>
+            <Text>Священные места, построенные на реке получают стандартный бонус соседства от реки, а также приносят городу +1 [ICON_Amenities] довольства</Text>
         </Replace>
         <Replace Tag="LOC_BELIEF_RIVER_GODDESS_EXPANSION2_DESCRIPTION" Language="ru_RU">
-            <Text>Священные места, построенные на реке получают повышенный бонус соседства от реки, а также приносят городу +1 [ICON_Amenities] довольства.</Text>
+            <Text>Священные места, построенные на реке получают стандартный бонус соседства от реки, а также приносят городу +1 [ICON_Amenities] довольства.</Text>
         </Replace>
         <!-- == Stone Circles - Кромлехи == -->
         <Replace Tag="LOC_BELIEF_STONE_CIRCLES_DESCRIPTION" Language="ru_RU">
@@ -7465,10 +7494,10 @@
             <Text>Барабаны войны</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="ru_RU">
-            <Text>«Барабаны войны»: каждый нанятый великий человек прибавляет +1 очко к счету эпохи. При выборе в начале золотого века даёт +2 ед. каждого из изученных стратегических ресурсов в ход. +15% [ICON_Production] к производству военных юнитов. Каждый поверженный боевой юнит приносит [ICON_Culture] Культуру, равную 80% [ICON_Strength] боевой мощи побежденного юнита (на обычной скорости). Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше. Военные лагеря и здания в них приносят +1 [ICON_Production] производства. Эпохи от Античности до Возрождения.</Text>
+            <Text>«Барабаны войны»: каждый нанятый великий человек прибавляет +1 очко к счету эпохи. При выборе в начале золотого века даёт +2 ед. каждого из изученных стратегических ресурсов в ход. +15% [ICON_Production] к производству военных юнитов. Каждый поверженный боевой юнит приносит [ICON_Culture] Культуру, равную 80% [ICON_Strength] боевой мощи побежденного юнита (на обычной скорости). Военные лагеря и здания в них приносят +1 [ICON_Production] производства. Эпохи от Античности до Возрождения.</Text>
         </Replace>
         <Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="ru_RU">
-            <Text>Барабаны войны – золотой век:[NEWLINE]+2 ед. [ICON_RESOURCE_HORSES] лошадей, [ICON_RESOURCE_IRON] железа и [ICON_RESOURCE_NITER] селитры в ход после их изучения. +15% [ICON_Production] к производству военных юнитов. Каждый поверженный боевой юнит приносит [ICON_Culture] Культуру, равную 80% [ICON_Strength] боевой мощи побежденного юнита (на обычной скорости). Все боевые юниты требуют на своё содержание на 1 [ICON_GOLD] золото меньше. Военные лагеря и здания в них приносят +1 [ICON_Production] производства.</Text>
+            <Text>Барабаны войны – золотой век:[NEWLINE]+2 ед. [ICON_RESOURCE_HORSES] лошадей, [ICON_RESOURCE_IRON] железа и [ICON_RESOURCE_NITER] селитры в ход после их изучения. +15% [ICON_Production] к производству военных юнитов. Каждый поверженный боевой юнит приносит [ICON_Culture] Культуру, равную 80% [ICON_Strength] боевой мощи побежденного юнита (на обычной скорости). Военные лагеря и здания в них приносят +1 [ICON_Production] производства.</Text>
         </Replace>
         <Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="ru_RU">
             <Text>Бонус устремления «Барабаны войны»:[NEWLINE]Каждый нанятый великий человек прибавляет +1 очко к счету эпохи.</Text>
@@ -7759,10 +7788,10 @@
         </Replace>
         <!-- = Наследие = -->
         <Replace Tag="LOC_ABILITY_OLIGARCHY_LEGACY_MELEE_BUFF_MODIFIER_DESCRIPTION" Language="ru_RU">
-            <Text>+20% к опыту юнитов. +1 [icon_strength] боевой мощи за каждый уровень повышения.</Text>
+            <Text>+40% к опыту юнитов. Все боевые юниты (кроме ОБР) получают +1 [icon_strength] боевой мощи за каждый уровень повышения.</Text>
         </Replace>
         <Replace Tag="LOC_GOVT_INHERENT_BONUS_OLIGARCHY_XP1" Language="ru_RU">
-            <Text>+20% к опыту юнитов. +1 [icon_strength] боевой мощи за каждый уровень повышения.</Text>
+            <Text>+40% к опыту юнитов. Все боевые юниты (кроме ОБР) получают +1 [icon_strength] боевой мощи за каждый уровень повышения.</Text>
         </Replace>
 
         <!-- == Тир 2 == -->
@@ -7858,7 +7887,7 @@
             <Text>+4 [ICON_Strength] боевой мощи на своей территории (Коммунизм)</Text>
         </Replace> -->
         <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_COMMUNISM_XP2" Language="ru_RU"> <!-- Main government bonus, when in this gov -->
-            <Text>Открывает доступ к уникальным политическим курсам Коммунизма. Снижает [icon_tourism] туризм от цивилизаций в Фашизме или Демократии на 30%.</Text>
+            <Text>Города с кампусами получают +10% к [ICON_SCIENCE] науке. Снижает [icon_tourism] туризм от цивилизаций в Фашизме или Демократии на 30%.</Text>
         </Replace>
 
         <!-- == Тир 4 == -->
@@ -7939,13 +7968,13 @@
             <Text>+50% [ICON_Production] производства при подготовке всех антикавалерийских юнитов, а также разведчиков, юнитов ближнего и дальнего боя.</Text>
         </Replace>
         <Replace Tag="LOC_POLICY_PROFESSIONAL_ARMY_DESCRIPTION_XP2" Language="ru_RU"> <!-- Продвинутая армия-->
-			<Text>Скидка 30% [ICON_Gold] от стоимости в  золоте на все улучшения юнитов.</Text>
+			<Text>Скидка 40% [ICON_Gold] от стоимости в  золоте на все улучшения юнитов.</Text>
 		</Replace>
         <Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_NAME" Language="ru_RU"> <!-- Военная стандартизация -->
 			<Text>Военная стандартизация</Text>
 		</Replace>
 		<Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_DESCRIPTION" Language="ru_RU">
-			<Text>Скидка 40% [ICON_Gold] от стоимости в  золоте на все улучшения юнитов.</Text>
+			<Text>Скидка 45% [ICON_Gold] от стоимости в  золоте на все улучшения юнитов.</Text>
 		</Replace>
         <Replace Tag="LOC_POLICY_EQUESTRIAN_ORDERS_DESCRIPTION" Language="ru_RU">
             <Text>Даёт дополнительные 2 [ICON_RESOURCE_HORSES] Лошади и 2 [ICON_RESOURCE_IRON] Железа в ход после их изучения. Также даёт +1 ресурс в ход за каждое улучшение ресурсов этого типа.</Text>
@@ -8133,13 +8162,13 @@
         </Replace>
         <!-- Совместная церковь -->
         <Replace Tag="LOC_POLICY_SIMULTANEUM_DESCRIPTION" Language="ru_RU">
-            <Text>Увеличивает [ICON_FAITH] бонус веры от зданий в священном месте, а также дополнительные бонусы, которые зданиям дают верования почитателей: +50% при [ICON_CITIZEN] населении города не ниже 13, +50%, если бонус за соседство с районом не ниже +3.</Text>
+            <Text>Дополнительная [ICON_FAITH] вера от зданий в священном месте: +100% при [ICON_CITIZEN] населении города не ниже 13, +100%, если бонус за соседство с районом не ниже +3.</Text>
         </Replace>
         <Replace Tag="LOC_POLICY_GRAND_OPERA_DESCRIPTION" Language="ru_RU">
-            <Text>Дополнительная [ICON_CULTURE] культура от зданий в театральной площади: +50% при [ICON_CITIZEN] населении города не ниже 13, +50% если бонус за соседство с районом не ниже +3.</Text>
+            <Text>Дополнительная [ICON_CULTURE] культура от зданий в театральной площади: +100% при [ICON_CITIZEN] населении города не ниже 13, +100% если бонус за соседство с районом не ниже +3.</Text>
         </Replace>
         <Replace Tag="LOC_POLICY_FREE_MARKET_DESCRIPTION" Language="ru_RU">
-            <Text>Дополнительное [ICON_Gold] золото от построек в центре коммерции: +50% если [ICON_CITIZEN] население города 13 или выше, +50% если район имеет не менее +4 бонус соседства.</Text>
+            <Text>Дополнительное [ICON_Gold] золото от построек в центре коммерции: +100% если [ICON_CITIZEN] население города 13 или выше, +100% если район имеет не менее +4 бонус соседства.</Text>
         </Replace>
 
         <Replace Tag="LOC_POLICY_INSULAE_DESCRIPTION" Language="ru_RU">
@@ -8316,6 +8345,9 @@
             <Text>+{Amount}% [ICON_Tourism] Туризма	 по отношению к цивилизациям, к которым ведут ваши [ICON_TradeRoute] торговые пути.</Text>
         </Replace>
         <!-- Scientist -->
+        <Replace Tag="LOC_GREATPERSON_EUCLID_ACTIVE" Language="ru_RU">
+            <Text>Дает [ICON_TechBoosted] озарение для технологии «Математика». Позволяет городу построить на один район больше, чем допускает уровень [ICON_Citizen] населения.</Text>
+        </Replace>
         <Replace Tag="LOC_GREATPERSON_DMITRI_MENDELEEV_ACTIVE" Language="ru_RU">
             <Text>Дает [ICON_TechBoosted] озарение для технологии «Химия» и 1 случайной технологии Промышленной эры. +50% [ICON_Production] производства при строительстве Лабораторий.</Text>
         </Replace>
