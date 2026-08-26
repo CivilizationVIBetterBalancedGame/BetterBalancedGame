@@ -257,7 +257,8 @@ UPDATE Units SET PrereqTech='TECH_GUIDANCE_SYSTEMS' WHERE UnitType='UNIT_MECHANI
 --=======================================================================
 
 -- Anticav promote to +10
-UPDATE ModifierArguments SET Value='10' WHERE ModifierId='THRUST_BONUS_VS_MELEE' AND Name='Amount';
+-- 26/08/26 revert to +5
+-- UPDATE ModifierArguments SET Value='10' WHERE ModifierId='THRUST_BONUS_VS_MELEE' AND Name='Amount';
 
 -- 31/07/2021 Late Game Unit rework
 UPDATE Units SET Combat=80 WHERE UnitType='UNIT_AT_CREW';
