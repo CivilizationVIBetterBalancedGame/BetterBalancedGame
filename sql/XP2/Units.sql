@@ -89,6 +89,8 @@ INSERT OR IGNORE INTO UnitAbilityModifiers (UnitAbilityType, ModifierId)
 --******                      SUPPORT                              ******
 --=======================================================================
 UPDATE Units SET PrereqTech='TECH_STEEL' WHERE UnitType='UNIT_ANTIAIR_GUN';
+-- 26/08/26 AntiAir Gun base move to 4
+UPDATE Units SET BaseMoves=4 WHERE UnitType='UNIT_ANTIAIR_GUN';
 
 -- Military Engineers get tunnels at military science
 -- 04/07/26 : Military Engineers get tunnels at  military engineering
