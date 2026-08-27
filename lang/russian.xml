@@ -625,10 +625,10 @@
         </Replace>
         <!-- = unique unit - Длиннолучник = -->
         <Replace Language="ru_RU" Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_DESCRIPTION">
-            <Text>Уникальный английский дальнобойный юнит Средневековья, заменяющий арбалетчика. Получает +4 [ICON_Strength] боевой мощи против юнитов ближнего боя и кавалерии и дополнительные +4 [ICON_Strength] боевой мощи при нахождении рядом с другим длиннолучником.</Text>
+            <Text>Уникальный английский дальнобойный юнит Средневековья, заменяющий арбалетчика. Получает +4 [ICON_Strength] боевой мощи при нахождении рядом с другим длиннолучником.</Text>
         </Replace>
         <Replace Language="ru_RU" Tag="LOC_ABILITY_LONGBOWMAN_DESCRIPTION">
-            <Text>+4 [ICON_Strength] боевой мощи против юнитов ближнего боя и кавалерии, а также дополнительные +4 [ICON_Strength] боевой мощи при нахождении рядом с другим длиннолучником.</Text>
+            <Text>+4 [ICON_Strength] боевой мощи при нахождении рядом с другим длиннолучником.</Text>
         </Replace>
         <Replace Language="ru_RU" Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_NAME">
             <Text>Длиннолучник</Text>
@@ -1250,7 +1250,7 @@
         </Replace>
         <!-- = leader ability (Sundiata Keita) - Сундиата Кейта = -->
         <Replace Tag="LOC_TRAIT_LEADER_SUNDIATA_KEITA_DESCRIPTION" Language="ru_RU">
-            <Text>Покупка великих людей стоит на 30% меньше [ICON_GOLD] золота. Рынок дает 2 ячейки для [ICON_GreatWork_WRITING] шедевров литературы в городах, основанных Мали. [ICON_GreatWork_WRITING] Шедевры литературы дают +4 [ICON_GOLD] золота и +2 [ICON_CULTURE] культуры.[NEWLINE][NEWLINE]Сугубы получают повышенный бонус соседства рядом с Сугубой. Города с Сугубой и театральной площадью приносят +1 очко [ICON_GreatWriter] Великого писателя в ход.</Text>
+            <Text>Покупка великих людей стоит на 30% меньше [ICON_GOLD] золота. Рынок дает 2 ячейки для [ICON_GreatWork_WRITING] шедевров литературы в городах, основанных Мали. [ICON_GreatWork_WRITING] Шедевры литературы дают +4 [ICON_GOLD] золота и +2 [ICON_CULTURE] культуры.[NEWLINE][NEWLINE]Сугубы получают повышенный бонус соседства рядом с Театральной площадью. Города с Сугубой и театральной площадью приносят +1 очко [ICON_GreatWriter] Великого писателя в ход.</Text>
         </Replace>
         <Replace Tag="LOC_BBG_THEATER_SUGUBA_SUNDIATA" Language="ru_RU">
             <Text>+{1_num} [Icon_Culture] культуры от соседней Сугубы</Text>
@@ -2824,6 +2824,26 @@
 		<Replace Tag="LOC_AGENDA_MER_ROMAN_GOTH_NAME" Language="ru_RU">
 			<Text>Елизавета</Text>
 		</Replace>
+
+        <!-- Geography - География-->
+         <!-- NAMED PLACES -->
+        <Row Tag="LOC_NAMED_LAKE_GOTH_1_NAME" Language="ru_RU">
+            <Text>Озеро Бенакус</Text>
+        </Row>
+        <Row Tag="LOC_NAMED_LAKE_GOTH_2_NAME" Language="ru_RU">
+            <Text>Озеро Лариус</Text>
+        </Row>
+
+
+        <Row Tag="LOC_NAMED_RIVER_AUSTRIA_1_NAME" Language="ru_RU">
+            <Text>Драва</Text>
+        </Row>
+        <Row Tag="LOC_NAMED_RIVER_AUSTRIA_2_NAME" Language="ru_RU">
+            <Text>Сава</Text>
+        </Row>
+        <Row Tag="LOC_NAMED_LAKE_AUSTRIA_1_NAME" Language="ru_RU">
+            <Text>Озеро Ферто</Text>
+        </Row>
 
         <!-- Agenda -->
       		<!-- Agenda -->
@@ -6117,6 +6137,13 @@
 
 
         <!-- === UNITS - ЮНИТЫ === -->
+         <!-- == BBG Expanded override some names == -->
+		<Replace Tag="LOC_UNIT_ROCKET_ARTILLERY_NAME" Language="ru_RU">
+			<Text>РСЗО</Text>
+		</Replace>
+		<Replace Tag="LOC_UNIT_TREBUCHET_NAME" Language="ru_RU">
+			<Text>Требушет</Text>
+		</Replace>
         <!-- == Гражданские юниты == -->
         <Replace Tag="LOC_UNIT_TRADER_DESCRIPTION" Language="ru_RU"><!-- embarkation tip -->
             <Text>Прокладывает и поддерживает один [ICON_TradeRoute] торговый путь. Автоматически строит дороги по мере продвижения. Может спускаться на воду после изучения технологии "Навигация по звёздам" или "Судостроение".</Text>
@@ -6375,7 +6402,7 @@
         </Replace>
 
         <Replace Tag="LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_DESC" Language="ru_RU">
-            <Text>+5 [ICON_STRENGTH] боевой мощи против юнитов ближнего боя.</Text>
+            <Text>+3 [ICON_STRENGTH] боевой мощи против юнитов ближнего боя.</Text>
         </Replace>
 
         <Replace Tag="LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_NAME" Language="ru_RU">
@@ -8076,7 +8103,13 @@
         <Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_DESCRIPTION" Language="ru_RU">
             <Text>Скидка 40% [ICON_GOLD] на все улучшения юнитов.</Text>
         </Replace>
-
+        	<!-- = BBG 7.5- Naval Guilds = -->
+		<Replace Tag="LOC_POLICY_NAVAL_GUILDS_NAME" Language="ru_RU">
+			<Text>Морские гильдии</Text>
+		</Replace>
+		<Replace Tag="LOC_POLICY_NAVAL_GUILDS_DESCRIPTION" Language="ru_RU">
+			<Text>+100% [ICON_PRODUCTION] производства при создании морских юнитов до Средневековья включительно.</Text>
+		</Replace>
         <!-- = Полевая медицина, BBG 6.5 = -->
         <Replace Tag="LOC_POLICY_BATTLEFIELD_MEDICINE_NAME" Language="ru_RU">
             <Text>Полевая медицина</Text>
