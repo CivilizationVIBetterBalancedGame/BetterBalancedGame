@@ -131,17 +131,17 @@
             <Text>奥地利工业时代特色侦察单位，替代游骑兵。[NEWLINE][NEWLINE]基础远程战斗力 [ICON_STRENGTH] +5。位于友方领土3格范围内时+5 [ICON_STRENGTH] 战斗力。拥有控制区。</Text>
         </Replace>
         <Replace Tag="LOC_MODIFIER_MER_GRENZER_NEAR_TERRITORY_DESC" Language="zh_Hans_CN">
-			<Text>+5 [ICON_STRENGTH] 战斗力(军事边区)</Text>
+			<Text>+5 [ICON_STRENGTH] 战斗力(边防军)</Text>
 		</Replace>
         <Replace Tag="LOC_UNIT_GREAT_DIPLOMAT_NAME" Language="zh_Hans_CN">
             <Text>大外交官</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_GREAT_DIPLOMAT_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>奥地利特色伟人。可吞并一个你已宗主的城邦。[NEWLINE]与其他文明的 [ICON_CAPITAL] 首都相邻时，每回合+1 [ICON_FAVOR] 外交支持。该效果可叠加。[NEWLINE]每当建成市政广场建筑时，获得一位大外交官。</Text>
+            <Text>奥地利特色伟人。可吞并一个你已宗主的城邦。[NEWLINE]与其他文明的 [ICON_CAPITAL] 首都相邻时，每回合+1 [ICON_FAVOR] 外交支持。该效果可叠加。</Text>
         </Replace>
-        <Row Tag="LOC_BBG_DIPLOMAT_PASSIVE" Language="zh_Hans_CN">
+        <Replace Tag="LOC_BBG_DIPLOMAT_PASSIVE" Language="zh_Hans_CN">
 			<Text>与其他文明的 [ICON_CAPITAL] 首都相邻时，每回合+1 [ICON_FAVOR] 外交支持。</Text>
-		</Row>
+		</Replace>
         <Replace Tag="LOC_BUILDING_MER_COFFEE_HOUSE_NAME" Language="zh_Hans_CN">
             <Text>咖啡馆</Text>
         </Replace>
@@ -441,7 +441,7 @@
             <Text>埃及远古时代特色远程骑兵单位。[NEWLINE][NEWLINE]若回合开始时位于无地貌特征（开阔）的单元格上，则拥有4点 [ICON_MOVEMENT] 移动力。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_CIVILIZATION_WORKSHOP_OF_THE_WORLD_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>铁矿和煤矿每回合额外积累2点资源。生产军事工程师时+100% [ICON_PRODUCTION] 生产力。军事工程师获得+2 [ICON_CHARGES] 劳动力。所有以电力为动力的建筑额外提供+2 [ICON_PRODUCTION] 生产力。港口建筑+10% [ICON_SCIENCE] 科技值、[ICON_CULTURE] 文化值和 [ICON_GOLD] 金币产出。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3铁与煤，T3海岸。</Text>
+            <Text>铁矿和煤矿每回合额外积累2点资源。生产军事工程师时+100% [ICON_PRODUCTION] 生产力。军事工程师获得+2 [ICON_CHARGES] 劳动力。需要 [ICON_POWER] 电力提供额外产出的建筑提供+2 [ICON_PRODUCTION] 生产力。港口建筑+10% [ICON_SCIENCE] 科技值、[ICON_CULTURE] 文化值和 [ICON_GOLD] 金币产出。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3铁与煤，T3海岸。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_PAX_BRITANNICA_DESCRIPTION" Language="zh_Hans_CN">
             <Text>在与您首都所在大陆不同的其他大陆上建立首座城市时，将免费获得1个近战单位。研究“军事学”科技后，即可生产“红衫军”单位。</Text>
@@ -470,7 +470,7 @@
         </Replace>
 
         <Replace Tag="LOC_TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>[ICON_RESOURCE_IRON] 铁矿和 [ICON_RESOURCE_COAL] 煤矿每回合额外提供2点对应资源。[NEWLINE]港口建筑使战略资源储备上限+10（联机速度下）。[NEWLINE][NEWLINE]生产军事工程师时+100% [ICON_PRODUCTION] 生产力，且军事工程师获得额外2次 [ICON_CHARGES] 劳动力次数。[NEWLINE][NEWLINE]出生地关联：T1海岸、T5铁、煤。</Text>
+            <Text>[ICON_RESOURCE_IRON] 铁矿和 [ICON_RESOURCE_COAL] 煤矿每回合额外提供2点对应资源。[NEWLINE]港口建筑使战略资源储备上限+10（联机速度下）。[NEWLINE][NEWLINE]生产军事工程师时+100% [ICON_PRODUCTION] 生产力，且军事工程师获得额外2次 [ICON_CHARGES] 劳动力次数。需要 [ICON_POWER] 电力提供额外产出的建筑，其额外产出+3。[NEWLINE][NEWLINE]出生地关联：T1海岸、T5铁、煤。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_CIVILIZATION_PAX_BRITANNICA_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
             <Text>护送开拓者时，海军近战单位会使其获得与之相同的 [ICON_MOVEMENT] 移动力。[NEWLINE][NEWLINE]建成皇家海军船坞后，免费获得当前已解锁的最强海军单位。[NEWLINE]在距离 [ICON_CAPITAL] 首都10单元格或更远的地方建立或占领城市时，免费获得当前已解锁的最强近战单位。[NEWLINE][NEWLINE]灯塔提供+1 [ICON_GREATADMIRAL] 海军统帅点数。</Text>
@@ -479,7 +479,7 @@
             <Text>海军近战单位使被护送的开拓者获得与其相同的移动力。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_VICTORIA_ALT_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>建造工业区建筑时+20% [ICON_PRODUCTION] 生产力。[NEWLINE]城市工业区中每有一座工厂和发电厂，便提供+5% [ICON_PRODUCTION] 生产力。[NEWLINE]工业区每相邻一个皇家海军船坞提供+1 [ICON_PRODUCTION] 生产力。[NEWLINE]被 [ICON_POWER] 电力供能的建筑额外产出+4。[NEWLINE][NEWLINE]灯塔提供+1 [ICON_GREATENGINEER] 大工程师点数。</Text>
+            <Text>建造工业区建筑时+20% [ICON_PRODUCTION] 生产力。[NEWLINE]城市中每有一座工厂和发电厂提供+5% [ICON_PRODUCTION] 生产力。[NEWLINE]工业区从皇家海军船坞获得标准相邻加成。[NEWLINE]所有已改良战略资源+1 [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]灯塔提供+1 [ICON_GREATENGINEER] 大工程师点数。</Text>
         </Replace>
         <Replace Tag="LOC_BBG_AOS_ADJENCY_IZ_RND_DESC" Language="zh_Hans_CN">
             <Text>相邻皇家海军船坞：+{1_num} [ICON_PRODUCTION] 生产力。</Text>
@@ -491,13 +491,28 @@
             <Text>[ICON_PROMOTION] 升级不结束回合。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_ENGLISH_SEADOG_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>英国文艺复兴时代特色海军袭击者单位，替代私掠船。[NEWLINE][NEWLINE]基础 [ICON_STRENGTH] 战斗力+3。[NEWLINE]击杀敌方海军单位时有几率将其俘获。[NEWLINE]除非与敌方单位相邻，否则只能被其他海军袭击者发现。能够揭露视野内的敌方海军袭击者。</Text>
+            <Text>伊丽莎白一世文艺复兴时代特色海军袭击者单位，替代私掠船。[NEWLINE][NEWLINE]基础 [ICON_STRENGTH] 战斗力+3。[NEWLINE]击杀敌方海军单位时有几率将其俘获。[NEWLINE]除非与敌方单位相邻，否则只能被其他海军袭击者发现。能够揭露视野内的敌方海军袭击者。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_ENGLISH_REDCOAT_DESCRIPTION" Language="zh_Hans_CN">
             <Text>维多利亚（帝国时代）工业时代特色近战单位，替代线列步兵。[NEWLINE][NEWLINE]基础 [ICON_STRENGTH] 战斗力+5。[NEWLINE]在非 [ICON_CAPITAL] 首都所在的大陆作战时+5 [ICON_STRENGTH] 战斗力。[NEWLINE]登陆时没有 [ICON_MOVEMENT] 移动力和 [ICON_STRENGTH] 战斗力减益。</Text>
         </Replace>
+        <Replace Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_NAME" Language="zh_Hans_CN">
+            <Text>长弓手</Text>
+        </Replace>
+        <Replace Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>英国中世纪特色远程单位，替代弩手。[NEWLINE][NEWLINE]若与另一个长弓手相邻，+4 [ICON_Strength] 战斗力。</Text>
+        </Replace>
+        <Replace Tag="LOC_ABILITY_LONGBOWMAN_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>与另一个长弓手相邻时+4 [ICON_Strength] 战斗力。</Text>
+        </Replace>
+        <Replace Tag="PLUS_4_LONGBOWMAN_ADJACENCY_COMBAT_BONUS_DESC" Language="zh_Hans_CN">
+            <Text>+4 [ICON_Strength] 战斗力（长弓手）</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_UNITS_PAGE_UNIT_ENGLISH_LONGBOWMAN_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
+            <Text>英格兰长弓发展于12世纪，当时英格兰人正为征服威尔士而战。长弓通常由紫杉木或榆木制成，长度在五到七英尺之间（取决于使用者的身高和力量）。长弓极难精通，但训练有素的英格兰长弓手能够比同期的弩手射得更远、更快且更精准。然而这需要多年的训练。随着国家人口的增长，英格兰的荒野被开垦为农田，狩猎机会逐渐消失，英格兰的自由民们对弓箭的熟练程度也随之下降。这一点，甚至比火药的到来更甚，导致了英格兰长弓的衰落。</Text>
+        </Replace>
         <Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>英国特色区域，替代港口。[NEWLINE][NEWLINE]建在非 [ICON_CAPITAL] 首都所在大陆时，获得+2相邻加成并每回合提供+4忠诚度。[NEWLINE]在此区域内建造的海军单位获得+1 [ICON_MOVEMENT] 移动力。</Text>
+            <Text>英国特色区域，替代港口。[NEWLINE][NEWLINE]建在非 [ICON_CAPITAL] 首都所在大陆时，获得+2相邻加成并每回合提供+4忠诚度。[NEWLINE]在此区域内生产的海军单位获得+1 [ICON_MOVEMENT] 移动力。</Text>
         </Replace>
 
         <Replace Tag="LOC_TRAIT_CIVILIZATION_ETHIOPIA_DESCRIPTION" Language="zh_Hans_CN">
@@ -617,11 +632,8 @@
         <Replace Tag="LOC_ABILITY_GEORGIAN_KHEVSURETI_DESCRIPTION" Language="zh_Hans_CN">
             <Text>+7 [ICON_STRENGTH] 战斗力（赫夫苏列季战士）</Text>
         </Replace>
-        <Replace Tag="LOC_BUILDING_TSIKHE_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>格鲁吉亚特色建筑，替代远古城墙，并拥有更强的外部防御力。+4 [ICON_FAITH] 信仰值。解锁“保护地球”市政后提供+1 [ICON_TOURISM] 旅游业绩。</Text>
-        </Replace>
         <Replace Tag="LOC_BUILDING_TSIKHE_DESCRIPTION_XP2" Language="zh_Hans_CN">
-            <Text>格鲁吉亚特色建筑，替代远古城墙。[NEWLINE][NEWLINE]提供+25外部防御力。[NEWLINE][NEWLINE]+1 [ICON_CULTURE] 文化值和+4 [ICON_FAITH] 信仰值。[NEWLINE]处于黄金时代时额外+3 [ICON_FAITH] 信仰值和+1 [ICON_TOURISM] 旅游业绩。[NEWLINE]解锁“保护地球”市政后提供+1 [ICON_TOURISM] 旅游业绩。</Text>
+            <Text>格鲁吉亚特色建筑，替代远古城墙。[NEWLINE][NEWLINE]外部防御+25。[NEWLINE][NEWLINE]+1 [ICON_CULTURE] 文化值和+4 [ICON_FAITH] 信仰值。处于黄金时代时额外+3 [ICON_FAITH] 信仰值和+1 [ICON_TOURISM] 旅游业绩。[NEWLINE]+1 [ICON_GREATPROPHET] 大预言家点数。[NEWLINE]解锁“保护地球”市政后提供+1 [ICON_TOURISM] 旅游业绩。</Text>
         </Replace>
 
         <Replace Tag="LOC_TRAIT_CIVILIZATION_IMPERIAL_FREE_CITIES_DESCRIPTION" Language="zh_Hans_CN">
@@ -631,7 +643,7 @@
             <Text>任何 [ICON_GOVERNMENT] 政体都会提供1个额外的军事政策槽位。[NEWLINE][NEWLINE]对抗城邦与特色单位时+7 [ICON_STRENGTH] 战斗力。[NEWLINE][NEWLINE]商业同业工会可从军营获得大量相邻加成。</Text>
         </Replace>
         <Replace Tag="LOC_PROMOTION_COMBAT_VS_CITY_STATES_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>+7 [ICON_Strength] 战斗力，对抗城邦与特色单位</Text>
+            <Text>+7 [ICON_Strength] 战斗力（神圣罗马皇帝）。</Text>
         </Replace>
         <Replace Tag="LOC_BBG_BARBAROSSA_HANSA_ENCAMPMENT_PROD_DESC" Language="zh_Hans_CN">
             <Text>相邻军营：+{1_num} [ICON_PRODUCTION] 生产力。</Text>
@@ -652,10 +664,10 @@
             <Text>+3 [ICON_STRENGTH] 战斗力 (虎式坦克)</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_UNITS_PAGE_UNIT_GERMAN_PANZER_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
-            <Text>虎I是二战期间德国的重型坦克，于1942年开始在非洲和欧洲服役，主要编制在独立的重型坦克营。它的最终型号是Panzerkampfwagen VI Tiger Ausf. E，通常简称为Tiger（虎式）。虎式是德国国防军第一款装备了8.8厘米KwK 36火炮（不要与8.8厘米Flak 36高射炮混淆）的战斗车辆。在1942年8月至1944年8月间共制造了1347辆。这款坦克获得了费迪南德·保时捷赋予的“老虎”绰号，而罗马数字则是在虎王坦克投入生产后添加的。</Text>
+            <Text>虎式坦克是第二次世界大战期间德国的一款重型坦克，自1942年起部署于非洲和欧洲战场，通常编入独立重型坦克营。其最终定型编号为Panzerkampfwagen VI Tiger Ausf. E，通常简称为"虎式"。虎式坦克是德国国防军首款装备了8.8厘米KwK 36坦克炮（非高射炮）的装甲战斗车辆。在1942年8月至1944年8月期间，共计生产了1347辆。该坦克由费迪南德·保时捷赋予"虎式"这一绰号，罗马数字"I"则是在后来的虎王坦克投入生产后追加的。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_UNITS_PAGE_UNIT_GERMAN_PANZER_CHAPTER_HISTORY_PARA_2" Language="zh_Hans_CN">
-            <Text>虎I在其所处时代被视为一种非凡的设计，但由于使用了昂贵的材料和费时的生产方法而导致体型庞大。它容易出现特定的履带故障，由于高耗油量，其航程也十分有限。此外，它的运输极其困难，当泥浆、冰和雪在其交错的负重轮间积聚时，它很容易失去行动能力甚至完全卡死。这在东线战场的泥泞季节和极寒时期成了一个大问题。</Text>
+            <Text>尽管虎式坦克被认为是其时代出色的设计，但它存在过度工程化的问题，使用了昂贵的材料和劳动密集型生产工艺。虎式坦克容易出现特定类型的履带故障和机械抛锚，且因油耗极高而行动半径有限。运输起来也十分困难，并且在泥泞、冰雪冻结于其重叠交错式负重轮之间时极易丧失机动能力，常常将车轮牢牢卡死。这在东线泥泞的"泥将军"季节以及极寒时期是一个严重的问题。</Text>
         </Replace>
         <Replace Tag="LOC_DISTRICT_HANSA_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
             <Text>德国特色区域，替代工业区。[NEWLINE][NEWLINE]每相邻1个水渠、运河和堤坝，提供+2 [ICON_PRODUCTION] 生产力。[NEWLINE]每相邻1个资源单元格，提供+1 [ICON_PRODUCTION] 生产力。</Text>
@@ -1043,7 +1055,7 @@
             <Text>4格范围内的陆地 [ICON_TRADEROUTE] 商人单位免疫掠夺。[NEWLINE][NEWLINE]击杀单位时，获得等同于其基础 [ICON_STRENGTH] 战斗力50%的 [ICON_GOLD] 金币（联机速度下）。</Text>
         </Replace>
         <Replace Tag="LOC_DISTRICT_SUGUBA_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>马里特色区域，替代商业中心。[NEWLINE][NEWLINE]每相邻1条河流、绿洲或市中心+1 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]在此城市中使用 [ICON_GOLD] 金币或 [ICON_FAITH] 信仰值购买单位、[ICON_DISTRICT] 区域或建筑时，花费降低20%。</Text>
+            <Text>马里特色区域，替代商业中心。[NEWLINE][NEWLINE]每相邻1条河流、绿洲或市中心+1 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]在此城市中使用 [ICON_GOLD] 金币或 [ICON_FAITH] 信仰值购买单位、[ICON_DISTRICT] 区域和建筑时，花费降低10%。</Text>
         </Replace>
         <Replace Tag="LOC_SUGUBA_OASIS_GOLD" Language="zh_Hans_CN">
             <Text>相邻绿洲：+{1_num} [ICON_GOLD] 金币。</Text>
@@ -1056,7 +1068,7 @@
         </Replace>
 
         <Replace Tag="LOC_TRAIT_CIVILIZATION_MAORI_MANA_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>解锁“天文导航”科技后，渔船提供+1 [ICON_FOOD] 食物。[NEWLINE]渔船会触发文化炸弹，获得相邻的单元格。[NEWLINE][NEWLINE]未改良的树林和雨林单元格在解锁“帝国初期”市政后提供+1 [ICON_PRODUCTION] 生产力（“重商主义”市政后提升至+2，“保护地球”市政后提升至+4）。[NEWLINE][NEWLINE]解锁“造船术”科技后，登船水运单位获得+2 [ICON_MOVEMENT] 移动力。[NEWLINE][NEWLINE]无法收获资源，无法获得 [ICON_GREATWRITER] 大作家。[NEWLINE][NEWLINE]出生地关联：T1海岸。</Text>
+            <Text>解锁“天文导航”科技后，渔船提供+1 [ICON_FOOD] 食物。[NEWLINE][NEWLINE]未改良的树林和雨林单元格在解锁“帝国初期”市政后提供+1 [ICON_PRODUCTION] 生产力（“重商主义”市政后提升至+2，“保护地球”市政后提升至+4）。[NEWLINE][NEWLINE]解锁“造船术”科技后，水运单位获得+2 [ICON_MOVEMENT] 移动力。[NEWLINE][NEWLINE]无法收获资源，无法获得 [ICON_GREATWRITER] 大作家。[NEWLINE][NEWLINE]出生地关联：T1海岸。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_KUPE_VOYAGE_DESCRIPTION" Language="zh_Hans_CN">
             <Text>游戏在海洋中开始。在建立第一座城市前，每回合可获得+2 [ICON_SCIENCE] 科技值和+2 [ICON_CULTURE] 文化值。建成第一座城市后可获得一名免费的建造者，城市人口+1；并且首都获得+3 [ICON_HOUSING] 住房和+1 [ICON_AMENITIES] 宜居度。</Text>
@@ -1065,10 +1077,10 @@
             <Text>[ICON_CAPITAL] 首都提供+3 [ICON_HOUSING] 住房。[NEWLINE][NEWLINE]开拓者在解锁“航海术”科技后即可下水。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_MAORI_TOA_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>毛利古典时代特色近战单位，替代剑客。[NEWLINE][NEWLINE]基础 [ICON_STRENGTH] 战斗力+2。[NEWLINE]与其相邻的敌方军事单位-5 [ICON_STRENGTH] 战斗力。[NEWLINE][NEWLINE]拥有1次 [ICON_CHARGES] 劳动力，可以建造帕堡。[NEWLINE][NEWLINE]不需要 [ICON_RESOURCE_IRON] 铁资源。</Text>
+            <Text>毛利古典时代特色近战单位，替代剑客。[NEWLINE][NEWLINE]基础 [ICON_STRENGTH] 战斗力+2。[NEWLINE]相邻的敌方军事单位-3 [ICON_STRENGTH] 战斗力。[NEWLINE][NEWLINE]拥有1次 [ICON_CHARGES] 劳动力，可以建造帕堡。[NEWLINE][NEWLINE]不需要 [ICON_RESOURCE_IRON] 铁资源。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_TOA_NEGATIVE_COMBAT_MODIFIER_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>-5 [ICON_STRENGTH] 战斗力 (托阿勇士)</Text>
+            <Text>-3 [ICON_STRENGTH] 战斗力 (托阿勇士)</Text>
         </Replace>
         <Replace Tag="LOC_BUILDING_MARAE_DESCRIPTION" Language="zh_Hans_CN">
             <Text>毛利特色建筑，替代古罗马剧场。[NEWLINE][NEWLINE]所在城市中，所有树林、雨林、沼泽、绿洲、礁石、地热裂缝、泛滥平原以及自然奇观单元格提供+1 [ICON_CULTURE] 文化值和+1 [ICON_FAITH] 信仰值；在解锁“飞行”科技后，这些单元格还能提供+1 [ICON_TOURISM] 旅游业绩。[NEWLINE][NEWLINE]无维护费用。[NEWLINE]无巨作槽位。[NEWLINE]不产生 [ICON_GREATWRITER] 大作家点数。</Text>
@@ -1171,7 +1183,7 @@
             <Text>海军近战单位+3 [ICON_STRENGTH] 战斗力并获得+25% [ICON_PRODUCTION] 生产力。海军近战单位可以执行海岸掠夺。[NEWLINE][NEWLINE]解锁“造船术”科技后狂暴武士和维京长船可进入海洋单元格。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_THUNDERBOLT_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>训练海军近战单位时+25% [ICON_PRODUCTION] 生产力，且海军近战单位可以进行海岸扫荡。[NEWLINE]对矿山进行掠夺和海岸扫荡除 [ICON_GOLD] 金币外还能获得 [ICON_SCIENCE] 科技值。对采石场、牧场、种植园和营地进行掠夺和海岸扫荡除 [ICON_FAITH] 信仰值外还能获得 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]海军近战单位+3 [ICON_STRENGTH] 战斗力。[NEWLINE]解锁“造船术”科技后狂暴武士和维京长船可进入海洋单元格。</Text>
+            <Text>训练海军近战单位时+25% [ICON_PRODUCTION] 生产力，且海军近战单位可以进行海岸扫荡。[NEWLINE]对矿山进行掠夺和海岸扫荡除 [ICON_GOLD] 金币外还能获得 [ICON_SCIENCE] 科技值。对采石场、牧场、种植园和营地进行掠夺和海岸扫荡除 [ICON_FAITH] 信仰值外还能获得 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]海军近战单位+3 [ICON_STRENGTH] 战斗力。[NEWLINE]解锁“造船术”科技后，除四段帆船外的所有单位可进入海洋单元格。</Text>
         </Replace>
         <Replace Tag="LOC_BBG_NORWAY_MELEE_BOAT_COMBAT_ABILITY_NAME" Language="zh_Hans_CN">
             <Text>+3 [ICON_STRENGTH] 战斗力（无情者）</Text>
@@ -1263,7 +1275,7 @@
             <Text>进行海岸扫荡时不消耗 [ICON_MOVEMENT] 移动力，无需“制图学”科技即可进入海洋单元格。</Text>
         </Replace>
         <Replace Tag="LOC_BUILDING_GRAND_BAZAAR_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>奥斯曼特色建筑，替代银行，解锁于“工会”市政。[NEWLINE][NEWLINE]该城市每拥有1种已改良的奢侈品资源，便提供+1 [ICON_AMENITIES] 宜居度。[NEWLINE]从该城市出发的 [ICON_TRADEROUTE] 贸易路线提供+2 [ICON_GOLD] 金币。[NEWLINE]到达该城市的 [ICON_TRADEROUTE] 贸易路线提供+1 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]提供+1 [ICON_TRADEROUTE] 贸易路线容量。[NEWLINE][NEWLINE]该城市每拥有1种已改良的战略资源，便额外积累1点该资源。</Text>
+            <Text>奥斯曼特色建筑，替代银行，解锁于“公会”市政。[NEWLINE][NEWLINE]该城市每拥有1种已改良的奢侈品资源，便提供+1 [ICON_AMENITIES] 宜居度。[NEWLINE]从该城市出发的 [ICON_TRADEROUTE] 贸易路线提供+2 [ICON_GOLD] 金币。[NEWLINE]到达该城市的 [ICON_TRADEROUTE] 贸易路线提供+1 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]提供+1 [ICON_TRADEROUTE] 贸易路线容量。[NEWLINE][NEWLINE]该城市每拥有1种已改良的战略资源，便额外积累1点该资源。</Text>
         </Replace>
 
         <Replace Tag="LOC_TRAIT_CIVILIZATION_SATRAPIES_DESCRIPTION" Language="zh_Hans_CN">
@@ -1348,10 +1360,10 @@
             <Text>乌兰骑兵</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_JFD_UHLAN_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>波兰文艺复兴时代特色轻骑兵单位，替代骑兵。获得+50%夹击加成。</Text>
+            <Text>波兰文艺复兴时代特色轻骑兵单位，替代骑兵。夹击加成+50%。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_JFD_UHLAN_FLANKING_BONUS_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>额外夹击加成：+{1_Amount} [ICON_STRENGTH]战斗力。</Text>
+            <Text>额外夹击加成：+{1_Amount} [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
         <Replace Tag="LOC_BUILDING_SUKIENNICE_EXPANSION1_DESCRIPTION" Language="zh_Hans_CN">
             <Text>波兰特色建筑，替代市场。[NEWLINE][NEWLINE]从该城市出发的国际 [ICON_TRADEROUTE] 贸易路线提供+2 [ICON_PRODUCTION] 生产力。[NEWLINE]从该城市出发的国内 [ICON_TRADEROUTE] 贸易路线提供+4 [ICON_GOLD] 金币。</Text>
@@ -1422,7 +1434,7 @@
             <Text>初始便拥有一次免费的 [ICON_PROMOTION] 升级。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_UNITS_PAGE_UNIT_ROMAN_ONAGER_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
-            <Text>石弩是一种罗马攻城器械，属于一种利用扭力（通常为扭转的绳索）来储存发射能量的抛石机。石弩由一个放置在地面上的大型框架组成，其前端固定着一个坚固的垂直木架。装有抛射物的投石带连接在一根垂直的投射臂上，这根木臂穿过固定在框架上的扭绳束。为了进入待发状态，投射臂会被绞盘向下压，对抗扭曲绳索或其他弹簧的张力，然后突然释放。当投射臂向外摆动时，投石带的一端会脱落，就像杆式投石器一样，从而将抛射物向前发射。发射后，投射臂会由横梁或缓冲垫支撑，之后便可再次拉回。</Text>
+            <Text>野驴炮是一种罗马攻城器械，属于利用扭力（通常来自绞紧的绳索）来储存发射能量的投射机。野驴炮的主体是一个放置于地面的巨大框架，其前端牢固地固定着一个坚实的垂直木结构。一根垂直的辐杆穿过固定在框架上的绳束，辐杆末端连接着一个用于装载弹丸的投石袋。发射时，通过绞盘将辐杆或力臂向下拉紧，对抗绞绳或其他弹簧的张力，然后突然释放。当投石袋向外摆动时，其一端会像投石索那样松开，弹丸随即被向前抛射出去。力臂随后会被一根带有缓冲垫的横梁或底座挡住，然后再将其绞回原位准备下一次发射。</Text>
         </Replace>
         <Replace Tag="LOC_DISTRICT_BATH_EXPANSION2_ALT_DESCRIPTION" Language="zh_Hans_CN">
             <Text>罗马特色区域，替代水渠。[NEWLINE][NEWLINE]除了水渠的常规加成外，+2 [ICON_HOUSING] 住房。[NEWLINE]每有一个相邻区域，+1 [ICON_CULTURE] 文化值。必须相邻市中心建造。</Text>
@@ -1477,7 +1489,7 @@
             <Text>可以使用 [ICON_FAITH] 信仰值购买轻骑兵单位。[NEWLINE][NEWLINE]出生地关联：T3马 / T4牛、羊 / T5平原、草原。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_KILLER_OF_CYRUS_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>攻击受伤单位时，所有单位+3 [ICON_STRENGTH] 战斗力（进入中世纪后提升至+5）。[NEWLINE]击杀敌方单位时恢复最多30点生命值。</Text>
+            <Text>所有单位攻击受伤单位时，+3 [ICON_STRENGTH] 战斗力（进入中世纪后提升至+5）。[NEWLINE]击杀敌方单位时恢复30点生命值。</Text>
         </Replace>
 		<Row Tag="LOC_BBG_TOMYRIS_BONUS_VS_WOUNDED_UNITS_STIRRUPS_MODIFIER_DESC" Language="zh_Hans_CN">
             <Text>攻击受伤单位时+5 [ICON_STRENGTH] 战斗力。</Text>
@@ -1622,7 +1634,7 @@
         </Replace>
 
         <Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>建造工作坊、工厂、图书馆、大学和市政广场建筑时+50% [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]工业区建筑额外提供1点 [ICON_GREATENGINEER] 大工程师点数，学院建筑额外提供1点 [ICON_GREATSCIENTIST] 大科学家点数。[NEWLINE]每招募一位 [ICON_GREATPERSON] 伟人，获得10点 [ICON_FAVOR] 外交支持（联机速度下）。[NEWLINE][NEWLINE]只要瑞典在游戏中，从文艺复兴时代起将加入三项专属的世界议会竞赛。[NEWLINE][NEWLINE]出生地关联：特殊：靠近冻土。</Text>
+            <Text>建造学院、工业区和市政广场建筑时+50% [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]工业区建筑+1 [ICON_GREATENGINEER] 大工程师点数，学院建筑+1 [ICON_GREATSCIENTIST] 大科学家点数。[NEWLINE]每招募一位 [ICON_GREATPERSON] 伟人，获得10点 [ICON_FAVOR] 外交支持（联机速度下）。[NEWLINE][NEWLINE]只要瑞典在游戏中，从文艺复兴时代起将加入三项专属的世界议会竞赛。[NEWLINE][NEWLINE]出生地关联：特殊：靠近冻土。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_MINERVA_OF_THE_NORTH_DESCRIPTION" Language="zh_Hans_CN">
             <Text>拥有至少3个巨作槽位的建筑以及奇观的每个 [ICON_GREATWORK_ANY] 巨作槽位提供主题化加成。</Text>
@@ -1637,7 +1649,7 @@
             <Text>拥有至少3个巨作槽位的建筑以及拥有至少2个巨作槽位的奇观，在填满时自动获得 [ICON_THEMEBONUS_ACTIVE] 主题化加成。[NEWLINE][NEWLINE]可以在市政广场建造女王图书馆。[NEWLINE]市政广场中每有一级建筑，便提供+2点对应类型的所有伟人点数（[ICON_GREATENGINEER] 大工程师、[ICON_GREATSCIENTIST] 大科学家、[ICON_GREATWRITER] 大作家、[ICON_GREATARTIST] 大艺术家和 [ICON_GREATMUSICIAN] 大音乐家）。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_SWEDEN_CAROLEAN_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>瑞典文艺复兴时代特色抗骑兵单位，替代长枪与射击。[NEWLINE][NEWLINE]+1 [ICON_MOVEMENT] 移动力。[NEWLINE]每拥有一点未消耗的 [ICON_MOVEMENT] 移动力，+3 [ICON_STRENGTH] 战斗力。</Text>
+            <Text>瑞典文艺复兴时代特色抗骑兵单位，替代枪刺与射击方阵。[NEWLINE][NEWLINE]+1 [ICON_MOVEMENT] 移动力。[NEWLINE]每拥有一点未消耗的 [ICON_MOVEMENT] 移动力，+3 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
         <Replace Tag="LOC_BUILDING_QUEENS_BIBLIOTHEQUE_DESCRIPTION" Language="zh_Hans_CN">
             <Text>瑞典特色建筑。[NEWLINE][NEWLINE]拥有6个可容纳任何类型巨作的槽位。[NEWLINE]该建筑不会与市政广场的其他建筑冲突。[NEWLINE]提供1个 [ICON_GOVERNOR] 总督头衔。</Text>
@@ -1666,23 +1678,23 @@
             <Text>马卡纳武士</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_CVS_TAINO_UU_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>泰诺远古时代特色侦察单位，替代勇士。[NEWLINE][NEWLINE]升级后保留其 [ICON_PROMOTION] 侦察单位升级。[ICON_MOVEMENT] 移动力+1，视野+1，[ICON_STRENGTH] 基础战斗力-5，对抗基础战斗力更高的单位时+5 [ICON_STRENGTH] 战斗力。[NEWLINE][NEWLINE]击杀单位时，获得其基础 [ICON_STRENGTH] 战斗力50%的 [ICON_FAITH] 信仰值（标准速度下）。</Text>
+            <Text>泰诺远古时代特色侦察单位，替代勇士。[NEWLINE][NEWLINE]升级后保留其侦察单位 [ICON_PROMOTION] 升级。[ICON_MOVEMENT] 移动力+1，视野+1，[ICON_STRENGTH] 基础战斗力-5，对抗基础战斗力更高的单位时+5 [ICON_STRENGTH] 战斗力。[NEWLINE][NEWLINE]击杀单位时，获得其基础 [ICON_STRENGTH] 战斗力50%的 [ICON_FAITH] 信仰值（标准速度下）。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_CVS_TAINO_UU_DESCRIPTION" Language="zh_Hans_CN">
             <Text>击杀单位时，获得其基础 [ICON_STRENGTH] 战斗力50%的 [ICON_FAITH] 信仰值（标准速度下）。</Text>
         </Replace>
-		<Row Tag="LOC_BBG_ABILITY_CVS_TAINO_UU_AGAINST_STRONGER_UNITS" Language="zh_Hans_CN">
-            <Text>对抗基础战斗力更高的单位时+5战斗力</Text>
-        </Row>
-        <Row Tag="LOC_BBG_ABILITY_CVS_TAINO_UU_AGAINST_STRONGER_UNITS_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>对抗基础战斗力更高的单位时+5 [ICON_STRENGTH] 战斗力。</Text>
-        </Row>
+		<Replace Tag="LOC_BBG_ABILITY_CVS_TAINO_UU_AGAINST_STRONGER_UNITS" Language="zh_Hans_CN">
+            <Text>对抗基础战斗力更高的单位时+5 [ICON_STRENGTH] 战斗力</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_ABILITY_CVS_TAINO_UU_AGAINST_STRONGER_UNITS_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>+5 [ICON_STRENGTH] 战斗力(马卡纳武士)。</Text>
+        </Replace>
 		<!--特色区域-->
         <Replace Tag="LOC_DISTRICT_CVS_TAINO_UI_NAME" Language="zh_Hans_CN">
             <Text>巴泰球场</Text>
         </Replace>
         <Replace Tag="LOC_DISTRICT_CVS_TAINO_UI_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>泰诺特色区域，替代娱乐中心。[NEWLINE][NEWLINE]每个相邻的商业中心额外提供+2 [ICON_PRODUCTION] 生产力和+3 [ICON_GOLD] 金币，每个相邻的港口额外提供+4 [ICON_PRODUCTION] 生产力和+6 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]允许启动专属项目，该项目产出 [ICON_FAITH] 信仰值，并在完成时提供 [ICON_GREATWRITER] 大作家、[ICON_GREATARTIST] 大艺术家和 [ICON_GREATMUSICIAN] 大音乐家点数，相比剧院广场项目会额外提供20% [ICON_GREATWRITER] 大作家点数。[NEWLINE]竞技场拥有2个巨作槽位。</Text>
+            <Text>泰诺特色区域，替代娱乐中心。[NEWLINE][NEWLINE]每个相邻的商业中心额外提供+2 [ICON_PRODUCTION] 生产力和+3 [ICON_GOLD] 金币，每个相邻的港口额外提供+4 [ICON_PRODUCTION] 生产力和+6 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]允许启动专属项目，该项目产出 [ICON_FAITH] 信仰值，并在完成时提供 [ICON_GREATWRITER] 大作家、[ICON_GREATARTIST] 大艺术家和 [ICON_GREATMUSICIAN] 大音乐家点数，相比剧院广场项目会额外提供20% [ICON_GREATWRITER] 大作家点数。[NEWLINE]竞技场拥有2个 [ICON_GreatWork_Writing] 著作巨作槽位。</Text>
         </Replace>
         <Replace Tag="LOC_BBG_PRODUCTION_TAINO_COMMERCIAL_HUB" Language="zh_Hans_CN">
             <Text>相邻商业中心：+{1_num} [ICON_PRODUCTION] 生产力。</Text>
@@ -1716,7 +1728,7 @@
 			<Text>科努科</Text>
 		</Replace>
         <Replace Tag="LOC_IMPROVEMENT_CVS_ANACAONA_UI_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>泰诺特色改良设施。[NEWLINE][NEWLINE]+1 [ICON_CULTURE] 文化值。"中世纪集市"后+1 [ICON_CULTURE] 文化值，"自然历史"后+1 [ICON_CULTURE] 文化值。[NEWLINE][NEWLINE]与加成资源或奢侈品资源相邻时获得额外加成：[NEWLINE][ICON_BULLET]平原：+1 [ICON_FOOD] 食物、 +1 [ICON_PRODUCTION] 生产力[NEWLINE][ICON_BULLET]草原：+2 [ICON_FOOD] 食物[NEWLINE][ICON_BULLET]冻土：+1 [ICON_FOOD] 食物[NEWLINE][ICON_BULLET]"重商主义"后，每相邻一个加成资源或奢侈品资源+2 [ICON_GOLD] 金币[NEWLINE][NEWLINE]必须建在与加成资源或奢侈品资源相邻的单元格上。只能建在平原、草原或冻土上。不能与另一座科努科相邻。</Text>
+            <Text>泰诺特色改良设施。[NEWLINE][NEWLINE]+1 [ICON_CULTURE] 文化值。"中世纪集市"后+1 [ICON_CULTURE] 文化值，"自然历史"后+1 [ICON_CULTURE] 文化值。[NEWLINE]"重商主义"后，每相邻一个加成资源或奢侈品资源+2 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]与加成资源或奢侈品资源相邻时获得额外加成：[NEWLINE][ICON_BULLET]平原：+1 [ICON_FOOD] 食物、 +1 [ICON_PRODUCTION] 生产力[NEWLINE][ICON_BULLET]草原：+2 [ICON_FOOD] 食物[NEWLINE][ICON_BULLET]冻土：+1 [ICON_FOOD] 食物[NEWLINE][NEWLINE]必须建在与加成资源或奢侈品资源相邻的单元格上。只能建在平原、草原或冻土上。不能与另一座科努科相邻。</Text>
         </Replace>
 
         <Replace Tag="LOC_TRAIT_CIVILIZATION_LIME_TEO_MEN_BECOME_GODS_NAME" Language="zh_Hans_CN">
@@ -1729,7 +1741,7 @@
             <Text>西境领主</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_LIME_TEO_OWL_FIRE_IS_BORN_DESC" Language="zh_Hans_CN">
-            <Text>波奇特卡聚集区、外交办和领事馆各提供+1 [ICON_TRADEROUTE] 贸易路线容量。[NEWLINE]建造波奇特卡聚居区建筑时+100% [ICON_PRODUCTION] 生产力。[NEWLINE]可招募独特 [ICON_GOVERNOR] 总督"浴火而生"。</Text>
+            <Text>波奇特卡聚集区及其建筑提供+1 [ICON_TRADEROUTE] 贸易路线容量。[NEWLINE]建造波奇特卡聚居区建筑时+100% [ICON_PRODUCTION] 生产力。[NEWLINE]可招募独特 [ICON_GOVERNOR] 总督"浴火而生"。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_LIME_TEO_OWL_WARRIOR_NAME" Language="zh_Hans_CN">
             <Text>羽甲战士</Text>
@@ -1971,8 +1983,11 @@
         <Replace Tag="LOC_BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL_NAME" Language="zh_Hans_CN">
 			<Text>轻骑兵治愈</Text>
 		</Replace>
+        <Replace Tag="LOC_BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL_DESC" Language="zh_Hans_CN">
+  		  <Text>击杀敌方单位时恢复10点生命值。</Text>
+		</Replace>
         <Replace Tag="LOC_ABILITY_TOMYRIS_HEAL_AFTER_DEFEATING_UNIT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>击败敌方单位后恢复+10 [ICON_Damaged] 生命值。（轻骑兵）</Text>
+			<Text>击杀敌方单位时恢复10点 [ICON_Damaged] 生命值。（轻骑兵）</Text>
 		</Replace>
         <Replace Tag="LOC_UNIT_HORSEMAN_DESCRIPTION" Language="zh_Hans_CN">
             <Text>古典时代轻骑兵单位。</Text>
@@ -2010,19 +2025,22 @@
         </Replace>
         <!--攻城单位-->
         <Replace Tag="LOC_UNIT_CATAPULT_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>古典时代攻城单位。除非拥有“炮兵专业”升级，否则无法在同一回合内移动并攻击。</Text>
+            <Text>古典时代攻城单位。除非拥有“专家组”升级，否则无法在同一回合内移动并攻击。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_TREBUCHET_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>中世纪攻城单位。除非拥有“炮兵专业”升级，否则无法在同一回合内移动并攻击。</Text>
+            <Text>中世纪攻城单位。除非拥有“专家组”升级，否则无法在同一回合内移动并攻击。</Text>
+        </Replace>
+        <Replace Tag="LOC_UNIT_TREBUCHET_NAME" Language="zh_Hans_CN">
+            <Text>投石机</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_BOMBARD_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>文艺复兴时代攻城单位。除非拥有“炮兵专业”升级，否则无法在同一回合内移动并攻击。</Text>
+            <Text>文艺复兴时代攻城单位。除非拥有“专家组”升级，否则无法在同一回合内移动并攻击。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_ARTILLERY_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>现代攻城单位。除非拥有“炮兵专业”升级，否则无法在同一回合内移动并攻击。</Text>
+            <Text>现代攻城单位。除非拥有“专家组”升级，否则无法在同一回合内移动并攻击。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_ROCKET_ARTILLERY_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>信息时代攻城单位。除非拥有“炮兵专业”升级，否则无法在同一回合内移动并攻击。</Text>
+            <Text>信息时代攻城单位。除非拥有“专家组”升级，否则无法在同一回合内移动并攻击。</Text>
         </Replace>
         <Replace Tag="LOC_BBG_ABILITY_ARTILLERY_DEFENSIBLE_DISTRICTS_NAME" Language="zh_Hans_CN">
             <Text>城市弹幕</Text>
@@ -2047,6 +2065,15 @@
         <Replace Tag="LOC_UNIT_GALLEY_DESCRIPTION" Language="zh_Hans_CN">
             <Text>远古时代海军近战单位。</Text>
         </Replace>
+        <Replace Tag="LOC_UNIT_COG_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>中世纪海军近战单位。</Text>
+        </Replace>
+        <Replace Tag="LOC_UNIT_COG_NAME" Language="zh_Hans_CN">
+            <Text>柯克船</Text>
+        </Replace>
+        <Replace Tag="LOC_PEDIA_UNITS_PAGE_UNIT_DLV_COG_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
+            <Text>柯克船是一种最早出现于10世纪、自12世纪起被广泛使用的船型。柯克船采用搭接式建造法，通常使用橡木制造，这种木材在普鲁士的波罗的海地区十分丰富。这种船配备单桅杆和一面方形帆。这些船只主要与中世纪欧洲的海上贸易相关，尤其是波罗的海地区的汉萨同盟。船身长度在15至25米之间，船宽5至8米，最大的柯克船可载货达200吨。</Text>
+        </Replace>
         <Replace Tag="LOC_UNIT_CARAVEL_DESCRIPTION" Language="zh_Hans_CN">
             <Text>文艺复兴时代海军近战单位。</Text>
         </Replace>
@@ -2069,7 +2096,7 @@
         <Replace Tag="LOC_UNIT_MISSILE_CRUISER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>信息时代海军远程单位。为1单元格范围内的单位提供防空和防核打击掩护。</Text>
         </Replace>
-
+        <!--海军袭击者-->
         <Replace Tag="LOC_UNIT_PRIVATEER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>文艺复兴时代海军袭击者单位。除非与敌方单位相邻，否则只能被其他海军袭击者发现。能够揭露视野内的敌方海军袭击者。</Text>
         </Replace>
@@ -2120,18 +2147,36 @@
         <Replace Tag="LOC_UNIT_GIANT_DEATH_ROBOT_DESCRIPTION" Language="zh_Hans_CN">
             <Text>信息时代的超级单位。可以在水域中移动和战斗。对大规模杀伤性武器免疫。它的作战能力可以通过研究新科技来升级。</Text>
         </Replace>
-
+        <!--支援单位-->
         <Replace Tag="LOC_UNIT_TRADER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>可以在两座城市间建立一条 [ICON_TRADEROUTE] 贸易路线，并自动在路线上修建道路。研究“天文导航”或“造船术”科技后可以下水。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_BATTERING_RAM_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>远古时代支援单位。如果与敌方城市相邻，近战和抗骑兵单位可对该城市城墙造成全额伤害。对拥有文艺复兴城墙的城市无效，对城市防御（钢铁科技）无效。</Text>
+            <Text>远古时代支援单位。如果与敌方城市相邻，近战和抗骑兵单位可对该城市城墙造成全额伤害。对拥有中世纪或文艺复兴城墙的城市无效，对城市防御（“钢铁”科技）无效。</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_RAM_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="zh_Hans_CN">
+            <Text>战场医疗（攻城锤）</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_RAM_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="zh_Hans_CN">
+            <Text>在一单元格以内，为古典时代及更早时代的近战、抗骑兵和远程单位+1 [ICON_MOVEMENT] 移动力。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_SIEGE_TOWER_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>中世纪支援单位。如果与敌方城市相邻，近战和抗骑兵单位可直接攻击城市，无视城墙防御。对拥有文艺复兴城墙的城市无效，对城市防御（钢铁科技）无效。</Text>
+            <Text>中世纪支援单位。如果与敌方城市相邻，近战和抗骑兵单位可对该城市城墙造成全额伤害。对拥有文艺复兴城墙的城市无效，对城市防御（“钢铁”科技）无效。</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_SIEGE_TOWER_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="zh_Hans_CN">
+            <Text>战场医疗（攻城塔）</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_SIEGE_TOWER_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="zh_Hans_CN">
+            <Text>在一单元格以内，为中世纪及更早时代的近战、抗骑兵和远程单位+1 [ICON_MOVEMENT] 移动力。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_MEDIC_DESCRIPTION" Language="zh_Hans_CN">
             <Text>工业时代支援单位。使相邻单位的驻扎回复量增加20点生命值。回合开始时与医疗兵相邻的己方近战、抗骑兵和远程单位获得+1 [ICON_MOVEMENT] 移动力。</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="zh_Hans_CN">
+            <Text>战场医疗（医护兵）</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="zh_Hans_CN">
+            <Text>在一单元格以内，为近战、抗骑兵和远程单位+1 [ICON_MOVEMENT] 移动力。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_SUPPLY_CONVOY_DESCRIPTION" Language="zh_Hans_CN">
             <Text>现代支援单位。使相邻单位的驻扎回复量增加20点生命值。回合开始时与补给车队相邻的己方单位获得+1 [ICON_MOVEMENT] 移动力。</Text>
@@ -2589,11 +2634,12 @@
             <Text>在执行破坏宇航中心任务时提升2级。</Text>
         </Replace>
 
+        <!--末日机甲-->
         <Replace Tag="LOC_PROMOTION_GDR_AA_DEFENSE_DESCRIPTION" Language="zh_Hans_CN">
             <Text>+100 [ICON_ANTIAIR_LARGE] 防空战斗力。</Text>
         </Replace>
         <Replace Tag="LOC_PROMOTION_GDR_SIEGE_LASER_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>[ICON_RANGED] 远程攻击对具有防御力的区域可造成100%效力的伤害。+30 [ICON_RANGED] 远程攻击力。</Text>
+            <Text>[ICON_RANGED] 远程攻击对具有防御力的区域造成100%伤害。+30 [ICON_RANGED] 远程攻击力。</Text>
         </Replace>
         <Replace Tag="LOC_PROMOTION_GDR_BONUS_MOVEMENT_DESCRIPTION" Language="zh_Hans_CN">
             <Text>+3 [ICON_MOVEMENT] 移动力。能够越过山脉跳跃移动。</Text>
@@ -2601,14 +2647,14 @@
         <Replace Tag="LOC_PROMOTION_GDR_ARMOR_UPGRADE_DESCRIPTION" Language="zh_Hans_CN">
             <Text>防御陆地和海军单位攻击时+10 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
-
+        <!--未知分类-->
         <Replace Tag="LOC_ABILITY_ANTI_SPEAR_DESCRIPTION" Language="zh_Hans_CN">
             <Text>对抗抗骑兵单位时+10 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_ANIT_SPEAR_MODIFIER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>对抗抗骑兵单位时+10 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
-
+        <!--战斗描述-->
         <Replace Tag="LOC_BBG_ABILITY_NO_SUPPORT_BONUS_DESC" Language="zh_Hans_CN">
             <Text>陆地和海军远程单位不会获得支援加成。</Text>
         </Replace>
@@ -2624,37 +2670,22 @@
         <Replace Tag="LOC_ABILITY_HEAVY_CHARIOT_MODIFIER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>如果在开阔地形上开始回合，+1 [ICON_Movement] 移动力。</Text>
         </Replace>
-
         <Replace Tag="LOC_BBG_ABILITY_SUPPORT_NAVAL_MELEE_DESC" Language="zh_Hans_CN">
             <Text>每个相邻海军单位提供+2支援加成</Text>
         </Replace>
-
-        <Replace Tag="LOC_BBG_RAM_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="zh_Hans_CN">
-            <Text>战场医疗（攻城锤）</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_RAM_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="zh_Hans_CN">
-            <Text>在一单元格内，为所有古典时代及更早近战、抗骑兵和远程单位+1 [ICON_MOVEMENT] 移动力。</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_SIEGE_TOWER_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="zh_Hans_CN">
-            <Text>战场医疗（攻城塔）</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_SIEGE_TOWER_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="zh_Hans_CN">
-            <Text>在一单元格内，为所有中世纪及更早近战、抗骑兵和远程单位+1 [ICON_MOVEMENT] 移动力。</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_NAME" Language="zh_Hans_CN">
-            <Text>战场医疗（医护兵）</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_MEDIC_MOVEMENT_AOE_MELEE_ANTICAV_RANGE_ABILITY_DESC" Language="zh_Hans_CN">
-            <Text>在一单元格内，为所有近战、抗骑兵和远程单位+1 [ICON_MOVEMENT] 移动力。</Text>
-        </Replace>
-
         <Replace Tag="LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_NAME" Language="zh_Hans_CN">
             <Text>石制武器</Text>
         </Replace>
         <Replace Tag="LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_DESC" Language="zh_Hans_CN">
             <Text>攻击具有防御力的区域时-5 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
-
+        <Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_NAME" Language="zh_Hans_CN">
+			<Text>缺乏政治哲学</Text>
+		</Replace>
+        <Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_DESC" Language="zh_Hans_CN">
+			<Text>解锁政治哲学前，-4 [ICON_Strength] 战斗力。</Text>
+		</Replace>
+		
         <!--总督-->
         <!--维克多-->
         <Replace Tag="LOC_GOVERNOR_PROMOTION_REDOUBT_DESCRIPTION" Language="zh_Hans_CN">
@@ -2871,10 +2902,10 @@
             <Text>训练开拓者时+20% [ICON_PRODUCTION] 生产力。[NEWLINE]城市建立时获得2个额外的单元格，边界扩展速度提升50%。</Text>
         </Replace>
         <Replace Tag="LOC_BELIEF_RIVER_GODDESS_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>圣地与河流相邻时提供大量相邻加成。拥有与河流相邻的圣地的城市，获得+1 [ICON_AMENITIES] 宜居度。</Text>
+            <Text>圣地与河流相邻时提供标准相邻加成。拥有与河流相邻的圣地的城市，获得+1 [ICON_AMENITIES] 宜居度。</Text>
         </Replace>
         <Replace Tag="LOC_BELIEF_RIVER_GODDESS_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>圣地与河流相邻时提供大量相邻加成。拥有与河流相邻的圣地的城市，获得+1 [ICON_AMENITIES] 宜居度。</Text>
+            <Text>圣地与河流相邻时提供标准相邻加成。拥有与河流相邻的圣地的城市，获得+1 [ICON_AMENITIES] 宜居度。</Text>
         </Replace>
         <Replace Tag="LOC_DISTRICT_HOLY_SITE_RIVER_FAITH" Language="zh_Hans_CN">
             <Text>相邻河流：+{1_num} [ICON_FAITH] 信仰值（河神）。</Text>
@@ -3680,19 +3711,19 @@
             <Text>占3个单元格的自然奇观。进入此奇观的单位将被传送到远方的海洋单元格，海军单位还将获得“神秘洋流”能力（+1 [ICON_MOVEMENT] 移动力）。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_PAITITI_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占3个单元格的自然奇观，无法通行。为相邻单元格提供+1 [ICON_GOLD] 金币和+1 [ICON_CULTURE] 文化值。若城市拥有至少一个此奇观单元格，则从该城市出发的国际 [ICON_TRADEROUTE] 贸易路线+4 [ICON_GOLD] 金币。</Text>
+            <Text>占3个单元格的自然奇观，无法通行。为相邻单元格提供+1 [ICON_GOLD] 金币和+1 [ICON_CULTURE] 文化值。若城市拥有至少一个该奇观单元格，则从该城市出发的国际 [ICON_TRADEROUTE] 贸易路线+4 [ICON_GOLD] 金币。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_GIANTS_CAUSEWAY_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占2个单元格的自然奇观，无法通行。为相邻单元格提供+1 [ICON_CULTURE] 文化值。陆地军事单位进入相邻单元格后将获得“芬恩之矛”能力（进攻时+3 [ICON_STRENGTH] 战斗力）。</Text>
+            <Text>占2个单元格的自然奇观，无法通行。为相邻单元格提供+1 [ICON_CULTURE] 文化值。陆地军事单位进入相邻单元格后将获得能力“巨人之矛”（进攻时+3 [ICON_STRENGTH] 战斗力）。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_SPEAR_OF_FIONN_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>巨人之矛：攻击时+3 [ICON_STRENGTH] 战斗力。</Text>
+            <Text>巨人之矛：进攻时+3 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_MATTERHORN_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占1个单元格的自然奇观，无法通行，表现为山脉。为相邻单元格提供+1 [ICON_CULTURE] 文化值。陆地军事单位移动到马特洪峰附近后即可在之后的游戏中获得高山训练（无视丘陵地貌的移动力减益）。</Text>
+            <Text>占1个单元格的自然奇观，无法通行，表现为山脉。为相邻单元格提供+1 [ICON_CULTURE] 文化值。陆地军事单位进入相邻单元格后将获得能力“高山雄心”（无视丘陵地貌的移动力减益）。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_ALPINE_TRAINING__DESCRIPTION" Language="zh_Hans_CN">
-            <Text>高山训练：无视丘陵地貌的移动力减益。</Text>
+            <Text>高山雄心：无视丘陵地貌的移动力减益。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_ALPINE_TRAINING_COMBAT_HILLS_MODIFIER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>在丘陵作战时+0 [ICON_STRENGTH] 战斗力。</Text>
@@ -3713,7 +3744,7 @@
             <Text>占2个单元格的自然奇观，在水域旁出现，表现为悬崖。提供+2 [ICON_FOOD] 食物、+3 [ICON_GOLD] 金币和+3 [ICON_CULTURE] 文化值。为相邻单元格提供+4魅力（而非标准自然奇观的+2魅力）。无法在其上方放置改良设施。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_CRATER_LAKE_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占1个单元格的自然奇观，表现为湖泊。提供+2 [ICON_FOOD] 食物、+2 [ICON_SCIENCE] 科技值、+5 [ICON_FAITH] 信仰值，并提供淡水水源。</Text>
+            <Text>占1个单元格的自然奇观，表现为湖泊。提供+2 [ICON_FOOD] 食物、+2 [ICON_SCIENCE] 科技值和+5 [ICON_FAITH] 信仰值，提供淡水。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_UBSUNUR_HOLLOW_DESCRIPTION" Language="zh_Hans_CN">
             <Text>占4个单元格的自然奇观，表现为沼泽。提供+2 [ICON_FOOD] 食物、+2 [ICON_PRODUCTION] 生产力和+2 [ICON_FAITH] 信仰值。</Text>
@@ -3749,7 +3780,7 @@
             <Text>占1个单元格的自然奇观，无法通行。为相邻单元格提供+3 [ICON_GOLD] 金币和+2 [ICON_FAITH] 信仰值。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_EVEREST_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占3个单元格的自然奇观，无法通行，表现为山脉。为相邻单元格提供+3 [ICON_FAITH] 信仰值。移动到珠穆朗玛峰附近的宗教单位可在之后的游戏中无视丘陵地貌的移动力减益。</Text>
+            <Text>占3个单元格的自然奇观，无法通行，表现为山脉。为相邻单元格提供+3 [ICON_FAITH] 信仰值。宗教单位进入相邻单元格后将在之后的游戏中无视丘陵地貌的移动力减益。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_TSINGY_DESCRIPTION" Language="zh_Hans_CN">
             <Text>占1个单元格的自然奇观，无法通行。为相邻单元格提供+1 [ICON_FOOD] 食物、+1 [ICON_SCIENCE] 科技值和+1 [ICON_CULTURE] 文化值。</Text>
@@ -3758,7 +3789,7 @@
             <Text>占1个单元格的自然奇观，无法通行，表现为火山。为相邻单元格提供+2 [ICON_FOOD] 食物。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_KILIMANJARO_XP2_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占1个单元格的自然奇观，无法通行，表现为火山。为相邻单元格提供+2 [ICON_FOOD] 食物。喷发时提供少量产出，但造成建筑与区域损坏的几率极高。不常喷发，但始终活跃。</Text>
+            <Text>占1个单元格的自然奇观，无法通行，表现为火山。为相邻单元格提供+2 [ICON_FOOD] 食物。喷发时提供少量产出，但造成建筑与区域损坏的几率极高。不常喷发，但始终处于活跃状态。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_RORAIMA_DESCRIPTION" Language="zh_Hans_CN">
             <Text>占4个单元格的自然奇观，无法通行，表现为山脉。为相邻单元格提供+1 [ICON_SCIENCE] 科技值和+1 [ICON_FAITH] 信仰值。</Text>
@@ -3767,13 +3798,13 @@
             <Text>占2个单元格的自然奇观，无法通行，表现为山脉。所有相邻单元格的地形基础产出翻倍。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_ZHANGYE_DANXIA_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占3个单元格的自然奇观，无法通行，表现为山脉。若您的文明拥有至少1个该奇观的单元格，自远古时代起每经过一个时代，每回合提供的大将军与大商人点数各+1。</Text>
+            <Text>占3个单元格的自然奇观，无法通行，表现为山脉。若文明拥有至少一个该奇观单元格，则自远古时代起每经过一个时代，每回合提供的大将军与大商人点数各+1。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_FOUNTAIN_OF_YOUTH_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占1个单元格的自然奇观，表现为绿洲。提供+4 [ICON_SCIENCE] 科技值和+4 [ICON_FAITH] 信仰值。进入此奇观的陆地军事单位将获得“生命之水”能力（在任何领土内生命值恢复量+10）。</Text>
+            <Text>占1个单元格的自然奇观，表现为绿洲。提供+4 [ICON_SCIENCE] 科技值和+4 [ICON_FAITH] 信仰值。陆地军事单位进入奇观单元格后将获得能力“生命之水”（在任何领土内生命值恢复量+10）。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_LYSEFJORDEN_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占3个单元格的自然奇观，无法通行。为相邻单元格提供+1 [ICON_PRODUCTION] 生产力。海军军事单位进入相邻单元格后将获得“尼奥尔德的祝福”能力（+2 [ICON_MOVEMENT] 移动力）。</Text>
+            <Text>占3个单元格的自然奇观，无法通行。为相邻单元格提供+1 [ICON_PRODUCTION] 生产力。海军军事单位进入相邻单元格后将获得能力“尼奥尔德的祝福”（+2 [ICON_MOVEMENT] 移动力）。</Text>
         </Replace>
         <Replace Tag="LOC_BBG_LYSEFJORD_GRANT_MOVEMENT_ABILITY_NAME" Language="zh_Hans_CN">
             <Text>尼奥尔德的祝福</Text>
@@ -3782,33 +3813,34 @@
             <Text>尼奥尔德的祝福：+2 [ICON_MOVEMENT] 移动力。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_YOSEMITE_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占2个单元格的自然奇观，无法通行，表现为山脉。为相邻的单元格提供+1 [ICON_FOOD] 食物、+1 [ICON_GOLD] 金币与+1 [ICON_SCIENCE] 科技值。</Text>
+            <Text>占2个单元格的自然奇观，无法通行，表现为山脉。为相邻单元格提供+1 [ICON_FOOD] 食物、+1 [ICON_GOLD] 金币与+1 [ICON_SCIENCE] 科技值。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_YOSEMITE_XP2_DESCRIPTION" Language="zh_Hans_CN">
             <Text>占2个单元格的自然奇观，无法通行，表现为山脉。为相邻单元格提供+1 [ICON_FOOD] 食物、+1 [ICON_GOLD] 金币和+1 [ICON_SCIENCE] 科技值。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_EYJAFJALLAJOKULL_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占2个单元格的自然奇观，无法通行，表现为火山。为相邻单元格提供+1 [ICON_FOOD] 食物和+1 [ICON_CULTURE] 文化值。喷发时提供中等产出，但造成建筑与区域损坏的几率极高。不常喷发，但始终活跃。</Text>
+            <Text>占2个单元格的自然奇观，无法通行，表现为火山。为相邻单元格提供+1 [ICON_FOOD] 食物和+1 [ICON_CULTURE] 文化值。喷发时提供中等产出，但造成建筑与区域损坏的几率极高。不常喷发，但始终处于活跃状态。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_EYJAFJALLAJOKULL_XP2_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占2个单元格的自然奇观，无法通行，表现为火山。为相邻单元格提供+1 [ICON_FOOD] 食物和+1 [ICON_CULTURE] 文化值。喷发时提供中等产出，但造成建筑与区域损坏的几率极高。不常喷发，但始终活跃。</Text>
+            <Text>占2个单元格的自然奇观，无法通行，表现为火山。为相邻单元格提供+1 [ICON_FOOD] 食物和+1 [ICON_CULTURE] 文化值。喷发时提供中等产出，但造成建筑与区域损坏的几率极高。不常喷发，但始终处于活跃状态。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_PAMUKKALE_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占2个单元格的自然奇观，无法通行。拥有至少一个此奇观单元格的城市+1 [ICON_AMENITIES] 宜居度。如果与娱乐中心相邻，额外提供+1 [ICON_AMENITIES] 宜居度。为相邻的剧院广场、学院及商业中心提供大量相邻加成。为相邻的圣地提供额外的标准相邻加成。提供淡水水源。</Text>
+            <Text>占2个单元格的自然奇观，无法通行。若城市拥有至少一个该奇观单元格，则提供+1 [ICON_AMENITIES] 宜居度。若与娱乐中心相邻，则额外提供+1 [ICON_AMENITIES] 宜居度。为剧院广场、学院和商业中心提供大量相邻加成。为圣地提供额外的标准相邻加成。提供淡水。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_VESUVIUS_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占1个单元格的自然奇观，无法通行，表现为火山。为相邻单元格+1 [ICON_Production] 生产力。喷发时为相邻单元格提供大量产出，但会造成大量 [ICON_Citizen] 人口减少。其固定为活跃状态。</Text>
+            <Text>占1个单元格的自然奇观，无法通行，表现为火山。为相邻单元格提供+1 [ICON_Production] 生产力。喷发时为相邻单元格提供大量产出，但会造成大量 [ICON_Citizen] 人口减少。始终处于活跃状态。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_PIOPIOTAHI_DESCRIPTION" Language="zh_Hans_CN">
             <Text>占3个单元格的自然奇观，无法通行。为相邻单元格提供+1 [ICON_GOLD] 金币和+1 [ICON_CULTURE] 文化值。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_GIBRALTAR_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>占1个单元格的自然奇观，无法通行。为相邻单元格提供+1 [ICON_PRODUCTION] 生产力、+1 [ICON_FOOD] 食物和+1 [ICON_GOLD] 金币。</Text>
+            <Text>占1个单元格的自然奇观，无法通行。为相邻单元格提供+1 [ICON_FOOD] 食物、+1 [ICON_PRODUCTION] 生产力和+1 [ICON_GOLD] 金币。</Text>
         </Replace>
         <Replace Tag="LOC_FEATURE_LAKE_VICTORIA_DESCRIPTION" Language="zh_Hans_CN">
             <Text>占4个单元格的自然奇观，表现为湖泊。提供+3 [ICON_FOOD] 食物、+1 [ICON_PRODUCTION] 生产力、+1 [ICON_GOLD] 金币和+1 [ICON_CULTURE] 文化值。</Text>
         </Replace>
 
+        <!--世界奇观-->
         <Replace Tag="LOC_BUILDING_GREAT_BATH_DESCRIPTION" Language="zh_Hans_CN">
             <Text>远古时代奇观。[NEWLINE][NEWLINE]保护所在河流的泛滥平原免受洪水破坏。每次洪水发生时，受影响的单元格+1 [ICON_FAITH] 信仰值，但洪水带来的 [ICON_FOOD] 食物和 [ICON_PRODUCTION] 生产力收益减半。[NEWLINE]该城市的泛滥平原单元格+1 [ICON_FOOD] 食物。[NEWLINE][NEWLINE]必须建在泛滥平原上。</Text>
         </Replace>
@@ -4393,7 +4425,7 @@
             <Text>鼓噪而进</Text>
         </Replace>
         <Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_GOLDEN_AGE" Language="zh_Hans_CN">
-            <Text>“鼓噪而进”黄金时代：[NEWLINE]军事单位的 [ICON_PRODUCTION] 生产力+15%，维护费用-1 [ICON_GOLD] 金币。军营及其建筑+1 [ICON_PRODUCTION] 生产力。战斗胜利后，获得等同于被击杀单位 [ICON_STRENGTH] 战斗力40%的 [ICON_CULTURE] 文化值（联机速度下）。已解锁的 [ICON_RESOURCE_HORSES] 马、[ICON_RESOURCE_IRON] 铁和 [ICON_RESOURCE_NITER] 硝石每回合+2。</Text>
+            <Text>“鼓噪而进”黄金时代：[NEWLINE]军事单位的 [ICON_PRODUCTION] 生产力+15%。军营及其建筑+1 [ICON_PRODUCTION] 生产力。战斗胜利后，获得等同于被击杀单位 [ICON_STRENGTH] 战斗力40%的 [ICON_CULTURE] 文化值（联机速度下）。已解锁的 [ICON_RESOURCE_HORSES] 马、[ICON_RESOURCE_IRON] 铁和 [ICON_RESOURCE_NITER] 硝石每回合+2。</Text>
         </Replace>
         <Replace Tag="LOC_MOMENT_CATEGORY_RELIGIOUS_BONUS_NORMAL_AGE" Language="zh_Hans_CN">
             <Text>“鼓噪而进”着力点加成：[NEWLINE]每招募一位 [ICON_GREATPERSON] 伟人+1时代得分。</Text>
@@ -4402,7 +4434,7 @@
             <Text>“鼓噪而进”着力点加成：[NEWLINE]每招募一位 [ICON_GREATPERSON] 伟人+1时代得分。</Text>
         </Replace>
         <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DEDICATIONS_CHAPTER_CONTENT_PARA_4" Language="zh_Hans_CN">
-            <Text>“鼓噪而进”：每招募一位 [ICON_GREATPERSON] 伟人+1时代得分。如果在黄金时代选择此着力点，军事单位的 [ICON_PRODUCTION] 生产力+15%，维护费用-1 [ICON_GOLD] 金币；军营及其建筑+1 [ICON_PRODUCTION] 生产力；战斗胜利后获得等同于被击杀单位 [ICON_STRENGTH] 战斗力40%的 [ICON_CULTURE] 文化值（联机速度下）；已解锁的 [ICON_RESOURCE_HORSES] 马、[ICON_RESOURCE_IRON] 铁和 [ICON_RESOURCE_NITER] 硝石每回合+2。可在古典和中世纪时代选择。</Text>
+            <Text>“鼓噪而进”：每招募一位 [ICON_GREATPERSON] 伟人+1时代得分。如果在黄金时代选择此着力点，军事单位的 [ICON_PRODUCTION] 生产力+15%；军营及其建筑+1 [ICON_PRODUCTION] 生产力；战斗胜利后获得等同于被击杀单位 [ICON_STRENGTH] 战斗力40%的 [ICON_CULTURE] 文化值（联机速度下）；已解锁的 [ICON_RESOURCE_HORSES] 马、[ICON_RESOURCE_IRON] 铁和 [ICON_RESOURCE_NITER] 硝石每回合+2。可在古典和中世纪时代选择。</Text>
         </Replace>
 
         <Replace Tag="LOC_MOMENT_CATEGORY_INFRASTRUCTURE" Language="zh_Hans_CN">
@@ -4579,6 +4611,12 @@
         </Replace>
         <Replace Tag="LOC_PROJECT_OPERATION_IVY_DESCRIPTION" Language="zh_Hans_CN">
             <Text>允许建造热核装置。此城市需要拥有研究实验室。</Text>
+        </Replace>
+        <Replace Tag="BBG_LOC_TECH_BUTTRESS_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>所有海军与水运单位可进入海洋单元格。</Text>
+        </Replace>
+        <Replace Tag="LOC_TECH_CARTOGRAPHY_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>渔船+2 [ICON_Gold] 金币。海洋中的 [ICON_MOVEMENT] 移动力消耗降至1。</Text>
         </Replace>
         <Replace Tag="LOC_TECH_STEAM_POWER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>水运单位+2 [ICON_MOVEMENT] 移动力。[NEWLINE][ICON_GREATWORK_PORTRAIT] 肖像、[ICON_GREATWORK_LANDSCAPE] 风景、[ICON_GREATWORK_SCULPTURE] 雕塑以及 [ICON_GREATWORK_RELIGIOUS] 宗教艺术巨作提供+50% [ICON_TOURISM] 旅游业绩。</Text>
@@ -4816,13 +4854,7 @@
             <Text>所有军事单位（陆地和海军远程单位除外）获得夹击和支援战斗加成。</Text>
         </Replace>
         <Replace Tag="LOC_CIVIC_POLITICAL_PHILOSOPHY_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>陆地近战、抗骑兵和海军近战单位不再-4 [ICON_Strength] 战斗力。</Text>
-		</Replace>
-        <Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_DESC" Language="zh_Hans_CN">
-			<Text>解锁政治哲学前，-4 [ICON_Strength] 战斗力。</Text>
-		</Replace>
-		<Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_NAME" Language="zh_Hans_CN">
-			<Text>缺乏政治哲学</Text>
+			<Text>陆地近战、抗骑兵和海军近战单位不再承受 [ICON_Strength] 战斗力惩罚。</Text>
 		</Replace>
         <Replace Tag="LOC_CIVIC_CONSERVATION_DESCRIPTION" Language="zh_Hans_CN">
             <Text>奖励3位 [ICON_Envoy] 使者。允许建造国家公园和使用 [ICON_Faith] 信仰值购买自然学家。允许建造者植树造林（人造林）。您领土上从未被移除的树林（非人造林）获得+1魅力。从城墙获得 [ICON_TOURISM] 旅游业绩。</Text>
@@ -5055,7 +5087,7 @@
         <!--寡头政体-->
         <!--传承效果-->
         <Replace Tag="LOC_GOVT_INHERENT_BONUS_OLIGARCHY_XP1" Language="zh_Hans_CN">
-			<Text>单位获得+20%战斗经验值。近战和海军单位每拥有一级 [ICON_PROMOTION] 晋升，+1 [ICON_STRENGTH] 战斗力。</Text>
+			<Text>单位获得+40%战斗经验值。军事单位每拥有一级 [ICON_PROMOTION] 晋升，+1 [ICON_STRENGTH] 战斗力。</Text>
 		</Replace>
         <Replace Tag="LOC_BBG_OLIGARCHY_BONUS_COMBAT_MODIFIER_PREVIEW" Language="zh_Hans_CN">
             <Text>+{1_num} [ICON_STRENGTH] 战斗力（寡头政体）</Text>
@@ -5132,7 +5164,7 @@
         </Replace>
         <!--政体加成-->
         <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_COMMUNISM_XP2" Language="zh_Hans_CN">
-            <Text>对政体不同的文明：[ICON_TOURISM] 旅游业绩-30%。</Text>
+            <Text>拥有学院的城市+10% [ICON_SCIENCE] 科技值。对政体不同的文明：[ICON_TOURISM] 旅游业绩-30%。</Text>
         </Replace>
         <Replace Tag="LOC_BBG_COMMUNISM_COMBAT_STRENGTH_ABILITY_DESC" Language="zh_Hans_CN">
             <Text>在己方领土内战斗时，共产主义政体提供+4战斗力。</Text>
@@ -5188,7 +5220,7 @@
         </Replace>
         <!--政体加成-->
         <Replace Tag="LOC_GOVT_ACCUMULATED_BONUS_BRIEF_DIGITAL_DEMOCRACY" Language="zh_Hans_CN">
-            <Text>每个特色 [ICON_DISTRICT] 区域提供+2 [ICON_TOURISM] 旅游业绩。对您文明产生的 [ICON_TOURISM] 旅游业绩-50%。</Text>
+            <Text>每个区域提供+2 [ICON_TOURISM] 旅游业绩。对您文明产生的 [ICON_TOURISM] 旅游业绩-50%。</Text>
         </Replace>
         <!--团体自由意志主义-->
         <!--传承效果-->
@@ -5262,18 +5294,19 @@
         <Replace Tag="LOC_POLICY_RETAINERS_DESCRIPTION" Language="zh_Hans_CN">
             <Text>拥有驻军的城市+1 [ICON_AMENITIES] 宜居度。</Text>
         </Replace>
+
+        <Replace Tag="LOC_POLICY_NAVAL_GUILDS_NAME" Language="zh_Hans_CN">
+            <Text>海洋行会</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_NAVAL_GUILDS_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>生产中世纪及更早时代的海军单位时+100% [ICON_PRODUCTION] 生产力。</Text>
+        </Replace>
+
         <Replace Tag="LOC_POLICY_PROFESSIONAL_ARMY_DESCRIPTION_XP2" Language="zh_Hans_CN">
-            <Text>所有单位升级所需的 [ICON_GOLD] 金币减少30%。</Text>
+            <Text>所有单位升级所需的 [ICON_GOLD] 金币减少40%。</Text>
         </Replace>
         <Replace Tag="LOC_POLICY_RETINUES_DESCRIPTION" Language="zh_Hans_CN">
             <Text>所有单位生产和升级所需的战略资源减少50%。</Text>
-        </Replace>
-
-        <Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_NAME" Language="zh_Hans_CN">
-            <Text>军事标准化</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>所有单位升级所需的 [ICON_GOLD] 金币减少40%。</Text>
         </Replace>
 
         <Replace Tag="LOC_POLICY_HARD_SHELL_EXPLOSIVES_NAME" Language="zh_Hans_CN">
@@ -5292,14 +5325,6 @@
         <Replace Tag="LOC_POLICY_PRESS_GANGS_DESCRIPTION" Language="zh_Hans_CN">
             <Text>生产工业时代及更早时代的海军单位时+100% [ICON_PRODUCTION] 生产力。</Text>
         </Replace>
-
-        <Replace Tag="LOC_POLICY_NAVAL_GUILDS_NAME" Language="zh_Hans_CN">
-            <Text>海洋行会</Text>
-        </Replace>
-        <Replace Tag="LOC_POLICY_NAVAL_GUILDS_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>生产中世纪及更早时代的海军单位时+100% [ICON_PRODUCTION] 生产力。</Text>
-        </Replace>
-
         <Replace Tag="LOC_POLICY_WARS_OF_RELIGION_DESCRIPTION" Language="zh_Hans_CN">
             <Text>对抗信仰其他宗教的文明时+4 [ICON_STRENGTH] 战斗力。</Text>
         </Replace>
@@ -5315,17 +5340,17 @@
         <Replace Tag="LOC_POLICY_GRANDE_ARMEE_DESCRIPTION" Language="zh_Hans_CN">
             <Text>生产工业时代及更早时代的近战、远程、抗骑兵和侦察单位时+50% [ICON_PRODUCTION] 生产力。</Text>
         </Replace>
-
-        <Replace Tag="LOC_BBG_MODERN_DRILL_NAME" Language="zh_Hans_CN">
-            <Text>现代军练</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_MODERN_DRILL_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>生产现代及更早时代的近战、远程、抗骑兵和侦察单位时+50% [ICON_PRODUCTION] 生产力。</Text>
-        </Replace>
-
         <Replace Tag="LOC_POLICY_NATIONAL_IDENTITY_DESCRIPTION" Language="zh_Hans_CN">
             <Text>单位受伤带来的战斗力减益降低50%。</Text>
         </Replace>
+
+        <Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_NAME" Language="zh_Hans_CN">
+            <Text>军事标准化</Text>
+        </Replace>
+        <Replace Tag="LOC_POLICY_MILITARY_STANDARDIZATION_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>所有单位升级所需的 [ICON_GOLD] 金币减少45%。</Text>
+        </Replace>
+
         <Replace Tag="LOC_POLICY_MILITARY_RESEARCH_EXPANSION1_DESCRIPTION" Language="zh_Hans_CN">
             <Text>兵工厂、造船厂和中世纪城墙+1 [ICON_SCIENCE] 科技值。军事学院、码头、文艺复兴城墙和机库+2 [ICON_SCIENCE] 科技值。</Text>
         </Replace>
@@ -5361,6 +5386,13 @@
         </Replace>
         <Replace Tag="LOC_POLICY_MILITARY_COMMAND_CENTER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>建造军营、港口、航空港及其建筑时+30% [ICON_PRODUCTION] 生产力。</Text>
+        </Replace>
+  
+        <Replace Tag="LOC_BBG_MODERN_DRILL_NAME" Language="zh_Hans_CN">
+            <Text>现代军训</Text>
+        </Replace>
+        <Replace Tag="LOC_BBG_MODERN_DRILL_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>生产现代及更早时代的近战、远程、抗骑兵和侦察单位时+50% [ICON_PRODUCTION] 生产力。</Text>
         </Replace>
 
         <Replace Tag="LOC_POLICY_ARMS_RACE_NAME" Language="zh_Hans_CN">
@@ -5467,7 +5499,7 @@
             <Text>宗教单位+5 [ICON_Religion] 宗教战斗力，在其他文明城市传播宗教效果增强50%。</Text>
         </Replace>
         <Replace Tag="LOC_POLICY_SIMULTANEUM_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>圣地建筑产出提升：城市人口达到或超过13时+50%；区域相邻加成达到或超过+3时+50%。</Text>
+            <Text>圣地建筑产出 [ICON_Faith] 信仰值提升：城市人口达到或超过13时+100%；区域相邻加成达到或超过+3时+100%。</Text>
         </Replace>
         <Replace Tag="LOC_POLICY_TRIANGULAR_TRADE_DESCRIPTION" Language="zh_Hans_CN">
             <Text>[ICON_TRADEROUTE] 贸易路线+4 [ICON_GOLD] 金币和+1 [ICON_FAITH] 信仰值。国际 [ICON_TRADEROUTE] 贸易路线+1 [ICON_PRODUCTION] 生产力。</Text>
@@ -5476,7 +5508,7 @@
             <Text>学院建筑产出 [ICON_SCIENCE] 科技值提升：城市人口达到或超过13时+50%；区域相邻加成达到或超过+3时+50%。</Text>
         </Replace>
         <Replace Tag="LOC_POLICY_FREE_MARKET_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>商业中心建筑产出 [ICON_GOLD] 金币提升：城市人口达到或超过13时+50%；区域相邻加成达到或超过+4时+50%。</Text>
+            <Text>商业中心建筑产出 [ICON_GOLD] 金币提升：城市人口达到或超过13时+100%；区域相邻加成达到或超过+4时+100%。</Text>
         </Replace>
         <Replace Tag="LOC_POLICY_LIBERALISM_DESCRIPTION" Language="zh_Hans_CN">
             <Text>拥有至少2个特色 [ICON_DISTRICT] 区域的城市+1 [ICON_AMENITIES] 宜居度。</Text>
@@ -5503,7 +5535,7 @@
         </Replace>
 
         <Replace Tag="LOC_POLICY_GRAND_OPERA_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>剧院广场建筑产出 [ICON_CULTURE] 文化值提升：城市人口达到或超过13时+50%；区域相邻加成达到或超过+3时+50%。</Text>
+            <Text>剧院广场建筑产出 [ICON_CULTURE] 文化值提升：城市人口达到或超过13时+100%；区域相邻加成达到或超过+3时+100%。</Text>
         </Replace>
         <Replace Tag="LOC_POLICY_PUBLIC_TRANSPORT_DESCRIPTION_XP2" Language="zh_Hans_CN">
             <Text>魅力为迷人的社区+3 [ICON_FOOD] 食物和+1 [ICON_PRODUCTION] 生产力（惊艳的则为+4食物和+2生产力）。所有社区+1 [ICON_GOLD] 金币。建造社区替换农场时，每点魅力获得100 [ICON_Gold] 金币。</Text>
@@ -5736,7 +5768,7 @@
         <!--伟人-->
         <!--大将军-->
         <Replace Tag="LOC_GREATPERSON_COMBAT_STRENGTH_AOE_MODERN_LAND" Language="zh_Hans_CN">
-			<Text>在两个单元格以内，为现代、原子能和信息时代的陆地单位+5 [ICON_Strength] 战斗力和+1 [ICON_Movement] 移动力。</Text>
+			<Text>在两个单元格以内，为现代、原子能和信息时代的陆地单位+5 [ICON_STRENGTH] 战斗力和+1 [ICON_MOVEMENT] 移动力。</Text>
 		</Replace>
         <Replace Tag="LOC_GREATPERSON_BOUDICA_ACTIVE" Language="zh_Hans_CN">
             <Text>在 [ICON_CAPITAL] 首都创建一个军事工程师。</Text>
@@ -5774,7 +5806,7 @@
         <Replace Tag="LOC_GREATPERSON_SUDIRMAN_ACTIVE" Language="zh_Hans_CN">
             <Text>立即创建一个带有一级晋升的战斗机。每回合+2 [ICON_RESOURCE_ALUMINUM] 铝。</Text>
         </Replace>
-
+        <!--海军统帅-->
         <Replace Tag="LOC_ABILITY_CHOLA_NAVAL_UNITS_COMBAT_STRENGTH_DESCRIPTION" Language="zh_Hans_CN">
             <Text>+{1_Amount} [ICON_STRENGTH] 战斗力（斐迪南·麦哲伦）。</Text>
         </Replace>
@@ -5787,7 +5819,7 @@
         <Replace Tag="LOC_GREATPERSON_GAIN_THREE_ENVOYS_HERE" Language="zh_Hans_CN">
             <Text>在目标城邦中提供3名 [ICON_ENVOY] 使者。可在敌对城邦中使用。</Text>
         </Replace>
-
+        <!--大工程师-->
         <Replace Tag="LOC_GREATPERSON_CULTURE_BOMB_TRIGGER_INDUSTRIAL_ZONE" Language="zh_Hans_CN">
             <Text>目标城市+1 [ICON_HOUSING] 住房和+1 [ICON_AMENITIES] 宜居度。</Text>
         </Replace>
@@ -5797,14 +5829,17 @@
         <Replace Tag="LOC_GREATPERSON_WONDER_PURCHASE" Language="zh_Hans_CN">
             <Text>购买奇观建造的 [ICON_PRODUCTION] 生产力。每2点 [ICON_GOLD] 金币可购买1点 [ICON_PRODUCTION] 生产力，。</Text>
         </Replace>
-
+        <!--大商人-->
         <Replace Tag="LOC_GREATPERSON_CITY_STATE_ABSORB_EXPANSIONS" Language="zh_Hans_CN">
             <Text>将任意一个城邦并入您的帝国。该城市每回合+10忠诚度。可在敌对城邦中使用。</Text>
         </Replace>
         <Replace Tag="LOC_GREATPERSON_TRADE_ROUTE_TOURISM_MODIFIER" Language="zh_Hans_CN">
             <Text>对您有 [ICON_TRADEROUTE] 贸易路线连接的其他文明+{Amount}% [ICON_TOURISM] 旅游业绩。</Text>
         </Replace>
-
+        <!--大科学家-->
+        <Replace Tag="LOC_GREATPERSON_EUCLID_ACTIVE" Language="zh_Hans_CN">
+            <Text>该城市可无视 [ICON_Citizen] 人口数量限制再建造一个区域。[NEWLINE]为数学科技启动 [ICON_TECHBOOSTED] 尤里卡时刻。</Text>
+        </Replace>
         <Replace Tag="LOC_GREATPERSON_DMITRI_MENDELEEV_ACTIVE" Language="zh_Hans_CN">
             <Text>触发“化学”和一项随机工业时代科技的 [ICON_TECHBOOSTED] 尤里卡。建造研究实验室时+50% [ICON_PRODUCTION] 生产力。</Text>
         </Replace>
@@ -9446,7 +9481,7 @@
             <Text>战团传统</Text>
         </Replace>
         <Replace Tag="LOC_MODIFIER_MER_GADRAUHT_CULTURE_VICTORY_DESC" Language="zh_Hans_CN">
-            <Text>战斗胜利时，获得被击败单位基础战斗力50%的 [ICON_Culture] 文化值。</Text>
+            <Text>战斗胜利时，获得被击杀单位基础战斗力50%的 [ICON_Culture] 文化值。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_CIVILIZATION_BUILDING_MER_HLAIW_NAME" Language="zh_Hans_CN">
             <Text>古冢</Text>
