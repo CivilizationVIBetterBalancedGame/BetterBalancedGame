@@ -98,6 +98,7 @@ UPDATE Units SET BaseMoves=5 WHERE UnitType='UNIT_MODERN_ARMOR';
 UPDATE Units SET Combat=100 WHERE UnitType='UNIT_MODERN_ARMOR';
 
 -- 04/07/26 Heavy cav +5 vs melee
+-- 26/08/26 +3
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_HEAVY_CAVALRY_VS_MELEE_REQSET', 'REQUIREMENTSET_TEST_ANY');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
@@ -108,7 +109,7 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId ) VALUES
     ('BBG_HEAVY_CAVALRY_BONUS_VS_MELEE', 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_HEAVY_CAVALRY_VS_MELEE_REQSET');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('BBG_HEAVY_CAVALRY_BONUS_VS_MELEE', 'Amount', 5);
+    ('BBG_HEAVY_CAVALRY_BONUS_VS_MELEE', 'Amount', 3);
 INSERT INTO ModifierStrings(ModifierId, Context, Text) VALUES
     ('BBG_HEAVY_CAVALRY_BONUS_VS_MELEE', 'Preview', 'LOC_BBG_ABILITY_HEAVY_CAVALRY_BONUS_VS_MELEE_DESC');
 
@@ -203,6 +204,11 @@ UPDATE Units SET Combat=36 WHERE UnitType='UNIT_SWORDSMAN';
 -- Melee vs Anticav +10 instead of +5
 UPDATE ModifierArguments SET Value='10' WHERE ModifierId='ANTI_SPEAR' AND Name='Amount';
 
+-- PROMOTIONS
+
+-- 26/08/26 Battlecry reduce to +5 (from +7)
+UPDATE ModifierArguments SET Value='5' WHERE ModifierId='BATTLECRY_BONUS_VS_MELEE_RANGED' AND Name='Amount';
+
 -- Battlecry description is Missleading, in base it works on mele/anticav and ranged.
 -- BBG5.0 Changes it to work on Monks as well, here I also let the promo work on recon.
 -- So than it works on all land non-cavalary units
@@ -245,12 +251,14 @@ UPDATE Units SET PrereqTech='TECH_REFINING' WHERE UnitType='UNIT_INFANTRY';
 -- 04/07/26 Informations Era Tech path Rework
 UPDATE Units SET PrereqTech='TECH_GUIDANCE_SYSTEMS' WHERE UnitType='UNIT_MECHANIZED_INFANTRY';
 
+
 --=======================================================================
 --******                     ANTICAV                               ******
 --=======================================================================
 
 -- Anticav promote to +10
-UPDATE ModifierArguments SET Value='10' WHERE ModifierId='THRUST_BONUS_VS_MELEE' AND Name='Amount';
+-- 26/08/26 revert to +5
+-- UPDATE ModifierArguments SET Value='10' WHERE ModifierId='THRUST_BONUS_VS_MELEE' AND Name='Amount';
 
 -- 31/07/2021 Late Game Unit rework
 UPDATE Units SET Combat=80 WHERE UnitType='UNIT_AT_CREW';

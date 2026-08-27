@@ -14,6 +14,8 @@ UPDATE Units SET Combat=Combat+4 WHERE PromotionClass='PROMOTION_CLASS_NAVAL_MEL
 UPDATE Units SET Combat=Combat+4 WHERE PromotionClass='PROMOTION_CLASS_NIHANG';
 UPDATE Units SET Combat=Combat+4 WHERE PromotionClass='PROMOTION_CLASS_MONK';
 
+-- 24/08/26 +4 to ranged attack (immortal) if range is not 0
+UPDATE Units SET RangedCombat=RangedCombat+4 WHERE RangedCombat>0 AND PromotionClass='PROMOTION_CLASS_MELEE';
 
 -- 06/07/26 increse units base strength by +4 for all oligarchy units, but add a -4 modifier until philosophy is unlocked
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
