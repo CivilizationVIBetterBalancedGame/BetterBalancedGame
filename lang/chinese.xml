@@ -323,7 +323,7 @@
             <Text>中国中世纪特色远程单位，替代弩手。[NEWLINE][NEWLINE]在进攻相邻单位时+7 [ICON_RANGED] 远程攻击力。</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_TIGER_ADJACENCY_NAME" Language="zh_Hans_CN">
-            <Text>炮弹！</Text>
+            <Text>炮弹</Text>
         </Replace>
         <Replace Tag="LOC_ABILITY_TIGER_ADJACENCY_DESCRIPTION" Language="zh_Hans_CN">
             <Text>+7 [ICON_RANGED] 战斗力 (虎蹲炮)</Text>
@@ -440,21 +440,6 @@
         <Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>埃及远古时代特色远程骑兵单位。[NEWLINE][NEWLINE]若回合开始时位于无地貌特征（开阔）的单元格上，则拥有4点 [ICON_MOVEMENT] 移动力。</Text>
         </Replace>
-        <Replace Tag="LOC_TRAIT_CIVILIZATION_WORKSHOP_OF_THE_WORLD_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>铁矿和煤矿每回合额外积累2点资源。生产军事工程师时+100% [ICON_PRODUCTION] 生产力。军事工程师获得+2 [ICON_CHARGES] 劳动力。需要 [ICON_POWER] 电力提供额外产出的建筑提供+2 [ICON_PRODUCTION] 生产力。港口建筑+10% [ICON_SCIENCE] 科技值、[ICON_CULTURE] 文化值和 [ICON_GOLD] 金币产出。[NEWLINE][NEWLINE][ICON_BULLET]出生地关联：T3铁与煤，T3海岸。</Text>
-        </Replace>
-        <Replace Tag="LOC_TRAIT_LEADER_PAX_BRITANNICA_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>在与您首都所在大陆不同的其他大陆上建立首座城市时，将免费获得1个近战单位。研究“军事学”科技后，即可生产“红衫军”单位。</Text>
-        </Replace>
-        <Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>英格兰特色区域。替代港口，且建造花费更低。取消了港口基础相邻加成和相邻市中心加成。每相邻一个海岸或湖泊单元格+1 [ICON_GOLD] 金币。移除上船和下船的 [ICON_Movement] 移动力惩罚。[NEWLINE][NEWLINE]建在非首都所在大陆的皇家海军船坞+2 [ICON_GOLD] 金币，并使该城市的忠诚度每回合+4。</Text>
-        </Replace>
-        <Replace Tag="LOC_DISTRICT_ROYAL_NAVY_DOCKYARD_EXPANSION1_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>英国特色海军活动区域。替代港口区域。移除该单元格上下船的 [ICON_MOVEMENT] 移动力减益。必须建造在与陆地相邻的海岸或湖泊地形上。[NEWLINE][NEWLINE]所有在此船坞生产的海军单位+1 [ICON_MOVEMENT] 移动力。[NEWLINE]建在外国大陆上时提供+2 [ICON_GOLD] 金币相邻加成和每回合+4忠诚度。不能在礁石上建造。</Text>
-        </Replace>
-		<Row Tag="LOC_BBG_DISTRICT_RND_COAST_GOLD" Language="zh_Hans_CN">
-            <Text>+{1_num} [ICON_GOLD] 金币来自相邻的海岸和湖泊单元格。</Text>
-		</Row>
         <Replace Tag="LOC_UNIT_EGYPTIAN_CHARIOT_ARCHER_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
             <Text>埃及远古时代特色远程骑兵单位。[NEWLINE][NEWLINE]若回合开始时位于无地貌特征（开阔）的单元格上，则拥有4点 [ICON_MOVEMENT] 移动力。</Text>
         </Replace>
@@ -465,25 +450,32 @@
             <Text>埃及特色改良设施，解锁于“技艺”市政。[NEWLINE][NEWLINE]+1 [ICON_CULTURE] 文化值和+2 [ICON_FAITH] 信仰值。[NEWLINE]建在沙漠上时提供+1 [ICON_FOOD] 食物和+1 [ICON_PRODUCTION] 生产力。[NEWLINE]建在平原上时提供+1 [ICON_FOOD] 食物。[NEWLINE]建在草原上时提供+1 [ICON_PRODUCTION] 生产力。[NEWLINE]建在泛滥平原上时提供+1 [ICON_CULTURE] 文化值。[NEWLINE]“外交部门”市政后额外提供+1 [ICON_CULTURE] 文化值。[NEWLINE]与世界奇观相邻时额外提供+1 [ICON_CULTURE] 文化值和+1 [ICON_FAITH] 信仰值。[NEWLINE][NEWLINE]为相邻单元格提供+2魅力。[NEWLINE]“飞行”科技后基于文化值产出提供 [ICON_TOURISM] 旅游业绩。[NEWLINE][NEWLINE]不能建在雪地上，两座狮身人面像不能相邻。</Text>
         </Replace>
 
+        <!--埃莉诺（领袖）-->
+        <!--领袖能力-->
         <Replace Tag="LOC_TRAIT_LEADER_ELEANOR_LOYALTY_DESCRIPTION" Language="zh_Hans_CN">
             <Text>建造剧院广场区域的建筑时+100% [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]巨作根据其类型和所在城市拥有的区域提供额外产出：[NEWLINE] [ICON_Bullet] 巨作类型：[ICON_GreatWork_Writing] 著作和 [ICON_GreatWork_Relic] 遗物提供+1对应产出；[ICON_GreatWork_Landscape] 艺术巨作和 [ICON_GreatWork_Artifact] 文物提供+2对应产出；[ICON_GreatWork_Music] 音乐巨作提供+4对应产出。[NEWLINE] [ICON_Bullet] 区域类型：拥有社区提供 [ICON_FOOD] 食物；拥有工业区提供 [ICON_PRODUCTION] 生产力；拥有港口或商业中心提供 [ICON_GOLD] 金币；拥有学院提供 [ICON_SCIENCE] 科技值；拥有剧院广场提供 [ICON_CULTURE] 文化值；拥有圣地提供 [ICON_FAITH] 信仰值。[NEWLINE][NEWLINE]埃莉诺无法利用安善的城邦宗主加成。[NEWLINE][NEWLINE]在9单元格范围内，埃莉诺的城市中每拥有一件巨作，外国城市每回合的忠诚度便-1。如果一座城市因埃莉诺的忠诚度压力叛变为自由城市，它将直接加入埃莉诺的文明。[NEWLINE][NEWLINE]仅埃莉诺（法国）：建造远古和古典时代的世界奇观时+20% [ICON_PRODUCTION] 生产力。</Text>
         </Replace>
 
+        <!--英国-->
+        <!--文明能力-->
         <Replace Tag="LOC_TRAIT_CIVILIZATION_INDUSTRIAL_REVOLUTION_DESCRIPTION" Language="zh_Hans_CN">
             <Text>[ICON_RESOURCE_IRON] 铁矿和 [ICON_RESOURCE_COAL] 煤矿每回合额外提供2点对应资源。[NEWLINE]港口建筑使战略资源储备上限+10（联机速度下）。[NEWLINE][NEWLINE]生产军事工程师时+100% [ICON_PRODUCTION] 生产力，且军事工程师获得额外2次 [ICON_CHARGES] 劳动力次数。需要 [ICON_POWER] 电力提供额外产出的建筑，其额外产出+3。[NEWLINE][NEWLINE]出生地关联：T1海岸、T5铁、煤。</Text>
         </Replace>
+        <!--领袖能力（帝国时代）-->
         <Replace Tag="LOC_TRAIT_CIVILIZATION_PAX_BRITANNICA_EXPANSION2_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>护送开拓者时，海军近战单位会使其获得与之相同的 [ICON_MOVEMENT] 移动力。[NEWLINE][NEWLINE]建成皇家海军船坞后，免费获得当前已解锁的最强海军单位。[NEWLINE]在距离 [ICON_CAPITAL] 首都10单元格或更远的地方建立或占领城市时，免费获得当前已解锁的最强近战单位。[NEWLINE][NEWLINE]灯塔提供+1 [ICON_GREATADMIRAL] 海军统帅点数。</Text>
+            <Text>海军近战单位可让被护送的平民单位获得与之相同的 [ICON_MOVEMENT] 移动力。[NEWLINE][NEWLINE]建成皇家海军船坞后，获得当前已解锁的最强海军单位。[NEWLINE]在距离 [ICON_CAPITAL] 首都10单元格或更远的地方建立或占领城市时，获得当前已解锁的最强近战单位。[NEWLINE][NEWLINE]灯塔提供+1 [ICON_GREATADMIRAL] 海军统帅点数。</Text>
         </Replace>
         <Replace Tag="LOC_BBG_ABILITY_AOE_MELEE_NAVAL_ESCORT_CIVILIANS_DESC" Language="zh_Hans_CN">
-            <Text>海军近战单位使被护送的开拓者获得与其相同的移动力。</Text>
+            <Text>海军近战单位让被护送的平民单位获得与其相同的移动力。</Text>
         </Replace>
+        <!--领袖能力（蒸汽时代）-->
         <Replace Tag="LOC_TRAIT_LEADER_VICTORIA_ALT_DESCRIPTION" Language="zh_Hans_CN">
             <Text>建造工业区建筑时+20% [ICON_PRODUCTION] 生产力。[NEWLINE]城市中每有一座工厂和发电厂提供+5% [ICON_PRODUCTION] 生产力。[NEWLINE]工业区从皇家海军船坞获得标准相邻加成。[NEWLINE]所有已改良战略资源+1 [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]灯塔提供+1 [ICON_GREATENGINEER] 大工程师点数。</Text>
         </Replace>
         <Replace Tag="LOC_BBG_AOS_ADJENCY_IZ_RND_DESC" Language="zh_Hans_CN">
             <Text>相邻皇家海军船坞：+{1_num} [ICON_PRODUCTION] 生产力。</Text>
         </Replace>
+        <!-- 领袖能力（伊丽莎白）-->
         <Replace Tag="LOC_TRAIT_LEADER_ELIZABETH_DESCRIPTION" Language="zh_Hans_CN">
             <Text>解锁“造船术”科技、“探索”市政和“重商主义”市政时，各获得+1 [ICON_TRADEROUTE] 贸易路线容量。[NEWLINE]您通往城邦的 [ICON_TRADEROUTE] 贸易路线为起点城市中每个特色 [ICON_DISTRICT] 区域提供+3 [ICON_GOLD] 金币。[NEWLINE][NEWLINE]海军单位掠夺 [ICON_TRADEROUTE] 贸易路线获得的收益+100%。[NEWLINE]海军袭击者单位+1 [ICON_MOVEMENT] 移动力和+1视野。海军袭击者单位进行 [ICON_PROMOTION] 升级时不结束当前回合。</Text>
         </Replace>
@@ -1392,7 +1384,7 @@
             <Text>解锁“帝国初期”市政后，所有现有及未来建立的城市将获得 [ICON_PRODUCTION] 生产力花费最低的市中心建筑。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_CAESAR_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>近战、远程、攻城和重骑兵单位获得+50%经验值（中世纪后提升至+100%）。[NEWLINE][NEWLINE]建立城市时，获得您当前解锁的最强近战单位。解锁“法典”市政时，[ICON_CAPITAL] 首都获得一个勇士。[NEWLINE][NEWLINE]如果您征服了一座由其他玩家建立的城市（且您至少控制一座），将获得1个额外的通配符槽位。</Text>
+            <Text>近战、远程、攻城和重骑兵单位获得+50%经验值（中世纪后提升至+100%）。这些单位每拥有一级 [ICON_PROMOTION] 晋升，+1 [ICON_STRENGTH] 战斗力。[NEWLINE][NEWLINE]建立城市时，获得您当前解锁的最强近战单位。解锁“法典”市政时，[ICON_CAPITAL] 首都获得一个勇士。[NEWLINE][NEWLINE]如果您征服了一座由其他玩家建立的城市（且您至少控制一座），将获得1个额外的通配符槽位。</Text>
         </Replace>
         <Replace Tag="LOC_BBG_CAESAR_DOUBLE_XP_BONUS_MODIFIER_NAME" Language="zh_Hans_CN">
             <Text>+100%战斗经验值（我来，我见，我征服）</Text>
@@ -1402,9 +1394,6 @@
         </Replace>
         <Replace Tag="LOC_BBG_CAESAR_XP_BONUS_BASE_MODIFIER_NAME" Language="zh_Hans_CN">
             <Text>战斗经验值+50%（我来，我见，我征服）</Text>
-        </Replace>
-        <Replace Tag="LOC_BBG_CAESAR_XP_BONUS_BASE_MODIFIER_DESC " Language="zh_Hans_CN">
-            <Text>+50%战斗经验值。（我来，我见，我征服）</Text>
         </Replace>
         <Replace Tag="LOC_BBG_CAESAR_XP_BONUS_BASE_MODIFIER_DESC" Language="zh_Hans_CN">
             <Text>战斗经验值+50%（我来，我见，我征服）</Text>
@@ -1634,19 +1623,10 @@
         </Replace>
 
         <Replace Tag="LOC_TRAIT_CIVILIZATION_NOBEL_PRIZE_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>建造学院、工业区和市政广场建筑时+50% [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]工业区建筑+1 [ICON_GREATENGINEER] 大工程师点数，学院建筑+1 [ICON_GREATSCIENTIST] 大科学家点数。[NEWLINE]每招募一位 [ICON_GREATPERSON] 伟人，获得10点 [ICON_FAVOR] 外交支持（联机速度下）。[NEWLINE][NEWLINE]只要瑞典在游戏中，从文艺复兴时代起将加入三项专属的世界议会竞赛。[NEWLINE][NEWLINE]出生地关联：特殊：靠近冻土。</Text>
-        </Replace>
-        <Replace Tag="LOC_TRAIT_LEADER_MINERVA_OF_THE_NORTH_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>拥有至少3个巨作槽位的建筑以及奇观的每个 [ICON_GREATWORK_ANY] 巨作槽位提供主题化加成。</Text>
-        </Replace>
-        <Replace Tag="LOC_UNIT_SWEDISH_CAROLEAN_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>瑞典文艺复兴时期特色近战单位，替代火枪手。[NEWLINE][NEWLINE]+1 基础 [ICON_STRENGTH] 战斗力。[NEWLINE]拥有额外的+1 [ICON_MOVEMENT] 移动力，如果回合开始时未移动，则+3 [ICON_STRENGTH] 战斗力。</Text>
-        </Replace>
-        <Replace Tag="LOC_DISTRICT_QUEENS_BIBLIOTHEQUE_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>瑞典特色建筑，建在市政广场中。[NEWLINE][NEWLINE]提供2个 [ICON_GREATWORK_WRITING] 著作槽位、2个 [ICON_GREATWORK_MUSIC] 音乐槽位和2个任何类型的艺术作品槽位。[NEWLINE]提供1名 [ICON_GOVERNOR] 总督头衔。</Text>
+            <Text>建造学院、工业区和市政广场建筑时+50% [ICON_PRODUCTION] 生产力。[NEWLINE][NEWLINE]工业区建筑+1 [ICON_GREATENGINEER] 大工程师点数，学院建筑+1 [ICON_GREATSCIENTIST] 大科学家点数。[NEWLINE]每招募一位 [ICON_GREATPERSON] 伟人，获得10点 [ICON_FAVOR] 外交支持（联机速度下）。[NEWLINE][NEWLINE]瑞典在场时，从文艺复兴时代起将加入三项专属的世界议会竞赛。[NEWLINE][NEWLINE]出生地关联：特殊：靠近冻土。</Text>
         </Replace>
         <Replace Tag="LOC_TRAIT_LEADER_KRISTINA_AUTO_THEME_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>拥有至少3个巨作槽位的建筑以及拥有至少2个巨作槽位的奇观，在填满时自动获得 [ICON_THEMEBONUS_ACTIVE] 主题化加成。[NEWLINE][NEWLINE]可以在市政广场建造女王图书馆。[NEWLINE]市政广场中每有一级建筑，便提供+2点对应类型的所有伟人点数（[ICON_GREATENGINEER] 大工程师、[ICON_GREATSCIENTIST] 大科学家、[ICON_GREATWRITER] 大作家、[ICON_GREATARTIST] 大艺术家和 [ICON_GREATMUSICIAN] 大音乐家）。</Text>
+            <Text>拥有至少3个巨作槽位的建筑以及拥有至少2个巨作槽位的奇观，在填满时自动获得 [ICON_THEMEBONUS_ACTIVE] 主题化加成。[NEWLINE][NEWLINE]可以在市政广场建造女王图书馆。[NEWLINE][NEWLINE]市政广场建筑根据等级提供以下点数：[NEWLINE][ICON_BULLET]+2 [ICON_GREATWRITER] 大作家点数（一级）。[NEWLINE][ICON_BULLET]+2 [ICON_GREATARTIST] 大艺术家点数（二级）。[NEWLINE][ICON_BULLET]+2 [ICON_GREATMUSICIAN] 大音乐家点数（三级）[NEWLINE][ICON_BULLET]+2 [ICON_GREATSCIENTIST] 大科学家点数和+2 [ICON_GREATENGINEER] 大工程师点数（每一级）。</Text>
         </Replace>
         <Replace Tag="LOC_UNIT_SWEDEN_CAROLEAN_DESCRIPTION" Language="zh_Hans_CN">
             <Text>瑞典文艺复兴时代特色抗骑兵单位，替代枪刺与射击方阵。[NEWLINE][NEWLINE]+1 [ICON_MOVEMENT] 移动力。[NEWLINE]每拥有一点未消耗的 [ICON_MOVEMENT] 移动力，+3 [ICON_STRENGTH] 战斗力。</Text>
@@ -1980,15 +1960,6 @@
 			<Text>攻击处于驻守状态的骑兵单位时+4 [ICON_STRENGTH] 战斗力。</Text>
 		</Replace>
         <!--轻骑兵-->
-        <Replace Tag="LOC_BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL_NAME" Language="zh_Hans_CN">
-			<Text>轻骑兵治愈</Text>
-		</Replace>
-        <Replace Tag="LOC_BBG_ABILITY_LIGHT_CAV_HEAL_ON_KILL_DESC" Language="zh_Hans_CN">
-  		  <Text>击杀敌方单位时恢复10点生命值。</Text>
-		</Replace>
-        <Replace Tag="LOC_ABILITY_TOMYRIS_HEAL_AFTER_DEFEATING_UNIT_DESCRIPTION" Language="zh_Hans_CN">
-			<Text>击杀敌方单位时恢复10点 [ICON_Damaged] 生命值。（轻骑兵）</Text>
-		</Replace>
         <Replace Tag="LOC_UNIT_HORSEMAN_DESCRIPTION" Language="zh_Hans_CN">
             <Text>古典时代轻骑兵单位。</Text>
         </Replace>
