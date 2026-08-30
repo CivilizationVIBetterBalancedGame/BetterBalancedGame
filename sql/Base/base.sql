@@ -300,6 +300,9 @@ UPDATE Districts SET Entertainment=2 WHERE DistrictType='DISTRICT_ENTERTAINMENT_
 --******                       TECHS                               ******
 --=======================================================================
 
+-- 30/08/26 Remove Tech description from Firaxis that makes no sense
+UPDATE Technologies SET Description=NULL WHERE TechnologyType='TECH_GUNPOWDER';
+UPDATE Technologies SET Description=NULL WHERE TechnologyType='TECH_SANITATION';
 -- 12/07/26 The Wheel is now Classical for the heavy chariot
 UPDATE Technologies SET EraType='ERA_CLASSICAL', Cost=120 WHERE TechnologyType='TECH_THE_WHEEL';
 
