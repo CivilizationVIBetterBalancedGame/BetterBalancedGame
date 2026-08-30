@@ -4,6 +4,35 @@
 -- fascism attack bonus working for GDR
 INSERT OR IGNORE INTO TypeTags (Type, Tag) VALUES ('ABILITY_FASCISM_ATTACK_BUFF', 'CLASS_GIANT_DEATH_ROBOT');
 INSERT OR IGNORE INTO TypeTags (Type, Tag) VALUES ('ABILITY_FASCISM_LEGACY_ATTACK_BUFF', 'CLASS_GIANT_DEATH_ROBOT');
+
+
+-- 17/07/26 Upgrade card nerfed and multiples tiers, mercenaries 30%, natio 40%, ideo 50%
+-- 10/08/26 40/45/50
+INSERT INTO Types (Type, Kind) VALUES
+    ('BBG_POLICY_MILITARY_STANDARDIZATION', 'KIND_POLICY');
+
+UPDATE ModifierArguments SET Value=40 WHERE ModifierId='PROFESSIONAL_ARMY_UNITUPGRADEDISCOUNT' AND Name='Amount';
+
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
+    ('BBG_UPGRADE_DISCOUNT_45', 'MODIFIER_PLAYER_ADJUST_UNIT_UPGRADE_DISCOUNT_PERCENT'),
+    ('BBG_UPGRADE_DISCOUNT_50', 'MODIFIER_PLAYER_ADJUST_UNIT_UPGRADE_DISCOUNT_PERCENT');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_UPGRADE_DISCOUNT_45', 'Amount', 45),
+    ('BBG_UPGRADE_DISCOUNT_50', 'Amount', 50);
+UPDATE ObsoletePolicies SET ObsoletePolicy='BBG_POLICY_MILITARY_STANDARDIZATION' WHERE PolicyType='POLICY_PROFESSIONAL_ARMY';
+
+-- 40% at natio Military Standadization
+INSERT INTO Policies (PolicyType, Name, Description, PrereqCivic, GovernmentSlotType) VALUES
+    ('BBG_POLICY_MILITARY_STANDARDIZATION', 'LOC_POLICY_MILITARY_STANDARDIZATION_NAME', 'LOC_POLICY_MILITARY_STANDARDIZATION_DESCRIPTION', 'CIVIC_NATIONALISM', 'SLOT_MILITARY');
+INSERT INTO PolicyModifiers (PolicyType, ModifierId) VALUES
+    ('BBG_POLICY_MILITARY_STANDARDIZATION', 'BBG_UPGRADE_DISCOUNT_45');
+INSERT INTO ObsoletePolicies (PolicyType, ObsoletePolicy) VALUES
+    ('BBG_POLICY_MILITARY_STANDARDIZATION', 'POLICY_FORCE_MODERNIZATION');
+
+-- 50% at ideo
+UPDATE Policies SET PrereqCivic='CIVIC_IDEOLOGY' WHERE PolicyType='POLICY_FORCE_MODERNIZATION';
+UPDATE PolicyModifiers SET ModifierId='BBG_UPGRADE_DISCOUNT_50' WHERE PolicyType='POLICY_FORCE_MODERNIZATION' AND ModifierId='PROFESSIONAL_ARMY_UNITUPGRADEDISCOUNT';
+
 -- retinues policy card is 50% of resource cost for produced and upgrade units
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType)
     VALUES ('PROFESSIONAL_ARMY_RESOURCE_DISCOUNT_MODIFIER_CPLMOD', 'MODIFIER_CITY_ADJUST_STRATEGIC_RESOURCE_REQUIREMENT_MODIFIER');
@@ -47,6 +76,15 @@ INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
     ('POLICY_RESOURCE_MANAGEMENT', 'BBG_POLICY_GIVE_FREE_ALUMINUM'),
     ('POLICY_RESOURCE_MANAGEMENT', 'BBG_POLICY_GIVE_FREE_OIL');
 
+-- 14/07/26 Resource Management : +2 production to all improved strategic resources
+INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_RESOURCE_MANAGEMENT_IMPROVED_STRATEGIC_RESOURCE_PRODUCTION', 'MODIFIER_PLAYER_ADJUST_PLOT_YIELD', 'PLOT_HAS_STRATEGIC_IMPROVED_REQUIREMENTS');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_RESOURCE_MANAGEMENT_IMPROVED_STRATEGIC_RESOURCE_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION'),
+    ('BBG_RESOURCE_MANAGEMENT_IMPROVED_STRATEGIC_RESOURCE_PRODUCTION', 'Amount', '2');
+INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
+    ('POLICY_RESOURCE_MANAGEMENT', 'BBG_RESOURCE_MANAGEMENT_IMPROVED_STRATEGIC_RESOURCE_PRODUCTION');
+
 -- 06/07/24 Fixed bug in the "Strategic Air Force" policy card.
 -- Now boosts production for Atomic-era air fighters/bombers and modern-era air fighters.
 INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
@@ -73,3 +111,30 @@ INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
 INSERT INTO TypeTags (Type, Tag) VALUES
     ('ABILITY_GLOBAL_COALITION_FRIENDLY_TERRITORY', 'CLASS_AIR_FIGHTER'),
     ('ABILITY_GLOBAL_COALITION_FRIENDLY_TERRITORY', 'CLASS_AIR_BOMBER');
+
+-- 15/05/26 POLICY_REVELATION never obsolete and never disabled (+2 prophet points for anacoana)
+DELETE FROM ObsoletePolicies  WHERE PolicyType='POLICY_REVELATION';
+
+
+-- 14/07/26 legacy cards only available when in a higher tier government
+-- 26/08/26 revert
+-- INSERT INTO Policy_GovernmentExclusives_XP2 (PolicyType, GovernmentType)
+-- SELECT g1.PolicyToUnlock, g2.GovernmentType
+-- FROM Governments g1
+-- JOIN Governments g2
+--     ON (
+--         CASE g2.Tier
+--             WHEN 'Tier1' THEN 1
+--             WHEN 'Tier2' THEN 2
+--             WHEN 'Tier3' THEN 3
+--             WHEN 'Tier4' THEN 4
+--         END
+--         >=
+--         CASE g1.Tier
+--             WHEN 'Tier1' THEN 1
+--             WHEN 'Tier2' THEN 2
+--             WHEN 'Tier3' THEN 3
+--             WHEN 'Tier4' THEN 4
+--         END + 1
+--     )
+-- WHERE g1.PolicyToUnlock IS NOT NULL;

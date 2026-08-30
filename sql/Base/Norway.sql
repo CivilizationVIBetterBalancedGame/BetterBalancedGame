@@ -125,3 +125,20 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 
 -- 20/06/25 Early Navigation moved from Norway to Konge
 UPDATE TraitModifiers SET TraitType='TRAIT_LEADER_MELEE_COASTAL_RAIDS' WHERE ModifierId='TRAIT_EARLY_OCEAN_NAVIGATION';
+-- 14/07/26 Only on landskip and Berserker
+-- 07/08/26 all except quads
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_TRAIT_EARLY_OCEAN_NAVIGATION_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_TRAIT_EARLY_OCEAN_NAVIGATION_REQSET', 'BBG_UNIT_IS_NOT_QUAD'),
+    ('BBG_TRAIT_EARLY_OCEAN_NAVIGATION_REQSET', 'REQUIRES_PLAYER_HAS_SHIPBUILDING_TECH');
+INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
+    ('BBG_UNIT_IS_NOT_QUAD', 'REQUIREMENT_UNIT_TYPE_MATCHES', 1);
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_UNIT_IS_NOT_QUAD', 'UnitType', 'UNIT_QUADRIREME');
+
+UPDATE Modifiers SET SubjectRequirementSetId='BBG_TRAIT_EARLY_OCEAN_NAVIGATION_REQSET' WHERE ModifierId='TRAIT_EARLY_OCEAN_NAVIGATION';
+
+-- 17/07/26 StartBias no jungle
+INSERT INTO StartBiasNegatives(CivilizationType, FeatureType, Tier) VALUES
+    ('CIVILIZATION_NORWAY', 'FEATURE_JUNGLE', 4);

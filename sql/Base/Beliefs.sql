@@ -15,6 +15,7 @@ UPDATE ModifierArguments SET Value='50' WHERE ModifierId='RELIGIOUS_SETTLEMENTS_
 --==========================
 -- river goddess +1 HS adj on rivers, -1 housing and -1 amentiy
 -- 15/12/24 +2 adj but housing removed
+-- 07/08/26 nerf to +1 adj
 UPDATE ModifierArguments SET Value=1 WHERE ModifierId='RIVER_GODDESS_HOLY_SITE_HOUSING_MODIFIER' AND Name='Amount';
 DELETE FROM BeliefModifiers WHERE ModifierId='RIVER_GODDESS_HOLY_SITE_HOUSING';
 UPDATE ModifierArguments SET Value=1 WHERE ModifierId='RIVER_GODDESS_HOLY_SITE_AMENITIES_MODIFIER' AND Name='Amount';
@@ -23,7 +24,7 @@ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
     ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'MODIFIER_PLAYER_CITIES_RIVER_ADJACENCY', NULL);
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH', 'ModifierId', 'BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER'),
-    ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'Amount', 2),
+    ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'Amount', 1),
     ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'DistrictType', 'DISTRICT_HOLY_SITE'),
     ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'YieldType', 'YIELD_FAITH'),
     ('BBG_RIVER_GODDESS_HOLY_SITE_FAITH_MODIFIER', 'Description', 'LOC_DISTRICT_HOLY_SITE_RIVER_FAITH');

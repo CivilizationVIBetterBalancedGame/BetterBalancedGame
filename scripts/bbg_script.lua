@@ -560,6 +560,13 @@ function OnCityBuilt(iPlayerID, iCityID, iX, iY)
 	end
 	local pPlot = Map.GetPlot(iX, iY)
 	pPlot:SetProperty("CS_CAPITAL_BBG",1)
+	-- set adjacency flag on surrounding plots
+	for i = 0, 5 do
+		local pAdj = GetAdjacentTiles(pPlot, i)
+		if pAdj ~= nil then
+			pAdj:SetProperty("CS_ADJACENT_BBG", 1)
+		end
+	end
 	--print("CS Property Set for "..tostring(pCity:GetName()))
 end
 

@@ -153,6 +153,8 @@ DELETE FROM TraitModifiers WHERE ModifierId IN ('TRAIT_CAESAR_GOLD_CAPTURED_CITY
 -- INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
 --  ('DISTRICT_BATH', 'BBG_BATH_AMENITY_CAESAR');
 
+
+--29/08/26 revert : +1 cs per promotion
 INSERT INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId)
     SELECT 'BBG_CAESAR_' || UnitPromotions.UnitPromotionType, 'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH', 'BBG_PLAYER_IS_LEADER_JULIUS_CAESAR_REQSET' FROM UnitPromotions WHERE PromotionClass IN ('PROMOTION_CLASS_MELEE', 'PROMOTION_CLASS_SIEGE', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'PROMOTION_CLASS_RANGED');
 INSERT INTO ModifierArguments (ModifierId, Name, Value)

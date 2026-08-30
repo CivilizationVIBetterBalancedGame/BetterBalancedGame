@@ -7,6 +7,8 @@
 --==================
 -- Digger gets additional combat strength
 UPDATE Units SET Combat=83, BaseMoves=3 WHERE UnitType='UNIT_DIGGER';
+-- 04/07/26 Modern Era Tech path Rework
+UPDATE Units SET PrereqTech='TECH_REFINING' WHERE UnitType='UNIT_DIGGER';
 -- war production bonus reduced to 0% from 100%, liberation bonus reduced to +50% (from +100%) and 10 turns instead of 20
 UPDATE ModifierArguments SET Value='50' WHERE ModifierId='TRAIT_CITADELCIVILIZATION_LIBERATION_PRODUCTION' and Name='Amount';
 UPDATE ModifierArguments SET Value='0' WHERE ModifierId='TRAIT_CITADELCIVILIZATION_DEFENSIVE_PRODUCTION' and Name='Amount';

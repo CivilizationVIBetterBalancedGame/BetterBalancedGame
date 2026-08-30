@@ -21,6 +21,7 @@ DELETE FROM TraitModifiers WHERE ModifierId='SUK_DHARMA_KINGS_DISTRICT_GOVERNMEN
 
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='SUK_DZONG_DEFENSE_STRENGTH';
 UPDATE Districts SET Cost=30 WHERE DistrictType='DISTRICT_SUK_DZONG';
+UPDATE Districts SET CostProgressionParam1=35 WHERE DistrictType='DISTRICT_SUK_DZONG';
 DELETE FROM District_ValidTerrains WHERE DistrictType='DISTRICT_SUK_DZONG';
 UPDATE Districts SET Appeal=1 WHERE DistrictType='DISTRICT_SUK_DZONG';
 

@@ -30,3 +30,25 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- 19/06/25 Free units no longer get +5
 DELETE FROM UnitAbilityModifiers WHERE ModifierId='LINCOLN_MELEE_BUFF';
+
+-- 14/07/26 +2 culture for all IZ buildings
+INSERT INTO Modifiers(ModifierId, ModifierType) 
+	SELECT 'BBG_LINCOLN_INDUSTRIAL_ZONE_CULTURE_' || buildingType, 'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_YIELD_CHANGE' 
+FROM Buildings WHERE PrereqDistrict='DISTRICT_INDUSTRIAL_ZONE';
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value) 
+	SELECT 'BBG_LINCOLN_INDUSTRIAL_ZONE_CULTURE_' || buildingType, 'BuildingType', buildingType
+	FROM Buildings WHERE PrereqDistrict='DISTRICT_INDUSTRIAL_ZONE';
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value) 
+	SELECT 'BBG_LINCOLN_INDUSTRIAL_ZONE_CULTURE_' || buildingType, 'Amount', '2'
+	FROM Buildings WHERE PrereqDistrict='DISTRICT_INDUSTRIAL_ZONE';
+
+INSERT INTO ModifierArguments(ModifierId, Name, Value) 
+	SELECT 'BBG_LINCOLN_INDUSTRIAL_ZONE_CULTURE_' || buildingType, 'YieldType', 'YIELD_CULTURE'
+	FROM Buildings WHERE PrereqDistrict='DISTRICT_INDUSTRIAL_ZONE';
+
+INSERT INTO TraitModifiers(TraitType, ModifierId) 
+	SELECT 'TRAIT_LEADER_LINCOLN', 'BBG_LINCOLN_INDUSTRIAL_ZONE_CULTURE_' || buildingType
+	FROM Buildings WHERE PrereqDistrict='DISTRICT_INDUSTRIAL_ZONE';
+

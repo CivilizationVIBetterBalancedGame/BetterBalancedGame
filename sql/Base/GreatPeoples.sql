@@ -1,3 +1,7 @@
+---- ============================
+---- GREAT SCIENTISTS
+---- ============================
+
 -- Alfred Nobel grants one diplo point
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
     ('BBG_GREATPERSON_1DIPLOPOINT', 'MODIFIER_PLAYER_ADJUST_DIPLOMATIC_VICTORY_POINTS');
@@ -5,23 +9,6 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('BBG_GREATPERSON_1DIPLOPOINT', 'Amount', '1');
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
     ('GREAT_PERSON_INDIVIDUAL_ALFRED_NOBEL', 'BBG_GREATPERSON_1DIPLOPOINT', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER');
-
----- GREAT MERCHANTS
--- John Spilsbury
-UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREATPERSON_GRANT_TOYS' AND Name='Amount';
-
--- Jamsetji Tata
-UPDATE ModifierArguments SET Value='50' WHERE ModifierId='GREATPERSON_CAMPUS_TOURISM' AND Name='Amount';
-
--- Masary Ibuka
-UPDATE ModifierArguments SET Value='50' WHERE ModifierId='GREATPERSON_INDUSTRIAL_ZONE_TOURISM' AND Name='Amount';
-
--- Raja Toda Mal
-UPDATE ModifierArguments SET Value='1.0' WHERE ModifierId='GREATPERSON_DOMESTIC_ROUTE_GOLD_PER_SPECIALTY_DISTRICT' AND Name='Amount';
-
--- Sarah Breedlove
-INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
-    ('GREAT_PERSON_INDIVIDUAL_SARAH_BREEDLOVE', 'GREATPERSON_EXTRA_TRADE_ROUTE_CAPACITY', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
     
 -- 21/08/22 Mendeleev also gives 50% bonus prod towards labs
 INSERT INTO Modifiers (ModifierId, ModifierType) VALUES
@@ -42,6 +29,39 @@ DELETE FROM GreatPersonIndividualActionModifiers WHERE ModifierId='GREATPERSON_C
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
 	('GREAT_PERSON_INDIVIDUAL_ALAN_TURING', 'BBG_GREAT_PERSON_INDIVIDUAL_BOOST_OR_GRANT_COMPUTERS', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
 
+-- 07/08/26 Euclid : no longer give a random boost, allow the city to get an extra district instead
+DELETE FROM GreatPersonIndividualActionModifiers WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_EUCLID' AND ModifierId='GREATPERSON_1MEDIEVALTECHBOOST';
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_EUCLID', 'GREATPERSON_EXTRA_DISTRICT_CAPACITY', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
+
+---- ============================
+---- GREAT MERCHANTS
+---- ============================
+
+-- John Spilsbury
+UPDATE ModifierArguments SET Value='2' WHERE ModifierId='GREATPERSON_GRANT_TOYS' AND Name='Amount';
+
+-- Jamsetji Tata
+UPDATE ModifierArguments SET Value='50' WHERE ModifierId='GREATPERSON_CAMPUS_TOURISM' AND Name='Amount';
+
+-- Masaru Ibuka
+UPDATE ModifierArguments SET Value='50' WHERE ModifierId='GREATPERSON_INDUSTRIAL_ZONE_TOURISM' AND Name='Amount';
+
+-- Raja Todar Mal
+UPDATE ModifierArguments SET Value='1.0' WHERE ModifierId='GREATPERSON_DOMESTIC_ROUTE_GOLD_PER_SPECIALTY_DISTRICT' AND Name='Amount';
+
+-- Sarah Breedlove
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_SARAH_BREEDLOVE', 'GREATPERSON_EXTRA_TRADE_ROUTE_CAPACITY', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
+
+--10/03/2024 zhou daguan can be activated in hostile territory
+UPDATE GreatPersonIndividuals SET ActionRequiresNonHostileTerritory=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_ZHOU_DAGUAN';
+
+
+---- ============================
+---- GREAT ENGINEERS    
+---- ============================
+
 --23/08/22 Sinan give 1 housing and 1 amenity on city center (2 charges) instead of culture bomb on industrial zone
 DELETE FROM GreatPersonIndividualActionModifiers WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_MIMAR_SINAN';
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
@@ -49,6 +69,29 @@ INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, Mod
     ('GREAT_PERSON_INDIVIDUAL_MIMAR_SINAN', 'GREATPERSON_CITY_AMENITIES_SMALL', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
 UPDATE GreatPersonIndividuals SET ActionCharges=2 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_MIMAR_SINAN';
 
+--Alvaro Aalto add +2 gold per breathtaking tile in the city
+--PLOT_BREATHTAKING_APPEAL doesn't exist recreate
+INSERT OR IGNORE INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
+    ('PLOT_BREATHTAKING_APPEAL', 'REQUIREMENTSET_TEST_ALL');
+INSERT OR IGNORE INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
+    ('PLOT_BREATHTAKING_APPEAL', 'REQUIRES_PLOT_BREATHTAKING_APPEAL');
+INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
+    ('REQUIRES_PLOT_BREATHTAKING_APPEAL', 'REQUIRES_PLOT_BREATHTAKING_APPEAL');
+INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
+    ('REQUIRES_PLOT_BREATHTAKING_APPEAL', 'MinimumAppeal', '4');
+
+INSERT INTO Modifiers (ModifierId, ModifierType, Permanent, SubjectRequirementSetId) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 1, 'PLOT_BREATHTAKING_APPEAL');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'YieldType', 'YIELD_GOLD');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'Amount', '2');
+INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
+    ('GREAT_PERSON_INDIVIDUAL_ALVAR_AALTO', 'GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
+
+---- ============================
+---- GREAT GENERALS
+---- ============================
 -- Boudica gives Military Engineer (instead of convert barbarian units)
 
 --PLAYER_HAS_AT_LEAST_ONE_CITY_REQUIREMENTS was introduced in GS recreate
@@ -119,29 +162,6 @@ UPDATE ModifierArguments SET Value='UNIT_INFANTRY' WHERE ModifierId='GREAT_PERSO
 -- Eisenhower gives 15% production toward military units (instead of 5%)
 UPDATE ModifierArguments SET Value='15' WHERE ModifierId='GREATPERSON_DWIGHT_EISENHOWER_ACTIVE' AND Name='Amount';
 
--- Jose de Sucre (aka Simon Bolivar) gives 2 oils per turn
-INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
-    ('GREATPERSON_GRANT_2_OIL_PER_TURN', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION', 1, 1);
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('GREATPERSON_GRANT_2_OIL_PER_TURN', 'ResourceType', 'RESOURCE_OIL');
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('GREATPERSON_GRANT_2_OIL_PER_TURN', 'Amount', '2');
-INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
-    ('GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR', 'GREATPERSON_GRANT_2_OIL_PER_TURN', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON');
-
--- Jose de Sucre (aka Simon Bolivar) gives tank with experience (instead of +4 loyalty)
-UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_GRANT_UNIT_WITH_EXPERIENCE' WHERE ModifierId='GREATPERSON_SIMON_BOLIVAR_ACTIVE';
-DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_SIMON_BOLIVAR_ACTIVE';
-INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('GREATPERSON_SIMON_BOLIVAR_ACTIVE', 'UnitType', 'UNIT_TANK'),
-    ('GREATPERSON_SIMON_BOLIVAR_ACTIVE', 'Experience', '-1'),
-    ('GREATPERSON_SIMON_BOLIVAR_ACTIVE', 'UniqueOverride', '1');
-UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
-UPDATE GreatPersonIndividuals SET ActionRequiresCompletedDistrictType=NULL WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
-UPDATE GreatPersonIndividuals SET ActionRequiresOwnedTile=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
-UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
-UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
-
 -- Douglas MacArthur gives 2 Uranium per turn (and keep the free promoted tank) (and remove 1 oil per turn)
 INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
     ('GREATPERSON_GRANT_2_URANIUM_PER_TURN', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION', 1, 1);
@@ -172,25 +192,39 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
     ('GREATPERSON_SUDIRMAN_ACTIVE', 'UniqueOverride', '1');
 UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SUDIRMAN';
 
---Alvaro Aalto add +2 gold per breathtaking tile in the city
---PLOT_BREATHTAKING_APPEAL doesn't exist recreate
-INSERT OR IGNORE INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
-    ('PLOT_BREATHTAKING_APPEAL', 'REQUIREMENTSET_TEST_ALL');
-INSERT OR IGNORE INTO RequirementSetRequirements(RequirementSetId, RequirementId) VALUES
-    ('PLOT_BREATHTAKING_APPEAL', 'REQUIRES_PLOT_BREATHTAKING_APPEAL');
-INSERT OR IGNORE INTO Requirements(RequirementId, RequirementType) VALUES
-    ('REQUIRES_PLOT_BREATHTAKING_APPEAL', 'REQUIRES_PLOT_BREATHTAKING_APPEAL');
-INSERT OR IGNORE INTO RequirementArguments(RequirementId, Name, Value) VALUES
-    ('REQUIRES_PLOT_BREATHTAKING_APPEAL', 'MinimumAppeal', '4');
+---- ============================
+---- GREAT GENERAL (Simon Bolivar)
+---- ============================
 
-INSERT INTO Modifiers (ModifierId, ModifierType, Permanent, SubjectRequirementSetId) VALUES
-    ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 1, 'PLOT_BREATHTAKING_APPEAL');
+-- Jose de Sucre (aka Simon Bolivar) gives 2 oils per turn
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent) VALUES
+    ('GREATPERSON_GRANT_2_OIL_PER_TURN', 'MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION', 1, 1);
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'YieldType', 'YIELD_GOLD');
+    ('GREATPERSON_GRANT_2_OIL_PER_TURN', 'ResourceType', 'RESOURCE_OIL');
 INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
-    ('GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'Amount', '2');
+    ('GREATPERSON_GRANT_2_OIL_PER_TURN', 'Amount', '2');
 INSERT INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType) VALUES
-    ('GREAT_PERSON_INDIVIDUAL_ALVAR_AALTO', 'GREAT_PERSON_INDIVIDUAL_ALVARO_AALTO_ACTIVE', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
+    ('GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR', 'GREATPERSON_GRANT_2_OIL_PER_TURN', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON');
+
+-- Jose de Sucre (aka Simon Bolivar) gives tank with experience (instead of +4 loyalty)
+UPDATE Modifiers SET ModifierType='MODIFIER_PLAYER_UNIT_GRANT_UNIT_WITH_EXPERIENCE' WHERE ModifierId='GREATPERSON_SIMON_BOLIVAR_ACTIVE';
+DELETE FROM ModifierArguments WHERE ModifierId='GREATPERSON_SIMON_BOLIVAR_ACTIVE';
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('GREATPERSON_SIMON_BOLIVAR_ACTIVE', 'UnitType', 'UNIT_TANK'),
+    ('GREATPERSON_SIMON_BOLIVAR_ACTIVE', 'Experience', '-1'),
+    ('GREATPERSON_SIMON_BOLIVAR_ACTIVE', 'UniqueOverride', '1');
+UPDATE GreatPersonIndividualActionModifiers SET AttachmentTargetType='GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
+UPDATE GreatPersonIndividuals SET ActionRequiresCompletedDistrictType=NULL WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
+UPDATE GreatPersonIndividuals SET ActionRequiresOwnedTile=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
+UPDATE GreatPersonIndividuals SET ActionRequiresNoMilitaryUnit=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
+UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_SIMON_BOLIVAR';
+
+-- Modern Generals also works on information era units
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('AOE_MODERN_REQUIREMENTS', 'AOE_REQUIRES_INFORMATION_UNIT');
+---- ============================
+---- GREAT ADMIRALS
+---- ============================
 
 --16/04/23 exchange Rajendra and Drake bonus
 UPDATE GreatPersonIndividualActionModifiers SET GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_RAJENDRA_CHOLA' WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_FERDINAND_MAGELLAN';
@@ -212,8 +246,3 @@ UPDATE GreatPersonIndividuals SET ActionRequiresVisibleLuxury=0 WHERE GreatPerso
 UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_FERDINAND_MAGELLAN';
 UPDATE GreatPersonIndividuals SET ActionRequiresVisibleLuxury=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_RAJENDRA_CHOLA';
 UPDATE GreatPersonIndividuals SET ActionEffectTileHighlighting=1 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_RAJENDRA_CHOLA';
-
---10/03/2024 zhou dagan can be activated in hostile territory
-
-UPDATE GreatPersonIndividuals SET ActionRequiresNonHostileTerritory=0 WHERE GreatPersonIndividualType='GREAT_PERSON_INDIVIDUAL_ZHOU_DAGUAN';
-

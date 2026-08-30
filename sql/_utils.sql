@@ -8,6 +8,20 @@ INSERT INTO Requirements(RequirementId , RequirementType)
 INSERT INTO RequirementArguments(RequirementId , Name, Value)
     SELECT 'BBG_CITY_HAS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType FROM Districts;
 
+
+-- Create requirements for each building 
+INSERT INTO Requirements(RequirementId , RequirementType)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType || '_REQUIREMENT', 'REQUIREMENT_CITY_HAS_BUILDING' FROM Buildings;
+INSERT INTO RequirementSets(RequirementSetId , RequirementSetType)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType, 'REQUIREMENTSET_TEST_ALL' FROM Buildings;
+INSERT INTO RequirementSetRequirements(RequirementSetId , RequirementId)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType, 'BBG_UTILS_CITY_HAS_' || BuildingType || '_REQUIREMENT' FROM Buildings;
+INSERT INTO RequirementArguments(RequirementId , Name, Value)
+    SELECT 'BBG_UTILS_CITY_HAS_' || BuildingType || '_REQUIREMENT', 'BuildingType', BuildingType FROM Buildings;
+
+
+
+
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
     ('BBG_IS_SPECIALTY_DISTRICT', 'REQUIREMENTSET_TEST_ANY');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
@@ -22,7 +36,7 @@ INSERT INTO Requirements(RequirementId , RequirementType)
     SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQUIREMENT', 'REQUIREMENT_DISTRICT_TYPE_MATCHES' FROM Districts;
 INSERT INTO RequirementArguments(RequirementId , Name, Value)
     SELECT 'BBG_DISTRICT_IS_' || DistrictType || '_REQUIREMENT', 'DistrictType', DistrictType FROM Districts;
-    
+
 -- Create requirements for each technology
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType)
     SELECT 'BBG_UTILS_PLAYER_HAS_' || TechnologyType, 'REQUIREMENTSET_TEST_ALL' FROM Technologies;
@@ -487,3 +501,96 @@ INSERT OR IGNORE INTO RequirementArguments (RequirementId , Name , Value)
 INSERT OR IGNORE INTO RequirementArguments (RequirementId , Name , Value)
     VALUES ('REQUIRES_BELIEF_RELIGIOUS_COLONIZATION_CPLMOD' , 'BeliefType' , 'BELIEF_RELIGIOUS_COLONIZATION');
 
+-- Requirements to test if unit is in an era or earlier BBG_UNIT_IS_UP_TO_RENAISSANCE_ERA
+
+
+INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) SELECT
+    'BBG_UNIT_IS_' || EraType, 'REQUIREMENT_UNIT_ERA_TYPE_MATCHES' FROM Eras;
+INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) SELECT
+    'BBG_UNIT_IS_' || EraType, 'EraType', EraType FROM Eras;
+    
+
+INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) SELECT
+    'BBG_UNIT_IS_UP_TO_' || EraType, 'REQUIREMENT_REQUIREMENTSET_IS_MET' FROM Eras;
+INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) SELECT
+    'BBG_UNIT_IS_UP_TO_' || EraType, 'RequirementSetId', 'BBG_UNIT_IS_UP_TO_' || EraType || '_REQSET' FROM Eras;
+INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType) SELECT
+    'BBG_UNIT_IS_UP_TO_' || EraType || '_REQSET', 'REQUIREMENTSET_TEST_ANY' FROM Eras;
+
+-- ex : medieval = ancient, classical + medieval --> use ChronologyIndex to get the era order
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+SELECT
+    'BBG_UNIT_IS_UP_TO_' || current.EraType || '_REQSET',
+    'BBG_UNIT_IS_' || prior.EraType
+FROM Eras AS current
+JOIN Eras AS prior
+    ON prior.ChronologyIndex <= current.ChronologyIndex;
+
+-- to check if unit is melee, ranged, anti cav, light cav, siege, cavalry etc
+INSERT INTO Requirements (RequirementId, RequirementType) 
+SELECT 'BBG_UNIT_IS_' || PromotionClassType, 'REQUIREMENT_UNIT_PROMOTION_CLASS_MATCHES' FROM UnitPromotionClasses;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) 
+SELECT 'BBG_UNIT_IS_' || PromotionClassType, 'UnitPromotionClass', PromotionClassType FROM UnitPromotionClasses;
+
+INSERT INTO Requirements (RequirementId, RequirementType) 
+SELECT 'BBG_UNIT_IS_' || FormationClassType, 'REQUIREMENT_UNIT_FORMATION_CLASS_MATCHES' FROM UnitFormationClasses;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) 
+SELECT 'BBG_UNIT_IS_' || FormationClassType, 'UnitFormationClass', FormationClassType FROM UnitFormationClasses;
+
+
+-- Test if unit is unit type
+INSERT INTO Requirements (RequirementId, RequirementType)
+SELECT 'BBG_UTILS_UNIT_IS_' || UnitType, 'REQUIREMENT_UNIT_TYPE_MATCHES' FROM Units;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value)
+SELECT 'BBG_UTILS_UNIT_IS_' || UnitType, 'UnitType', UnitType FROM Units;
+
+INSERT INTO Tags (Tag, Vocabulary)
+SELECT 'CLASS_UNIQUE_UNIT', 'ABILITY_CLASS';
+
+INSERT INTO TypeTags (Type, Tag)
+SELECT UnitType, 'CLASS_UNIQUE_UNIT' FROM Units WHERE TraitType is not null;
+
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+('BBG_UTILS_UNIT_IS_UNIQUE', 'REQUIREMENT_UNIT_TAG_MATCHES'),
+('BBG_UTILS_OPPONENT_UNIT_IS_UNIQUE', 'REQUIREMENT_OPPONENT_UNIT_TAG_MATCHES');
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+('BBG_UTILS_UNIT_IS_UNIQUE', 'Tag', 'CLASS_UNIQUE_UNIT'),
+('BBG_UTILS_OPPONENT_UNIT_IS_UNIQUE', 'Tag', 'CLASS_UNIQUE_UNIT');
+
+
+
+-- allow to test if an unit has a specific promotion
+-- promotion give a fake ability, and a requirement check if a unit has the ability
+INSERT INTO Requirements (RequirementId, RequirementType) 
+    SELECT 'BBG_UNIT_HAS_' || UnitPromotionType || '_ABILITY', 'REQUIREMENT_UNIT_HAS_ABILITY' FROM UnitPromotions;
+
+INSERT INTO RequirementArguments (RequirementId, Name, Value) 
+    SELECT 'BBG_UNIT_HAS_' || UnitPromotionType || '_ABILITY', 'UnitAbilityType', 'BBG_FAKE_ABILITY_' || UnitPromotionType FROM UnitPromotions;
+
+INSERT INTO Modifiers (ModifierId, ModifierType) 
+    SELECT 'BBG_UNIT_' || UnitPromotionType || '_GIVE_ABILITY', 'MODIFIER_PLAYER_UNIT_GRANT_ABILITY' FROM UnitPromotions;
+
+INSERT INTO Types (Type, Kind)
+    SELECT 'BBG_FAKE_ABILITY_' || UnitPromotionType, 'KIND_ABILITY' FROM UnitPromotions;
+
+INSERT INTO UnitAbilities (UnitAbilityType, Name, Description, Inactive)
+    SELECT 'BBG_FAKE_ABILITY_' || UnitPromotionType, null, null, 1 FROM UnitPromotions;
+
+INSERT INTO TypeTags (Type, Tag)
+    SELECT 'BBG_FAKE_ABILITY_' || UnitPromotionType, 'CLASS_ALL_COMBAT_UNITS' FROM UnitPromotions;
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) 
+    SELECT 'BBG_UNIT_' || UnitPromotionType || '_GIVE_ABILITY', 'AbilityType', 'BBG_FAKE_ABILITY_' || UnitPromotionType FROM UnitPromotions;
+
+INSERT INTO UnitPromotionModifiers (UnitPromotionType, ModifierId) 
+    SELECT UnitPromotionType, 'BBG_UNIT_' || UnitPromotionType || '_GIVE_ABILITY' FROM UnitPromotions;
+
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) 
+    SELECT 'BBG_UNIT_' || UnitPromotionType || '_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL' FROM UnitPromotions;
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) 
+    SELECT 'BBG_UNIT_' || UnitPromotionType || '_REQUIREMENTS', 'BBG_UNIT_HAS_' || UnitPromotionType || '_ABILITY' FROM UnitPromotions;

@@ -61,7 +61,9 @@ UPDATE Buildings SET RequiresAdjacentRiver=0 WHERE BuildingType='BUILDING_WATER_
 
 -- Workshop cost less and give more production
 UPDATE Buildings SET Cost=160 WHERE BuildingType='BUILDING_WORKSHOP';
-UPDATE Building_YieldChanges SET YieldChange=4 WHERE BuildingType='BUILDING_WORKSHOP' AND YieldType='YIELD_PRODUCTION';
+-- UPDATE Building_YieldChanges SET YieldChange=4 WHERE BuildingType='BUILDING_WORKSHOP' AND YieldType='YIELD_PRODUCTION';
+-- 16/03/26 Workshop -1 production
+UPDATE Building_YieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' AND BuildingType='BUILDING_WORKSHOP';
 
 -- Factory
 UPDATE Buildings SET Cost=290 WHERE BuildingType IN ('BUILDING_FACTORY', 'BUILDING_ELECTRONICS_FACTORY');
@@ -149,8 +151,6 @@ UPDATE Building_YieldChanges SET YieldChange=3 WHERE BuildingType='BUILDING_AMPH
 -- 16/03/26 Archeological museums +2 base culture : 2 -> 4
 UPDATE Building_YieldChanges SET YieldChange=4 WHERE YieldType='YIELD_CULTURE' AND BuildingType='BUILDING_MUSEUM_ARTIFACT';
 
--- 16/03/26 Workshop -1 production
-UPDATE Building_YieldChanges SET YieldChange=3 WHERE YieldType='YIELD_PRODUCTION' AND BuildingType='BUILDING_WORKSHOP';
 
 -- 17/12/25 Seaport advanced to Steam Power
 UPDATE Buildings SET PrereqTech='TECH_STEAM_POWER' WHERE BuildingType='BUILDING_SEAPORT';
@@ -159,3 +159,6 @@ UPDATE Buildings SET Cost=360 WHERE BuildingType='BUILDING_SEAPORT';
 
 -- 17/12/25 Stable production cost reduced to 90 (from 120)
 UPDATE Buildings SET Cost=90 WHERE BuildingType='BUILDING_STABLE';
+
+-- 04/07/26 Shipyard gives 2 prod instead of 1 to unimproved coast
+UPDATE ModifierArguments SET Value='2' WHERE ModifierId='SHIPYARD_UNIMPROVED_COAST_PRODUCTION' AND Name='Amount';
