@@ -79,6 +79,6 @@ INSERT INTO District_Adjacencies(DistrictType, YieldChangeId) VALUES
     ('DISTRICT_CAMPUS', 'BBG_Campus_Arabia_HS'),
     ('DISTRICT_HOLY_SITE', 'BBG_HS_Arabia_Campus');
 INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
-    SELECT TraitType, 'BBG_Campus_Arabia_HS' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_ARABIA' GROUP BY CivilizationType;
+    SELECT TraitType, 'BBG_Campus_Arabia_HS' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_ARABIA' ;
 INSERT INTO ExcludedAdjacencies(TraitType, YieldChangeId)
-    SELECT TraitType, 'BBG_HS_Arabia_Campus' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_ARABIA' GROUP BY CivilizationType;
+    SELECT TraitType, 'BBG_HS_Arabia_Campus' FROM CivilizationTraits WHERE CivilizationType != 'CIVILIZATION_ARABIA' ;

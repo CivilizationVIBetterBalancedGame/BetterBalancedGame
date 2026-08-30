@@ -32,6 +32,10 @@ INSERT INTO Building_YieldChanges (BuildingType, YieldType, YieldChange) VALUES
 -- 12/07/23 Tsikhe gives only 3 faith in golde
 UPDATE ModifierArguments SET Value=3 WHERE ModifierId='TSIKHE_FAITH_GOLDEN_AGE' AND Name='Amount';
 
+-- 07/08/26 Tsikhe gives +1 prophete point
+INSERT INTO Building_GreatPersonPoints(BuildingType, GreatPersonClassType, PointsPerTurn) VALUES
+	('BUILDING_TSIKHE', 'GREAT_PERSON_CLASS_PROPHET', 1);
+
 -- BBG Expanded somehow changes that 20/12/25
 -- Will not be needed anymore next Expanded update
 UPDATE Units SET Cost=160 WHERE UnitType='UNIT_GEORGIAN_KHEVSURETI';

@@ -20,6 +20,8 @@ UPDATE ModifierArguments SET Value='-15' WHERE ModifierId='TRAIT_DIMINISH_LOYALT
 
 -- Combat bonus against Golden Age Civs set to 5 instead of 10
 -- 19/12/25 Combat bonus reduced to 3 (there is 2 here idk which one work : flemme)
+-- 14/07/26 revert (beta)
+-- 29/08/26 revert to 3
 INSERT INTO Modifiers(ModifierId, ModifierType, Permanent) VALUES
     ('TRAIT_TOQUI_COMBAT_BONUS_ABILITY_VS_GOLDEN_AGE_CIV', 'MODIFIER_PLAYER_UNITS_GRANT_ABILITY', 1);   
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES

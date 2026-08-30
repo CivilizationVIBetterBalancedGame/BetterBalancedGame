@@ -29,3 +29,6 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId , Name , Value)
 INSERT OR IGNORE INTO TraitModifiers (TraitType , ModifierId)
 	VALUES ('TRAIT_LEADER_LITHUANIAN_UNION' , 'TRAIT_LITHUANIANUNION_COMPLETE_RELIGION_RELIC_CPLMOD');
 
+-- 11/06/2026 : Military slot become wildcard at military tradition from start of the game
+-- 14/07/26 moved to early empire
+UPDATE Modifiers SET OwnerRequirementSetId = 'BBG_UTILS_PLAYER_HAS_CIVIC_EARLY_EMPIRE_REQSET' WHERE ModifierId = 'TRAIT_REPLACE_MILITARY_SLOT_WITH_WILDCARD';

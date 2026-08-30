@@ -20,3 +20,7 @@ INSERT INTO Requirements (RequirementId, RequirementType) VALUES
 INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
     ('CITY_HAS_DIPLOMATIC_DISTRICT_BBG_REQ', 'DistrictType', 'DISTRICT_DIPLOMATIC_QUARTER'),
     ('CITY_HAS_GOV_DISTRICT_BBG_REQ', 'DistrictType', 'DISTRICT_GOVERNMENT');
+
+    
+-- 08/07/26 nerf autocracy : no longer works with palace
+DELETE FROM GovernmentModifiers WHERE GovernmentType='GOVERNMENT_AUTOCRACY' AND ModifierId='AUTOCRACY_CAPITAL';

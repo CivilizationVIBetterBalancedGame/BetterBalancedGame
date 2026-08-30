@@ -156,3 +156,22 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value)
     SELECT 'BBG_INCA_REVOLT_NO_NEGATIVE_' || YieldType, 'Amount', (SELECT -NonFoodYieldModifier FROM Happinesses WHERE HappinessType='HAPPINESS_REVOLT') FROM Yields WHERE NOT YieldType='YIELD_FOOD';
 INSERT INTO TraitModifiers (TraitType, ModifierId)
     SELECT 'TRAIT_CIVILIZATION_GREAT_MOUNTAINS', 'BBG_INCA_REVOLT_NO_NEGATIVE_' || YieldType FROM Yields WHERE NOT YieldType='YIELD_FOOD';
+
+
+-- 14/07/26 Terrace Farms get +1 production from Mills
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+    ('BBG_PLOT_HAS_TERRACE_FARM', 'REQUIREMENT_PLOT_IMPROVEMENT_TYPE_MATCHES');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('BBG_PLOT_HAS_TERRACE_FARM', 'ImprovementType', 'IMPROVEMENT_TERRACE_FARM');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('BBG_PLOT_HAS_TERRACE_FARM_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('BBG_PLOT_HAS_TERRACE_FARM_REQSET', 'BBG_PLOT_HAS_TERRACE_FARM');
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('BBG_WATERMILL_PRODUCTION_TERRACE_FARM', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'BBG_PLOT_HAS_TERRACE_FARM_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_WATERMILL_PRODUCTION_TERRACE_FARM', 'YieldType', 'YIELD_PRODUCTION'),
+    ('BBG_WATERMILL_PRODUCTION_TERRACE_FARM', 'Amount', '1');
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+    ('BUILDING_WATER_MILL', 'BBG_WATERMILL_PRODUCTION_TERRACE_FARM');

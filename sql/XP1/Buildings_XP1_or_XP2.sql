@@ -7,6 +7,11 @@ UPDATE ModifierArguments SET Value=10 WHERE ModifierId='SHOPPING_MALL_TOURISM';
 UPDATE Building_YieldChanges SET YieldChange=10 WHERE BuildingType='BUILDING_SHOPPING_MALL';
 UPDATE Building_YieldChangesBonusWithPower SET YieldChange=10 WHERE BuildingType='BUILDING_SHOPPING_MALL';
 
+-- 23/07/26 food market : cheaper and more food
+UPDATE Buildings SET Cost=290 WHERE BuildingType='BUILDING_FOOD_MARKET';
+UPDATE Building_YieldChanges SET YieldChange=5 WHERE BuildingType='BUILDING_FOOD_MARKET' AND YieldType='YIELD_FOOD';
+UPDATE Building_YieldChangesBonusWithPower SET YieldChange=5 WHERE BuildingType='BUILDING_FOOD_MARKET' AND YieldType='YIELD_FOOD';
+
 -- Grandmaster Chapel only faith buy in owned city. (XP1)
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
     ('BBG_CITY_WAS_FOUNDED', 'REQUIREMENTSET_TEST_ALL');

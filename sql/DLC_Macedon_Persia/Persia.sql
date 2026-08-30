@@ -21,7 +21,12 @@ UPDATE Improvements SET TilesRequired=2 WHERE ImprovementType='IMPROVEMENT_PAIRI
 -- 15/06/23 Reverted
 UPDATE Units SET Combat=36 WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
 -- 16/03/26 -2 range attack
-UPDATE Units SET RangedCombat=23 WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
+-- 04/07/26 reverted
+-- UPDATE Units SET RangedCombat=23 WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
+-- 04/07/26 range to 1
+UPDATE Units SET Range='1' WHERE UnitType='UNIT_PERSIAN_IMMORTAL';
+-- 04/07/26 no longer have the range tag
+DELETE FROM TypeTags WHERE Type='UNIT_PERSIAN_IMMORTAL' AND Tag='CLASS_RANGED';
 
 -- 15/06/23 Immortals get +3 attack
 -- INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES

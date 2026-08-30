@@ -63,3 +63,7 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 --     ('BBG_ELIZABETH_TRADE_ROUTES_CITY_STATE_PROD', 'Amount', 1);
 -- INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 --     ('TRAIT_LEADER_ELIZABETH', 'BBG_ELIZABETH_TRADE_ROUTES_CITY_STATE_PROD');
+
+
+-- 07/08/26 move Sea dog to elizabeth only (with bbg expanded that add the longbow as new civ unit)
+INSERT INTO LeaderTraits (LeaderType, TraitType) VALUES ('LEADER_ELIZABETH', 'TRAIT_CIVILIZATION_UNIT_ENGLISH_SEADOG');

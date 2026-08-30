@@ -10,6 +10,8 @@ UPDATE Modifiers SET SubjectRequirementSetId='UNIT_IS_DOMAIN_LAND' WHERE Modifie
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
     ('VARU_ADJACENT_AT_WAR_REQUIREMENTS', 'REQUIRES_UNIT_IS_DOMAIN_LAND');
 -- UPDATE Units SET Maintenance=2, Combat=40 WHERE UnitType='UNIT_MAORI_TOA';
+-- 07/08/26 Toa : only -3 from -5 (same as varu)
+UPDATE ModifierArguments SET Value='-3' WHERE ModifierId='TOA_NEGATIVE_COMBAT_MODIFIER' AND Name='Amount';
 
 -- Delay bonus production
 INSERT INTO RequirementSets(RequirementSetId, RequirementSetType) VALUES
@@ -72,3 +74,11 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 
 -- 30/09/24 removed amenity
 DELETE FROM TraitModifiers WHERE TraitType='TRAIT_LEADER_KUPES_VOYAGE' AND ModifierId='CAPITAL_ENTERTAINMENT';
+
+-- 07/08/26 remove ability : culture bomb on boat
+DELETE FROM TraitModifiers WHERE TraitType='TRAIT_CIVILIZATION_MAORI_MANA' AND ModifierId='TRAIT_MAORI_FISHING_BOAT_CULTURE_BOMB';
+
+-- 04/07/26 Fort, Roman Fort and PA : Add one prod and one gold
+INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange) VALUES
+    ('IMPROVEMENT_MAORI_PA', 'YIELD_PRODUCTION', 1),
+    ('IMPROVEMENT_MAORI_PA', 'YIELD_GOLD', 1);

@@ -44,6 +44,11 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
 -- 01/12/24 science on prod reduced to 20%
 UPDATE ModifierArguments SET Value=20 WHERE ModifierId='BASILIKOI_PAIDES_SCIENCE_TRAINED_UNIT' AND Name='UnitProductionPercent';
 
+
+-- 04/07/26 Military Engineers require barracks or stable, moved to engineering
+INSERT INTO Unit_BuildingPrereqs (Unit, PrereqBuilding)
+    VALUES ('UNIT_MILITARY_ENGINEER', 'BUILDING_BASILIKOI_PAIDES');
+
 -- Hetairoi no longer a Horseman replacement
 DELETE FROM UnitReplaces WHERE CivUniqueUnitType='UNIT_MACEDONIAN_HETAIROI';
 -- 13/01/25 Hetairoi cost to 110 (from 100)

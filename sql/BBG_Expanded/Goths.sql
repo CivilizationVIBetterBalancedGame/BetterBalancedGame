@@ -1,0 +1,121 @@
+-- ========================================================================
+-- =                              GOTHS                                   =
+-- ========================================================================
+
+-- start bias
+DELETE FROM StartBiasTerrains WHERE CivilizationType = 'CIVILIZATION_MER_GOTHS';
+-- change in Lua : need habitation to gain pop
+
+-- unit militond +10 -> +5 in district, adjust base strength 44-> 38, cost 5 iron
+UPDATE Units SET Combat = 38, StrategicResource='RESOURCE_IRON' WHERE UnitType = 'UNIT_MER_MILITOND';
+UPDATE ModifierArguments SET Value = '5' WHERE ModifierId = 'MER_MILITOND_DISTRICT' AND Name = 'Amount';
+INSERT INTO Units_XP2 (UnitType, ResourceCost) VALUES ('UNIT_MER_MILITOND', '10');
+
+
+-- unit gadrauht now a pikeman, --> changed in base mod
+UPDATE Units SET Combat = 47, Cost = 180 WHERE UnitType = 'UNIT_MER_GADRAUHT';
+-- only cost 1 pop in cities without temple
+UPDATE Units SET PopulationCost = '' WHERE UnitType = 'UNIT_MER_GADRAUHT';
+INSERT INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
+('BBG_CITY_HAS_NO_TEMPLE', 'REQUIREMENT_CITY_HAS_BUILDING', 1);
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+('BBG_CITY_HAS_NO_TEMPLE', 'BuildingType', 'BUILDING_TEMPLE');
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+('BBG_NO_TEMPLE_REQSET', 'REQUIREMENTSET_TEST_ALL');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+('BBG_NO_TEMPLE_REQSET', 'BBG_CITY_HAS_NO_TEMPLE');
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+('BBG_GADRAUHT_LOSE_POPULATION_IN_CITIES_WITHOUT_TEMPLE', 'MODIFIER_PLAYER_CITIES_CHANGE_POPULATION_CREATE_UNIT', 'BBG_NO_TEMPLE_REQSET');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+('BBG_GADRAUHT_LOSE_POPULATION_IN_CITIES_WITHOUT_TEMPLE', 'Amount', '-1'),
+('BBG_GADRAUHT_LOSE_POPULATION_IN_CITIES_WITHOUT_TEMPLE', 'UnitType', 'UNIT_MER_GADRAUHT');
+
+INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
+('TRAIT_CIVILIZATION_UNIT_MER_GADRAUHT', 'BBG_GADRAUHT_LOSE_POPULATION_IN_CITIES_WITHOUT_TEMPLE');
+
+-- start lvl 1 as the the swordman
+
+INSERT INTO Types (Type, Kind)
+VALUES	('BBG_ABILITY_MER_GADRAUHT_PROMOTION',		'KIND_ABILITY');
+
+INSERT INTO TypeTags (Type, Tag)
+VALUES	('BBG_ABILITY_MER_GADRAUHT_PROMOTION',		'CLASS_MER_GADRAUHT');
+
+INSERT INTO	UnitAbilities (UnitAbilityType, Name, Description)
+VALUES	('BBG_ABILITY_MER_GADRAUHT_PROMOTION', 'LOC_MODIFIER_MER_MILITOND_PROMOTION_NAME', 'LOC_MODIFIER_MER_MILITOND_PROMOTION_DESC'	);
+
+INSERT INTO	UnitAbilityModifiers (UnitAbilityType, ModifierId)
+VALUES	('BBG_ABILITY_MER_GADRAUHT_PROMOTION', 'CORBACI_FREE_PROMOTION');
+
+-- remove prod in captured city
+DELETE FROM Modifiers WHERE ModifierId IN ('MODIFIER_MER_THEODORIC_DISTRICT_BONUS_1_ATTACH', 'MODIFIER_MER_THEODORIC_DISTRICT_BONUS_2_ATTACH', 'MODIFIER_MER_THEODORIC_DISTRICT_BONUS_3_ATTACH', 'MODIFIER_MER_THEODORIC_DISTRICT_BONUS_4_ATTACH', 'MODIFIER_MER_THEODORIC_DISTRICT_BONUS_5_ATTACH', 'MODIFIER_MER_THEODORIC_DISTRICT_BONUS_6_ATTACH');
+
+-- allow warrior monk in special shrine
+INSERT INTO Unit_BuildingPrereqs (Unit, PrereqBuilding) VALUES
+('UNIT_WARRIOR_MONK', 'BUILDING_MER_HLAIW');
+
+-- UB correctly gives 0.25 not 0.5 per pop
+UPDATE ModifierArguments SET Value = '0.25' WHERE ModifierId = 'MER_HLAIW_FAITH_PER_POP' AND Name = 'Amount';
+UPDATE ModifierArguments SET Value = '0.25' WHERE ModifierId = 'MER_HLAIW_CULTURE_PER_POP' AND Name = 'Amount';
+
+-- new UB effect : gives +1 movement for land non cav military units in a 6 tiles radius
+INSERT INTO Requirements (RequirementId, RequirementType) VALUES
+('BBG_REQUIREMENT_UNIT_IS_NON_CAVALRY_MET', 'REQUIREMENT_REQUIREMENTSET_IS_MET');
+INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
+('BBG_REQUIREMENT_UNIT_IS_NON_CAVALRY_MET', 'RequirementSetId', 'BBG_REQUIREMENT_UNIT_IS_NON_CAVALRY');
+
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+('BBG_6_TILES_AWAY_MAX_AND_NON_CAVALRY_REQSET', 'REQUIREMENTSET_TEST_ALL'),
+('BBG_REQUIREMENT_UNIT_IS_NON_CAVALRY', 'REQUIREMENTSET_TEST_ANY');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+('BBG_6_TILES_AWAY_MAX_AND_NON_CAVALRY_REQSET', 'BBG_REQUIRES_PLOT_SIX_TILES_AWAY'),
+('BBG_6_TILES_AWAY_MAX_AND_NON_CAVALRY_REQSET', 'BBG_REQUIREMENT_UNIT_IS_NON_CAVALRY_MET'),
+('BBG_REQUIREMENT_UNIT_IS_NON_CAVALRY', 'REQUIREMENT_UNIT_IS_MELEE'),
+('BBG_REQUIREMENT_UNIT_IS_NON_CAVALRY', 'REQUIREMENT_UNIT_IS_RANGED'),
+('BBG_REQUIREMENT_UNIT_IS_NON_CAVALRY', 'REQUIREMENT_UNIT_IS_ANTI_CAV'),
+('BBG_REQUIREMENT_UNIT_IS_NON_CAVALRY', 'REQUIREMENT_UNIT_IS_SIEGE'),
+('BBG_REQUIREMENT_UNIT_IS_NON_CAVALRY', 'RECON_UNITS');
+
+
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId, SubjectStackLimit) VALUES
+('BBG_MER_HLAIW_MOVEMENT_BONUS', 'MODIFIER_PLAYER_UNITS_ADJUST_MOVEMENT', 'BBG_6_TILES_AWAY_MAX_AND_NON_CAVALRY_REQSET', '1');
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+('BBG_MER_HLAIW_MOVEMENT_BONUS', 'Amount', '1');
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+('BUILDING_MER_HLAIW', 'BBG_MER_HLAIW_MOVEMENT_BONUS');
+
+
+-- add river and lake names
+INSERT INTO Types(Type, Kind) VALUES
+    ('NAMED_LAKE_GOTH_1', 'KIND_NAMED_LAKE'),
+    ('NAMED_LAKE_GOTH_2', 'KIND_NAMED_LAKE');
+
+INSERT INTO NamedLakes(NamedLakeType, Name) VALUES
+    ('NAMED_LAKE_GOTH_1', 'LOC_NAMED_LAKE_GOTH_1_NAME'),
+    ('NAMED_LAKE_GOTH_2', 'LOC_NAMED_LAKE_GOTH_2_NAME');
+
+
+INSERT INTO NamedRiverCivilizations(NamedRiverType, CivilizationType) VALUES
+    ('NAMED_RIVER_ARNO_RIVER', 'CIVILIZATION_MER_GOTHS'),
+    ('NAMED_RIVER_OFANTO_RIVER', 'CIVILIZATION_MER_GOTHS'),
+    ('NAMED_RIVER_PO', 'CIVILIZATION_MER_GOTHS'),
+    ('NAMED_RIVER_RUBICON', 'CIVILIZATION_MER_GOTHS'),
+    ('NAMED_RIVER_TIBER', 'CIVILIZATION_MER_GOTHS'), 
+    ('NAMED_RIVER_DANUBE', 'CIVILIZATION_MER_GOTHS');
+    
+INSERT INTO NamedLakeCivilizations(NamedLakeType, CivilizationType) VALUES
+    ('NAMED_LAKE_GOTH_1', 'CIVILIZATION_MER_GOTHS'),
+    ('NAMED_LAKE_GOTH_2', 'CIVILIZATION_MER_GOTHS');
+
+INSERT INTO NamedMountainCivilizations(NamedMountainType, CivilizationType) VALUES
+    ('NAMED_MOUNTAIN_ALPS', 'CIVILIZATION_MER_GOTHS'),
+    ('NAMED_MOUNTAIN_APENNINES', 'CIVILIZATION_MER_GOTHS');
+
+INSERT INTO NamedVolcanoCivilizations(NamedVolcanoType, CivilizationType) VALUES
+    ('NAMED_VOLCANO_VULSINI', 'CIVILIZATION_MER_GOTHS'),
+    ('NAMED_VOLCANO_ETNA', 'CIVILIZATION_MER_GOTHS');
+
+INSERT INTO NamedSeaCivilizations(NamedSeaType, CivilizationType) VALUES
+    ('NAMED_SEA_TYRRHENIAN_SEA', 'CIVILIZATION_MER_GOTHS'),
+    ('NAMED_SEA_ADRIATIC_SEA', 'CIVILIZATION_MER_GOTHS');

@@ -34,3 +34,8 @@ DELETE FROM TypeTags WHERE Tag='CLASS_HEAVY_CAVALRY' AND Type IN ('ABILITY_GENGH
 
 --19/04/26 Genghis' bonuses no longer work for heavy cav -- fix 
 DELETE FROM RequirementSetRequirements WHERE RequirementId='UNIT_IS_HEAVY_CAVALRY' AND RequirementSetId ='REQUIREMENTS_UNIT_IS_MONGOLIAN_CAVALRY';
+
+
+-- 04/07/26 Military Engineers require barracks or stable, moved to engineering
+INSERT INTO Unit_BuildingPrereqs (Unit, PrereqBuilding)
+    VALUES ('UNIT_MILITARY_ENGINEER', 'BUILDING_ORDU');
