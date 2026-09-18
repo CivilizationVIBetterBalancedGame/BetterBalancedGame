@@ -15,6 +15,13 @@ INSERT INTO TypeTags(Type, Tag) VALUES
 INSERT INTO TypeTags(Type, Tag) VALUES
     ('ABILITY_TIMUR_BONUS_EXPERIENCE', 'CLASS_WARRIOR_MONK');
 
+--18/09/26 : Matterhorn : no longer give "ignore hills" but a 25% bonus experience
+UPDATE UnitAbilityModifiers SET ModifierId='BBG_ALPINE_TRAINING_EXPERIENCE' WHERE UnitAbilityType='ABILITY_ALPINE_TRAINING';
+INSERT INTO Modifiers (ModifierId, ModifierType, Permanent) VALUES
+    ('BBG_ALPINE_TRAINING_EXPERIENCE', 'MODIFIER_PLAYER_UNIT_ADJUST_UNIT_EXPERIENCE_MODIFIER', 1);
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('BBG_ALPINE_TRAINING_EXPERIENCE', 'Amount', 25);
+
 -- Eye of the Sahara gets 2 Food, 2 Production, and 2 Science
 UPDATE ModifierArguments SET Value='0' WHERE ModifierId='EYESAHARA_PRODUCTION_ATOMIC' AND Name='Amount';
 UPDATE ModifierArguments SET Value='0' WHERE ModifierId='EYESAHARA_SCIENCE_ATOMIC' AND Name='Amount';
