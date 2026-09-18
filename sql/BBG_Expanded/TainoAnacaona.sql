@@ -191,7 +191,8 @@ INSERT INTO TraitModifiers (TraitType, ModifierId) VALUES
 	('TRAIT_LEADER_CVS_ANACAONA_UA', 'BBG_TAINO_GOLD_EUPHORIC');
 
 
--- UD adjacency : +2 prod and 3 gold per commercial hub / harbor / City Center
+-- UD adjacency : +2 prod and 3 gold per commercial hub / harbor
+-- 18/09/26 : no double for harbor
 INSERT INTO District_Adjacencies
 		(DistrictType,				YieldChangeId)
 VALUES ('DISTRICT_CVS_TAINO_UI',	'BBG_PRODUCTION_TAINO_COMMERCIAL_HUB'),
@@ -200,9 +201,9 @@ VALUES ('DISTRICT_CVS_TAINO_UI',	'BBG_PRODUCTION_TAINO_COMMERCIAL_HUB'),
 		('DISTRICT_CVS_TAINO_UI',	'BBG_GOLD_TAINO_HARBOR');
 INSERT INTO Adjacency_YieldChanges(ID, Description, YieldType, YieldChange, AdjacentDistrict) VALUES
     ('BBG_PRODUCTION_TAINO_COMMERCIAL_HUB', 'LOC_BBG_PRODUCTION_TAINO_COMMERCIAL_HUB', 'YIELD_PRODUCTION', 2, 'DISTRICT_COMMERCIAL_HUB'),
-    ('BBG_PRODUCTION_TAINO_HARBOR', 'LOC_BBG_PRODUCTION_TAINO_HARBOR', 'YIELD_PRODUCTION', 4, 'DISTRICT_HARBOR'),
+    ('BBG_PRODUCTION_TAINO_HARBOR', 'LOC_BBG_PRODUCTION_TAINO_HARBOR', 'YIELD_PRODUCTION', 2, 'DISTRICT_HARBOR'),
     ('BBG_GOLD_TAINO_COMMERCIAL_HUB', 'LOC_BBG_GOLD_TAINO_COMMERCIAL_HUB', 'YIELD_GOLD', 3, 'DISTRICT_COMMERCIAL_HUB'),
-    ('BBG_GOLD_TAINO_HARBOR', 'LOC_BBG_GOLD_TAINO_HARBOR', 'YIELD_GOLD', 6, 'DISTRICT_HARBOR');
+    ('BBG_GOLD_TAINO_HARBOR', 'LOC_BBG_GOLD_TAINO_HARBOR', 'YIELD_GOLD', 3, 'DISTRICT_HARBOR');
 
 
 -- Discount and cost need to be adjusted as a UD (copy from other UD)
@@ -233,7 +234,8 @@ UPDATE Project_GreatPersonPoints SET Points = 6 WHERE ProjectType = 'PROJECT_CVS
 UPDATE Project_YieldConversions SET PercentOfProductionRate = PercentOfProductionRate * 2 WHERE ProjectType = 'PROJECT_CVS_TAINO_UP';
 
 -- UU : reduce cost to match the cost of a scout 
-UPDATE Units SET BaseSightRange=3, BaseMoves=3 WHERE UnitType='UNIT_CVS_TAINO_UU';
+-- 18/09/26 reduce sight
+UPDATE Units SET BaseSightRange=2, BaseMoves=3 WHERE UnitType='UNIT_CVS_TAINO_UU';
 
 
 -- do not disable scout for FFA (foreign trade boost)
@@ -328,16 +330,16 @@ VALUES ('IMPROVEMENT_CVS_ANACAONA_UI', 'MODIFIER_CVS_ANACAONA_UI_ADJ_GRASS_HILLS
 	   ('IMPROVEMENT_CVS_ANACAONA_UI', 'MODIFIER_CVS_ANACAONA_UI_ADJ_PLAINS_HILLS_PRODUCTION'),
 	   ('IMPROVEMENT_CVS_ANACAONA_UI', 'MODIFIER_CVS_ANACAONA_UI_ADJ_TUNDRA_HILLS_FOOD');
 
-INSERT INTO Adjacency_YieldChanges (ID,Description,YieldType,YieldChange,TilesRequired,PrereqCivic,AdjacentResourceClass)
-VALUES 	('BBG_GOLD_ANACAONA_UI_BONUS','Placeholder','YIELD_GOLD',2,1,'CIVIC_MERCANTILISM','RESOURCECLASS_BONUS'),
-		('BBG_GOLD_ANACAONA_UI_LUX','Placeholder','YIELD_GOLD',2,1,'CIVIC_MERCANTILISM','RESOURCECLASS_LUXURY');
+-- INSERT INTO Adjacency_YieldChanges (ID,Description,YieldType,YieldChange,TilesRequired,PrereqCivic,AdjacentResourceClass)
+-- VALUES 	('BBG_GOLD_ANACAONA_UI_BONUS','Placeholder','YIELD_GOLD',2,1,'CIVIC_MERCANTILISM','RESOURCECLASS_BONUS'),
+-- 		('BBG_GOLD_ANACAONA_UI_LUX','Placeholder','YIELD_GOLD',2,1,'CIVIC_MERCANTILISM','RESOURCECLASS_LUXURY');
 
-INSERT INTO	Improvement_Adjacencies(ImprovementType, YieldChangeId)
-VALUES 	('IMPROVEMENT_CVS_ANACAONA_UI', 'BBG_GOLD_ANACAONA_UI_BONUS'),
-		('IMPROVEMENT_CVS_ANACAONA_UI', 'BBG_GOLD_ANACAONA_UI_LUX');
+-- INSERT INTO	Improvement_Adjacencies(ImprovementType, YieldChangeId)
+-- VALUES 	('IMPROVEMENT_CVS_ANACAONA_UI', 'BBG_GOLD_ANACAONA_UI_BONUS'),
+-- 		('IMPROVEMENT_CVS_ANACAONA_UI', 'BBG_GOLD_ANACAONA_UI_LUX');
 
-INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange)
-VALUES ('IMPROVEMENT_CVS_ANACAONA_UI', 'YIELD_GOLD', 0);
+-- INSERT INTO Improvement_YieldChanges (ImprovementType, YieldType, YieldChange)
+-- VALUES ('IMPROVEMENT_CVS_ANACAONA_UI', 'YIELD_GOLD', 0);
 
 
 
