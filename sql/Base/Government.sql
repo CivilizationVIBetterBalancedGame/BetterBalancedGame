@@ -402,6 +402,13 @@ UPDATE ModifierArguments SET Value='1' WHERE ModifierId='COMMUNISM_PRODUCTIVE_PE
 
 DELETE FROM GovernmentModifiers WHERE ModifierId='COMMUNISM_SCIENCE' AND GovernmentType='GOVERNMENT_COMMUNISM';
 DELETE FROM Policy_GovernmentExclusives_XP2 WHERE PolicyType='POLICY_COLLECTIVIZATION';
+INSERT INTO PolicyModifiers(PolicyType, ModifierId) VALUES
+    ('POLICY_COLLECTIVIZATION', 'BBG_COLLECTIVIZATION_GOLD');
+INSERT INTO Modifiers(ModifierId, ModifierType) VALUES
+    ('BBG_COLLECTIVIZATION_GOLD', 'MODIFIER_PLAYER_ADJUST_TRADE_ROUTE_YIELD');
+INSERT INTO ModifierArguments(ModifierId, Name, Value) VALUES
+    ('BBG_COLLECTIVIZATION_GOLD', 'YieldType', 'YIELD_GOLD'),
+    ('BBG_COLLECTIVIZATION_GOLD', 'Amount', 4);
 -- Communism : Scientific Vanguard Joker Card : Cities with Governor receive 10% Science and Production but also -2 amenity.
 --27/03/26 no amenity penalty
 -- 10/08/26 Policy Scientific vanguard (10% prod/science in cities with a governor) removed
