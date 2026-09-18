@@ -138,3 +138,7 @@ DELETE FROM ObsoletePolicies  WHERE PolicyType='POLICY_REVELATION';
 --         END + 1
 --     )
 -- WHERE g1.PolicyToUnlock IS NOT NULL;
+
+-- 18/09/26 POLICY_PUBLIC_TRANSPORT : 50 gold from 100 per appeal
+-- PUBLICTRANSPORT_FARMREPLACEGOLD
+UPDATE ModifierArguments SET Value=50 WHERE ModifierId='PUBLICTRANSPORT_FARMREPLACEGOLD' AND Name='Amount';
