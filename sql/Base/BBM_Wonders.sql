@@ -17,3 +17,8 @@ INSERT INTO Feature_AdjacentYields(FeatureType, YieldType, YieldChange) VALUES
 -- in bbm only
 INSERT INTO StartBiasNegatives(CivilizationType, FeatureType, Tier) VALUES
     ('CIVILIZATION_NORWAY', 'FEATURE_JUNGLE', 4);
+
+-- 18/09/26 Namib : more yield but no bonus movement
+DELETE FROM GameModifiers WHERE ModifierId='NAMIB_UNITS_GRANT_ABILITY';
+INSERT INTO Feature_YieldChanges(FeatureType, YieldType, YieldChange) VALUES
+	('FEATURE_NAMIB', 'YIELD_FOOD', 2);
