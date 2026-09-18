@@ -159,5 +159,4 @@ INSERT INTO RequirementArguments (RequirementId, Name, Value) VALUES
 UPDATE Modifiers SET SubjectRequirementSetId='BBG_TRAIT_EARLY_OCEAN_NAVIGATION_REQSET' WHERE ModifierId='TRAIT_EARLY_OCEAN_NAVIGATION';
 
 -- 17/07/26 StartBias no jungle
-INSERT INTO StartBiasNegatives(CivilizationType, FeatureType, Tier) VALUES
-    ('CIVILIZATION_NORWAY', 'FEATURE_JUNGLE', 4);
+-- in bbm only

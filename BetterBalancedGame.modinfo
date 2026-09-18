@@ -968,6 +968,15 @@
 			<Criteria>XP1_AND_XP2</Criteria>
 			<File>sql/Base/LoadLast.sql</File>
 		</UpdateDatabase>
+		<!-- XP1 and XP2 LoadLast & BBM -->
+		<UpdateDatabase id="BBG_LoadLast_BBM_WONDERS">
+			<Properties>
+				<LoadOrder>200000000</LoadOrder> <!-- must be loaded after Expanded too -->
+			</Properties>
+			<Criteria>BBS</Criteria>
+			<Criteria>XP1_AND_XP2</Criteria>
+			<File>sql/Base/BBM_Wonders.sql</File>
+		</UpdateDatabase>
 
 
 		<UpdateDatabase id="BBG_Expanded_MOAR_Units_WIP">
@@ -1384,6 +1393,7 @@
 		<File>sql/Base/Sumer.sql</File>
 		<File>sql/Base/Units.sql</File>
 		<File>sql/Base/LoadLast.sql</File>
+		<File>sql/Base/BBM_Wonders.sql</File>
 		<File>sql/Base/Wonders.sql</File>
 		<!-- XP 1-->
 		<File>sql/XP1/_xp1_utils.sql</File>

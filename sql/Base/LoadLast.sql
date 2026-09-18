@@ -51,11 +51,3 @@ INSERT INTO UnitAbilityModifiers(UnitAbilityType, ModifierId) VALUES
 UPDATE Civics SET Description='LOC_CIVIC_POLITICAL_PHILOSOPHY_DESCRIPTION' WHERE CivicType='CIVIC_POLITICAL_PHILOSOPHY';
 
 
---=======================================================================
---******                          WONDERS                          ******
---=======================================================================
---need to run after bbm as this is an update and not and insert
--- 14/07/26 Lac Victoria : +1 food
-DELETE FROM Feature_YieldChanges WHERE FeatureType='FEATURE_LAKE_VICTORIA' AND YieldType='YIELD_FOOD';
-INSERT INTO Feature_YieldChanges(FeatureType, YieldType, YieldChange) VALUES
-	('FEATURE_LAKE_VICTORIA', 'YIELD_FOOD', 3);
