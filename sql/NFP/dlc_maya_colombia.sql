@@ -114,6 +114,8 @@ UPDATE Feature_AdjacentYields SET YieldChange=1 WHERE FeatureType='FEATURE_PAITI
 UPDATE Feature_AdjacentYields SET YieldChange=1 WHERE FeatureType='FEATURE_PAITITI' AND YieldType='YIELD_CULTURE';
 DELETE FROM Feature_AdjacentYields WHERE FeatureType='FEATURE_BERMUDA_TRIANGLE';
 
+DELETE FROM GameModifiers WHERE ModifierId='BERMUDA_TRIANGLE_TELEPORT';
+UPDATE ModifierArguments SET Value=2 WHERE ModifierId='MYSTERIOUS_CURRENTS_MOVEMENT' AND Name='Amount';
 --==============================================================
 --******                RELIGION                          ******
 --==============================================================
