@@ -4,7 +4,7 @@
 
 		<!-- Auteur : Ybanca -->
 		<!-- Avec l'aide de CCPyro, Chuck, Connavar, Ewaken, geryon, Gloen, LordKnt, Yelli, CivFr players -->
-		<!-- Remerciements particuliers à Apeul, Onyxum, platypus, Pebbleton, ZhenjaMax -->
+		<!-- Remerciements particuliers à Apeul, Onyxum, platypus, Pebbleton, Torvator, ZhenjaMax -->
 		<!-- Basé sur le travail de Priz, qui s'est occupé de la traduction française avant moi -->
 
 
@@ -109,7 +109,7 @@
 			<Text>À l'[COLOR_FLOAT_SCIENCE]Astrologie[ENDCOLOR], points de [ICON_GREATPROPHET] Prophète illustre +1.[NEWLINE]Le dernier [ICON_GREATPROPHET] Prophète illustre est automatiquement recruté, si vous n'en avez pas déjà eu.[NEWLINE][NEWLINE][ICON_SCIENCE] Science +1 pour chaque ville étrangère suivant votre [ICON_RELIGION] religion.[NEWLINE][NEWLINE]Campus : [ICON_SCIENCE] Science +1 par Lieu saint adjacent.[NEWLINE]Lieux saints : [ICON_FAITH] Foi +1 par Campus adjacent.</Text>
 		</Replace>
 		<Replace Tag="BBG_LOC_CAMPUS_ARABIA_HS" Language="fr_FR">
-			<Text>Cases de Lieu saint adjacentes : [ICON_SCIENCE] Science +{1_num}</Text>
+			<Text>Cases de Lieu saint adjacentes : [ICON_SCIENCE] Science +{1_num}.</Text>
 		</Replace>
 		<Replace Tag="BBG_LOC_HS_ARABIA_CAMPUS" Language="fr_FR">
 			<Text>Cases de Campus adjacentes : [ICON_FAITH] Foi +{1_num}.</Text>
@@ -151,7 +151,16 @@
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_DIGGER_DESCRIPTION" Language="fr_FR">
-			<Text>Unité de combat rapproché de l'ère moderne exclusive à l'Australie, remplaçant l'Infanterie.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +3. [ICON_STRENGTH] Puissance de combat +5 sur les cases côtières. [ICON_STRENGTH] Puissance de combat +3 en territoire neutre ou étranger.</Text>
+			<Text>Unité de combat rapproché de l'ère moderne exclusive à l'Australie, remplaçant l'Infanterie.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +3. [ICON_STRENGTH] Puissance de combat +10 sur les cases côtières. [ICON_STRENGTH] Puissance de combat +5 en territoire neutre ou étranger.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_DIGGER_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +5 sur les cases côtières. [ICON_STRENGTH] Puissance de combat +3 en territoire neutre ou étranger.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_DIGGER_BONUS_ON_COAST_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +5 sur les cases côtières</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_DIGGER_NON_DOMESTIC_BONUS_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +3 en territoire neutre ou étranger</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_OUTBACK_STATION_DESCRIPTION" Language="fr_FR">
@@ -182,7 +191,7 @@
 		</Replace>
         <!-- = Unique unit - Unité unique = --> <!-- BBG expanded -->
         <Replace Tag="LOC_UNIT_GREAT_DIPLOMAT_NAME" Language="fr_FR">
-			<Text>Diplomate illustre</Text>
+			<Text>Diplomate Illustre</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_GREAT_DIPLOMAT_DESCRIPTION" Language="fr_FR">
 			<Text>Personnage illustre unique à l'Autriche.[NEWLINE][NEWLINE]Peut absorber une Cité-état vassale.[NEWLINE][NEWLINE][ICON_FAVOR] Faveurs diplomatique +1 par tour si adjacent à une [ICON_CAPITAL] étrangère.</Text>
@@ -208,9 +217,15 @@
 			<Text>Chaque ressource de luxe différente aménagée en territoire aztèque octroie de [ICON_AMENITIES] l'Activité à deux villes supplémentaires, ainsi que +1 [ICON_STRENGTH] Puissance de combat en attaque aux unités militaires terrestres et navales. Ces deux bonus fonctionnent avec Colæos.
 			</Text>
 		</Replace>
+		<Replace Tag="LOC_COMBAT_PREVIEW_LUXURY_ATTACK_BONUS_DESC" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Value} (Offrandes au Tlatoani)</Text>
+		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_AZTEC_EAGLE_WARRIOR_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de combat rapproché de l'ère antique exclusive aux Aztèques, remplaçant le Guerrier.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +8.[NEWLINE][NEWLINE]Tuer une unité a une chance de faire apparaître un Bâtisseur.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_CAPTIVE_WORKERS_MODIFIER_DESCRIPTION" Language="fr_FR">
+			<Text>Chances de capturer l'ennemi : {1_Amount}%</Text>
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = -->
 		<Replace Tag="LOC_BUILDING_TLACHTLI_XP1_DESCRIPTION" Language="fr_FR">
@@ -252,7 +267,7 @@
 			<Text>Unité navale de combat à distance de l'ère industrielle exclusive au Brésil, remplaçant le Cuirassé.[NEWLINE][NEWLINE][ICON_RANGED][ICON_STRENGTH] Puissance de base de combat rapproché et à distance -5. [ICON_RANGED][ICON_STRENGTH] Puissance de combat rapproché et à distance +10 à Raffinage.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_MINAS_COMBAT_REFINING_DESC" Language="fr_FR">
-			<Text>[ICON_RANGED][ICON_STRENGTH] Puissance de combat rapproché et à distance +10 (Minas Geraes)</Text>
+			<Text>[ICON_RANGED][ICON_STRENGTH] Puissance de combat +10 (Minas Geraes)</Text>
 		</Replace>
 		<!-- = Unique district - Quartier unique = -->
 		<Replace Tag="LOC_DISTRICT_STREET_CARNIVAL_EXPANSION2_DESCRIPTION" Language="fr_FR">
@@ -271,13 +286,19 @@
 			<Text>[ICON_STRENGTH] Puissance de combat +2 et [ICON_RELIGION] Puissance religieuse +3 pour les unités pour chaque ville sainte convertie à votre [ICON_RELIGION] religion (y compris la vôtre).[NEWLINE][NEWLINE]Tuer une unité (d'une civilisation ou d'une Cité-état) propage votre [ICON_RELIGION] religion aux villes proches.[NEWLINE][NEWLINE]Les Lieux saints octroient +1 point de [ICON_GREATPROPHET] Prophète illustre.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_BYZANTIUM_COMBAT_UNITS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +2 pour chaque ville sainte convertie à votre religion, et la [ICON_RELIGION] religion byzantine se propage aux villes voisines quand une unité d'une civilisation majeure est vaincue (Taxis).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +2 pour chaque ville sainte convertie à votre religion, et la [ICON_RELIGION] religion byzantine se propage aux villes voisines quand une unité d'une civilisation ou d'une Cité-état est vaincue.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_BYZANTIUM_RELIGIOUS_UNITS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_RELIGION] Puissance religieuse +3 pour chaque ville sainte convertie à votre [ICON_RELIGION] religion (Taxis).</Text>
+			<Text>[ICON_RELIGION] Puissance religieuse +3 pour chaque ville sainte convertie à votre [ICON_RELIGION] religion.</Text>
 		</Replace>
 		<Replace Tag="LOC_DISTRICT_HIPPODROME_CULTURE" Language="fr_FR">
 			<Text>Cases d'Hippodrome adjacentes : [ICON_CULTURE] Culture +{1_num}.</Text>
+		</Replace>
+		<Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_HOLY_CITIES_CONVERTED_BONUS_DESC" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Amount} (Taxis)</Text>
+		</Replace>
+		<Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_HOLY_CITIES_CONVERTED_RELIGIOUS_BONUS_DESC" Language="fr_FR">
+			<Text>[ICON_RELIGION] Puissance religieuse +{1_Amount} (Taxis)</Text>
 		</Replace>
 		<!-- = Leader (Basile) - Dirigeant (Basil II) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_BASIL_DESCRIPTION" Language="fr_FR">
@@ -302,11 +323,17 @@
       		<Text>[ICON_STRENGTH] Puissance de combat ou [ICON_RELIGION] Puissance religieuse +2 pour les unités terrestres dans un rayon d'une case autour du tagma.</Text>
     	</Replace>
 		<Replace Tag="LOC_ABILITY_TAGMA_NONRELIGIOUS_COMBAT_DESCRIPTION" Language="fr_FR">
-      		<Text>[ICON_STRENGTH] Puissance de combat +2 (Tagma).</Text>
+      		<Text>[ICON_STRENGTH] Puissance de combat +2 dans un rayon d'une case d'un Tagma.</Text>
     	</Replace>
+		<Replace Tag="LOC_ABILITY_TAGMA_COMBAT_STRENGTH_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +2 (Tagma)</Text>
+		</Replace>
 		<Replace Tag="LOC_ABILITY_TAGMA_RELIGIOUS_COMBAT_DESCRIPTION" Language="fr_FR">
-      		<Text>[ICON_RELIGION] Puissance religieuse +2 (Tagma).</Text>
+      		<Text>[ICON_RELIGION] Puissance religieuse +2 dans un rayon d'une case d'un tagma.</Text>
     	</Replace>
+		<Replace Tag="LOC_ABILITY_TAGMA_RELIGIOUS_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_RELIGION] Puissance religieuse +2 (Tagma)</Text>
+		</Replace>
 		<!-- = Unique district - Quartier unique = -->
 		<Replace Tag="LOC_DISTRICT_HIPPODROME_EXPANSION2_DESCRIPTION" Language="fr_FR">
 			<Text>Quartier exclusif à Byzance, remplaçant le Complexe de loisirs.[NEWLINE][NEWLINE]Achever ses bâtiments octroie l'unité de cavalerie lourde la plus puissante débloquée.</Text>
@@ -367,23 +394,23 @@
 			<Text>Les espions offensifs bénéficient virtuellement d'un niveau de plus. Lorsqu'un espion offensif réussit sa mission, vous gagnez 100% de la [ICON_SCIENCE] Science, de la [ICON_CULTURE] Culture et de la [ICON_FAITH] Foi générées lors de ce tour dans la ville cible.[NEWLINE][NEWLINE]Vous recevez un espion gratuit et votre nombre maximum d'espions augmente de 1 à la [COLOR:212,115,212,255]Fonction Publique[ENDCOLOR]. Les Espions peuvent être achetés contre de la [ICON_FAITH] Foi.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités militaires terrestres se trouvant dans un rayon de 3 cases autour d'une unité de reconnaissance.[NEWLINE][NEWLINE]Achever un bâtiment de la Place de la gouvernance et du Quartier diplomatique octroie un [ICON_TECHBOOSTED] Eurêka et une [ICON_CIVICBOOSTED] Inspiration aléatoires.[NEWLINE][NEWLINE][ICON_SCIENCE] Science +1 pour les cases de Grande Muraille adjacentes à une autre case de Grande Muraille.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_WUZETIAN_COMBAT_FROM_RECON_ABILITY_PREVIEW" Language="fr_FR">
-			<Text>Unité de reconnaissance proche : +3</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Manuel de capture)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_WUZETIAN_COMBAT_FROM_RECON_ABILITY_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 (Manuel de capture)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 dans un rayon de 3 cases d'une unité de reconnaissance.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_WUZETIAN_RECON_GRANT_COMBATSTRENGTH_ABILITY_DESC" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +3 pour les unités militaires terrestres dans un rayon de 3 cases</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_CHINESE_CROUCHING_TIGER_DESCRIPTION" Language="fr_FR">
-			<Text>Unité de combat à distance de l'ère médiévale exclusive à la Chine, remplaçant l'Arbalétrier.[NEWLINE][NEWLINE][ICON_RANGED] Puissance d'attaque à distance +7 en cas d'attaque sur une unité adjacente.</Text>
+			<Text>Unité de combat à distance de l'ère médiévale exclusive à la Chine, remplaçant l'Arbalétrier.[NEWLINE][NEWLINE][ICON_RANGED] Puissance de combat en attaque +7 sur les unités adjacentes.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_TIGER_ADJACENCY_NAME" Language="fr_FR">
 			<Text>Boulet de canon !</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_TIGER_ADJACENCY_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_RANGED] Puissance de combat +7 (Tigre accroupi)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +7 (Tigre accroupi)</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_GREAT_WALL_EXPANSION2_DESCRIPTION" Language="fr_FR">
@@ -402,12 +429,18 @@
 		<Replace Tag="LOC_TRAIT_LEADER_CAMPANA_ADMIRABLE_DESCRIPTION_XP1" Language="fr_FR">
 			<Text>Vous obtenez un Comandante General quand le jeu entre dans une nouvelle ère.[NEWLINE]Le recrutement des [ICON_GREATGENERAL] Généraux illustres est impossible.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_COMANDANTE_AOE_STRENGTH_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Comandante General)</Text>
+		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_COLOMBIAN_LLANERO_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de cavalerie légère de l'ère industrielle exclusive à la Colombie, remplaçant la Cavalerie.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +2 pour chaque Llanero adjacent.[NEWLINE]Se soigne entièrement si elle est proche d'un Comandante General qui active sa compétence de retraite.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_LLANERO_ADJACENCY_STRENGTH_DESCRIPTION" Language="fr_FR"> <!-- portrait -->
-			<Text>[ICON_STRENGTH] Puissance de combat +2 pour chaque unité de Llaneros adjacente</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +2 pour chaque Llanero adjacent.</Text>
+		</Replace>
+		<Replace Tag="LOC_LLANERO_ADJACENCY_STRENGTH_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{CalculatedAmount} (LLanero)</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_HACIENDA_DESCRIPTION" Language="fr_FR">
@@ -425,13 +458,13 @@
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_CREE_OKIHTCITAW_DESCRIPTION" Language="fr_FR">
-			<Text>Unité de reconnaissance de l'ère antique exclusive aux Cris, remplaçant l'Éclaireur.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +5. [ICON_STRENGTH] Puissance de combat +5 contre les unités militaires plus puissantes.[NEWLINE]Dispose d'une [ICON_PROMOTION] promotion gratuite.</Text>
+			<Text>Unité de reconnaissance de l'ère antique exclusive aux Cris, remplaçant l'Éclaireur.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +5. [ICON_STRENGTH] Puissance de combat +5 contre les unités plus puissantes.[NEWLINE]Dispose d'une [ICON_PROMOTION] promotion gratuite.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_OKIHTCITAW_STRONG_AGAINST_STRONGER_UNITS" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +5 (Okichitaw)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_OKIHTCITAW_STRONG_AGAINST_STRONGER_UNITS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +5 (Okichitaw)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +5 contre les unités plus puissantes.</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_MEKEWAP_DESCRIPTION" Language="fr_FR">
@@ -445,17 +478,23 @@
 		</Replace>
 		<!-- = Leader - Dirigeant = -->
 		<Replace Tag="LOC_TRAIT_RADIO_ORANJE_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_CULTURE] Culture +2 pour vos [ICON_TRADEROUTE] routes commerciales internationales.[NEWLINE]Les [ICON_TRADEROUTE] routes commerciales internationales étrangères menant à vos villes fournissent +1 [ICON_CULTURE] Culture à la ville de départ et +2 [ICON_CULTURE] Culture à la ville d'arrivée.[NEWLINE]Loyauté +2 pour la ville de départ de vos [ICON_TRADEROUTE] routes commerciales intérieures.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour vos unités navales sur une case de polder.[NEWLINE][NEWLINE]Points [ICON_GREATADMIRAL] d'Amiral illustre +1 pour les Campus.</Text>
+			<Text>[ICON_CULTURE] Culture +2 pour vos [ICON_TRADEROUTE] routes commerciales internationales.[NEWLINE]Les [ICON_TRADEROUTE] routes commerciales internationales étrangères menant à vos villes fournissent +1 [ICON_CULTURE] Culture à la ville de départ et +2 [ICON_CULTURE] Culture à la ville d'arrivée.[NEWLINE]Loyauté +2 pour la ville de départ de vos [ICON_TRADEROUTE] routes commerciales intérieures.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour vos unités navales sur les cases de polder.[NEWLINE][NEWLINE]Points [ICON_GREATADMIRAL] d'Amiral illustre +1 pour les Campus.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_POLDER_DEFENSIVE_CS" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 (Radio oranje).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Radio oranje)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_POLDER_DEFENSIVE_CS_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 (Radio oranje).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 sur les cases de polder.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_DE_ZEVEN_PROVINCIEN_DESCRIPTION" Language="fr_FR">
 			<Text>Unité navale de combat à distance de la Renaissance exclusive aux Pays-Bas, remplaçant la Frégate.[NEWLINE][NEWLINE][ICON_STRENGTH][ICON_RANGED] Puissance de base de combat rapproché et à distance +5. [ICON_STRENGTH] Puissance de combat +7 contre les quartiers défendables.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_PREVIEW_ZEVEN_PROVINCIEN_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +7 (De Zeven Provicien)</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_DUTCH_ZEVEN_PROVINCIEN_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +7 contre les quartiers défendables.</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_POLDER_DESCRIPTION" Language="fr_FR">
@@ -532,14 +571,14 @@
 		<Replace Tag="LOC_UNIT_ENGLISH_SEADOG_DESCRIPTION" Language="fr_FR">
 			<Text>Unité navale d'assaut en mer de la Renaissance exclusive à Élisabeth Ire, remplaçant le Corsaire.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +3.[NEWLINE]Tuer une unité navale offre une chance de la capturer.[NEWLINE]Ne peut être vue que par d'autres unités navales d'assaut en mer à moins de lui être adjacent. Révèle les unités d'assaut en mer dans son champ de vision.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_PRIZE_SHIPS_MODIFIER_DESCRIPTION" Language="fr_FR">
+			<Text>Chances de capturer l'ennemi : {1_Amount}%</Text>
+		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_ENGLISH_REDCOAT_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de combat rapproché de l'ère industrielle exclusive à Victoria (ère impériale), remplaçant l'Infanterie de ligne.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +5. [ICON_STRENGTH] Puissance de combat +5 sur un continent autre que celui de votre [ICON_CAPITAL] Capitale.[NEWLINE]Pas de pénalité de [ICON_MOVEMENT] PM et de [ICON_STRENGTH] Puissance de combat lors d'un débarquement.</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
-		<Replace Tag="LOC_ABILITY_LONGBOWMAN_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +4 si adjacent à un autre Longbowman.</Text>
-		</Replace>
 		<Replace Tag="LOC_UNIT_ENGLISH_LONGBOWMAN_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de combat à distance de l'ère médiévale exclusive à l'Angleterre, remplaçant l'Arbalétrier.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +4 si adjacent à un autre Longbowman.</Text>
 		</Replace>
@@ -547,6 +586,9 @@
 			<Text>Longbowman</Text>
 		</Replace>
 		<Replace Tag="PLUS_4_LONGBOWMAN_ADJACENCY_COMBAT_BONUS_DESC" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +4 (Longbowman)</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_LONGBOWMAN_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +4 si adjacent à un autre Longbowman.</Text>
 		</Replace>
 		<!-- = Unique district - Quartier unique = -->
@@ -568,7 +610,10 @@
 			<Text>Unité de cavalerie légère de l'ère médiévale exclusive à l'Éthiopie, remplaçant le Coursier.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +2 et Champ de vision +1. [ICON_STRENGTH] Puissance de combat +4 lorsque le combat se déroule sur une case de collines. [NEWLINE][ICON_MOVEMENT] PM +1 quand elle commence son tour sur une case de collines.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_ETHIOPIAN_OROMO_CAVALRY_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +4 lorsque le combat se déroule sur une case de collines. [NEWLINE][ICON_MOVEMENT] PM +1 quand elle commence son tour sur une case de collines.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +4 lorsque le combat se déroule sur une case de collines. [ICON_MOVEMENT] PM +1 quand elle commence son tour sur une case de collines.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_MENELIK_HILLS_COMBAT_STRENGTH_DESCRIPTION" Language="fr_FR"> <!-- Menelik bonus transferred to Oromo -->
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Amount} (Oromo)</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_ROCK_HEWN_CHURCH_EXPANSION2_DESCRIPTION" Language="fr_FR">
@@ -598,6 +643,9 @@
 		<Replace Tag="LOC_ABILITY_GARDE_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +5 sur le continent de votre [ICON_CAPITAL] Capitale.[NEWLINE][ICON_BULLET] +10 points de [ICON_GREATGENERAL] Général illustre à chaque ennemi vaincu (Garde impérial)</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_GARDE_CONTINENT_COMBAT_MODIFIER_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Amount} (Garde impérial)</Text>
+		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_CHATEAU_EXPANSION2_DESCRIPTION" Language="fr_FR">
 			<Text>Aménagement exclusif à la France, débloqué à la [COLOR:212,115,212,255]Féodalité[ENDCOLOR].[NEWLINE][ICON_FOOD] Nourriture +1, [ICON_GOLD] Or +1, [ICON_CULTURE] Culture +1 et [ICON_HOUSING] Habitations +1.[NEWLINE][ICON_GOLD] Or +2 si placé sur une rivière.[NEWLINE][ICON_GOLD] Or +1 et [ICON_CULTURE] Culture +1 pour chaque case de ressource de luxe adjacente.[NEWLINE][ICON_CULTURE] Culture +1 pour chaque merveille adjacente (passe à +2 à l'Aviation).[NEWLINE]Attrait +1 pour les cases adjacentes.[NEWLINE]Génère du [ICON_TOURISM] Tourisme par le biais de la [ICON_CULTURE] Culture à l'[COLOR_FLOAT_SCIENCE]Aviation[ENDCOLOR].[NEWLINE][NEWLINE]Deux castels ne peuvent pas être adjacents.</Text>
@@ -622,13 +670,16 @@
 		</Replace>
 		<!-- = Leader (Ambiorix) - Dirigeant (Ambiorix) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_AMBIORIX_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +1 pour les unités de combat rapproché et anti-cavalerie pour chaque unité militaire adjacente.[NEWLINE][NEWLINE]Au [COLOR_FLOAT_SCIENCE]Travail du Bronze[ENDCOLOR], achever une unité militaire terrestre octroie 25% de son coût en [ICON_PRODUCTION] Production en [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Aménager une mine déclenche une bombe culturelle.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +1 pour les unités de combat rapproché et d'anti-cavalerie pour chaque unité militaire adjacente.[NEWLINE][NEWLINE]Au [COLOR_FLOAT_SCIENCE]Travail du Bronze[ENDCOLOR], achever une unité militaire terrestre octroie 25% de son coût en [ICON_PRODUCTION] Production en [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Aménager une mine déclenche une bombe culturelle.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_AMBIORIX_NEIGHBOR_COMBAT_BONUS_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +1 pour chaque unité adjacente (Roi des Éburons).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +1 pour chaque unité adjacente.</Text>
 		</Replace>
-		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="fr_FR">
-			<Text>Roi des Éburons</Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
+		<Replace Tag="LOC_COMBAT_PREVIEW_NEIGHBOR_COMBAT_BONUS_DESC" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Amount} (Roi des Éburons)</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_AMBIORIX_COMBAT_BONUS_DESC" Language="fr_FR"> <!-- not used anymore ??? -->
+			<Text></Text> <!-- This is the name of the bonus, it will preview like this "[NameOfTheBonus] ([NameOfTheAdjacentUnit]) : +X" for instance : "Roi des Éburons (Archer) : +1" in french with one archer next to the unit-->
 		</Replace>
 		<!-- = Leader (Vercingetorix) - Dirigeant (Vercingétorix) = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_TRAIT_LEADER_SUK_GALLIC_WAR_NAME" Language="fr_FR">
@@ -645,7 +696,10 @@
 			<Text>Unité de combat rapproché de l'ère antique exclusive à la Gaule, remplaçant le Guerrier.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +10 contre les unités militaires plus puissantes.[NEWLINE][ICON_STRENGTH] Puissance de combat +5 contre les quartiers défendables.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_GAESATAE_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +10 contre les unités militaires plus puissantes.[NEWLINE][ICON_STRENGTH] Puissance de combat +5 contre les quartiers défendables.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +10 contre les unités militaires plus puissantes. [ICON_STRENGTH] Puissance de combat +5 contre les quartiers défendables.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_GAESATAE_COMBAT_STRENGTH_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Amount} (Gésate)</Text>
 		</Replace>
 		<!-- = Unique district - Quartier unique = -->
 		<Replace Tag="LOC_DISTRICT_OPPIDUM_DESCRIPTION" Language="fr_FR">
@@ -682,8 +736,11 @@
 		<Replace Tag="LOC_TRAIT_LEADER_HOLY_ROMAN_EMPEROR_DESCRIPTION" Language="fr_FR">
 			<Text>Tous les [ICON_GOVERNMENT] gouvernements ont un emplacement de doctrine [COLOR:217,67,67,255]Militaire[ENDCOLOR] supplémentaire.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +7 contre les Cités-états, et les unités uniques.[NEWLINE][NEWLINE]Hanses : [ICON_PRODUCTION] Production +2 par Campement adjacent.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_BARBAROSSA_COMBAT_BONUS_VS_CITY_STATES_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +7 contre les Cités-états, et les unités uniques.</Text>
+		</Replace>
 		<Replace Tag="LOC_PROMOTION_COMBAT_VS_CITY_STATES_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +7 (Empereur du Saint-Empire).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +7 (Empereur du Saint-Empire)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_BARBAROSSA_HANSA_ENCAMPMENT_PROD_DESC" Language="fr_FR">
 			<Text>Cases de Campement adjacentes : [ICON_PRODUCTION] Production +{1_num}.</Text>
@@ -701,7 +758,7 @@
 			<Text>Tigre I</Text>
 		</Replace>
 		<Replace Tag="LOC_UNIT_GERMAN_PANZER_DESCRIPTION" Language="fr_FR">
-			<Text>Unité de cavalerie lourde de l'ère moderne exclusive à Frédéric Barberousse, remplaçant le blindé.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +3.[NEWLINE][ICON_STRENGTH] Puissance de base +3 si non adjacent à un autre Tiger I.</Text>
+			<Text>Unité de cavalerie lourde de l'ère moderne exclusive à Frédéric Barberousse, remplaçant le blindé.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +3.[NEWLINE][ICON_STRENGTH] Puissance de base +3 si non adjacent à un autre Tigre I.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_PANZER_CS_NOT_ADJACENT_PANZER_DESC" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +3 (Tigre I)</Text>
@@ -747,6 +804,9 @@
       		<Text>Unité d'anti-cavalerie de l'ère antique exclusive à la Grèce, remplaçant le Lancier.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +3.[NEWLINE][ICON_STRENGTH] Puissance de combat +7 si adjacente à un autre Hoplite.</Text>
     	</Replace>
 		<Replace Tag="LOC_ABILITY_HOPLITE_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +7 si adjacent à un Hoplite.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_HOPLITE_NEIGHBOR_COMBAT_MODIFIER_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +7 (Hoplite)</Text>
 		</Replace>
 		<!-- = Unique district - Quartier unique = -->
@@ -783,7 +843,7 @@
 			<Text>Unité de combat rapproché de l'ère classique exclusive à Théodoric le Grand, remplaçant le Spadassin.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +2.[NEWLINE][ICON_STRENGTH] Puissance de combat +5 contre les quartiers et les unités dans un quartier. Gagne une [ICON_PROMOTION] promotion gratuite.</Text>
 		</Replace>
 		<Replace Tag="LOC_MODIFIER_MER_MILITOND_DISTRICT_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +5 contre les quartiers et les unités dans un quartier.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Militōnd)</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_UNIT_MER_GADRAUHT_NAME" Language="fr_FR">
@@ -809,12 +869,15 @@
 		<Replace Tag="LOC_TRAIT_LEADER_RAVEN_KING_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_MOVEMENT] PM +1 pour les unités levées de Cités-états. Améliorer des unités levées coûte 75% [ICON_GOLD] d'Or et de ressources en moins. Si vous levez les troupes d'une Cité-état, vous y recevez 1 [ICON_ENVOY] émissaire dans cette Cité-état.</Text>
 		</Replace>
-		<!-- = Unique unit (Black army) - Unité unique (ARmée noire) = -->
+		<!-- = Unique unit (Black army) - Unité unique (Armée noire) = -->
 		<Replace Tag="LOC_UNIT_HUNGARY_BLACK_ARMY_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de cavalerie légère de l'ère médiévale exclusive à la Hongrie, remplaçant le Coursier.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +3.[NEWLINE][ICON_STRENGTH] Puissance de combat +2 pour chaque unité levée adjacente.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_BLACK_ARMY_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +2 pour chaque unité mobilisée adjacente.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +2 pour chaque unité levée adjacente.</Text>
+		</Replace>
+		<Replace Tag="LOC_COMBAT_PREVIEW_ADJACENT_LEVIED_BONUS_DESC" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Amount} (Armée Noire)</Text>
 		</Replace>
 		<!-- = Unique unit (Hussar) - Unité unique (Hussard) = -->
 		<Replace Tag="LOC_UNIT_HUNGARY_HUSZAR_DESCRIPTION" Language="fr_FR">
@@ -863,13 +926,13 @@
 			<Text>Les autels et les temples octroient respectivement +1 [ICON_MOVEMENT] PM et +1 Vision aux unités militaires formées dans la ville.[NEWLINE][ICON_STRENGTH] Puissance de combat +1 pour les unités formées pour chaque bâtiment dans le Lieu saint de la ville.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CHANDRA_MOVEMENT_ABILITY_DESC" Language="fr_FR">
-			<Text>[ICON_MOVEMENT] PM +1 de l'autel (Arthashastra)</Text>
+			<Text>[ICON_MOVEMENT] PM +1 de l'autel.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CHANDRA_SIGHT_ABILITY_DESC" Language="fr_FR">
-			<Text>Vision +1 du temple (Arthashastra)</Text>
+			<Text>Vision +1 du temple.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_NAME" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +1 de l'Autel (Arthashastra)</Text>
+			<Text>SI VOUS VOYEZ CE TEXTE, MERCI DE MP YBANCA NUMERO 270920261</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CHANDRA_CS_T1_ABILITY_DESC" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +1 (Arthashastra, autel)</Text>
@@ -897,6 +960,9 @@
 		<Replace Tag="LOC_UNIT_INDIAN_VARU_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de cavalerie lourde de l'ère classique exclusive à l'Inde.[NEWLINE][NEWLINE]Champ de vision +1.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat -3 pour les unités militaires ennemies adjacentes.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_VARU_NEGATIVE_COMBAT_MODIFIER_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat -3 (Vāru)</Text>
+		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_STEPWELL_EXPANSION2_DESCRIPTION" Language="fr_FR">
 			<Text>Aménagement exclusif à l'Inde, débloqué à l'[COLOR_FLOAT_SCIENCE]Irrigation[ENDCOLOR].[NEWLINE][NEWLINE][ICON_FOOD] Nourriture +1, [ICON_FAITH] Foi +1 et [ICON_HOUSING] Habitations +1.[NEWLINE][ICON_FOOD] Nourriture +1 pour chaque case de ferme adjacente.[NEWLINE][ICON_FAITH] Foi +1 si adjacent à un Lieu saint.[NEWLINE][ICON_FOOD] Nourriture +1 et [ICON_FAITH] Foi +1 à la [COLOR:212,115,212,255]Féodalité[ENDCOLOR].[NEWLINE][ICON_HOUSING] Habitations +1 à l'[COLOR_FLOAT_SCIENCE]Assainissement[ENDCOLOR].[NEWLINE][NEWLINE]Ne peut pas être construit sur une case de collines ou adjacent à un autre puits à degrés.</Text>
@@ -915,6 +981,9 @@
 		<Replace Tag="LOC_UNIT_INDONESIAN_JONG_DESCRIPTION" Language="fr_FR">
 			<Text>Unité navale de combat à distance de l'ère de la Renaissance exclusive à l'Indonésie, remplaçant la Frégate.[NEWLINE][NEWLINE][ICON_MOVEMENT] PM +1.[NEWLINE][ICON_STRENGTH] Puissance de combat +5 si elle est en formation avec une autre unité, qui profite de la vitesse de [ICON_MOVEMENT] déplacement de la Jonque.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_JONG_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +5 en formation. Fait profiter de sa vitesse de déplacement aux unités escortées.</Text>
+		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_KAMPUNG_DESCRIPTION" Language="fr_FR">
 			<Text>Aménagement exclusif à l'Indonésie, débloqué à la [COLOR_FLOAT_SCIENCE]Construction Navale[ENDCOLOR].[NEWLINE][NEWLINE][ICON_PRODUCTION] Production +1 et [ICON_HOUSING] Habitations +1.[NEWLINE][ICON_FOOD] Nourriture +1 et [ICON_FAITH] Foi +1 pour chaque case de bateau de pêche adjacente.[NEWLINE][ICON_PRODUCTION] Production +1 au Génie Civil.[NEWLINE][NEWLINE]Génère du [ICON_TOURISM] Tourisme par le biais de la [ICON_FOOD] Nourriture à l'[COLOR_FLOAT_SCIENCE]Aviation[ENDCOLOR].[NEWLINE][NEWLINE]Doit être placé sur une case de côte ou de lac adjacente à une ressource maritime.</Text>
@@ -927,13 +996,13 @@
 		</Replace>
 		<!-- = Leader (Hojo Tokimune) - Dirigeant (Hojo Tokimune) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_DIVINE_WIND_EXPANSION2_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_PRODUCTION] Production +100% pour les Campements, les Places du théâtre et les Lieux saints.[NEWLINE]Les Plateformes commerciales et Ports bénéficient d'un bonus de proximité standard, plutôt que mineur, de la part des autres quartiers.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités militaires terrestres adjacentes à une case de côte et pour les unités militaires navales sur une case de côte.[NEWLINE][NEWLINE]Les unités ne subissent pas de dégâts des tempêtes. Les civilisations en guerre avec le Japon subissent +100% de dégâts dûs aux tempêtes dans le territoire japonais.</Text>
+			<Text>[ICON_PRODUCTION] Production +100% pour les Campements, les Places du théâtre et les Lieux saints.[NEWLINE]Les Plateformes commerciales et Ports bénéficient d'un bonus de proximité standard, plutôt que mineur, de la part des autres quartiers.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités militaires terrestres sur une case côtière et pour les unités militaires navales sur une case de côte.[NEWLINE][NEWLINE]Les unités ne subissent pas de dégâts des tempêtes. Les civilisations en guerre avec le Japon subissent +100% de dégâts dûs aux tempêtes dans le territoire japonais.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_COMBAT_SHALLOW_WATER_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 (Vent Divin)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 sur les cases de côte.</Text>
 		</Replace>
 		<Replace Tag="LOC_PROMOTION_COMBAT_LAND_ON_COAST_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 (Vent Divin)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 sur les cases côtières.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_HOJO_TOKIMUNE_SHALLOW_WATER_COMBAT_BONUS_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +3 (Vent Divin)</Text>
@@ -1003,6 +1072,9 @@
 		</Replace>
 		<Replace Tag="LOC_ABILITY_NAGAO_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat en défense +10 contre les attaques à distance.[NEWLINE][ICON_BULLET] Peut voir à travers les bois et les forêts tropicales.</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_NAGAO_RANGED_DEFENSE_MODIFIER_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance +{1_Amount} (Ngao Mbeba)</Text>
 		</Replace>
 		<!-- = Unique district - Quartier unique = -->
 		<Replace Tag="LOC_DISTRICT_MBANZA_DESCRIPTION" Language="fr_FR">
@@ -1079,11 +1151,14 @@
 			<Text>[ICON_STRENGTH] Puissance de combat +10 contre les quartiers défendables.[NEWLINE][ICON_BULLET] Bonus de soutien +50%.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_HYPASPIST_SIEGE_BONUS_DESCRIPTION" Language="fr_FR">
-			<Text>+10 en cas de siège d'un quartier.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +10 (Hypaspiste)</Text>
 		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_MACEDONIAN_HETAIROI_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de cavalerie lourde de l'ère classique exclusive à Alexandre.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +5 si adjacente à un [ICON_GREATGENERAL] Général illustre.[NEWLINE]Commence avec une promotion gratuite.[NEWLINE]Tuer une unité octroie 5 points de [ICON_GREATGENERAL] Général illustre.</Text>
+		</Replace>
+		<Replace Tag="LOC_HETAIROI_GREAT_GENERAL_COMBAT_BONUS_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +5 (Hétairos)</Text>
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = -->
 		<Replace Tag="LOC_BUILDING_BASILIKOI_PAIDES_EXPANSION2_DESCRIPTION" Language="fr_FR">
@@ -1146,6 +1221,9 @@
 		<Replace Tag="LOC_UNIT_MAORI_TOA_DESCRIPTION" Language="fr_FR">
 			<Text>Unité de combat rapproché de l'ère classique exclusive au Maori, remplaçant le Spadassin.[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de base +2.[NEWLINE][ICON_STRENGTH] Puissance de combat -3 pour les unités militaires ennemies adjacentes.[NEWLINE][NEWLINE]Peut construire un Pā (1 [ICON_CHARGES] charge).[NEWLINE][NEWLINE]Ne nécessite pas de [ICON_RESOURCE_IRON] Fer.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_TOA_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat -3 pour les unités ennemies adjacentes. [NEWLINE][ICON_Bullet]Peut construire le Pā, un aménagement exclusif.</Text>
+		</Replace>
 		<Replace Tag="LOC_ABILITY_TOA_NEGATIVE_COMBAT_MODIFIER_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat -3 (Toa)</Text>
 		</Replace>
@@ -1194,6 +1272,9 @@
 		<Replace Tag="LOC_TRAIT_LEADER_MUTAL_DESCRIPTION" Language="fr_FR">
 			<Text>Tous les rendements sont augmentés de 5% dans les villes situées dans un rayon de 6 cases autour de votre [ICON_CAPITAL] Capitale. Les autres villes (sauf votre [ICON_CAPITAL] Capitale) voient tous leurs rendements diminués de 10%.[NEWLINE][ICON_STRENGTH] Puissance de combat +3 pour les unités militaires situées dans un rayon de 6 cases autour de votre [ICON_CAPITAL] Capitale.</Text>
 		</Replace>
+		<Replace Tag="LOC_ABILITY_MUTAL_NEAR_CAPITAL_COMBAT_DESCRIPTION" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Amount} (Ix Mutal Ahaw)</Text>
+		</Replace>
 		<!-- = Leader (Te' K'inich II) - Dirigeant (Te' K'inich II) = --> <!-- BBG expanded -->
 		<Replace Tag="LOC_TRAIT_LEADER_LL_TEKINICH_II_WRATH_OF_VENUS_NAME" Language="fr_FR">
 			<Text>Colère de Vénus</Text>
@@ -1202,13 +1283,13 @@
 			<Text>À partir de l'ère classique, [ICON_STRENGTH] Puissance de combat -2 pour les unités dans un rayon de 6 cases autour de la [ICON_CAPITAL] Capitale.[NEWLINE][ICON_STRENGTH] Puissance de combat +4 pour les unités à 7 cases ou plus de la [ICON_CAPITAL] Capitale.[NEWLINE][NEWLINE]Les unités se soignent de 5 PV et gagnent 2 XP quand vous recevez un [ICON_TECHBOOSTED] Eurêka.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_NAME" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat -2 (Colère de Vénus)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat -2 dans un rayon de 6 cases autour de la [ICON_CAPITAL] Capitale.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_NEAR_CITIES_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat -2 (Colère de Vénus)</Text>
+			<Text>SI TU VOIS CE TEXTE, MERCI DE MP YBANCA NUMERO 270920262</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_NAME" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +4 (Colère de Vénus)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat à 7 cases ou plus de la [ICON_CAPITAL] Capitale.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_TE_KINICH_GRANT_ABILITY_FAR_FROM_CITIES_DESC" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +4 (Colère de Vénus)</Text>
@@ -1237,9 +1318,12 @@
 		<Replace Tag="LOC_TRAIT_LEADER_GENGHIS_KHAN_ABILITY_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +3 pour les unités de cavalerie (sauf lourde).[NEWLINE]Tuer une unité de cavalerie offre une chance de la capturer.</Text>
 		</Replace>
+		<Replace Tag="LOC_LEADER_CAVALRY_COMBAT_BONUS_PREVIEW_TEXT" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Amount} (Horde mongole)</Text>
+		</Replace>
 		<!-- = Unique unit - Unité unique = -->
 		<Replace Tag="LOC_UNIT_MONGOLIAN_KESHIG_DESCRIPTION" Language="fr_FR">
-			<Text>Unité montée de combat à distance exclusive à la Mongolie.[NEWLINE][NEWLINE]Fait profiter de sa vitesse de déplacement aux unités civiles et de soutien escortées.</Text>
+			<Text>Unité montée de combat à distance exclusive à la Mongolie.[NEWLINE][NEWLINE]Fait profiter de sa vitesse de déplacement aux unités escortées.</Text>
 		</Replace>
 		<!-- = Unique building - Bâtiment unique = -->
 		<Replace Tag="LOC_BUILDING_ORDU_EXPANSION2_DESCRIPTION" Language="fr_FR">
@@ -1346,10 +1430,10 @@
 			<Text>[ICON_STRENGTH] Puissance de combat +2 (Muhteşem)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_SULEIMAN_ALT_COMBAT_NAME" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +2 (Muhteşem)</Text>
+			<Text>SI TU VOIS CE TEXTE, MP YBANCA NUMERO 270920263</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_SULEIMAN_ALT_COMBAT_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +2 (Muhteşem)</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +2 en âge [ICON_GLORY_DARK_AGE] sombre ou [ICON_GLORY_NORMAL_AGE] normal.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_SULEIMAN_COMBAT_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +4 (Muhteşem)</Text>
@@ -1377,7 +1461,7 @@
 		</Replace>
 		<!-- = Leader (Cyrus - Dirigeant (Cyrus) = -->
 		<Replace Tag="LOC_TRAIT_LEADER_FALL_BABYLON_EXPANSION2_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_CULTURE] Culture +1 pour vos [ICON_TRADEROUTE] routes commerciales intérieures (passe à +3 aux [COLOR:212,115,212,255]Foires Médiévales[ENDCOLOR] et à +5 à l'[COLOR:212,115,212,255]Urbanisation[ENDCOLOR]).[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 en attaque pour toutes les unités militaires perses.[NEWLINE][NEWLINE]Loyauté +5 par tour dans les villes occupées possédant une unité en garnison.[NEWLINE]Déclarer une guerre surprise compte comme pour une guerre formelle dans le calcul des [ICON_STAT_GRIEVANCE] griefs et du bellicisme.</Text>
+			<Text>[ICON_CULTURE] Culture +1 pour vos [ICON_TRADEROUTE] routes commerciales intérieures (passe à +3 aux [COLOR:212,115,212,255]Foires Médiévales[ENDCOLOR] et à +5 à l'[COLOR:212,115,212,255]Urbanisation[ENDCOLOR]).[NEWLINE][NEWLINE][ICON_STRENGTH] Puissance de combat +3 en attaque pour toutes les unités militaires.[NEWLINE][NEWLINE]Loyauté +5 par tour dans les villes occupées possédant une unité en garnison.[NEWLINE]Déclarer une guerre surprise compte comme pour une guerre formelle dans le calcul des [ICON_STAT_GRIEVANCE] griefs et du bellicisme.</Text>
 		</Replace>
 		<Replace Tag="LOC_TRAIT_FALLBABYLON_COMBAT_BONUS_DESCRIPTION" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat +{1_Value} (Cyrus)</Text>
@@ -1394,10 +1478,10 @@
 			<Text>Unité de combat rapproché de l'ère classique exclusive à la Perse, remplaçant le Spadassin.[NEWLINE][NEWLINE]Possède une attaque à distance (1 de [ICON_RANGE] Portée).</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_IMMORTAL_ATTACK_BONUS_NAME" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 (Immortel).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Immortel)</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_IMMORTAL_ATTACK_BONUS_DESC" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +3 (Immortel).</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +3 (Immortel)</Text>
 		</Replace>
 		<!-- = Unique improvement - Aménagement unique = -->
 		<Replace Tag="LOC_IMPROVEMENT_PAIRIDAEZA_DESCRIPTION" Language="fr_FR">
@@ -1507,16 +1591,16 @@
 			<Text>Pour les unités militaires de combat rapproché, de combat à distance, de siège et de cavalerie lourde :[NEWLINE] • Expérience +50% (passe à +100% à l'ère médiévale).[NEWLINE] • [ICON_STRENGTH] Puissance de combat +1 pour chaque [ICON_PROMOTION] niveau.[NEWLINE][NEWLINE]Fonder une ville octroie l'unité de combat rapproché la plus puissante que vous pouvez former. Vous recevez un Guerrier sur votre [ICON_CAPITAL] Capitale au [COLOR:212,115,212,255]Code Juridique[ENDCOLOR].[NEWLINE][NEWLINE]Si vous parvenez à conquérir une ville fondée par un autre joueur, et tant que vous en contrôlez au moins une, vous obtenez un emplacement de doctrine [COLOR:149,0,232,255]Joker[ENDCOLOR] supplémentaire.[NEWLINE][ICON_STRENGTH] Puissance de combat +5 et Expérience reçue complète contre les [ICON_BARBARIAN] barbares.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_XP_BONUS_BASE_MODIFIER_NAME" Language="fr_FR">
-			<Text>Expérience de combat +50% (Veni, Vidi, Vici)</Text>
+			<Text>Expérience de combat +50%.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_XP_BONUS_BASE_MODIFIER_DESC" Language="fr_FR">
-			<Text>Expérience de combat +50% (Veni, Vidi, Vici)</Text>
+			<Text>Expérience de combat +50%.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_XP_BONUS_MEDIEVAL_MODIFIER_NAME" Language="fr_FR">
-			<Text>Expérience de combat +100% (Veni, Vidi, Vici)</Text>
+			<Text>Expérience de combat +100%.</Text>
 		</Replace>
 		<Replace Tag="LOC_BBG_CAESAR_XP_BONUS_MEDIEVAL_MODIFIER_DESC" Language="fr_FR">
-			<Text>Expérience de combat +100% (Veni, Vidi, Vici)</Text>
+			<Text>Expérience de combat +100%.</Text>
 		</Replace>
 		<!-- = Unique unit (Legion) - Unité unique (Légion) = -->
 		<Replace Tag="LOC_UNIT_ROMAN_LEGION_DESCRIPTION" Language="fr_FR">
@@ -2709,7 +2793,7 @@
 
 		<!-- == don't know what it is == -->
 		<Replace Tag="LOC_ABILITY_ANTI_SPEAR_DESCRIPTION" Language="fr_FR">
-			<Text>[ICON_STRENGTH] Puissance de combat +10 contre les unités de classe anti-cavalerie.</Text>
+			<Text>[ICON_STRENGTH] Puissance de combat +10 contre les unités d'anti-cavalerie.</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_ANIT_SPEAR_MODIFIER_DESCRIPTION" Language="fr_FR">
 			<Text>Face à anti-cavalerie : +10.</Text>
@@ -2736,6 +2820,12 @@
 		</Replace>
 		<Replace Tag="LOC_BBG_ABILITY_UNITS_MALUS_AGAINST_CITY_BEFORE_CLASSICAL_DESC" Language="fr_FR">
 			<Text>[ICON_STRENGTH] Puissance de combat -5 contre les quartiers défendables.</Text>
+		</Replace>
+		<Replace Tag="LOC_COMBAT_PREVIEW_CAPTURE_CHANCE" Language="fr_FR">
+			<Text>Chances de capturer l'ennemi : {1_Amount}%</Text>
+		</Replace>
+		<Replace Tag="LOC_COMBAT_PREVIEW_ESPIONAGE_BONUS" Language="fr_FR">
+			<Text>[ICON_STRENGTH] Puissance de combat +{1_Value} (Renseignement)</Text>
 		</Replace>
 		<!-- -->
 		<Replace Tag="LOC_BBG_OLIGARCHY_UNIT_BASE_STRENGTH_REDUCER_ABILITY_DESC" Language="fr_FR">
@@ -6533,6 +6623,9 @@
 		<Replace Tag="LOC_HAPPINESS_UNHAPPY_NAME" Language="ko_KR">
 			<Text>[COLOR_GREEN]Euphorique[ENDCOLOR]</Text>
         </Replace>
+		<Replace Tag="LOC_ABILITY_DESCRIPTOR_PREVIEW_TEXT" Language="fr_FR">
+			<Text></Text>
+		</Replace>
 
 
 
