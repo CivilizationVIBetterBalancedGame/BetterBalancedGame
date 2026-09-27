@@ -7,6 +7,10 @@
 --==================
 -- Digger gets additional combat strength
 UPDATE Units SET Combat=83, BaseMoves=3 WHERE UnitType='UNIT_DIGGER';
+-- 27/09/26 : bug fix digger bonus reduced
+UPDATE ModifierArguments SET Value='5' WHERE ModifierId='DIGGER_BONUS_ON_COAST' and Name='Amount';
+UPDATE ModifierArguments SET Value='3' WHERE ModifierId='DIGGER_NON_DOMESTIC_BONUS' and Name='Amount';
+
 -- 04/07/26 Modern Era Tech path Rework
 UPDATE Units SET PrereqTech='TECH_REFINING' WHERE UnitType='UNIT_DIGGER';
 -- war production bonus reduced to 0% from 100%, liberation bonus reduced to +50% (from +100%) and 10 turns instead of 20
