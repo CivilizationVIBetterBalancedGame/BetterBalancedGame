@@ -2,9 +2,12 @@
 --******                  BUILDINGS                       ******
 --==============================================================
 -- flood barriers unlocked at steam power
-UPDATE Buildings SET PrereqTech='TECH_STEAM_POWER' WHERE BuildingType='BUILDING_FLOOD_BARRIER';
+-- 27/09/26 flood barrier earlier and fixed price
+UPDATE Buildings SET PrereqTech='TECH_SCIENTIFIC_THEORY', Cost=120 WHERE BuildingType='BUILDING_FLOOD_BARRIER';
 -- 15/12/24 mili engineer give 50% prod cost of flood barriers (from 20)
 UPDATE Building_BuildChargeProductions SET PercentProductionPerCharge=50 WHERE BuildingType='BUILDING_FLOOD_BARRIER';
+UPDATE Buildings_XP2 SET CostMultiplierPerTile=0, CostMultiplierPerSeaLevel=0 WHERE BuildingType='BUILDING_FLOOD_BARRIER';
+
 -- 15/10/23 oil power plant unlocked at refining
 UPDATE Buildings SET PrereqTech='TECH_REFINING' WHERE BuildingType='BUILDING_FOSSIL_FUEL_POWER_PLANT';
 UPDATE Projects SET PrereqTech='TECH_REFINING' WHERE ProjectType='PROJECT_CONVERT_REACTOR_TO_OIL';
