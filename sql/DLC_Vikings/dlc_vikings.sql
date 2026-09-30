@@ -95,3 +95,10 @@ INSERT INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, Til
     ('Monastery_DistrictAdjacency_ReformedChurch', 'Placeholder', 'YIELD_FAITH', 1, 1, 1, 'CIVIC_REFORMED_CHURCH');
 INSERT INTO Improvement_Adjacencies VALUES
     ('IMPROVEMENT_MONASTERY', 'Monastery_DistrictAdjacency_ReformedChurch');
+
+-- 23/09/26 Wonder Volcano and Sea Level Rise still apply in level 0
+-- move eyja to it s correct dlc file (vikings)
+INSERT INTO RandomEvent_Frequencies(RandomEventType, RealismSettingType, OccurrencesPerGame) VALUES
+    ('RANDOM_EVENT_EYJAFJALLAJOKULL_CATASTROPHIC', 'REALISM_SETTING_MINIMAL', 1),
+    ('RANDOM_EVENT_EYJAFJALLAJOKULL_MEGACOLOSSAL', 'REALISM_SETTING_MINIMAL', 0.5);
+
